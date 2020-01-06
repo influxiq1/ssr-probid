@@ -1,0 +1,92 @@
+
+<div class="confirmpagecls">  
+  <div class="confirmpageclswrapper">
+    <mat-card class="generalmodalcls">
+      <mat-card-content class="modal-content">
+            <span class="logowrapperouter">
+                <span class="logowrapper">
+                    <img src="../../assets/images/logomain.png">
+                </span>
+            </span>       
+            <span mat-dialog-content>
+              <!-- dic name -->
+              <h2 class="txtconfirm" *ngIf="datalist.status == 1">RSVP accepted</h2>  
+              <h2 class="txtdecline" *ngIf="datalist.status == 2">RSVP declined</h2>
+              <span class="rsvplistwrapper">
+                <span class="rsvplists">                  
+                  <span class="rsvplistsingle">
+                    <span class="rsvplistsingleinner">
+                        <span class="rsvplistsingleleft">
+                            <span class="rsvpliststop">
+                              <span class="rsvplistimgwrapper">
+                                  <img class="defaultimg" *ngIf="datalist.car_image == null || datalist.car_image == ''" src="assets/images/no-image-default.jpg">
+                                  <img *ngIf="datalist.car_image != null && datalist.car_image != ''" class="defaultimg" [src]="datalist.car_image">
+                              </span>                        
+                            </span>
+                            <span class="rsvplistsbottom">
+                              <h2>{{datalist.heading}}</h2>
+                              <span class="rsvplistsbottombtm">
+                               <span>Status</span>                               
+                               <span *ngIf="datalist.status == 2" class="btnactive">Reject <span class="colorred"></span></span>
+
+                               <span  class="btnactive" *ngIf="datalist.status == 1">Accept <span class="colorgreen"></span></span>  
+
+                              </span>
+                            </span>
+                          </span>
+                          <span class="rsvplistsingleright">
+                            <span class="rsvplisttypecontent">     
+                              <h2>User</h2>
+                              <span class="rsvplisttypecontentinfo">
+                                <span class="rsvplisttypeimgwrapper">
+                                  <img src="../../../../assets/images/imguser.jpg">
+                                  <span class="listscontentshape"></span>
+                                </span>
+                                <span class="listscontent">
+                                   <mat-list>
+                                     <mat-list-item><span class="labelcls">Name:</span> <span>{{datalist.added_for_fullname}}</span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Email ID:</span> <span>{{datalist.added_for_email}}</span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Phone:</span> <span>{{datalist.added_for_phone}}</span> </mat-list-item>
+                                   </mat-list>
+                                   
+                                </span>
+                              </span>
+                              <span class="rsvplisttypebottom">
+                                <span>Qualified for Finance: <span class="redcls">NO</span></span>
+                                <span>Job Ticket related to this car: <span class="greencls">[1]</span></span>
+                              </span>
+
+                            </span>
+                            <span class="rsvplisttypecontent">
+                                <h2>Salesrep</h2>
+                                <span class="rsvplisttypecontentinfo">
+                                    <span class="rsvplisttypeimgwrapper">
+                                      <img src="../../../../assets/images/imgsalesrep.jpg">
+                                      <span class="listscontentshape"></span>
+                                    </span>
+                                    <span class="listscontent">
+                                       <mat-list>
+                                         <mat-list-item><span>Name:</span> <span>{{datalist.added_by_fullname}}</span> </mat-list-item>
+                                         <mat-list-item><span>Email ID:</span> <span>{{datalist.added_by_email}}</span> </mat-list-item>
+                                         <mat-list-item><span>Phone:</span> <span>{{datalist.added_by_phone}}</span> </mat-list-item>
+                                       </mat-list>                                       
+                                      
+                                    </span>
+                                  </span>
+                                  <span class="rsvplisttypebottom">
+                                    <span>Commission: <span class="redcls">NO</span></span>                                                              
+                                  </span>
+                            </span>                            
+                          </span>
+                    </span>
+                  </span>
+                </span>                
+              </span>
+              <button *ngIf="datalist.status == 1"  class="btnbluecls" mat-button mat-dialog-close="yes" cdkFocusInitial>Send Email Notification to {{datalist.added_for_email}}</button>
+            </span>  
+            
+            
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

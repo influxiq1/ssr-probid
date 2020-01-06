@@ -1,0 +1,35 @@
+<app-adminheader>
+    <mat-card>       
+            <span class="searchblock">
+                <span class="searchblockwrapper">
+                    <span>
+                        <h2>Manage Blog Category</h2>
+                    </span>
+                    <span>
+                        <button mat-button class="btnorange sim-button" [routerLink]="['/blog-category/add']"><i class="material-icons">add</i> Add Blog Category</button>
+                    </span>                    
+                </span>
+            </span>
+            <div class="tablediv">
+             <!-- <lib-Blog class="formfilterdiv" *ngIf="blogListConfig.datasource != null && blogListConfig.datasource.length > 0" [config]="blogListConfig"></lib-Blog> -->
+             
+
+             <lib-listing *ngIf="blogListConfig != null && blogListConfig.length>0"
+                [datasource]="blogListConfig"
+                [skip]="blogListConfig_skip" 
+                [modify_header_array]="blogListConfig_modify_header"
+                [sourcedata]="tableName" 
+                [apiurl]="apiUrl"
+                [editroute]="editUrl"
+                [jwttoken]="user_cookie"
+                [statusarr]="status" 
+                [updateendpoint]="UpdateEndpoint" 
+                [deleteendpoint]="deleteEndpoint"
+                [date_search_endpoint]="searchingEndpoint" 
+                [detail_datatype]="image_detail_datatype"
+                [detail_skip_array]="detail_skip_array">
+            </lib-listing>
+
+            </div>
+    </mat-card>
+</app-adminheader>
