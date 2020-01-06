@@ -25,7 +25,7 @@ import { ApiService } from './api.service';
 import {ListingModule} from 'listing-angular7';
 
 import {MatIconModule} from '@angular/material/icon';
-// import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
 
@@ -306,15 +306,13 @@ import { from } from 'rxjs';
     AppRoutingModule,
     BrowserAnimationsModule,
     MetaModule.forRoot(),
-
-
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
     // BlogModule,
     FileUploadModule,
     // NgxUploaderModule,
-    // AngularFontAwesomeModule,
+    AngularFontAwesomeModule,
     MatCarouselModule.forRoot(),
     // DragScrollModule,
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

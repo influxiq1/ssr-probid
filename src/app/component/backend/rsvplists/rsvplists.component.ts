@@ -5,6 +5,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 export interface DialogData {
@@ -19,6 +20,7 @@ export interface DialogData1 {
   heading:string;
   added_by_fullname: string;
   added_for_fullname: string;
+  highest_bid: string;
 } 
 
 @Component({
@@ -107,7 +109,10 @@ public topPart: any ='';
         customer: result.added_for_fullname,
         salesrep_email: result.added_by_email,
         customer_email: result.added_for_email,
-        topPart: result.topPart
+        topPart: result.topPart,
+        highest_bid: result.highest_bid,
+        status: 3
+
       }
 
       if(result.flag == 'yes' ){
@@ -199,16 +204,27 @@ export class DeleteModalComponent {
 export class askForconfirmationModalComponent {
   public editorconfig: any = [];
 public topPart: any =''; 
+public highest_bid: any = '';
+public flagVal:any = 1;
 
   constructor( public dialogRef: MatDialogRef<askForconfirmationModalComponent>,
-               @Inject(MAT_DIALOG_DATA) public data: DialogData1, public fb:FormBuilder, public apiService: ApiService){
+               @Inject(MAT_DIALOG_DATA) public data: DialogData1, public fb:FormBuilder, public apiService: ApiService, public _sanitizer: DomSanitizer){
                this.editorconfig.extraAllowedContent = '*[class](*),span;ul;li;table;td;style;*[id];*(*);*{*}';
   }
 
-  submitform(val: any, flag: string){
+  submitform(val: any, flag: string, val1: any){
     // this.data.topPart = JSON.stringify(val);
     this.data.topPart = val;
+    this.data.highest_bid = val1;
     this.data.flag = flag;
+    console.log(this.data)
     this.dialogRef.close(this.data);
+  }
+
+  preview() {
+    this.flagVal = 0;
+  }
+  safeHtml(html) {
+    return this._sanitizer.bypassSecurityTrustHtml(html);
   }
 }
