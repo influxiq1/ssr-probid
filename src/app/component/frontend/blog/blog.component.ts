@@ -53,10 +53,10 @@ public tokenVal: any;
     data = {
       source:"blogs_view"
     }
-    this.apiService.getDatalistWithToken(data, "datalistwithouttoken").subscribe((res:any)=>{
+    this.apiService.getDatalistWithToken(data, "getblogdata").subscribe((res:any)=>{
 
-      this.blogList = res.res;
-      // console.log(this.blogList)
+      this.blogList = res.items;
+      console.log(this.blogList)
 
     });
   }

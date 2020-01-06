@@ -31,15 +31,13 @@ public user_full_name: any = '';
   //  public token:any='';
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute) {
     //console.log(this.router.url)
-    console.log(this.cookieService.get('user_details'));
-    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('user_details') != '') {
+    if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-    console.log(this.userCookies);
     }
    }
 
   ngOnInit() {
-    this.cookieService.get('jwtToken');
+    // this.cookieService.get('jwtToken');
     
   }
 
@@ -75,7 +73,7 @@ public user_full_name: any = '';
   // templateUrl: './coming-soon.html',
   template: `
   <div class="logomodalwrapper">
-  <div class="logomodal"><img src="../../assets/images/logo.png"></div>
+  <div class="logomodal"><img src="https://dev.probidauto.com/assets/images/logo.png"></div>
   <h2>coming soon</h2></div>
   `
 })

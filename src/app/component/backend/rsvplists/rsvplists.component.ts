@@ -78,6 +78,33 @@ public topPart: any ='';
         // this.getdata();
       });
   }
+  selectOption(val:any){
+    console.log(val);
+    console.log(this.rsvp_list)
+let data:any;
+if (val !='') {
+    data={
+      endpoint:'datalist',
+      source:"send_rsvp_view",
+      condition:{
+        "status":Number(val)
+            }
+       }
+      }
+      else{
+        data={
+        endpoint:'datalist',
+      source:"send_rsvp_view"
+        }
+      }
+       console.log(data)
+    this.apiService.getDatalist(data).subscribe((res)=>{
+      let result:any
+      result=res
+      this.rsvp_list=result.res;
+      console.log(this.rsvp_list)
+    })
+  }
   
   getdata() {
     let data: any = {
