@@ -180,7 +180,9 @@ width: 100%;
 .as_sm_imgmainwrapper {
   background: #fff;
   padding: 2px 0;
-  width: 100%;
+  width: 100%;  
+  overflow: hidden;
+  position: relative;
 }
 
 .as_sm_imgmainwrapperinner{
