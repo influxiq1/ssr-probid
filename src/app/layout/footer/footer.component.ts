@@ -35,107 +35,107 @@ export class FooterComponent implements OnInit {
     }
 
     termscondition() {
-        // const dialogRef = this.dialog.open(DialogTermsDialog);
+        const dialogRef = this.dialog.open(DialogTermsDialog);
 
-        // dialogRef.afterClosed().subscribe(result => {
-        //     console.log(`Dialog result: ${result}`);
-        // });
+        dialogRef.afterClosed().subscribe(result => {
+            // console.log(`Dialog result: ${result}`);
+        });
     }
 
     privacypolicy() {
-        // const dialogRef = this.dialog.open(DialogPrivacyDialog);
+        const dialogRef = this.dialog.open(DialogPrivacyDialog);
 
-        // dialogRef.afterClosed().subscribe(result => {
-        //     console.log(`Dialog result: ${result}`);
-        // });
+        dialogRef.afterClosed().subscribe(result => {
+            // console.log(`Dialog result: ${result}`);
+        });
     }
 
-    // @HostListener("window:scroll", [])
+    @HostListener("window:scroll", [])
 
     onWindowScroll() {
-        // if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
-        //     this.windowScrolled = true;
-        // }
-        // else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
-        //     this.windowScrolled = false;
-        // }
+        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
+            this.windowScrolled = true;
+        }
+        else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+            this.windowScrolled = false;
+        }
     }
 
     scrollToTop() {
-        // (function smoothscroll() {
+        (function smoothscroll() {
 
-        //     var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+            var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
 
-        //     if (currentScroll > 0) {
-        //         window.requestAnimationFrame(smoothscroll);
-        //         window.scrollTo(0, currentScroll - (currentScroll / 8));
-        //     }
+            if (currentScroll > 0) {
+                window.requestAnimationFrame(smoothscroll);
+                window.scrollTo(0, currentScroll - (currentScroll / 8));
+            }
 
-        // })();
+        })();
     }
 
     ngOnInit() {
-        // this.router.events.subscribe(() =>
-        //     window.scrollTo({
-        //         top: 0,
-        //         left: 0,
-        //         behavior: 'smooth'
-        //     })
-        // );
+        this.router.events.subscribe(() =>
+            window.scrollTo({
+                top: 0,
+                left: 0,
+                behavior: 'smooth'
+            })
+        );
     }
 
 
 
     doSubmit() {
-        // console.log('do Submit');
-        // // this.data = this.myform.value;
-        // // console.log(this.data);
-        // // this.newslatterViewModal(this.data);
+        console.log('do Submit');
+        // this.data = this.myform.value;
+        // console.log(this.data);
+        // this.newslatterViewModal(this.data);
 
 
-        // this.data = this.myform.get('email').value;
-        // this.cookie.set('email_modal', this.data);
-        // //console.log('test amitava',this.dataemail);
+        this.data = this.myform.get('email').value;
+        this.cookie.set('email_modal', this.data);
+        //console.log('test amitava',this.dataemail);
 
-        // for (let i in this.myform.controls) {
-        //     this.myform.controls[i].markAsTouched();
-        // }
-        // if (this.myform.valid) {
-        //     this.newslatterViewModal(this.data);
-        //     let link = '';
-        //     let data = { data: this.myform.value };
-        //     this.apiService.postdata(data).subscribe(res => {
+        for (let i in this.myform.controls) {
+            this.myform.controls[i].markAsTouched();
+        }
+        if (this.myform.valid) {
+            this.newslatterViewModal(this.data);
+            let link = '';
+            let data = { data: this.myform.value };
+            this.apiService.postdata(data).subscribe(res => {
 
-        //         let result: any = {};
-        //         result = res;
-        //         // console.log(result);
-        //         if (result.status == 'success') {
-        //             /*  this.newslatterViewModal();
-        //              this.myform.reset();
-        //              // this.opencontactDialog();
-        //              /* const dialogRef = this.dialog.open(SubmitpopupComponent);*/
+                let result: any = {};
+                result = res;
+                // console.log(result);
+                if (result.status == 'success') {
+                    /*  this.newslatterViewModal();
+                     this.myform.reset();
+                     // this.opencontactDialog();
+                     /* const dialogRef = this.dialog.open(SubmitpopupComponent);*/
 
-        //             // this.inputUntouch(this.myform,'email');
+                    // this.inputUntouch(this.myform,'email');
 
-        //             this.myform.controls['email'].updateValueAndValidity();
+                    this.myform.controls['email'].updateValueAndValidity();
 
-        //         }
-        //     })
+                }
+            })
 
-        // }
+        }
 
     }
 
     newslatterViewModal(deta: any) {
 
-        // const dialogGenreRef = this.dialog.open(NewslatterDialogComponent, {
-        //     panelClass: ['modal-sm', 'infomodal'],
-        //     //disableClose: true,
-        //     //data: {name:'testname', email:deta.email, phone:'999999999', company:'companyname'}
-        // });
+        const dialogGenreRef = this.dialog.open(NewslatterDialogComponent, {
+            panelClass: ['modal-sm', 'infomodal'],
+            //disableClose: true,
+            //data: {name:'testname', email:deta.email, phone:'999999999', company:'companyname'}
+        });
 
-        // dialogGenreRef.afterClosed().subscribe(result => {
-        // });
+        dialogGenreRef.afterClosed().subscribe(result => {
+        });
 
     }
 
@@ -187,7 +187,7 @@ export class NewslatterDialogComponent {
 
         })
 
-        // this.myformnews.value.email.setvalue();
+        this.myformnews.value.email.setvalue();
 
         this.myformnews.patchValue({
             email: this.cookie.get('email_modal'),
