@@ -61,7 +61,7 @@ public topPart: any ='';
     // this.getdata();
   }
   changeStatus(item: any, val: any) {
-    console.log('rsvpSend status',item, val)
+    // console.log('rsvpSend status',item, val)
     let endpoint: any = "addorupdatedata";
     item.status = val;
     let card_data:any = {
@@ -79,8 +79,8 @@ public topPart: any ='';
       });
   }
   selectOption(val:any){
-    console.log(val);
-    console.log(this.rsvp_list)
+    // console.log(val);
+    // console.log(this.rsvp_list)
 let data:any;
 if (val !='') {
     data={
@@ -97,12 +97,12 @@ if (val !='') {
       source:"send_rsvp_view"
         }
       }
-       console.log(data)
+      //  console.log(data)
     this.apiService.getDatalist(data).subscribe((res)=>{
       let result:any
       result=res
       this.rsvp_list=result.res;
-      console.log(this.rsvp_list)
+      // console.log(this.rsvp_list)
     })
   }
   
@@ -121,7 +121,7 @@ if (val !='') {
   }
 
   openModale(data:any){
-    console.log(data)
+    // console.log(data)
     const dialogRef = this.dialog.open(askForconfirmationModalComponent, {
       width: '250px',
       data:data
@@ -152,10 +152,10 @@ if (val !='') {
         };
           this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
             (res.status == "success");
-            console.log(res)
+            // console.log(res)
           });
         } else {
-          console.log('No..!')
+          // console.log('No..!')
         }
 
         });
@@ -164,7 +164,7 @@ if (val !='') {
 
   //delete rsvp record
   deleteRsvp(item:any,index:any){
-    console.log('delete hit',item,index)
+    // console.log('delete hit',item,index)
     const dialogRef = this.dialog.open(DeleteModalComponent, {
       width: '250px',
       data:this.message
@@ -204,7 +204,7 @@ if (val !='') {
   }
 
   rsvpDetail(val:any){
-    console.log('hit',val)
+    // console.log('hit',val)
     this.rouer.navigateByUrl('/rsvp-detail/'+val);
   }
 }
@@ -244,7 +244,7 @@ public flagVal:any = 1;
     this.data.topPart = val;
     this.data.highest_bid = val1;
     this.data.flag = flag;
-    console.log(this.data)
+    // console.log(this.data)
     this.dialogRef.close(this.data);
   }
 

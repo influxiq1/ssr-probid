@@ -210,13 +210,13 @@ const routes: Routes = [
   { path: 'pre-owned', component: PreOwnedComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'blog-category', component: BlogCategoryComponent },
-  { path: 'inventory-detail/:_id_object', component: InventoryDetailComponent,
+  { path: 'inventory-detail/:_id', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {} }, 
   endpoint: 'datalist' }
   },
 
-  { path: 'rsvp-detail/:_id_object', component: InventoryDetailComponent,
+  { path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist' }
@@ -441,7 +441,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
   { path: 'rep-dashboard', component: RepdashboardComponent, canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {"rep":"rep"} }, endpoint: 'for-rep-dashboard' }  },
+  data: { requestcondition: { source: '', condition: {"for-rep":"for-rep"} }, endpoint: 'for-rep-dashboard' }  },
   { path: 'my-commission', component: CommissionListComponent },
   { path: 'my-birddog', component: BirddogListComponent },
 

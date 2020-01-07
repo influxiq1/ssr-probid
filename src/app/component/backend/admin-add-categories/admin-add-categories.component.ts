@@ -33,7 +33,7 @@ export class AdminAddCategoriesComponent implements OnInit {
       // console.log(res);
       let result: any = {};
       result = res;
-      console.log(result.res[0]);
+      // console.log(result.res[0]);
       this.allData = result.res[0];
     });
 
@@ -92,7 +92,7 @@ export class AdminAddCategoriesComponent implements OnInit {
       let result: any = {};
       result = res;
       this.makeArray = result.res;
-      console.log(this.makeArray);
+      // console.log(this.makeArray);
     })
 
     //type dropdown
@@ -104,7 +104,7 @@ export class AdminAddCategoriesComponent implements OnInit {
       let result: any = {};
       result = res;
       this.typeArray = result.res;
-      console.log("@@>>>", this.typeArray);
+      // console.log("@@>>>", this.typeArray);
     })
 
 
@@ -118,61 +118,61 @@ export class AdminAddCategoriesComponent implements OnInit {
       let result: any = {};
       result = res;
       this.typeYear = result.res;
-      console.log("@@>>>", this.typeYear);
+      // console.log("@@>>>", this.typeYear);
     })
 
   }
 
 
   addTypeSubmit() {
-    console.log(this.addTypeForm.value);
+    // console.log(this.addTypeForm.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addTypeForm.value,
       source: "manage-type",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.dialogRef.close();
 
       this.router.navigateByUrl('/manage-type');
     })
   }
   addMakeSubmit() {
-    console.log(this.addMakeform.value);
+    // console.log(this.addMakeform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addMakeform.value,
       source: "manage-make",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.dialogRef.close();
       this.router.navigateByUrl('/manage-make');
     })
   }
   addModelSubmit() {
-    console.log(this.addModelform.value);
+    // console.log(this.addModelform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addModelform.value,
       source: "manage-model",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.dialogRef.close();
       this.router.navigateByUrl('/manage-model');
     })
   }
   addYearSubmit() {
-    console.log(this.addyearform.value);
+    // console.log(this.addyearform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addyearform.value,
       source: "manage-year",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       this.dialogRef.close();
       this.router.navigateByUrl('/manage-year');
     })

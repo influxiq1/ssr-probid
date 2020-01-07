@@ -102,7 +102,7 @@ export class HomeComponent implements OnInit {
     
     }
     this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
-      console.log('>>>>',resc.res);
+      // console.log('>>>>',resc.res);
       this.saveCarDataList=resc.res
     })
      

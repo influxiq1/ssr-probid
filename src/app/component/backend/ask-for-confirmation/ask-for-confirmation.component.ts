@@ -23,7 +23,7 @@ public askForConfirmation: FormGroup;
       for(let x in this.askForConfirmation.controls){
         this.askForConfirmation.contains[x].markAsTouched();
       }
-      console.log(this.askForConfirmation.value )
+      // console.log(this.askForConfirmation.value )
     }
 
     /**blur function */

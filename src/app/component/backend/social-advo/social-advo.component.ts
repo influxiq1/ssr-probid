@@ -89,14 +89,14 @@ export class SocialAdvoComponent implements OnInit {
   }
   linkdinShare(url: any){
     var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-    console.log(fullUrl)
+    // console.log(fullUrl)
 
   }
 
   share(url: string) {
     var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
     this.cookieService.set('shareIngUrl',fullUrl);
-    console.log(fullUrl)
+    // console.log(fullUrl)
  
     let params: UIParams = {
       href: fullUrl,

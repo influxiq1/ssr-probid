@@ -148,7 +148,7 @@ export class CustomerSignupComponent implements OnInit {
        data:this.message
      });
      dialogRef.afterClosed().subscribe(result => {
-       console.log(result)
+      //  console.log(result)
        if(result == 'ok'){
  
        this.router.navigateByUrl('/login')
@@ -184,7 +184,7 @@ export class CustomerSignupComponent implements OnInit {
         if (this.rep_id != null && this.rep_id != '') {
           this.customerSignUpForm.value.salesrep = this.rep_id;
           formdata = this.customerSignUpForm.value;
-          console.log(formdata);
+          // console.log(formdata);
         }
         var data = { "source": "user", "data": formdata }
         this.apiservice.CustomRequest(data, 'addorupdatedatawithouttoken').subscribe((data: any) => {

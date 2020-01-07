@@ -215,14 +215,14 @@ public errorMsg: string = '';
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
       // this.crsvplist = data.fordashboard.result.save_search;
-      console.log('dash-data',data)
+      // console.log('dash-data',data)
 
       this.rsvp_list = data.rsvp.result.currentRsvp;
 
       this.saveSearch_list = data.rsvp.result.save_search;
       this.count = data.rsvp.result;
 
-      console.log('dvfdgfhg', this.count)
+      // console.log('dvfdgfhg', this.count)
     })
 
 
@@ -236,7 +236,7 @@ public errorMsg: string = '';
   }
 
   deleteAny(item:any,index:any,flag:string){
-    console.log('>>>>',item,index)
+    // console.log('>>>>',item,index)
     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
       width: '250px',
       data:this.message
@@ -244,7 +244,7 @@ public errorMsg: string = '';
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
       
         if(result=='yes'){
           let data:any;
@@ -256,7 +256,7 @@ public errorMsg: string = '';
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
                   result=res;
-                  console.log('success',result)
+                  // console.log('success',result)
                   
                   if(result.status=='success'){
                     this.rsvp_list.splice(index,index+1);
@@ -273,7 +273,7 @@ public errorMsg: string = '';
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
                   result=res;
-                  console.log('success',result)
+                  // console.log('success',result)
                   
                   if(result.status=='success'){
                     this.saveSearch_list.splice(index,index+1);

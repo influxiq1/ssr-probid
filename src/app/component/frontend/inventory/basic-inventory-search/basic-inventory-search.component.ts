@@ -138,7 +138,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   //   this.search = JSON.parse(this.cookieService.get('rsvp_car'));    
   // }
   this.user_id = this.user_details._id;
-  console.log(this.user_id);
+  // console.log(this.user_id);
   
   if(this.user_details.type == "salesrep") {
     let data: any = {
@@ -150,7 +150,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       this.customerList = res.res;
-      console.log(this.customerList);
+      // console.log(this.customerList);
     });
 
   }
@@ -255,8 +255,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
-          console.log('search list',this.search)
-            console.log(this.search);
+          // console.log('search list',this.search)
+            // console.log(this.search);
         })
       } else {
         this.errorMsg = "Please select at least one field";
@@ -293,19 +293,19 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
      
       if (field == 'make') {
         this.make_list = res.terms; 
-        console.log(field, this.make_list);
+        // console.log(field, this.make_list);
       }
       if (field == 'model') {
         this.model_list = res.terms; 
-        console.log(field); 
+        // console.log(field); 
       }
       if (field == 'body_type') {
         this.type_list = res.terms; 
-        console.log(field, this.type_list); 
+        // console.log(field, this.type_list); 
       }
       if (field == 'trim') {
         this.trim_list = res.terms; 
-        console.log(field, this.trim_list); 
+        // console.log(field, this.trim_list); 
       }
 
     });
@@ -316,7 +316,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
   gotologin(){
     this.router.navigateByUrl('/login'+this.router.url)
-    console.log('/login'+this.router.url)
+    // console.log('/login'+this.router.url)
   }
 
   loginbefore(){
@@ -327,7 +327,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
           data: { loginMsg: this.loginMsg }
         });
         dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed', result);
+          // console.log('The dialog was closed', result);
           if (result == 'yes') {
             this.gotologin();
           }
@@ -339,7 +339,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
 
   favorite(item: any) {
-    console.log('this is favorite ')
+    // console.log('this is favorite ')
     if (this.user_id  == '') {
       this.cookieService.set('favorite_car', JSON.stringify(item));
       setTimeout(() => {
@@ -347,7 +347,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       }, 500);
     }
     else{
-      console.log(this.cookieService.get('favorite_car'))
+      // console.log(this.cookieService.get('favorite_car'))
       let endpoint: any = "addorupdatedata";
       item.added_by = this.user_id;
       let card_data:any = {
@@ -357,9 +357,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         data: card_data,
         source: "save_favorite",
       };
-      console.log(data)
+      // console.log(data)
         this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-          console.log(res);
+          // console.log(res);
           (res.status == "success")
         });
     }
@@ -367,7 +367,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   }
 
   rsvpSend(item: any) {
-    console.log(this.user_id)
+    // console.log(this.user_id)
     if (this.user_id  == '') {
       this.cookieService.set('rsvp_car', JSON.stringify(item));
       setTimeout(() => {
@@ -375,8 +375,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       }, 500);
     }
     else {
-    console.log('rsvpSend',item);
-    console.log(this.cookieService.get('rsvp_car'));
+    // console.log('rsvpSend',item);
+    // console.log(this.cookieService.get('rsvp_car'));
     let endpoint: any = "addorupdatedata";
     item.added_by = this.user_id;
     item.status = 0;
@@ -392,16 +392,16 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       data: card_data,
       source: "send_for_rsvp",
     };
-    console.log(data)
+    // console.log(data)
       this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-        console.log(res);
+        // console.log(res);
         (res.status == "success")
       });
     }
   }
 
   showimg(i:any, j:any){
-    console.log('+++',i, j)
+    // console.log('+++',i, j)
     this.indexCount = i;
     this.indexCountForImg = j;
   }
@@ -423,7 +423,7 @@ export class errorDialog {
   constructor(
     public dialogRef: MatDialogRef<errorDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    console.log(data);
+    // console.log(data);
   }
 
   onNoClick(): void {
@@ -442,7 +442,7 @@ export class loginBeforeDialog {
   constructor(
     public dialogRef: MatDialogRef<loginBeforeDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
-    console.log(data);
+    // console.log(data);
   }
   
 

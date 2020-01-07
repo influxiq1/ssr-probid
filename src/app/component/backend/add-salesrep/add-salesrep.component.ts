@@ -133,20 +133,20 @@ export class AddSalesrepComponent implements OnInit {
         delete this.addsalesrepForm.value.conpass;
 
       }
-      console.log(this.addsalesrepForm.value);
+      // console.log(this.addsalesrepForm.value);
 
       /**Api service for insert form */
 
       var data = { "source": "user", "data": this.addsalesrepForm.value }
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.status == 'success' && data.update == 1) {
           console.log("Update salesrep Successfully");
           this.formDirective.resetForm();
           this.router.navigateByUrl('/salesrep-list-admin')
 
         } else {
-          console.log("Add salesrep Successfully");
+          // console.log("Add salesrep Successfully");
           this.formDirective.resetForm();
           this.router.navigateByUrl('/salesrep-list-admin')
         }

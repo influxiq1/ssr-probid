@@ -67,7 +67,7 @@ constructor(private cookieService: CookieService,public apiService: ApiService, 
 
     this.activatedRoute.data.forEach((res)=>{
       this.blogListConfig=res.blogList.res;
-      console.log('>>>>',this.blogListConfig)
+      // console.log('>>>>',this.blogListConfig)
     })
 
 // ,

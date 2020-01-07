@@ -290,7 +290,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
           this.search = res.listings;
 
-          console.log('search list', this.search)
+          // console.log('search list', this.search)
 
 
         })
@@ -464,11 +464,11 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
   // for observeable
   public viewDetails(item:any):any {
-    console.log('data_item >>',item)
+    // console.log('data_item >>',item)
 
     var carData=item;
 
-    console.log('carData >>',carData)
+    // console.log('carData >>',carData)
 
     // let observable=new Observable(item)
     // console.log('$$>>>>>',observable)

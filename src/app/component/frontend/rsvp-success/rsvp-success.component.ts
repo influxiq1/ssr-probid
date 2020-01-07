@@ -42,7 +42,7 @@ export class RsvpSuccessComponent implements OnInit {
     this.activatedRoute.data.forEach((data: any) => {
       
       this.datalist = data.rsvp.res[0];
-      console.log('dash-data', this.datalist)
+      // console.log('dash-data', this.datalist)
 
     })
   }

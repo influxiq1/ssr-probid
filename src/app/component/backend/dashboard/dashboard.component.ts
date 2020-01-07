@@ -82,7 +82,7 @@ export class DashboardComponent implements OnInit {
     this.activatedRoute.data.forEach((data: any) => {
       // console.log('dash-data',data)
       this.datalist = data.rsvp.result;
-      console.log('dash-data', this.datalist)
+      // console.log('dash-data', this.datalist)
 
     })
   }
@@ -128,7 +128,7 @@ export class DashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
 
       if (result == 'yes') {
         let data: any = {
@@ -136,7 +136,7 @@ export class DashboardComponent implements OnInit {
           source: 'save_favorite'
         }
         this.apiService.deleteSingleData1(data).subscribe((res: any) => {
-          console.log(res);
+          // console.log(res);
           if (res.status == 'success') {
             this.datalist.save_search.splice(i, i + 1);
             this.snack.open('Record Removed Successfully..!', 'Ok', { duration: 2000 })
