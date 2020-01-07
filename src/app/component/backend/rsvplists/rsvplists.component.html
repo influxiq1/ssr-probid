@@ -20,7 +20,7 @@
                   <!-- <span>
                       <button mat-button class="btnorange sim-button"><i class="material-icons">add</i> Add New</button>
                   </span>-->
-                  <span>
+                  <span *ngIf="userCookies.type == 'admin'">
                     <mat-label>Search By Status :</mat-label>
                     <mat-form-field>
                       <select matNativeControl (change)="selectOption($event.target.value)" >

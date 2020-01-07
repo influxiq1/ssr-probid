@@ -14,13 +14,7 @@
           </div>
           <div class="topmenulist">
             <mat-list class="navigation-left">
-              <mat-list-item class="nav-item">
-                <a class="nav-item-hold" routerLinkActive="activemenu" mat-menu-item [routerLink]="['/home']">
-                  <span class="nav-text">home</span>
-                </a>
-                <div class="triangle"></div>
-              </mat-list-item>
-              <mat-list-item class="nav-item" routerLinkActive="activemenu" (click)="open(1)">
+              <mat-list-item class="nadminav-item" routerLinkActive="activemenu" (click)="open(1)">
                 <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu" [routerLink]="['/admin-dashboard']">
                   <span class="nav-text">Dashboard</span>
                 </a>
@@ -142,9 +136,11 @@
             <h4>{{user_full_name}}</h4>
             <div class="dropdown">
               <div class="user">
-                <button class="userwrapper" mat-button [matMenuTriggerFor]="menu"><img
-                  src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown" alt=""
-                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                <button class="userwrapper" mat-button [matMenuTriggerFor]="menu">
+                  <img
+                  src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>
                 <button mat-menu-item>Item 2</button>
@@ -236,8 +232,10 @@
             <div class="dropdown">
               <div class="user">
                 <button class="userwrapper" mat-button [matMenuTriggerFor]="menu"><img
-                    src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown" alt=""
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                    src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown" 
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                    >
+                  </button>
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item (click)="logout()">Logout</button>
                   <button mat-menu-item>Item 2</button>
