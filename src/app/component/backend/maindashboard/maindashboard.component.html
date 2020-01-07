@@ -116,12 +116,13 @@
                                     <span class="rsvplistsingleleft">
                                         <span class="rsvpliststop">
                                           <span class="rsvplistimgwrapper">
-                                              <img *ngIf="item.media.photo_links[0] != null" [src]="item.media.photo_links[0]">
+                                              <img *ngIf="item.media.photo_links[0] != null" 
+                                              [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)">
                                               <img class="defaultimg" *ngIf="item.media.photo_links[0] == null" src="assets/images/no-image-default.jpg">
                                           </span>                        
                                         </span>
                                         <span class="rsvplistsbottom">
-                                          <h2>{{item.heading}}</h2>
+                                          <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2>
                                           <span class="rsvplistsbottombtm">
                                            <span>Status</span>
                                            <span *ngIf="item.status == 2" class="btnactive">Rejected <span class="colorred"></span></span>
@@ -202,7 +203,8 @@
                         <span class="block1socialadvosingleinner">
                             <span class="topblock">
                                 <span class="rsvplistimgwrapper">
-                                    <img *ngIf="item.card_data.media.photo_links != null && item.card_data.media.photo_links[0] !=null && modalImg == ''" [src]="item.card_data.media.photo_links[0]">
+                                    <img *ngIf="item.card_data.media.photo_links != null && item.card_data.media.photo_links[0] !=null && modalImg == ''" [src]="item.card_data.media.photo_links[0]"
+                                     (click)="viewSaveDetails(item._id)">
                                     <img *ngIf="modalImg != ''" [src]="modalImg">
                                     <img *ngIf="item.card_data.media.photo_links == null" src="../../assets/images/default_car_img.jpeg">
                                 </span>
@@ -219,7 +221,8 @@
                                 
                                 <span class="titlecls">
 
-                                  <span *ngIf="item.card_data.heading != null">{{item.card_data.heading}}</span>
+                                  <span *ngIf="item.card_data.heading != null" 
+                                  (click)="viewSaveDetails(item)">{{item.card_data.heading}}</span>
                                   <span *ngIf="item.card_data.heading == null"> N/A</span>
                                 </span>
                               </span>

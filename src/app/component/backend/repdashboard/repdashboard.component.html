@@ -199,7 +199,8 @@
 
             <mat-card-content class="rep-dashboard-block3">
                 <span class="rep-dashboard-block3-inner">
-                    <h1 class="titleadmin">RSVP <mat-button class="btnblue" routerLink="/rsvp-salesrep">view all
+                    <h1 class="titleadmin">RSVP <mat-button class="btnblue" 
+                        routerLink="/rsvp-salesrep">view all
                         </mat-button>
                     </h1>
                     <mat-list role="list" class="flexbox1column">
@@ -214,11 +215,11 @@
                                             <img *ngIf="item.media.photo_links == null || item.media.photo_links == ''"
                                                 class="defaultimg" src="assets/images/no-image-default.jpg">
                                             <img *ngIf="item.media.photo_links != null && item.media.photo_links != ''"
-                                                class="defaultimg" [src]="item.media.photo_links[0]">
+                                                class="defaultimg" [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)">
                                         </span>
                                     </span>
                                     <span class="rsvplistsbottom">
-                                        <h2>{{item.heading}}</h2>
+                                        <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2>
                                         <h1>Price - <span>$ {{item.price}}</span></h1>
                                         <span class="rsvplistsbottombtm">
                                             <mat-list>
@@ -271,7 +272,7 @@
                                             </span>
                                         </span>
                                     </span>
-                                    <mat-button class="btnblue">view details</mat-button>                            
+                                    <!-- <mat-button class="btnblue">view details</mat-button>                             -->
                                 </span>
                             </span>
                         </mat-list-item>
@@ -280,7 +281,8 @@
             </mat-card-content>
 
             <mat-card-content class="rep-dashboard-block6">
-                <h1 class="titleadmin">Save Search <mat-button class="btnblue" [routerLink]="['/save-search-admin']">
+                <h1 class="titleadmin">Save Search <mat-button class="btnblue" 
+                    [routerLink]="['/save-search-rep']">
                         View All</mat-button>
                 </h1>
                 <mat-list role="list" class="flexbox5column">
@@ -295,7 +297,8 @@
                             <span class="topblock">
                                 <span class="rsvplistimgwrapper">
                                     <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null"
-                                        [src]="item.media.photo_links[0]">
+                                        [src]="item.media.photo_links[0]" 
+                                        (click)="viewSaveDetails(item._id)">
                                     <!-- <img *ngIf="modalImg != ''" [src]="modalImg"> -->
                                     <img *ngIf="item.media.photo_links == null"
                                         src="../../assets/images/default_car_img.jpeg">
@@ -306,7 +309,8 @@
                                     ${{item.price}}
                                 </span>
                                 <span class="titlecls">
-                                    <span *ngIf="item.heading != null">{{item.heading}}</span>
+                                    <span *ngIf="item.heading != null" 
+                                    (click)="viewSaveDetails(item._id)">{{item.heading}}</span>
                                     <span></span>
                                 </span>
                             </span>

@@ -120,6 +120,18 @@ export class RepdashboardComponent implements OnInit {
 
   }
 
+  //for save search details
+  viewSaveDetails(val:any){
+    console.log(val)
+    this.router.navigateByUrl('/inventory-detail/'+val);
+  }
+
+  //for rsvp details
+  viewRsvpDetails(val:any){
+    this.router.navigateByUrl('/rsvp-detail/'+val);
+  }
+
+
 }
 
 
