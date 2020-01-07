@@ -108,7 +108,7 @@
 
                     <span class="topinnerinforight" >
                       <mat-button class="btnredcls" 
-                      *ngIf="activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'" 
+                      *ngIf="activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'" 
                       (click)="removeItem(data._id)">Remove</mat-button>
                  
                 </span>
@@ -116,7 +116,7 @@
 
                     <!-- Save Search DETAILS for salesrep-->
                     <span class="topinnerinforight" 
-                    *ngIf="activatedRoute.snapshot.routeConfig.path != 'rsvp-detail/:id'" >
+                    *ngIf="activatedRoute.snapshot.routeConfig.path != 'rsvp-detail/:_id'" >
                       <h1 class="btnrsvp" *ngIf="user_details.type == 'customer' || user_details.type == 'salesrep'"
                         (click)="addRsvp(data)">RSVP</h1>
 
@@ -153,7 +153,7 @@
                 <span class="inventorydetailbottom detaillistcls inventorydetailuser">
 
                   <!-- For Admin ,salesrep,customer-->
-                  <span class="flexcolumn " *ngIf="activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'">
+                  <span class="flexcolumn " *ngIf="activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'">
                 <span *ngIf="user_details.type == 'admin' || user_details.type == 'salesrep' ">
                   <mat-card-title class="headerlists">User</mat-card-title>
                   <span class="rsvplisttypecontentinfowrapper">
