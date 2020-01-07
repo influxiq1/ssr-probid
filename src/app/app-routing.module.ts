@@ -113,7 +113,7 @@ const routes: Routes = [
 
   /**Frontend Routing**/
   
-  // { path: 'login', component: HomeComponent ,resolve: { home_data: ResolveService },
+  // { path: '', component: HomeComponent ,resolve: { home_data: ResolveService },
   // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
@@ -132,8 +132,8 @@ const routes: Routes = [
   data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
 
   { path: 'contactus', component: ContactusComponent },
-  {
-    path: "", component: TesimonialComponent},
+  // {
+    // path: "", component: TesimonialComponent},
   { path: 'pre-owned-list', component: SearchListViewComponent },
   { path: 'online-inventory-list', component: SearchListViewComponent },
   { path: 'search-inventory-list', component: SearchListViewComponent },
@@ -572,10 +572,10 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
     },
 
 
-    // { path: '',
-    // redirectTo: '/home',
-    // pathMatch: 'full',
-    //  },
+    { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+     },
 
 
     { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },

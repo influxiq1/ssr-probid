@@ -86,6 +86,7 @@ export class HomeComponent implements OnInit {
   public savedId: any = [];
   public blogList: any;
   public indexval:any = 3;
+  public year_list:any;
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient) { 
