@@ -49,6 +49,7 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  position: relative;
   overflow: hidden;
 }
 
@@ -184,16 +185,16 @@
   justify-content: center;
   -webkit-box-align: center;
   align-items: center;
-  padding: 10px 0;
+  padding: 10px;
   font-size: 18px;
 }
 
 .topinnerinforight{
-  width: 100%;
   margin-left: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  flex-direction: row;
 }
 
 .topinnerinforight .mat-form-field{
@@ -376,11 +377,15 @@
     font-family: 'Helvetica-Regular';
     margin-bottom: 4px!important;
     background-color: #12c3e3;
-    padding: 5px 10px 2px;
+    padding: 5px 0px 2px;
     color: #fff;
     -webkit-box-pack: start;
     justify-content: flex-start;
     margin-top: 5px !important;
+}
+
+.detaillistcls .headerlists span{
+  padding: 0 10px;
 }
 
 
@@ -425,7 +430,7 @@
 
 .adm_dashboard_block2 .topblock {
   height: 210px;
-  width: 100%;
+  width: auto;
   overflow: hidden;
   display: block;
   position: relative;
@@ -571,6 +576,7 @@
   justify-content: flex-start;
   padding: 15px 20px;
   margin-bottom: 5px !important;
+  width: auto;
 }
 
 .adm_dashboard_block2 .mat-list .mat-list-item{
