@@ -16,8 +16,9 @@
               <mat-card-title class="sectionheader">Social Advo</mat-card-title>
               <span class="socialadvolistwarpper">
                 <span class="btnsharewrapper">
-                  <span class="socialmediaheader">
-                    <span class="sharecontent"  *ngIf="profile != '' && profile != null">
+                  <span class="socialmediaheader">                    
+                    <h2>Facebook Banner</h2>
+                    <!-- <span class="sharecontent"  *ngIf="profile != '' && profile != null">
                       <span class="sharecontentimgwrapper">
                         <img [src]="profile.picture.data.url">
                       </span>
@@ -37,7 +38,7 @@
                     </span>  
                     <span class="btnsharewrapper">
                       <button mat-button class="btnshare btnsharecls txtwhite" (click)="login()"><i class="fa fa-facebook"></i> <span><sub>add</sub>Facebook<sup>now</sup></span></button>
-                    </span> 
+                    </span>  -->
                   </span> 
                 </span>
 
@@ -46,36 +47,60 @@
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/facebookbanner-img1.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img1.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite"  (click)="share('facebookbanner-img1.jpg')"><span>Post</span></button>
                       </span>  
                     </mat-list-item>
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/facebookbanner-img2.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img2.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img2.jpg')"><span>Post</span></button>
                       </span>                      
                     </mat-list-item>
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/facebookbanner-img3.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img3.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img3.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img4.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img4.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img4.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img5.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img5.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img5.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img6.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img6.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img6.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>
@@ -83,18 +108,31 @@
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img7.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img7.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img7.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>                    
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img8.jpg">
                       <span class="postblock">
+
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img8.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img8.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>                    
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/facebookbanner-img9.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/facebookbanner-img9.jpg/{{ userCookies._id}}"
+                          #userinput></p>
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img9.jpg')"><span>Post</span></button>
                       </span>
                     </mat-list-item>
@@ -105,7 +143,8 @@
                 </span>
                 <span class="btnsharewrapper">
                   <span class="socialmediaheader">
-                    <span class="sharecontent">
+                    <h2>linkedin Banner</h2>
+                    <!-- <span class="sharecontent">
                       <span class="sharecontentimgwrapper">
                         <img  src="../../../../assets/images/imguser.jpg">
                       </span>
@@ -125,7 +164,7 @@
                     </span>  
                     <span class="btnsharewrapper">
                       <button mat-button class="btnshare btnsharecls txtwhite"><i class="fa fa-linkedin"></i> <span><sub>add</sub>linkedin<sup>now</sup></span></button>
-                    </span> 
+                    </span>  -->
                   </span> 
                 </span> 
                 <span class="bannerlistwrapper linkedinbanner">
@@ -134,12 +173,22 @@
                       <img src="../../../../assets/images/linkedinbanner-img1.jpg">
                       <span class="postblock">
                         <!-- <button mat-button class="btnshare btnsharecls txtwhite" (click)="linkdinShare('linkedinbanner-img1.jpg')"><span>Post</span></button> -->
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/linkedinbanner-img1.jpg/{{ userCookies._id}}"
+                          #userinput></p>
+
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
                       </span>
                     </mat-list-item>
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/linkedinbanner-img2.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/linkedinbanner-img2.jpg/{{ userCookies._id}}"
+                          #userinput></p>
+
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img2.jpg/' + userCookies._id"><span>Post</span></a>
                         <!-- <button mat-button class="btnshare btnsharecls txtwhite" (click)="linkdinShare('linkedinbanner-img2.jpg')"><span>Post</span></button> -->
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img3.jpg/' + userCookies._id"><span>Post</span></a>
@@ -148,6 +197,11 @@
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/linkedinbanner-img3.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/linkedinbanner-img3.jpg/{{ userCookies._id}}"
+                          #userinput></p>
+
                         <!-- <button mat-button class="btnshare btnsharecls txtwhite"> -->
                           <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img3.jpg/' + userCookies._id"><span>Post</span></a>
                         <!-- </button> -->
@@ -156,6 +210,11 @@
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/linkedinbanner-img4.jpg">
                       <span class="postblock">
+                        <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                          URL</button> <input matInput type="text"
+                          value="{{apiService.share_link}}customer-signup/linkedinbanner-img4.jpg/{{ userCookies._id}}"
+                          #userinput></p>
+
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img4.jpg/' + userCookies._id"><span>Post</span></a>
                         <!-- <button mat-button class="btnshare btnsharecls txtwhite"  (click)="linkdinShare('linkedinbanner-img4.jpg')"><span>Post</span></button> -->
                       </span>
@@ -164,16 +223,28 @@
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/linkedinbanner-img5.jpg">
                       <span class="postblock">
+                        
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img5.jpg/' + userCookies._id"><span>Post</span></a>
                         <!-- <button mat-button class="btnshare btnsharecls txtwhite"  (click)="linkdinShare('linkedinbanner-img5.jpg')"><span>Post</span></button> -->
                       </span>
+
+                      <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                        URL</button> <input matInput type="text"
+                        value="{{apiService.share_link}}customer-signup/linkedinbanner-img5.jpg/{{ userCookies._id}}"
+                        #userinput></p>
+
                     </mat-list-item>
                     <mat-list-item role="listitem"> 
                       <img src="../../../../assets/images/linkedinbanner-img6.jpg">
+                      
                       <span class="postblock">
+                        
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img6.jpg/' + userCookies._id"><span>Post</span></a>
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite"  (click)="linkdinShare('linkedinbanner-img6.jpg')"><span>Post</span></button> -->
                       </span>
+                      <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
+                        URL</button> <input matInput type="text"
+                        value="{{apiService.share_link}}customer-signup/linkedinbanner-img6.jpg/{{ userCookies._id}}"
+                        #userinput></p>
                     </mat-list-item>
                   </mat-list>
                   <span class="loadmorewarpper">
@@ -185,4 +256,7 @@
         </mat-card>
       </div>
   </div>
+  
+
 <app-footer></app-footer>
+

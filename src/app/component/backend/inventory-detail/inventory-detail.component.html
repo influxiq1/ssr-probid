@@ -155,7 +155,7 @@
                   <!-- For Admin ,salesrep,customer-->
                   <span class="flexcolumn " *ngIf="activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'">
                 <span *ngIf="user_details.type == 'admin' || user_details.type == 'salesrep' ">
-                  <mat-card-title class="headerlists">User</mat-card-title>
+                  <mat-card-title class="headerlists"><span>User</span></mat-card-title>
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
@@ -177,7 +177,7 @@
                   </span>
                 </span>
                 <span *ngIf="user_details.type == 'admin' || user_details.type == 'customer' ">
-                  <mat-card-title class="headerlists">Salesrep</mat-card-title>
+                  <mat-card-title class="headerlists"><span>Salesrep</span></mat-card-title>
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
