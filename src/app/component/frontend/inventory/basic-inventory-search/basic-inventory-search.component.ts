@@ -255,8 +255,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
-          // console.log('search list',this.search)
-            // console.log(this.search);
+          console.log('search list',this.search)
+            console.log(this.search);
         })
       } else {
         this.errorMsg = "Please select at least one field";

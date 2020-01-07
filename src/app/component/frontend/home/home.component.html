@@ -138,7 +138,7 @@
             </span>
           </ng-template>
         </mat-tab>
-        <mat-tab>            
+        <!-- <mat-tab>            
             <ng-template mat-tab-label>
               <h2>New Cars</h2>
             </ng-template>           
@@ -334,11 +334,11 @@
                                       </span> 
                       </mat-list-item>
                    </mat-list>
-                   <!-- <button mat-button class="btnblue sim-button" [routerLink]="['/online-inventory-list']">View all</button> -->
+                  <button mat-button class="btnblue sim-button" [routerLink]="['/online-inventory-list']">View all</button>
                    
                 </span>
             </ng-template>
-        </mat-tab>
+        </mat-tab> -->
   <mat-tab>
             <ng-template mat-tab-label>
               <h2 >Search Inventory</h2>
@@ -349,8 +349,8 @@
                     <span class="search-sec">                
                         <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Search Inventory</h2>
                        <span class="mat-search-bar">
-                            <form class="example-form">
-                                <!-- <mat-form-field class="example-full-width">
+                            <!-- <form class="example-form">
+                                 <mat-form-field class="example-full-width">
                                   <span matPrefix></span>
                                   <input type="text" matInput placeholder="Color, Type, Year">
                                   <button mat-button  >
@@ -358,14 +358,134 @@
                                           search
                                       </i>
                                   </button>                                  
-                                </mat-form-field>                           -->
-                              </form>
+                                </mat-form-field>                          
+                              </form> -->
+                              <span class="inventorysearch">
+
+                                <span class="formblock">
+                                  <form class="example-container" [formGroup]="inventoryCustomerForm" 
+                                 (ngSubmit)="inventoryCustomerSearch()">
+                         
+                                   <span class="section1">
+                                     <span>
+                                       <span>
+                                         <h4>Make:</h4>
+                                         <mat-form-field>
+                                           <input type="text" (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
+                                             aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
+                                           <mat-autocomplete #auto="matAutocomplete">
+                                             <mat-option *ngFor="let option of make_list" [value]="option">
+                                               {{option}}
+                                             </mat-option>
+                                           </mat-autocomplete>
+                                         </mat-form-field>
+                                       </span>
+                                       <span>
+                                         <h4>Model:</h4>
+                                         <mat-form-field>
+                                           <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
+                                             aria-label="Number" matInput formControlName="model" [matAutocomplete]="automodel">
+                                           <mat-autocomplete #automodel="matAutocomplete">
+                                             <mat-option *ngFor="let option of model_list" [value]="option">
+                                               {{option}}
+                                             </mat-option>
+                                           </mat-autocomplete>
+                                         </mat-form-field>
+                                       </span> 
+                                       <span>
+                                         <h4>Type:</h4>
+                                         <mat-form-field>
+                                           <input type="text" (keyup)="searchAutoComplete($event, 'body_type')" placeholder="Pick one body type"
+                                             aria-label="Number" matInput formControlName="type" [matAutocomplete]="autotype">
+                                           <mat-autocomplete #autotype="matAutocomplete">
+                                             <mat-option *ngFor="let option of type_list" [value]="option">
+                                               {{option}}
+                                             </mat-option>
+                                           </mat-autocomplete>
+                                         </mat-form-field>
+                                       </span>
+                                     </span>
+                                     <span>
+                                       <span>
+                                         <h4>Vehicle Type:</h4>
+                                         <mat-form-field>
+                                           <mat-select formControlName="vehicle" placeholder="Pick one Vehicle">
+                                             <mat-option value='Car'>Car</mat-option>
+                                             <mat-option value='Truck'>Truck</mat-option>
+                                           </mat-select>
+                                         </mat-form-field>
+                                       </span>
+                                       <span>
+                                         <h4>Year:</h4>
+                                         <mat-form-field>
+                                           <mat-select formControlName="year" placeholder="Year">
+                                             <mat-option *ngFor="let yearval of year_list" [value]='yearval.year'>
+                                               {{yearval.year}}
+                                             </mat-option>
+                                           </mat-select>
+                                         </mat-form-field>
+                                       </span>
+                                       <span>
+                                         <h4>Trim:</h4>
+                                         <mat-form-field>
+                                           <input type="text" (keyup)="searchAutoComplete($event, 'trim')" placeholder="Pick one trim"
+                                             aria-label="Number" matInput formControlName="trim" [matAutocomplete]="autotrim">
+                                           <mat-autocomplete #autotrim="matAutocomplete">
+                                             <mat-option *ngFor="let option of trim_list" [value]="option">
+                                               {{option}}
+                                             </mat-option>
+                                           </mat-autocomplete>
+                                         </mat-form-field>
+                                       </span>
+                         
+                                     </span>
+                                     <span>
+                                       <span>
+                                         <h4>Vin:</h4>
+                                         <mat-form-field>
+                                           <mat-select formControlName="vin" placeholder="Vin">
+                                             <mat-option value="">Vin</mat-option>
+                                             <mat-option value="vin1">vin1</mat-option>
+                                             <mat-option value="vin2">vin2</mat-option>
+                                           </mat-select>
+                                         </mat-form-field>
+                                       </span>
+                                       <span>
+                                         <h4>State:</h4>
+                                         <mat-form-field>
+                                           <mat-select formControlName="state" placeholder="State">
+                                             <mat-option *ngFor="let item of stateList" [value]="item.abbreviation">{{item.name}}</mat-option>
+                                           </mat-select>
+                                         </mat-form-field>
+                                       </span>
+                                       <span>
+                                         <h4>Zip:</h4>
+                                         <mat-form-field>
+                                           <mat-label>ZIP</mat-label>
+                                           <input matInput formControlName="zip" type="ZIP" placeholder="ZIP">
+                                         </mat-form-field>
+                                       </span>
+                         
+                                     </span>
+                                     <span class="buttonslist">
+                                       <button mat-raised-button color="primary" type="button" 
+                                       (click)="reset()"> Reset</button>
+                                       <button mat-raised-button color="primary" type="submit"> Search</button>
+                                     </span>
+                         
+                                   </span>
+                         
+                                 </form> 
+                                 </span>
+   
+                              </span><br>
+                              
                         </span>
                     </span>
                   
                   <img src="https://dev.probidauto.com/https://dev.probidauto.com/assets/images/basic-inventory-search-home.png" style="width: 100%; display: block; margin: 0; padding: 0;">
                   <span class="float-right">
-                    <button mat-button class="btnblue sim-button" >Search</button>
+                    <!-- <button mat-button class="btnblue sim-button" >Search</button> -->
                   </span>
                 </span>
             </span>              

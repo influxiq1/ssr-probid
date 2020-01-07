@@ -429,3 +429,213 @@
     background-position: -24px -53px;
   }
    
+
+    .search-sec {
+      flex-wrap: wrap;
+  }
+  .search-sec h2.innertitle2{
+    flex: 1 1 100%;
+  }
+  .search-sec .mat-search-bar {
+    margin-right: .5%;
+    flex: 1 1 100%;
+}
+  .inventorysearch .formblockwrapper{
+
+    position: relative;
+    display: block;
+  }
+
+      /* .inventorysearch .example-container > .section1 {
+          height: 192px;
+          display: flex;
+          flex-direction: row;
+          justify-content: flex-start;
+          flex-wrap: wrap;
+      }
+    
+      .inventorysearch .formblockwrapper .mainwrappercontent{
+          position: relative;
+          z-index: 999;
+          }
+      
+      .inventorysearch .example-container > .section1 > mat-form-field {
+        box-sizing: border-box;
+        width: 32.22%;
+        margin: .5% !important;
+      }
+      /* .example-container .mat-form-field {
+        margin: .5%!important;
+    } */
+    
+      
+      /* .inventorysearch .formblockwrapper:after{
+        content: '';
+        position: absolute;
+        left:0;
+        top:0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(255, 255, 255, 0.4);
+      }
+    
+      .inventorysearch{margin: 0; padding: 0;}
+      .inventorysearch .formblock{margin-top: 25px; display: inherit;}
+     
+  
+      .inventorysearch .example-container .mat-select {
+        display: inline-block;
+        width: 100%;
+        outline: 0;
+        padding: 10px !important;
+        background: #fff;
+        border: 1px solid #cfcccc; */
+    /* } */
+
+
+
+
+
+
+
+
+
+
+
+
+    .inventorysearch .example-container > .section1 {
+      height: auto;
+  }
+
+  .inventorysearch .example-container > .section1 span{
+      box-sizing: border-box;
+      flex: 1 1 32.33%;
+      margin: 0 .5% !important;        
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-start;
+      flex-wrap: wrap;
+  }
+
+  
+  .inventorysearch .formblock form {
+    display: flex;
+}
+
+.inventorysearch .formblock form .section1{width: 100%;}
+
+  .inventorysearch .example-container > .section1 span .mat-form-field{
+    width: 100%;
+  }
+
+  .inventorysearch .formblockwrapper .mainwrappercontent{
+      position: relative;
+      z-index: 999;
+      margin-bottom: 20px;
+      }
+  
+  .inventorysearch .example-container > .section1 > mat-form-field {
+    box-sizing: border-box;
+    width: 32.22%;
+    margin: .5% !important;
+  }
+
+  .inventorysearch .formblockwrapper:after{
+    content: '';
+    position: absolute;
+    left:0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .inventorysearch{margin: 0; padding: 0;}
+  .inventorysearch .formblock{margin-top: 25px; display: inherit;}
+
+
+    .inventorysearch .mat-card-title {
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-pack: justify;
+      justify-content: space-between;
+      -webkit-box-align: center;
+      align-items: center;
+      background: #000;
+      padding: 6px 10px;
+      color: #fff;
+      -webkit-box-pack: start;
+      justify-content: flex-start;
+      margin-top: 10px !important;
+      margin-bottom: 5px !important;
+      text-transform: capitalize;
+      font-size: 20px !important;
+  }
+ 
+
+  .inventorysearch .example-container .mat-select {
+    display: inline-block;
+    width: 100%;
+    outline: 0;
+    padding: 10px !important;
+    background: #fff;
+    border: 1px solid #cfcccc;
+}
+
+.inventorysearch .example-container input {
+  display: inline-block;
+  width: 100%;
+  outline: 0;
+  padding: 10px !important;
+  background: #fff;
+  border: 1px solid #cfcccc;
+}
+
+.inventorysearch .example-container .textarea {
+  display: inline-block;
+  width: 100%;
+  outline: 0;
+  padding: 10px !important;
+  background: #fff;
+  border: 1px solid #cfcccc;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 170px;
+}
+
+.inventorysearch .example-container .textarea .textareainner{
+display: flex!important;
+flex-wrap: wrap!important;
+flex-direction: column!important;
+}
+
+
+.inventorysearch .example-container h4{
+color: #474b4e;
+font-size: 15px;
+margin-bottom: 10px;
+margin-top: 10px;
+display: flex;
+flex: 1 1 100%;
+}
+
+
+
+
+.formatcls{
+display: flex;
+-webkit-box-orient: horizontal;
+-webkit-box-direction: normal;
+flex-direction: row;
+-webkit-box-pack: start;
+justify-content: flex-start;
+flex-wrap: wrap;
+flex-direction: column;
+}
+
+.inventorysearch button{margin-right: 1%; margin-top: 1%;    background: #1cb7eb; border-radius: 0px; text-transform: capitalize;}
+  .buttonslist{text-align: right;    display: inherit !important;}
+
+.example-card {
+  max-width: 400px;
+}
