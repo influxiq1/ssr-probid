@@ -140,7 +140,7 @@ export class InventoryDetailComponent implements OnInit {
     }
 
     // rsvp data 
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
       let data: any = {
         source: 'send_rsvp_view',
         condition: {
@@ -320,13 +320,11 @@ export class InventoryDetailComponent implements OnInit {
       data: this.message
 
     });
-
     dialogRef.afterClosed().subscribe(result => {
       let data: any ;
-
       if (result == 'yes') {
 
-        if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id') {
+        if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
 
            data= {
             id: val,
@@ -334,7 +332,7 @@ export class InventoryDetailComponent implements OnInit {
           }
 
         }
-        if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+        if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
 
           data = {
             id: val,
@@ -349,32 +347,32 @@ export class InventoryDetailComponent implements OnInit {
 
 
             if (this.user_details.type == 'admin' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
               this.router.navigateByUrl('/save-search-admin');
             }
 
             if (this.user_details.type == 'admin' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
               this.router.navigateByUrl('/rsvp-admin');
             }
 
             if (this.user_details.type == 'salesrep' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
               this.router.navigateByUrl('//save-search-rep');
             }
 
             if (this.user_details.type == 'salesrep' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
               this.router.navigateByUrl('/rsvp-salesrep');
             }
 
             if (this.user_details.type == 'customer' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
               this.router.navigateByUrl('/save-search-castomer');
             }
 
             if (this.user_details.type == 'customer' &&
-              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+              this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
               this.router.navigateByUrl('/rsvp-customer');
             }
 
@@ -417,11 +415,11 @@ export class InventoryDetailComponent implements OnInit {
   //for details from similar vehical
   inventoryDetails(val) {
     // console.log('id>>', val)
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id') {
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
       this.router.navigateByUrl('/rsvp-detail/' + val)
     }
 
-    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id') {
+    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
       this.router.navigateByUrl('/inventory-detail/' + val)
 
     }
@@ -431,11 +429,11 @@ export class InventoryDetailComponent implements OnInit {
   //view all from similar vehical
   viewAll() {
     //for admin
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'
       && this.user_details.type == 'admin') {
       this.router.navigateByUrl('/rsvp-admin');
     }
-    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id'
       && this.user_details.type == 'admin') {
       this.router.navigateByUrl('/save-search-admin');
     }
@@ -443,22 +441,22 @@ export class InventoryDetailComponent implements OnInit {
     // for salesrep 
 
 
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'
       && this.user_details.type == 'salesrep') {
       this.router.navigateByUrl('/rsvp-salesrep');
     }
-    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id'
       && this.user_details.type == 'salesrep') {
       this.router.navigateByUrl('/save-search-rep');
     }
 
     // for customer 
 
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'
       && this.user_details.type == 'customer') {
       this.router.navigateByUrl('/rsvp-customer');
     }
-    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id'
       && this.user_details.type == 'customer') {
       this.router.navigateByUrl('/save-search-castomer');
     }
