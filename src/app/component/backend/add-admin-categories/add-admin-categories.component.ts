@@ -91,10 +91,10 @@ let result: any = {};
        if(result.resc>0){
         this.dataType = result;
         this.dataType = this.dataType.res[0];
-        console.log(this.dataType);
+        // console.log(this.dataType);
        
   if (this.dataType.categoriesType === 'type') {
-    console.log(this.dataType.categoriesType);  
+    // console.log(this.dataType.categoriesType);  
     this.addType = this.fb.group({
       id: [this.dataType._id],
       TypeName: [this.dataType.TypeName, Validators.required],
@@ -162,7 +162,7 @@ let result: any = {};
       let result: any = {};
       result = res;
       this.makeArray = result.res;
-      console.log(this.makeArray);
+      // console.log(this.makeArray);
     })
 
     //type dropdown
@@ -174,7 +174,7 @@ let result: any = {};
       let result: any = {};
       result = res;
       this.typeArray = result.res;
-      console.log("@@>>>", this.typeArray);
+      // console.log("@@>>>", this.typeArray);
     })
 
 
@@ -188,7 +188,7 @@ let result: any = {};
       let result: any = {};
       result = res;
       this.typeYear = result.res;
-      console.log("@@>>>", this.typeYear);
+      // console.log("@@>>>", this.typeYear);
     })
 
     //model dropdown
@@ -200,7 +200,7 @@ let result: any = {};
       let result: any = {};
       result = res;
       this.typeModel = result.res;
-      console.log("@++++>>>", this.typeModel);
+      // console.log("@++++>>>", this.typeModel);
     })
 
 
@@ -211,50 +211,50 @@ let result: any = {};
   }
    
   addTypeSubmit() {
-    console.log(this.addType.value);
+    // console.log(this.addType.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addType.value,
       source: "manage-type",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
       this.router.navigateByUrl('/manage-type');
     })
   }
   addMakeSubmit() {
-    console.log(this.addMakeform.value);
+    // console.log(this.addMakeform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addMakeform.value,
       source: "manage-make",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
       this.router.navigateByUrl('/manage-make');
     })
   }
   addModelSubmit() {
-    console.log(this.addModelform.value);
+    // console.log(this.addModelform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addModelform.value,
       source: "manage-model",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
       this.router.navigateByUrl('/manage-model');
     })
   }
   addyearSubmit() {
-    console.log(this.addyearform.value);
+    // console.log(this.addyearform.value);
     let endpoint: any = "addorupdatedata";
     let data: any = {
       data: this.addyearform.value,
       source: "manage-year",
     };
     this.apiService.CustomRequest(data, endpoint).subscribe(res =>{
-      console.log(res);
+      // console.log(res);
       this.router.navigateByUrl('/manage-year');
     })
   }

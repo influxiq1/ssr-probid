@@ -125,7 +125,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       // this.model_list = this.inventory_search_list.result.manage_model;
       // this.type_list = this.inventory_search_list.result.manage_type;
       this.year_list = this.inventory_search_list.result.manage_year;
-      console.log('>>>>>>', this.inventory_search_list)
+      // console.log('>>>>>>', this.inventory_search_list)
     })
   }
 
@@ -134,7 +134,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       let result: any = {};
       result = response;
       this.stateList = result;
-      console.log(this.stateList)
+      // console.log(this.stateList)
     })
   }
 
@@ -227,7 +227,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
-          console.log('search list',this.search)
+          // console.log('search list',this.search)
 
         })
       } else {
@@ -265,19 +265,19 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
        
         if (field == 'make') {
           this.make_list = res.terms; 
-          console.log(field, this.make_list);
+          // console.log(field, this.make_list);
         }
         if (field == 'model') {
           this.model_list = res.terms; 
-          console.log(field,this.model_list); 
+          // console.log(field,this.model_list); 
         }
         if (field == 'body_type') {
           this.type_list = res.terms; 
-          console.log(field, this.type_list); 
+          // console.log(field, this.type_list); 
         }
         if (field == 'trim') {
           this.trim_list = res.terms; 
-          console.log(field, this.trim_list); 
+          // console.log(field, this.trim_list); 
         }
   
       });

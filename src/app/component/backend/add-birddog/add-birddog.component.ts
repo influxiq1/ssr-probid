@@ -84,7 +84,7 @@ constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService
       let result:any;
       result=res;
       this.salesrep_list=result.res;
-    console.log('>>>>>', this.salesrep_list)
+    // console.log('>>>>>', this.salesrep_list)
     })
 
   }
@@ -131,19 +131,19 @@ addbirddogFormSubmit(){
         delete this.addbirddogForm.value.conpass;
 
       }
-      console.log(this.addbirddogForm.value);
+      // console.log(this.addbirddogForm.value);
 
       /**Api service for insert form */
 
       var data = { "source": "user", "data": this.addbirddogForm.value }
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
-        console.log(data);
+        // console.log(data);
         if (data.status == 'success' && data.update==1) {
-         console.log("Update birddog Successfully");
+        //  console.log("Update birddog Successfully");
           this.formDirective.resetForm();
           this.router.navigateByUrl('/birddog-list');
         }else{
-          console.log("Add birddog Successfully");
+          // console.log("Add birddog Successfully");
           this.formDirective.resetForm();
           this.router.navigateByUrl('/birddog-list');
         }

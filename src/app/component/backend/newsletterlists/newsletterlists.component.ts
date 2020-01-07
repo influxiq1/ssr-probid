@@ -198,7 +198,7 @@ public subscriptionForm: any = {
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe(res => {
         let result: any = {};
         result = res;
-        console.log(result);
+        // console.log(result);
         if (result.status == 'success') {
 
           this.myformsetting.reset();

@@ -39,7 +39,7 @@ export class RepdashboardComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      console.log('dash-data',data)
+      // console.log('dash-data',data)
 
       this.datalist = data.rsvp.result;
 
@@ -61,7 +61,7 @@ export class RepdashboardComponent implements OnInit {
   }
 
   deleteRsvp(item: any,index:any){
-    console.log('this is favorite ',item,index);
+    // console.log('this is favorite ',item,index);
     const dialogRef = this.dialog.open(RemoveDialogComponent, {
       width: '250px',
       data:this.message
@@ -69,7 +69,7 @@ export class RepdashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
       
         if(result=='yes'){
     let data: any = {
@@ -77,7 +77,7 @@ export class RepdashboardComponent implements OnInit {
       source: 'send_for_rsvp'
     }
     this.apiService.deleteSingleData1(data).subscribe((res: any)=>{
-      console.log(res);
+      // console.log(res);
       if (res.status == 'success') {
         this.rsvpList.splice(index,index+1);
         this.snack.open('Record Removed Successfully..!','Ok',{duration:2000})
@@ -91,7 +91,7 @@ export class RepdashboardComponent implements OnInit {
   }
 
   deleteSaveSearch(item: any,index:any){
-    console.log('this is favorite ',item,index);
+    // console.log('this is favorite ',item,index);
 
     const dialogRef = this.dialog.open(RemoveDialogComponent, {
       width: '250px',
@@ -100,7 +100,7 @@ export class RepdashboardComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
       
         if(result=='yes'){
     let data: any = {
@@ -108,7 +108,7 @@ export class RepdashboardComponent implements OnInit {
       source: 'save_favorite'
     }
     this.apiService.deleteSingleData1(data).subscribe((res: any)=>{
-      console.log(res);
+      // console.log(res);
       if (res.status == 'success') {
         this.saveSearchList.splice(index,index+1);
         this.snack.open('Record Removed Successfully..!','Ok',{duration:2000})

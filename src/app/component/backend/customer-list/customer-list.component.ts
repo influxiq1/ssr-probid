@@ -51,7 +51,7 @@ export class CustomerListComponent implements OnInit {
 
     this.activatedRoute.data.forEach(data=>{   
       this.pendingmodelapplicationarray=data.customerlist.res;
-      console.log('data>>',this.pendingmodelapplicationarray);
+      // console.log('data>>',this.pendingmodelapplicationarray);
     })
 
    

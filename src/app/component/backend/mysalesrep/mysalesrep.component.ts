@@ -48,7 +48,7 @@ export class MysalesrepComponent implements OnInit {
   }
 
   changeStatus(item: any, val: any) {
-    console.log('rsvpSend status',item, val)
+    // console.log('rsvpSend status',item, val)
     let endpoint: any = "addorupdatedata";
     item.status = val;
     let card_data:any = {
@@ -76,7 +76,7 @@ export class MysalesrepComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       this.rsvp_list = res.res;
-      console.log('>>>>',this.rsvp_list);
+      // console.log('>>>>',this.rsvp_list);
     });
   }
 
@@ -85,7 +85,7 @@ export class MysalesrepComponent implements OnInit {
 
 
   deleteRsvp(item:any,index:any){
-    console.log('delete hit',item,index)
+    // console.log('delete hit',item,index)
     const dialogRef = this.dialog.open(RemoveSalesRepRSvpModalComponent, {
       width: '250px',
       data:this.message
@@ -93,7 +93,7 @@ export class MysalesrepComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
       
         if(result=='yes'){
           let data:any;
@@ -104,7 +104,7 @@ export class MysalesrepComponent implements OnInit {
             this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
               let result:any;
               result=res;
-              console.log('success',result)
+              // console.log('success',result)
               
               if(result.status=='success'){
                 this.rsvp_list.splice(index,index+1);

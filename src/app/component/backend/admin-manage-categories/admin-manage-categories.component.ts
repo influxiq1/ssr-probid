@@ -54,23 +54,23 @@ export class AdminManageCategoriesComponent implements OnInit {
     this.activatedRoute.data.forEach(data=>{
       let result:any;
       result=data;
-      console.log('result.res');
+      // console.log('result.res');
       // console.log(result.serviceList.res);
       if (this.router.url ==='/manage-type') {
         this.manage_type = result.serviceList.res;
-        console.log('type>>>>',this.manage_type)
+        // console.log('type>>>>',this.manage_type)
       } else if(this.router.url ==='/manage-make') {
         this.manage_make = result.serviceList.res;
         // console.log('manage_make');
-        console.log('make>>>>',this.manage_make)
+        // console.log('make>>>>',this.manage_make)
 
       } else if(this.router.url ==='/manage-model') {
         this.manage_model = result.serviceList.res;
-        console.log('model>>>>',this.manage_model)
+        // console.log('model>>>>',this.manage_model)
 
       } else if (this.router.url ==='/manage-year'){
         this.manage_year = result.serviceList.res;
-        console.log('year>>>>',this.manage_year)
+        // console.log('year>>>>',this.manage_year)
 
       }
       // this.admin_datalist = result.results.res;
@@ -82,13 +82,13 @@ export class AdminManageCategoriesComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogModalOpenDialog);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`);
+      // console.log(`Dialog result: ${result}`);
     });
   }
 
 
   addType(): void {
-    console.log('Type');
+    // console.log('Type');
    
   }
 
@@ -96,10 +96,10 @@ export class AdminManageCategoriesComponent implements OnInit {
    
   }
   addModel() {
-    console.log('Model')
+    // console.log('Model')
   }
   addYear() {
-    console.log('year')
+    // console.log('year')
   }
 
 }

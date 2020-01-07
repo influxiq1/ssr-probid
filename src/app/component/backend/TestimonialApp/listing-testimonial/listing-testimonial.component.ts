@@ -59,7 +59,7 @@ view:any="blog_category";
 
   this.activatedRoute.data.forEach((res)=>{
     this.testimonialListConfig=res.testimonialList.res;
-    console.log('>>>>',this.testimonialListConfig)
+    // console.log('>>>>',this.testimonialListConfig)
   })
 
 

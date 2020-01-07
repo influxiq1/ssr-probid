@@ -151,7 +151,7 @@ export class InventoryDetailComponent implements OnInit {
 
         this.saveList = res.res;
 
-        console.log(this.saveList)
+        // console.log(this.saveList)
 
 
 
@@ -219,7 +219,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //for rsvp send
   addRsvp(itemData: any) {
-    console.log('val-rsvp', itemData)
+    // console.log('val-rsvp', itemData)
 
     //for rep rsvp
     if (this.user_details.type == 'salesrep') {
@@ -468,7 +468,6 @@ export class InventoryDetailComponent implements OnInit {
   //add car 
 
   addCar(itemData: any) {
-    console.log('>>', itemData)
 
     let endpoint: any = "addorupdatedata";
     itemData.added_by = this.user_id;

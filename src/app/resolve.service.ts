@@ -52,9 +52,8 @@ export class ResolveService implements Resolve<any> {
                   requestData.condition[d]=this.userid;
                 //   console.log('route.data');
                 }
-                if (requestData.condition[d] == 'salesrep') {
+                if (requestData.condition[d] == 'for-rep') {
                     requestData.id = this.userid;
-                    delete requestData.condition
                 }
                 if (requestData.condition[d] == 'customer-dashboard') {
                     requestData.id = this.userid;

@@ -210,7 +210,7 @@ export class NewslatterDialogComponent {
     }
 
     inputUntouch(form: any, val: any) {
-        console.log('on blur .....');
+        // console.log('on blur .....');
         form.controls[val].markAsUntouched();
     }
 
@@ -221,9 +221,9 @@ export class NewslatterDialogComponent {
 
     donewsSubmit() {
 
-        console.log('ok');
+        // console.log('ok');
         this.data = this.myformnews.value;
-        console.log(this.data);
+        // console.log(this.data);
 
 
         for (let i in this.myformnews.controls) {

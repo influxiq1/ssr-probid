@@ -10,8 +10,8 @@ export class AuthGuard implements CanActivate {
 
 
     canActivate() {
-        console.log('This is auth guard');
-        console.log(this.cookieService.get('jwtToken'));
+        // console.log('This is auth guard');
+        // console.log(this.cookieService.get('jwtToken'));
         if (this.cookieService.get('jwtToken') == null || this.cookieService.get('jwtToken').length < 10) {
             this.router.navigate(['/']);
         } else return true;

@@ -118,7 +118,7 @@ export class SalesrepSignupComponent implements OnInit {
       data:this.message
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
+      // console.log(result)
       if(result == 'ok'){
 
       this.router.navigateByUrl('/login')

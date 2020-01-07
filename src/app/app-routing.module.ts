@@ -441,7 +441,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
   { path: 'rep-dashboard', component: RepdashboardComponent, canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {"rep":"rep"} }, endpoint: 'for-rep-dashboard' }  },
+  data: { requestcondition: { source: '', condition: {"for-rep":"for-rep"} }, endpoint: 'for-rep-dashboard' }  },
   { path: 'my-commission', component: CommissionListComponent },
   { path: 'my-birddog', component: BirddogListComponent },
 
