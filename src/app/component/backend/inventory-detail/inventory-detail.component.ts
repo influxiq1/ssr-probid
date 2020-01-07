@@ -253,7 +253,7 @@ export class InventoryDetailComponent implements OnInit {
             }
             this.apiService.deleteSingleData1(data).subscribe((res: any) => {
               if (res.status == 'success') {
-                console.log('success')
+                // console.log('success')
               }
             })
 
@@ -314,7 +314,7 @@ export class InventoryDetailComponent implements OnInit {
   //remove rsvp and save data
 
   removeItem(val: any) {
-    console.log('remove-item', val)
+    // console.log('remove-item', val)
     const dialogRef = this.dialog.open(RemoveRsvpComponent, {
       width: '250px',
       data: this.message
@@ -388,7 +388,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //remove data for search-details page
   removeAddSave(val: any, item: any) {
-    console.log('++>>', val, item)
+    // console.log('++>>', val, item)
     const dialogRef = this.dialog.open(RemoveRsvpComponent, {
       width: '250px',
       data: this.message

@@ -42,7 +42,10 @@ public user_full_name: any = '';
   }
 
   logOut() {
-    this.cookieService.deleteAll();
+    console.log('hit')
+    setTimeout(() => {
+      this.cookieService.deleteAll();
+    }, 1000);
     this.router.navigateByUrl('/');
     // console.log("logout");
     // console.log(this.token);
