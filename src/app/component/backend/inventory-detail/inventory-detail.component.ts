@@ -5,8 +5,6 @@ import { BasicInventorySearchBackendComponent } from '../inventory/basic-invento
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { Observable, Subject, Subscription } from 'rxjs';
-import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 
 export interface DialogData {
