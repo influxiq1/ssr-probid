@@ -28,7 +28,7 @@ export class HomeComponent implements OnInit {
   public make_list: [];
   public type_list: [];
   public model_list: [];
-  // public year_list: [];
+  public year_list: [];
   public trim_list: [];
   public stateList:any;
 
