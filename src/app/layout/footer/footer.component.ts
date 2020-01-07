@@ -249,7 +249,7 @@ export class NewslatterDialogComponent {
 
                 let result: any = {};
                 result = res;
-                console.log(res);
+                // console.log(res);
                 if (result.status == 'success') {
 
                     this.myformnews.reset();

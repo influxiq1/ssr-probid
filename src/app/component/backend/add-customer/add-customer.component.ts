@@ -26,7 +26,7 @@ public btn_text:any="Submit"
 
     this.userType=this.userDetails.type;
 
-    console.log('+++++>>',this.userType)
+    // console.log('+++++>>',this.userType)
 
     
     /**genarate Add-customer form */
@@ -105,7 +105,7 @@ public btn_text:any="Submit"
     this.apiservice.CustomRequest(data,'datalist').subscribe((res)=>{
       let result:any;
       result=res;
-      console.log('>>>>>>>>>>',result.res)
+      // console.log('>>>>>>>>>>',result.res)
       this.salesrepList=result.res
     })
 
