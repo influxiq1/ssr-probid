@@ -607,6 +607,14 @@ ckeditor {
   padding: 0px 0px;
 }
 
+.as_sm_imgmainwrapper .owl-carousel.owl-loaded .owl-stage[style]{
+  width: 100% !important;
+}
+
+.flexbox4columnthumb .owl-carousel.owl-loaded .owl-stage[style]{
+  width: 100% !important;
+}
+
 .listscontent .mat-list-base .mat-list-item .mat-list-item-content {
   padding: 0 !important;
   width: 100%;
