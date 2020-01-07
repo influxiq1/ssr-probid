@@ -50,10 +50,9 @@
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/home']">Home</a>
                   </mat-list-item>
-                  <mat-list-item fxFlex routerLinkActive="activemenu">
+                  <!-- <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/pre-owned-list']">Pre-Owned</a>
-                    <!-- <a (click)="openDialog()">Pre-Owned</a> -->
-                  </mat-list-item>
+                  </mat-list-item> -->
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                       <a [matMenuTriggerFor]="menu1">Inventory</a>
                       <mat-menu #menu1="matMenu" class="activedropmenu">
@@ -62,8 +61,6 @@
                         <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/save-search']">Save Search</a>
                       </mat-menu>
                   </mat-list-item>
-                  </span>
-                  <span class="bdr">
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [matMenuTriggerFor]="menu">Join Probid</a>
                     <mat-menu #menu="matMenu" class="activedropmenu">
@@ -71,6 +68,9 @@
                       <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/customer-signup']">Sign up as Customer</a>
                     </mat-menu>
                   </mat-list-item>
+                  </span>
+                  <span class="bdr">
+                 
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                    <!-- <a [routerLink]="['/aboutus']">About Us</a> -->
                     <a [routerLink]="['/aboutus']">About Us</a>
@@ -78,11 +78,12 @@
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/service']">Service</a>
                   </mat-list-item>
-                  </span>
-                  <span class="bdr">
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/testimonial']">Testimonials</a>
                   </mat-list-item>
+                  </span>
+                  <span class="bdr">
+                 
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/bloglist']">Blog</a>
                   </mat-list-item>

@@ -56,7 +56,6 @@
 .show-scrollTop {opacity: 1; transition: all .2s ease-in-out;}
 
 .footerbottom {
-    width: 100%;
     display: block;
     background-color: rgba(0, 0, 0, 0.5)!important;
     padding: 10px;

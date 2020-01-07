@@ -23,6 +23,7 @@
 
   @media only screen and (max-width: 1280px) {
     .aboutusblock2.mat-card {background-image: url(../images/aboutb2imgdesktop.jpg) !important; background-position: right 19% center !important; background-size: cover !important;}
+    .probidhomeblock4 .mat-list-base.lists .mat-list-item {width: 20%;}
   }
 
   @media only screen and (max-width: 1199px) {
@@ -41,7 +42,7 @@
   .mat-drawer{position:relative;z-index:4;display:block;position:inherit;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%,0,0)}
   .mat-drawer-container.mat-drawer-opened{position:absolute;z-index:999;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:visible}
   .videoclsgen{float:none;margin:0 auto;display:block}
-  .generalcls .mat-card-content{display:inline-block;width:100%;}
+  .generalcls .mat-card-content {display: block;}
   .vpblock2left .btnyellow{float:none}
   .headertitlerightdesign{display:none!important}
   .mat-card-header .mat-card-title span{width:100%; display:inline;}
@@ -65,7 +66,7 @@
   .topsocialblock{width:100px!important;margin:20px auto;display:block}
   .topsocialblock .mat-list{display:inline-flex;justify-content:center!important}
   .headerbottom .mainwrappercontent{width:100%!important}  
-  .contact-form .main-div .from.mat-card{margin:4em auto!important;width:90%!important;padding:15px!important}
+  .contact-form .main-div .from.mat-card{margin: 20px auto 0px!important; width: 90%!important; padding: 15px!important; }
   }
 
   @media only screen and (max-width:1024px) {

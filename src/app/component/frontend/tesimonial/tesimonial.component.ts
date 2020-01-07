@@ -61,28 +61,13 @@ export class TesimonialComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public apiService: ApiService) { 
 
-
+    this.router.navigateByUrl('/home');
   }
 
 
   ngOnInit() {
-    var data: any = {};
-    data = {
-      source:"testimonial_view"
-    }
-      this.apiService.getDatalistWithToken(data, "datalistwithouttoken" ).subscribe((res:any)=>{
-      this.TestimonialListArray = res.res;
-      // console.log(this.TestimonialListArray)
-    });
   }
 
-  showBut() {
-    // console.log('show button')
-  }
-
-  btnClick() {
-    this.router.navigateByUrl('/testimonial');
-  };
 
 
 

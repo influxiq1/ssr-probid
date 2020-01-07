@@ -128,12 +128,12 @@ const routes: Routes = [
   { path: 'customer-signup/:id', component: CustomerSignupComponent },
   { path: 'customer-signup/:img/:id', component: CustomerSignupComponent },
 
-  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
-  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+  // { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
+  // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
 
   { path: 'contactus', component: ContactusComponent },
   {
-    path: "testimonialhome",
+    path: "",
     component: TesimonialComponent,
     resolve: { testimonialListData: ResolveService },
     data: {

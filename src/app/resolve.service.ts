@@ -37,10 +37,7 @@ export class ResolveService implements Resolve<any> {
         var source = route.data.source;
         var condition = route.data.condition;
         var requestData: any = route.data.requestcondition;
-        // if (route.data.requestcondition.trainingcategory != null) {
-        //     requestData.trainingcategory = route.params.cid;
-        //     requestData.userid = this.userid;
-        // }else{
+      
 
             
             requestData.condition = Object.assign(requestData.condition, route.params);

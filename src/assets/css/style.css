@@ -310,11 +310,13 @@ h1.title1{color:#1da1db !important; font-family: 'LatoMedium' !important; font-s
 .generalcls .testibottomcontent .mat-card-title.title1 {font-size: 20px!important;line-height: normal!important; margin-bottom: 5px !important; justify-content: inherit !important; text-transform: capitalize !important; color:#3c3f42;}
 .generalcls .testibottomcontent .mat-card-title.title2 {font-size: 16px!important;line-height: normal!important; margin-bottom: 5px !important; justify-content: inherit !important; text-transform: capitalize !important; color:#858686; margin-top: 10px; font-family: 'Helvetica-Normal';}
 
-.generalcls .quatation {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686; display: -webkit-box;
+.generalcls .quatation {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686; display: block;
 max-width: 100%; margin: 0 auto;}
 .generalcls .quatation p{display: inline-block !important; width: 100%;}
 
-.generalcls .quatation p {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686;display: block;display: -webkit-box; max-width: 100%; margin: 0 auto;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 18px; max-height:86px; -webkit-line-clamp: 5; -webkit-box-orient: vertical;}
+.generalcls .quatation p {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686;display: block;display: block; max-width: 100%; margin: 0 auto;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 18px; max-height:86px; -webkit-line-clamp: 5; -webkit-box-orient: vertical;}
+.generalcls .quatation p a{display: inline-block;}
+.generalcls .quatation a{color: #21c4e1; text-align: left; display: block;}
 
 .generalcls.blog .mat-card-title {
     display: block;
@@ -674,15 +676,19 @@ display:block !important;
 .listsimgwholewrap img{height: 100% !important; -o-object-fit: cover; object-fit: cover; width: 100% !important; width: auto; height: auto;}
 .probidhomeblock3 .btnblue {margin:0.5%;}
 
-.probidhomeblock4 .mat-list-base.lists .mat-list-item {background: #ffffff; padding: 20px;width: 24%; align-items: flex-start;}
+.probidhomeblock4 .mat-list-base.lists .mat-list-item {background: #ffffff; padding: 20px;width: 21%; align-items: flex-start;}
 .probidhomeblock4 .mat-list-base.lists .mat-list-item .mat-list-item-content {justify-content: center;}
 .probidhomeblock4.generalcls p{text-align: center;margin-top: 10px; font-family: "Helvetica-Regular"; font-size: 14px; color:#8f8f8f;}
 .probidhomeblock4 .btnblue {margin:0.5%;}
 
+.probidhomeblock5 {text-align: center;}
+.probidhomeblock5 .btnblue {margin: 0 auto; display: block;}
+.probidhomeblock5 .mainwrappercontent {overflow: hidden;}
+
 .probidhomeblock6.mat-card {background: #e2ecee !important;}
 .probidhomeblock6.mat-card .btnblue {margin:1%;} 
 .sociallink fa{padding: 6px 6px; color: #fff; font-size: 24px;}
-.blogsociallists{margin-top: 20px; display: inline-block; float: left;}
+.blogsociallists{margin-top: 20px; display: inline-block;}
 
 .fa-facebook i{display: none;}
 .fa-twitter i{display: none;}
@@ -818,7 +824,6 @@ display:block !important;
 .formhomeinnerbottom {
     margin-top: 0px;
     background: url("../images/formbg.png") repeat-y;
-    width: 333px;
     height: 100%;
     padding: 15px 20px 0px 20px;
     display: block;
@@ -905,12 +910,12 @@ display:block !important;
 .formhome .mat-form-field-appearance-legacy .mat-form-field-infix {
     background: #20262a;
     border: 1px solid #43494d !important;
-    height: 37px;
+    height: 22px;
     font-family: 'OpenSans-Regular';
     font-style: italic;
     padding: 6px 12px !important;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 25px;
     color: #d4d4d4;
     background-color: #20262a;
     background-image: none;
@@ -958,11 +963,24 @@ display:block !important;
 .revolutionright{display: inline-block; position: relative; max-width: 49%;text-align: left;}
 .revolutionleft .revologo{position: absolute; top:53px; right:0px;}
 .revolutionleft .revocurve{position: absolute; top:65px; right:400px;}
-.revolutionleft .revoinfo{color: #5b605e; font-family: "Helvetica-Normal"; font-size: 30px; position: absolute; right: 149px;top: 204px;width: 435px;text-transform: uppercase;}
+.revolutionleft .revoinfo{
+    color: #5b605e;
+    font-family: "Helvetica-Normal";
+    font-size: 16px;
+    position: absolute;
+    right: 149px;
+    top: 225px;
+    width: 435px;
+    text-transform: uppercase;
+}
 .revolutionleft .revocarman{position: absolute; top:265px; right:-140px;z-index: 9999999;}
 
 .revolutionright .revoinfo1{position: absolute; top:90px; left: 122px; text-transform: uppercase; width: 622px; font-family: 'HelveticaBold'; font-size: 30px;}
-.revolutionright .revoinfo1 h2{font-family: 'Helvetica-Normal'; font-size: 18px; margin-top: 10px;}
+.revolutionright .revoinfo1 h2{
+    font-family: 'Helvetica-Normal';
+    font-size: 15px;
+    margin-top: 20px;
+}
 .revolutionright .revoinfo1 span{color:#ff0167; font-family: 'HelveticaBold'; text-transform: uppercase;}
 .revolutionright .revomobile{position: absolute; top: 235px; left: 116px; font-family: 'HelveticaBold'; font-size: 30px;}
 .revolutionright .revoinfo2{position: absolute; top:597px; left: 204px; width: 468px; }
@@ -1101,7 +1119,7 @@ display:block !important;
 .formblock_bottomtextnew.mat-card {background: url(../images/bg-revolution.png) no-repeat left top #fff !important; width: 100%; z-index: 9; padding: 50px 0;background-size: cover !important; min-height: 1px; position: inherit; display: inline-block; width: 100%;}
 .formblock_bottomtextnew h4 {font-family: 'HelveticaBold'; font-size: 48px; color: #222; margin: 0 0 3px 0; padding: 0; font-weight: normal;}
 .formblock_bottomtextnew h4 span {color: #fb4a32; font-family: 'HelveticaBold'; font-size: 48px; background: transparent !important; padding: 0; width: auto;}
-.formblock_bottomtextnew span {display: inline-block; width: 32.33%; border: none; margin: 0 1px; font-size: 22px; color: #333; text-transform: uppercase; text-align: left; padding: 8px; line-height: 24px;}
+.formblock_bottomtextnew span {display: inline-block; width: 31.33%; border: none; margin: 0 1px; font-size: 22px; color: #333; text-transform: uppercase; text-align: left; padding: 8px; line-height: 24px;}
 .formblock_bottomtextnew span strong {display: block; font-size: 30px; color: #fff; font-weight: normal; line-height: 60px; float: left; margin: 0; height: 100%; padding: 5px 8px;
     background-color: #333; margin-right: 10px;}
 .formblock_bottomtextnew h6 {font-size: 40px; color: #131718; margin: 5px 0 0px 0; padding: 0; font-weight: normal;}
@@ -1115,8 +1133,8 @@ display:block !important;
 
 .associate_new_con1.mat-card{ background: url("../images/salesrepblock1bg.jpg") no-repeat #fff !important; background-size: cover !important;background-position: left top;}
 .associate_new_con1_wrapper{ width: 1526px; margin: 0 auto; padding: 45px 15px;}
-.associate_new_con1_wrapper .associate_new_con1_left{ width: 100%;padding-left: 420px; display: inherit;}
-.associate_new_con1_wrapper .associate_new_con1_right{ width: 100%; padding-left: 420px;padding-top: 40px;display: flex; justify-content: space-between;align-items: flex-end;}
+.associate_new_con1_wrapper .associate_new_con1_left{padding-left: 420px; display: inherit;}
+.associate_new_con1_wrapper .associate_new_con1_right{padding-left: 420px;padding-top: 40px;display: flex; justify-content: space-between;align-items: flex-end;}
 .associate_new_con1_wrapper h2{ font-size: 30px; color: #fff; text-transform: uppercase;  font-family: 'Helvetica-Normal'; margin: 0; padding: 0 0 25px 0;}
 .associate_new_con1_wrapper p{ font-size: 17px; color: #fff;  line-height: 28px; margin: 0; padding: 0;}
 .associate_new_con1_wrapper .as_video-container{width: 48.5%;}
@@ -1153,7 +1171,7 @@ a.associate_new_con5_link:hover{color: #fff !important; text-decoration: none;}
 .associate_new_con5_text tr:nth-of-type(3) td:nth-of-type(1){background: #737373; border-bottom: solid 5px #ecf9ff; border-right: solid 5px #ecf9ff;}
 .associate_new_con5_text tr:nth-of-type(3) td:nth-of-type(2){background: #855a54; border-bottom: solid 5px #ecf9ff; border-right: solid 5px #ecf9ff;}
 .associate_new_con5_text tr:nth-of-type(3) td:nth-of-type(3){background: #fb4a32; border-bottom: solid 5px #ecf9ff; border-right: solid 5px #ecf9ff;}
-.associate_new_con1_wrapper .associate_new_con1_left { width: 100%; padding-left: 420px;}
+.associate_new_con1_wrapper .associate_new_con1_left { padding-left: 420px;}
 
 
 
