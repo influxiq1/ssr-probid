@@ -96,15 +96,15 @@ export class InventoryDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    if(this.router.url == '/search-detail' ){
-      console.log('hello')
+    // if(this.router.url == '/search-detail' ){
+    //   console.log('hello')
 
-      this.catItemByObservable.viewDetails('item').subscribe((res:any)=>{
-        console.log('>>>>>??',res);
-        this.data=res;
-      })
+    //   this.catItemByObservable.viewDetails('item').subscribe((res:any)=>{
+    //     console.log('>>>>>??',res);
+    //     this.data=res;
+    //   })
 
-    }
+    // }
 
     //   //for save search & rsvp
     if (this.router.url != '/search-detail') {
@@ -147,9 +147,12 @@ export class InventoryDetailComponent implements OnInit {
           added_by_object: this.user_id
         }
       }
-      this.apiService.getDataForDatalist(data).subscribe((res: any) => {
+      this.apiService.CustomRequest(data,'datalist').subscribe((res: any) => {
 
         this.saveList = res.res;
+
+        console.log(this.saveList)
+
 
 
       });

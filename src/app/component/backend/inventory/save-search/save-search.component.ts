@@ -169,7 +169,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     this.activatedRoute.data.forEach((data) => {
       // console.log(data)
       this.search = data.inventory_search.res;
-      // console.log('search>>',this.search)
+      console.log('search>>',this.search)
     });
   }
 
