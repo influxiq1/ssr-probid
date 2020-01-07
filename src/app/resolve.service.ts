@@ -52,7 +52,7 @@ export class ResolveService implements Resolve<any> {
                   requestData.condition[d]=this.userid;
                 //   console.log('route.data');
                 }
-                if (requestData.condition[d] == 'rep') {
+                if (requestData.condition[d] == 'salesrep') {
                     requestData.id = this.userid;
                     delete requestData.condition
                 }

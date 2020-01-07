@@ -210,13 +210,13 @@ const routes: Routes = [
   { path: 'pre-owned', component: PreOwnedComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'blog-category', component: BlogCategoryComponent },
-  { path: 'inventory-detail/:_id_object', component: InventoryDetailComponent,
+  { path: 'inventory-detail/:_id', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {} }, 
   endpoint: 'datalist' }
   },
 
-  { path: 'rsvp-detail/:_id_object', component: InventoryDetailComponent,
+  { path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist' }
