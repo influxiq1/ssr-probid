@@ -195,15 +195,15 @@ const routes: Routes = [
 
   { path: 'save-search-admin', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'id'} }, endpoint: 'datalist' }},
+  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
   { path: 'save-search-castomer', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'id'} }, endpoint: 'datalist' }},
+  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
   { path: 'save-search-rep', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'id'} }, endpoint: 'datalist' }},
+  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
 
 

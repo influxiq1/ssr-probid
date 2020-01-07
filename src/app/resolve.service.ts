@@ -47,7 +47,7 @@ export class ResolveService implements Resolve<any> {
                 // console.log('>>>>',this.userid)  
               }
             for(let d in requestData.condition){
-                if(requestData.condition[d]=='user_id' || requestData.condition[d]=='added_by_object'  || requestData.condition[d]=='added_for_object'  || requestData.condition[d]=='user_id'  || requestData.condition[d]=='added_by' ){
+                if(requestData.condition[d]=='user_id' ){
                     console.log(requestData.condition[d])
                   requestData.condition[d]=this.userid;
                 //   console.log('route.data');

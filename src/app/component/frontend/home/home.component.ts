@@ -98,6 +98,7 @@ export class HomeComponent implements OnInit {
 
     let data: any = {
       source:'save_favorite_view', 
+      
     
     }
     this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
