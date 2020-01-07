@@ -109,150 +109,29 @@
                         </form>
                   </span>
               </span>       
-              <mat-list class="lists">
-                  <mat-list-item> 
-                    <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg1.jpg"></span>
+              <mat-list class="lists" >
+                  <mat-list-item *ngFor="let item of saveCarDataList | slice:0:8"> 
+                    <span class="listsimgwrap">
+                      <img  *ngIf="item.media.photo_links !='' && item.media.photo_links !=null"  [src]="item.media.photo_links[0]">
+                      <img *ngIf="item.media.photo_links =='' && item.media.photo_links ==null" src="../../../../assets/images/carimg2.jpg">
+                    </span>
                     <span class="listsinfo">
                       <span class="listsinfoprice">
-                          $ 45,000
+                          $ {{item.price}}
                       </span>
                       <span class="listsinfoaddress">
-                        BMW 535I, NAVI, 2010, SEDAN
+                      {{item.heading}}
                       </span>
                     </span> 
                     <span class="listsbottominfo">
                         <mat-list class="listsbottom">
-                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
+                            <mat-list-item> 
+                              <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> {{item.miles}} 
+                            </mat-list-item>
+                            <mat-list-item> <img src="../../../../assets/images/drivetrainicon.png"> {{item.build.drivetrain}} </mat-list-item>
+                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> {{item.build.transmission}} </mat-list-item>
                          </mat-list>
                     </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                      <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg2.jpg"></span>
-                      <span class="listsinfo">
-                        <span class="listsinfoprice">
-                            $ 45,000
-                        </span>
-                        <span class="listsinfoaddress">
-                          BMW 535I, NAVI, 2010, SEDAN
-                        </span>
-                      </span> 
-                      <span class="listsbottominfo">
-                          <mat-list class="listsbottom">
-                              <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                              <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                              <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                           </mat-list>
-                      </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                        <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg3.jpg"></span>
-                        <span class="listsinfo">
-                          <span class="listsinfoprice">
-                              $ 45,000
-                          </span>
-                          <span class="listsinfoaddress">
-                            BMW 535I, NAVI, 2010, SEDAN
-                          </span>
-                        </span> 
-                        <span class="listsbottominfo">
-                            <mat-list class="listsbottom">
-                                <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                             </mat-list>
-                        </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                          <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg4.jpg"></span>
-                          <span class="listsinfo">
-                            <span class="listsinfoprice">
-                                $ 45,000
-                            </span>
-                            <span class="listsinfoaddress">
-                             BMW 535I, BLUE, 2010, SUV
-                            </span>
-                          </span> 
-                          <span class="listsbottominfo">
-                              <mat-list class="listsbottom">
-                                  <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                  <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                  <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                               </mat-list>
-                          </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                            <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg5.jpg"></span>
-                            <span class="listsinfo">
-                              <span class="listsinfoprice">
-                                  $ 45,000
-                              </span>
-                              <span class="listsinfoaddress">
-                                BMW 535I, NAVI, 2010, SEDAN
-                              </span>
-                            </span> 
-                            <span class="listsbottominfo">
-                                <mat-list class="listsbottom">
-                                    <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                    <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                    <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                                 </mat-list>
-                            </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                              <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg6.jpg"></span>
-                              <span class="listsinfo">
-                                <span class="listsinfoprice">
-                                    $ 45,000
-                                </span>
-                                <span class="listsinfoaddress">
-                                  BMW 535I, NAVI, 2010, SEDAN
-                                </span>
-                              </span> 
-                              <span class="listsbottominfo">
-                                  <mat-list class="listsbottom">
-                                      <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                      <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                      <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                                   </mat-list>
-                              </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                                <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg7.jpg"></span>
-                                <span class="listsinfo">
-                                  <span class="listsinfoprice">
-                                      $ 45,000
-                                  </span>
-                                  <span class="listsinfoaddress">
-                                   BMW 535I, BLUE, 2010, SUV
-                                  </span>
-                                </span> 
-                                <span class="listsbottominfo">
-                                    <mat-list class="listsbottom">
-                                        <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                        <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                        <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                                     </mat-list>
-                                </span> 
-                  </mat-list-item>
-                  <mat-list-item> 
-                                  <span class="listsimgwrap"><img src="https://dev.probidauto.com/assets/images/carsimg8.jpg"></span>
-                                  <span class="listsinfo">
-                                    <span class="listsinfoprice">
-                                        $ 45,000
-                                    </span>
-                                    <span class="listsinfoaddress">
-                                     BMW 535I, BLUE, 2010, SUV
-                                    </span>
-                                  </span> 
-                                  <span class="listsbottominfo">
-                                      <mat-list class="listsbottom">
-                                          <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> 80 </mat-list-item>
-                                          <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon2.png"> 67/56 </mat-list-item>
-                                          <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> Automatic </mat-list-item>
-                                       </mat-list>
-                                  </span> 
                   </mat-list-item>
                </mat-list>
               <button mat-button class="btnblue sim-button" [routerLink]="['/pre-owned-list']">View all</button>
@@ -261,12 +140,12 @@
         </mat-tab>
         <mat-tab>            
             <ng-template mat-tab-label>
-              <h2>Online Inventory</h2>
+              <h2>New Cars</h2>
             </ng-template>           
             <ng-template matTabContent>
                 <span class="mainwrappercontent"> 
                     <span class="search-sec">                
-                        <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Online Inventory</h2>
+                        <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png">New Cars</h2>
                         <span class="mat-search-bar">
                             <form class="example-form">
                               <mat-form-field class="example-full-width">
@@ -460,28 +339,28 @@
                 </span>
             </ng-template>
         </mat-tab>
-        <mat-tab>
+  <mat-tab>
             <ng-template mat-tab-label>
-              <h2>Search Inventory</h2>
-          </ng-template>
+              <h2 [routerLink]="['/basic-inventory-search']">Search Inventory</h2>
+        </ng-template>
           <ng-template matTabContent>
             <span class="basicsearchinventorybg">
                 <span class="mainwrappercontent">     
                     <span class="search-sec">                
                         <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Search Inventory</h2>
-                        <!-- <span class="mat-search-bar">
+                       <span class="mat-search-bar">
                             <form class="example-form">
                                 <mat-form-field class="example-full-width">
                                   <span matPrefix></span>
                                   <input type="text" matInput placeholder="Color, Type, Year">
-                                  <button mat-button>
+                                  <button mat-button [routerLink]="['/basic-inventory-search']" >
                                       <i class="material-icons">
                                           search
                                       </i>
                                   </button>                                  
                                 </mat-form-field>                          
                               </form>
-                        </span> -->
+                        </span>
                     </span>
                   
                   <img src="https://dev.probidauto.com/https://dev.probidauto.com/assets/images/basic-inventory-search-home.png" style="width: 100%; display: block; margin: 0; padding: 0;">
@@ -506,13 +385,14 @@
           <mat-list-item role="listitem" class="bluebg">
             <h2>Are you looking for a car?</h2>
             <p>Our cars are delivered fully-registered with all requirements completed. We’ll deliver your car wherever you are.</p>
-            <button mat-button class="btnblue sim-button" [routerLink]="['/advance-inventory-search']">Learn More</button>
+            <button mat-button class="btnblue sim-button" [routerLink]="['/basic-inventory-search']">Learn More</button>
             <img src="https://dev.probidauto.com/assets/images/searchcarcion.png">
           </mat-list-item>
           <mat-list-item role="listitem" class="orangebg">
               <h2>Do You want to sell a car?</h2>
               <p>What’s your car worth? Receive the absolute best value for your trade-in vehicle. We even handle all paperwork. Schedule your appointment today!</p>
-              <button mat-button class="btnblue sim-button" [routerLink]="['/advance-inventory-search']">Learn More</button>
+              <button mat-button class="btnblue sim-button" 
+              [routerLink]="['/basic-inventory-search']">Learn More</button>
               <img src="https://dev.probidauto.com/assets/images/sellcarcion.png">
           </mat-list-item>
         </mat-list>

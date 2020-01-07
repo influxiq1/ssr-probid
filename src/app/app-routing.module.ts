@@ -113,8 +113,8 @@ const routes: Routes = [
 
   /**Frontend Routing**/
   
-  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
-  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+  // { path: 'login', component: HomeComponent ,resolve: { home_data: ResolveService },
+  // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
 

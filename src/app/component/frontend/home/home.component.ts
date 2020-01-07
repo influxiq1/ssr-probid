@@ -1,6 +1,7 @@
 import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import {ApiService} from '../../../api.service'
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  public saveCarDataList:any;
 
 
 
@@ -66,7 +68,7 @@ export class HomeComponent implements OnInit {
   public indexval:any = 3;
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute) { 
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService) { 
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -89,6 +91,21 @@ export class HomeComponent implements OnInit {
       //  console.log(this.blog_img)
       })
   
+
+
+      //for preown car
+    // this.getData;
+
+    let data: any = {
+      source:'save_favorite_view', 
+    
+    }
+    this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+      console.log('>>>>',resc.res);
+      this.saveCarDataList=resc.res
+    })
+     
+
    }
    
   ngAfterViewInit(): void {
@@ -114,6 +131,18 @@ export class HomeComponent implements OnInit {
     this.indexval = this.indexval + 3;   
     // console.log(this.indexval);
   }
+
+  // getData(){
+  //   let data: any = {
+  //     endpoint: 'datalist',
+  //     source: 'save_favorite_view',
+      
+  //   }
+  //   this.apiService.getDatalist(data).subscribe((res:any)=>{
+  //     console.log(res);
+  //   })
+  // }
+
 
 
 }
