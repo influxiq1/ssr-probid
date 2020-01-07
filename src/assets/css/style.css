@@ -310,11 +310,13 @@ h1.title1{color:#1da1db !important; font-family: 'LatoMedium' !important; font-s
 .generalcls .testibottomcontent .mat-card-title.title1 {font-size: 20px!important;line-height: normal!important; margin-bottom: 5px !important; justify-content: inherit !important; text-transform: capitalize !important; color:#3c3f42;}
 .generalcls .testibottomcontent .mat-card-title.title2 {font-size: 16px!important;line-height: normal!important; margin-bottom: 5px !important; justify-content: inherit !important; text-transform: capitalize !important; color:#858686; margin-top: 10px; font-family: 'Helvetica-Normal';}
 
-.generalcls .quatation {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686; display: -webkit-box;
+.generalcls .quatation {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686; display: block;
 max-width: 100%; margin: 0 auto;}
 .generalcls .quatation p{display: inline-block !important; width: 100%;}
 
-.generalcls .quatation p {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686;display: block;display: -webkit-box; max-width: 100%; margin: 0 auto;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 18px; max-height:86px; -webkit-line-clamp: 5; -webkit-box-orient: vertical;}
+.generalcls .quatation p {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686;display: block;display: block; max-width: 100%; margin: 0 auto;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 18px; max-height:86px; -webkit-line-clamp: 5; -webkit-box-orient: vertical;}
+.generalcls .quatation p a{display: inline-block;}
+.generalcls .quatation a{color: #21c4e1; text-align: left; display: block;}
 
 .generalcls.blog .mat-card-title {
     display: block;
