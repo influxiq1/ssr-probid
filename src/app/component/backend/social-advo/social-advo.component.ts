@@ -42,7 +42,7 @@ export class SocialAdvoComponent implements OnInit {
 
     /* To copy Text from Textbox */
   copyInputMessage(inputElement){
-    console.log(inputElement.select())
+    // console.log(inputElement.select())
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);

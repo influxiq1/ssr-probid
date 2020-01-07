@@ -343,28 +343,39 @@
 	background: #12C3E3 !important;
 }
 
-.postblock p{
-	position: absolute;
-    top: 85%;
-    left: 0;
+.grapurl{
+	position: relative;
     z-index: 9;
     width: 100%;
-    height: 100px;
+    height: auto;
     white-space: normal;
     word-break: break-all;
 }
 
-.postblock p button{
-    width: 97%;
-    margin: 5px auto 0px;
+.grapurl button{
+	width: 100%;
+    margin: 0px auto 0px;
     display: block;
-    padding: 5px;
+	padding: 5px;
+	color: rgb(230, 230, 230);
+    font-size: 16px;
+    padding: 9px;
+text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+background: rgb(0, 0, 0);
+background: -moz-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -webkit-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -o-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -ms-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: linear-gradient(0deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
 }
 
-.postblock p input.mat-input-element {
+.grapurl input.mat-input-element {
 	margin-top: 0;
-    width: 93%;
-    margin: 0 auto 10px;
+    width: 100%;
+    margin: 0 auto 0px;
     display: block;
     border: 0;
     height: 24px;
