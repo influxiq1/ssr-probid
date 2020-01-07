@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-birddog-list',
@@ -41,7 +42,7 @@ birdDogList_detail_skip: any = ['_id'];
     search:[{label:"Search By autocomplete",field:'name'}]     // this is use for  Autocomplete search
 }
 
-constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService) { }
+constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService, public cookieService: CookieService) { }
 
 ngOnInit() {
   this.activatedRoute.data.forEach(data=>{   

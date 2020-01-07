@@ -74,26 +74,6 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blog_img)
       })
   
-     /**api service for blog_catagory by uttam */
-    //  var datacat:any={};
-    //  datacat={
-    //    source:"blog_category",
-    //    endpoint: "datalist"
-    //  }
-    //  this.apiService.getTempToken().subscribe((res:any)=>{
-       
-    //    if(res.status == 'success') {
-    //      this.apiService.getDatalistWithToken(datacat, res).subscribe((res2:any)=>{
- 
-    //        this.blogcategory = res2.res;
-    //        console.log('++++++++++++++++++++',this.blogcategory)
- 
-    //      });
-    //    }
-     
-    //  });
- 
-
 
      /**api service for blog_catagory count by uttam */
      var datacatcount:any={};
@@ -125,39 +105,6 @@ export class BlogdetailComponent implements OnInit {
             //  console.log(this.blogcategorysearch)
    
            });
-      
-      //  panelOpenState = false;
-     
-      //  subblog(val:any){
-      //    console.log('>>>>>>>>>>>')
-      //    console.log(val);
-      //    this.blogsubcat=val._id;
-      //    console.log(this.blogsubcat)
-       
-      //   let data:any;
-      //   data = {
-      //     source:"blogs_view",
-      //     endpoint: "datalist",
-      //     condition:{
-      //     _id: val._id
-      //   },
-      // }
-      //   this.apiService.getTempToken().subscribe((res:any)=>{
-          
-      //     if(res.status == 'success') {
-      //       this.apiService.getDatalistWithToken(data, res).subscribe((res:any)=>{
-    
-      //         this.blog = res.res[0];
-      //         console.log('..........>>>>>>>>>>>>>',this.blog)
-    
-      //       });
-      //     }
-      //   });
-
-
-      //  }
-  
-
     
   }
   subblog(val:any){

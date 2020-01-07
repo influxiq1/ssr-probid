@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { CookieService } from 'ngx-cookie-service';
 
 
 export interface DialogData {
@@ -46,7 +47,7 @@ export class AdminManageCategoriesComponent implements OnInit {
   public editrouteyear:any = 'edityear';
 
 
-  constructor(public router: Router, public apiService: ApiService, public activatedRoute: ActivatedRoute, public dialog: MatDialog) { }
+  constructor(public router: Router, public apiService: ApiService, public activatedRoute: ActivatedRoute, public dialog: MatDialog, public cookieService: CookieService) { }
 
 
   ngOnInit() {

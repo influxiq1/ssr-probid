@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ɵConsole } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
 
@@ -77,7 +77,7 @@ export class TesimonialComponent implements OnInit {
   }
 
   showBut() {
-    console.log('show button')
+    // console.log('show button')
   }
 
   btnClick() {

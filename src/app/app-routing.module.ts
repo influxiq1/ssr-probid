@@ -106,19 +106,17 @@ import { LisitngTestemailappComponent } from './component/backend/newsletterlist
 import { ListingSenderappComponent } from './component/backend/newsletterlists/listing-senderapp/listing-senderapp.component';
 import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
-import { AskForConfirmationComponent } from './component/backend/ask-for-confirmation/ask-for-confirmation.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
 
   /**Frontend Routing**/
-  { path: '', component: HomeComponent },
-
-
+  
+  { path: 'login', component: HomeComponent ,resolve: { home_data: ResolveService },
+  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
-  { path: 'tests', component: AskForConfirmationComponent },
 
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
@@ -129,7 +127,10 @@ const routes: Routes = [
 
   { path: 'customer-signup/:id', component: CustomerSignupComponent },
   { path: 'customer-signup/:img/:id', component: CustomerSignupComponent },
-  { path: 'home', component: HomeComponent },
+
+  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
+  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+
   { path: 'contactus', component: ContactusComponent },
   {
     path: "testimonialhome",
@@ -186,7 +187,7 @@ const routes: Routes = [
 
 
 
-  { path: 'blogdetail/:id', component: BlogdetailComponent,resolve: { blogCatList: ResolveService },
+  { path: 'blogdetail/:_id_object', component: BlogdetailComponent,resolve: { blogCatList: ResolveService },
   data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' } },
 
 
@@ -216,21 +217,21 @@ const routes: Routes = [
   { path: 'pre-owned', component: PreOwnedComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'blog-category', component: BlogCategoryComponent },
-  { path: 'inventory-detail/:id', component: InventoryDetailComponent,
+  { path: 'inventory-detail/:_id_object', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {_id_object:'id'} }, 
+  data: { requestcondition: { source: 'save_favorite_view', condition: {} }, 
   endpoint: 'datalist' }
   },
 
-  { path: 'rsvp-detail/:id', component: InventoryDetailComponent,
+  { path: 'rsvp-detail/:_id_object', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {_id_object:'id'} },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist' }
   },
 
-  {path: 'rsvp-final/:id', component: RsvpSuccessComponent,
+  {path: 'rsvp-final/:_id', component: RsvpSuccessComponent,
   resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {_id:'id'} },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist' }},
 
 // ___________________BLOG MANAGEMENT_________________
@@ -311,7 +312,7 @@ const routes: Routes = [
   /**Backend Routing**/
   // {path: 'customer-dashboard', component:DashboardComponent, canActivate:[AuthGuard]},       // Useing for canActive
   { path: 'customer-dashboard', component: DashboardComponent , canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-customer-dashboard' }},
+  data: { requestcondition: { source: '', condition: {"customer":"customer-dashboard"} }, endpoint: 'for-customer-dashboard' }},
   // { path: 'admin-dashboard', component: MaindashboardComponent,canActivate: [AuthGuard] },
   { path: 'admin-dashboard', component: MaindashboardComponent,canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
   data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-dashboard' } },
@@ -447,7 +448,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
   { path: 'rep-dashboard', component: RepdashboardComponent, canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-rep-dashboard' }  },
+  data: { requestcondition: { source: '', condition: {"rep":"rep"} }, endpoint: 'for-rep-dashboard' }  },
   { path: 'my-commission', component: CommissionListComponent },
   { path: 'my-birddog', component: BirddogListComponent },
 
@@ -577,6 +578,15 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
       
     },
 
+
+    // { path: '',
+    // redirectTo: '/home',
+    // pathMatch: 'full',
+    //  },
+
+
+    { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },
+    data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} }
 ];
 
 @NgModule({

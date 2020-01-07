@@ -1,11 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Router } from '@angular/router';
-import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../api.service';
-import * as moment from 'moment';
-import { CookieService } from 'ngx-cookie-service';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-blog',
@@ -27,7 +22,7 @@ export class BlogComponent implements OnInit {
   ];
 public tokenVal: any;
 
-  constructor(public activatedRoute: ActivatedRoute, public router:Router, public apiService: ApiService, public _http: HttpClient) {
+  constructor(public router:Router, public apiService: ApiService) {
 
     
   }
@@ -56,7 +51,7 @@ public tokenVal: any;
     this.apiService.getDatalistWithToken(data, "getblogdata").subscribe((res:any)=>{
 
       this.blogList = res.items;
-      console.log(this.blogList)
+      // console.log(this.blogList)
 
     });
   }

@@ -13,7 +13,7 @@ export class ResolveService implements Resolve<any> {
     public userid: any;
     public userCookies: any;
 
-    constructor(private _apiService: ApiService, public cookieservice: CookieService , public activedrouter:ActivatedRoute) {
+    constructor(private _apiService: ApiService, public cookieservice: CookieService , public activedrouter:ActivatedRoute, public router:Router) {
 
         if (this.cookieservice.get('user_details') != undefined && this.cookieservice.get('user_details') != null && this.cookieservice.get('user_details') != '') {
             this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
@@ -50,47 +50,60 @@ export class ResolveService implements Resolve<any> {
                 // console.log('>>>>',this.userid)  
               }
             for(let d in requestData.condition){
-                if(requestData.condition[d]=='user_id'){
+                if(requestData.condition[d]=='user_id' || requestData.condition[d]=='added_by_object'  || requestData.condition[d]=='added_for_object'  || requestData.condition[d]=='user_id'  || requestData.condition[d]=='added_by' ){
+                    console.log(requestData.condition[d])
                   requestData.condition[d]=this.userid;
                 //   console.log('route.data');
+                }
+                if (requestData.condition[d] == 'rep') {
+                    requestData.id = this.userid;
+                    delete requestData.condition
+                }
+                if (requestData.condition[d] == 'customer-dashboard') {
+                    requestData.id = this.userid;
+                    requestData.salesrep = this.userCookies.salesrep;
+                    delete requestData.condition
                 }
               }
             // delete route.data.requestcondition.condition.id;
             // console.log(route.data)
-            // console.log(requestData.condition)
-            if(route.url[0].path == 'blogdetail') {
-                route.data.requestcondition.condition._id_object = route.params['id'] ;
-                delete route.data.requestcondition.condition.id
+            // console.log(route.params['_id_object'])
+            // if(route.url[0].path == 'blogdetail') {
+                // console.log(route.data.requestcondition.condition)
+            //     // route.data.requestcondition.condition._id_object = route.params['id'] ;
+            //     // delete route.data.requestcondition.condition.id
 
-            }
-            if(route.url[0].path == 'inventory-detail') {
-                route.data.requestcondition.condition._id_object = route.params['id'] ;
-                delete route.data.requestcondition.condition.id ;
-            }
-            if(route.url[0].path == 'rsvp-detail') {
-                route.data.requestcondition.condition._id_object = route.params['id'] ;
-                delete route.data.requestcondition.condition.id ;
-            }
-            if(route.url[0].path == 'rsvp-final') {
-                route.data.requestcondition.condition._id = route.params['id'] ;
-                delete route.data.requestcondition.condition.id ;
-            }
-            if(route.url[0].path == 'rsvp-salesrep') {
-                route.data.requestcondition.condition.added_by_object = this.userid ;
-            }
-            if(route.url[0].path == 'rsvp-customer') {
-                route.data.requestcondition.condition.added_for_object = this.userid ;
-            }
-            if (route.url[0].path == 'save-search-admin' || route.url[0].path == 'save-search-castomer' || route.url[0].path == 'save-search-rep') {
-                route.data.requestcondition.condition.added_by = this.userid ;
-            }
-            if(route.url[0].path == 'rep-dashboard') {
-                route.data.requestcondition.id = this.userid ;
-            }
-            if(route.url[0].path == 'customer-dashboard') {
-                route.data.requestcondition.id = this.userid ;
-                route.data.requestcondition.salesrep = this.userCookies.salesrep;
-            }
+            // }
+            // if(route.url[0].path == 'inventory-detail') {
+            //     route.data.requestcondition.condition._id_object = route.params['id'] ;
+            //     delete route.data.requestcondition.condition.id ;
+            // }
+            // if(route.url[0].path == 'rsvp-detail') {
+            //     route.data.requestcondition.condition._id_object = route.params['id'] ;
+            //     delete route.data.requestcondition.condition.id ;
+            // }
+            // if(route.url[0].path == 'rsvp-final') {
+            //     route.data.requestcondition.condition._id = route.params['id'] ;
+            //     delete route.data.requestcondition.condition.id ;
+            // }
+
+
+            // if(route.url[0].path == 'rsvp-salesrep') {
+            //     route.data.requestcondition.condition.added_by_object = this.userid ;
+            // }
+            // if(route.url[0].path == 'rsvp-customer') {
+            //     route.data.requestcondition.condition.added_for_object = this.userid ;
+            // }
+            // if (route.url[0].path == 'save-search-admin' || route.url[0].path == 'save-search-castomer' || route.url[0].path == 'save-search-rep') {
+            //     route.data.requestcondition.condition.added_by = this.userid ;
+            // }
+            // if(route.url[0].path == 'rep-dashboard') {
+            //     route.data.requestcondition.id = this.userid ;
+            // }
+            // if(route.url[0].path == 'customer-dashboard') {
+            //     route.data.requestcondition.id = this.userid ;
+            //     route.data.requestcondition.salesrep = this.userCookies.salesrep;
+            // }
             return new Promise((resolve) => {
                 // console.log('route.data',route.data, this.userid);
                 this._apiService.getDatalistForResolve(route.data).subscribe(api_object =>{
@@ -98,6 +111,7 @@ export class ResolveService implements Resolve<any> {
                         //console.log(api_object);
                         return resolve(api_object);
                     } else { // id not found
+                        this.router.navigateByUrl('/home');
                         return true;
                     }
                 })

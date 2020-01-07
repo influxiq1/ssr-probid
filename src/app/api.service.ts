@@ -25,14 +25,6 @@ export class ApiService {
   public fileimgsslurl: any;
 
 
-
-  public lengthis;
-  public percentageis;
-  public inprogress;
-  public progress: any = [];
-  public uploadtype;
-  public uploaderror: any = '';
-  public accesstoken:any = this.cookieService.get('jwtToken');
   fileservername: any = [];
   serverUrl: any;
   addendpointUrl: any;
@@ -59,159 +51,149 @@ export class ApiService {
   public subscriptionGetdataEndpoint: Subscription;
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService) {
-    // console.log('++++++++',this.subjectForGetdataEndpointUrl);
-
-      this._http.get(this.serverUrlDemo + 'gettemptoken').subscribe((res: any)=>{
-        this.tokenVal = res;
-        // console.log('token')
-        // console.log(this.tokenVal)
-        // console.log(this.tokenVal.token.length)
-      });
-
-      this.fileimgsslurl = 'http://api.nexgentesting.com/';
 
 
-    this.subscriptionServer = this.getServerUrl().subscribe(message => {
-     let result: any;
-      result = message;
-      if (result != null) {
-        this.serverUrl = result;
-      } else {
-        this.serverUrl = null;
-      }
-    });
-    this.subscriptionaddEndpoint = this.getaddEndpoint().subscribe(message => {
-      let result: any;
-      result = message;
-      if (result != null) {
-        this.addendpointUrl = result;
-      } else {
-        this.addendpointUrl = null;
-      }
-    });
-    /*********added by souresh***********/
-    this.subscriptionuploadEndpoint=this.getuploadEndpoint().subscribe(message=>{
-      let result:any;
-      result=message;
-        if(result!=null){
-          this.uploadEndpointUrl = result;
-        } else{
-          this.uploadEndpointUrl = null;
-        }
-    })
-    /************souresh end here**************/
-    this.subscriptionupdateEndpoint = this.getupdateEndpoint().subscribe(message => {
-      let result: any;
-      result = message;
-      if (result != null) {
-        this.updateendpointUrl = result;
-      } else {
-        this.updateendpointUrl = null;
-      }
-    });
-    this.subscriptiondeletesingleEndpoint = this.getdeletesingleEndpoint().subscribe(message => {
-      let result: any;
-      result = message;
-      if (result != null) {
-        this.deletesingle_endpointUrl = result;
-      } else {
-        this.deletesingle_endpointUrl = null;
-      }
-    });
-    this.subscriptionupdatestatusSingleEndpoint = this.getupdatestatus_singleEndpoint().subscribe(message => {
-      let result: any;
-      result = message;
-      if (result != null) {
-        this.updatestatus_single_endpointUrl = result;
-      } else {
-        this.updatestatus_single_endpointUrl = null;
-      }
-    });
-    this.subscriptionGetdataEndpoint = this.getdataEndpoint().subscribe(message => {
-      let result: any;
-      result = message;
-      if (result != null) {
-        this.getdata_endpointUrl = result;
-      } else {
-        this.getdata_endpointUrl = null;
-      }
-    });
+    // this.subscriptionServer = this.getServerUrl().subscribe(message => {
+    //  let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.serverUrl = result;
+    //   } else {
+    //     this.serverUrl = null;
+    //   }
+    // });
+    // this.subscriptionaddEndpoint = this.getaddEndpoint().subscribe(message => {
+    //   let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.addendpointUrl = result;
+    //   } else {
+    //     this.addendpointUrl = null;
+    //   }
+    // });
+    // /*********added by souresh***********/
+    // this.subscriptionuploadEndpoint=this.getuploadEndpoint().subscribe(message=>{
+    //   let result:any;
+    //   result=message;
+    //     if(result!=null){
+    //       this.uploadEndpointUrl = result;
+    //     } else{
+    //       this.uploadEndpointUrl = null;
+    //     }
+    // })
+    // /************souresh end here**************/
+    // this.subscriptionupdateEndpoint = this.getupdateEndpoint().subscribe(message => {
+    //   let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.updateendpointUrl = result;
+    //   } else {
+    //     this.updateendpointUrl = null;
+    //   }
+    // });
+    // this.subscriptiondeletesingleEndpoint = this.getdeletesingleEndpoint().subscribe(message => {
+    //   let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.deletesingle_endpointUrl = result;
+    //   } else {
+    //     this.deletesingle_endpointUrl = null;
+    //   }
+    // });
+    // this.subscriptionupdatestatusSingleEndpoint = this.getupdatestatus_singleEndpoint().subscribe(message => {
+    //   let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.updatestatus_single_endpointUrl = result;
+    //   } else {
+    //     this.updatestatus_single_endpointUrl = null;
+    //   }
+    // });
+    // this.subscriptionGetdataEndpoint = this.getdataEndpoint().subscribe(message => {
+    //   let result: any;
+    //   result = message;
+    //   if (result != null) {
+    //     this.getdata_endpointUrl = result;
+    //   } else {
+    //     this.getdata_endpointUrl = null;
+    //   }
+    // });
 
     
   }
 
-  setServerUrl(value: any) {
-    this.subjectForServerUrl.next(value);
-  }
-  public clearServerUrl() {
-    this.subjectForServerUrl.next(null);
-  }
-  public getServerUrl(): Observable<any> {
-    return this.subjectForServerUrl.asObservable();
-  }
+//   setServerUrl(value: any) {
+//     this.subjectForServerUrl.next(value);
+//   }
+//   public clearServerUrl() {
+//     this.subjectForServerUrl.next(null);
+//   }
+//   public getServerUrl(): Observable<any> {
+//     return this.subjectForServerUrl.asObservable();
+//   }
 
 
-  setaddEndpoint(value: any) {
-    this.subjectForaddEndpointUrl.next(value);
-  }
-  public clearaddEndpoint() {
-    this.subjectForaddEndpointUrl.next(null);
-  }
-  public getaddEndpoint(): Observable<any> {
-    return this.subjectForaddEndpointUrl.asObservable();
-  }
-/*****added by souresh******/
-  setuploadEndpont(value:any){
-    this.subjectForuploadEndpointUrl.next(value);
-  }
-  public clearuploadEndpoint(){
-    this.subjectForuploadEndpointUrl.next(null);
-  }
-  public getuploadEndpoint(): Observable <any> {
-    return this.subjectForuploadEndpointUrl.asObservable();
-  }
-   /********souresh end here********/
+//   setaddEndpoint(value: any) {
+//     this.subjectForaddEndpointUrl.next(value);
+//   }
+//   public clearaddEndpoint() {
+//     this.subjectForaddEndpointUrl.next(null);
+//   }
+//   public getaddEndpoint(): Observable<any> {
+//     return this.subjectForaddEndpointUrl.asObservable();
+//   }
+// /*****added by souresh******/
+//   setuploadEndpont(value:any){
+//     this.subjectForuploadEndpointUrl.next(value);
+//   }
+//   public clearuploadEndpoint(){
+//     this.subjectForuploadEndpointUrl.next(null);
+//   }
+//   public getuploadEndpoint(): Observable <any> {
+//     return this.subjectForuploadEndpointUrl.asObservable();
+//   }
+//    /********souresh end here********/
 
 
-  setupdateEndpoint(value: any) {
-    this.subjectForupdateEndpointUrl.next(value);
-  }
-  public clearupdateEndpoint() {
-    this.subjectForupdateEndpointUrl.next(null);
-  }
-  public getupdateEndpoint(): Observable<any> {
-    return this.subjectForupdateEndpointUrl.asObservable();
-  }
+//   setupdateEndpoint(value: any) {
+//     this.subjectForupdateEndpointUrl.next(value);
+//   }
+//   public clearupdateEndpoint() {
+//     this.subjectForupdateEndpointUrl.next(null);
+//   }
+//   public getupdateEndpoint(): Observable<any> {
+//     return this.subjectForupdateEndpointUrl.asObservable();
+//   }
 
-  setdeletesingleEndpoint(value: any) {
-    this.subjectFordeletesingleEndpointUrl.next(value);
-  }
-  public cleardeletesingleEndpoint() {
-    this.subjectFordeletesingleEndpointUrl.next(null);
-  }
-  public getdeletesingleEndpoint(): Observable<any> {
-    return this.subjectFordeletesingleEndpointUrl.asObservable();
-  }
+//   setdeletesingleEndpoint(value: any) {
+//     this.subjectFordeletesingleEndpointUrl.next(value);
+//   }
+//   public cleardeletesingleEndpoint() {
+//     this.subjectFordeletesingleEndpointUrl.next(null);
+//   }
+//   public getdeletesingleEndpoint(): Observable<any> {
+//     return this.subjectFordeletesingleEndpointUrl.asObservable();
+//   }
 
-  setupdatestatus_singleEndpoint(value: any) {
-    this.subjectForupdatestatusSingleEndpointUrl.next(value);
-  }
-  public clearupdatestatus_singleEndpoint() {
-    this.subjectForupdatestatusSingleEndpointUrl.next(null);
-  }
-  public getupdatestatus_singleEndpoint(): Observable<any> {
-    return this.subjectForupdatestatusSingleEndpointUrl.asObservable();
-  }
+//   setupdatestatus_singleEndpoint(value: any) {
+//     this.subjectForupdatestatusSingleEndpointUrl.next(value);
+//   }
+//   public clearupdatestatus_singleEndpoint() {
+//     this.subjectForupdatestatusSingleEndpointUrl.next(null);
+//   }
+//   public getupdatestatus_singleEndpoint(): Observable<any> {
+//     return this.subjectForupdatestatusSingleEndpointUrl.asObservable();
+//   }
 
-  setgetdataEndpoint(value: any) {
-    this.subjectForGetdataEndpointUrl.next(value);
-  }
-  public cleargetdataEndpoint() {
-    this.subjectForGetdataEndpointUrl.next(null);
-  }
-  public getdataEndpoint(): Observable<any> {
-    return this.subjectForGetdataEndpointUrl.asObservable();
-  }
+//   setgetdataEndpoint(value: any) {
+//     this.subjectForGetdataEndpointUrl.next(value);
+//   }
+//   public cleargetdataEndpoint() {
+//     this.subjectForGetdataEndpointUrl.next(null);
+//   }
+//   public getdataEndpoint(): Observable<any> {
+//     return this.subjectForGetdataEndpointUrl.asObservable();
+//   }
 
 
 
@@ -231,10 +213,10 @@ postDatawithoutToken(endpoint:any, data:any) {
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type':  'application/json',
-      'Authorization': this.accesstoken 
+      'Authorization': this.cookieService.get('jwtToken') 
     })
   };
-  console.log('endpoint');
+  // console.log('endpoint');
   // console.log(endpoint);
   var result = this._http.post(this.serverUrlDemo+endpoint, JSON.stringify(data), httpOptions).pipe(map(res => res));
   return result;
@@ -242,53 +224,19 @@ postDatawithoutToken(endpoint:any, data:any) {
 
 
   addData(requestdata: any) {
-    console.log('in adddata apiservice');
+    // console.log('in adddata apiservice');
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken          //hard code written access-token(temp)
+        'Authorization': this.cookieService.get('jwtToken')          //hard code written access-token(temp)
       })
     };
 
-    console.log('httpoptions',httpOptions,this.serverUrl,requestdata);
+    // console.log('httpoptions',httpOptions,this.serverUrl,requestdata);
     var result = this._http.post(this.serverUrl + this.addendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
     return result;
   }
-  
-  /*******added by souresh************/
-  uploadFile(requestdata:any){
-    const httpOptions={
-        headers: new HttpHeaders({
-          'Content-Type':'application/json',
-          'access-token':this.accesstoken          //hard code written access-token(temp)
-        })
-    };
-    var result=this._http.post(this.serverUrl + this.uploadEndpointUrl,JSON.stringify(requestdata),httpOptions).pipe(map(res=>res));
-    return result;
-  }
-  /*******souresh end here********/
-  UpdateData(requestdata: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'access-token': this.accesstoken          //hard code written access-token(temp)
-      })
-    };
-    var result = this._http.post(this.serverUrl + this.updateendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
-    return result;
-  }
 
-  getData(requestdata: any) {
-    const httpOptions = {
-      headers: new HttpHeaders({
-        'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
-      })
-    };
-    var result = this._http.post(this.serverUrl + this.getdata_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
-    return result;
-
-  }
 /*************** Added by himadri start here ***************/ 
 
 
@@ -297,7 +245,7 @@ getDataForDatalist(endpoint: any) {
   const httpOptions = {
       headers: new HttpHeaders({
           'Content-Type':  'application/json',
-          'Authorization': this.accesstoken
+          'Authorization': this.cookieService.get('jwtToken')
       })
   };
 
@@ -372,7 +320,7 @@ getDatalistForResolve(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
-        // 'Authorization': this.accesstoken          //hard code written access-token(temp)
+        // 'Authorization': this.cookieService.get('jwtToken')          //hard code written access-token(temp)
       })
     };
 
@@ -384,11 +332,11 @@ getDatalistForResolve(requestdata: any) {
 
 /*************** Added by himadri start here ***************/ 
 forgetPassword(requestdata: any) {
-  console.log('in forgetPassword apiservice');
+  // console.log('in forgetPassword apiservice');
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
-      // 'Authorization': this.accesstoken          //hard code written access-token(temp)
+      // 'Authorization': this.cookieService.get('jwtToken')          //hard code written access-token(temp)
     })
   };
 
@@ -403,7 +351,7 @@ forgetPassword(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrlDemo + this.deletesingle_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -414,7 +362,7 @@ forgetPassword(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrl + this.deletesingle_endpointUrl+'many', JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -425,7 +373,7 @@ forgetPassword(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrl + this.updatestatus_single_endpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -436,7 +384,7 @@ forgetPassword(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrl + this.updatestatus_single_endpointUrl+'many', JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -446,7 +394,7 @@ forgetPassword(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrlDemo + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -466,15 +414,15 @@ forgetPassword(requestdata: any) {
 
 /**add postData */
 postdata(requestdata: any) {
-  console.log('post Data');
+  // console.log('post Data');
   const httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
-      // 'Authorization': this.accesstoken          //hard code written access-token(temp)
+      // 'Authorization': this.cookieService.get('jwtToken')          //hard code written access-token(temp)
     })
   };
 
-  console.log(this.serverUrl,requestdata);
+  // console.log(this.serverUrl,requestdata);
   var result = this._http.post(this.serverUrl + this.addendpointUrl, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
   return result;
 }
@@ -484,7 +432,7 @@ postdata(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrlDemo + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
@@ -495,7 +443,7 @@ postdata(requestdata: any) {
     const httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
-        'Authorization': this.accesstoken
+        'Authorization': this.cookieService.get('jwtToken')
       })
     };
     var result = this._http.post(this.serverUrlDemo + 'deletesingledata', JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
