@@ -208,20 +208,46 @@
                                 </span>
                               </span>
                               <span class="middleblock">
-                                <span class="pricecls" *ngIf="item.card_data.price != null">
+                                <span class="pricecls" >
+                                  <span *ngIf="item.card_data.price != null">
                                     ${{item.card_data.price}}
                                 </span>
+                                <span  *ngIf="item.card_data.price == null">
+                                 N/A
+                              </span>
+                                </span>
+                                
                                 <span class="titlecls">
+
                                   <span *ngIf="item.card_data.heading != null">{{item.card_data.heading}}</span>
-                                  <span></span>
+                                  <span *ngIf="item.card_data.heading == null"> N/A</span>
                                 </span>
                               </span>
                               <span class="bottomblockss">                                  
-                                <mat-list *ngIf="item.card_data.build != null">
-                                    <mat-list-item class="pa_blockfootertext"> <strong><img src="../../../../assets/images/milesicon.png"></strong> {{item.card_data.miles}}</mat-list-item>                                        
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.card_data.build.drivetrain != null"> <strong><img src="../../../../assets/images/drivetrainicon.png"></strong> {{item.card_data.build.drivetrain}}</mat-list-item>                                  
+                                <mat-list >
+
+                                    <mat-list-item class="pa_blockfootertext"> 
+                                      <span *ngIf="item.card_data.miles != null"> <strong><img src="../../../../assets/images/milesicon.png"></strong> {{item.card_data.miles}}</span>
+
+                                      <span *ngIf="item.card_data.miles == null"> <strong><img src="../../../../assets/images/milesicon.png"></strong> {{item.card_data.miles}}</span>
+                                    </mat-list-item>    
+
+                                    <mat-list-item class="pa_blockfootertext" >
+                                      <span *ngIf="item.card_data.build.drivetrain != null"> <strong><img src="../../../../assets/images/drivetrainicon.png"></strong> {{item.card_data.build.drivetrain}}</span>
+
+                                      <span *ngIf="item.card_data.build.drivetrain == null"> <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>N/A</span>
+
+                                    </mat-list-item>                                  
                                    
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.card_data.build.transmission != null"> <strong><img src="../../../../assets/images/bodytypeicon.png"></strong> {{item.card_data.build.transmission}}</mat-list-item>
+                                    <mat-list-item class="pa_blockfootertext" >
+                                    <span  *ngIf="item.card_data.build.transmission != null">  <strong><img src="../../../../assets/images/bodytypeicon.png"></strong> 
+                                      {{item.card_data.build.transmission}}</span>
+                                   
+                                      <span  *ngIf="item.card_data.build.transmission == null">  <strong><img src="../../../../assets/images/bodytypeicon.png"></strong> 
+                                        N/A</span>
+                                     
+                                    
+                                    </mat-list-item>
                                   </mat-list>
                               </span>
                         </span>                                
