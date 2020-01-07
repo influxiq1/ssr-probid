@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 import { CookieService } from 'ngx-cookie-service';
 import { MetaService } from '@ngx-meta/core';
+import { ApiService } from '../../../api.service';
 
 @Component({
   selector: 'app-social-advo',
@@ -11,11 +12,12 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class SocialAdvoComponent implements OnInit {
   public userCookies: any;
+  public userid: any = '';
   public profile: any = '';
   public allImg : any = [
     'facebookbanner-img1.jpg'
   ]
-  constructor(public router: Router, private readonly meta: MetaService, private fb: FacebookService, public cookieService: CookieService) {
+  constructor(public router: Router, private readonly meta: MetaService, private fb: FacebookService, public cookieService: CookieService, public apiService: ApiService) {
 
     this.meta.setTitle('ProBid Auto - Social Advo');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -31,17 +33,27 @@ export class SocialAdvoComponent implements OnInit {
 
 
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    
     fb.init({
       appId: '2540470256228526',
       version: 'v2.9'
     });
    }
 
+    /* To copy Text from Textbox */
+  copyInputMessage(inputElement){
+    console.log(inputElement.select())
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+
 
 
   ngOnInit() {
     this.getLoginStatus();
   }
+
 
   login() {
     this.fb.login()
