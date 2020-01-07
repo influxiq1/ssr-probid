@@ -674,15 +674,19 @@ display:block !important;
 .listsimgwholewrap img{height: 100% !important; -o-object-fit: cover; object-fit: cover; width: 100% !important; width: auto; height: auto;}
 .probidhomeblock3 .btnblue {margin:0.5%;}
 
-.probidhomeblock4 .mat-list-base.lists .mat-list-item {background: #ffffff; padding: 20px;width: 24%; align-items: flex-start;}
+.probidhomeblock4 .mat-list-base.lists .mat-list-item {background: #ffffff; padding: 20px;width: 21%; align-items: flex-start;}
 .probidhomeblock4 .mat-list-base.lists .mat-list-item .mat-list-item-content {justify-content: center;}
 .probidhomeblock4.generalcls p{text-align: center;margin-top: 10px; font-family: "Helvetica-Regular"; font-size: 14px; color:#8f8f8f;}
 .probidhomeblock4 .btnblue {margin:0.5%;}
 
+.probidhomeblock5 {text-align: center;}
+.probidhomeblock5 .btnblue {margin: 0 auto; display: block;}
+.probidhomeblock5 .mainwrappercontent {position: relative; overflow: hidden;}
+
 .probidhomeblock6.mat-card {background: #e2ecee !important;}
 .probidhomeblock6.mat-card .btnblue {margin:1%;} 
 .sociallink fa{padding: 6px 6px; color: #fff; font-size: 24px;}
-.blogsociallists{margin-top: 20px; display: inline-block; float: left;}
+.blogsociallists{margin-top: 20px; display: inline-block;}
 
 .fa-facebook i{display: none;}
 .fa-twitter i{display: none;}

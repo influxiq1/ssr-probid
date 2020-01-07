@@ -23,6 +23,7 @@
 
   @media only screen and (max-width: 1280px) {
     .aboutusblock2.mat-card {background-image: url(../images/aboutb2imgdesktop.jpg) !important; background-position: right 19% center !important; background-size: cover !important;}
+    .probidhomeblock4 .mat-list-base.lists .mat-list-item {width: 20%;}
   }
 
   @media only screen and (max-width: 1199px) {

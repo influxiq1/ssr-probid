@@ -275,14 +275,14 @@ text-transform: uppercase!important; font-family: 'Ralewaybold'; text-decoration
 .tablediv .searchbar .mat-form-field{z-index: 99; position: relative;}
 .tablediv .mat-form-field-flex {align-items: stretch;}
 .tablediv table td span .material-icons{color: #4f5051 !important;}
-.tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{height: 39px; line-height: normal; padding: 10px 5px;}
+.tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{line-height: normal; padding: 8px 3px !important}
 .tablediv table .actionnewbtn span{cursor:pointer;}
 .tablediv.trainingtablediv{margin-top:0px !important;}
 .tablediv.trainingtablediv table {margin-top: 27px;}
 
-.searchblock{margin: 0; padding: 0; position: relative;width: 100%; display: block;}
+.searchblock{margin: 0; padding: 0; position: relative;display: block;}
 .searchblock .btnorange{min-width: 100%; border-radius: 0px; padding: 9px 8px 7px !important; margin: 0 !important; display: flex !important; align-items: center; cursor: pointer;}
-.searchblock{background: #dde2e5 !important; padding: 10px 10px 10px 22px !important;width: 100% !important; display: block; margin:0 auto !important;}
+.searchblock{background: #dde2e5 !important; padding: 8px; width: auto; display: block; margin:0 auto !important;}
 .searchblock span{display: flex; align-items: center; position: relative; z-index: 99;}
 .searchblock .searchblockwrapper {display: flex; align-items: stretch; justify-content: space-between; flex-direction: row;}
 .searchblock span h2{font-family: "Helvetica-Normal"; color:#373b3d; font-size: 24px!important;margin: 0;}
