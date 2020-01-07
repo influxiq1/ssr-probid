@@ -11,7 +11,7 @@ export class InventorySearchComponent implements OnInit {
   constructor(public router: Router, public apiService: ApiService) { }
 
   ngOnInit() {
-    console.log(this.router.url);
+    // console.log(this.router.url);
   }
 
 }

@@ -47,7 +47,7 @@ constructor(public activatedRoute: ActivatedRoute, public router: Router,public 
 ngOnInit() {
   this.activatedRoute.data.forEach(data=>{   
     this.birdDogList=data.birddoglist.res;
-    console.log('>>>>>>',this.birdDogList);
+    // console.log('>>>>>>',this.birdDogList);
   })
 }
 

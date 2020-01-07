@@ -34,7 +34,7 @@ export class AddEditNewsletterComponent implements OnInit {
   }  
   
   constructor(public cookieService: CookieService, private activatedRoute: ActivatedRoute, public apiservice: ApiService) {
-    console.log('data',this.configAddEdit.endpoint );
+    // console.log('data',this.configAddEdit.endpoint );
   }
 
 
@@ -45,7 +45,7 @@ export class AddEditNewsletterComponent implements OnInit {
         this.activatedRoute.data.subscribe(resolveData => {
           this.configAddEdit.defaultData = resolveData.newsLetterAdd.res;
 
-          console.log( this.configAddEdit.defaultData );
+          // console.log( this.configAddEdit.defaultData );
           this.configAddEdit.action = "edit";
           this.configAddEdit.condition = { id: params._id };
 

@@ -33,10 +33,10 @@ export class ServicelistComponent implements OnInit {
   ngOnInit() {
    //********service list view*******IU//
     this.activatedRoute.data.forEach((data:any)=>{
-      console.log(data)
+      // console.log(data)
 
       this.ServiceListArray=data.serviceListData.res; 
-      console.log('>>>>>>>>>>>',this.ServiceListArray) 
+      // console.log('>>>>>>>>>>>',this.ServiceListArray) 
       if(this.serv_list==''){
                this.serv_list=this.ServiceListArray[8];
              }   
@@ -52,13 +52,13 @@ export class ServicelistComponent implements OnInit {
 
   showMoreFunc(){
     this.indexval = this.indexval + 3;   
-    console.log(this.indexval);
+    // console.log(this.indexval);
   }
 //service list data display
   servicelist(val: any){
   // console.log(val)
   this.serv_list=val;
-  console.log(this.serv_list)
+  // console.log(this.serv_list)
   
   }
 

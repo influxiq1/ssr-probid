@@ -151,7 +151,7 @@ export class InventoryDetailComponent implements OnInit {
 
         this.saveList = res.res;
 
-        console.log(this.saveList)
+        // console.log(this.saveList)
 
 
 
@@ -159,14 +159,14 @@ export class InventoryDetailComponent implements OnInit {
 
     }
     //save search data admin ,rep, customer
-    else {
+    if(this.activatedRoute.snapshot.routeConfig.path == 'inventory-detail/:_id') {
       let data: any = {
         source: 'save_favorite_view',
         condition: {
           added_by: this.user_id
         }
       }
-      this.apiService.getDataForDatalist(data).subscribe((res: any) => {
+      this.apiService.CustomRequest(data,'datalist').subscribe((res: any) => {
 
         this.saveList = res.res;
 
@@ -175,7 +175,7 @@ export class InventoryDetailComponent implements OnInit {
     }
 
     //for admin rsvp
-    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:id'
+    if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id'
       && this.user_details.type == 'admin') {
       let data: any = {
         source: 'send_rsvp_view',
@@ -219,7 +219,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //for rsvp send
   addRsvp(itemData: any) {
-    console.log('val-rsvp', itemData)
+    // console.log('val-rsvp', itemData)
 
     //for rep rsvp
     if (this.user_details.type == 'salesrep') {
@@ -468,7 +468,6 @@ export class InventoryDetailComponent implements OnInit {
   //add car 
 
   addCar(itemData: any) {
-    console.log('>>', itemData)
 
     let endpoint: any = "addorupdatedata";
     itemData.added_by = this.user_id;

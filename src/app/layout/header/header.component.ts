@@ -44,7 +44,7 @@ public user_full_name: any = '';
   logOut() {
     this.cookieService.deleteAll();
     this.router.navigateByUrl('/');
-    console.log("logout");
+    // console.log("logout");
     // console.log(this.token);
   }
 

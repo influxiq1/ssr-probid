@@ -167,9 +167,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
     //for make,model,year,type drop down list
     this.activatedRoute.data.forEach((data) => {
-      console.log(data)
+      // console.log(data)
       this.search = data.inventory_search.res;
-      console.log('search>>',this.search)
+      // console.log('search>>',this.search)
     });
   }
 

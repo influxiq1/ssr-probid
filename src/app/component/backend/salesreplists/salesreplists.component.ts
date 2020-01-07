@@ -44,7 +44,7 @@ export class SalesreplistsComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.forEach(data=>{   
-      console.log(data.salesreplist.res);
+      // console.log(data.salesreplist.res);
       this.pendingmodelapplicationarray=data.salesreplist.res;
     })
   }

@@ -161,13 +161,13 @@ public btn_text:any="Submit"
 
         var data = { "source": "user", "data": this.addcustomerForm.value }
         this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
-          console.log(data);
+          // console.log(data);
           if (data.status == 'success' && data.update==1) {
           //  console.log("Update customer Successfully");
           //   this.formDirective.resetForm();
           this.router.navigateByUrl('/customer-list-admin');
           }else{
-            console.log("Add customer Successfully");
+            // console.log("Add customer Successfully");
             this.formDirective.resetForm();
             this.router.navigateByUrl('/customer-list-admin');
           }
@@ -182,7 +182,7 @@ public btn_text:any="Submit"
     {
       var data = { "source": "user", "condition": {"_id": this.activatedRouter.snapshot.params._id}}
         this.apiservice.CustomRequest(data, 'datalist').subscribe((data: any) => {
-          console.log('data',data)
+          // console.log('data',data)
 
           this.header_text="Edit Customer"
         this.btn_text="Update"

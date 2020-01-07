@@ -286,6 +286,6 @@ export class MyAccountComponent implements OnInit {
   //   });
   }
   UpdateFormSubmit(){
-console.log("my-account");
+// console.log("my-account");
   }
 }
