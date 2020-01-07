@@ -681,7 +681,7 @@ display:block !important;
 
 .probidhomeblock5 {text-align: center;}
 .probidhomeblock5 .btnblue {margin: 0 auto; display: block;}
-/* .probidhomeblock5 .mainwrappercontent {position: relative; overflow: hidden;} */
+.probidhomeblock5 .mainwrappercontent {overflow: hidden;}
 
 .probidhomeblock6.mat-card {background: #e2ecee !important;}
 .probidhomeblock6.mat-card .btnblue {margin:1%;} 
