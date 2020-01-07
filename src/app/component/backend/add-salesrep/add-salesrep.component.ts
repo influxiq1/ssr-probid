@@ -141,7 +141,7 @@ export class AddSalesrepComponent implements OnInit {
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
         // console.log(data);
         if (data.status == 'success' && data.update == 1) {
-          console.log("Update salesrep Successfully");
+          // console.log("Update salesrep Successfully");
           this.formDirective.resetForm();
           this.router.navigateByUrl('/salesrep-list-admin')
 

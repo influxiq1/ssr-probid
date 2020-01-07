@@ -287,7 +287,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
   }
 
   showimg(i:any,j:any){
-    console.log('>>',i,j)
+    // console.log('>>',i,j)
 
     this.indexCount=i;
     this.indexCountForImg=j
