@@ -571,14 +571,14 @@ ckeditor {
 
 .as_sm_imgmainwrapper .owl-carousel .owl-nav button.owl-prev {
   position: absolute;
-  top: 0;
+  top: 0 !important;
   left: 0%;
   margin: 0;
 }
 
 .as_sm_imgmainwrapper .owl-carousel .owl-nav button.owl-next {
   position: absolute;
-  top: 0%;
+  top: 0 !important;
   right: 0%;
   margin: 0;
 }
@@ -703,6 +703,11 @@ ckeditor {
   margin-top: 0;
 }
 
+.inventorydetail .flexbox4columnthumb .owl-carousel .owl-item[style]{  
+  width: 130px !important;
+  margin-top: 0;
+}
+
 .rep-dashboard-block5 .flexbox5column.mat-list-base .mat-list-item .mat-list-item-content {
   padding: 0 !important;
 }
@@ -711,14 +716,14 @@ ckeditor {
 
 .flexbox4columnthumb .owl-carousel .owl-nav button.owl-prev {
   position: absolute;
-  top: 0;
+  top: 0 !important;
   left: 0%;
   margin: 0;
 }
 
 .flexbox4columnthumb .owl-carousel .owl-nav button.owl-next {
   position: absolute;
-  top: 0%;
+  top: 0% !important;
   right: 0%;
   margin: 0;
 }
