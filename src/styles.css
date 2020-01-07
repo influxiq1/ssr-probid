@@ -780,6 +780,7 @@ ckeditor {
   height: 100% !important;
   width: 100%;
   padding: 0;
+  flex-direction: column;
 }
 
 button.disabled,
