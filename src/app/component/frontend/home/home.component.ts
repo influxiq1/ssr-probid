@@ -83,7 +83,7 @@ export class HomeComponent implements OnInit {
     this.activatedRoute.data.forEach((data: any) =>{
       this.blogList = data.home_data.result.blog_list;
       this.TestimonialListArray = data.home_data.result.testmonial_list;
-      //  console.log('+++++++++++++++++>>>>>>>>>>>>>>',data.home_data.result.blog_list)
+      //  console.log('+++++++++++++++++>>>>>>>>>>>>>>',data.home_data.result.blog_list[0])
       //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image;
       //  this.TestimonialListArray=this.blog[0].profile_picture;
       //  console.log(this.blog_img)

@@ -132,15 +132,7 @@ const routes: Routes = [
   // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
 
   { path: 'contactus', component: ContactusComponent },
-  {
-    path: "",
-    component: TesimonialComponent,
-    resolve: { testimonialListData: ResolveService },
-    data: {
-      requestcondition: { source: "testimonal", condition: {} },
-      endpoint: "datalist"
-    }
-  },
+  { path: "", component: TesimonialComponent },
   { path: 'pre-owned-list', component: SearchListViewComponent },
   { path: 'online-inventory-list', component: SearchListViewComponent },
   { path: 'search-inventory-list', component: SearchListViewComponent },
