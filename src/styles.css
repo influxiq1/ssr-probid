@@ -222,13 +222,13 @@ body {
 
 .owl-carousel .owl-nav button.owl-prev {
   position: absolute;
-  top: 50%;
+  top: 50% !important;
   left: 1%;
 }
 
 .owl-carousel .owl-nav button.owl-next {
   position: absolute;
-  top: 50%;
+  top: 50% !important;
   right: 1%;
 }
 
