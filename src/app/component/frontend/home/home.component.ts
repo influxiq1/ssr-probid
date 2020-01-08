@@ -1,10 +1,18 @@
-import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef,Inject } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import {ApiService} from '../../../api.service';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { CookieService } from 'ngx-cookie-service';
 
+
+export interface DialogData {
+  errorMsg: string;
+  loginMsg: string;
+  
+}
 
 @Component({
   selector: 'app-home',
@@ -31,6 +39,12 @@ export class HomeComponent implements OnInit {
   // public year_list: [];
   public trim_list: [];
   public stateList:any;
+  public user_id: string = '';
+  public user_details:any = '';
+  public loginMsg: string ='';
+  public errorMsg: string = '';
+
+
 
 
   carouselOptions = {
@@ -87,9 +101,11 @@ export class HomeComponent implements OnInit {
   public blogList: any;
   public indexval:any = 3;
   public year_list:any;
+  public customerList: any = '';
+  public customur_id: any = '';
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient) { 
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -100,6 +116,34 @@ export class HomeComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+      // if ( this.cookieService.get('favorite_car') != undefined && this.cookieService.get('favorite_car') != null && JSON.parse(this.cookieService.get('favorite_car')) != null && JSON.parse(this.cookieService.get('favorite_car')) != '') {
+      //   this.search = JSON.parse(this.cookieService.get('favorite_car'));    
+      // }
+      // if ( this.cookieService.get('rsvp_car') != undefined && this.cookieService.get('rsvp_car') != null && JSON.parse(this.cookieService.get('rsvp_car')) != null && JSON.parse(this.cookieService.get('rsvp_car')) != '') {
+      //   this.search = JSON.parse(this.cookieService.get('rsvp_car'));    
+      // }
+      this.user_id = this.user_details._id;
+      // console.log(this.user_id);
+      
+      if(this.user_details.type == "salesrep") {
+        let data: any = {
+          endpoint: 'datalist',
+          source: 'user',
+          condition: {
+            "salesrep":this.user_id
+          }
+        }
+        this.apiService.getDatalist(data).subscribe((res:any)=>{
+          this.customerList = res.res;
+          // console.log(this.customerList);
+        });
+    
+      }
+    }
   }
 
   ngOnInit() {
@@ -209,15 +253,15 @@ export class HomeComponent implements OnInit {
             console.log(this.search);
         })
       } 
-      // else {
-      //   this.errorMsg = "Please select at least one field";
+      else {
+        this.errorMsg = "Please select at least one field";
 
-      //   const dialogRef = this.dialog.open(errorDialog, {
-      //     width: '250px',
-      //     data: { errorMsg: this.errorMsg }
-      //   });
+        const dialogRef = this.dialog.open(errorSearchModal, {
+          width: '250px',
+          data: { errorMsg: this.errorMsg }
+        });
 
-      // }
+      }
 
 
     }
@@ -303,6 +347,136 @@ export class HomeComponent implements OnInit {
   //   })
   // }
 
+  gotologin(){
+    this.router.navigateByUrl('/login'+this.router.url)
+    // console.log('/login'+this.router.url)
+  }
 
+  loginbefore(){
+    this.loginMsg = "To access the ProbidAuto Search Results";
+
+        const dialogRef = this.dialog.open(loginDialog, {
+          width: '450px',
+          data: { loginMsg: this.loginMsg }
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          // console.log('The dialog was closed', result);
+          if (result == 'yes') {
+            this.gotologin();
+          }
+          // this.loginMsg = result;
+        });
+
+   
+  }
+
+  favorite(item: any) {
+    // console.log('this is favorite ')
+    if (this.user_id  == '') {
+      this.cookieService.set('favorite_car', JSON.stringify(item));
+      setTimeout(() => {
+        this.loginbefore();
+      }, 500);
+    }
+    else{
+      // console.log(this.cookieService.get('favorite_car'))
+      let endpoint: any = "addorupdatedata";
+      item.added_by = this.user_id;
+      let card_data:any = {
+        card_data: item
+      }
+      let data: any = {
+        data: card_data,
+        source: "save_favorite",
+      };
+      // console.log(data)
+        this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+          // console.log(res);
+          (res.status == "success")
+        });
+    }
+   
+  }
+
+  loadMoreSearchResult(){
+    this.indexval=this.indexval+5;
+  }
+
+
+
+
+  rsvpSend(item: any) {
+    // console.log(this.user_id)
+    if (this.user_id  == '') {
+      this.cookieService.set('rsvp_car', JSON.stringify(item));
+      setTimeout(() => {
+        this.loginbefore();
+      }, 500);
+    }
+    else {
+    // console.log('rsvpSend',item);
+    // console.log(this.cookieService.get('rsvp_car'));
+    let endpoint: any = "addorupdatedata";
+    item.added_by = this.user_id;
+    item.status = 0;
+    if (this.user_details.type == 'salesrep') {
+      item.added_for = this.customur_id;
+      } else {
+        item.added_for = this.user_id;
+      }
+    let card_data:any = {
+      card_data: item
+    }
+    let data: any = {
+      data: card_data,
+      source: "send_for_rsvp",
+    };
+    // console.log(data)
+      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+        // console.log(res);
+        (res.status == "success")
+      });
+    }
+  }
+
+
+
+}
+
+//login  modal
+@Component({
+  selector: 'logindialog',
+  templateUrl: 'logindialog.html',
+})
+export class loginDialog {
+  constructor(
+    public dialogRef: MatDialogRef<loginDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    // console.log(data);
+  }
+  
+
+  LinkToLogin(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+//error modal
+
+@Component({
+  selector: 'errorSearchModal',
+  templateUrl: 'errorSearchModal.html',
+})
+export class errorSearchModal {
+  constructor(
+    public dialogRef: MatDialogRef<errorSearchModal>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    // console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
 }
