@@ -571,10 +571,10 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
     },
 
 
-    // { path: '',
-    // redirectTo: '/home',
-    // pathMatch: 'full',
-    //  },
+    { path: '',
+    redirectTo: '/home',
+    pathMatch: 'full',
+     },
 
 
     { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },

@@ -8,6 +8,7 @@
 	justify-content: flex-start;
 	padding: 20px 20px 15px;
 	margin-bottom: 12px !important;
+	width: auto;
 }
 .adm_inner_banner .adm_inner_title.mat-card-title {
 	font-size: 48px !important;
