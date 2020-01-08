@@ -1619,6 +1619,22 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
   background: #fff;
 }
 
+
+.homebanner .owl-carousel .owl-nav button.owl-prev, .homebanner .owl-carousel .owl-nav button.owl-next {
+  background: rgb(253, 253, 253) !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(253, 253, 253, 0.1)), to(rgba(225, 225, 225, 0.1))) !important;
+  background: linear-gradient(180deg, rgba(253, 253, 253, 0.1) 0%, rgba(225, 225, 225, 0.1) 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdfdfd", endColorstr="#e1e1e1", GradientType=1) !important;
+  width: 73px;
+  height: 73px;
+  border-radius: 100%;
+}
+
+.homebanner .owl-next.disabled, .homebanner .owl-prev.disabled {
+  display: none !important;
+  }
+
+
 .myaccount .mat-tab-group {
   display: flex;
   flex-direction: row;
