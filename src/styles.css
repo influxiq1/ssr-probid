@@ -419,6 +419,7 @@ body {
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix {
   margin-bottom: 0px !important;
   background-color: #333 !important;
+  color: #fff;
 }
 
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-label {  
@@ -1572,10 +1573,37 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 .myaccount .mat-tab-body-wrapper {
   width: 100%;
+  padding: 20px;
+  background: #f7f7f7;
 }
 
+.myaccount .mat-tab-label.mat-ripple.ng-star-inserted mat-tab-label-active{  
+  background: #5d5a55;
+}
 
+.myaccount .mat-tab-header {
+  background: #f7f7f7;
+  color:#333 !important;
+}
+.myaccount .mat-tab-header.mat-tab-label {
+  height: auto;
+  padding: 10px;
+}
 
+.myaccount .mattabgroup .mat-tab-labels{    
+  background: #f7f7f7;
+  color:#333 !important;
+  text-transform: uppercase;
+}
+
+.myaccount .mattabgroup .mat-tab-label-active{
+  background: #5d5a55;
+}
+
+.myaccount .mattabgroup .mat-tab-label-active .mat-tab-label-content{
+  color:#fff;
+  text-transform: uppercase;
+}
 
 
 

@@ -792,9 +792,15 @@ object-fit: cover;
   color: #fff !important;
 }
 
+
+.rightsideformcls span .formrightside mat-label {
+  margin-right: 10px;
+  font-size: 16px;
+}
+
 .rightsideformcls span .formrightside .mat-label {
   color: #fff !important;
-  line-height: 30px
+  line-height: 30px;
 }
 
 .rightsideformcls span .formrightside .btnblue{
