@@ -102,6 +102,10 @@ export class HomeComponent implements OnInit {
   public indexval:any = 3;
   public customerList: any = '';
   public customur_id: any = '';
+  public favoriteSeason:any;
+  public indexCount: number;
+  public indexCountForImg: number;
+
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
@@ -399,6 +403,12 @@ export class HomeComponent implements OnInit {
 
   loadMoreSearchResult(){
     this.indexval=this.indexval+5;
+  }
+
+  showimg(i:any, j:any){
+    // console.log('+++',i, j)
+    this.indexCount = i;
+    this.indexCountForImg = j;
   }
 
 
