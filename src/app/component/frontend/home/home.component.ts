@@ -9,7 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 
 
 export interface DialogData {
-  // errorMsg: string;
+  errorMsg: string;
   loginMsg: string;
   
 }
@@ -42,6 +42,8 @@ export class HomeComponent implements OnInit {
   public user_id: string = '';
   public user_details:any = '';
   public loginMsg: string ='';
+  public errorMsg: string = '';
+
 
 
 
@@ -251,15 +253,15 @@ export class HomeComponent implements OnInit {
             console.log(this.search);
         })
       } 
-      // else {
-      //   this.errorMsg = "Please select at least one field";
+      else {
+        this.errorMsg = "Please select at least one field";
 
-      //   const dialogRef = this.dialog.open(errorDialog, {
-      //     width: '250px',
-      //     data: { errorMsg: this.errorMsg }
-      //   });
+        const dialogRef = this.dialog.open(errorSearchModal, {
+          width: '250px',
+          data: { errorMsg: this.errorMsg }
+        });
 
-      // }
+      }
 
 
     }
@@ -441,7 +443,7 @@ export class HomeComponent implements OnInit {
 
 }
 
-
+//login  modal
 @Component({
   selector: 'logindialog',
   templateUrl: 'logindialog.html',
@@ -460,3 +462,21 @@ export class loginDialog {
 
 }
 
+//error modal
+
+@Component({
+  selector: 'errorSearchModal',
+  templateUrl: 'errorSearchModal.html',
+})
+export class errorSearchModal {
+  constructor(
+    public dialogRef: MatDialogRef<errorSearchModal>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {
+    // console.log(data);
+  }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
