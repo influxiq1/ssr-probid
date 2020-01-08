@@ -8,6 +8,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'probid-angular';
-  public loder = 0;
+  public loader = 0;
   constructor(public router: Router){ }
 }

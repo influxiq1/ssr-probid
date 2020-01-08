@@ -3,6 +3,7 @@ import { MetaService } from '@ngx-meta/core';
 import { ApiService } from '../../../api.service';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { AppComponent } from '../../../app.component';
 
 @Component({
   selector: 'app-login',
@@ -32,7 +33,7 @@ export class LoginComponent implements OnInit {
   public routerStatus: any;
   public userData: any = {};
   public defaultLoginUrl = '/login';
-  constructor(private readonly meta: MetaService, public apiService: ApiService, public router: Router, public cookieService: CookieService) {
+  constructor(private readonly meta: MetaService, public apiService: ApiService, public router: Router, public cookieService: CookieService, public appLoder: AppComponent) {
 
 
     this.meta.setTitle('ProBid Auto - Login');

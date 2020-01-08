@@ -117,7 +117,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     public cookieService: CookieService,
     public router: Router,
     public snackBar: MatSnackBar,
-    public appLoder: AppComponent,
+    public apploader: AppComponent,
 
   ) {
     this.spinnerval = 0;
@@ -175,7 +175,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   }
 
   searchAutoComplete(event: any, field: string) {
-    this.appLoder.loder = 1;
+    this.apploader.loader = 1;
     let input: string = '';
     let inputField: string = '';
     if (event.target.value != null && event.target.value != '' && event.target.value.length >= 0) {
@@ -189,7 +189,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
       let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
-        this.appLoder.loder = 0;
+        this.apploader.loader = 0;
         if (field == 'make') {
           this.make_list = res.terms;
           // console.log(field, this.make_list);
@@ -243,7 +243,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
 
     if (this.inventoryCustomerForm.valid) {
-      this.appLoder.loder = 1;
+      this.apploader.loader = 1;
 
       let yearVal = this.inventoryCustomerForm.value.year;
       let typeVal = this.inventoryCustomerForm.value.type;
@@ -290,7 +290,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
 
         this.http.get(search_link).subscribe((res: any) => {
-this.appLoder.loder = 0;
+this.apploader.loader = 0;
           this.search = res.listings;
 
           // console.log('search list', this.search)
