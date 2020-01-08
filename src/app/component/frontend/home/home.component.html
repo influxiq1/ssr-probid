@@ -28,6 +28,22 @@
           </mat-carousel-slide>
         </mat-carousel>
 </mat-card> -->
+
+<mat-card class="homebanner generalcls" style="padding: 0 !important">  
+  <owl-carousel [options]="carouselBannerOptions" [items]="slides" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+    <div class="itemcls"  *ngFor="let item of slides; let j= index">    
+        <img class="slide-image" [src]="item">
+          <div class="carousalinfo">
+            <h1>ProBidAuto</h1>
+            <p>Specify Your Needs, Choose Your Car, And We Will Get It For You. It’s That Easy!! We Make Online Used-Car-Buying Easy And Convenient For You.</p>
+            <div class="righttxt">
+            <p>Car-Buying Made Easy And Convenient!!</p>
+            </div>
+        </div>
+    </div>
+
+  </owl-carousel>
+</mat-card>
 <mat-card class="innerpagetitle innerpagetitlehome">
         <span class="mainwrappercontent">
             <mat-card-content>

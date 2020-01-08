@@ -1551,6 +1551,33 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 
 
+.homebanner .owl-carousel.owl-drag .owl-item {
+  position: relative;
+  margin-top: 0;
+  width: 100% !important;
+  height: 100%;
+}
+
+.owl-carousel.owl-drag .owl-item[style] {
+  width: 100% !important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-stage[style] {
+  width: 100% !important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-item .itemcls {
+  position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-item img{
+  max-width: inherit !important;
+  height: 100% !important; -o-object-fit: cover; object-fit: cover; width: auto; height: auto;
+}
+
+
 
 
 .myaccount .mat-tab-group {

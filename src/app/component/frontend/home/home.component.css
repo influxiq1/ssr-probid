@@ -7,14 +7,26 @@
     display: block;
 }
 
-.carousalinfo{
+/* .carousalinfo{
     position: absolute;
     right: 5%;
     top: 50%;
     width: 760px;
     height: auto;
     transform: translateY(-50%);
+} */
+
+.carousalinfo {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  width: 760px;
+  height: auto;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  z-index: 9;
 }
+
 .carousalinfo h1{
     font-family:'OrbitronBold';font-size:72px!important;line-height:72px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;white-space:normal!important;background: -webkit-linear-gradient(#cfd5dc, #7f8c94); -webkit-background-clip: text; -webkit-text-fill-color: transparent;}
 

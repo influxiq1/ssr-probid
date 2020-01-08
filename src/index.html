@@ -50,16 +50,13 @@
   
 </head>
 <body>
-  
-  <app-root>
-    <div class="loder_body" id="loder_body">
-      <div class="loder_wrapper">
-        <img src="assets/images/logomain.png">
-        <div class="loader"></div>
-      </div>
+  <div class="loder_body" id="loder_body">
+    <div class="loder_wrapper">
+      <img src="assets/images/logomain.png">
+      <div class="loader"></div>
     </div>
-    
-  </app-root>
+  </div>
+  <app-root></app-root>
 </body>
 
 <script type="text/javascript">
@@ -69,7 +66,7 @@
       element.parentNode.removeChild(element);
       /* OR WITH jQuery*/
       $('#loder_body')
-          .fadeOut('fast');
+          .fadeOut('slow');
   });
 </script>
 

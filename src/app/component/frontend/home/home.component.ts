@@ -44,6 +44,58 @@ export class HomeComponent implements OnInit {
   public loginMsg: string ='';
   public errorMsg: string = '';
 
+  public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
+
+  carouselBannerOptions = {
+    margin: 0,
+    nav: true,
+    loop: true,
+    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    responsiveClass: true,
+    dots: true,
+    responsive: {
+      0: {
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        center: true,
+        loop: true,
+        nav: true,
+      },
+      600: {
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        center: true,
+        loop: true,
+        nav: true,
+        dot:true,
+      },
+      991: {
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        center: true,
+        loop: true,
+        nav: true, 
+        dot:true,        
+      },
+      992: {
+        items: 1,
+        autoplay: true,
+        autoplayTimeout: 6000,
+        autoplayHoverPause: true,
+        center: true,
+        loop: true,
+        nav: true,
+        dot:true,
+      }
+    }
+  }
+
 
 
 
