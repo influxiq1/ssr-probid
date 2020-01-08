@@ -415,6 +415,17 @@ body {
   margin-bottom: 10px;
 }
 
+
+.rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix {
+  margin-bottom: 0px !important;
+  background-color: #333 !important;
+}
+
+.rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-label {  
+  color: #fff !important;
+}
+
+
 .topinnerinforight .mat-form-field-appearance-legacy .mat-form-field-infix {
   margin-bottom: 0px;
 }
