@@ -1551,6 +1551,88 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 
 
+.homebanner .owl-carousel.owl-drag .owl-item {
+  position: relative;
+  margin-top: 0;
+  width: 100% !important;
+  height: 100%;
+}
+
+.owl-carousel.owl-drag .owl-item[style] {
+  width: 100% !important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-stage[style] {
+  width: 100% !important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-item .itemcls {
+  position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+
+.homebanner.mat-card {
+  background: #000!important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-item.cloned:last-of-type(1){
+  display:none !important;
+}
+.homebanner .owl-carousel.owl-drag .owl-item.cloned:last-of-type(2){
+  display:none !important;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-item img{
+  max-width: inherit !important;
+  height: 100% !important; -o-object-fit: cover; object-fit: cover; width: auto; height: auto;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-stage {
+  background: #000;
+}
+
+
+.homebanner .owl-theme .owl-dots {
+  display: flex;
+  position: absolute;
+  left: 50%;
+  z-index: 99;
+  bottom: 10px;
+}
+
+.homebanner .owl-theme .owl-dots .owl-dot {
+  display: block;
+  width: 12px;
+  height: 12px;
+  margin: 5px 7px;
+  filter: Alpha(Opacity=50);
+  opacity: 0.5;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  background: #869791;
+}
+
+.homebanner .owl-theme .owl-dots .owl-dot.active{  
+  background: #fff;
+}
+
+
+.homebanner .owl-carousel .owl-nav button.owl-prev, .homebanner .owl-carousel .owl-nav button.owl-next {
+  background: rgb(253, 253, 253) !important;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(253, 253, 253, 0.1)), to(rgba(225, 225, 225, 0.1))) !important;
+  background: linear-gradient(180deg, rgba(253, 253, 253, 0.1) 0%, rgba(225, 225, 225, 0.1) 100%) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#fdfdfd", endColorstr="#e1e1e1", GradientType=1) !important;
+  width: 73px;
+  height: 73px;
+  border-radius: 100%;
+}
+
+.homebanner .owl-next.disabled, .homebanner .owl-prev.disabled {
+  display: none !important;
+  }
 
 
 .myaccount .mat-tab-group {
