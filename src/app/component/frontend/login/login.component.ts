@@ -19,14 +19,14 @@ export class LoginComponent implements OnInit {
   public buttonName: any = 'Login';
   public signUpRouteingUrl: any = {
     "path": "sign-up",
-    "buttonName": "sign-up",
+    "buttonName": "Sign Up",
     "customLink": "",
     "customURl": ""
   };
 
   public forgetRouteingUrl: any = {
     "path": "forget-password",
-    "buttonName": "forget-password",
+    "buttonName": "Forget Password",
     "customLink": "",
     "customURl": ""
   };

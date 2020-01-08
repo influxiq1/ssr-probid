@@ -52,6 +52,13 @@ export class ApiService {
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService) {
 
+    let data={
+      source:'search_api_key'
+    }
+    this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
+      console.log(res);
+
+    })
 
     // this.subscriptionServer = this.getServerUrl().subscribe(message => {
     //  let result: any;

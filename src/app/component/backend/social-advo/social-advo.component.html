@@ -18,53 +18,31 @@
                 <span class="btnsharewrapper">
                   <span class="socialmediaheader">                    
                     <h2>Facebook Banner</h2>
-                    <!-- <span class="sharecontent"  *ngIf="profile != '' && profile != null">
-                      <span class="sharecontentimgwrapper">
-                        <img [src]="profile.picture.data.url">
-                      </span>
-                      <span class="sharecontentinfo">
-                        <mat-list role="list">
-                          <mat-list-item role="listitem">
-                            <span class="labelcls">Name:</span>
-                            <span>{{profile.name}}</span>
-                          </mat-list-item>
-                          <mat-list-item role="listitem">
-                            <span class="labelcls">Email:</span>
-                            <span>{{profile.email}}</span>
-                          </mat-list-item>
-                        </mat-list>
-                        <button mat-button class="btnshare btnsharecls txtwhite btnremove" (click)="logoutWithFacebook()"><i class="fa fa-remove"></i></button>
-                      </span>
-                    </span>  
-                    <span class="btnsharewrapper">
-                      <button mat-button class="btnshare btnsharecls txtwhite" (click)="login()"><i class="fa fa-facebook"></i> <span><sub>add</sub>Facebook<sup>now</sup></span></button>
-                    </span>  -->
                   </span> 
                 </span>
 
                 <span class="bannerlistwrapper facebookbanner">
                   <mat-list role="list">
-                    <mat-list-item role="listitem">
-                      <img src="../../../../assets/images/facebookbanner-img1.jpg">
+                    <mat-list-item role="listitem" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
+                      <img src="../../../../assets/images/{{item}}">
                       <span class="postblock">
                         
-                        <button mat-button class="btnshare btnsharecls txtwhite"  (click)="share('facebookbanner-img1.jpg')"><span>Post</span></button>
-                      </span>  
-                      <p class="grapurl"><button (click)="copyInputMessage(userinput1)" value="click to copy">Grab
-                        URL</button> <input matInput type="text"
-                        value="{{apiService.share_link}}customer-signup/facebookbanner-img1.jpg/{{ userCookies._id}}"
-                        #userinput1></p>
+                        <button mat-button class="btnshare btnsharecls txtwhite"  (click)="share(item)"><span>Post</span></button>
+                      </span>
+                        <p class="grapurl"><button (click)="copyMessage(item)" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
+                        
+                        </p>
                     </mat-list-item>
-                    <mat-list-item role="listitem">
+                    <!-- <mat-list-item role="listitem">
                       <img src="../../../../assets/images/facebookbanner-img2.jpg">
                       <span class="postblock">
                         
                         <button mat-button class="btnshare btnsharecls txtwhite" (click)="share('facebookbanner-img2.jpg')"><span>Post</span></button>
                       </span>   
-                      <p class="grapurl"><button (click)="copyInputMessage(userinput2)" value="click to copy">Grab
+                      <p class="grapurl"><button (click)="copyInputMessage(userinput2)">Grab
                         URL</button> <input matInput type="text"
                         value="{{apiService.share_link}}customer-signup/facebookbanner-img2.jpg/{{ userCookies._id}}"
-                        #userinput2></p>                   
+                        #userinput2></p>                 
                     </mat-list-item>
                     <mat-list-item role="listitem">
                       <img src="../../../../assets/images/facebookbanner-img3.jpg">
@@ -144,60 +122,35 @@
                         URL</button> <input matInput type="text"
                         value="{{apiService.share_link}}customer-signup/facebookbanner-img9.jpg/{{ userCookies._id}}"
                         #userinput9></p>
-                    </mat-list-item>
+                    </mat-list-item> -->
                   </mat-list>
                   <span class="loadmorewarpper">
-                    <button mat-button class="btnblue">Load More</button>
+                    <button mat-button class="btnblue" *ngIf="allFacebookBanner !=null && indexval < allFacebookBanner.length" (click)="loadMoreSearch('facebook')" >Load More</button>
                   </span>
                 </span>
                 <span class="btnsharewrapper">
                   <span class="socialmediaheader">
                     <h2>linkedin Banner</h2>
-                    <!-- <span class="sharecontent">
-                      <span class="sharecontentimgwrapper">
-                        <img  src="../../../../assets/images/imguser.jpg">
-                      </span>
-                      <span class="sharecontentinfo">
-                        <mat-list role="list">
-                          <mat-list-item role="listitem">
-                            <span class="labelcls">Name:</span>
-                            <span>sda</span>
-                          </mat-list-item>
-                          <mat-list-item role="listitem">
-                            <span class="labelcls">Email:</span>
-                            <span>sf</span>
-                          </mat-list-item>
-                        </mat-list>
-                        <button mat-button class="btnshare btnsharecls txtwhite btnremove"><i class="fa fa-remove"></i></button>
-                      </span>
-                    </span>  
-                    <span class="btnsharewrapper">
-                      <button mat-button class="btnshare btnsharecls txtwhite"><i class="fa fa-linkedin"></i> <span><sub>add</sub>linkedin<sup>now</sup></span></button>
-                    </span>  -->
                   </span> 
                 </span> 
                 <span class="bannerlistwrapper linkedinbanner">
                   <mat-list role="list">
-                    <mat-list-item role="listitem">
-                      <img src="../../../../assets/images/linkedinbanner-img1.jpg">
+                    <mat-list-item role="listitem"   *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;"  >
+                      <img src="../../../../assets/images/{{item}}">
                       <span class="postblock">
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite" (click)="linkdinShare('linkedinbanner-img1.jpg')"><span>Post</span></button> -->
-                        
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
                       </span>
-                      <p  class="grapurl"><button (click)="copyInputMessage(userinput10)" value="click to copy">Grab
-                        URL</button> <input matInput type="text"
-                        value="{{apiService.share_link}}customer-signup/linkedinbanner-img1.jpg/{{ userCookies._id}}"
-                        #userinput10></p>
+                      <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
+                      
+                      </p>
 
                     </mat-list-item>
-                    <mat-list-item role="listitem">
+                    <!-- <mat-list-item role="listitem">
                       <img src="../../../../assets/images/linkedinbanner-img2.jpg">
                       <span class="postblock">
                        
 
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img2.jpg/' + userCookies._id"><span>Post</span></a>
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite" (click)="linkdinShare('linkedinbanner-img2.jpg')"><span>Post</span></button> -->
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img3.jpg/' + userCookies._id"><span>Post</span></a>
                       </span>
                       <p  class="grapurl"><button (click)="copyInputMessage(userinput11)" value="click to copy">Grab
@@ -209,10 +162,7 @@
                       <img src="../../../../assets/images/linkedinbanner-img3.jpg">
                       <span class="postblock">
                         
-
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite"> -->
                           <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img3.jpg/' + userCookies._id"><span>Post</span></a>
-                        <!-- </button> -->
                       </span>
                       <p class="grapurl"><button (click)="copyInputMessage(userinput12)" value="click to copy">Grab
                         URL</button> <input matInput type="text"
@@ -224,7 +174,6 @@
                       <span class="postblock">
                        
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img4.jpg/' + userCookies._id"><span>Post</span></a>
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite"  (click)="linkdinShare('linkedinbanner-img4.jpg')"><span>Post</span></button> -->
                       </span>
                       <p  class="grapurl"><button (click)="copyInputMessage(userinput13)" value="click to copy">Grab
                         URL</button> <input matInput type="text"
@@ -238,7 +187,6 @@
                       <span class="postblock">
                         
                         <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img5.jpg/' + userCookies._id"><span>Post</span></a>
-                        <!-- <button mat-button class="btnshare btnsharecls txtwhite"  (click)="linkdinShare('linkedinbanner-img5.jpg')"><span>Post</span></button> -->
                       </span>
 
                       <p class="grapurl"><button (click)="copyInputMessage(userinput14)" value="click to copy">Grab
@@ -260,10 +208,10 @@
                         URL</button> <input matInput type="text"
                         value="{{apiService.share_link}}customer-signup/linkedinbanner-img6.jpg/{{userCookies._id}}"
                         #userinput15></p>                      
-                    </mat-list-item>
+                    </mat-list-item> -->
                   </mat-list>
                   <span class="loadmorewarpper">
-                    <button mat-button class="btnblue">Load More</button>
+                    <button mat-button class="btnblue" *ngIf="allLinkdinBanner !=null && indexValForLinkdin < allLinkdinBanner.length" (click)="loadMoreSearch('linkedin')" >Load More</button>
                   </span>
                 </span>
               </span>  

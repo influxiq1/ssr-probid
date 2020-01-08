@@ -14,9 +14,12 @@ export class SocialAdvoComponent implements OnInit {
   public userCookies: any;
   public userid: any = '';
   public profile: any = '';
-  public allImg : any = [
-    'facebookbanner-img1.jpg'
-  ]
+  public allFacebookBanner : any = [
+    'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg'];
+    public allLinkdinBanner : any = [
+      'linkedinbanner-img1.jpg', 'linkedinbanner-img2.jpg', 'linkedinbanner-img3.jpg', 'linkedinbanner-img4.jpg', 'linkedinbanner-img5.jpg', 'linkedinbanner-img6.jpg'];
+  public indexval:any=6;
+  public indexValForLinkdin: any = 6;
   constructor(public router: Router, private readonly meta: MetaService, private fb: FacebookService, public cookieService: CookieService, public apiService: ApiService) {
 
     this.meta.setTitle('ProBid Auto - Social Advo');
@@ -42,16 +45,36 @@ export class SocialAdvoComponent implements OnInit {
 
     /* To copy Text from Textbox */
   copyInputMessage(inputElement){
-    // console.log(inputElement.select())
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
+  }
+  copyMessage(val: string){
+    let url = this.apiService.share_link+'customer-signup/'+val+'/'+this.userCookies._id;
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = url;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
   }
 
 
 
   ngOnInit() {
     this.getLoginStatus();
+  }
+  loadMoreSearch(val:string){
+    if (val=='facebook') {
+    this.indexval=this.indexval+6;
+    } else {
+      this.indexValForLinkdin = this.indexValForLinkdin+6
+    }
   }
 
 
@@ -84,16 +107,6 @@ export class SocialAdvoComponent implements OnInit {
 
       });
   }
-    /**
-   * Get the users friends
-   */
-  // getFriends() {
-  //   this.fb.api('/me/friends')
-  //     .then((res: any) => {
-  //       console.log('Got the users friends', res);
-  //     })
-  //     .catch(this.handleError);
-  // }
   
   logoutWithFacebook(): void {
 

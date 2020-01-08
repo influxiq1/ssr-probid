@@ -20,7 +20,6 @@ export class HttpService {
   public uploaderror: any = '';
   public accesstoken: any = this.cookieService.get('jwtToken');
   public fileservername: any = [];
-  // public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
   public serverUrl: any = this.apiService.serverUrlDemo;
   public addendpointUrl: any;
   public updateendpointUrl: any;
@@ -30,16 +29,12 @@ export class HttpService {
   public updatestatus_multiple_endpointUrl: any;
   public getdata_endpointUrl: any = 'datalist';
 
-  constructor(private _http: HttpClient, private _authHttp: HttpClient, private cookieService: CookieService, public apiService: ApiService) { }
+
+  constructor(private _http: HttpClient, private _authHttp: HttpClient, private cookieService: CookieService, public apiService: ApiService) {
+   
+   }
 
   isTokenExpired() {
-    // const helper = new JwtHelperService();
-    // const decodedToken = helper.decodeToken(localStorage.getItem('id_token'));
-    // var isIdTokenExpired = helper.isTokenExpired(localStorage.getItem('id_token'));
-    // console.log('refresh_token',localStorage.getItem('refresh_token'))
-    // const isRefreshTokenExpired = helper.isTokenExpired(localStorage.getItem('refresh_token'));
-    // console.log('id_token isExpired:',isIdTokenExpired)
-    // console.log('refresh_token isExpired:',isRefreshTokenExpired)
   }
 
   addData(requestdata: any) {
