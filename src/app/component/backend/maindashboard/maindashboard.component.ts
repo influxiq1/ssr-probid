@@ -270,8 +270,8 @@ apiKeySubmit(){
 
 }
 
-  deleteAny(item:any,index:any,flag:string){
-    // console.log('>>>>',item,index)
+  deleteAny(val:any,index:any,flag:string){
+    console.log('>>>>',val,index)
     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
       width: '250px',
       data:this.message
@@ -279,14 +279,14 @@ apiKeySubmit(){
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(result)
+      console.log(result)
       
         if(result=='yes'){
           let data:any;
             if(flag=='rsvp'){
               data={
-                "source":"send_for_rsvp",
-                id:item._id
+                source:"send_for_rsvp",
+                id:val
                 }
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
@@ -302,8 +302,8 @@ apiKeySubmit(){
             } 
            else {
               data={
-                "source":"save_favorite",
-                id:item._id
+                source:"save_favorite",
+                id:val
                 }
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
@@ -320,6 +320,39 @@ apiKeySubmit(){
         }
     });
   }
+
+
+  //delete for save search data
+  
+  
+//   deleteSaveAny(val:any,index:any){
+//     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
+//       width: '250px',
+//       data:this.message
+//     });
+//     dialogRef.afterClosed().subscribe(result => {
+//       console.log(result)
+//         if(result=='yes'){
+//           let data:any;
+//               data={
+//                 source:"save_favorite ",
+//                 id:val
+//                 }
+//                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
+//                   let result:any;
+//                   result=res;
+//                   // console.log('success',result)
+                  
+//                   if(result.status=='success'){
+//                     this.saveSearch_list.splice(index,index+1);
+//                     this.snack.open('Record Deleted Successfully..!','Ok',{duration:4000})
+                    
+//                   }
+//                 })
+//           }
+//   })
+// }
+
 
 
   // loadMoreSearchResult(){

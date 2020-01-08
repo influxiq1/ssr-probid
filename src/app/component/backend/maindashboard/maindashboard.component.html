@@ -124,7 +124,7 @@
                         <mat-card-title class="sectionheader">Current RSVP</mat-card-title>
                         <mat-list role="list" class="flexbox1column">
                             <mat-list-item role="listitem" class="rsvplistsingle" *ngFor="let item of rsvp_list | slice:0:rsvpIndex; let i = index">
-                              <span (click)="deleteAny(item,i,'rsvp')" class="deletecls"><i class="material-icons">delete</i></span>
+                              <span (click)="deleteAny(item._id,i,'rsvp')" class="deletecls"><i class="material-icons">delete</i></span>
                                 <span class="rsvplistsingleinner">
 
                                   
@@ -214,7 +214,7 @@
                     <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of saveSearch_list | slice:0:saveSearchIndex; let i = index">
 
                       
-                      <span (click)="deleteAny(item,i,'save_search')" class="deletecls"><i class="material-icons">delete</i></span>
+                      <span (click)="deleteAny(item._id,i,'save_search')" class="deletecls"><i class="material-icons">delete</i></span>
 
                         <span class="block1socialadvosingleinner">
                             <span class="topblock">
