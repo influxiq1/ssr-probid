@@ -17,5 +17,12 @@
     <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
   </li>
 </ul> -->
+<span class="overlay" *ngIf="loder == 1">
+  <span class="centerdiv">
+    <mat-spinner class="custom-spinner" mode="determinate" value="100"></mat-spinner>
+  </span>
+</span>
+
+
 
 <router-outlet></router-outlet>

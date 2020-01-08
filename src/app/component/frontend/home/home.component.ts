@@ -31,6 +31,7 @@ export class HomeComponent implements OnInit {
   public year_list: [];
   public trim_list: [];
   public stateList:any;
+  public slides: any = ['../../../../assets/images/probidhome-slide1img.jpg','../../../../assets/images/probidhome-slide1img.jpg','../../../../assets/images/probidhome-slide1img.jpg']
 
 
   carouselOptions = {
@@ -89,6 +90,8 @@ export class HomeComponent implements OnInit {
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient) { 
+
+    // console.log(this.slides);
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');

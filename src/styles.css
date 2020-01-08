@@ -87,6 +87,11 @@ body {
   margin: 0 !important;
 }
 
+.homebanner .carousel-slide .carousel-slide[style]{
+  background-size: cover;
+  min-height: 500px;
+}
+
 .mat-fab.mat-accent[disabled],
 .mat-fab.mat-primary[disabled],
 .mat-fab.mat-warn[disabled],

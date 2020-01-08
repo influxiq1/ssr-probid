@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'probid-angular';
-  constructor(public router: Router){
-    // console.log('URL'+this.router.url);
-  }
+  public loder = 0;
+  constructor(public router: Router){ }
 }

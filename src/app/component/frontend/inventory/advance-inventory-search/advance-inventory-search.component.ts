@@ -6,6 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
+import { AppComponent } from '../../../../app.component';
 
 @Component({
   selector: 'app-advance-inventory-search',
@@ -94,7 +95,8 @@ export class AdvanceInventorySearchComponent implements OnInit {
     public activatedRoute: ActivatedRoute,
     public http: HttpClient,
     public cookieService: CookieService,
-    private readonly meta: MetaService) {
+    private readonly meta: MetaService,
+    public appLoder: AppComponent) {
 
       if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
         this.user_details = JSON.parse(this.cookieService.get('user_details'));
@@ -182,6 +184,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
   // }
 
   advanceInventoryCustomerSearch() {
+    this.appLoder.loder = 1;
     if (this.advanceInventoryCustomerForm.valid) {
 
       let yearVal = this.advanceInventoryCustomerForm.value.year;
@@ -228,10 +231,12 @@ export class AdvanceInventorySearchComponent implements OnInit {
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
+          this.appLoder.loder = 0;
           // console.log('search list',this.search)
 
         })
       } else {
+        this.appLoder.loder = 1;
         // this.errorMsg = "Please select at least one field";
 
         // const dialogRef = this.dialog.open(errorDialog, {
@@ -245,6 +250,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
   }
 
   searchAutoComplete(event: any, field: string) {
+    this.appLoder.loder = 1;
 
     let input: string = '';
     let inputField: string = '';
@@ -259,6 +265,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
+      this.appLoder.loder = 0;
      
       if (field == 'make') {
         this.make_list = res.terms; 
