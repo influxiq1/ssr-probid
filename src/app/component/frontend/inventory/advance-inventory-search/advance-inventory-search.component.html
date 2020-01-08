@@ -439,7 +439,7 @@
                   <img *ngIf="item.media.photo_links == null" src="../../assets/images/default_car_img.jpeg">
               </span>
               <span class="as_sm_imgmainwrapper">
-                  <owl-carousel [options]="carouselOptions" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                  <owl-carousel [options]="carouselOptions" [items]="item.media.photo_links" [carouselClasses]="['owl-theme', 'row', 'sliding']">
                     <div class="sm-imgwrapper" *ngFor="let img of item.media.photo_links; let j= index">
                         <img *ngIf="item.media.photo_links == null" src="../../assets/images/default_car_img.jpeg">
                         <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null" [src]="img" (click)="showimg(i, j)">

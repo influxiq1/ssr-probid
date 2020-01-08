@@ -56,7 +56,7 @@
               </span> -->
                 <span class="thumb_imgwrapper">
                   <span class="flexbox4columnthumb">
-                    <owl-carousel [options]="carouselOptions" [items]="TestimonialListArray" [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <owl-carousel [options]="carouselOptions" [items]="item.media.photo_links" [carouselClasses]="['owl-theme', 'row', 'sliding']">
                       <span class="single_thumb_wrapper" *ngFor="let item of data.media.photo_links ; let i=index ">
                         <span class="single_thumb_imagewrapper">
                           <img [src]="item" (click)="showImage(item,i)">
