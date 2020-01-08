@@ -532,7 +532,7 @@
                                             </span>
                                           </span>
                                           <span class="sub-col-4">
-                                            <mat-card-content class="rrblock1" *ngIf="user_details != null && user_details.type != 'admin'">
+                                            <mat-card-content class="rrblock1">
                                               <span><button class="btnrsvp" (click)="rsvpSend(item)">RSVP</button></span>
                                               <button (click)="favorite(item)"><i class="material-icons"> favorite </i> ADD</button>
                                             </mat-card-content>
@@ -566,8 +566,8 @@
                                   </mat-list-item>
                                 </mat-list>
                                 <div style="display: block; text-align: right; ">
-                                  <!-- <mat-button type="button" class="btnblue" *ngIf="search !=null && indexval < search.length"
-                                    (click)="loadMoreSearchResult() ">Load More</mat-button> -->
+                                  <mat-button type="button" class="btnblue" *ngIf="search !=null && indexval < search.length"
+                                    (click)="loadMoreSearchResult() ">Load More</mat-button>
                                 </div>
                               </span>
 
