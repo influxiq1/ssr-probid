@@ -4,11 +4,23 @@
         <mat-card class="generalcls myaccount" style="padding: 0 !important;">  
           <mat-card-title class="editprofiletitle">My Account</mat-card-title>
 
-          <mat-tab-group>
-            
-            <mat-tab label="Profile Overview"> Profile Overview content </mat-tab>
-            <mat-tab label="Personal Information"> Personal Information content </mat-tab>
-            <mat-tab label="Change Password"> Change Password content </mat-tab>
+          <mat-tab-group class="mattabgroup">
+            <mat-tab>
+              <ng-template mat-tab-label>ccdfd</ng-template>
+            </mat-tab>
+            <mat-tab>               
+                <ng-template mat-tab-label>Profile Overview</ng-template>
+                Profile Overview content                        
+            </mat-tab>
+            <mat-tab> 
+                <ng-template mat-tab-label>Personal Information</ng-template>
+                Personal Information content                
+            </mat-tab>
+            <mat-tab> 
+              <ng-template mat-tab-label>Change Password content</ng-template>
+              Change Password                
+          </mat-tab>
+
           </mat-tab-group>
 
           <!-- <form [formGroup]="UpdateForm"  (ngSubmit)="UpdateFormSubmit()">
