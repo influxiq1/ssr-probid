@@ -18,8 +18,16 @@
   </li>
 </ul> -->
 <span class="overlay" *ngIf="loder == 1">
-  <span class="centerdiv">
-    <mat-spinner class="custom-spinner" mode="determinate" value="100"></mat-spinner>
+  <span class="app-loading">
+
+    <!-- loading layout replaced by app after startupp -->
+      <!-- <svg class="spinner" viewBox="25 25 50 50">
+        <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+      </svg> -->
+      <!-- <div class="loader"></div> -->
+
+    <mat-spinner class="loader"></mat-spinner>
+    <!-- <mat-spinner class="custom-spinner" mode="determinate" value="100"></mat-spinner> -->
   </span>
 </span>
 
