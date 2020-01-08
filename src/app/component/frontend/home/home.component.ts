@@ -47,21 +47,14 @@ export class HomeComponent implements OnInit {
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
 
   carouselBannerOptions = {
-    margin: 0,
-    center: true,
-    items: 1,
-    nav: true,
-    navigation : true,
-    loop: true,
-    singleItem : true,
-    slideSpeed : 300,
-    paginationSpeed : 400,
-    transitionStyle : "fade",
+    autoPlay: 3000,
+    navigation: true,
+    slideSpeed: 300,
+    paginationSpeed: 400,
+    singleItem: true,
     navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsiveClass: true,
     dots: true,
-		pagination: true,
-    rewindSpeed: 500,
     responsive: {
       0: {
         items: 1,

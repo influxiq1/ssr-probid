@@ -1572,6 +1572,11 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
     width: 100%;
 }
 
+
+.homebanner.mat-card {
+  background: #000!important;
+}
+
 .homebanner .owl-carousel.owl-drag .owl-item.cloned:last-of-type(1){
   display:none !important;
 }
@@ -1582,6 +1587,10 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 .homebanner .owl-carousel.owl-drag .owl-item img{
   max-width: inherit !important;
   height: 100% !important; -o-object-fit: cover; object-fit: cover; width: auto; height: auto;
+}
+
+.homebanner .owl-carousel.owl-drag .owl-stage {
+  background: #000;
 }
 
 
