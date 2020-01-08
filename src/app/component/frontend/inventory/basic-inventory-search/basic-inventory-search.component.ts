@@ -118,7 +118,7 @@ export class BasicInventorySearchComponent implements OnInit {
     public dialog: MatDialog,
     public cookieService: CookieService,
     public router: Router,
-    public appLoder: AppComponent) {
+    public apploader: AppComponent) {
     this.meta.setTitle('ProBid Auto - Inventory');
     this.meta.setTag('og:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
     this.meta.setTag('twitter:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
@@ -212,7 +212,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
   inventoryCustomerSearch() {
     console.log('--------')
-    this.appLoder.loder = 1;
+    this.apploader.loader = 1;
     if (this.inventoryCustomerForm.valid) {
 
       let yearVal = this.inventoryCustomerForm.value.year;
@@ -258,13 +258,13 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
-          this.appLoder.loder = 0;
+          this.apploader.loader = 0;
           this.search = res.listings;
           console.log('search list',this.search)
             console.log(this.search);
         })
       } else {
-        this.appLoder.loder = 0;
+        this.apploader.loader = 0;
         this.errorMsg = "Please select at least one field";
 
         const dialogRef = this.dialog.open(errorDialog, {
@@ -283,7 +283,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
   searchAutoComplete(event: any, field: string) {
 
-    this.appLoder.loder = 1;
+    this.apploader.loader = 1;
     
     let input: string = '';
     let inputField: string = '';
@@ -298,7 +298,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
-      this.appLoder.loder = 0;
+      this.apploader.loader = 0;
      
       if (field == 'make') {
         this.make_list = res.terms; 
