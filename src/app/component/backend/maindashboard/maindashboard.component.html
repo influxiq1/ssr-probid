@@ -6,18 +6,18 @@
                 <mat-card-title class="adm_inner_title"><span>Welcome to</span> ProBid Auto</mat-card-title>
                 <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </mat-card-content>
-            <mat-card-content class="bred_cram_wrapper">
+            <mat-card-content class="bred_cram_wrapper rightsideformcls">
                 <a mat-list-item routerLinkActive="active activebread"> Dashboard </a>
 
                 <span>
 
-                <form [formGroup]="apikeyForm">
-
+                <form [formGroup]="apikeyForm" class="formrightside">
+                  <mat-label _ngcontent-serverapp-c1="">Enter New Api Key :</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" placeholder="Enter New Api Key" formControlName="apikey">
+                    <input matInput type="text" placeholder="Enter Api Key" formControlName="apikey">
                   </mat-form-field>
 
-                  <button mat-raised-button type="button'" 
+                  <button mat-raised-button type="button'" class="btnblue" 
                   (click)="apiKeySubmit()">Update Api Key</button> 
 
                 </form>
