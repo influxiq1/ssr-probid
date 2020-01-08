@@ -103,6 +103,8 @@ export class HomeComponent implements OnInit {
   public year_list:any;
   public customerList: any = '';
   public customur_id: any = '';
+  public indexCount: number;
+  public indexCountForImg: number;
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
@@ -437,6 +439,12 @@ export class HomeComponent implements OnInit {
         (res.status == "success")
       });
     }
+  }
+
+  showimg(i:any, j:any){
+    // console.log('+++',i, j)
+    this.indexCount = i;
+    this.indexCountForImg = j;
   }
 
 
