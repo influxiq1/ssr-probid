@@ -7,6 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { FormGroup, FormBuilder ,FormGroupDirective} from '@angular/forms';
 
 
 
@@ -101,6 +102,8 @@ export interface Reports {
   status: string;
 }
 
+
+
 @Component({
   selector: 'app-maindashboard',
   templateUrl: './maindashboard.component.html',
@@ -109,7 +112,7 @@ export interface Reports {
 export class MaindashboardComponent implements OnInit {
 
 
-  
+  public apikeyForm:FormGroup;
 
 
   public message:any="Are you sure you want to delete this?"
@@ -181,8 +184,8 @@ public errorMsg: string = '';
   @ViewChild(MatPaginator, {static: false}) reportPaginator: MatPaginator;
 
 
-
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog,public snack:MatSnackBar,public router:Router) {
+  @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog,public snack:MatSnackBar,public router:Router,public fb:FormBuilder) {
     
 
     this.socialAdvFacebookLists = [{ Id: '1001', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img1.jpg' },
@@ -231,12 +234,44 @@ public errorMsg: string = '';
     this.jobTicketDataSource.paginator = this.jtPaginator;
 
     this.reportsDataSource.paginator = this.reportPaginator;
-   
+   this.generateForm();
 
   }
 
-  deleteAny(item:any,index:any,flag:string){
-    // console.log('>>>>',item,index)
+
+generateForm(){
+  this.apikeyForm=this.fb.group({
+    apikey:['']
+  })
+}
+
+//for new apikey submit
+apiKeySubmit(){
+  if(this.apikeyForm.valid){
+    console.log('hitt',this.apikeyForm.value)
+
+    let data:any;
+    data={
+      data:this.apikeyForm.value,
+      source:'search_api_key'
+    }
+
+    this.apiService.CustomRequest(data,'addorupdatedata').subscribe((res)=>{
+      console.log(res);
+      let result:any;
+      result=res
+
+      if(result.status == 'success'){
+        this.formDirective.resetForm();
+      }
+    })
+
+  }
+
+}
+
+  deleteAny(val:any,index:any,flag:string){
+    console.log('>>>>',val,index)
     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
       width: '250px',
       data:this.message
@@ -244,14 +279,14 @@ public errorMsg: string = '';
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      // console.log(result)
+      console.log(result)
       
         if(result=='yes'){
           let data:any;
             if(flag=='rsvp'){
               data={
-                "source":"send_for_rsvp",
-                id:item._id
+                source:"send_for_rsvp",
+                id:val
                 }
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
@@ -267,8 +302,8 @@ public errorMsg: string = '';
             } 
            else {
               data={
-                "source":"save_favorite",
-                id:item._id
+                source:"save_favorite",
+                id:val
                 }
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
@@ -285,6 +320,39 @@ public errorMsg: string = '';
         }
     });
   }
+
+
+  //delete for save search data
+  
+  
+//   deleteSaveAny(val:any,index:any){
+//     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
+//       width: '250px',
+//       data:this.message
+//     });
+//     dialogRef.afterClosed().subscribe(result => {
+//       console.log(result)
+//         if(result=='yes'){
+//           let data:any;
+//               data={
+//                 source:"save_favorite ",
+//                 id:val
+//                 }
+//                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
+//                   let result:any;
+//                   result=res;
+//                   // console.log('success',result)
+                  
+//                   if(result.status=='success'){
+//                     this.saveSearch_list.splice(index,index+1);
+//                     this.snack.open('Record Deleted Successfully..!','Ok',{duration:4000})
+                    
+//                   }
+//                 })
+//           }
+//   })
+// }
+
 
 
   // loadMoreSearchResult(){

@@ -134,36 +134,36 @@
   }
  
 
+  
   .inventorysearch .example-container .mat-select {
     display: inline-block;
-    width: 100%;
+    width: 96%;
     outline: 0;
-    padding: 10px !important;
+    padding: 10px 10px !important;
     background: #fff;
     border: 1px solid #cfcccc;
 }
 
 .inventorysearch .example-container input {
   display: inline-block;
-  width: 100%;
+  width: 96%;
   outline: 0;
-  padding: 10px !important;
+  padding: 10px 10px !important;
   background: #fff;
   border: 1px solid #cfcccc;
 }
 
 .inventorysearch .example-container .textarea {
   display: inline-block;
-  width: 100%;
+  width: 96%;
   outline: 0;
-  padding: 10px !important;
+  padding: 10px 10px !important;
   background: #fff;
   border: 1px solid #cfcccc;
   overflow-y: scroll;
   overflow-x: hidden;
   height: 170px;
 }
-
 .inventorysearch .example-container .textarea .textareainner{
 display: flex!important;
 flex-wrap: wrap!important;

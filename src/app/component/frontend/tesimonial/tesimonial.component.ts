@@ -14,7 +14,7 @@ export class TesimonialComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, public apiService: ApiService) { 
 
-    this.router.navigateByUrl('/home');
+    // this.router.navigateByUrl('/home');
   }
 
 

@@ -6,8 +6,24 @@
                 <mat-card-title class="adm_inner_title"><span>Welcome to</span> ProBid Auto</mat-card-title>
                 <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
             </mat-card-content>
-            <mat-card-content class="bred_cram_wrapper">
+            <mat-card-content class="bred_cram_wrapper rightsideformcls">
                 <a mat-list-item routerLinkActive="active activebread"> Dashboard </a>
+
+                <span>
+
+                <form [formGroup]="apikeyForm" class="formrightside">
+                  <mat-label _ngcontent-serverapp-c1="">Enter New Api Key :</mat-label>
+                  <mat-form-field>
+                    <input matInput type="text" placeholder="Enter Api Key" formControlName="apikey">
+                  </mat-form-field>
+
+                  <button mat-raised-button type="button'" class="btnblue" 
+                  (click)="apiKeySubmit()">Update Api Key</button> 
+
+                </form>
+
+                </span>
+
             </mat-card-content>
         </mat-card>
         <mat-card class="generalcls" style="padding: 0 !important;">  
@@ -108,7 +124,7 @@
                         <mat-card-title class="sectionheader">Current RSVP</mat-card-title>
                         <mat-list role="list" class="flexbox1column">
                             <mat-list-item role="listitem" class="rsvplistsingle" *ngFor="let item of rsvp_list | slice:0:rsvpIndex; let i = index">
-                              <span (click)="deleteAny(item,i,'rsvp')" class="deletecls"><i class="material-icons">delete</i></span>
+                              <span (click)="deleteAny(item._id,i,'rsvp')" class="deletecls"><i class="material-icons">delete</i></span>
                                 <span class="rsvplistsingleinner">
 
                                   
@@ -182,7 +198,7 @@
                             
                         </mat-list>
                         <span class="btnwrappercls">
-                            <button mat-button class="btnblue" [routerLink]="['/rsvp-admin']">View All</button>
+                            <button mat-button class="btnblue" [routerLink]="['/rsvp-admin']" *ngIf="rsvp_list !=null && rsvp_list.length !='' ">View All</button>
                         </span>
                         
                     </mat-card>
@@ -198,7 +214,7 @@
                     <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of saveSearch_list | slice:0:saveSearchIndex; let i = index">
 
                       
-                      <span (click)="deleteAny(item,i,'save_search')" class="deletecls"><i class="material-icons">delete</i></span>
+                      <span (click)="deleteAny(item._id,i,'save_search')" class="deletecls"><i class="material-icons">delete</i></span>
 
                         <span class="block1socialadvosingleinner">
                             <span class="topblock">
