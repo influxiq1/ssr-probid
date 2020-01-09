@@ -853,7 +853,7 @@ display:block !important;
     margin-top: 0px;
     background: url("../images/formbg.png") repeat-y;
     height: 100%;
-    padding: 15px 20px 0px 20px;
+    padding: 10px 20px 0px 20px;
     display: block;
     position: relative;
 }
@@ -1478,3 +1478,7 @@ a.associate_new_con6_link:hover{color: #fff;}
 .lib-addedit-newsletter .mat-toolbar  {
     display: none!important;
   }
+
+  .mat-form-field-appearance-legacy .mat-form-field-infix {
+    margin-bottom: 14px!important;
+}
