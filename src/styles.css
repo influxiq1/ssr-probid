@@ -1602,7 +1602,7 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
   bottom: 10px;
 }
 
-.homebanner .owl-theme .owl-dots .owl-dot {
+.homebanner .owl-theme .owl-dots .owl-dot span {
   display: block;
   width: 12px;
   height: 12px;
@@ -1615,7 +1615,7 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
   background: #869791;
 }
 
-.homebanner .owl-theme .owl-dots .owl-dot.active{  
+.homebanner .owl-theme .owl-dots .owl-dot.active span{  
   background: #fff;
 }
 
@@ -1633,64 +1633,6 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 .homebanner .owl-next.disabled, .homebanner .owl-prev.disabled {
   display: none !important;
   }
-
-
-.myaccount .mat-tab-group {
-  display: flex;
-  flex-direction: row;
-}
-
-.myaccount .mat-tab-labels {
-  display: flex;
-  flex-direction: column;
-}
-
-.myaccount .mat-ink-bar {
-  position: absolute;
-  right: 0 !important;
-  height: 100%;
-  transition: .5s cubic-bezier(.35, 0, .25, 1);
-  top: 0;
-  width: 1px !important;
-}
-
-.myaccount .mat-ink-bar[style] {
-  right: 0 !important;
-}
-
-.myaccount .mat-tab-body-wrapper {
-  width: 100%;
-  padding: 20px;
-  background: #f7f7f7;
-}
-
-.myaccount .mat-tab-label.mat-ripple.ng-star-inserted mat-tab-label-active{  
-  background: #5d5a55;
-}
-
-.myaccount .mat-tab-header {
-  background: #f7f7f7;
-  color:#333 !important;
-}
-.myaccount .mat-tab-header.mat-tab-label {
-  height: auto;
-  padding: 10px;
-}
-
-.myaccount .mattabgroup .mat-tab-labels{    
-  background: #f7f7f7;
-  color:#333 !important;
-  text-transform: uppercase;
-}
-
-.myaccount .mattabgroup .mat-tab-label-active{
-  background: #5d5a55;
-}
-
-.myaccount .mattabgroup .mat-tab-label-active .mat-tab-label-content{
-  color:#fff;
-  text-transform: uppercase;
-}
 
 
 

@@ -50,12 +50,14 @@ export class HomeComponent implements OnInit {
     loop: true ,
     autoplay: true,
     margin: 0,
-    startPosition: -0,
+    startPosition: 1,
+    autoplayHoverPause:true,
     items: 3,
     nav: true,
     center: false,
     autoWidth: true,
-    navRewind: false,
+    autoHeight:true,
+    navRewind: true,
     autoPlay: 3000,
     navigation: true,
     slideSpeed: 300,
@@ -69,7 +71,7 @@ export class HomeComponent implements OnInit {
         items: 1
       },
       992: {
-        items:1
+        items:1,      
       }
     }
   }

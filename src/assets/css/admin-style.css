@@ -646,3 +646,77 @@ span.smltxt{
   .newform_css button:nth-of-type(2){ background: #333 !important; margin-left: 10px!important;}
 
 /*-------------amitava---form css end--------*/
+
+
+
+
+.myaccount .mat-tab-group {
+  display: flex;
+  flex-direction: row;
+}
+
+.myaccount .mat-tab-labels {
+  display: flex;
+  flex-direction: column;
+}
+
+.myaccount .mat-ink-bar {
+  position: absolute;
+  right: 0 !important;
+  height: 100%;
+  transition: .5s cubic-bezier(.35, 0, .25, 1);
+  top: 0;
+  width: 1px !important;
+}
+
+.myaccount .mat-ink-bar[style] {
+  right: 0 !important;
+}
+
+.myaccount .mat-tab-body-wrapper {
+  width: 100%;
+  padding: 20px;
+  background: #f7f7f7;
+}
+
+.myaccount .mat-tab-label.mat-ripple.ng-star-inserted mat-tab-label-active{  
+  background: #5d5a55;
+}
+
+.myaccount .mat-tab-header {
+  background: #f7f7f7;
+  color:#333 !important;
+}
+.myaccount .mat-tab-header.mat-tab-label {
+  height: auto;
+  padding: 10px;
+}
+
+.myaccount .mattabgroup .mat-tab-labels{    
+  background: #f7f7f7;
+  color:#333 !important;
+  text-transform: uppercase;
+}
+
+.myaccount .mattabgroup .mat-tab-label-active{
+  background: #5d5a55;
+}
+
+.myaccount .mattabgroup .mat-tab-label-active:first-child{
+  background-color: transparent !important;
+}
+
+.myaccount .mattabgroup .mat-tab-label-active .mat-tab-label-content{
+  color:#fff;
+  text-transform: uppercase;
+}
+
+.profile-area .profile-info .social-icon {
+  margin-top: 15px;
+}
+.profile-area{
+  display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
+}
