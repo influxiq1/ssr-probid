@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
 
@@ -194,32 +195,20 @@ public errorMsg: string = '';
 
 
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog,public snack:MatSnackBar,public router:Router,public fb:FormBuilder, private fb1: FacebookService) {
+  constructor(public cookieService: CookieService,
+     public activatedRoute: ActivatedRoute,
+      public apiService: ApiService,
+       public http: HttpClient,
+        public dialog: MatDialog,
+        public snack:MatSnackBar,
+        public router:Router,
+        public fb:FormBuilder,
+         private fb1: FacebookService,
+         public askForconfirmationModalComponent:askForconfirmationModalComponent) {
     
 
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-    
-
-    // this.socialAdvFacebookLists = [{ Id: '1001', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img1.jpg' },
-    // { Id: '1002', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img2.jpg' },
-    // { Id: '1003', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img3.jpg' },
-    // { Id: '1004', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img4.jpg' },
-    // { Id: '1005', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img5.jpg' },
-    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img6.jpg' },
-    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img7.jpg' },
-    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img8.jpg' },
-    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img9.jpg' },
-    // ];
-
-
-    // this.socialAdvLinkedinLists = [
-    // { Id: '1007', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img1.jpg' },
-    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img2.jpg' },
-    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img3.jpg' },
-    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img4.jpg' },
-    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img5.jpg' },
-    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img6.jpg' },
-    // ];
+   
     
     fb1.init({
       appId: '2540470256228526',
@@ -306,6 +295,66 @@ public errorMsg: string = '';
    
   }
 
+  changeStatus(item: any, val: any) {
+    // console.log('rsvpSend status',item, val)
+    let endpoint: any = "addorupdatedata";
+    item.status = val;
+    let card_data:any = {
+      card_data: item,
+      id:item._id
+    }
+    let data: any = {
+      data: card_data,
+      source: "send_for_rsvp",
+    };
+      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+        // console.log(res);
+        (res.status == "success");
+        // this.getdata();
+      });
+  }
+
+
+  openModale(data:any){
+    // // console.log(data)
+    // const dialogRef = this.dialog.open(askForconfirmationModalComponent, {
+    //   width: '250px',
+    //   data:data
+
+    // });
+    // dialogRef.afterClosed().subscribe((result:any) => {
+    //   // console.log(result);
+
+    //   let carData:any={
+    //     vehicle: result.heading,
+    //     salesrep: result.added_by_fullname,
+    //     customer: result.added_for_fullname,
+    //     salesrep_email: result.added_by_email,
+    //     customer_email: result.added_for_email,
+    //     topPart: result.topPart,
+    //     highest_bid: result.highest_bid,
+    //     status: 3
+
+    //   }
+
+    //   if(result.flag == 'yes' ){
+
+    //   let endpoint: any = "addorupdatedatawithouttoken";
+    
+    //     let data: any = {
+    //       data: carData,  
+    //       source: "ask_for_confirmation",
+    //     };
+    //       this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+    //         (res.status == "success");
+    //         // console.log(res)
+    //       });
+    //     } else {
+    //       // console.log('No..!')
+    //     }
+
+    //     });
+  }
 
 generateForm(){
   this.apikeyForm=this.fb.group({
@@ -316,7 +365,6 @@ generateForm(){
 //for new apikey submit
 apiKeySubmit(){
   if(this.apikeyForm.valid){
-    console.log('hitt',this.apikeyForm.value)
 
     let data:any;
     data={
@@ -325,7 +373,6 @@ apiKeySubmit(){
     }
 
     this.apiService.CustomRequest(data,'addorupdatedata').subscribe((res)=>{
-      console.log(res);
       let result:any;
       result=res
 
@@ -339,7 +386,6 @@ apiKeySubmit(){
 }
 
   deleteAny(val:any,index:any,flag:string){
-    console.log('>>>>',val,index)
     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
       width: '250px',
       data:this.message
@@ -347,7 +393,6 @@ apiKeySubmit(){
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(result)
       
         if(result=='yes'){
           let data:any;
@@ -359,7 +404,6 @@ apiKeySubmit(){
                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
                   let result:any;
                   result=res;
-                  // console.log('success',result)
                   
                   if(result.status=='success'){
                     this.rsvp_list.splice(index,index+1);
