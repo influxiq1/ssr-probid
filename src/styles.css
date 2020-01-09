@@ -1564,6 +1564,8 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 .homebanner .owl-carousel.owl-drag .owl-stage[style] {
   width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .homebanner .owl-carousel.owl-drag .owl-item .itemcls {
