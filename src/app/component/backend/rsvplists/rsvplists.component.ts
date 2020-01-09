@@ -42,7 +42,7 @@ public topPart: any ='';
     public dialog: MatDialog,
     public snack:MatSnackBar,
     public cookieservice: CookieService,
-    public rouer:Router) {
+    public router:Router) {
 
       if (this.cookieservice.get('user_details') != undefined && this.cookieservice.get('user_details') != null && this.cookieservice.get('user_details') != '') {
         this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
@@ -205,7 +205,7 @@ if (val !='') {
 
   rsvpDetail(val:any){
     // console.log('hit',val)
-    this.rouer.navigateByUrl('/rsvp-detail/'+val);
+    this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 }
 

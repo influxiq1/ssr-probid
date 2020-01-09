@@ -77,6 +77,11 @@ export class BkHeaderComponent implements OnInit {
     this.router.navigateByUrl('/');
     // console.log("logout");
    }
+
+   myAccount() {
+    this.router.navigateByUrl('/my-account');
+   }
+
    getrepdetails() {
     // const link = this.ApiService.nodesslurl + 'getrecvalues?token=' + this.cookie.get('jwtToken');
     // var data = { _id: this.cookie.get('userid') }

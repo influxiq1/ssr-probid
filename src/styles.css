@@ -1564,6 +1564,8 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 .homebanner .owl-carousel.owl-drag .owl-stage[style] {
   width: 100% !important;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .homebanner .owl-carousel.owl-drag .owl-item .itemcls {
@@ -1637,9 +1639,90 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
 
 
 
+  
+.postblock {
+	display: none;
+	position: relative;
+}
+.postblock .btnshare {
+	background: #12C3E3 !important;
+}
+
+.mat-list .block1socialadvosingle.mat-list-item:hover .postblock {
+	display: block;
+	background: rgba(0, 0, 0, 0.7);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 90%;
+}
+.mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	text-transform: uppercase;
+}
+.mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare span {
+	padding: 0px 30px;
+	font-size: 24px;
+}
+
+.grapurl{
+	position: relative;
+    z-index: 9;
+    width: 100%;
+    height: auto;
+    white-space: normal;
+    word-break: break-all;
+}
+
+.grapurl button{
+	width: 100%;
+    margin: 0px auto 0px;
+    display: block;
+	padding: 5px;
+	color: rgb(230, 230, 230);
+    font-size: 16px;
+    padding: 9px;
+text-shadow: 0px -1px 0px rgba(30, 30, 30, 0.8);
+background: rgb(0, 0, 0);
+background: -moz-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -webkit-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -o-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: -ms-linear-gradient(90deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+background: linear-gradient(0deg, rgb(0, 0, 0) 30%, rgb(89, 89, 89) 70%);
+-webkit-box-shadow: 0px 2px 1px rgba(50, 50, 50, 0.75);
+-moz-box-shadow:    0px 2px 1px rgba(50, 50, 50, 0.75);
+box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
+}
+
+.grapurl span {
+	margin-top: 0;
+    width: 100%;
+    margin: 0 auto 0px;
+    display: block;
+    border: 0;
+    height: 24px;
+    padding: 1px 0px;
+    white-space: nowrap;
+    float: left;
+    overflow: hidden;
+}
 
 
 
+.block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content {
+  padding: 0 !important;
+  height: 100%;
+  height: 100% !important;
+  width: 100%;
+  padding: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  flex-direction: column;
+}
 
 
 
