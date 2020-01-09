@@ -436,6 +436,7 @@ apiKeySubmit(){
 
   //for rsvp details
   viewRsvpDetails(val:any){
+    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>test>>>>>>>>>>>>>>>>>>>>>>>>>>', val);
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 

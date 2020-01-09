@@ -218,13 +218,12 @@ const routes: Routes = [
   { path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
   resolve: { inventory_details: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
-   endpoint: 'datalist' }
-  },
+   endpoint: 'datalist'}},
 
   {path: 'rsvp-final/:_id', component: RsvpSuccessComponent,
   resolve: { rsvp: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
-   endpoint: 'datalist' }},
+   endpoint: 'datalist'}},
 
 // ___________________BLOG MANAGEMENT_________________
 // =======================================================

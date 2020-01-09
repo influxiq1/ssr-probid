@@ -486,19 +486,19 @@ this.apploader.loader = 0;
     // // return observeable;
 
    
-      const carItem = new Observable(observer => {
-             setTimeout(() => {
-                 observer.next(carData);
+      // const carItem = new Observable(observer => {
+      //        setTimeout(() => {
+      //            observer.next(carData);
                  
-             }, 1000);
+      //        }, 1000);
             
-      });
+      // });
       
-      setTimeout(() => {
-        // this.router.navigateByUrl('/search-detail')
-      }, 500);
+      // setTimeout(() => {
+      //   // this.router.navigateByUrl('/search-detail')
+      // }, 500);
  
-      return carItem;
+      // return carItem;
   
 
   }
