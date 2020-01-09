@@ -6,12 +6,12 @@
           <div class="logo" [routerLink]="['/home']">
             <img src="assets/images/logomain.png" alt="">
           </div>
-          <div class="topmenuicon menu-toggle rightSidenav_toggle" [class.active]="toggleActive"
+          <!-- <div class="topmenuicon menu-toggle rightSidenav_toggle" [class.active]="toggleActive"
             (click)="toggleRightSidenav()">
             <div></div>
             <div></div>
             <div></div>
-          </div>
+          </div> -->
           <div class="topmenulist">
             <mat-list class="navigation-left">
               <mat-list-item class="nav-item">
@@ -150,7 +150,7 @@
                 </button>
               <mat-menu #menu="matMenu">
                 <button mat-menu-item (click)="logout()">Logout</button>
-                <button mat-menu-item>Item 2</button>
+                <button mat-menu-item (click)="myAccount()" >My Account</button>
               </mat-menu>
               </div>
             </div>
@@ -244,8 +244,8 @@
                     >
                   </button>
                 <mat-menu #menu="matMenu">
-                  <button mat-menu-item (click)="logout()">Logout</button>
-                  <button mat-menu-item>Item 2</button>
+                  <button mat-menu-item (click)="logout()">Logout</button>                  
+                  <button mat-menu-item (click)="myAccount()" >My Account</button>
                 </mat-menu>
       
                 <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
@@ -365,7 +365,7 @@
                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
                 <mat-menu #menu="matMenu">
                   <button mat-menu-item (click)="logout()">Logout</button>
-                  <button mat-menu-item>Item 2</button>
+                  <button mat-menu-item (click)="myAccount()" >My Account</button>
                 </mat-menu>
               </div>
             </div>

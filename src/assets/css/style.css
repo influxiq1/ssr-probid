@@ -316,7 +316,7 @@ max-width: 100%; margin: 0 auto;}
 
 .generalcls .quatation p {font-size: 16px !important; font-family: 'Helvetica-Normal';color:#858686;display: block;display: block; max-width: 100%; margin: 0 auto;overflow: hidden; text-overflow: ellipsis; display: -webkit-box; line-height: 18px; max-height:86px; -webkit-line-clamp: 5; -webkit-box-orient: vertical;}
 .generalcls .quatation p a{display: inline-block;}
-.generalcls .quatation a{color: #21c4e1; text-align: left; display: block;}
+.generalcls .quatation a{color: #21c4e1; text-align: left;}
 
 .generalcls.blog .mat-card-title {
     display: block;

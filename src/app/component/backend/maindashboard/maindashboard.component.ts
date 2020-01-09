@@ -8,6 +8,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective} from '@angular/forms';
+import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 
 
 
@@ -31,18 +32,12 @@ const UA_DATA: UpcomingAppoinement[] = [
 
 
 const JobTicket_DATA: JobTicket[] = [
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
-  {ticket: '123456', title: 'Lorem I psum is' , category: 'Lorem', status:'active', repName: 'Lorem I psum', action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
 ];
 
 
@@ -84,9 +79,12 @@ export interface UpcomingAppoinement {
 
 export interface JobTicket {
   ticket: string;
-  repName: string;
+  image_URL: string;
+  name: string;
   title: string;
-  category: string;
+  repName: string;
+  customerName: string;
+  subject: string;
   status: string;
   action: string;
 }
@@ -111,6 +109,15 @@ export interface Reports {
 })
 export class MaindashboardComponent implements OnInit {
 
+  public indexval:any=6;
+  public indexValForLinkdin: any = 6;
+  
+  public allFacebookBanner : any = [
+    'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
+public allLinkdinBanner : any = [
+      'linkedinbanner-img1.jpg', 'linkedinbanner-img2.jpg', 'linkedinbanner-img3.jpg', 'linkedinbanner-img4.jpg', 'linkedinbanner-img5.jpg', 'linkedinbanner-img6.jpg', 'linkedinbanner-img7.jpg', 'linkedinbanner-img8.jpg', 'linkedinbanner-img9.jpg', 'linkedinbanner-img10.jpg', 'linkedinbanner-img11.jpg', 'linkedinbanner-img12.jpg', 'linkedinbanner-img13.jpg', 'linkedinbanner-img14.jpg', 'linkedinbanner-img15.jpg', 'linkedinbanner-img16.jpg', 'linkedinbanner-img17.jpg', 'linkedinbanner-img18.jpg', 'linkedinbanner-img19.jpg', 'linkedinbanner-img20.jpg', 'linkedinbanner-img21.jpg', 'linkedinbanner-img22.jpg', 'linkedinbanner-img23.jpg', 'linkedinbanner-img24.jpg', 'linkedinbanner-img25.jpg', 'linkedinbanner-img26.jpg', 'linkedinbanner-img27.jpg', 'linkedinbanner-img28.jpg', 'linkedinbanner-img29.jpg', 'linkedinbanner-img30.jpg', 'linkedinbanner-img31.jpg', 'linkedinbanner-img32.jpg', 'linkedinbanner-img33.jpg', 'linkedinbanner-img34.jpg', 'linkedinbanner-img35.jpg', 'linkedinbanner-img36.jpg', 'linkedinbanner-img37.jpg', 'linkedinbanner-img38.jpg', 'linkedinbanner-img39.jpg', 'linkedinbanner-img40.jpg', 'linkedinbanner-img41.jpg', 'linkedinbanner-img42.jpg'];
+
+
 
   public apikeyForm:FormGroup;
 
@@ -132,6 +139,8 @@ public saveSearchIndex:any=10;
 
 public socialadvoFBIndex:any=6;
 public socialadvoLDIndex:any=6;
+
+
 
 
 
@@ -162,8 +171,8 @@ public errorMsg: string = '';
   public count:any ='';
 
 
-  socialAdvFacebookLists: socialFacebookAdvos[];
-  socialAdvLinkedinLists: socialLinkedinAdvos[];
+  // socialAdvFacebookLists: socialFacebookAdvos[];
+  // socialAdvLinkedinLists: socialLinkedinAdvos[];
 
   
 
@@ -174,7 +183,7 @@ public errorMsg: string = '';
 
 
 
-  JTColumns: string[] = ['ticket', 'repName', 'title', 'category', 'status', 'action'];
+  JTColumns: string[] = ['ticket', 'name', 'title', 'repName', 'customerName',  'subject', 'status', 'action'];
   jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
   @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
 
@@ -185,35 +194,74 @@ public errorMsg: string = '';
 
 
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog,public snack:MatSnackBar,public router:Router,public fb:FormBuilder) {
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog,public snack:MatSnackBar,public router:Router,public fb:FormBuilder, private fb1: FacebookService) {
     
 
-    this.socialAdvFacebookLists = [{ Id: '1001', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img1.jpg' },
-    { Id: '1002', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img2.jpg' },
-    { Id: '1003', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img3.jpg' },
-    { Id: '1004', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img4.jpg' },
-    { Id: '1005', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img5.jpg' },
-    { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img6.jpg' },
-    { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img7.jpg' },
-    { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img8.jpg' },
-    { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img9.jpg' },
-    ];
+    this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    
+
+    // this.socialAdvFacebookLists = [{ Id: '1001', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img1.jpg' },
+    // { Id: '1002', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img2.jpg' },
+    // { Id: '1003', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img3.jpg' },
+    // { Id: '1004', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img4.jpg' },
+    // { Id: '1005', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img5.jpg' },
+    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img6.jpg' },
+    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img7.jpg' },
+    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img8.jpg' },
+    // { Id: '1006', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/facebookbanner-img9.jpg' },
+    // ];
 
 
-    this.socialAdvLinkedinLists = [
-    { Id: '1007', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img1.jpg' },
-    { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img2.jpg' },
-    { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img3.jpg' },
-    { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img4.jpg' },
-    { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img5.jpg' },
-    { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img6.jpg' },
-    ];
-
-
-
+    // this.socialAdvLinkedinLists = [
+    // { Id: '1007', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img1.jpg' },
+    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img2.jpg' },
+    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img3.jpg' },
+    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img4.jpg' },
+    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img5.jpg' },
+    // { Id: '1008', title_name: 'BMW 535I, NAVI, LEATHER, ABS', image_URL: '../../../../assets/images/linkedinbanner-img6.jpg' },
+    // ];
+    
+    fb1.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
   
     
    }
+   
+
+   /* To copy Text from Textbox */
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+  }
+  copyMessage(val: string){
+    let url = this.apiService.share_link+'customer-signup/'+val+'/'+this.userCookies._id;
+    const selBox = document.createElement('textarea');
+    selBox.style.position = 'fixed';
+    selBox.style.left = '0';
+    selBox.style.top = '0';
+    selBox.style.opacity = '0';
+    selBox.value = url;
+    document.body.appendChild(selBox);
+    selBox.focus();
+    selBox.select();
+    document.execCommand('copy');
+    document.body.removeChild(selBox);
+  }
+
+  logoutWithFacebook(): void {
+    this.fb1.logout().then();
+  }
+
+  linkdinShare(url: any){
+    var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+    // console.log(fullUrl)
+
+  }
+
+  
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
@@ -236,6 +284,26 @@ public errorMsg: string = '';
     this.reportsDataSource.paginator = this.reportPaginator;
    this.generateForm();
 
+  }
+
+
+  share(url: string) {
+    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+    this.cookieService.set('shareIngUrl',fullUrl);
+    // console.log(fullUrl)
+ 
+    let params: UIParams = {
+      href: fullUrl,
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
+    };
+   
+    this.fb1.ui(params)
+      .then((res: UIResponse) =>{
+
+      })
+      .catch();
+   
   }
 
 
@@ -368,14 +436,23 @@ apiKeySubmit(){
 
   //for rsvp details
   viewRsvpDetails(val:any){
+    // console.log('>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>test>>>>>>>>>>>>>>>>>>>>>>>>>>', val);
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
-
-
-
+  //for view Job Ticket
+  viewJobTicket(val:any){
+    this.router.navigateByUrl('/manage-job-ticket/'+val);
   }
 
+
+  private handleError(error) {
+    console.error('Error processing action', error);
+  }
+  
+  }
+
+   
 
 
 

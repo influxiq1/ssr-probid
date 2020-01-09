@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
-import { BasicInventorySearchBackendComponent } from '../inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
+// import { BasicInventorySearchBackendComponent } from '../inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
 import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
@@ -80,7 +80,9 @@ export class InventoryDetailComponent implements OnInit {
   public errorMsg: any = 'Please Choose customer';
   public carData: any;
   public addedCar: any = '';
-  constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService, public catItemByObservable: BasicInventorySearchBackendComponent, public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router) {
+  constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
+    //  public catItemByObservable: BasicInventorySearchBackendComponent,
+      public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router) {
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {

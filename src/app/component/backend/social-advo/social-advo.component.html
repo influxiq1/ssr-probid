@@ -1,7 +1,6 @@
 <div class="adminwrappercls">
   <app-header></app-header>
       <div class="main-content-wrap">
-
         <mat-card-content class="adm_inner_banner">
           <mat-card-title class="adm_inner_title">Social advo</mat-card-title>
           <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -10,7 +9,6 @@
           <a mat-list-item routerLinkActive="active"> Dashboard </a>
           <a mat-list-item routerLinkActive="active activebread"> Social advo</a>
         </mat-card-content>
-
         <mat-card class="generalcls socialadvoblock1" style="padding:0px !important">
           <span class="mainwrappercontent">
               <mat-card-title class="sectionheader">Social Advo</mat-card-title>
@@ -20,7 +18,6 @@
                     <h2>Facebook Banner</h2>
                   </span> 
                 </span>
-
                 <span class="bannerlistwrapper facebookbanner">
                   <mat-list role="list">
                     <mat-list-item role="listitem" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
@@ -53,7 +50,6 @@
                       <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
                       
                       </p>
-
                     </mat-list-item>
                   </mat-list>
                   <span class="loadmorewarpper">
@@ -66,6 +62,4 @@
       </div>
   </div>
   
-
 <app-footer></app-footer>
-
