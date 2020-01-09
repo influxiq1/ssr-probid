@@ -52,7 +52,7 @@ export class CustomerSignupComponent implements OnInit {
     if (this.img != '') {
       this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/'+this.img);
       this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/'+this.img);
-      this.meta.setTag('og:url', 'https://dev.probidauto.com/'+this.img+'/'+this.rep_id);
+      this.meta.setTag('og:url', 'https://dev.probidauto.com/customer-signup/'+this.img+'/'+this.rep_id);
     } else {
       this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
       this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');

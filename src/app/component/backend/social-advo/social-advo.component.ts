@@ -69,6 +69,11 @@ export class SocialAdvoComponent implements OnInit {
   ngOnInit() {
     this.getLoginStatus();
   }
+
+  ngOnDestroy() {
+    this.meta.removeTag('property="og:type"');
+ }
+ 
   loadMoreSearch(val:string){
     if (val=='facebook') {
     this.indexval=this.indexval+6;
