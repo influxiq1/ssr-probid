@@ -1,7 +1,6 @@
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MetaModule } from '@ngx-meta/core';
 import { RouterModule } from '@angular/router';
 
 
@@ -16,7 +15,7 @@ import { FacebookModule } from 'ngx-facebook';
 import {DemoMaterialModule} from "../material-module";
 // import { DragScrollModule } from 'ngx-drag-scroll';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { LoginComponent } from './component/frontend/login/login.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './auth.guard';
@@ -178,11 +177,34 @@ import { ListingSubscriptionComponent } from './component/backend/newsletterlist
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { AskForConfirmationComponent } from './component/backend/ask-for-confirmation/ask-for-confirmation.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
-import { from } from 'rxjs';
+
+import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
+
+import {TranslateModule, TranslateService} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 
 //****** for video Modal*********//
 
+
+export function metaFactory(): MetaLoader {
+  return new MetaStaticLoader({
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: ' - ',
+    applicationName: 'Tour of (lazy/busy) heroes',
+    defaults: {
+      title: 'Mighty mighty mouse',
+      description: 'Mighty Mouse is an animated superhero mouse character',
+      'og:image': 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg',
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'en_US,nl_NL,tr_TR'
+    }
+  });
+}
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -303,10 +325,16 @@ import { from } from 'rxjs';
     RsvpSuccessComponent
   ],
   imports: [
+    TranslateModule.forRoot(),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: (metaFactory),
+      deps: [TranslateService]
+    }),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
-    MetaModule.forRoot(),
+    // MetaModule.forRoot(),
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
@@ -316,7 +344,6 @@ import { from } from 'rxjs';
     AngularFontAwesomeModule,
     MatCarouselModule.forRoot(),
     // DragScrollModule,
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     DemoMaterialModule,
     CommonModule,
     
