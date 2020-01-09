@@ -21,7 +21,7 @@ export class ForgetPasswordComponent implements OnInit {
     "customLink":"/sign-up",
     "customURl":""
   };
-  public buttonName: any = 'Forgot Password ?';
+  public buttonName: any = 'Forgot Password';
   // public signUpRouteingUrl: any = 'sign-up';
   public formTitle: any = 'Forgot Password ?';
   public serverUrl:any = 'http://166.62.39.137:5050/';
