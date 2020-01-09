@@ -9,11 +9,8 @@ import { ContactusComponent } from './component/frontend/contactus/contactus.com
 import { ForgetPasswordComponent } from './component/frontend/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/frontend/reset-password/reset-password.component';
 import { SignUpComponent } from './component/frontend/sign-up/sign-up.component';
-import { TesimonialComponent } from './component/frontend/tesimonial/tesimonial.component';
 import { TesimoniallistComponent } from './component/frontend/tesimoniallist/tesimoniallist.component';
-import { ServiceComponent } from './component/frontend/service/service.component';
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
-import { BlogComponent } from './component/frontend/blog/blog.component';
 import { BloglistfrontendComponent } from './component/frontend/bloglist/bloglist.component';
 
 import { BlogdetailComponent } from './component/frontend/blogdetail/blogdetail.component';
@@ -115,29 +112,29 @@ const routes: Routes = [
   
   { path: '', component: HomeComponent ,resolve: { home_data: ResolveService },
   data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+
+  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
+  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
 
   { path: 'forget-password', component: ForgetPasswordComponent },
   { path: 'reset-password', component: ResetPasswordComponent },
+
   { path: 'sign-up', component: SignUpComponent },
   { path: 'salesrep-signup', component: SalesrepSignupComponent },
   
   { path: 'customer-signup', component: CustomerSignupComponent },
-
   { path: 'customer-signup/:id', component: CustomerSignupComponent },
   { path: 'customer-signup/:img/:id', component: CustomerSignupComponent },
 
-  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
-  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
 
   { path: 'contactus', component: ContactusComponent },
-  // { path: "", component: TesimonialComponent},
   { path: 'pre-owned-list', component: SearchListViewComponent },
   { path: 'online-inventory-list', component: SearchListViewComponent },
   { path: 'search-inventory-list', component: SearchListViewComponent },
   { path: 'specials-list', component: SearchListViewComponent },
-// {    path: "testimonial",  component: TesimoniallistComponent },
   {
     path: "testimonial",
     component: TesimoniallistComponent,
@@ -147,27 +144,13 @@ const routes: Routes = [
       endpoint: "datalistwithouttoken"
     }
   },
-
-  {
-    path: 'servicehome',
-    component: ServiceComponent,
-    resolve: { serviceListData: ResolveService },
-    data: { requestcondition: { source: 'service', condition: {} }, endpoint: 'datalist' }
-  },
-  // {
-  //   path: 'service',
-  //   component: ServicelistComponent
-  // },
+  
   {
     path: 'service',
     component: ServicelistComponent,
     resolve: { serviceListData: ResolveService },
     data: { requestcondition: { source: 'service', condition: {} }, endpoint: 'datalistwithouttoken' }
   },
-  { path: 'blog', component: BlogComponent },
-  // { path: 'blog-category/edit/:_id', component: BlogComponent, resolve: { blogCatList: ResolveService },
-  // data: { requestcondition: { source: 'blog_category', condition: {} }, endpoint: 'datalist' }},
-
   // { path: 'blog-category/list', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
   // data: { requestcondition: { source: 'blog_category_view', condition: {} }, endpoint: 'datalist' }},
 

@@ -35,20 +35,20 @@ export class ApiService {
   deletemultiple_endpointUrl: any;
   updatestatus_multiple_endpointUrl: any;
   getdata_endpointUrl: any;
-  private subjectForServerUrl = new Subject<any>();
-  private subjectForaddEndpointUrl = new Subject<any>();
-  private subjectForuploadEndpointUrl = new Subject<any>();  //added by souresh
-  private subjectForupdateEndpointUrl = new Subject<any>();
-  private subjectFordeletesingleEndpointUrl = new Subject<any>();
-  private subjectForupdatestatusSingleEndpointUrl = new Subject<any>();
-  private subjectForGetdataEndpointUrl = new Subject<any>();
-  public subscriptionServer: Subscription;
-  public subscriptionaddEndpoint: Subscription;
-  public subscriptionuploadEndpoint: Subscription;   //added by souresh
-  public subscriptionupdateEndpoint: Subscription;
-  public subscriptiondeletesingleEndpoint: Subscription;
-  public subscriptionupdatestatusSingleEndpoint: Subscription;
-  public subscriptionGetdataEndpoint: Subscription;
+  // private subjectForServerUrl = new Subject<any>();
+  // private subjectForaddEndpointUrl = new Subject<any>();
+  // private subjectForuploadEndpointUrl = new Subject<any>();  //added by souresh
+  // private subjectForupdateEndpointUrl = new Subject<any>();
+  // private subjectFordeletesingleEndpointUrl = new Subject<any>();
+  // private subjectForupdatestatusSingleEndpointUrl = new Subject<any>();
+  // private subjectForGetdataEndpointUrl = new Subject<any>();
+  // public subscriptionServer: Subscription;
+  // public subscriptionaddEndpoint: Subscription;
+  // public subscriptionuploadEndpoint: Subscription;   //added by souresh
+  // public subscriptionupdateEndpoint: Subscription;
+  // public subscriptiondeletesingleEndpoint: Subscription;
+  // public subscriptionupdatestatusSingleEndpoint: Subscription;
+  // public subscriptionGetdataEndpoint: Subscription;
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService) {
 
