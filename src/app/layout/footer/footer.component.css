@@ -139,7 +139,7 @@
 .newslettermain{		
     background-color: #323232;		
     padding: 16px;		
-    width: 100%;		
+    width: auto;		
     display: inline-block;		
     color: #fff;		
     text-align: left;		
@@ -177,6 +177,11 @@
     color: #868686;		
 }
 
+
+@media (max-width: 1250px) {
+
+    .newsletterwrapper{ width: 370px;}
+}
 
 @media (max-width: 1199px) {
 .footertopwrapper .mat-nav-list {margin: 0; margin-bottom: 15px;}

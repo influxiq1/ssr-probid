@@ -195,3 +195,424 @@
   /*--Sales Rep Signup media css---*/
   
   /*--Sales Rep Signup media css---*/
+
+
+
+  /*-------------start---amitava 09-01-2020-------------*/
+
+  
+  @media only screen and (max-width: 1890px) {
+
+  .associate_new_con5.mat-card{ width: auto; }
+
+  .associate_new_con6.mat-card { 
+    position: relative;
+    width: auto;
+    display: block;
+    min-height: 300px;
+}
+
+.benefittop{ width: auto;  padding: 30px;}
+
+.formhome { 
+  right: 90px;
+}
+
+.footerwrapper{ display: block; width: auto;}
+  }
+
+  @media only screen and (max-width: 1800px) {
+    .signupnewtop-banner .banner img {
+      margin: 0 0 0 -110px; 
+  }
+  .associate_new_con5 .imgbottom{ width: 750px;
+    top: 80px;
+}
+
+ 
+  }
+
+  @media only screen and (max-width: 1780px) {
+    .formblock_bottomtextnew.mat-card { padding: 50px 0 50px 15px;}
+  }
+  
+
+  
+  @media only screen and (max-width: 1760px) {
+    .signupnewtop-banner .banner img {
+      margin: 0 0 0 -140px; 
+  }
+
+  .formblock_bottomtextnew.mat-card{ width: auto;     display: block;}
+
+  .formblock_bottomtextnew .container_wrapper{ width: auto;}
+  }
+
+  @media only screen and (max-width: 1660px) {
+  .formhome {
+    right: 40px;
+}
+
+.associate_new_con6_text { width: 790px;}
+.associate_new_con6.mat-card {
+  min-height: 330px;
+}
+
+}
+
+@media only screen and (max-width: 1620px) {
+.signupnewtop-banner .banner img {
+  margin: 0 0 0 -190px;
+}
+
+.formblock_bottomtextnew.mat-card {
+  padding: 50px 0 50px 35px;
+}
+
+.associate_new_con5 .imgbottom {
+  width: 720px;
+  top: 80px;
+}
+
+}
+
+@media only screen and (max-width: 1580px) {
+  .signupnewtop-header p {  margin: 0 0 0 80px !important;}
+
+  .associate_new_con1_wrapper {
+    width: 1400px;}
+
+    .associate_new_con1_wrapper h2 {
+      font-size: 24px;}
+
+   
+}
+
+@media only screen and (max-width: 1560px) {
+  .signupnewtop-banner .banner img {
+    margin: 0 0 0 -280px;
+}
+
+.associate_new_con5 .imgbottom {
+  width: 690px;}
+}
+
+@media only screen and (max-width: 1540px) {
+  .associate_new_con5_wrapper {
+    width: auto;}
+
+    .associate_new_con6_wrapper {
+      width: auto;}
+
+      .associate_new_con6_text { 
+        padding-left: 80px;
+    }
+}
+
+@media only screen and (max-width: 1500px) {
+  .associate_new_con5 .imgbottom {
+    width: 595px;
+}
+
+.associate_new_con5.mat-card { padding-left: 45px;}
+
+.container_wrapper_text.mat-card{ width: 70%;}
+
+.formblock_bottomtextnew span{ font-size: 18px;}
+}
+
+@media only screen and (max-width: 1480px) {
+  .formhome {
+    right: 20px;
+}
+}
+
+
+@media only screen and (max-width: 1450px) {
+  .signupnewtop-banner .banner img {
+    margin: 0 0 0 -310px;
+}
+
+.associate_new_con1_wrapper {
+  width: 1340px;
+}
+}
+
+@media only screen and (max-width: 1420px) {
+.signupnewtop-banner .banner img {
+  margin: 0 0 0 -260px;
+  width: 124%;
+}
+
+.signupnewtop-banner .banner{ height: 515px;}
+
+.signupnewtop-header p {
+  margin: 0 0 0 0px !important; width: 73%;
+
+}
+.signupnewtop-header .top-header .headerright {
+  width: 58%;
+  padding-left: 100px;
+}
+
+}
+
+
+@media only screen and (max-width: 1380px) {
+
+  .associate_new_con1_wrapper {
+    width: 1250px;
+}
+.associate_new_con1_wrapper h2 {
+  font-size: 22px;
+}
+
+.associate_new_con6_text {
+  padding-left: 170px;
+}
+
+.associate_new_con5 .imgbottom {
+  width: 525px;
+}
+
+}
+
+@media only screen and (max-width: 1360px) {
+  .signupnewtop-banner .banner {
+    height: 493px;
+}
+}
+
+@media only screen and (max-width: 1340px) {
+  .signupnewtop-header p{ width: 70% ;     margin: 0 0 0 10px !important; }
+}
+
+@media only screen and (max-width: 1320px) {
+  .signupnewtop-header .top-header .headerright {
+    width: 48%;}
+
+    #header2 .top-header p {
+      font-size: 16px;
+  }
+
+  .signupnewtop-header p {
+    width: 74%;
+    margin: 0 0 0 25px !important;
+}
+
+.formblock_bottomtextnew span{ width: 30%;}
+
+.formblock_bottomtextnew span {
+  font-size: 15px;
+}
+
+.signupnewtop-banner .banner {
+  height: 468px;
+}
+
+.associate_new_con5 .imgbottom {
+  width: 425px;
+}
+}
+
+@media only screen and (max-width: 1300px) {
+  .associate_new_con1_wrapper {
+    width: 1190px;
+}
+
+.associate_new_con6_text {
+  padding-left: 330px;
+}
+
+.associate_new_con6.mat-card {
+  min-height: 370px;
+}
+}
+
+@media only screen and (max-width: 1240px) {
+  .formblock_bottomtextnew span {
+    font-size: 14px;
+}
+.signupnewtop-banner .banner {
+  height: 437px;
+}
+.associate_new_con1_wrapper {
+  width: 1150px;
+}
+
+.associate_new_con1_wrapper h2 {
+  font-size: 20px;
+}
+
+.signupnewtop-header .top-header .headerright {
+  width: 44%;
+}
+.signupnewtop-header p {
+  width: 70%;}
+}
+
+@media only screen and (max-width: 1199px) {
+
+  .signupnewtop-header .top-header{ display: block;}
+
+  .signupnewtop-header .top-header .logo {
+    width: auto;
+    display: block;
+    float: none;
+}
+.signupnewtop-header .top-header .headerright {
+  width: auto;
+  padding: 0px;
+  display: block;
+}
+#header2 .top-header p {
+  font-size: 22px;
+}
+.signupnewtop-header p {
+  width: 100%;
+  margin:15px 0px!important;
+  float: none;
+}
+
+.signupnewtop-header .socialblock {
+  width: auto;
+  float: none;
+  margin-top: 0px;
+}
+
+.formhome {
+  width: 333px;
+  height: 100%;
+  position: inherit;
+  top: 0;
+  right: 0;
+  margin: 10px auto;
+}
+.signupnewtop-banner .banner img {
+  margin: 0 0 0 0;
+  width: 130%;
+  height: auto;
+}
+.signupnewtop-banner .banner {
+  height: auto;
+}
+
+.formblock_bottomtextnew.mat-card {
+  padding:35px 25px;
+  text-align: center;
+}
+.container_wrapper_text.mat-card {
+  width: 100%;
+}
+.formblock_bottomtextnew span {
+  width: 100%;
+  float: none;
+  text-align: center;
+}
+.formblock_bottomtextnew span {
+  font-size: 18px;
+}
+.formblock_bottomtextnew span strong {
+  display: block;
+  font-size: 30px;
+  color: #fff;
+  font-weight: normal;
+  line-height: 60px;
+  float: none;
+  margin: 0;
+  height: 100%;
+ 
+  margin-right: auto;
+  margin-left: auto;
+  width: 30px;
+}
+.benefittop h2{ text-align: center;}
+
+.associate_new_con1.mat-card{ background-image: none!important; background-color: #222!important;}
+.associate_new_con1_wrapper {
+  width: auto;
+  padding:25px 0px;
+}
+.associate_new_con1_wrapper .associate_new_con1_left {
+  padding-left: 0;
+  text-align: center;
+}
+.associate_new_con1_wrapper .associate_new_con1_right {
+  padding-left: 0;}
+
+  .associate_new_con1_wrapper h2 {
+    font-size: 20px;
+    text-align: center;
+}
+.associate_new_con5.mat-card {
+  padding-left: 16px;
+}
+
+.associate_new_con5 .imgbottom {
+  width: auto;
+  position: inherit;     right: 0;
+  bottom: 0;     top: 0;
+}
+
+.associate_new_con5_text {
+  height: auto;
+  width: auto;
+  text-align: center;     display: block;}
+  .associate_new_con5_text p {
+   padding: 0;
+    border-left: none;
+}
+.associate_new_con6.mat-card {
+  min-height: inherit;
+}
+.associate_new_con6_wrapper_body {
+  width: auto;
+  float: none;
+}
+.associate_new_con6_text {
+  padding-left: 0; width: auto;
+  text-align: center;     display: block;
+   
+  padding: 0px 0;
+}
+
+.associate_new_con6_text p{ border: none; padding: 0px;}
+.associate_new_con6.mat-card{ background-image: none!important; background-color: #e1d9cf!important;}
+.associate_new_con6_link{ margin-top: 0px;}
+.associate_new_con6 { padding-top: 25px!important; padding-bottom: 25px!important;}
+}
+@media only screen and (max-width:767px) {
+
+  .associate_new_con1_wrapper .associate_new_con1_right{ display: block;}
+  .associate_new_con1_wrapper .as_video-container {
+    width: 100%;
+    display: block;
+}
+.associate_new_con1_wrapper .as_video-container:nth-of-type(2){ margin-top: 50px;}
+.signupnewtop-banner .banner img {
+  margin: 0 0 0 -69%;
+  width: 230%;
+  height: auto;
+}
+}
+@media only screen and (max-width:480px) {
+.formblock_bottomtextnew h4 span{ line-height: inherit;}
+
+.benefittop h2{ font-size: 30px;}
+.associate_new_con5_text td{ display: block;     border: none!important;}
+.associate_new_con5_text tr{ display: block;     border: none!important;}
+
+.associate_new_con5_text tr:nth-of-type(2) td:nth-of-type(1) {
+  background: #737373;}
+  .associate_new_con5_text tr:nth-of-type(2) td:nth-of-type(2) {
+    background: #855a54;}
+    .associate_new_con5_text tr:nth-of-type(2) td:nth-of-type(3) {
+      background: #fb4a32;}
+
+      .signupnewtop-banner .banner img {
+        margin: 0 0 0 -81%;
+        width: 250%;
+        height: auto;
+    }
+}
+    /*-------------end---amitava 09-01-2020-------------*/
