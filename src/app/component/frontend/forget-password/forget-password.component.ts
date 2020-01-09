@@ -17,13 +17,13 @@ export class ForgetPasswordComponent implements OnInit {
   };
   public signUpRouteingUrl: any = { 
     "path":"",
-    "buttonName":"Sign-Up",
+    // "buttonName":"Sign-Up",
     "customLink":"/sign-up",
     "customURl":""
   };
-  public buttonName: any = 'Forget Password';
+  public buttonName: any = 'Forgot Password ?';
   // public signUpRouteingUrl: any = 'sign-up';
-  public formTitle: any = 'Forget Password';
+  public formTitle: any = 'Forgot Password ?';
   public serverUrl:any = 'http://166.62.39.137:5050/';
   public addEndpoint: any = {
     endpoint:'forgetpassword'
