@@ -104,6 +104,7 @@ import { ListingSenderappComponent } from './component/backend/newsletterlists/l
 import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
+import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -120,7 +121,7 @@ const routes: Routes = [
   { path: 'login/:id', component: LoginComponent },
 
   { path: 'forget-password', component: ForgetPasswordComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   { path: 'sign-up', component: SignUpComponent },
   { path: 'salesrep-signup', component: SalesrepSignupComponent },
@@ -358,6 +359,7 @@ const routes: Routes = [
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
   { path: 'job-ticket', component: JobTicketComponent },
+  {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
   { path: 'manage-type', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },

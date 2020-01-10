@@ -178,6 +178,7 @@ import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '
 
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 
 
 //****** for video Modal*********//
@@ -315,7 +316,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     salesSignUpModalComponent,
     askForconfirmationModalComponent,
     AskForConfirmationComponent,
-    RsvpSuccessComponent
+    RsvpSuccessComponent,
+    ViewJobTicketComponent
   ],
   imports: [
     TranslateModule.forRoot(),

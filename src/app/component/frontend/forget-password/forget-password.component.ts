@@ -28,7 +28,7 @@ export class ForgetPasswordComponent implements OnInit {
   public addEndpoint: any = {
     endpoint:'forgetpassword'
   };
-  public domanUrl: any = 'http://localhost:4200/reset-password';
+  public domainUrl: any = 'https://dev.probidauto.com/reset-password';
   constructor(private readonly meta: MetaService) {
     
     // this.meta.setTitle('Forget Password dynamic');
