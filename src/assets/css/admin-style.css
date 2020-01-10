@@ -668,6 +668,26 @@ span.smltxt{
   min-height: 100vh;
 }
 
+.myaccount.generalcls .myaccountwrapper .mat-card-title {
+  font-family: 'HelveticaBold';
+  font-size: 48px!important;
+  line-height: 48px!important;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background: #333;
+  margin-bottom: 2px !important;
+  padding: 20px 0px 15px;
+}
+
 .myaccount .mat-tab-group {
   display: flex;
   flex-direction: row;   
@@ -694,6 +714,7 @@ span.smltxt{
 
 .myaccount .mat-ink-bar[style] {
   right: 0 !important;
+  background-color: transparent !important;
 }
 
 .myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
@@ -737,6 +758,7 @@ span.smltxt{
 .myaccount .mattabgroup .mat-tab-label-active{
   background: #5d5a55;
   opacity: 1;
+  border-left: 5px solid #e04530;
 }
 
 /* .myaccount .mattabgroup .mat-tab-label-active:first-child{
@@ -784,3 +806,10 @@ span.smltxt{
   margin-top: 0;
 }
 
+.myaccount .mattabgroup form button{
+  margin: 5px;
+}
+
+button{
+  border-radius: 0 !important;
+}
