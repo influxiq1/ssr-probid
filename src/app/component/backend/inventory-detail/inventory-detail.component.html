@@ -82,6 +82,7 @@
                             mi</span>
                           <span *ngIf="data.miles == null || data.miles ==''">N/A</span>
                         </mat-list-item>
+                        <mat-list-item><span>Date :</span> {{data.date_added}} </mat-list-item>
                         <!-- <mat-list-item *ngIf="data.miles == '' && data.miles == null "><span>Odometer :</span>N/A</mat-list-item> -->
                       </mat-list>
                     </span>
@@ -515,8 +516,13 @@
                   <span class="middleblock">
                     <h2>{{item.heading}} <span (click)="inventoryDetails(item._id)">View Details</span></h2>
 
-                    <span class="pricecls" > 
-                      $ {{item.price}}</span>
+                    <span class="pricecls"> 
+                      <span *ngIf="item.price !=null">$ {{item.price}}</span>
+
+                        <span  *ngIf="item.price ==null" > N/A</span>
+                        
+                    </span>
+                    
                      
 
                     <span class="titlecls">

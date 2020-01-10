@@ -295,7 +295,6 @@ this.apploader.loader = 0;
 
           // console.log('search list', this.search)
 
-
         })
         this.spinnerval = 0;
 
@@ -467,11 +466,11 @@ this.apploader.loader = 0;
 
   // for observeable
   public viewDetails(item:any):any {
-    // console.log('data_item >>',item)
+    console.log('data_item >>',item)
 
     var carData=item;
 
-    // console.log('carData >>',carData)
+    console.log('carData >>',carData)
 
     // let observable=new Observable(item)
     // console.log('$$>>>>>',observable)
@@ -486,19 +485,21 @@ this.apploader.loader = 0;
     // // return observeable;
 
    
-      // const carItem = new Observable(observer => {
-      //        setTimeout(() => {
-      //            observer.next(carData);
+      const carItem = new Observable(observer => {
+             setTimeout(() => {
+                 observer.next(carData);
                  
-      //        }, 1000);
+             }, 1000);
             
-      // });
-      
+      });
+      console.log('>>>>>',carItem)
+
       // setTimeout(() => {
       //   // this.router.navigateByUrl('/search-detail')
       // }, 500);
  
-      // return carItem;
+      return carItem;
+
   
 
   }

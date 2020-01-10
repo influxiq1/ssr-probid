@@ -305,9 +305,18 @@
                                 </span>
                             </span>
                             <span class="middleblock">
-                                <span class="pricecls" *ngIf="item.price != null">
-                                    ${{item.price}}
+                                <span  class="pricecls"> 
+                                    <span *ngIf="item.price != null">
+                                        ${{item.price}}
+                                    </span>
+
+                                    <span *ngIf="item.price == null">
+                                        N/A
+                                    </span>
+
                                 </span>
+                               
+
                                 <span class="titlecls">
                                     <span *ngIf="item.heading != null" 
                                     (click)="viewSaveDetails(item._id)">{{item.heading}}</span>

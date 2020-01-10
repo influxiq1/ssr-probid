@@ -17,8 +17,10 @@ export class ApiService {
   public uploadurl =  environment["uploadurl"];
   public base64encode =  environment["base64encode"];
   public uploadsslurl: any= environment["download_url"];
-  public inventory_url: string = environment["inventory_url"] + environment["inventory_url_api"];
-  public inventory_auto_complete_url: string = environment["inventory__auto_completeurl"] + environment["inventory_url_api"];
+  public inventory_url: string ;
+  // = environment["inventory_url"] + environment["inventory_url_api"];
+  public inventory_auto_complete_url: string;
+  //  = environment["inventory__auto_completeurl"] + environment["inventory_url_api"];
   public share_link : string = environment["share_link"];
   public Meta_image_url : string = environment["Meta_image_url"];
 
@@ -56,7 +58,10 @@ export class ApiService {
       source:'search_api_key'
     }
     this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
-      // console.log(res);
+      console.log(res);
+      this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
+      this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
+      console.log(this.inventory_url);
 
     })
 

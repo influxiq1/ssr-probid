@@ -14,11 +14,22 @@
                 <form [formGroup]="apikeyForm" class="formrightside">
                   <mat-label _ngcontent-serverapp-c1="">Enter New Api Key :</mat-label>
                   <mat-form-field>
-                    <input matInput type="text" placeholder="Enter Api Key" formControlName="apikey">
-                  </mat-form-field>
-
+                    <input matInput type="text" placeholder="Enter Api Key" 
+                    (blur)="inputUntouched('apikey')" formControlName="apikey">
+                  </mat-form-field>&nbsp; 
+        
                   <button mat-raised-button type="button'" class="btnblue" 
-                  (click)="apiKeySubmit()">Update Api Key</button> 
+                  (click)="apiKeySubmit()">Update Api Key</button> &nbsp;
+
+                  <button mat-raised-button type="reset" class="btnblue greenbtn" 
+                  >Reset</button> 
+                  <!-- <span style="color: crimson;" >
+                    {{errorApiKey}}
+                  </span> -->
+
+                  <span> <mat-error
+                    *ngIf="!apikeyForm.controls['apikey'].valid && apikeyForm.controls['apikey'].errors.required && apikeyForm.controls['apikey'].touched">
+                    api key field can not be blank</mat-error></span>
 
                 </form>
 
