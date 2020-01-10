@@ -1,0 +1,305 @@
+.managejobticket .mainwrappercontent {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.adm_inner_banner .adm_inner_title.mat-card-title {
+    font-size: 48px !important;
+    color: #fff !important;
+    font-family: "HelveticaBold";
+    text-transform: uppercase !important;
+    text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
+
+.adm_dashboard_block1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 20px !important;
+  }
+  
+
+.adm_dashboard_block1_left{width: 28%; display: block; border-radius: 10px;}
+.adm_dashboard_block1_right{
+  width: 71%;
+  display: block;
+  margin-left: 1%;
+  background-color: #dde2e5;
+  padding: 15px; border-radius: 10px;
+}
+
+.adm_dashboard_block1_left{
+    background-color: #dde2e5;
+    padding: 15px;
+}
+
+.adm_dashboard_block1_left .sectionheader.mat-card-title{
+  font-family: "Helvetica-Normal";
+  font-size: 24px !important;
+  line-height: normal !important;
+  color:#fff;
+  text-transform: uppercase;
+  background-color: #141b2f;
+  justify-content: center;
+  padding: 15px;
+  margin-bottom: 5px !important;
+  width: auto;
+}
+
+.adm_dashboard_block1_left .mat-card {
+  background: 0 !important;
+  padding: 0 !important;
+}
+
+
+
+
+
+
+
+.flexbox1column {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  
+  .flexbox1column > .rsvplistsingle  {
+    box-sizing: border-box;
+    margin-bottom: 16px;
+    width: calc(1/1*100% - (1 - 1/1)*16px);
+    height: auto;
+  }
+  
+  .flexbox1column > .rsvplistsingle:last-child{
+    margin-bottom: 0px !important;
+  }
+  
+  .flexbox1column > .rsvplistsingle  > .mat-list-item-content{
+      padding: 0 !important;
+  }
+  
+  .flexbox1column .rsvplistsingleinner{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+    height: 100%;
+    flex: 1 1 100%;
+  }
+  
+  .flexbox1column .rsvplistsingleleft{
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+    height: 100%;
+  }
+  
+  
+  .flexbox1column .rsvplistsingleleft .rsvpliststop {
+    -webkit-box-flex: 1;
+    flex: 1 1 35%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+  }
+  
+  .flexbox1column .rsvplistsingleleft .rsvplistsbottom  {
+    -webkit-box-flex: 1;
+    flex: 1 1 65%;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    margin-left: 10px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    flex-direction: column;
+  }
+  
+  .flexbox1column .rsvplistimgwrapper{
+    height: 105px;
+    width: 100%;
+    overflow: hidden;
+    display: block;
+    position: relative;
+    border: 5px solid #fff;
+  }
+  
+  .flexbox1column .rsvplistimgwrapper img{
+    width: auto;
+    height: 100% !important;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    width: 100%;
+    cursor: pointer;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  
+  .flexbox1column .rsvplisttypecontentinfo {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-align: stretch;
+    align-items: stretch;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+    flex-direction: row;
+  }
+  
+  .flexbox1column .rsvplisttypeimgwrapper {
+    width: 76px;
+    height: 82px;
+    position: relative;
+    display: block;
+  }
+  
+  .flexbox1column .rsvplisttypeimgwrapper img{
+    width: auto;
+    height: 100% !important;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translate(-50%,0);
+    transform: translate(-50%,0);
+    width: 100%;
+    cursor: pointer;
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+  
+  .flexbox1column .listscontent{
+    border: 1px solid #e1e1e1;
+    padding: 10px 13px;
+    margin-left: 5px;
+    flex: 1 1 86%;
+    position: relative;
+  }
+  .flexbox1column .listscontent .mat-list-base{
+    padding-top: 0;
+  }
+  .flexbox1column .listscontent .mat-list-base .mat-list-item{
+    height: auto;
+    margin-top: 2px;
+  }
+  .flexbox1column .listscontent .mat-list-base .mat-list-item:first-child{margin-top: 0px;}
+  
+  .flexbox1column .rsvplisttypecontent h2{
+    padding: 5px 7px;
+    background-color: #465157;
+    font-family: 'Helvetica-Normal';
+    font-size: 18px!important;
+    line-height: normal!important;
+    margin-top: 8px;
+    margin-bottom: 8px;
+  }
+  .flexbox1column .rsvplisttypecontent:last-child{
+    margin-top: auto;
+  }
+
+
+
+  
+.rsvplisttypebottom{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    padding-top: 5px;
+    padding-bottom: 0px;
+  }
+  
+  .rsvplisttypebottom{font-family: "HelveticaBold"; font-size: 13px; text-transform: uppercase; color:#000000}
+  .redcls{color:#ff0000 !important;}
+  .greencls{color:#54aa0f !important;}
+  
+  .colorred{display: block; background-color: #ff0000; width: 15px; height: 15px; border-radius: 100%; margin-left: 5px;}
+  .coloryellow{display: block; background-color: #f99118; width: 15px; height: 15px; border-radius: 100%; margin-left: 5px;}
+  .colorgreen{display: block; background-color: #54aa0f;width: 15px; height: 15px; border-radius: 100%; margin-left: 5px;}
+  
+  .rsvplistsbottombtm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #c0c1c2;
+    padding: 6px;
+    margin-top: auto;
+  }
+  .rsvplistsbottombtm span{font-family: "HelveticaBold"; font-size: 16px; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between;}
+  .rsvplistsbottom h2 {
+    color: #1cb7eb;
+    font-family: 'HelveticaBold';
+    font-size: 24px !important;
+    text-transform: uppercase;
+    margin: 5px 0px;
+    line-height: normal !important;
+  }
+  
+  .rsvplistsingleright{
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    width: calc(1/1*100% - (1 - 1/1)*10px);
+    margin-top: 10px;
+    padding: 0px 8px 8px;
+    box-shadow: 0px 1px 4px 0px rgba(168,168,168,0.5);
+    background-color: #fff;
+  }
+  
+  .btnwrappercls{display: block; text-align: right;}
+  
+  .btnwrappercls{
+    font-size: 30px !important;
+    line-height: normal !important;
+    color: #2e2e2e;
+    text-transform: uppercase;
+    background-color: #dde2e5;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    padding: 5px 20px 15px;
+    display: block;
+    text-align: right;
+  }
+  
+
+    .rsvplistsbottombtm{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    background-color: #DDE2E5;
+    padding: 4px;
+    }
+    .rsvplistsbottombtm span{font-family: "HelveticaBold"; font-size: 16px; text-transform: uppercase; display: flex; align-items: center; justify-content: space-between;}
+    .listscontent .mat-list .mat-list-item span{font-family: "Helvetica-Normal"; font-size: 18px;}
+    .listscontent .mat-list .mat-list-item .labelcls{color:#8f979b; margin-right: 6px;}
+    .rsvplisttypebottom .btnblue{padding: 7px 5px 5px !important; border-radius: 0 !important; background:#1cb7eb;font-family: "Helvetica-Normal" !important;font-size: 14px !important; margin-top: 0px !important;margin-left: 3px;}
+    .rsvplisttypebottom .btnblue.redbtn{background:#ff0000 !important;}
+    .rsvplisttypebottom .btnblue.yellowbtn{background:#f99118 !important;}
+    .rsvplisttypebottom .btnblue.greenbtn{background:#54aa0f !important;}
+    .rsvplisttypebottom .btnblue.whitebtn{background:#a6a6a6 !important;}
+    .rsvplisttypebottom .btnblue.orangebtn {background: #ff4e00 !important;}
