@@ -2,6 +2,8 @@ import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../api.service';
+import { AppComponent } from '../../../app.component';
+
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
@@ -16,6 +18,8 @@ export class MyAccountComponent implements OnInit {
   public changePasswordFormGroup: FormGroup;
   public cookies_id: any;
   public userData: any = [];
+  show_button: Boolean = false;
+  show_eye: Boolean = false;
   public state_usss: any = [
     {
       "name": "Alabama",
@@ -256,7 +260,8 @@ export class MyAccountComponent implements OnInit {
   ];
 
   constructor(public fb: FormBuilder,
-    public apiService: ApiService, public cook: CookieService) {
+    public apiService: ApiService, public cook: CookieService,public apploader: AppComponent,
+    ) {
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);
@@ -290,6 +295,7 @@ export class MyAccountComponent implements OnInit {
   inputUntouched(form: any, val: any) {
     form.controls[val].markAsUntouched();
   }
+  
   matchpassword(passwordkye: string, confirmpasswordkye: string) {
     return (group: FormGroup) => {
       let passwordInput = group.controls[passwordkye],
@@ -315,8 +321,12 @@ export class MyAccountComponent implements OnInit {
         oldPassword: this.changePasswordFormGroup.value.oldPassword,
         newPassword: this.changePasswordFormGroup.value.newPassword
       }
+      this.apploader.loader = 1;
+
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
+        this.apploader.loader = 0;
+
       })
   }
 }
@@ -362,9 +372,12 @@ export class MyAccountComponent implements OnInit {
           state: this.UpdateForm.value.state,
         }
       };
+      this.apploader.loader = 1;
+
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
-        
+        this.apploader.loader = 0;
+     
       })
     }
 
