@@ -88,15 +88,33 @@
                       {{state.name}}
                     </mat-option>
                   </mat-select>
-                </mat-form-field>
-            
-            
+                </mat-form-field>      
                   <button mat-raised-button color="primary">Update</button>
               </form>              
             </mat-tab>
             <mat-tab> 
               <ng-template mat-tab-label>Change Password content</ng-template>
-              Change Password                
+              <form [formGroup]="UpdateForm"  (ngSubmit)="UpdateFormSubmit()">
+                <mat-form-field>
+                  <input matInput type="password" placeholder="Current Password" formControlName="currentpassword" (blur)="inputUntouched('currentpassword')">
+                  <mat-error
+                    *ngIf="!UpdateForm.controls['currentpassword'].valid && UpdateForm.controls['currentpassword'].errors.required && UpdateForm.controls['currentpassword'].touched">
+                    First Name field can not be blank</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="password" placeholder="New Password" formControlName="newpassword" (blur)="inputUntouched('newpassword')">
+                  <mat-error
+                    *ngIf="!UpdateForm.controls['newpassword'].valid && UpdateForm.controls['newpassword'].errors.required && UpdateForm.controls['newpassword'].touched">
+                    Put new password</mat-error>
+                </mat-form-field>
+                <mat-form-field>
+                  <input matInput type="password" placeholder="Confirm Password" formControlName="confirmpassword" (blur)="inputUntouched('confirmpassword')">
+                  <mat-error
+                    *ngIf="!UpdateForm.controls['confirmpassword'].valid && UpdateForm.controls['confirmpassword'].errors.required && UpdateForm.controls['confirmpassword'].touched">
+                    Confirm password</mat-error>
+                </mat-form-field>                  
+                <button mat-raised-button color="primary">Update</button>
+            </form>                 
           </mat-tab>
 
           </mat-tab-group>
