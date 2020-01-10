@@ -225,13 +225,23 @@
 
   
 .rsvplisttypebottom{
+    display: -webkit-box;
     display: flex;
+    -webkit-box-align: center;
     align-items: center;
-    justify-content: space-between;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
     flex-direction: row;
     padding-top: 5px;
     padding-bottom: 0px;
+    flex-wrap: wrap;
   }
+  .rsvplisttypebottom > span{
+      flex:1 1 100%;justify-content: flex-end;   display: flex;   padding: 10px 0px;
+  }
+  .rsvplisttypebottom > span.dateadded{font-family: "HelveticaBold"; font-size: 13px; text-transform: uppercase; color:#000000}
   
   .rsvplisttypebottom{font-family: "HelveticaBold"; font-size: 13px; text-transform: uppercase; color:#000000}
   .redcls{color:#ff0000 !important;}
@@ -303,3 +313,100 @@
     .rsvplisttypebottom .btnblue.greenbtn{background:#54aa0f !important;}
     .rsvplisttypebottom .btnblue.whitebtn{background:#a6a6a6 !important;}
     .rsvplisttypebottom .btnblue.orangebtn {background: #ff4e00 !important;}
+
+    .statusjobticket .btnblue.redbtn{background:#ff0000 !important;}
+    .statusjobticket .btnblue.yellowbtn{background:#f99118 !important;}
+    .statusjobticket .btnblue.greenbtn{background:#54aa0f !important;}
+    .statusjobticket .btnblue.whitebtn{background:#a6a6a6 !important;}
+    .statusjobticket .btnblue.orangebtn {background: #ff4e00 !important;}
+    .statusjobticket .btnblue{margin-top: 0 !important;}
+    .statusjobticket button{margin-left: 4px;}
+    /* .dateadded{} */
+
+
+    .whitebg{
+        display: block;
+        padding: 10px;
+        background-color: #fff;
+    }
+    .whitebg .sectionheader{
+        font-family: "Helvetica-Normal";
+        line-height: normal !important;
+        justify-content: flex-start;       
+        margin-bottom: 5px !important;
+        width: auto;
+    }
+
+    .whitebg p{
+        font-family: "Helvetica-Normal";
+        font-size: 18px !important;
+        line-height: normal !important;
+        color:#000;
+    }
+
+    .bluebg{
+        background-color: #141b2f;
+        padding: 10px;
+        display: block;
+    }
+
+    .bluebg p{
+        color:#fff;
+    }
+
+    .whitebg .sectionheader{
+        color:#000;
+        font-size: 18px !important;
+        text-transform: capitalize;     
+    }
+
+    .bluebg .sectionheader{        
+        color:#fff;
+        font-size: 24px !important;
+        text-transform: uppercase; 
+    }
+
+    .graybg{        
+        background-color: #ecf1f3;
+        padding: 10px;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .jobticketimglists{
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        justify-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        padding-top: 5px;
+        padding-bottom: 0px;
+        flex-wrap: wrap;
+    }
+
+    .jobticketimglists .mat-list-item {
+        width: 125px;
+        height: 90px;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid #f2f2f2;
+        border-radius: 5px;
+      }
+      
+      .jobticketimglists .mat-list-item img{
+        height: 100% !important;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+
+      .jobticketimglists .mat-list-item .mat-list-item-content{
+          padding: 0 !important;
+      }
