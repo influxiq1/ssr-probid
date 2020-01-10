@@ -1,16 +1,23 @@
 <div class="adminwrappercls">
   <app-header></app-header>
       <div class="main-content-wrap">
-        <mat-card class="generalcls myaccount" style="padding: 0 !important;">  
-          <mat-card-title class="editprofiletitle">My Account</mat-card-title>
+        <mat-card-content class="adm_inner_banner">
+          <mat-card-title class="adm_inner_title">My Account</mat-card-title>
+          <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+        </mat-card-content>
+        <mat-card-content class="bred_cram_wrapper">
+          <a mat-list-item routerLinkActive="active"> Dashboard </a>
+          <a mat-list-item routerLinkActive="active activebread"> My Account</a>
+        </mat-card-content>
+        <mat-card class="generalcls myaccount" style="padding:0px !important">
           <span class="profile-area">
             <span class="profileimg">
               <img src="../../../../assets/images/imguser.jpg">
             </span>
             <span class="profileinfo">
-              <h2></h2>
-              <p></p>
-              <span class="social-icon">                     
+              <h2>User Name</h2>
+              <p>Designation</p>
+              <!-- <span class="social-icon">                     
                 <a class="sociallink fa fb">
                   <fa name="facebook" class="fa-facebook"></fa>
                 </a>
@@ -23,14 +30,14 @@
                 <a class="sociallink fa env">
                   <fa name="envelope" class="fa-envelope"></fa>
                 </a>
-              </span>
+              </span> -->
             </span>
           </span>
           <mat-tab-group class="mattabgroup">
-            <mat-tab>               
+            <!-- <mat-tab>               
                 <ng-template mat-tab-label>Profile Overview</ng-template>
                 Profile Overview content                        
-            </mat-tab>
+            </mat-tab> -->
             <mat-tab> 
                 <ng-template mat-tab-label>Personal Information</ng-template>
                 <form [formGroup]="UpdateForm"  (ngSubmit)="UpdateFormSubmit()">
@@ -118,9 +125,8 @@
           </mat-tab>
 
           </mat-tab-group>
-
-         
         </mat-card>
       </div>
-</div>
+  </div>
+
 <app-footer></app-footer>
