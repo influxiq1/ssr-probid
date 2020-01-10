@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     margin: 0,
     startPosition: -0,
     autoplayHoverPause:true,
-    items: 1,
+    items: 3,
     nav: true,
     center: false,
     autoWidth: true,
@@ -69,10 +69,10 @@ export class HomeComponent implements OnInit {
     dots: true,
     responsive: {
       0: {
-        items: 1
+        items: 3
       },
       992: {
-        items:1,      
+        items:3,      
       }
     }
   }
