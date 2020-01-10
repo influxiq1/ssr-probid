@@ -648,11 +648,54 @@ span.smltxt{
 /*-------------amitava---form css end--------*/
 
 
+.adminwrappercls.myaccountwrapper .main-content-wrap {
+  -webkit-transition: all .24s ease-in-out;
+  transition: all .24s ease-in-out;
+  padding: 0px 20px 0px;
+  position: relative;
+  min-height: calc(100vh - 80px);
+  background: #fff;
+}
 
+.myaccount .myaccountwrapper{
+  width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+}
+
+.myaccount.generalcls .myaccountwrapper .mat-card-title {
+  font-family: 'HelveticaBold';
+  font-size: 48px!important;
+  line-height: 48px!important;
+  text-transform: uppercase;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  display: -webkit-box;
+  display: flex;
+  width: 100%;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background: #333;
+  margin-bottom: 2px !important;
+  padding: 20px 0px 15px;
+}
 
 .myaccount .mat-tab-group {
   display: flex;
-  flex-direction: row;
+  flex-direction: row;   
+  width: 100%; 
+}
+
+.myaccount .mat-tab-group .mat-form-field {
+  width: 100%;
 }
 
 .myaccount .mat-tab-labels {
@@ -671,20 +714,29 @@ span.smltxt{
 
 .myaccount .mat-ink-bar[style] {
   right: 0 !important;
+  background-color: transparent !important;
+}
+
+.myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
+  border: 1px solid #bfbfbf !important;
 }
 
 .myaccount .mat-tab-body-wrapper {
   width: 100%;
   padding: 20px;
-  background: #f7f7f7;
+  background: #f0f0f0;
+  -webkit-box-shadow: inset 0px 3px 10px -2px rgba(50, 50, 50, 0.79);
+  -moz-box-shadow: inset 0px 3px 10px -2px rgba(50, 50, 50, 0.79);
+  box-shadow: inset 0px 3px 10px -2px rgba(50, 50, 50, 0.79);
 }
 
 .myaccount .mat-tab-label.mat-ripple.ng-star-inserted mat-tab-label-active{  
   background: #5d5a55;
+  opacity: 1;
 }
 
 .myaccount .mat-tab-header {
-  background: #f7f7f7;
+  background: #d7d7d7;
   color:#333 !important;
 }
 .myaccount .mat-tab-header.mat-tab-label {
@@ -693,30 +745,71 @@ span.smltxt{
 }
 
 .myaccount .mattabgroup .mat-tab-labels{    
-  background: #f7f7f7;
+  background: #d7d7d7;
   color:#333 !important;
   text-transform: uppercase;
+  height: 100%;
+}
+
+.myaccount .mattabgroup .mat-tab-label{
+  border-bottom: 1px solid #ffffff;
 }
 
 .myaccount .mattabgroup .mat-tab-label-active{
   background: #5d5a55;
+  opacity: 1;
+  border-left: 5px solid #e04530;
 }
 
-.myaccount .mattabgroup .mat-tab-label-active:first-child{
+/* .myaccount .mattabgroup .mat-tab-label-active:first-child{
   background-color: transparent !important;
-}
+} */
 
 .myaccount .mattabgroup .mat-tab-label-active .mat-tab-label-content{
   color:#fff;
   text-transform: uppercase;
 }
 
-.profile-area .profile-info .social-icon {
+.myaccount .profile-area .profile-info .social-icon {
   margin-top: 15px;
 }
-.profile-area{
-  display: flex;
+.myaccount .profile-area{
+  display: -webkit-box;
+    display: flex;
     flex-wrap: wrap;
-    align-items: stretch;
-    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    -webkit-box-pack: start;
+    justify-content: flex-start;
+    background: #d7d7d7;
+    padding: 0;
+    width: 100%;
+}
+
+.myaccount .profile-area .profileimg{
+  width: 247px;
+}
+
+.myaccount .profile-area .profileinfo{
+  padding: 20px;
+}
+
+.myaccount .profile-area .profileimg img{height: 100% !important;width: 100%; height: auto; max-width: 100%; object-fit: cover;}
+
+.myaccount .profile-area .profile-info{
+  color:#333
+}
+
+.myaccount .profile-area .profileinfo h2{
+  color:#333 !important;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.myaccount .mattabgroup form button{
+  margin: 5px;
+}
+
+button{
+  border-radius: 0 !important;
 }

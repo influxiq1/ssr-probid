@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../api.service';
@@ -8,6 +8,8 @@ import { ApiService } from '../../../api.service';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
+  @ViewChild(FormGroupDirective,{static: false}) formDirective: FormGroupDirective;
+
   public index: number;
   public user_cookies: any;
   public UpdateForm: FormGroup;
@@ -258,6 +260,7 @@ export class MyAccountComponent implements OnInit {
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);
+    console.log("cookies data",this.user_cookies);
     this.cookies_id = this.user_cookies._id;
 
 
@@ -274,7 +277,7 @@ export class MyAccountComponent implements OnInit {
 
     });
     this.changePasswordFormGroup = this.fb.group({
-      currentpassword: [null, Validators.required],
+      oldPassword: [null, Validators.required],
       newPassword: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(6)]],
       confirmPassword: []
     }, { validator: this.matchpassword('newPassword', 'confirmPassword') })
@@ -299,7 +302,6 @@ export class MyAccountComponent implements OnInit {
     };
   }
   changePasswordFormSubmit() {
-    console.log("pwd data", this.changePasswordFormGroup.value);
     let x: any;
     for (x in this.changePasswordFormGroup.controls) {
       this.changePasswordFormGroup.controls[x].markAsTouched();
@@ -310,7 +312,7 @@ export class MyAccountComponent implements OnInit {
       let data = {
         _id: this.cookies_id,
         adminflag: 0,
-        currentpassword: this.changePasswordFormGroup.value.currentpassword,
+        oldPassword: this.changePasswordFormGroup.value.oldPassword,
         newPassword: this.changePasswordFormGroup.value.newPassword
       }
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
@@ -321,7 +323,7 @@ export class MyAccountComponent implements OnInit {
   getdata() {
     let data: any = {
       endpoint: 'datalist',
-      source: 'user',
+      source: 'user_view',
       condition: {
         "_id_object": this.cookies_id
       }
@@ -362,6 +364,7 @@ export class MyAccountComponent implements OnInit {
       };
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
+        
       })
     }
 

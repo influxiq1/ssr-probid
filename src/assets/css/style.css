@@ -74,7 +74,9 @@ a{cursor:pointer;outline:none}
 text-decoration:none!important;	margin: 0; margin-top: 0; margin-bottom: 0; border-radius: 5px; padding: 14px 18px 10px !important; margin-top: 10px !important;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); cursor: pointer;}
 .btnorange{display: inline-block !important; background: #f7462e !important; font-size: 15px !important; color: #fff!important; text-transform: uppercase; font-family: 'HelveticaBold' !important; text-decoration: none!important; line-height: normal !important; text-align: center !important;
 text-decoration:none!important;	margin: 0; margin-top: 0; margin-bottom: 0; border-radius: 5px; padding: 14px 10px 10px !important; margin-top: 10px !important;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); cursor: pointer;}
-    
+.btnredclsnew{display: inline-block !important; background: #ff0000 !important; font-size: 15px !important; color: #fff!important; text-transform: uppercase; font-family: 'HelveticaBold' !important; text-decoration: none!important; line-height: normal !important; text-align: center !important;
+    text-decoration:none!important;	margin: 0; margin-top: 0; margin-bottom: 0; border-radius: 5px; padding: 14px 10px 10px !important; margin-top: 10px !important;box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.5); cursor: pointer;}
+           
 
 .overlaybg{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7);z-index:9}
 .overlaybg1{position:absolute;top:0;left:0;width:100%;height:100%;background-color:rgba(0,0,0,0.7);z-index:9}
@@ -1481,4 +1483,8 @@ a.associate_new_con6_link:hover{color: #fff;}
 
   .mat-form-field-appearance-legacy .mat-form-field-infix {
     margin-bottom: 14px!important;
+}
+
+.newslettermain .mat-form-field-appearance-legacy .mat-form-field-infix {
+    margin-bottom: 1px!important;
 }
