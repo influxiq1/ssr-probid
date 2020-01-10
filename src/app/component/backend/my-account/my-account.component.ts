@@ -12,14 +12,16 @@ import { AppComponent } from '../../../app.component';
 export class MyAccountComponent implements OnInit {
   @ViewChild(FormGroupDirective,{static: false}) formDirective: FormGroupDirective;
 
+  // isPasswordVisible: Boolean = false;
+
+  isPasswordVisible: Boolean = true;
+
   public index: number;
   public user_cookies: any;
   public UpdateForm: FormGroup;
   public changePasswordFormGroup: FormGroup;
   public cookies_id: any;
   public userData: any = [];
-  show_button: Boolean = false;
-  show_eye: Boolean = false;
   public state_usss: any = [
     {
       "name": "Alabama",
@@ -287,6 +289,12 @@ export class MyAccountComponent implements OnInit {
       confirmPassword: []
     }, { validator: this.matchpassword('newPassword', 'confirmPassword') })
   }
+
+
+  togglePasswordText(){
+    this.isPasswordVisible = !this.isPasswordVisible;
+  }
+
 
   ngOnInit() {
     this.getdata();
