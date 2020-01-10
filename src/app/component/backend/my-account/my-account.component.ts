@@ -9,7 +9,11 @@ import { ApiService } from '../../../api.service';
 })
 export class MyAccountComponent implements OnInit {
   public index: number;
+  public user_cookies: any;
   public UpdateForm: FormGroup;
+  public changePasswordFormGroup: FormGroup;
+  public cookies_id: any;
+  public userData: any = [];
   public state_usss: any = [
     {
       "name": "Alabama",
@@ -250,45 +254,116 @@ export class MyAccountComponent implements OnInit {
   ];
 
   constructor(public fb: FormBuilder,
-    public apiService: ApiService, public cook: CookieService) { 
-      this.UpdateForm = this.fb.group({
-        id: [null, null],
-        email: [null, Validators.compose([Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)])],
-        firstname: [null, Validators.required],
-        lastname: [null, Validators.required],
-        phone: [null, Validators.required],
-        zip: [null, Validators.required],
-        city: [null, Validators.required],
-        state: [null, Validators.required],
-        currentpassword: [null, Validators.required],
-        newpassword: [null, Validators.required],
-        confirmpassword: [null, Validators.required],
-      });
-      this.genarateupdateform();}
+    public apiService: ApiService, public cook: CookieService) {
+    let allcookies: any;
+    allcookies = cook.getAll();
+    this.user_cookies = JSON.parse(allcookies.user_details);
+    this.cookies_id = this.user_cookies._id;
+
+
+    this.UpdateForm = this.fb.group({
+      id: [null, null],
+      email: [null, Validators.compose([Validators.required, Validators.pattern(/^\s*[\w\-\+_]+(\.[\w\-\+_]+)*\@[\w\-\+_]+\.[\w\-\+_]+(\.[\w\-\+_]+)*\s*$/)])],
+      firstname: [null, Validators.required],
+      lastname: [null, Validators.required],
+      phone: [null, Validators.required],
+      address: [null, Validators.required],
+      zip: [null, Validators.required],
+      city: [null, Validators.required],
+      state: [null, Validators.required],
+
+    });
+    this.changePasswordFormGroup = this.fb.group({
+      currentpassword: [null, Validators.required],
+      newPassword: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(6)]],
+      confirmPassword: []
+    }, { validator: this.matchpassword('newPassword', 'confirmPassword') })
+  }
 
   ngOnInit() {
+    this.getdata();
 
   }
-  genarateupdateform() {
-    var userdetails = JSON.parse(this.cook.get('user_details'));
-
-    //console.log(userdetails);
-
-  //   this.UpdateForm.patchValue({
-  //     id: cookie._id,
-  //     email: cookie.email,
-  //     firstname: cookie.firstname,
-  //     lastname: cookie.lastname,
-  //     phone: cookie.phone,
-  //     zip: cookie.zip,
-  //     city: cookie.city,
-  //     state: cookie.state,
-  //     companyname: cookie.companyname,
-  //     designation: cookie.designation,
-  //     companywebsite: cookie.companywebsite,
-  //   });
+  inputUntouched(form: any, val: any) {
+    form.controls[val].markAsUntouched();
   }
-  UpdateFormSubmit(){
-// console.log("my-account");
+  matchpassword(passwordkye: string, confirmpasswordkye: string) {
+    return (group: FormGroup) => {
+      let passwordInput = group.controls[passwordkye],
+        confirmpasswordInput = group.controls[confirmpasswordkye];
+      if (passwordInput.value !== confirmpasswordInput.value) {
+        return confirmpasswordInput.setErrors({ notEquivalent: true });
+      } else {
+        return confirmpasswordInput.setErrors(null);
+      }
+    };
+  }
+  changePasswordFormSubmit() {
+    console.log("pwd data", this.changePasswordFormGroup.value);
+    let x: any;
+    for (x in this.changePasswordFormGroup.controls) {
+      this.changePasswordFormGroup.controls[x].markAsTouched();
+    }
+    if (this.changePasswordFormGroup.valid) {
+      delete this.changePasswordFormGroup.value.confirmPassword;
+      let endpoint: any = "changepassword";
+      let data = {
+        _id: this.cookies_id,
+        adminflag: 0,
+        currentpassword: this.changePasswordFormGroup.value.currentpassword,
+        newPassword: this.changePasswordFormGroup.value.newPassword
+      }
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        console.log(res);
+      })
+  }
+}
+  getdata() {
+    let data: any = {
+      endpoint: 'datalist',
+      source: 'user',
+      condition: {
+        "_id_object": this.cookies_id
+      }
+    }
+    this.apiService.getDatalist(data).subscribe((res: any) => {
+      this.userData = res.res[0];
+      this.UpdateForm.controls['firstname'].patchValue(this.userData.firstname);
+      this.UpdateForm.controls['lastname'].patchValue(this.userData.lastname);
+      this.UpdateForm.controls['email'].patchValue(this.userData.email);
+      this.UpdateForm.controls['phone'].patchValue(this.userData.phone);
+      this.UpdateForm.controls['address'].patchValue(this.userData.address);
+      this.UpdateForm.controls['zip'].patchValue(this.userData.zip);
+      this.UpdateForm.controls['city'].patchValue(this.userData.city);
+      this.UpdateForm.controls['state'].patchValue(this.userData.state);
+    });
+  }
+
+  UpdateFormSubmit() {
+    let x: any;
+    for (x in this.UpdateForm.controls) {
+      this.UpdateForm.controls[x].markAsTouched();
+    }
+    if (this.UpdateForm.valid) {
+      let endpoint: any = "addorupdatedata";
+      let data: any = {
+        source: "user",
+        data: {
+          id: this.cookies_id,
+          firstname: this.UpdateForm.value.firstname,
+          lastname: this.UpdateForm.value.lastname,
+          email: this.UpdateForm.value.email,
+          phone: this.UpdateForm.value.phone,
+          address: this.UpdateForm.value.address,
+          zip: this.UpdateForm.value.zip,
+          city: this.UpdateForm.value.city,
+          state: this.UpdateForm.value.state,
+        }
+      };
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        console.log(res);
+      })
+    }
+
   }
 }
