@@ -55,7 +55,7 @@ a{cursor:pointer;outline:none}
 .generalcls h1{font-family:'HelveticaBold';font-size:60px!important;line-height:60px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;color:#fff;white-space:normal!important}
 .generalcls h1 span{color:#fed204;font-family:'HelveticaBold'}
 
-.generalcls h2.innertitle2 {display: flex; align-items: center;font-size: 30px!important; color:#222527; line-height: 36px!important; text-transform: capitalize !important;} 
+.generalcls h2.innertitle2 {display: flex; align-items: center;font-size: 30px!important; color:#222527; line-height: 36px!important; text-transform: capitalize !important;margin-bottom: 0; margin-top: 0;} 
 .generalcls h2.innertitle2 img{margin-right: 20px;}
 
 .generalcls h2{font-family:'HelveticaBold';font-size:30px!important;line-height:36px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;color:#fff;white-space:normal!important}

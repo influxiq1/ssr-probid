@@ -260,6 +260,9 @@ export class MyAccountComponent implements OnInit {
         zip: [null, Validators.required],
         city: [null, Validators.required],
         state: [null, Validators.required],
+        currentpassword: [null, Validators.required],
+        newpassword: [null, Validators.required],
+        confirmpassword: [null, Validators.required],
       });
       this.genarateupdateform();}
 

@@ -52,7 +52,7 @@ export class HomeComponent implements OnInit {
     margin: 0,
     startPosition: -0,
     autoplayHoverPause:true,
-    items: 3,
+    items: 1,
     nav: true,
     center: false,
     autoWidth: true,

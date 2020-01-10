@@ -9,7 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
-import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
+// import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
 
@@ -203,8 +203,7 @@ public errorMsg: string = '';
         public snack:MatSnackBar,
         public router:Router,
         public fb:FormBuilder,
-         private fb1: FacebookService,
-         public askForconfirmationModalComponent:askForconfirmationModalComponent) {
+         private fb1: FacebookService) {
     
 
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));

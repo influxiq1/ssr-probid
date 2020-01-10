@@ -59,7 +59,7 @@
 }
 .righttxt:after{
     content: '';
-    background: url(../../../../assets/images/righttxticon.png) no-repeat bottom right;
+    background: url(https://dev.probidauto.com/assets/images/righttxticon.png) no-repeat bottom right;
     background-size: 172px;
     height: 74px;
     display: block;
@@ -68,10 +68,10 @@
 .probidhomeblock1.mat-card{background-color: #e2ecee !important;}
 
 .basicsearchinventorybg{
-    overflow-x:hidden;background:url(../../../../assets/images/basicsearchinventorybg.jpg) no-repeat center center !important;top:0;left:0;min-width:100%;min-height:1px;-webkit-background-size:cover !important;-moz-background-size:cover !important;-o-background-size:cover !important;background-size:cover !important;position:relative; padding: 0;display: flex; flex-wrap: wrap;
+    overflow-x:hidden;background:url(https://dev.probidauto.com/assets/images/basicsearchinventorybg.jpg) no-repeat center center !important;top:0;left:0;min-width:100%;min-height:1px;-webkit-background-size:cover !important;-moz-background-size:cover !important;-o-background-size:cover !important;background-size:cover !important;position:relative; padding: 0;display: flex; flex-wrap: wrap;
 }
 
-.probidhomeblock2 {overflow-x:hidden;background:url(../../../../assets/images/probidhomeblock2bg.jpg) no-repeat center center !important;top:0;left:0;min-width:100%;min-height:1px;-webkit-background-size:cover !important;-moz-background-size:cover !important;-o-background-size:cover !important;background-size:cover !important;position:relative; padding: 0;display: flex; align-items: center;}
+.probidhomeblock2 {overflow-x:hidden;background:url(https://dev.probidauto.com/assets/images/probidhomeblock2bg.jpg) no-repeat center center !important;top:0;left:0;min-width:100%;min-height:1px;-webkit-background-size:cover !important;-moz-background-size:cover !important;-o-background-size:cover !important;background-size:cover !important;position:relative; padding: 0;display: flex; align-items: center;}
 
 
 
@@ -226,10 +226,10 @@
 
 /* for blog page */
 
-.blogbg.mat-card{background:url(../../../../assets/images/contactusbg.jpg) no-repeat center center !important;}
+.blogbg.mat-card{background:url(https://dev.probidauto.com/assets/images/contactusbg.jpg) no-repeat center center !important;}
 
 @media only screen and (max-width:1024px) {
-  .blogbg.mat-card {background: url(../../../../assets/images/contactusbg.jpg) no-repeat left 25% center !important;}
+  .blogbg.mat-card {background: url(https://dev.probidauto.com/assets/images/contactusbg.jpg) no-repeat left 25% center !important;}
 }
 
 
@@ -364,10 +364,10 @@
   white-space: normal;
 }
   
-.testimonialbg.mat-card{background:url(../../../../assets/images/contactusbg.jpg) no-repeat center center !important;}
+.testimonialbg.mat-card{background:url(https://dev.probidauto.com/assets/images/contactusbg.jpg) no-repeat center center !important;}
 
 @media only screen and (max-width:1024px) {
-  .testimonialbg.mat-card {background: url(../../../../assets/images/contactusbg.jpg) no-repeat left 25% center !important;}
+  .testimonialbg.mat-card {background: url(https://dev.probidauto.com/assets/images/contactusbg.jpg) no-repeat left 25% center !important;}
 }
 
   @media only screen and  (max-width: 960px) {

@@ -27,6 +27,10 @@
   }
 
   @media only screen and (max-width: 1199px) {
+    .homebanner .owl-carousel.owl-drag .owl-stage[style] {
+        flex-wrap: wrap;
+    }
+
     .probidhomeblock1 .mat-list-base.lists .mat-list-item {width: 32%;}
 
   .aboutusblock2.mat-card {background-position: top right !important; background-size: 260%!important; padding: 10px; padding-top: 50% !important; background-color: #a1c4dc !important;}  
