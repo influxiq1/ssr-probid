@@ -16,8 +16,10 @@
                   <mat-form-field>
                     <input matInput type="text" placeholder="Enter Api Key" 
                     (blur)="inputUntouched('apikey')" formControlName="apikey">
+                    
                   </mat-form-field>&nbsp; 
-        
+                  <mat-error *ngIf="!apikeyForm.controls['apikey'].valid && apikeyForm.controls['apikey'].errors.required && apikeyForm.controls['apikey'].touched">
+                    api key field can not be blank</mat-error>
                   <button mat-raised-button type="button'" class="btnblue" 
                   (click)="apiKeySubmit()">Update Api Key</button> &nbsp;
 
@@ -27,9 +29,7 @@
                     {{errorApiKey}}
                   </span> -->
 
-                  <span> <mat-error
-                    *ngIf="!apikeyForm.controls['apikey'].valid && apikeyForm.controls['apikey'].errors.required && apikeyForm.controls['apikey'].touched">
-                    api key field can not be blank</mat-error></span>
+                  
 
                 </form>
 

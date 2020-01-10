@@ -108,7 +108,7 @@
                     <mat-form-field>
                       <input matInput [type]="isPasswordVisible ? 'text' : 'password'" placeholder="New Password" formControlName="newPassword" 
                       (blur)="inputUntouched(changePasswordFormGroup,'newPassword')">
-                      <button mat-icon-button matSuffix (click)="isPasswordVisible = !isPasswordVisible" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <button mat-icon-button matSuffix (click)="isPasswordVisible = !isPasswordVisible" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="isPasswordVisible">
                         <mat-icon>{{isPasswordVisible ? 'visibility_off' : 'visibility'}}</mat-icon>
                       </button>          
                       <mat-error
