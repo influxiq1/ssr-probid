@@ -453,6 +453,8 @@
 
 @media only screen and (max-width: 1199px) {
 
+  .signupnew-form.mat-card{ background-color: #222!important; padding-top: 20px;     padding-bottom: 50px;}
+
   .signupnewtop-header .top-header{ display: block;}
 
   .signupnewtop-header .top-header .logo {
