@@ -1,4 +1,4 @@
-import { Component, OnInit,ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../api.service';
@@ -10,7 +10,7 @@ import { AppComponent } from '../../../app.component';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-  @ViewChild(FormGroupDirective,{static: false}) formDirective: FormGroupDirective;
+  @ViewChild(FormGroupDirective, { static: false }) formDirective: FormGroupDirective;
 
   // isPasswordVisible: Boolean = false;
 
@@ -22,7 +22,7 @@ export class MyAccountComponent implements OnInit {
   public changePasswordFormGroup: FormGroup;
   public cookies_id: any;
   public userData: any = [];
-  public profilePicture:any;
+  public profilePicture: any;
   public state_usss: any = [
     {
       "name": "Alabama",
@@ -261,12 +261,15 @@ export class MyAccountComponent implements OnInit {
       "abbreviation": "WY"
     }
   ];
- public images_array:any=[];
+  public images_array: any = [];
+  public states: any;
+  public cities: any;
+  public allCities: any;
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
     size: "51200", // kb
-    format:["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
+    format: ["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
     type: "profile-picture",
     path: "profilePicture",
     prefix: "profile-picture",
@@ -275,8 +278,8 @@ export class MyAccountComponent implements OnInit {
     bucketName: "probidfiles-dev.com"
   }
   constructor(public fb: FormBuilder,
-    public apiService: ApiService, public cook: CookieService,public apploader: AppComponent,
-    ) {
+    public apiService: ApiService, public cook: CookieService, public apploader: AppComponent,
+  ) {
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);
@@ -293,7 +296,7 @@ export class MyAccountComponent implements OnInit {
       zip: [null, Validators.required],
       city: [null, Validators.required],
       state: [null, Validators.required],
-      profile_picture:['', []],
+      profile_picture: ['', []],
 
     });
     this.changePasswordFormGroup = this.fb.group({
@@ -301,10 +304,11 @@ export class MyAccountComponent implements OnInit {
       newPassword: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(6)]],
       confirmPassword: []
     }, { validator: this.matchpassword('newPassword', 'confirmPassword') })
+    this.allStateCityData();
   }
 
 
-  togglePasswordText(){
+  togglePasswordText() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
 
@@ -316,7 +320,7 @@ export class MyAccountComponent implements OnInit {
   inputUntouched(form: any, val: any) {
     form.controls[val].markAsUntouched();
   }
-  
+
   matchpassword(passwordkye: string, confirmpasswordkye: string) {
     return (group: FormGroup) => {
       let passwordInput = group.controls[passwordkye],
@@ -328,6 +332,8 @@ export class MyAccountComponent implements OnInit {
       }
     };
   }
+
+
   changePasswordFormSubmit() {
     let x: any;
     for (x in this.changePasswordFormGroup.controls) {
@@ -349,8 +355,8 @@ export class MyAccountComponent implements OnInit {
         this.apploader.loader = 0;
 
       })
+    }
   }
-}
   getdata() {
     let data: any = {
       endpoint: 'datalist',
@@ -367,18 +373,38 @@ export class MyAccountComponent implements OnInit {
       this.UpdateForm.controls['phone'].patchValue(this.userData.phone);
       this.UpdateForm.controls['address'].patchValue(this.userData.address);
       this.UpdateForm.controls['zip'].patchValue(this.userData.zip);
+     
       this.UpdateForm.controls['city'].patchValue(this.userData.city);
       this.UpdateForm.controls['state'].patchValue(this.userData.state);
     });
   }
+  /**for getting all states & cities function start here**/
+  allStateCityData() {
+    this.apiService.getSiteSettingData("./assets/data/states.json").subscribe(response => {
+      this.states = response;
+    });
+
+    this.apiService.getSiteSettingData("./assets/data/city.json").subscribe(response => {
+      this.cities = response;
+      this.getdata();
+    });
+  }
+  /**for getting all states & cities  function end here**/
+  getCity(event) {
+    var val = event;
+    this.allCities = this.cities[val];
+  }
+
+  getCityByName(stateName) {
+    this.cities = this.cities[stateName];
+  }
 
   UpdateFormSubmit() {
-
-    for ( let x in this.UpdateForm.controls) {
+    for (let x in this.UpdateForm.controls) {
       this.UpdateForm.controls[x].markAsTouched();
     }
-    if (this.configData.files.length > 0) {
-      for (const loop in this.configData.files) {
+    if (this.configData.files.length > 0 ) {
+      for (const loop in this.configData.files ) {
         this.images_array =
           this.images_array.concat({
             "upload_server_id": this.configData.files[loop].upload.data._id,
@@ -408,7 +434,7 @@ export class MyAccountComponent implements OnInit {
           zip: this.UpdateForm.value.zip,
           city: this.UpdateForm.value.city,
           state: this.UpdateForm.value.state,
-          profile_picture:this.UpdateForm.value.profile_picture
+          profile_picture: this.UpdateForm.value.profile_picture
         }
       };
       this.apploader.loader = 1;
@@ -416,7 +442,7 @@ export class MyAccountComponent implements OnInit {
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
         this.apploader.loader = 0;
-     
+
       })
     }
 

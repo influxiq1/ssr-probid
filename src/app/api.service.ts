@@ -223,6 +223,10 @@ export class ApiService {
     // console.log('id_token isExpired:',isIdTokenExpired)
     // console.log('refresh_token isExpired:',isRefreshTokenExpired)
   }
+  /* read site setting data */
+  public getSiteSettingData(url): Observable<any> {
+    return this._http.get(url);
+  }
 
 //http by data and endpoint
 postDatawithoutToken(endpoint:any, data:any) {
