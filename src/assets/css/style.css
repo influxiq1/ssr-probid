@@ -39,7 +39,7 @@ img,*img,img:focus,*img:focus{border:0;outline:none;border-style:none}
 button{cursor:pointer;outline:none}
 a{cursor:pointer;outline:none}
 .generalcls .mat-card-header-text{margin:0!important;width:100%}
-.generalcls .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:30px!important;color:#2a2b2c;display:flex;width:100%;align-items:center;justify-content:center;}
+.generalcls .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:30px!important;color:#2a2b2c;display:flex;width:100%;align-items:center;justify-content:left;}
 .generalcls .mat-card-title span span{font-family:'HelveticaBold';padding-left:10px}
 .generalcls p{font-family:'Helvetica-Normal';font-size:18px;color:#2b2c2d;margin:0;padding:0;line-height:25px;font-weight:400}
 .generalcls p strong{text-transform:uppercase;font-family:'HelveticaBold'}
