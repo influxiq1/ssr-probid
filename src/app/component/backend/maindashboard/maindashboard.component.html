@@ -4,7 +4,7 @@
           <mat-card style="padding: 0 !important;">
             <mat-card-content class="adm_inner_banner adminbannerdashnboard">
                 <mat-card-title class="adm_inner_title"><span>Welcome to</span> ProBid Auto</mat-card-title>
-                <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                <p class="adm_inner_para">Sourcing Action-Direct Vehicles At Unbelievable Prices Unmatched Anywhere Else In The Industry.</p>
             </mat-card-content>
             <mat-card-content class="bred_cram_wrapper rightsideformcls">
                 <a mat-list-item routerLinkActive="active activebread"> Dashboard </a>
@@ -20,14 +20,15 @@
                   </mat-form-field>&nbsp; 
                   <mat-error *ngIf="!apikeyForm.controls['apikey'].valid && apikeyForm.controls['apikey'].errors.required && apikeyForm.controls['apikey'].touched">
                     api key field can not be blank</mat-error>
+                  <mat-error style="color: crimson;" *ngIf="errorApiKey !='' && apikeyForm.value.apikey.length !=32 && apikeyForm.value.apikey.length !='' && apikeyForm.value.apikey.length !=null" >
+                      {{errorApiKey}}
+                    </mat-error>
                   <button mat-raised-button type="button'" class="btnblue" 
                   (click)="apiKeySubmit()">Update Api Key</button> &nbsp;
 
                   <button mat-raised-button type="reset" class="btnblue greenbtn" 
                   >Reset</button> 
-                  <span style="color: crimson;" *ngIf="errorApiKey !='' && apikeyForm.value.apikey.length !=32 && apikeyForm.value.apikey.length !='' && apikeyForm.value.apikey.length !=null" >
-                    {{errorApiKey}}
-                  </span>
+                  
 
                   
 
