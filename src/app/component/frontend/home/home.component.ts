@@ -194,7 +194,7 @@ export class HomeComponent implements OnInit {
   
 
 
-      //for preown car
+    //for preown car
     // this.getData;
 
     let data: any = {
@@ -209,7 +209,20 @@ export class HomeComponent implements OnInit {
 
     this.generateForm();
     this.getStateList();
-     
+
+
+    //for year list
+let datay:any;
+
+   datay= {
+      source:"manage-year"
+    }
+    this.apiService.getDatalistWithToken(datay,'datalistwithouttoken').subscribe((resy)=>{
+      let result:any=resy;
+      this.year_list =result.res
+      // console.log('>>>>>',this.year_list)
+    })
+
 
    }
 
@@ -285,8 +298,8 @@ export class HomeComponent implements OnInit {
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
-          console.log('search list',this.search)
-            console.log(this.search);
+          // console.log('search list',this.search)
+            // console.log(this.search);
         })
       } 
       else {

@@ -391,6 +391,7 @@ console.log('hit')
 
       if(result.status == 'success'){
         this.formDirective.resetForm();
+        
       }
     })
   }
