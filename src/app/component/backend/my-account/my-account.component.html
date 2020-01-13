@@ -12,7 +12,7 @@
             <ng-container *ngIf="userData.profile_picture">
               <img mat-card-image [attr.src]="userData.profile_picture">
             </ng-container>
-            
+
             <ng-container *ngIf="!userData.profile_picture">
               <img src="../../../../assets/images/imguser.jpg">
             </ng-container>
@@ -94,23 +94,22 @@
                   *ngIf="!UpdateForm.controls['zip'].valid && UpdateForm.controls['zip'].errors.required && UpdateForm.controls['zip'].touched">
                   Zip field can not be blank</mat-error>
               </mat-form-field>
-
-              <mat-form-field>
-                <input matInput placeholder="City" type="text" formControlName="city"
-                  (blur)="inputUntouched(UpdateForm,'city')">
-                <mat-error
-                  *ngIf="!UpdateForm.controls['city'].valid && UpdateForm.controls['city'].errors.required && UpdateForm.controls['city'].touched">
-                  City field can not be blank</mat-error>
-              </mat-form-field>
-
-              <mat-form-field>
+              <mat-form-field class="parent_cat">
                 <mat-label>State</mat-label>
-                <mat-select formControlName="state">
-                  <mat-option *ngFor="let state of state_usss" [value]="state.abbreviation">
-                    {{state.name}}
-                  </mat-option>
+                <mat-select formControlName="state" (selectionChange)="getCity($event.value);">
+                  <mat-option [value]=0>Select a category</mat-option>
+                  <mat-option *ngFor="let state of states;" value="{{ state.name }}">{{ state.name }}</mat-option>
                 </mat-select>
               </mat-form-field>
+
+              <mat-form-field class="parent_cat">
+                <mat-label>City</mat-label>
+                <mat-select formControlName="city">
+                  <mat-option [value]=0>Select a city</mat-option>
+                  <mat-option *ngFor="let city of allCities;" value="{{ city }}">{{ city }}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
               <button mat-raised-button class="btnblue">Update</button>
               <button mat-raised-button class="btnredclsnew">Cancel</button>
             </form>
