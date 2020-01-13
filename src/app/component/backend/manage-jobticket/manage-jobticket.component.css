@@ -447,13 +447,34 @@
         -o-object-fit: cover;
         object-fit: cover;
       }
-      .jobcommentbox .jobcommentboxcontent{
-        
-      }
 
       .jobcommentbox .jobcommentboxcontent .mat-card-title{
-
+        font-family: "HelveticaBold";
+        line-height: normal !important;
+        justify-content: flex-start;       
+        margin-bottom: 5px !important;
+        width: auto;
+        color: #3f4446;
+        font-size: 16px !important;
+        text-transform: inherit;
+        align-items: center;
       }
-      .jobcommentbox .jobcommentboxcontent .mat-card-content{
 
+      .jobcommentbox .jobcommentboxcontent .mat-card-title span{
+        font-family: "Helvetica-Normal";
+        line-height: normal !important;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        margin-bottom: 0!important;
+        width: auto;
+        color: #72787a;
+        margin-left: 10px;
+      }
+
+      .jobcommentbox .jobcommentboxcontent .mat-card-content{
+        color:#72787a;
+        font-family: "Helvetica-Normal";
+        line-height: normal !important;  
+        width: auto;
+        font-size: 15px;
       }
