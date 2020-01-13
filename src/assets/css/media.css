@@ -364,6 +364,10 @@
 
 @media only screen and (max-width: 1380px) {
 
+  .formblock_bottomtextnew.mat-card {
+    padding: 70px 0 70px 35px;
+}
+
   .associate_new_con1_wrapper {
     width: 1250px;
 }
@@ -456,8 +460,13 @@
 }
 
 @media only screen and (max-width: 1199px) {
+  .associate_new_con5_text{ padding-bottom: 0px;}
 
-  .signupnew-form.mat-card{ background-color: #222!important; padding-top: 20px;     padding-bottom: 50px;}
+  .associate_new_con5 .imgbottom img{ display: none;}
+
+  .formhomeinnertop.mat-card-header{ display: block; padding: 0 20px;}
+
+  .signupnew-form.mat-card{ background-color: #222!important; padding-top: 20px;     padding-bottom:20px;}
 
   .signupnewtop-header .top-header{ display: block;}
 
@@ -487,8 +496,8 @@
 }
 
 .formhome {
-  width: 333px;
-  height: 100%;
+  width: auto;
+  height: auto;
   position: inherit;
   top: 0;
   right: 0;
@@ -519,18 +528,18 @@
   font-size: 18px;
 }
 .formblock_bottomtextnew span strong {
-  display: block;
-  font-size: 30px;
+  display: inline-block;
+  font-size: 26px;
   color: #fff;
   font-weight: normal;
-  line-height: 60px;
+  line-height: inherit;
   float: none;
   margin: 0;
-  height: 100%;
- 
+  height: auto;
   margin-right: auto;
   margin-left: auto;
-  width: 30px;
+  width: auto;
+  padding: 5px 5px;
 }
 .benefittop h2{ text-align: center;}
 
@@ -586,6 +595,33 @@
 .associate_new_con6.mat-card{ background-image: none!important; background-color: #e1d9cf!important;}
 .associate_new_con6_link{ margin-top: 0px;}
 .associate_new_con6 { padding-top: 25px!important; padding-bottom: 25px!important;}
+
+
+.formhomeinnerbottom:after{ display: none;}
+
+.formhomeinnertop {
+  background: none;
+  vertical-align: top;
+  width: auto;
+  height: auto;
+}
+.formhomeinnerbottom {
+  margin-top: 0px;
+  background: none;}
+  .formhomeinnertop{background: none!important;}
+
+  .formhome.formhomealesrep .formhomeinnertop h2{ display:block; width: 100%;}
+
+  .formhome.formhomealesrep .formhomeinnertop h3 {
+    font-size: 16px;
+    text-transform: inherit;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2px;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 11px;
+}
 }
 @media only screen and (max-width:767px) {
 
