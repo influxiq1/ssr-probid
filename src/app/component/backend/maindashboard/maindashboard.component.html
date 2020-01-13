@@ -23,9 +23,9 @@
 
                   <button mat-raised-button type="reset" class="btnblue greenbtn" 
                   >Reset</button> 
-                  <!-- <span style="color: crimson;" >
+                  <span style="color: crimson;" *ngIf="errorApiKey !='' && apikeyForm.value.apikey.length !=32 && apikeyForm.value.apikey.length !=''" >
                     {{errorApiKey}}
-                  </span> -->
+                  </span>
 
                   <span> <mat-error
                     *ngIf="!apikeyForm.controls['apikey'].valid && apikeyForm.controls['apikey'].errors.required && apikeyForm.controls['apikey'].touched">
