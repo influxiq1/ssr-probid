@@ -13,6 +13,7 @@ import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 
 
 
+
 export interface DialogData {
   data: any;
   msg:any;
@@ -238,6 +239,10 @@ public errorMsg: string = '';
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    this.snack.open('Url Copied on clipboard','ok',{
+      duration:2000
+    })
+
   }
 
   logoutWithFacebook(): void {
