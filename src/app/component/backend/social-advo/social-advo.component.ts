@@ -4,6 +4,8 @@ import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebo
 import { CookieService } from 'ngx-cookie-service';
 import { MetaService } from '@ngx-meta/core';
 import { ApiService } from '../../../api.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-social-advo',
@@ -20,7 +22,7 @@ public allLinkdinBanner : any = [
       'linkedinbanner-img1.jpg', 'linkedinbanner-img2.jpg', 'linkedinbanner-img3.jpg', 'linkedinbanner-img4.jpg', 'linkedinbanner-img5.jpg', 'linkedinbanner-img6.jpg', 'linkedinbanner-img7.jpg', 'linkedinbanner-img8.jpg', 'linkedinbanner-img9.jpg', 'linkedinbanner-img10.jpg', 'linkedinbanner-img11.jpg', 'linkedinbanner-img12.jpg', 'linkedinbanner-img13.jpg', 'linkedinbanner-img14.jpg', 'linkedinbanner-img15.jpg', 'linkedinbanner-img16.jpg', 'linkedinbanner-img17.jpg', 'linkedinbanner-img18.jpg', 'linkedinbanner-img19.jpg', 'linkedinbanner-img20.jpg', 'linkedinbanner-img21.jpg', 'linkedinbanner-img22.jpg', 'linkedinbanner-img23.jpg', 'linkedinbanner-img24.jpg', 'linkedinbanner-img25.jpg', 'linkedinbanner-img26.jpg', 'linkedinbanner-img27.jpg', 'linkedinbanner-img28.jpg', 'linkedinbanner-img29.jpg', 'linkedinbanner-img30.jpg', 'linkedinbanner-img31.jpg', 'linkedinbanner-img32.jpg', 'linkedinbanner-img33.jpg', 'linkedinbanner-img34.jpg', 'linkedinbanner-img35.jpg', 'linkedinbanner-img36.jpg', 'linkedinbanner-img37.jpg', 'linkedinbanner-img38.jpg', 'linkedinbanner-img39.jpg', 'linkedinbanner-img40.jpg', 'linkedinbanner-img41.jpg', 'linkedinbanner-img42.jpg'];
   public indexval:any=6;
   public indexValForLinkdin: any = 6;
-  constructor(public router: Router, private readonly meta: MetaService, private fb: FacebookService, public cookieService: CookieService, public apiService: ApiService) {
+  constructor(public router: Router, private readonly meta: MetaService, private fb: FacebookService, public cookieService: CookieService, public apiService: ApiService,public snack:MatSnackBar) {
 
     this.meta.setTitle('ProBid Auto - Social Advo');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -62,6 +64,10 @@ public allLinkdinBanner : any = [
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    this.snack.open('Url Copied on clipboard','ok',{
+      duration:2000
+    })
+
   }
 
 

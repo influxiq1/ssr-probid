@@ -397,6 +397,7 @@
         overflow: hidden;
         border: 1px solid #f2f2f2;
         border-radius: 5px;
+        margin-right: 5px;
       }
       
       .jobticketimglists .mat-list-item img{
@@ -434,10 +435,13 @@
         flex-direction: row;
       }
       .jobcommentbox .jobcommentboximg{
-        width: 74px;
-        height: 74px;
+        width: 80px;
+        height: 80px;
+        position: relative;
+        display: block;
         overflow: hidden;
-        display:block;
+        border-radius: 100%;
+        margin-right: 0;
       }
       .jobcommentbox .jobcommentboximg img{
         height: 100% !important;
@@ -447,14 +451,41 @@
         -o-object-fit: cover;
         object-fit: cover;
       }
+
       .jobcommentbox .jobcommentboxcontent{
-        
+        margin-left: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        flex: 1 1 80%;
       }
-      .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
 
       .jobcommentbox .jobcommentboxcontent .mat-card-title{
-
+        font-family: "HelveticaBold";
+        line-height: normal !important;
+        justify-content: flex-start;       
+        margin-bottom: 5px !important;
+        width: auto;
+        color: #3f4446;
+        font-size: 16px !important;
+        text-transform: inherit;
+        align-items: center;
       }
-      .jobcommentbox .jobcommentboxcontent .mat-card-content{
 
+      .jobcommentbox .jobcommentboxcontent .mat-card-title span{
+        font-family: "Helvetica-Normal";
+        line-height: normal !important;
+        -webkit-box-pack: start;
+        justify-content: flex-start;
+        margin-bottom: 0!important;
+        width: auto;
+        color: #72787a;
+        margin-left: 10px;
+      }
+
+      .jobcommentbox .jobcommentboxcontent .mat-card-content{
+        color:#72787a;
+        font-family: "Helvetica-Normal";
+        line-height: normal !important;  
+        width: auto;
+        font-size: 15px;
       }
