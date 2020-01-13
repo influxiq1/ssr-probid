@@ -260,14 +260,24 @@ export class MyAccountComponent implements OnInit {
       "abbreviation": "WY"
     }
   ];
-
+  public configData: any = {
+    baseUrl: "https://fileupload.influxhostserver.com/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format:["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
+    type: "profile-picture",
+    path: "profilePicture",
+    prefix: "profile-picture",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "image-gallery-bucket"
+  }
   constructor(public fb: FormBuilder,
     public apiService: ApiService, public cook: CookieService,public apploader: AppComponent,
     ) {
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);
-    console.log("cookies data",this.user_cookies);
     this.cookies_id = this.user_cookies._id;
 
 
