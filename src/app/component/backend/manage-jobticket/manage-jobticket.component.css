@@ -421,3 +421,40 @@
         justify-content: flex-end;
         margin-top: 5px;
       }
+
+      .jobcommentbox{
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        justify-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+      }
+      .jobcommentbox .jobcommentboximg{
+        width: 74px;
+        height: 74px;
+        overflow: hidden;
+        display:block;
+      }
+      .jobcommentbox .jobcommentboximg img{
+        height: 100% !important;
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
+      .jobcommentbox .jobcommentboxcontent{
+        
+      }
+      .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
+
+      .jobcommentbox .jobcommentboxcontent .mat-card-title{
+
+      }
+      .jobcommentbox .jobcommentboxcontent .mat-card-content{
+
+      }
