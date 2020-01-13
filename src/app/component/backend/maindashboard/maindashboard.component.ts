@@ -396,7 +396,7 @@ console.log('hit')
     })
   }
    else {
-    this.errorApiKey='Api Key Is Not Valid'
+    this.errorApiKey='api key is not valid'
   }
 
   }

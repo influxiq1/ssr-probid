@@ -210,6 +210,8 @@ const routes: Routes = [
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist'}},
 
+   { path: 'search-detail', component: InventoryDetailComponent},
+
 // ___________________BLOG MANAGEMENT_________________
 // =======================================================
 
