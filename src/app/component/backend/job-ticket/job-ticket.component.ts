@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 
 @Component({
   selector: 'app-job-ticket',
@@ -10,6 +11,9 @@ export class JobTicketComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
+
+   
 
 }
