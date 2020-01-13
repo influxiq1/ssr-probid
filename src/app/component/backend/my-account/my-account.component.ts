@@ -277,10 +277,14 @@ export class MyAccountComponent implements OnInit {
   constructor(public fb: FormBuilder,
     public apiService: ApiService, public cook: CookieService,public apploader: AppComponent,
     ) {
-    let allcookies: any;
-    allcookies = cook.getAll();
-    this.user_cookies = JSON.parse(allcookies.user_details);
-    this.cookies_id = this.user_cookies._id;
+
+      if (this.cook.get('jwtToken') != undefined  && this.cook.get('user_details') != null && this.cook.get('jwtToken') != null && this.cook.get('jwtToken') != '') {
+        this.user_cookies = JSON.parse(this.cook.get('user_details'));
+        this.cookies_id = this.user_cookies._id;
+        }
+    // let allcookies: any;
+    // this.user_cookies = JSON.parse(allcookies.user_details);
+    // this.cookies_id = this.user_cookies._id;
 
 
     this.UpdateForm = this.fb.group({
