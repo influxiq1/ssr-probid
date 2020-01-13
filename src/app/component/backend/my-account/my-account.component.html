@@ -6,9 +6,9 @@
       <span class="myaccountwrapper">
         <mat-card-title>My Account</mat-card-title>
         <span class="profile-area">
+          <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
           <span class="profileimg">
-            <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
-
+            
             <ng-container *ngIf="userData.profile_picture">
               <img mat-card-image [attr.src]="userData.profile_picture">
             </ng-container>
@@ -20,6 +20,8 @@
 
           </span>
           <span class="profileinfo">
+           
+
             <h2>{{userData.fullname }} </h2>
             <p>Designation : {{userData.type}}</p>
             <p>Date Added: {{ userData.date_added}}</p>
