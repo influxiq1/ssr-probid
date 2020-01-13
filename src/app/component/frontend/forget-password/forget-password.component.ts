@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
+import { ApiService } from '../../../api.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -24,12 +25,12 @@ export class ForgetPasswordComponent implements OnInit {
   public buttonName: any = 'Forgot Password';
   // public signUpRouteingUrl: any = 'sign-up';
   public formTitle: any = 'Forgot Password ?';
-  public serverUrl:any = 'http://166.62.39.137:5050/';
+  public serverUrl:any = this.apiService.serverUrlDemo;
   public addEndpoint: any = {
     endpoint:'forgetpassword'
   };
-  public domanUrl: any = 'http://localhost:4200/reset-password';
-  constructor(private readonly meta: MetaService) {
+  public domainUrl: any = 'https://dev.probidauto.com/reset-password';
+  constructor(private readonly meta: MetaService, public apiService: ApiService) {
     
     // this.meta.setTitle('Forget Password dynamic');
     // this.meta.setTag('og:description', 'This is dynamic decription ');
