@@ -849,11 +849,9 @@ html input.disabled {
 }
 
 
-.jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{
-  padding: 0 !important;
-}
-
+.jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 !important; align-items: flex-start; display: flex; flex-wrap: wrap;}
 
 
 /******Dialog CSS********/
