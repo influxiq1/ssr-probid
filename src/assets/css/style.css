@@ -229,7 +229,7 @@ text-decoration:none!important;	margin: 0; margin-top: 0; margin-bottom: 0; bord
 
 .mat-form-field.mat-focused .mat-form-field-label{color:#fff;left:0}
 .mat-form-field.mat-focused .mat-input-element{caret-color:#000}
-.mat-form-field .mat-form-field-label{top:1.28125em;line-height:36px;left:10px}
+.mat-form-field .mat-form-field-label{top:1.28125em;line-height:28px;left:10px}
 .mat-form-field-appearance-legacy.mat-focused .mat-form-field-underline{background-color:#fb4a32}
 
 .servicewrapper{background:#fff!important; text-align:center;position:relative!important;box-shadow:none!important}
@@ -600,12 +600,12 @@ display:block !important;
     font-size:16px !important;
     line-height: normal !important;
     min-width: 150px;
-    max-width: 170px;
     width: 100%;
     background: #ffffff;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 10px !important;
   }
 
   .search-sec .example-form .mat-form-field-appearance-legacy .mat-form-field-infix .mat-button{
@@ -632,6 +632,10 @@ display:block !important;
     align-items: stretch;    
     border: 1px solid #e2ecee;
     margin-left: 10px;    
+  }
+
+  .search-sec .example-full-width:first-child{
+      margin-left: 0 !important;
   }
 
   .blogdetail .mat-card-content .inner_header.mat-card-title {
