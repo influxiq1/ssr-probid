@@ -7,7 +7,17 @@
             <mat-card-title>My Account</mat-card-title>
             <span class="profile-area">
               <span class="profileimg">
-                <img src="../../../../assets/images/imguser.jpg">
+                <lib-file-upload [config]="configData" class="file_upload" ></lib-file-upload>
+
+                <ng-container *ngIf="userData.profile_picture" >
+                  <img mat-card-image [attr.src]="userData.profile_picture">
+                </ng-container>
+                <ng-container *ngIf="!userData.profile_picture" >
+                  <img src="../../../../assets/images/imguser.jpg">
+
+                </ng-container>
+
+               
               </span>
               <span class="profileinfo">
                 <h2>{{userData.fullname }} </h2>
@@ -131,5 +141,4 @@
         </mat-card>
       </div>
   </div>
-
 <app-footer></app-footer>

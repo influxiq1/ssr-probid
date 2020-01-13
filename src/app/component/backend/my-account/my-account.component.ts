@@ -22,6 +22,7 @@ export class MyAccountComponent implements OnInit {
   public changePasswordFormGroup: FormGroup;
   public cookies_id: any;
   public userData: any = [];
+  public profilePicture:any;
   public state_usss: any = [
     {
       "name": "Alabama",
@@ -260,14 +261,25 @@ export class MyAccountComponent implements OnInit {
       "abbreviation": "WY"
     }
   ];
-
+ public images_array:any=[];
+  public configData: any = {
+    baseUrl: "https://fileupload.influxhostserver.com/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format:["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
+    type: "profile-picture",
+    path: "profilePicture",
+    prefix: "profile-picture",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "probidfiles-dev.com"
+  }
   constructor(public fb: FormBuilder,
     public apiService: ApiService, public cook: CookieService,public apploader: AppComponent,
     ) {
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);
-    console.log("cookies data",this.user_cookies);
     this.cookies_id = this.user_cookies._id;
 
 
@@ -281,6 +293,7 @@ export class MyAccountComponent implements OnInit {
       zip: [null, Validators.required],
       city: [null, Validators.required],
       state: [null, Validators.required],
+      profile_picture:['', []],
 
     });
     this.changePasswordFormGroup = this.fb.group({
@@ -360,9 +373,27 @@ export class MyAccountComponent implements OnInit {
   }
 
   UpdateFormSubmit() {
+
     let x: any;
     for (x in this.UpdateForm.controls) {
       this.UpdateForm.controls[x].markAsTouched();
+    }
+    if (this.configData.files.length > 0) {
+      for (const loop in this.configData.files) {
+        this.images_array =
+          this.images_array.concat({
+            "upload_server_id": this.configData.files[loop].upload.data._id,
+            "basepath": this.configData.files[loop].upload.data.basepath + '/' + this.configData.path + '/',
+            "fileservername": this.configData.files[loop].upload.data.data.fileservername,
+            "name": this.configData.files[loop].name,
+            "type": this.configData.files[loop].type,
+            "bucketname": this.configData.bucketName
+          });
+      }
+
+      this.UpdateForm.controls['profile_picture'].patchValue(this.images_array);
+    } else {
+      this.UpdateForm.value.profile_picture = false;
     }
     if (this.UpdateForm.valid) {
       let endpoint: any = "addorupdatedata";
@@ -378,6 +409,7 @@ export class MyAccountComponent implements OnInit {
           zip: this.UpdateForm.value.zip,
           city: this.UpdateForm.value.city,
           state: this.UpdateForm.value.state,
+          profile_picture:this.UpdateForm.value.profile_picture
         }
       };
       this.apploader.loader = 1;

@@ -13,6 +13,7 @@ import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 
 
 
+
 export interface DialogData {
   data: any;
   msg:any;
@@ -238,6 +239,10 @@ public errorMsg: string = '';
     selBox.select();
     document.execCommand('copy');
     document.body.removeChild(selBox);
+    this.snack.open('Url Copied on clipboard','ok',{
+      duration:2000
+    })
+
   }
 
   logoutWithFacebook(): void {
@@ -368,7 +373,10 @@ apiKeySubmit(){
     this.apikeyForm.controls[x].markAsTouched();
   }
   console.log(this.apikeyForm.value.apikey.length)
-  if(this.apikeyForm.valid && this.apikeyForm.value.apikey.length ==32 ){
+  if(this.apikeyForm.valid){
+    this.errorApiKey=''
+    if( this.apikeyForm.value.apikey.length ==32)
+   {
 
 console.log('hit')
     let data:any;
@@ -385,11 +393,13 @@ console.log('hit')
         this.formDirective.resetForm();
       }
     })
+  }
+   else {
+    this.errorApiKey='Api Key Is Not Valid'
+  }
 
   }
-  // else {
-  //   this.errorApiKey='Api Key Is Not Valid'
-  // }
+ 
 }
 
 inputUntouched(val: any) {
