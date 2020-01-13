@@ -374,8 +374,7 @@ export class MyAccountComponent implements OnInit {
 
   UpdateFormSubmit() {
 
-    let x: any;
-    for (x in this.UpdateForm.controls) {
+    for ( let x in this.UpdateForm.controls) {
       this.UpdateForm.controls[x].markAsTouched();
     }
     if (this.configData.files.length > 0) {
