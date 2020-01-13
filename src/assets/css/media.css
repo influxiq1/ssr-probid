@@ -691,6 +691,8 @@
 
 @media only screen and (max-width: 1199px) {
 
+
+  .benefitbottom .list2 mat-item-list{ width: auto;}
   .hungrybottomleftinfo p{ height: auto;}
 
   .inner{ margin-top: 15px;}
