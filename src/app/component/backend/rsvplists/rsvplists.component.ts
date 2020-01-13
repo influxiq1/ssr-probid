@@ -197,6 +197,11 @@ if (val !='') {
     this.indexval=this.indexval+2;
   }
 
+  goToopenTicket(item: any){
+    console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id)
+  }
+
   rsvpViewDetails(val:any){
     // console.log('>>>',val)
     
