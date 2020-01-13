@@ -810,6 +810,7 @@ object-fit: cover;
   color: #fff !important;
 }
 
+.rightsideformcls span .formrightside .mat-error{display: inline-block; margin: 0 5px 0px 0px;}
 
 .rightsideformcls span .formrightside mat-label {
   margin-right: 10px;

@@ -829,7 +829,7 @@ html input.disabled {
 .searchblock.rsvpsearch .searchblockwrapper span .mat-form-field .mat-form-field-wrapper .mat-form-field-infix {
   padding: 0px !important;
   background: transparent;
-  margin-bottom: 0px;
+  margin-bottom: 0px !important;
   display: flex;
 }
 

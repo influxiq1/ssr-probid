@@ -105,6 +105,7 @@ import { ListingSubscriptionComponent } from './component/backend/newsletterlist
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
+import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -434,6 +435,12 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   data: { requestcondition: { source: 'user', condition: {"type": "customer", "salesrep":"user_id" }},endpoint: 'datalist',canActivate: [AuthGuard] }},
 
   { path: 'social-advo-rep', component: SocialAdvoComponent },
+
+
+  { path: 'manage-job-ticket/add', component: ManageJobticketComponent },
+  { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
+  resolve: { rsvp: ResolveService },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
 
   
 

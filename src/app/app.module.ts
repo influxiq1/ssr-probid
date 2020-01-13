@@ -82,8 +82,8 @@ import { SalesrepSignupComponent, salesSignUpModalComponent } from './component/
 import { CustomerSignupComponent, customerSignUpsuccessDialog } from './component/frontend/customer-signup/customer-signup.component';
 
 import { SearchListViewComponent } from './component/frontend/search-list-view/search-list-view.component';
+import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 
-import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 
 /**End Frontend Component**/
 
@@ -172,13 +172,14 @@ import { ListingSenderappComponent } from './component/backend/newsletterlists/l
 import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { AskForConfirmationComponent } from './component/backend/ask-for-confirmation/ask-for-confirmation.component';
-import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 
 import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
+import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
+import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 
 
 //****** for video Modal*********//
@@ -317,7 +318,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     askForconfirmationModalComponent,
     AskForConfirmationComponent,
     RsvpSuccessComponent,
-    ViewJobTicketComponent
+    ViewJobTicketComponent,
+    ManageJobticketComponent
   ],
   imports: [
     TranslateModule.forRoot(),

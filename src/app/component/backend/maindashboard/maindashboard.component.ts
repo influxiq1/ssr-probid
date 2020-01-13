@@ -7,7 +7,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
-import { FormGroup, FormBuilder ,FormGroupDirective} from '@angular/forms';
+import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 // import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
@@ -112,6 +112,7 @@ export class MaindashboardComponent implements OnInit {
 
   public indexval:any=6;
   public indexValForLinkdin: any = 6;
+  public errorApiKey:any;
   
   public allFacebookBanner : any = [
     'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
@@ -357,14 +358,19 @@ public errorMsg: string = '';
 
 generateForm(){
   this.apikeyForm=this.fb.group({
-    apikey:['']
+    apikey:['',Validators.required]
   })
 }
 
 //for new apikey submit
 apiKeySubmit(){
-  if(this.apikeyForm.valid){
+  for (let x in this.apikeyForm.controls) {
+    this.apikeyForm.controls[x].markAsTouched();
+  }
+  console.log(this.apikeyForm.value.apikey.length)
+  if(this.apikeyForm.valid && this.apikeyForm.value.apikey.length ==32 ){
 
+console.log('hit')
     let data:any;
     data={
       data:this.apikeyForm.value,
@@ -381,7 +387,13 @@ apiKeySubmit(){
     })
 
   }
+  // else {
+  //   this.errorApiKey='Api Key Is Not Valid'
+  // }
+}
 
+inputUntouched(val: any) {
+  this.apikeyForm.controls[val].markAsUntouched();
 }
 
   deleteAny(val:any,index:any,flag:string){
@@ -434,7 +446,6 @@ apiKeySubmit(){
 
 
   //delete for save search data
-  
   
 //   deleteSaveAny(val:any,index:any){
 //     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {

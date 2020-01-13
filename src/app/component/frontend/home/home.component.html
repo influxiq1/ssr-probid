@@ -76,7 +76,7 @@
                   <mat-list-item *ngFor="let item of saveCarDataList | slice:0:8"> 
                     <span class="listsimgwrap">
                       <img  *ngIf="item.media.photo_links !='' && item.media.photo_links !=null"  [src]="item.media.photo_links[0]">
-                      <img *ngIf="item.media.photo_links =='' && item.media.photo_links ==null" src="../../../../assets/images/carimg2.jpg">
+                      <img *ngIf="item.media.photo_links =='' && item.media.photo_links ==null" src="../../../../../assets/images/no-image-default.jpg">
                     </span>
                     <span class="listsinfo">
                       <span class="listsinfoprice">
