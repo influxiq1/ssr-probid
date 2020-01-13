@@ -853,6 +853,8 @@ html input.disabled {
   padding: 0 !important;
 }
 
+.jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
+
 
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
