@@ -29,6 +29,7 @@ export interface DialogData1 {
   styleUrls: ['./rsvplists.component.css']
 })
 export class RsvplistsComponent implements OnInit {
+public type: any;
 public rsvp_list: any = '';
 public indexval:any=4;
 public ststus: number;
@@ -195,6 +196,11 @@ if (val !='') {
 
   loadMoreRsvp(){
     this.indexval=this.indexval+2;
+  }
+
+  goToopenTicket(item: any){
+    console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id)
   }
 
   rsvpViewDetails(val:any){

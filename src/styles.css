@@ -849,11 +849,9 @@ html input.disabled {
 }
 
 
-.jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{
-  padding: 0 !important;
-}
-
+.jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 !important; align-items: flex-start; display: flex; flex-wrap: wrap;}
 
 
 /******Dialog CSS********/
@@ -1074,6 +1072,69 @@ border-radius: 5px !important;color: #333 !important; border: 1px solid #fff !im
   max-width: 96%;
   margin: 0 auto;
   width: 600px !important;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box{
+  display: block;
+  background: #f9f9f9;
+  position: relative;
+  z-index: 20;
+  border-radius: 0;
+  color: #000;
+  box-shadow: none;
+  position: relative;
+  padding: 15px;
+  -moz-box-shadow: inset 0 0 10px #000000;
+  -webkit-box-shadow: inset 0 0 10px #000000;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-dialog-title {
+  background-color: #151519;
+  padding: 15px;
+  margin-bottom: 15px;
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box p {
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  color: #333;
+  font-family: 'Helvetica-Normal';
+  white-space: normal;
+  word-break: break-word;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-button {
+  color: #fff;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: 'HelveticaBold';
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px 5px;
+  border-radius: 0;
+  background-color: #fb4a32;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-button+.mat-button {
+  color: #fff;
+  font-size: 30px;
+  text-transform: uppercase;
+  font-family: 'HelveticaBold';
+  text-decoration: none;
+  display: inline-block;
+  padding: 10px 15px 5px;
+  border-radius: 0 !important;
+  background-color: #12c3e4;
+}
+
+.cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-dialog-actions {
+  margin-bottom: 0;
 }
 
 /* .cdk-overlay-pane{min-width: 450px;max-width: 96%;margin: 0 auto;width: 600px !important;} */

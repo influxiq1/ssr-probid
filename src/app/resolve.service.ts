@@ -44,7 +44,7 @@ export class ResolveService implements Resolve<any> {
             if(this.cookieservice.get('user_details') !='' && this.cookieservice.get('user_details') !=null){
                 this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
                 this.userid = this.userCookies._id;
-                // console.log('>>>>',this.userid)  
+                console.log('>>>>',this.userCookies)  
               }
             for(let d in requestData.condition){
                 if(requestData.condition[d]=='user_id' ){

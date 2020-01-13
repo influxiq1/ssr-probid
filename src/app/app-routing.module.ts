@@ -13,8 +13,6 @@ import { TesimoniallistComponent } from './component/frontend/tesimoniallist/tes
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
 import { BloglistfrontendComponent } from './component/frontend/bloglist/bloglist.component';
 
-import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
-
 import { BlogdetailComponent } from './component/frontend/blogdetail/blogdetail.component';
 
 import { AdvanceInventorySearchComponent } from './component/frontend/inventory/advance-inventory-search/advance-inventory-search.component';
@@ -105,6 +103,8 @@ import { LisitngTestemailappComponent } from './component/backend/newsletterlist
 import { ListingSenderappComponent } from './component/backend/newsletterlists/listing-senderapp/listing-senderapp.component';
 import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
+import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
+import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 /**End Backend Routing**/
 
@@ -122,7 +122,7 @@ const routes: Routes = [
   { path: 'login/:id', component: LoginComponent },
 
   { path: 'forget-password', component: ForgetPasswordComponent },
-  { path: 'reset-password', component: ResetPasswordComponent },
+  { path: 'reset-password/:token', component: ResetPasswordComponent },
 
   { path: 'sign-up', component: SignUpComponent },
   { path: 'salesrep-signup', component: SalesrepSignupComponent },
@@ -209,6 +209,8 @@ const routes: Routes = [
   resolve: { rsvp: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist'}},
+
+   { path: 'search-detail', component: InventoryDetailComponent},
 
 // ___________________BLOG MANAGEMENT_________________
 // =======================================================
@@ -360,6 +362,7 @@ const routes: Routes = [
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
   { path: 'job-ticket', component: JobTicketComponent },
+  {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
   { path: 'manage-type', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
@@ -420,6 +423,8 @@ resolve: { inventory_search: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
 },
   { path: 'mysalesrep', component: MysalesrepComponent },
+  
+
   // { path:'contact-us-dashboard', component:ContactUsDashboardComponent,  resolve: { serviceList: ResolveService },
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
@@ -436,7 +441,9 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   { path: 'social-advo-rep', component: SocialAdvoComponent },
 
 
-  { path: 'manage-job-ticket/add', component: ManageJobticketComponent },
+  { path: 'manage-job-ticket/add/:_id', component: ManageJobticketComponent , resolve: { rsvp: ResolveService },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}},
+
   { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
   resolve: { rsvp: ResolveService },
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },

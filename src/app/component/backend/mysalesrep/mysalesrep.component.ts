@@ -42,7 +42,7 @@ export class MysalesrepComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
       // console.log(data)
-      this.rsvp_list = data.rsvp.res;
+      this.rsvp_list = data.rsvp;
       // console.log('rsvp>>',this.rsvp_list)
     })
   }

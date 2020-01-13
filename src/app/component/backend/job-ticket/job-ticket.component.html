@@ -1,9 +1,275 @@
 <div class="adminwrappercls">
   <app-header></app-header>
       <div class="main-content-wrap">
-        <mat-card class="generalcls blog" style="padding: 0 !important;">  
-            <img src="../../../../assets/images/jobticket-dashboard-img1.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
+        <mat-card class="generalcls job-title-pg" style="padding: 0 !important;">
+            <span>
+              <mat-card-content class="adm_inner_banner rsvpadmin">
+                  <mat-card-title class="adm_inner_title">job ticket</mat-card-title>
+                  <p class="adm_inner_para">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
+              </mat-card-content>
+              <mat-card-content class="bred_cram_wrapper">
+                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
+                  <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/job-ticket'"> job ticket</a>
+              </mat-card-content>                
+              <span class="searchblock rsvpsearch">
+                <span class="searchblockwrapper">
+                  <span>
+                    <h2>job ticket</h2>
+                  </span>
+                  <!-- <span *ngIf="userCookies.type == 'admin'">
+                    <mat-label>Search By Status :</mat-label>
+                    <mat-form-field>
+                      <select matNativeControl (change)="selectOption($event.target.value)" >
+                        <option value=''>Select Status</option>
+                        <option value=0>Pending</option>
+                        <option value=1>Accept</option>
+                        <option value=2>Reject</option>
+                        <option value=4>Decline</option>
+                        <option value=5>Confirm</option>
+                        <option value=3>Awaiting Confirmation</option>
+                      </select>
+                    </mat-form-field>
+                  </span> -->
+                </span>
+              </span>
+              <span class="rsvplistwrapper" >
+                <span class="norecordfound">
+                  <h3 >No Record Found</h3>
+                </span>
+                <span class="rsvplists">
+                  <!---Start Single Item------>
+                  <span class="rsvplistsingle">
+                    <span class="rsvplistsingleinner">
+                        <span class="rsvplistsingleleft">
+                            <span class="rsvpliststop">
+                              <span class="rsvplistimgwrapper">
+                                  <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                              </span>                        
+                            </span>
+                            <span class="rsvplistsbottom">
+                              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                              <span class="rsvplistsbottombtm">
+                               <span>Status</span>                               
+                               <span class="btnactive">Pending <span class="coloryellow"></span></span>
+                              </span>
+                            </span>
+                          </span>
+                          <span class="rsvplistsingleright">
+                            <span class="rsvplisttypecontent">  
+                              <span class="deletecls"><i class="material-icons">delete</i></span>
+                              <h2>User</h2>
+                              <span class="rsvplisttypecontentinfo">
+                                <span class="rsvplisttypeimgwrapper">
+                                  <img src="../../../../assets/images/imguser.jpg">
+                                  <span class="listscontentshape"></span>
+                                </span>
+                                <span class="listscontent">
+                                   <mat-list>
+                                     <mat-list-item><span class="labelcls">Name:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Email ID:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Phone:</span> <span></span> </mat-list-item>
+                                   </mat-list>
+                                   
+                                </span>
+                              </span>
+                              <span class="rsvplisttypebottom">
+                                <span>Qualified for Finance: <span class="redcls">NO</span></span>
+                                <span>Job Ticket related to this car: <span class="greencls">[1]</span></span>
+                              </span>
+                            </span>
+                            <span class="rsvplisttypecontent">
+                                <h2>Issue <span>Date:12-01-2020</span></h2>
+                                <span class="rsvplisttypecontentinfo">
+                                  <span class="jobcommentboxcontent">
+                                    <mat-card-title>Lorem Ipsum is simply dummy text</mat-card-title>
+                                    <mat-card-content>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</mat-card-content>
+                                  </span>                                  
+                                </span>
+                                <span class="rsvplisttypebottom">
+                                  <button mat-button class="btnblue">Know More</button>                              
+                               </span>
+                            </span>                            
+                          </span>
+                    </span>
+                  </span>
+                  <!---End Single Item------>
+                  <!---Start Single Item------>
+                  <span class="rsvplistsingle">
+                    <span class="rsvplistsingleinner">
+                        <span class="rsvplistsingleleft">
+                            <span class="rsvpliststop">
+                              <span class="rsvplistimgwrapper">
+                                  <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                              </span>                        
+                            </span>
+                            <span class="rsvplistsbottom">
+                              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                              <span class="rsvplistsbottombtm">
+                               <span>Status</span>                               
+                               <span class="btnactive">Pending <span class="coloryellow"></span></span>
+                              </span>
+                            </span>
+                          </span>
+                          <span class="rsvplistsingleright">
+                            <span class="rsvplisttypecontent">  
+                              <span class="deletecls"><i class="material-icons">delete</i></span>
+                              <h2>User</h2>
+                              <span class="rsvplisttypecontentinfo">
+                                <span class="rsvplisttypeimgwrapper">
+                                  <img src="../../../../assets/images/imguser.jpg">
+                                  <span class="listscontentshape"></span>
+                                </span>
+                                <span class="listscontent">
+                                   <mat-list>
+                                     <mat-list-item><span class="labelcls">Name:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Email ID:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Phone:</span> <span></span> </mat-list-item>
+                                   </mat-list>
+                                   
+                                </span>
+                              </span>
+                              <span class="rsvplisttypebottom">
+                                <span>Qualified for Finance: <span class="redcls">NO</span></span>
+                                <span>Job Ticket related to this car: <span class="greencls">[1]</span></span>
+                              </span>
+                            </span>
+                            <span class="rsvplisttypecontent">
+                                <h2>Issue <span>Date:12-01-2020</span></h2>
+                                <span class="rsvplisttypecontentinfo">
+                                  <span class="jobcommentboxcontent">
+                                    <mat-card-title>Lorem Ipsum is simply dummy text</mat-card-title>
+                                    <mat-card-content>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</mat-card-content>
+                                  </span>                                  
+                                </span>
+                                <span class="rsvplisttypebottom">
+                                  <button mat-button class="btnblue">Know More</button>                                
+                               </span>
+                            </span>                            
+                          </span>
+                    </span>
+                  </span>
+                  <!---End Single Item------>
+
+                  <!---Start Single Item------>
+                  <span class="rsvplistsingle">
+                    <span class="rsvplistsingleinner">
+                        <span class="rsvplistsingleleft">
+                            <span class="rsvpliststop">
+                              <span class="rsvplistimgwrapper">
+                                  <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                              </span>                        
+                            </span>
+                            <span class="rsvplistsbottom">
+                              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                              <span class="rsvplistsbottombtm">
+                               <span>Status</span>                               
+                               <span class="btnactive">Pending <span class="coloryellow"></span></span>
+                              </span>
+                            </span>
+                          </span>
+                          <span class="rsvplistsingleright">
+                            <span class="rsvplisttypecontent">  
+                              <span class="deletecls" (click)="deleteRsvp(item,i)"><i class="material-icons">delete</i></span>
+                              <h2>User</h2>
+                              <span class="rsvplisttypecontentinfo">
+                                <span class="rsvplisttypeimgwrapper">
+                                  <img src="../../../../assets/images/imguser.jpg">
+                                  <span class="listscontentshape"></span>
+                                </span>
+                                <span class="listscontent">
+                                   <mat-list>
+                                     <mat-list-item><span class="labelcls">Name:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Email ID:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Phone:</span> <span></span> </mat-list-item>
+                                   </mat-list>
+                                   
+                                </span>
+                              </span>
+                              <span class="rsvplisttypebottom">
+                                <span>Qualified for Finance: <span class="redcls">NO</span></span>
+                                <span>Job Ticket related to this car: <span class="greencls">[1]</span></span>
+                              </span>
+                            </span>
+                            <span class="rsvplisttypecontent">
+                                <h2>Issue <span>Date:12-01-2020</span></h2>
+                                <span class="rsvplisttypecontentinfo">
+                                  <span class="jobcommentboxcontent">
+                                    <mat-card-title>Lorem Ipsum is simply dummy text</mat-card-title>
+                                    <mat-card-content>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</mat-card-content>
+                                  </span>                                  
+                                </span>
+                                <span class="rsvplisttypebottom">
+                                  <button mat-button class="btnblue">Know More</button>                                
+                               </span>
+                            </span>                            
+                          </span>
+                    </span>
+                  </span>
+                  <!---End Single Item------>
+                  <!---Start Single Item------>
+                  <span class="rsvplistsingle">
+                    <span class="rsvplistsingleinner">
+                        <span class="rsvplistsingleleft">
+                            <span class="rsvpliststop">
+                              <span class="rsvplistimgwrapper">
+                                  <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                              </span>                        
+                            </span>
+                            <span class="rsvplistsbottom">
+                              <h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2>
+                              <span class="rsvplistsbottombtm">
+                               <span>Status</span>                               
+                               <span class="btnactive">Pending <span class="coloryellow"></span></span>
+                              </span>
+                            </span>
+                          </span>
+                          <span class="rsvplistsingleright">
+                            <span class="rsvplisttypecontent">  
+                              <span class="deletecls" (click)="deleteRsvp(item,i)"><i class="material-icons">delete</i></span>
+                              <h2>User</h2>
+                              <span class="rsvplisttypecontentinfo">
+                                <span class="rsvplisttypeimgwrapper">
+                                  <img src="../../../../assets/images/imguser.jpg">
+                                  <span class="listscontentshape"></span>
+                                </span>
+                                <span class="listscontent">
+                                   <mat-list>
+                                     <mat-list-item><span class="labelcls">Name:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Email ID:</span> <span></span> </mat-list-item>
+                                     <mat-list-item><span class="labelcls">Phone:</span> <span></span> </mat-list-item>
+                                   </mat-list>
+                                   
+                                </span>
+                              </span>
+                              <span class="rsvplisttypebottom">
+                                <span>Qualified for Finance: <span class="redcls">NO</span></span>
+                                <span>Job Ticket related to this car: <span class="greencls">[1]</span></span>
+                              </span>
+                            </span>
+                            <span class="rsvplisttypecontent">
+                                <h2>Issue <span>Date:12-01-2020</span></h2>
+                                <span class="rsvplisttypecontentinfo">
+                                  <span class="jobcommentboxcontent">
+                                    <mat-card-title>Lorem Ipsum is simply dummy text</mat-card-title>
+                                    <mat-card-content>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum is simply dummy text of the printing and typesetting industry.Lorem Ipsum is simply dummy text of the printing.</mat-card-content>
+                                  </span>                                  
+                                </span>
+                                <span class="rsvplisttypebottom">
+                                  <button mat-button class="btnblue">Know More</button>
+                               </span>
+                            </span>                            
+                          </span>
+                    </span>
+                  </span>
+                  <!---End Single Item------>
+                </span>                
+              </span>  
+            </span>  
         </mat-card>
+        <div>
+          <button mat-flat-button class="btnblue" type="button" >Load More</button>
+        </div>
+
       </div>
   </div>
 <app-footer></app-footer>
