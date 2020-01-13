@@ -59,9 +59,13 @@ export class ApiService {
     }
     this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
       console.log(res);
+      if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
+        
       this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
       this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
       console.log(this.inventory_url);
+
+    }
 
     })
 
@@ -218,6 +222,10 @@ export class ApiService {
     // const isRefreshTokenExpired = helper.isTokenExpired(localStorage.getItem('refresh_token'));
     // console.log('id_token isExpired:',isIdTokenExpired)
     // console.log('refresh_token isExpired:',isRefreshTokenExpired)
+  }
+  /* read site setting data */
+  public getSiteSettingData(url): Observable<any> {
+    return this._http.get(url);
   }
 
 //http by data and endpoint
