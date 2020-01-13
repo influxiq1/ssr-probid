@@ -718,7 +718,8 @@ span.smltxt{
 }
 
 .myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix {
-  border: 1px solid #bfbfbf !important;
+  border: 1px solid #bfbfbf !important;    
+  display: inherit;
 }
 
 .myaccount .mat-tab-body-wrapper {
@@ -813,4 +814,14 @@ span.smltxt{
 
 .adminwrappercls button, .adminwrappercls mat-button{
   border-radius: 0 !important;
+}
+
+.myaccount .visibleicon{cursor: pointer;}
+
+.myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix button{
+  margin: 0px;
+  padding: 0;
+  box-shadow: none !important;
+  min-width: 1px;
+  line-height: normal;
 }

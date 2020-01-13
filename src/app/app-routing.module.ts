@@ -13,6 +13,8 @@ import { TesimoniallistComponent } from './component/frontend/tesimoniallist/tes
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
 import { BloglistfrontendComponent } from './component/frontend/bloglist/bloglist.component';
 
+import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
+
 import { BlogdetailComponent } from './component/frontend/blogdetail/blogdetail.component';
 
 import { AdvanceInventorySearchComponent } from './component/frontend/inventory/advance-inventory-search/advance-inventory-search.component';
@@ -103,7 +105,7 @@ import { LisitngTestemailappComponent } from './component/backend/newsletterlist
 import { ListingSenderappComponent } from './component/backend/newsletterlists/listing-senderapp/listing-senderapp.component';
 import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
 import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
-import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
+import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -432,6 +434,12 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   data: { requestcondition: { source: 'user', condition: {"type": "customer", "salesrep":"user_id" }},endpoint: 'datalist',canActivate: [AuthGuard] }},
 
   { path: 'social-advo-rep', component: SocialAdvoComponent },
+
+
+  { path: 'manage-job-ticket/add', component: ManageJobticketComponent },
+  { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
+  resolve: { rsvp: ResolveService },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
 
   
 

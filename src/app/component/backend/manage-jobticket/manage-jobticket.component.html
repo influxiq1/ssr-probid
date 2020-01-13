@@ -1,0 +1,169 @@
+
+
+<div class="adminwrappercls">
+    <app-header></app-header>
+        <div class="main-content-wrap">
+          <mat-card-content class="adm_inner_banner">
+            <mat-card-title class="adm_inner_title">manage jobticket</mat-card-title>
+            <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+          </mat-card-content>
+          <mat-card-content class="bred_cram_wrapper">
+            <a mat-list-item routerLinkActive="active"> Dashboard </a>
+            <a mat-list-item routerLinkActive="active activebread">manage jobticket</a>
+          </mat-card-content>
+          <mat-card class="generalcls managejobticket" style="padding:0px !important">
+            <span class="mainwrappercontent">      
+                <span class="searchblock rsvpsearch">
+                    <span class="searchblockwrapper">
+                      <span>
+                        <h2>Rep Simon Santos [ Ticket ID : #0000231 ] </h2>
+                      </span>
+                      <span class="statusjobticket">
+                        <mat-label>Status :</mat-label>
+                        <button mat-raised-button type="reset" class="btnblue">Mark As Resolved</button>
+                        <button mat-raised-button type="reset" class="btnblue yellowbtn">Pending</button>
+                      </span>
+                    </span>
+                  </span>
+               <span class="adm_dashboard_block1">
+                   <span class="adm_dashboard_block1_left">
+                    <span class="bluebg">
+                        <span class="sectionheader">Car RSVP Info</span>
+                    </span>                   
+                    <mat-list role="list" class="flexbox1column">
+                        <mat-list-item role="listitem" class="rsvplistsingle">
+                          <!-- <span (click)="deleteAny(item._id,i,'rsvp')" class="deletecls"><i class="material-icons">delete</i></span> -->
+                            <span class="rsvplistsingleinner">                                 
+                                <span class="rsvplistsingleleft">
+                                    <span class="rsvpliststop">
+                                      <span class="rsvplistimgwrapper">
+                                          <!-- <img *ngIf="item.media.photo_links[0] != null" 
+                                          [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)"> -->
+                                          <!-- <img class="defaultimg" *ngIf="item.media.photo_links[0] == null" src="assets/images/no-image-default.jpg"> -->
+                                          <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                                      </span>                        
+                                    </span>
+                                    <span class="rsvplistsbottom">
+                                      <!-- <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2> -->
+                                      <h2>USED 1995 AM GENERALHUMMER WAGON SUV</h2>
+                                      <span class="rsvplistsbottombtm">
+                                       <span>Status</span>
+                                       <!-- <span *ngIf="item.status == 2" class="btnactive">Rejected <span class="colorred"></span></span>
+                                       <span *ngIf="item.status == 0" class="btnactive">Pending <span class="coloryellow"></span></span>
+                                       <span *ngIf="item.status == 1" class="btnactive">Accepted <span class="colorgreen"></span></span> -->
+                                       <!-- <span class="btnactive">Rejected <span class="colorred"></span></span>
+                                       <span class="btnactive">Pending <span class="coloryellow"></span></span> -->
+                                       <span class="btnactive">Accepted <span class="colorgreen"></span></span>
+                                      </span>
+                                    </span>
+                                </span>
+                                <span class="rsvplistsingleright">
+                                    <span class="rsvplisttypecontent">
+                                      <h2>User</h2>
+                                      <span class="rsvplisttypecontentinfo">
+                                        <span class="rsvplisttypeimgwrapper">
+                                          <img src="../../../../assets/images/imguser.jpg">
+                                        </span>
+                                        <span class="listscontent">
+                                           <mat-list>
+                                             <!-- <mat-list-item><span class="labelcls">Name:</span> <span>{{item.added_for_fullname}}</span> </mat-list-item> -->
+                                             <!-- <mat-list-item><span class="labelcls">Email ID:</span> <span>{{item.added_for_email}}</span> </mat-list-item> -->
+                                             <!-- <mat-list-item><span class="labelcls">Phone:</span> <span>{{item.added_for_phone}}</span> </mat-list-item> -->
+                                             <mat-list-item><span class="labelcls">Name:</span> <span>hghg</span> </mat-list-item>
+                                             <mat-list-item><span class="labelcls">Email ID:</span> <span>fhfg</span> </mat-list-item>
+                                           </mat-list>
+                                           
+                                        </span>
+                                      </span>
+                                    </span>
+                                    <span class="rsvplisttypecontent">
+                                        <h2>Salesrep</h2>
+                                        <span class="rsvplisttypecontentinfo">
+                                            <span class="rsvplisttypeimgwrapper">
+                                              <img src="../../../../assets/images/imgsalesrep.jpg">
+                                            </span>
+                                            <span class="listscontent">
+                                               <mat-list>
+                                                 <!-- <mat-list-item><span>Name:</span> <span>{{item.added_by_fullname}}</span> </mat-list-item>
+                                                 <mat-list-item><span>Email ID:</span> <span>{{item.added_by_email}}</span> </mat-list-item> -->
+                                                 <!-- <mat-list-item><span>Phone:</span> <span>{{item.added_by_phone}}</span> </mat-list-item> -->
+                                                 <mat-list-item><span>Name:</span> <span>mjhjhhj</span> </mat-list-item>
+                                                 <mat-list-item><span>Email ID:</span> <span>hmhg</span> </mat-list-item>
+                                               </mat-list>  
+                                            </span>
+                                          </span>
+                                    </span>   
+                                    <span class="rsvplisttypebottom">
+                                      <span class="singlespan"> 
+                                        <!-- <span *ngIf="userCookies.type == 'admin'">       -->  
+                                        <!-- <button mat-button class="btnblue greenbtn" *ngIf=" (item.status != 1) && item.status == 0 || item.status == 2" (click)="changeStatus(item, 1)">Accept</button>      
+                                          <button *ngIf="item.status == 1 " (click)="openModale(item)" mat-button class="btnblue whitebtn">Send Email To Customer</button>  
+                                        <button mat-button class="btnblue yellowbtn" *ngIf="item.status != 1 && item.status == 2" (click)="changeStatus(item, 0)">Pending</button>  
+                                        <button mat-button class="btnblue redbtn" *ngIf="item.status == 0 && item.status != 1" (click)="changeStatus(item, 2)">Reject</button> -->   
+                                      <!-- </span> -->
+                                      <span>  
+                                        <button mat-button class="btnblue whitebtn">Send Email To Customer</button>  
+                                        <button mat-button class="btnblue redbtn">Reject</button>
+                                      </span>
+                                        <!-- <button mat-button class="btnblue orangebtn" (click)="viewJobTicket(item)">View ticket</button>
+                                        <button mat-button class="btnblue" (click)="viewRsvpDetails(item._id)">Know More</button> -->                             
+                                        <button mat-button class="btnblue">Know More</button>
+                                      </span>                                      
+                                      <span class="dateadded">
+                                        <strong>Added Date:</strong> 10-01-2019
+                                      </span>
+                                    </span>                         
+                                </span>
+                            </span>                       
+                        </mat-list-item>
+                        
+                    </mat-list>
+                   </span>
+                   <span class="adm_dashboard_block1_right">
+                    <span class="bluebg">
+                        <span class="sectionheader">Car RSVP Info</span>
+                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                    </span>  
+                    <span class="whitebg">
+                        <span class="sectionheader">Description</span>
+                        <span class="graybg">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        </span> 
+                        <mat-list class="jobticketimglists">
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                            <mat-list-item>
+                                <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                            </mat-list-item>
+                        </mat-list>    
+                        <span class="dateadded">
+                          <strong>Added Date:</strong> 10-01-2019
+                        </span> 
+                        <span class="statusjobticket">
+                          <button mat-raised-button type="reset" class="btnblue">Reply</button>
+                        </span>                   
+                    </span>    
+                    <span class="whitebg">
+                                                               
+                    </span>                                 
+                  </span>
+               </span>
+            </span>
+          </mat-card>
+        </div>
+    </div>
+    
+  <app-footer></app-footer>
