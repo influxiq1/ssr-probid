@@ -29,6 +29,7 @@ export interface DialogData1 {
   styleUrls: ['./rsvplists.component.css']
 })
 export class RsvplistsComponent implements OnInit {
+public type: any;
 public rsvp_list: any = '';
 public indexval:any=4;
 public ststus: number;

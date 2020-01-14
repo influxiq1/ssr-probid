@@ -31,7 +31,7 @@ export class ManageJobticketComponent implements OnInit {
   public userid: any;
   public rsvp_id: any;
   public status: any;
-
+  public contract_details: any;
   constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
@@ -48,9 +48,10 @@ export class ManageJobticketComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.activatedRoute.data.forEach((data:any) => {
-    //   this.rsvp_list = data.rsvp.res[0];
-    // })
+    this.activatedRoute.data.forEach((data:any) => {
+      this.rsvp_list = data.rsvp.res[0];
+      console.log(data)
+    })
 
     this.getData();
 
@@ -66,7 +67,7 @@ export class ManageJobticketComponent implements OnInit {
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
       console.log(res.res)
-      this.rsvp_list = res.res;
+      this.contract_details = res.res;
       // this.apploader.loader = 0;
       // console.log("@@>>>", this.rsvp_list[0].profile_picture);
     })

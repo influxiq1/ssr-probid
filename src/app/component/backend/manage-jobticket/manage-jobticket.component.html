@@ -112,7 +112,7 @@
                         </span>
                         <!-- <button mat-button class="btnblue orangebtn" (click)="viewJobTicket(item)">View ticket</button>
                                         <button mat-button class="btnblue" (click)="viewRsvpDetails(item._id)">Know More</button> -->
-                        <button mat-button class="btnblue" (click)="rsvpDetail(item._id)">Know More</button>
+                        <!-- <button mat-button class="btnblue" (click)="rsvpDetail(item._id)">Know More</button> -->
                       </span>
                       <span class="dateadded">
                         <strong>Added Date:</strong> {{rsvp_list.date_added}}
@@ -184,7 +184,7 @@
               </span>
               <span class="whitebg jobcommentbox">
                 <mat-list>
-                  <mat-list-item *ngFor="let item of rsvp_list">
+                  <mat-list-item *ngFor="let item of contract_details">
                     <span class="jobcommentboximg">
                       <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
                       <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
@@ -193,6 +193,7 @@
                     <span class="jobcommentboxcontent" >
                       <mat-card-title>{{item.Fullname}}</mat-card-title>
                       <mat-card-content>{{item.description}}</mat-card-content>
+                      <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
                     </span>
                   </mat-list-item>
                 </mat-list>

@@ -391,11 +391,12 @@ console.log('hit')
 
       if(result.status == 'success'){
         this.formDirective.resetForm();
+        
       }
     })
   }
    else {
-    this.errorApiKey='Api Key Is Not Valid'
+    this.errorApiKey='api key is not valid'
   }
 
   }

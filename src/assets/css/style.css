@@ -39,7 +39,7 @@ img,*img,img:focus,*img:focus{border:0;outline:none;border-style:none}
 button{cursor:pointer;outline:none}
 a{cursor:pointer;outline:none}
 .generalcls .mat-card-header-text{margin:0!important;width:100%}
-.generalcls .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:30px!important;color:#2a2b2c;display:flex;width:100%;align-items:center;justify-content:center;}
+.generalcls .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:30px!important;color:#2a2b2c;display:flex;width:100%;align-items:center;justify-content:left;}
 .generalcls .mat-card-title span span{font-family:'HelveticaBold';padding-left:10px}
 .generalcls p{font-family:'Helvetica-Normal';font-size:18px;color:#2b2c2d;margin:0;padding:0;line-height:25px;font-weight:400}
 .generalcls p strong{text-transform:uppercase;font-family:'HelveticaBold'}
@@ -1007,17 +1007,17 @@ display:block !important;
     width: 435px;
     text-transform: uppercase;
 }
-.revolutionleft .revocarman{position: absolute; top:265px; right:-140px;z-index: 9999999;}
+.revolutionleft .revocarman{position: absolute; top:286px; right:-140px;z-index: 9999999;}
 
 .revolutionright .revoinfo1{position: absolute; top:90px; left: 122px; text-transform: uppercase; width: 622px; font-family: 'HelveticaBold'; font-size: 30px;}
 .revolutionright .revoinfo1 h2{
     font-family: 'Helvetica-Normal';
     font-size: 15px;
-    margin-top: 20px;
+    margin-top: 80px;
 }
 .revolutionright .revoinfo1 span{color:#ff0167; font-family: 'HelveticaBold'; text-transform: uppercase;}
-.revolutionright .revomobile{position: absolute; top: 235px; left: 116px; font-family: 'HelveticaBold'; font-size: 30px;}
-.revolutionright .revoinfo2{position: absolute; top:597px; left: 204px; width: 468px; }
+.revolutionright .revomobile{position: absolute; top: 283px; left: 116px; font-family: 'HelveticaBold'; font-size: 30px;}
+.revolutionright .revoinfo2{position: absolute; top:618px; left: 204px; width: 468px; }
 .revolutionright .revoinfo2 h2{font-family: 'Helvetica-Normal'; font-size: 20px;}
 .revolutionright .revoinfo2 h2 span{color:#ff0167; text-transform: uppercase;}
 .revolutionright .revocurveright{position: absolute; top:519px; left: 506px; }
@@ -1031,7 +1031,7 @@ display:block !important;
 .benefittop{background-color: #fb4a32 !important; padding-top: 20px; padding-bottom: 20px;text-align: left; width: 100%; padding-left: 38px; display: block; position: inherit;}
 .benefittop h2{color:#fff; font-family: 'HelveticaBold'; text-shadow: 2px 2px 2px #000; font-size: 48px;margin-top: 0;}
 .benefitbottom{background: url(../images/benefitbg.jpg) no-repeat left top; height: 1152px; margin: 0; padding: 0; padding-top: 18px;  text-align: center; background-size:cover;position: relative;}
-.benefitbottom mat-list{ width:100%;  margin-bottom:20px; margin-top:20px; overflow:hidden;padding-left: 15px; padding-right: 15px;}
+.benefitbottom mat-list{ width:auto;  margin-bottom:20px; margin-top:20px; overflow:hidden;padding-left: 15px; padding-right: 15px;}
 .benefitbottom mat-item-list{font-family: 'HelveticaBold'; color: #fff; text-shadow: 2px 2px 2px #000; font-size: 22px; line-height: 31px; display: inline-block; background: url(../images/icon-list-tick.png) no-repeat left 4px; text-align: left; padding-left: 36px; padding-bottom: 24px; vertical-align: top; width: 48%; margin: 0px 1%;}
 .benefitbottom mat-item-list:last-child{padding-bottom: 0px;}
 .benefitbottom .list2 mat-item-list{font-family: 'HelveticaBold'; color: #fff; text-shadow: 2px 2px 2px #000; font-size: 22px; line-height: 31px; display: inline-block; background: url(../images/icon-list-tick.png) no-repeat left 4px; text-align: left; padding-left: 36px;  padding-bottom: 24px; vertical-align: top; width: 96%;}
@@ -1052,7 +1052,7 @@ display:block !important;
 
 
 .newmillinium{position: relative; margin-top: 60px;}
-.newmillinium.mat-card{position: inherit; padding: 0;}
+.newmillinium.mat-card{position: inherit; padding: 0 0 25px 0;}
 .newmillinium .maincontentinner {max-width: 1202px;margin-left: auto; margin-right: auto;}
 .newmilliniummaintop h3 {font-size: 46px; color: #000; margin: 0px 0px 31px 0px !important; padding: 0px; font-family: 'HelveticaBold';text-transform: uppercase;}
 .bottomleft {display: inline-block; position: relative; width: 40%; text-align: left; vertical-align: top; margin-right: 1%;}
@@ -1088,12 +1088,12 @@ display:block !important;
 .smartbidbottom.mat-list {display: flex; align-items: stretch; justify-content: space-between;}
 .smartbidbottom .mat-item-list {width: calc(1/6*100% - (1 - 1/6)*18px) !important;    height: auto;}
 
-.customerget.mat-card{background-color: #fb4a32 !important; padding-top: 22px; padding-bottom: 16px;text-align: center; width: 100%; padding-left: 10px; padding-right: 10px; display: block;}
+.customerget.mat-card{background-color: #fb4a32 !important; padding-top: 22px; padding-bottom: 16px;text-align: center; width: auto; padding-left: 10px; padding-right: 10px; display: block;}
 .customerget h2{color:#fff; font-family: 'HelveticaBold'; text-transform: uppercase; font-size: 44px;margin-top: 0;}
 .customerget p{display: none;}
 
 
-.industryhungry.mat-card{padding: 45px 0px 5px 0px !important; background: url(../images/industryhungrybg.png) no-repeat !important; background-size: cover !important;}
+.industryhungry.mat-card{padding: 45px 0px 25px 0px !important; background: url(../images/industryhungrybg.png) no-repeat !important; background-size: cover !important;}
 .industryhungrytop {text-align: center;padding: 0px;}
 .industryhungrytop h3 {font-size: 48px; color: #000; margin: 0px 0px 31px 0px; font-family: 'HelveticaBold'; text-transform: uppercase;}
 .industryhungrytop h3 span{color:#fb4a32;}

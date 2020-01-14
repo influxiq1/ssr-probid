@@ -210,6 +210,8 @@ const routes: Routes = [
   data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
    endpoint: 'datalist'}},
 
+   { path: 'search-detail', component: InventoryDetailComponent},
+
 // ___________________BLOG MANAGEMENT_________________
 // =======================================================
 
@@ -421,6 +423,8 @@ resolve: { inventory_search: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
 },
   { path: 'mysalesrep', component: MysalesrepComponent },
+  
+
   // { path:'contact-us-dashboard', component:ContactUsDashboardComponent,  resolve: { serviceList: ResolveService },
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
@@ -437,14 +441,14 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   { path: 'social-advo-rep', component: SocialAdvoComponent },
 
 
-  // { path: 'manage-job-ticket/add/:_id', component: ManageJobticketComponent , resolve: { rsvp: ResolveService },
-  // data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}},
+  { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent , resolve: { rsvp: ResolveService },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {'con':"con"} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}},
 
-  { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent },
+  // { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent },
 
-  { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
+  // { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
+  // resolve: { rsvp: ResolveService },
+  // data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
 
   
 

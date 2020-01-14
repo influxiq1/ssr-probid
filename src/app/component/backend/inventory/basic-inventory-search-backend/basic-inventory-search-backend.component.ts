@@ -9,6 +9,7 @@ import { CookieService } from 'ngx-cookie-service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable, Subject, Subscription,Subscriber } from 'rxjs';
 import { AppComponent } from '../../../../app.component';
+import {DetailServiceService} from '../../../../detail-service.service'
 
 export interface DialogData {
   errorMsg: string;
@@ -118,6 +119,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     public router: Router,
     public snackBar: MatSnackBar,
     public apploader: AppComponent,
+    public detailService:DetailServiceService
 
   ) {
     this.spinnerval = 0;
@@ -465,65 +467,14 @@ this.apploader.loader = 0;
   }
 
   // for observeable
-  public viewDetails(item:any):any {
-    console.log('data_item >>',item)
+  public viewDetails(data:any):any {
+    console.log('data_item >>',data)
+    let carData={
+      carData: data
+    };
 
-    var carData=item;
-
-    console.log('carData >>',carData)
-
-    // let observable=new Observable(item)
-    // console.log('$$>>>>>',observable)
-
-    //   setTimeout(() => {
-    //     // observer.next(item);
-    //     // this.router.navigateByUrl('/search-detail')
-    //   }, 2000);
-
-
-    // // console.log('$$>>>>>',observeable)
-    // // return observeable;
-
-   
-      const carItem = new Observable(observer => {
-             setTimeout(() => {
-                 observer.next(carData);
-                 
-             }, 1000);
-            
-      });
-      console.log('>>>>>',carItem)
-
-      // setTimeout(() => {
-      //   // this.router.navigateByUrl('/search-detail')
-      // }, 500);
- 
-      return carItem;
-
-  
-
+    this.detailService.carData(carData)
+    this.router.navigate(['/search-detail']);
   }
-
-  //view data for search list
-
-  // viewDetails(val:any) {
-
-    // let cardata:string;
-
-    // cardata=JSON.stringify(val);
-    // // console.log(cardata)
-
-    // if(this.cookieService.get('car_data') !='' || this.cookieService.get('car_data') !=null ){
-
-    //     this.cookieService.set('car_data',JSON.stringify(val));
-    //   setTimeout(() => {
-    //     this.router.navigateByUrl('/search-detail');
-    //   }, 1500);
-    // } else {
-    //   this.cookieService.set('car_data',JSON.stringify(val));
-    // }
-
-
-  // }
 
 }

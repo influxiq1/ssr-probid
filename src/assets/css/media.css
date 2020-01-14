@@ -225,6 +225,22 @@
 .footerwrapper{ display: block; width: auto;}
   }
 
+  @media only screen and (max-width: 1860px) {
+
+    .prerolldealer h2 { font-size: 42px;}
+    .prerolldealer{ width: 50%;}
+  }
+
+  @media only screen and (max-width: 1840px) {
+    .benefitbottom .imgbottom {
+      position: absolute;
+      bottom: 0;
+      right: 0px;
+      width: 350px;
+      height: auto;
+  }
+  }
+
   @media only screen and (max-width: 1800px) {
     .signupnewtop-banner .banner img {
       margin: 0 0 0 -110px; 
@@ -243,6 +259,17 @@
 
   
   @media only screen and (max-width: 1760px) {
+
+    .revolutionright .revocurveright {
+      position: absolute;
+      top: 589px;
+      left: 445px;
+      width: 300px;
+  }
+
+  .revolutionright .revocurveright img{ width: 100%;}
+
+
     .signupnewtop-banner .banner img {
       margin: 0 0 0 -140px; 
   }
@@ -252,9 +279,17 @@
   .formblock_bottomtextnew .container_wrapper{ width: auto;}
   }
 
+  @media only screen and (max-width: 1700px) {
+    .benefitbottom mat-item-list{ width: 56%; display: block;}
+  }
+
   @media only screen and (max-width: 1660px) {
   .formhome {
     right: 40px;
+}
+
+.benefitbottom .btnjoin { 
+  right: 410px;
 }
 
 .associate_new_con6_text { width: 790px;}
@@ -269,6 +304,11 @@
   margin: 0 0 0 -190px;
 }
 
+.signupnewtop-banner .customerbanner img {
+  margin: 0 0 0 -180px!important;
+}
+
+
 .formblock_bottomtextnew.mat-card {
   padding: 50px 0 50px 35px;
 }
@@ -281,6 +321,10 @@
 }
 
 @media only screen and (max-width: 1580px) {
+
+  .prerolldealer h2 {
+    font-size: 40px;
+}
   .signupnewtop-header p {  margin: 0 0 0 80px !important;}
 
   .associate_new_con1_wrapper {
@@ -293,6 +337,10 @@
 }
 
 @media only screen and (max-width: 1560px) {
+
+  .signupnewtop-banner .customerbanner img {
+    margin: 0 0 0 -230px!important;
+  }
   .signupnewtop-banner .banner img {
     margin: 0 0 0 -280px;
 }
@@ -314,6 +362,26 @@
 }
 
 @media only screen and (max-width: 1500px) {
+
+  .revolutionleft .revocurve{ width: 300px;}
+
+  .revolutionleft .revocurve img{ width: 100%;}
+
+  .revolutionright .revocurveright {
+    position: absolute;
+    top: 669px;
+    left: 505px;
+    width: 230px;
+}
+
+  .prerolldealer h2 {
+    font-size: 32px;
+}
+
+  .signupnewtop-banner .customerbanner img {
+    margin: 0 0 0 -270px!important;
+  }
+
   .associate_new_con5 .imgbottom {
     width: 595px;
 }
@@ -329,10 +397,42 @@
   .formhome {
     right: 20px;
 }
+.revolutionright .revomobile {
+ top: 313px;
+  left: 126px; 
+  font-size: 30px;
+  width: 550px;
+}
+
+.revolutionright .revomobile img{ width: 100%;}
+
+.revolutionright .revoinfo1 { 
+  top: 90px;
+  left: 102px; 
+  width: 600px; 
+}
+
+.revolutionright .revocurveright {
+  position: absolute;
+  top: 697px;
+  left: 505px;
+  width: 210px;
+}
+
+.benefitbottom .btnjoin {
+  right: 360px;
+}
+
 }
 
 
+
 @media only screen and (max-width: 1450px) {
+
+  .signupnewtop-banner .customerbanner img {
+    margin: 0 0 0 -230px!important;
+    width: 1760px;
+  }
   .signupnewtop-banner .banner img {
     margin: 0 0 0 -310px;
 }
@@ -340,6 +440,15 @@
 .associate_new_con1_wrapper {
   width: 1340px;
 }
+
+.revolutionright .revocurveright {
+  position: absolute;
+  top: 787px;
+  left: 555px;
+  width: 130px;
+}
+
+.hungrybottomright img{ width: 100%;}
 }
 
 @media only screen and (max-width: 1420px) {
@@ -361,8 +470,42 @@
 
 }
 
+@media only screen and (max-width: 1400px) {
+.revolutionleft .revocurve {
+  width: 240px; right: 440px;
+}
+
+.revolutionright .revomobile {
+  top: 333px;}
+
+  .revolutionright .revoinfo1 {
+    top: 110px;
+    left: 102px;
+    width: 580px;
+}
+
+.bepartner1 {
+  position: absolute;
+  left: -8%;
+  top: -45px;
+}
+.joinrevolutionmain .joinrevolman {
+  position: absolute;
+  left: 35%;
+  top: 273px;
+  width: 280px;
+}
+
+.joinrevolutionmain .joinrevolman img{ width: 100%;}
+
+
+}
 
 @media only screen and (max-width: 1380px) {
+
+  .benefitbottom .btnjoin {
+    right: 330px;
+}
 
   .formblock_bottomtextnew.mat-card {
     padding: 70px 0 70px 35px;
@@ -389,10 +532,40 @@
   .signupnewtop-banner .banner {
     height: 493px;
 }
+.revolutionright .revocurveright {
+  position: absolute;
+  top: 817px;
+  left: 535px;
+  width: 110px;
+}
+
+.revolutionright .revomobile {
+  top: 373px;
+  left: 126px;
+  font-size: 30px;
+  width: 460px;
+}
+
+.revolutionright .revoinfo1 {
+  top: 140px;
+  left: 132px;
+  width: 510px;
+}
 }
 
 @media only screen and (max-width: 1340px) {
   .signupnewtop-header p{ width: 70% ;     margin: 0 0 0 10px !important; }
+
+  .revolutionright .revoinfo2{ left: 154px;}
+
+  .revolutionright .revoinfo1 {
+    top: 160px;}
+    .smartbidtop p{ width: auto;}
+
+    .revolutionleft .revocurve {
+      width: 190px;
+      right: 440px;
+  }
 }
 
 @media only screen and (max-width: 1320px) {
@@ -421,6 +594,13 @@
 .associate_new_con5 .imgbottom {
   width: 425px;
 }
+
+.prerolldealer {
+  width: 46%;
+}
+
+.prerolldealer h2 { margin-left: 20px;}
+
 }
 
 @media only screen and (max-width: 1300px) {
@@ -435,6 +615,23 @@
 .associate_new_con6.mat-card {
   min-height: 370px;
 }
+}
+@media only screen and (max-width: 1280px) {
+.revolutionright .revocurveright {display: none;}
+
+.revolutionright .revoinfo1 { width: 460px;}
+
+.revolutionright .revomobile {
+  top: 403px;
+  left: 126px;
+  font-size: 30px;
+  width: 380px;
+}
+.prerolldealer h2 {
+  font-size: 26px;
+}
+
+.revolutionleft .revocurve{ display: none;}
 }
 
 @media only screen and (max-width: 1240px) {
@@ -459,7 +656,318 @@
   width: 70%;}
 }
 
+@media only screen and (max-width: 1240px) {
+.revolutionright .revoinfo2 { width: 428px;}
+
+.revolutionright .revoinfo2 h2{ font-size: 18px;}
+.revolutionright .revomobile {
+  top: 413px;}
+
+  .revolutionright .revoinfo1 h2 { margin-top: 100px;}
+
+  .prerolldealer h2 {
+    font-size: 20px;
+}
+.prerolldealer {
+  width: 44%;
+}
+
+.newmillinium .maincontentinner {
+  max-width: 1160px;}
+
+  .industryhungry .maincontentinner {
+    max-width: 1160px;}
+
+    .bepartner1 {
+      position: absolute;
+      left: -1%;
+      top: -45px;
+  }
+  .joinrevolution .maincontentinner {
+    max-width: 1160px;}
+}
+
+
+
 @media only screen and (max-width: 1199px) {
+
+
+  .smartbidtop{ padding-bottom: 10px;}
+  .smartbidtop img{ width: 100%;}
+
+
+  .benefitbottom .list2 mat-item-list{ width: auto;}
+  .hungrybottomleftinfo p{ height: auto;}
+
+  .inner{ margin-top: 15px;}
+
+  .hungrybottomleftinfo {
+    float: none;
+    display: block;
+}
+
+  .hungrybottomleft {
+    display: block;
+    position: relative;
+    width: auto;
+    text-align: center;
+    vertical-align: top;
+}
+
+  .hungrybottomright{ display: block; width: auto;}
+
+  .hungrybottomright img {
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+  .industryhungry .maincontentinner {
+    max-width: 96%;
+}
+
+.industryhungrytop {
+  text-align: center;
+  padding: 0px;
+  display: block;
+}
+.industryhungrybottom{ display: block;}
+
+  .newmillinium .maincontentinner {
+    max-width: 96%;
+}
+
+.newmillinium {  margin-top: 50px; }
+
+.newmilliniummaintop h3 { text-align: center;}
+
+.bottomleft {
+  display: block;
+  position: relative;
+  width: 100%;
+  text-align: center;
+  vertical-align: top;
+  margin-right: 0;
+}
+.bottomleft img {
+  padding-top: 10px;
+  max-width: 100%;
+}
+.bottomright {
+  border-left: none;
+  height: auto;
+}
+
+.bottomright {
+  display: inline-block;
+  position: relative;
+  width: auto;
+  text-align: center;
+  padding-left: 0;
+  padding-top: 30px;
+}
+
+.bottomright p span {
+  color: #fb4a32;
+  font-family: 'HelveticaBold';
+  font-size: 24px;
+  text-transform: uppercase;
+  padding-top: 25px;
+  display: block;
+}
+
+.bottomright h3 {
+  color: #555e6b;
+  font-family: 'HelveticaBold';
+  font-size: 30px;
+  margin: 0;
+  line-height: 34px;
+}
+
+.newmillinium.mat-card {
+  position: inherit;
+  padding: 0 0 25px 0;
+  width: 96%;
+  margin: 0 auto;
+}
+
+.smartbidbottom.mat-list{ display: block; width: 100%;}
+.smartbidbottom.mat-list-base .mat-list-item {
+  height: auto !important;
+  display: block;
+  width: 100%;
+  float: none;     text-align: center;
+}
+.iconsmart {
+  max-width: inherit;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+  line-height: inherit;
+  margin-bottom: 20px;
+  display: block;
+  text-align: center;
+}
+
+.smartbidbottom h4{ display: block;}
+.smartbidbottom p {
+  text-align: center;}
+  .benefitbottom{ background-image: none; background-color: #222;}
+
+  .benefitbottom mat-item-list {
+    width: auto;
+    display: block;
+}
+
+.benefitsingle {
+  max-width: inherit;
+  display: block;
+}
+
+.prerolldealer {
+  width: auto;
+  margin: 0 15px;
+}
+
+.prerolldealer h2 {
+  margin: inherit;
+  width: auto;
+  padding: 15px;
+}
+
+.benefitbottom .btnjoin {
+  position: inherit;
+  bottom: inherit;
+  right: inherit;
+  display: block;
+  margin: 25px 0 0 0;
+}
+
+.benefitbottom{ height: auto; padding-bottom: 25px;}
+
+  .benefitbottom .imgbottom{ display: none;}
+
+ 
+
+    .revolutionright .revoinfo1 {
+      top: inherit; left: inherit; position: inherit;  
+    width: auto;
+    height: auto;
+}
+
+.revolutionright .revoinfo1 {
+  width: 96%!important;
+  margin: 15px auto;
+  float: none;
+  display: block;
+}
+.revolutionright .revomobile {
+  top: inherit;
+  left: inherit;
+  width: auto;
+  position: inherit;
+  /* max-width: 90%; */
+  display: block;
+  margin: 0 auto;
+}
+.revolutionright .revomobile img {
+  width: auto;
+  max-width: 90%;
+}
+
+.revolutionright .revoinfo2 {
+  width: 96%;
+  position: inherit;
+  left: 0;
+  top: 0;
+  display: block;
+  margin: 25px auto; float: none;
+}
+
+.revolutionbottom { width: 96%;
+  position: relative;
+  top: inherit;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0px; padding-bottom: 25px; display: block;
+}
+
+.formhome .mat-checkbox {
+  position: relative;
+  z-index: 99;
+  display: block;
+}
+.revolutionbottom h3{max-width: inherit;}
+
+
+.revolutionright .revoinfo1 h2 {
+  margin-top: 0;
+}
+ 
+
+
+  .revolutionright {
+    display: block;
+    position: relative;
+    max-width: 100%;
+    text-align: center;
+}
+
+  .revolutionleft .revocarman {
+    position: inherit;
+    top: 0;
+    right: 0;
+    z-index: 9999999;
+}
+
+.revolutionleft .revocarman  img{ width: 100%;}
+
+  .revolutionleft {
+    display: block;
+    position: relative;
+    max-width: initial;
+    text-align: center;
+    vertical-align: top;
+    width: 96%;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+  .revolution { height: auto; }
+
+  .revolutionleft .revologo {
+    position: inherit;
+    top: 0;
+    right: 0px;
+    display: block;
+    width: auto;
+    margin: 25px auto;
+}
+
+.revolutionleft .revologo img{ width: auto; max-width:100%;}
+
+.revolutionleft .revocurve {
+  width: auto;
+  right: 0; position: inherit;
+}
+
+.revolutionleft .revoinfo {
+  color: #5b605e;
+  font-family: "Helvetica-Normal";
+  font-size: 16px;
+  position: inherit;
+  right: 0;
+  top: 0;
+  width: auto;
+  text-transform: uppercase;
+}
+
+  .signupnewtop-banner .customerbanner img {
+    margin: 0 0 0 0px!important;
+    width: 130%;
+  }
+
   .associate_new_con5_text{ padding-bottom: 0px;}
 
   .associate_new_con5 .imgbottom img{ display: none;}
@@ -624,6 +1132,13 @@
 }
 }
 @media only screen and (max-width:767px) {
+
+
+  .signupnewtop-banner .customerbanner img {
+    margin: 0 0 0 -69%!important;
+    width: 230%!important;
+  }
+
 
   .associate_new_con1_wrapper .associate_new_con1_right{ display: block;}
   .associate_new_con1_wrapper .as_video-container {
