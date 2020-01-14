@@ -433,7 +433,31 @@
         -webkit-box-orient: horizontal;
         -webkit-box-direction: normal;
         flex-direction: row;
+        flex-wrap: wrap;
       }
+
+      .jobcommentbox .mat-form-field {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .jobcommentbox .mat-form-field .mat-form-field-infix{
+      padding: 1em !important;
+      background: #dde2e5;
+    }
+
+      .jobcommentbox .mat-list{
+        width: 100%;
+      }
+
+      .jobcommentbox .mat-list .mat-form-field{
+        width: 100%;
+      }
+
+ 
+
       .jobcommentbox .jobcommentboximg{
         width: 80px;
         height: 80px;
@@ -464,7 +488,7 @@
         line-height: normal !important;
         justify-content: flex-start;       
         margin-bottom: 5px !important;
-        width: auto;
+        width: 100%;
         color: #3f4446;
         font-size: 16px !important;
         text-transform: inherit;
@@ -483,9 +507,13 @@
       }
 
       .jobcommentbox .jobcommentboxcontent .mat-card-content{
-        color:#72787a;
+        color: #72787a;
         font-family: "Helvetica-Normal";
-        line-height: normal !important;  
-        width: auto;
+        line-height: normal !important;
+        width: 100%;
         font-size: 15px;
+        margin-bottom: 0;
       }
+
+   
+

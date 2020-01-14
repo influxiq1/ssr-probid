@@ -14,6 +14,7 @@ export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
   public jobTicketForm: FormGroup;
+  // public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
@@ -48,13 +49,17 @@ export class ManageJobticketComponent implements OnInit {
       subject:['',Validators.required],
       description:['',Validators.required],
       jobTicket_picture:['', []],
-      message: [''],
-    })
+        message: ['',Validators.required],
+    });
+
+    // this.jobTicketMsgForm = this.fb.group({
+    //   message: ['',Validators.required],
+    //   msg_picture:['', []],
+    // })
   }
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      // this.rsvp_list = data.rsvp.res[0];
       console.log(data.job_ticket.result)
       this.message_details = data.job_ticket.result.message_details;
       this.user_list = data.job_ticket.result.user_list[0];
@@ -89,6 +94,35 @@ export class ManageJobticketComponent implements OnInit {
     })
 
   }
+  // jobTicketMsgFormSubmit(){
+  //   for (let x in this.jobTicketMsgForm.controls) {
+  //     this.jobTicketMsgForm.controls[x].markAsTouched();
+  //   }
+  //   if (this.jobTicketMsgForm.valid) {
+  //     let endpoint: any = "addorupdatedata";
+  //     let data: any = {
+  //       source: "job_ticket_msg",
+  //       data: {
+  //         ticket_added_by: this.userid,
+  //         rsvp_id:this.rsvp_id,
+  //         message: this.jobTicketMsgForm.value.message,
+  //         job_ticket:1
+  //       },
+  //       sourceobj:["rsvp_id","ticket_added_by"]
+  //     };
+  //     this.apploader.loader = 1;
+
+  //     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+  //       console.log(res);
+  //       // this.getData();
+  //       this.jobTicketForm.controls['message'].reset();
+  //       // this.apploader.loader = 0;
+        
+     
+  //     })
+  //   }
+
+  // }
 
   jobTicketFormSubmit(){
     for (let x in this.jobTicketForm.controls) {
@@ -138,6 +172,25 @@ export class ManageJobticketComponent implements OnInit {
 
 
   }
+  changeStatus(item: any, val: any) {
+    // console.log('rsvpSend status',item, val)
+    let endpoint: any = "addorupdatedata";
+    item.status = val;
+    let card_data:any = {
+      card_data: item,
+      id:item._id
+    }
+    let data: any = {
+      data: card_data,
+      source: "send_for_rsvp",
+    };
+      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+        // console.log(res);
+        (res.status == "success");
+        // this.getdata();
+      });
+  }
+  
   rsvpDetail(val:any){
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }

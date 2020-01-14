@@ -19,6 +19,19 @@
             <span class="statusjobticket">
               <mat-label>Status :</mat-label>
               <button mat-raised-button type="reset" class="btnblue">Mark As Resolved</button>
+
+              <button mat-button class="btnblue greenbtn"
+              *ngIf=" rsvp_details.status == 0 || rsvp_details.status == 2" 
+              (click)="changeStatus(rsvp_details, 1)">Accepted</button>
+
+
+              <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
+
+             <button mat-button class="btnblue yellowbtn" *ngIf="rsvp_details.status == 1 && rsvp_details.status == 2" 
+             (click)="changeStatus(rsvp_details, 0)">Pending</button>
+
+             <button mat-button class="btnblue redbtn" 
+             *ngIf="rsvp_details.status == 0 && rsvp_details.status == 1" (click)="changeStatus(rsvp_details, 2)">Rejected</button>
               <button mat-raised-button type="reset" class="btnblue yellowbtn">Pending</button>
             </span>
           </span>
@@ -38,23 +51,25 @@
                         <!-- <img *ngIf="item.media.photo_links[0] != null" 
                                           [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)"> -->
                         <!-- <img class="defaultimg" *ngIf="item.media.photo_links[0] == null" src="assets/images/no-image-default.jpg"> -->
-                        <img class="defaultimg" *ngIf="rsvp_list.car_image =='' || rsvp_list.car_image ==null"
+                        <img class="defaultimg" *ngIf="rsvp_details.car_image =='' || rsvp_details.car_image ==null"
                           src="assets/images/no-image-default.jpg">
-                        <img class="defaultimg" *ngIf="rsvp_list.car_image !='' && rsvp_list.car_image !=null"
-                          [src]="rsvp_list.car_image">
+                        <img class="defaultimg" *ngIf="rsvp_details.car_image !='' && rsvp_details.car_image !=null"
+                          [src]="rsvp_details.car_image">
                       </span>
                     </span>
                     <span class="rsvplistsbottom">
                       <!-- <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2> -->
-                      <h2>{{rsvp_list.heading}}</h2>
+                      <h2>{{rsvp_details.heading}}</h2>
                       <span class="rsvplistsbottombtm">
                         <span>Status</span>
-                        <!-- <span *ngIf="item.status == 2" class="btnactive">Rejected <span class="colorred"></span></span>
-                                       <span *ngIf="item.status == 0" class="btnactive">Pending <span class="coloryellow"></span></span>
-                                       <span *ngIf="item.status == 1" class="btnactive">Accepted <span class="colorgreen"></span></span> -->
-                        <!-- <span class="btnactive">Rejected <span class="colorred"></span></span>
-                                       <span class="btnactive">Pending <span class="coloryellow"></span></span> -->
-                        <span class="btnactive">Accepted <span class="colorgreen"></span></span>
+
+                        <span *ngIf="rsvp_details.status == 2  " class="btnactive">Rejected <span class="colorred"></span></span>
+                                
+                        <span *ngIf="rsvp_details.status == 1"  class="btnactive">Accepted <span class="colorgreen"></span></span>
+                       
+
+                        <span *ngIf="rsvp_details.status == 0" class="btnactive">Pending <span class="coloryellow"></span></span>
+                        <!-- <span class="btnactive">Accepted <span class="colorgreen"></span></span> -->
                       </span>
                     </span>
                   </span>
@@ -107,15 +122,27 @@
                                         <button mat-button class="btnblue redbtn" *ngIf="item.status == 0 && item.status != 1" (click)="changeStatus(item, 2)">Reject</button> -->
                         <!-- </span> -->
                         <span>
-                          <button mat-button class="btnblue whitebtn">Send Email To Customer</button>
-                          <button mat-button class="btnblue redbtn">Reject</button>
+                          <!-- <button mat-button class="btnblue whitebtn">Send Email To Customer</button>
+                          <button mat-button class="btnblue redbtn">Reject</button> -->
+                          <button mat-button class="btnblue greenbtn"
+                          *ngIf=" rsvp_details.status == 0 || rsvp_details.status == 2" 
+                          (click)="changeStatus(rsvp_details, 1)">Accepted</button>
+            
+            
+                          <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
+            
+                         <button mat-button class="btnblue yellowbtn" *ngIf="rsvp_details.status == 1 && rsvp_details.status == 2" 
+                         (click)="changeStatus(rsvp_details, 0)">Pending</button>
+            
+                         <button mat-button class="btnblue redbtn" 
+                         *ngIf="rsvp_details.status == 0 && rsvp_details.status == 1" (click)="changeStatus(rsvp_details, 2)">Rejected</button>
                         </span>
                         <!-- <button mat-button class="btnblue orangebtn" (click)="viewJobTicket(item)">View ticket</button>
                                         <button mat-button class="btnblue" (click)="viewRsvpDetails(item._id)">Know More</button> -->
                         <!-- <button mat-button class="btnblue" (click)="rsvpDetail(item._id)">Know More</button> -->
                       </span>
                       <span class="dateadded">
-                        <strong>Added Date:</strong> {{rsvp_list.date_added}}
+                        <strong>Added Date:</strong> {{rsvp_details.date_added}}
                       </span>
                     </span>
                   </span>
@@ -134,6 +161,7 @@
                 <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
                 <p>{{job_ticket.subject}}</p>
               </ng-container>
+              
               </span>
               <span class="whitebg">
                 <span class="sectionheader">Description</span>
@@ -147,14 +175,6 @@
                 </span>
                 <mat-list class="jobticketimglists">
                   <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
-
-                  <!-- <ng-container>
-                    <img mat-card-image [attr.src]="userData.profile_picture">
-                  </ng-container> -->
-                  
-                  <!-- <ng-container *ngIf="!userData.profile_picture">
-                    <img src="../../../../assets/images/imguser.jpg">
-                  </ng-container> -->
                   <ng-container *ngIf="job_ticket !='' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined">
                     <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
                       <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
@@ -172,32 +192,64 @@
                   <strong>Added Date:</strong> 10-01-2019
                 </span>
                 <span class="statusjobticket">
-                  <button mat-raised-button type="submit" class="btnblue">Reply</button>
+                  <button mat-raised-button type="submit" class="btnblue">Submit</button>
+                  <!-- <button mat-raised-button type="submit" class="btnblue">Reply</button> -->
                 </span>
               </span>
+              
+            <!-- </form> -->
+
               <span class="whitebg jobcommentbox">
                 <mat-list>
 
-                  <mat-form-field>
-                    <input matInput placeholder="Comment...." formControlName="message" cols="50" (blur)="inputUntouched('message')">
-                  </mat-form-field>
-                <ng-container *ngIf="status == 1 ">
+                  <ng-container *ngIf="status == 1 ">
                   
-                  <mat-list-item *ngFor="let item of message_details">
+                    <mat-list-item *ngFor="let item of message_details">
+                      <span class="jobcommentboximg">
+                        <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
+                        <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
+                  <!-- <mat-list-item *ngFor="let item of contract_details">
                     <span class="jobcommentboximg">
                       <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
-                      <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
+                      <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">                       -->
                     </span>
                     <span class="jobcommentboxcontent" >
                       <mat-card-title>{{item.Fullname}}</mat-card-title>
                       <mat-card-content>{{item.message}}</mat-card-content>
                       <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
-                    </span>
+                    </span>                   
                   </mat-list-item>
                 </ng-container>
+                </mat-list>  
+                <mat-list class="jobticketimglists">
+                  <mat-list-item>
+                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                  </mat-list-item>
                 </mat-list>
               </span>
+              <!-- <form  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
+              <span class="whitebg jobcommentbox">   
+                
+                <mat-form-field>
+                  <span class="commentbox">
+                    <!-- <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message', 'jobTicketMsgForm')">            -->
+                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message')">           
+                  </span>
+                  <mat-list class="jobticketimglists">
+                    <mat-list-item>
+                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                    </mat-list-item>
+                  </mat-list>  
+                  <span class="statusjobticket">
+                    <button mat-raised-button type="submit" class="btnblue">SEND</button>
+                    <button mat-raised-button type="reset" class="btnblue redbtn">cancel</button>
+                  </span>                  
+                </mat-form-field>
+              
+              </span>
             </form>
+          
+          
           </span>
         </span>
       </span>
