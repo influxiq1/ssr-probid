@@ -71,9 +71,9 @@
                             <!-- <mat-list-item><span class="labelcls">Email ID:</span> <span>{{item.added_for_email}}</span> </mat-list-item> -->
                             <!-- <mat-list-item><span class="labelcls">Phone:</span> <span>{{item.added_for_phone}}</span> </mat-list-item> -->
                             <mat-list-item><span class="labelcls">Name:</span>
-                              <span>{{rsvp_list.added_for_fullname}}</span> </mat-list-item>
+                              <span>{{rsvp_details.added_for_fullname}}</span> </mat-list-item>
                             <mat-list-item><span class="labelcls">Email ID:</span>
-                              <span>{{rsvp_list.added_for_email}}</span> </mat-list-item>
+                              <span>{{rsvp_details.added_for_email}}</span> </mat-list-item>
                           </mat-list>
 
                         </span>
@@ -90,9 +90,9 @@
                             <!-- <mat-list-item><span>Name:</span> <span>{{item.added_by_fullname}}</span> </mat-list-item>
                                                  <mat-list-item><span>Email ID:</span> <span>{{item.added_by_email}}</span> </mat-list-item> -->
                             <!-- <mat-list-item><span>Phone:</span> <span>{{item.added_by_phone}}</span> </mat-list-item> -->
-                            <mat-list-item><span>Name:</span> <span>{{rsvp_list.added_by_fullname}}</span>
+                            <mat-list-item><span>Name:</span> <span>{{rsvp_details.added_by_fullname}}</span>
                             </mat-list-item>
-                            <mat-list-item><span>Email ID:</span> <span>{{rsvp_list.added_by_email}}</span>
+                            <mat-list-item><span>Email ID:</span> <span>{{rsvp_details.added_by_email}}</span>
                             </mat-list-item>
                           </mat-list>
                         </span>
@@ -131,8 +131,8 @@
                 <mat-form-field *ngIf="status != 1">
                   <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                 </mat-form-field>
-                <ng-container *ngIf="status == 1 && contract_details != null && contract_details != undefined && contract_details[0].subject != null">
-                <p>{{contract_details[0].subject}}</p>
+                <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
+                <p>{{job_ticket.subject}}</p>
               </ng-container>
               </span>
               <span class="whitebg">
@@ -141,8 +141,8 @@
                   <mat-form-field class="example-full-width" *ngIf="status != 1">
                     <textarea matInput placeholder="Description" formControlName="description" (blur)="inputUntouched('description')"></textarea>
                   </mat-form-field>
-                <ng-container *ngIf="status == 1 && contract_details[0] != null && contract_details[0].description != undefined">
-                  <p >{{contract_details[0].description}}</p>
+                <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket.description != undefined">
+                  <p >{{job_ticket.description}}</p>
                 </ng-container>
                 </span>
                 <mat-list class="jobticketimglists">
@@ -155,29 +155,18 @@
                   <!-- <ng-container *ngIf="!userData.profile_picture">
                     <img src="../../../../assets/images/imguser.jpg">
                   </ng-container> -->
-                  <ng-container *ngIf="contract_details !='' && contract_details[0].jobTicket_picture != null && contract_details[0].jobTicket_picture != '' && contract_details[0].jobTicket_picture != undefined">
-                    <mat-list-item *ngFor="let item of contract_details[0].jobTicket_picture">
+                  <ng-container *ngIf="job_ticket !='' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined">
+                    <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
                       <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
                     </mat-list-item>
                   </ng-container>
 
-                  <ng-container *ngIf="contract_details =='' || contract_details[0].jobTicket_picture == null || contract_details[0].jobTicket_picture == '' || contract_details[0].jobTicket_picture == undefined">
+                  <ng-container *ngIf="job_ticket =='' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == undefined">
                   <mat-list-item>
                     <img class="defaultimg" src="assets/images/no-image-default.jpg">
                   </mat-list-item>
                 </ng-container>
-                  <!-- <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item> -->
+
                 </mat-list>
                 <span class="dateadded">
                   <strong>Added Date:</strong> 10-01-2019
@@ -192,20 +181,20 @@
                   <mat-form-field>
                     <input matInput placeholder="Comment...." formControlName="message" cols="50" (blur)="inputUntouched('message')">
                   </mat-form-field>
-
-
-                  <mat-list-item *ngFor="let item of contract_details">
+                <ng-container *ngIf="status == 1 ">
+                  
+                  <mat-list-item *ngFor="let item of message_details">
                     <span class="jobcommentboximg">
                       <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
                       <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
-                      <!-- <p>{{item.profile_picture}}</p> -->
                     </span>
                     <span class="jobcommentboxcontent" >
                       <mat-card-title>{{item.Fullname}}</mat-card-title>
-                      <mat-card-content>{{item.description}}</mat-card-content>
+                      <mat-card-content>{{item.message}}</mat-card-content>
                       <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
                     </span>
                   </mat-list-item>
+                </ng-container>
                 </mat-list>
               </span>
             </form>

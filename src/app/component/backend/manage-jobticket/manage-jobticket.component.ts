@@ -32,6 +32,10 @@ export class ManageJobticketComponent implements OnInit {
   public rsvp_id: any;
   public status: any;
   public contract_details: any = '';
+  public message_details: any = '';
+  public user_list:any = '';
+  public job_ticket: any = '';
+  public rsvp_details: any = '';
   constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
@@ -50,29 +54,33 @@ export class ManageJobticketComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      this.rsvp_list = data.rsvp.res[0];
-      console.log(data)
+      // this.rsvp_list = data.rsvp.res[0];
+      console.log(data.job_ticket.result)
+      this.message_details = data.job_ticket.result.message_details;
+      this.user_list = data.job_ticket.result.user_list[0];
+      this.rsvp_details = data.job_ticket.result.rsvp_details[0];
+      this.job_ticket = data.job_ticket.result.job_ticket[0];
     })
 
     this.getData();
 
   }
   getData(){
-    this.apploader.loader = 1;
+    // this.apploader.loader = 1;
     let dataType: any;
     if (this.status != 1) {
     dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
     } else {
       
-      dataType = { "source": 'job_ticket_view', condition: { "rsvp_id_object": this.rsvp_id} };
+      dataType = { "source": 'job_ticket_message', condition: { "rsvp_id_object": this.rsvp_id} };
     }
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
       console.log(res.res)
-      this.contract_details = res.res;
+      this.message_details = res.res;
 
-      this.jobTicketForm.controls['subject'].patchValue(this.contract_details[0].subject);
-      this.jobTicketForm.controls['description'].patchValue(this.contract_details[0].description);
+      this.jobTicketForm.controls['subject'].patchValue(this.job_ticket.subject);
+      this.jobTicketForm.controls['description'].patchValue(this.job_ticket.description);
       // subject:['',Validators.required],
       // description:['',Validators.required],
       // jobTicket_picture:['', []]
@@ -122,7 +130,7 @@ export class ManageJobticketComponent implements OnInit {
         console.log(res);
         this.getData();
         this.jobTicketForm.controls['message'].reset();
-        this.apploader.loader = 0;
+        // this.apploader.loader = 0;
         
      
       })

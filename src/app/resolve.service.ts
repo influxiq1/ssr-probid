@@ -25,8 +25,6 @@ export class ResolveService implements Resolve<any> {
     }
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
         let _id = route.params['id'];
-
-        // console.log('>>++>>',_id)
        
         // if (route.data.requestcondition.condition._id == 'id') {
         //     route.data.requestcondition.condition._id = _id;
@@ -48,7 +46,6 @@ export class ResolveService implements Resolve<any> {
               }
             for(let d in requestData.condition){
                 if(requestData.condition[d]=='user_id' ){
-                    console.log(requestData.condition[d])
                   requestData.condition[d]=this.userid;
                 //   console.log('route.data');
                 }
@@ -60,9 +57,14 @@ export class ResolveService implements Resolve<any> {
                     requestData.salesrep = this.userCookies.salesrep;
                     delete requestData.condition
                 }
-                if (requestData.condition[d] == 'con') {
+                if (requestData.condition[d] == 'rsvp_id') {
+                     requestData.rsvp_id = requestData.condition._id
+                    delete requestData.condition.rsvp_id
+                    delete requestData.condition._id
                     delete requestData.condition.status
-                    delete requestData.condition.con
+                    // console.log(requestData.condition.rsvp_id)
+                    // console.log(_id)
+                    // requestData.rsvp_id = _id
                 }
               }
             // delete route.data.requestcondition.condition.id;
