@@ -13,6 +13,9 @@ export class JobTicketComponent implements OnInit {
   ngOnInit() {
     
   }
+  deleteRsvp(val: any, item: any){
+
+  }
 
    
 
