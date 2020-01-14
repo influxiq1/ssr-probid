@@ -128,35 +128,45 @@
             <form [formGroup]="jobTicketForm" (ngSubmit)="jobTicketFormSubmit()">
               <span class="bluebg">
                 <!-- <span class="sectionheader">Car RSVP Info</span> -->
-                <mat-form-field class="example-full-width">
+                <mat-form-field *ngIf="status != 1">
                   <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                 </mat-form-field>
-                <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                  industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
-                  scrambled it to make a type specimen book.</p> -->
+                <ng-container *ngIf="status == 1 && contract_details != null && contract_details != undefined && contract_details[0].subject != null">
+                <p>{{contract_details[0].subject}}</p>
+              </ng-container>
               </span>
               <span class="whitebg">
                 <span class="sectionheader">Description</span>
                 <span class="graybg">
-                  <mat-form-field class="example-full-width">
+                  <mat-form-field class="example-full-width" *ngIf="status != 1">
                     <textarea matInput placeholder="Description" formControlName="description" (blur)="inputUntouched('description')"></textarea>
                   </mat-form-field>
-                  <!-- <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                    industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
-                    and scrambled it to make a type specimen book.</p> -->
+                <ng-container *ngIf="status == 1 && contract_details[0] != null && contract_details[0].description != undefined">
+                  <p >{{contract_details[0].description}}</p>
+                </ng-container>
                 </span>
                 <mat-list class="jobticketimglists">
                   <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
 
-                  <!-- <ng-container *ngIf="userData.profile_picture">
+                  <!-- <ng-container>
                     <img mat-card-image [attr.src]="userData.profile_picture">
                   </ng-container> -->
                   
                   <!-- <ng-container *ngIf="!userData.profile_picture">
                     <img src="../../../../assets/images/imguser.jpg">
                   </ng-container> -->
-      
+                  <ng-container *ngIf="contract_details !='' && contract_details[0].jobTicket_picture != null && contract_details[0].jobTicket_picture != '' && contract_details[0].jobTicket_picture != undefined">
+                    <mat-list-item *ngFor="let item of contract_details[0].jobTicket_picture">
+                      <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
+                    </mat-list-item>
+                  </ng-container>
+
+                  <ng-container *ngIf="contract_details =='' || contract_details[0].jobTicket_picture == null || contract_details[0].jobTicket_picture == '' || contract_details[0].jobTicket_picture == undefined">
                   <mat-list-item>
+                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                  </mat-list-item>
+                </ng-container>
+                  <!-- <mat-list-item>
                     <img class="defaultimg" src="assets/images/no-image-default.jpg">
                   </mat-list-item>
                   <mat-list-item>
@@ -167,13 +177,7 @@
                   </mat-list-item>
                   <mat-list-item>
                     <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
+                  </mat-list-item> -->
                 </mat-list>
                 <span class="dateadded">
                   <strong>Added Date:</strong> 10-01-2019
@@ -184,6 +188,12 @@
               </span>
               <span class="whitebg jobcommentbox">
                 <mat-list>
+
+                  <mat-form-field>
+                    <input matInput placeholder="Comment...." formControlName="message" cols="50" (blur)="inputUntouched('message')">
+                  </mat-form-field>
+
+
                   <mat-list-item *ngFor="let item of contract_details">
                     <span class="jobcommentboximg">
                       <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">

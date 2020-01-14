@@ -31,7 +31,7 @@ export class ManageJobticketComponent implements OnInit {
   public userid: any;
   public rsvp_id: any;
   public status: any;
-  public contract_details: any;
+  public contract_details: any = '';
   constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
@@ -43,7 +43,8 @@ export class ManageJobticketComponent implements OnInit {
     this.jobTicketForm = this.fb.group({
       subject:['',Validators.required],
       description:['',Validators.required],
-      jobTicket_picture:['', []]
+      jobTicket_picture:['', []],
+      message: [''],
     })
   }
 
@@ -57,18 +58,25 @@ export class ManageJobticketComponent implements OnInit {
 
   }
   getData(){
-    // this.apploader.loader = 1;
+    this.apploader.loader = 1;
     let dataType: any;
     if (this.status != 1) {
     dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
     } else {
+      
       dataType = { "source": 'job_ticket_view', condition: { "rsvp_id_object": this.rsvp_id} };
     }
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
       console.log(res.res)
       this.contract_details = res.res;
-      // this.apploader.loader = 0;
+
+      this.jobTicketForm.controls['subject'].patchValue(this.contract_details[0].subject);
+      this.jobTicketForm.controls['description'].patchValue(this.contract_details[0].description);
+      // subject:['',Validators.required],
+      // description:['',Validators.required],
+      // jobTicket_picture:['', []]
+      this.apploader.loader = 0;
       // console.log("@@>>>", this.rsvp_list[0].profile_picture);
     })
 
@@ -103,6 +111,7 @@ export class ManageJobticketComponent implements OnInit {
           subject: this.jobTicketForm.value.subject,
           description: this.jobTicketForm.value.description,
           jobTicket_picture: this.jobTicketForm.value.jobTicket_picture,
+          message: this.jobTicketForm.value.message,
           job_ticket:1
         },
         sourceobj:["rsvp_id","ticket_added_by"]
@@ -112,7 +121,9 @@ export class ManageJobticketComponent implements OnInit {
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
         this.getData();
+        this.jobTicketForm.controls['message'].reset();
         this.apploader.loader = 0;
+        
      
       })
     }
