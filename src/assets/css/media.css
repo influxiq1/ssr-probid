@@ -445,7 +445,7 @@
   position: absolute;
   top: 787px;
   left: 555px;
-  width: 130px;
+  width: 118px;
 }
 
 .hungrybottomright img{ width: 100%;}
@@ -690,6 +690,75 @@
 
 
 @media only screen and (max-width: 1199px) {
+
+
+  .joinrevolutionmain .joinrevolman{ display: none;}
+
+  .joinlists.mat-list {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    overflow: hidden;
+    width: auto;
+}
+
+.joinrevolutioncontentright .btnjoin {
+  float: none;
+}
+
+  .revocontentbottom{border-radius: 5px;}
+
+  .joinrevolutioncontent h3{ float: none;}
+
+  .revocontent {
+    width: auto;
+    float: none;
+    display: block;
+}
+
+  .joinrevolutioncontentright {
+    display: block;
+    position: relative;
+    width: 100%;
+    text-align: center; padding-bottom: 40px;
+}
+  .bepartner1 {
+    position: inherit;
+    left: 0;
+    top: 0;
+    display: block;
+    text-align: center;
+}
+.bepartner1 img{ width: auto; max-width: 100%;}
+
+  .joinrevolutiontop h3{ text-align: center;}
+
+  .joinrevolution.mat-card {
+    padding: 0px 0px 0px 0px;
+    background: none!important;
+    min-height: inherit;
+    width: 100%;
+    float: none;
+    clear: both;
+    overflow: hidden;
+}
+
+.joinrevolution .maincontentinner {
+  max-width: 96%;
+}
+
+.bepartner1 {
+  position: inherit;
+  left: 0;
+  top: 0;
+}
+
+.joinrevolutioncontentleft {
+  display: block;
+  position: relative;
+  width: auto;
+  text-align: center;
+  vertical-align: top;
+}
 
 
   .smartbidtop{ padding-bottom: 10px;}
@@ -1171,5 +1240,27 @@
         width: 250%;
         height: auto;
     }
+
+    .revolutionbottom h3 span{ font-size: 46px;}
+    .revolutionbottom h3{ font-size: 36px;}
+
+    .landinglogoblock1{ width: auto; max-width: 100%;}
+    .btn-join{ width: 280px;}
+
+    .joinrevolutiontop h3 {
+      font-size: 36px;}
+
+      .industryhungrytop h3 {
+        font-size: 36px; 
+        margin: 0px 0px 20px 0px;}
+
+        .customerget h2{font-size: 36px; }
+
+        .smartbidtop h3 {
+          font-size: 36px;}
 }
+ 
+
     /*-------------end---amitava 09-01-2020-------------*/
+
+   

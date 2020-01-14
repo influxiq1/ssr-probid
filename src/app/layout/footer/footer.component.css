@@ -226,7 +226,7 @@
     .footertopwrapper {display: inline-block;justify-content: space-between;flex-direction: row;align-items: center;width: 100%; margin-top:20px;}
     .footertopwrapper .mat-nav-list span.menuwrapper {display: inline-block;width: 100%;text-align: center;}
     .footertopwrapper .mat-nav-list .mat-list-item {float: none;padding-top: 8px; padding-bottom: 8px; text-align: center;display: inline-block; width: 100%;  border-bottom: 1px solid #444444;}
-    .footertopwrapper .mat-nav-list .mat-list-item:last-child{border: none !important;}
+    /* .footertopwrapper .mat-nav-list .mat-list-item:last-child{border: none !important;} */
     .footertopwrapper .mat-nav-list .mat-list-item .mat-list-item-content {   display: inline-block !important;   width: 100%;}
     .footerddress {margin-top: 14px;display: inline-block;}
     .footertopwrapper .mat-nav-list span.menuwrapper span.bdr {padding-left: 0; width: 100%; background-image: none !important;}

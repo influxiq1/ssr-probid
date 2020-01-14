@@ -864,7 +864,7 @@
     display: flex;
     align-items: center;
     background-color: #bdc3c6;
-    padding: 5px 16px;
+    padding: 0px 6px;
     color:#495158;
     font-family: 'HelveticaBold';
     font-size: 15px;
@@ -1009,8 +1009,34 @@
     padding: 0 !important;
 }
 
+.deletecls{
+  display: none;
+  cursor: pointer;
+  right: 0;
+  position: absolute;
+  top: 0;
+  z-index: 99;
+  }
+  .block1socialadvosingle:hover .deletecls,  .rsvplistsingle:hover .deletecls  {
+  display: block;
+  color:#ff0000;
+  font-size: 20px;
+  }
+  .block1socialadvosingle:hover .deletecls .material-icons,  .rsvplistsingle:hover .deletecls .material-icons{
+  background-color: rgba(255, 255, 255, 0.8);
+  display: block;
+  border-radius: 100px;
+  padding: 8px;
+  border: 2px solid #E41717;
+  font-size: 30px;
+  color: #E41717;
+  position: absolute;
+  top:0;
+  right: 0;
+  }
 
 
+/* 
   .deletecls{
     display: none;
     cursor: pointer;
@@ -1039,7 +1065,7 @@
     position: absolute;
     top:0;
     right: 0;
-  }
+  } */
 
   .rep-dashboard-block6 .titleadmin{  
     justify-content: space-between;

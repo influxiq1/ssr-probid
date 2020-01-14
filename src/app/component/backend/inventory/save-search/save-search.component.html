@@ -3,9 +3,9 @@
       <div class="main-content-wrap">
         <mat-card-content class="adm_inner_banner">
           <mat-card-title class="adm_inner_title">save search</mat-card-title>
-          <p class="adm_inner_para" *ngIf="userCookies.type == 'admin'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
-          <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
-          <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete The Car Purchase For Your Customers.</p>
+          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-admin'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
+          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-castomer'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
+          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-rep'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete The Car Purchase For Your Customers.</p>
         </mat-card-content>
         <mat-card-content class="bred_cram_wrapper">
             <a mat-list-item routerLinkActive="active"> Dashboard </a>
