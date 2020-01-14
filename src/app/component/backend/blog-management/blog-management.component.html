@@ -5,7 +5,9 @@
               <!-- <img src="../../../../assets/images/blogmang-dashboard-img1.jpg" style="width: 100%; display: block; margin: 0; padding: 0;"> -->
               <mat-card-content class="adm_inner_banner manageblog">
                   <mat-card-title class="adm_inner_title">Blog management</mat-card-title>
-                  <p class="adm_inner_para">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p>
+                  <p class="adm_inner_para" *ngIf="userCookies.type == 'admin'">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p>
+                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p> -->
+                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p> -->
               </mat-card-content>
               <mat-card-content class="bred_cram_wrapper">
                   <a mat-list-item routerLinkActive="active"> Dashboard </a>
