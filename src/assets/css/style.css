@@ -589,6 +589,7 @@ display:block !important;
     justify-content: flex-end;
     align-items: center;
     background: #ffffff;
+    margin: 10px 0px;
   }
 
   .search-sec .example-form .mat-form-field-appearance-legacy .mat-form-field-infix {
@@ -605,7 +606,7 @@ display:block !important;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px !important;
+    margin-bottom: 0px !important;
   }
 
   .search-sec .example-form .mat-form-field-appearance-legacy .mat-form-field-infix .mat-button{

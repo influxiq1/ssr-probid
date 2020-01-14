@@ -198,9 +198,9 @@ if (val !='') {
     this.indexval=this.indexval+2;
   }
 
-  goToopenTicket(item: any){
+  goToOpenTicket(item: any, status: any){
     console.log(item);
-    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
   }
 
   rsvpViewDetails(val:any){

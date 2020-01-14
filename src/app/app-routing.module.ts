@@ -441,12 +441,14 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   { path: 'social-advo-rep', component: SocialAdvoComponent },
 
 
-  { path: 'manage-job-ticket/add/:_id', component: ManageJobticketComponent , resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}},
+  { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent , resolve: { rsvp: ResolveService },
+  data: { requestcondition: { source: 'send_rsvp_view', condition: {'con':"con"} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}},
 
-  { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
+  // { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent },
+
+  // { path: 'manage-job-ticket/edit/:_id', component: ManageJobticketComponent,
+  // resolve: { rsvp: ResolveService },
+  // data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
 
   
 

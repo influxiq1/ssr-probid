@@ -43,6 +43,7 @@ export class BkHeaderComponent implements OnInit {
 
      
   public user_data: any;
+  public profile_img: any = '';
   constructor(
     public cookieService: CookieService,
      private sidenav: SidenavService,
@@ -144,11 +145,11 @@ export class BkHeaderComponent implements OnInit {
   ngOnInit() {
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-      // console.log(this.userCookies);
       this.user_full_name = this.userCookies.firstname + ' '+ this.userCookies.lastname ;
-      // console.log('>>>>',this.user_full_name)
-      // this.userid = this.userCookies._id;    
+      if (this.userCookies.profile_picture != null) {
+        this.profile_img = this.userCookies.profile_picture[0].basepath +''+this.userCookies.profile_picture[0].fileservername;
       }
+    }
   }
 
 
