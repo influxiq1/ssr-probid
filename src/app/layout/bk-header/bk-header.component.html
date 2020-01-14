@@ -140,10 +140,10 @@
       <h4>{{user_full_name}}</h4>
       <div class="dropdown">
         <div class="user">
-          <button class="userwrapper" mat-button [matMenuTriggerFor]="menu">
-            <img src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </button>
+          <button mat-button class="userwrapper" [matMenuTriggerFor]="menu"> 
+             <img *ngIf="profile_img !=''" [src]="profile_img" alt="">
+             <img *ngIf="profile_img ==''" src="https://dev.probidauto.com/assets/images/no-image-default.jpg">
+            </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="logout()">Logout</button>
             <button mat-menu-item (click)="myAccount()">My Account</button>
@@ -234,23 +234,14 @@
       <!-- User avatar dropdown -->
       <div class="dropdown">
         <div class="user">
-          <button class="userwrapper" mat-button [matMenuTriggerFor]="menu"><img
-              src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" id="userDropdown"
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          </button>
+          <button mat-button class="userwrapper" [matMenuTriggerFor]="menu"> 
+             <img *ngIf="profile_img !=''" [src]="profile_img" alt="">
+             <img *ngIf="profile_img ==''" src="https://dev.probidauto.com/assets/images/no-image-default.jpg">
+            </button>
           <mat-menu #menu="matMenu">
             <button mat-menu-item (click)="logout()">Logout</button>
             <button mat-menu-item (click)="myAccount()">My Account</button>
           </mat-menu>
-
-          <!-- <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
-                          <div class="dropdown-header">
-                              <i class="i-Lock-User mr-1"></i> Timothy Carlson
-                          </div>
-                          <a class="dropdown-item">Account settings</a>
-                          <a class="dropdown-item">Billing history</a>
-                          <a class="dropdown-item" href="javascript:void(0)">Sign out</a>
-                      </div> -->
         </div>
       </div>
     </div>
@@ -355,15 +346,13 @@
       <h4>{{user_full_name}}</h4>
       <div class="dropdown">
         <div class="user">
-          <!-- <button class="userwrapper" mat-button [matMenuTriggerFor]="menu"><img
-                    src="http://gull-html-laravel.ui-lib.com/assets/images/faces/1.jpg" alt=""
-                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button> -->
-
-
-          <button mat-button class="userwrapper" [matMenuTriggerFor]="menu"> <img [src]="profile_img" alt=""></button>
+          <button mat-button class="userwrapper" [matMenuTriggerFor]="menu"> 
+             <img *ngIf="profile_img !=''" [src]="profile_img" alt="">
+             <img *ngIf="profile_img ==''" src="https://dev.probidauto.com/assets/images/no-image-default.jpg">
+            </button>
           <mat-menu #menu="matMenu">
-            <button mat-menu-item (click)="logout()">Logout 1</button>
-            <button mat-menu-item (click)="myAccount()">My Account qqqq</button>
+            <button mat-menu-item (click)="logout()">Logout</button>
+            <button mat-menu-item (click)="myAccount()">My Account</button>
           </mat-menu>
         </div>
       </div>
