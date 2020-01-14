@@ -134,6 +134,9 @@
                 <ng-container *ngIf="status == 1 && contract_details != null && contract_details != undefined && contract_details[0].subject != null">
                 <p>{{contract_details[0].subject}}</p>
               </ng-container>
+              <span class="statusjobticket">
+                <button mat-raised-button type="submit" class="btnblue">Reply</button>
+              </span>
               </span>
               <span class="whitebg">
                 <span class="sectionheader">Description</span>
@@ -183,7 +186,8 @@
                   <strong>Added Date:</strong> 10-01-2019
                 </span>
                 <span class="statusjobticket">
-                  <button mat-raised-button type="submit" class="btnblue">Reply</button>
+                  <button mat-raised-button type="submit" class="btnblue">Submit</button>
+                  <!-- <button mat-raised-button type="submit" class="btnblue">Reply</button> -->
                 </span>
               </span>
               <span class="whitebg jobcommentbox">
@@ -199,23 +203,28 @@
                       <mat-card-title>{{item.Fullname}}</mat-card-title>
                       <mat-card-content>{{item.description}}</mat-card-content>
                       <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
-                    </span>
+                    </span>                   
+                  </mat-list-item>
+                </mat-list>  
+                <mat-list class="jobticketimglists">
+                  <mat-list-item>
+                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
                   </mat-list-item>
                 </mat-list>
-                
+              </span>
+              <span class="whitebg jobcommentbox">   
                 <mat-form-field>
                   <span class="commentbox">
-                    <input matInput placeholder="Comment...." formControlName="message" cols="50" (blur)="inputUntouched('message')">
-                    
-                      <mat-list class="jobticketimglists">
-                        <mat-list-item>
-                          <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                        </mat-list-item>
-                      </mat-list>                      
-                   
+                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message')">           
                   </span>
-                  <span class="submitcomment">
+                  <mat-list class="jobticketimglists">
+                    <mat-list-item>
+                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                    </mat-list-item>
+                  </mat-list>  
+                  <span class="statusjobticket">
                     <button mat-raised-button type="submit" class="btnblue">SEND</button>
+                    <button mat-raised-button type="submit" class="btnblue redbtn">cancel</button>
                   </span>                  
                 </mat-form-field>
               </span>

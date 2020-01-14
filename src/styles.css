@@ -856,9 +856,10 @@ html input.disabled {
   padding: 5px !important;
   background: #dde2e5;
   display: flex;
-  align-items: center;
+  align-items: self-start;
   justify-content: space-between;
   margin-bottom: 0px!important;
+  flex-wrap: wrap;
 }
 
 .jobcommentbox .jobticketimglists .mat-list-item{
@@ -877,12 +878,41 @@ html input.disabled {
   width: 100%;
 }
 
+.jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix .submitcomment .btnblue{
+  margin-top: 0px !important;
+}
+
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix .commentbox input{
   background: #fff;
-  padding: 7px;
-  -moz-box-shadow:    inset 0 0 10px #000000;
-  -webkit-box-shadow: inset 0 0 10px #000000;
-  box-shadow:         inset 0 0 10px #000000;
+  padding: 12px;
+  -moz-box-shadow:    inset 0 0 5px #d6d6d6;
+  -webkit-box-shadow: inset 0 0 5px #d6d6d6;
+  box-shadow:         inset 0 0 5px #d6d6d6;
+}
+
+.graybg .mat-form-field {
+  width: 100%;
+}
+.bluebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-label {
+  color: #fff;
+}
+.bluebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-label span{
+  color: #fff;
+}
+
+.bluebg .mat-form-field{
+  width: 100%;
+}
+.bluebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 1em !important;
+  background: transparent;
+  margin-bottom: 0px !important;
+  color: #fff;
+}
+
+.bluebg .statusjobticket{
+  display: flex;
+  justify-content: flex-end;
 }
 
 
