@@ -19,7 +19,9 @@
               <!-- <img src="../../../../assets/images/rsvplists-dashboard-img1.jpg" style="width: 100%; display: block; margin: 0; padding: 0;"> -->
               <mat-card-content class="adm_inner_banner salesrepadmin">
                   <mat-card-title class="adm_inner_title">salesrep information</mat-card-title>
-                  <p class="adm_inner_para">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
+                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'admin'">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
+                  <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Make Your Next Car Purchase With The Trusted Guidance And Assistance Of Our Sales Representative.</p>
               </mat-card-content>
               <mat-card-content class="bred_cram_wrapper">
                   <a mat-list-item routerLinkActive="active"> Dashboard </a>
