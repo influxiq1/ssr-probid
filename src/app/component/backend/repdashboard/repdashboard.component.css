@@ -1372,3 +1372,19 @@
     width: 100%;
     padding: 0;
   }
+
+  .rep-dashboard-block5 .titleadmin {
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    display: -webkit-box;
+    display: flex;
+}
+
+.rep-dashboard-block5 .block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content img {
+  height: 100% !important;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}

@@ -118,8 +118,8 @@
                     <!-- Save Search DETAILS for salesrep-->
                     <span class="topinnerinforight" 
                     *ngIf="activatedRoute.snapshot.routeConfig.path != 'rsvp-detail/:_id'" >
-                      <h1 class="btnrsvp" *ngIf="user_details.type == 'customer' || user_details.type == 'salesrep'"
-                        (click)="addRsvp(data)">RSVP</h1>
+                      <mat-button class="btnrsvp" *ngIf="user_details.type == 'customer' || user_details.type == 'salesrep'"
+                        (click)="addRsvp(data)">RSVP</mat-button>
 
                       <mat-button class="btnredcls" *ngIf="router.url != '/search-detail'" 
                       (click)="removeItem(data._id)">Remove</mat-button>

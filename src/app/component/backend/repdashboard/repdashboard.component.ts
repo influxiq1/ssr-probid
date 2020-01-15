@@ -63,7 +63,7 @@ public allLinkdinBanner : any = [
   //   inputElement.setSelectionRange(0, 0);
   // }
   copyMessage(val: string){
-    let url = this.apiService.share_link+'salesrep-signup/'+val+'/'+this.userCookies._id;
+    let url = this.apiService.share_link+'customer-signup/'+val+'/'+this.userCookies._id;
     const selBox = document.createElement('textarea');
     selBox.style.position = 'fixed';
     selBox.style.left = '0';
