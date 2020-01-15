@@ -201,7 +201,7 @@
             </form>
 
               <span class="whitebg jobcommentbox">
-                <mat-list>
+                <mat-list class="commentboxscroll">
 
                   <ng-container *ngIf="status == 1 ">
                     <!-- <mat-list-item>
@@ -246,7 +246,7 @@
                 </mat-list>  
                 
               </span>
-              <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()">
+              <form  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()">
               <span class="whitebg">   
                 
                 <mat-form-field>

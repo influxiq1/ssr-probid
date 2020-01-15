@@ -976,6 +976,18 @@ html input.disabled {
   border-bottom: 0px solid #f3f3f3 !important;
 }
 
+
+
+.rep-dashboard-block5 .block1socialadvosingle .mat-list-item-content img {
+  height: 100% !important;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
+
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
 .modalttitlewrapper{background-color:#22282c; display: block;  padding: 50px; height: 100%;    border-bottom-left-radius: 15px;

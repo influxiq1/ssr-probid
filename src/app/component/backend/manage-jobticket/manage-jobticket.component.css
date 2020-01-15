@@ -390,8 +390,8 @@
     }
 
     .jobticketimglists .mat-list-item {
-        width: 125px;
-        height: 90px;
+        width: 70px;
+        height: auto;
         position: relative;
         display: block;
         overflow: hidden;
@@ -459,8 +459,8 @@
  
 
       .jobcommentbox .jobcommentboximg{
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         position: relative;
         display: block;
         overflow: hidden;
@@ -535,3 +535,7 @@
         flex: 1 1 100%;
       }
 
+      .commentboxscroll{
+        height: 260px;
+        overflow: auto;
+      }
