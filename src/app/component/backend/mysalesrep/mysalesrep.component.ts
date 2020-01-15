@@ -25,6 +25,8 @@ export class MysalesrepComponent implements OnInit {
   public datalist: any = '';  
   public indexval:number=3;
   public message: any = "Are you sure you want to delete this?";
+  public repDetails:any;
+  public customerDetails:any;
 
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
@@ -40,10 +42,18 @@ export class MysalesrepComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.activatedRoute.data.forEach((data:any) => {
-      // console.log(data)
-      this.rsvp_list = data.rsvp;
+    this.activatedRoute.data.forEach((res:any) => {
+      console.log(res.rep_details.result)
+      let result:any;
+      result=res.rep_details.result;
+      // this.rsvp_list = data.rsvp;
       // console.log('rsvp>>',this.rsvp_list)
+      this.repDetails=result.salesrep_details;
+            console.log('rep>>', this.repDetails)
+
+      this.customerDetails=result.customer_details;
+            console.log('cus>>',this.customerDetails)
+
     })
   }
 
@@ -66,6 +76,7 @@ export class MysalesrepComponent implements OnInit {
       });
   }
   
+
   getdata() {
     let data: any = {
       endpoint: 'datalist',

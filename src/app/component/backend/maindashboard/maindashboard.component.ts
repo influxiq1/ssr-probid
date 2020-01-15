@@ -510,6 +510,12 @@ inputUntouched(val: any) {
     this.router.navigateByUrl('/manage-job-ticket/'+val);
   }
 
+  goToOpenTicket(item: any, status: any){
+    console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
+  }
+
+
 
   private handleError(error) {
     console.error('Error processing action', error);

@@ -53,14 +53,17 @@ export class ResolveService implements Resolve<any> {
                     delete requestData.condition.castomer;
                 }
                 if (requestData.condition[d] == 'rsvp_id') {
-                     requestData.rsvp_id = requestData.condition._id
-                    delete requestData.condition.rsvp_id
-                    delete requestData.condition._id
-                    delete requestData.condition.status
-                    // console.log(requestData.condition.rsvp_id)
-                    // console.log(_id)
-                    // requestData.rsvp_id = _id
-                }
+                    requestData.rsvp_id = requestData.condition._id
+                   delete requestData.condition.rsvp_id
+                   delete requestData.condition._id
+                   delete requestData.condition.status
+               }
+               if (requestData.condition[d] == 'mysalesrep') {
+                requestData.id = this.userCookies.salesrep
+            //    delete requestData.condition.rsvp_id
+               delete requestData.condition._id
+               delete requestData.condition.mysalesrep
+           }
               }
             // delete route.data.requestcondition.condition.id;
             // console.log(route.data)

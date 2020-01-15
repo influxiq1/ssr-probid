@@ -174,7 +174,7 @@
                   <p >{{job_ticket.description}}</p>
                 </ng-container>
                 </span>
-                <mat-list class="jobticketimglists">
+                <mat-list  class="jobticketimglists">
                   <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
                   <ng-container *ngIf="job_ticket !='' && job_ticket !=undefined && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined">
                     <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
@@ -205,24 +205,26 @@
 
                   <ng-container *ngIf="status == 1 ">
                     <mat-list-item>
-                      <span class="jobcommentboximg">
-                        <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="assets/images/no-image-default.jpg">
-                        <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''" [attr.src]="job_ticket.profile_picture">
-                    </span>
-                    <span class="jobcommentboxcontent" >
-                      <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
-                      <mat-card-content>{{job_ticket.description}}</mat-card-content>
-                    </span>   
-                    
-                    
-                    <span class="msgblock">
-                      <mat-list class="jobticketimglists">
-                        <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                          <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
-                          <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
-                        </mat-list-item>
-                      </mat-list>
-                    </span>
+                      <span class="toppart jobcommentbox">
+                        <span class="jobcommentboximg">
+                          <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="../../../../assets/images/default_car_img.jpeg">
+                          <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''" [attr.src]="job_ticket.profile_picture">
+                        </span>
+                        <span class="jobcommentboxcontent" >
+                          <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
+                          <mat-card-content>{{job_ticket.description}}</mat-card-content>
+                        </span>   
+                      </span>
+                      <span class="toppart">
+                        <span class="msgblock">
+                          <mat-list class="jobticketimglists">
+                            <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
+                              <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
+                              <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
+                            </mat-list-item>
+                          </mat-list>
+                        </span>
+                      </span>
                   </mat-list-item>
                   
                     <mat-list-item *ngFor="let item of message_details" class="msgblockwrapper">
@@ -241,13 +243,14 @@
                         <!-- <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6> -->
                       </span>  
                     </span>
-                    <!-- <span class="msgblock">
+                    <span class="msgblock" *ngIf="item.msg_picture !=null && item.msg_picture !=''">
                       <mat-list class="jobticketimglists">
-                        <mat-list-item>
-                          <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                        <mat-list-item *ngFor="let jobImage of item.msg_picture">
+                          <img *ngIf="item.msg_picture !=null && item.msg_picture !='' && jobImage"  class="defaultimg" 
+                          [src]="jobImage">
                         </mat-list-item>
                       </mat-list>
-                    </span>                  -->
+                    </span>                 
                   </mat-list-item>
 
 
@@ -264,9 +267,16 @@
                     <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
                   </span>
                   <mat-list class="jobticketimglists">
-                    <mat-list-item>
-                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                    </mat-list-item>
+                    
+                      <!-- <img class="defaultimg" src="assets/images/no-image-default.jpg"> -->
+                      <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
+                      <!-- <ng-container *ngIf="job_ticket_msg !='' && job_ticket_msg !=undefined && job_ticket_msg.msg_picture != null && job_ticket_msg.msg_picture != '' && job_ticket_msg.msg_picture != undefined">
+                        <mat-list-item *ngFor="let item of job_ticket_msg.msg_picture">
+                          <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
+                        </mat-list-item>
+                      </ng-container> -->
+
+                    
                   </mat-list>  
                   <span class="statusjobticket">
                     <button mat-raised-button type="submit" class="btnblue">SEND</button>

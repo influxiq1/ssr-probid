@@ -259,7 +259,29 @@
   justify-content: space-between;
 }
 
+.rsvplistsingleinnerwrapper{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
 
+.rsvplistsingleinnerwrapper .rsvplisttypecontent.mt10 .rsvplisttypebottom{
+  -webkit-box-pack: flex-end;
+  justify-content: flex-end;
+}
+
+.rsvplistsingleinnerwrapper .mt10{
+  margin-top: 10px;
+}
+
+.adm_inner_banner .adm_inner_title.mat-card-title {
+  font-size: 48px !important;
+  color: #fff !important;
+  font-family: "HelveticaBold";
+  text-transform: uppercase !important;
+  text-shadow: -1px -1px 1px rgba(255, 255, 255, .1), 1px 1px 1px rgba(0, 0, 0, .5);
+}
 
   @media only screen and (max-width: 1500px) {
     .rsvplisttypebottom .btnblue {
