@@ -76,30 +76,21 @@ export class ManageJobticketComponent implements OnInit {
   showMessage(){
     this.showbox = 1;
   }
-  // getData(){
-  //   // this.apploader.loader = 1;
-  //   let dataType: any;
-  //   if (this.status != 1) {
-  //   dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
-  //   } else {
-      
-  //     dataType = { "source": 'job_ticket_message', condition: { "rsvp_id_object": this.rsvp_id} };
-  //   }
+  getData(){
+    // this.apploader.loader = 1;
+    let dataType: any;
+    if (this.status == 1) {
+      dataType = { "source": 'job_ticket_msg_view', condition: { "rsvp_id_object": this.rsvp_id} };
+    } 
 
-  //   this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
-  //     console.log(res.res)
-  //     this.message_details = res.res;
+    this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
+      console.log(res.res)
+      this.message_details = res.res;
+      this.apploader.loader = 0;
 
-  //     this.jobTicketForm.controls['subject'].patchValue(this.job_ticket.subject);
-  //     this.jobTicketForm.controls['description'].patchValue(this.job_ticket.description);
-  //     // subject:['',Validators.required],
-  //     // description:['',Validators.required],
-  //     // jobTicket_picture:['', []]
-  //     this.apploader.loader = 0;
-  //     // console.log("@@>>>", this.rsvp_list[0].profile_picture);
-  //   })
+    })
 
-  // }
+  }
   jobTicketMsgFormSubmit(){
     for (let x in this.jobTicketMsgForm.controls) {
       this.jobTicketMsgForm.controls[x].markAsTouched();
@@ -122,7 +113,7 @@ export class ManageJobticketComponent implements OnInit {
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         console.log(res);
         this.showbox = 0;
-        // this.getData();
+        this.getData();
         this.jobTicketMsgForm.controls['message'].reset();
         this.apploader.loader = 0;
         
@@ -167,12 +158,12 @@ export class ManageJobticketComponent implements OnInit {
         },
         sourceobj:["rsvp_id","ticket_added_by"]
       };
-      
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         // console.log(res);
         // this.getData();
         // this.jobTicketForm.controls['message'].reset();
+        this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
         this.apploader.loader = 0;
         
      
