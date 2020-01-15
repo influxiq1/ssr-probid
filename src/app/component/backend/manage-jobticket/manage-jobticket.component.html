@@ -243,13 +243,14 @@
                         <!-- <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6> -->
                       </span>  
                     </span>
-                    <!-- <span class="msgblock">
+                    <span class="msgblock" *ngIf="item.msg_picture !=null && item.msg_picture !=''">
                       <mat-list class="jobticketimglists">
-                        <mat-list-item>
-                          <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                        <mat-list-item *ngFor="let jobImage of item.msg_picture">
+                          <img *ngIf="item.msg_picture !=null && item.msg_picture !='' && jobImage"  class="defaultimg" 
+                          [src]="jobImage">
                         </mat-list-item>
                       </mat-list>
-                    </span>                  -->
+                    </span>                 
                   </mat-list-item>
 
 
