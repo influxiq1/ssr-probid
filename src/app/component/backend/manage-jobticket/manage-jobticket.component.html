@@ -213,7 +213,17 @@
                       <mat-card-title>{{job_ticket.Fullname}}</mat-card-title>
                       <mat-card-content>{{job_ticket.description}}</mat-card-content>
                       <h6 style="text-align: left;"><strong>Date: </strong> {{job_ticket.date}}</h6>
-                    </span>                   
+                    </span>   
+                    
+                    
+                    <span class="msgblock" *ngFor="let item of job_ticket.jobTicket_picture">
+                      <mat-list class="jobticketimglists">
+                        <mat-list-item>
+                          <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
+                          <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
+                        </mat-list-item>
+                      </mat-list>
+                    </span>
                   </mat-list-item>
                   
                     <mat-list-item *ngFor="let item of message_details" class="msgblockwrapper">
@@ -227,18 +237,18 @@
                         <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">                       -->
                       </span>
                       <span class="jobcommentboxcontent" >
-                        <mat-card-title>{{item.Fullname}}</mat-card-title>
+                        <mat-card-title>{{item.fullname}}</mat-card-title>
                         <mat-card-content>{{item.message}}</mat-card-content>
                         <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
                       </span>  
                     </span>
-                    <span class="msgblock">
+                    <!-- <span class="msgblock">
                       <mat-list class="jobticketimglists">
                         <mat-list-item>
                           <img class="defaultimg" src="assets/images/no-image-default.jpg">
                         </mat-list-item>
                       </mat-list>
-                    </span>                 
+                    </span>                  -->
                   </mat-list-item>
 
 
