@@ -390,15 +390,16 @@
     }
 
     .jobticketimglists .mat-list-item {
-        width: 125px;
-        height: 90px;
+        width: 50px;
+        height: 50px !important;
         position: relative;
         display: block;
         overflow: hidden;
-        border: 1px solid #f2f2f2;
+        border: 1px solid #a8d5e2;
         border-radius: 5px;
         margin-right: 5px;
       }
+    
       
       .jobticketimglists .mat-list-item img{
         height: 100% !important;
@@ -459,8 +460,8 @@
  
 
       .jobcommentbox .jobcommentboximg{
-        width: 80px;
-        height: 80px;
+        width: 50px;
+        height: 50px;
         position: relative;
         display: block;
         overflow: hidden;
@@ -487,7 +488,7 @@
       .jobcommentbox .jobcommentboxcontent .mat-card-title{
         font-family: "HelveticaBold";
         line-height: normal !important;
-        justify-content: flex-start;       
+        justify-content: space-between;       
         margin-bottom: 5px !important;
         width: 100%;
         color: #3f4446;
@@ -505,6 +506,10 @@
         width: auto;
         color: #72787a;
         margin-left: 10px;
+      }
+
+      .jobcommentbox .jobcommentboxcontent .jobticketimglists .mat-list-item  span{
+        color: #b93d2b;
       }
 
       .jobcommentbox .jobcommentboxcontent .mat-card-content{
@@ -535,3 +540,7 @@
         flex: 1 1 100%;
       }
 
+      .commentboxscroll{
+        height: 260px;
+        overflow: auto;
+      }

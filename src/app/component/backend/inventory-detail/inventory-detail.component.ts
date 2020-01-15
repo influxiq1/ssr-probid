@@ -73,7 +73,7 @@ export class InventoryDetailComponent implements OnInit {
   public indexImg: any;
   public message: any = "Are you sure you want to delete this?";
   public saveList: any;
-  public indexVal: any = 3;
+  public indexVal: any = 4;
   public makeName: any;
   public user_details: any;
   public user_id: any;

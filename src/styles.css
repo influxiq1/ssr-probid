@@ -851,7 +851,8 @@ html input.disabled {
 
 .jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
-.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 !important; align-items: flex-start; display: flex; flex-wrap: wrap;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 10px !important; align-items: flex-start; display: flex; flex-wrap: wrap;}
+.jobcommentbox .jobticketimglists .mat-list-item .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 5px !important;
   background: #dde2e5;
@@ -975,6 +976,18 @@ html input.disabled {
 .cdk-overlay-pane .mat-menu-content .mat-menu-item:last-child{
   border-bottom: 0px solid #f3f3f3 !important;
 }
+
+
+
+.rep-dashboard-block5 .block1socialadvosingle .mat-list-item-content img {
+  height: 100% !important;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+}
+
 
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
