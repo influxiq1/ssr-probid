@@ -515,5 +515,22 @@
         margin-bottom: 0;
       }
 
-   
+      .msgblockwrapper{
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-align: center;
+        align-items: center;
+        -webkit-box-pack: end;
+        justify-content: flex-start;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+
+      .msgblockwrapper .msgblock{
+        display: -webkit-box;
+        display: flex;
+        flex: 1 1 100%;
+      }
 
