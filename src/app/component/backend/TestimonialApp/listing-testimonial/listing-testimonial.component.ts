@@ -49,7 +49,7 @@ view:any="blog_category";
 
 
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService) { 
+  constructor(public router: Router, public activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService) { 
 
   // this.activatedRoute.data.subscribe(resolveData => {
   //   // this.testimonialListConfig.datasource = resolveData.testimonialList.res;

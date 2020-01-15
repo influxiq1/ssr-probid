@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-blog-management',
@@ -7,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BlogManagementComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router:Router, public activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
   }

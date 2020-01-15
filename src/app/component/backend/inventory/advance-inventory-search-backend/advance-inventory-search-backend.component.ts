@@ -92,7 +92,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     public apiService: ApiService,
     public activatedRoute: ActivatedRoute,
     public http: HttpClient,
-    private readonly meta: MetaService, public cookieService: CookieService) {
+    private readonly meta: MetaService, public cookieService: CookieService, public router: Router) {
 
       if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
         this.user_details = JSON.parse(this.cookieService.get('user_details'));
