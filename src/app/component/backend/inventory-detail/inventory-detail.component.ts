@@ -83,7 +83,7 @@ export class InventoryDetailComponent implements OnInit {
   public carData: any;
   public addedCar: any = '';
   public searchRecord:any;
-
+  // public removeCar:any;
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
     //  public catItemByObservable: BasicInventorySearchBackendComponent,
       public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService) {
@@ -392,7 +392,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //remove data for search-details page
   removeAddSave(val: any, item: any) {
-    // console.log('++>>', val, item)
+    console.log('val++>>', val, item)
     const dialogRef = this.dialog.open(RemoveRsvpComponent, {
       width: '250px',
       data: this.message
@@ -410,6 +410,30 @@ export class InventoryDetailComponent implements OnInit {
           if (res.status == 'success') {
             this.snack.open('Record Removed Successfully..!', 'Ok', { duration: 2000 })
 
+            // this.removeCar=result.res;
+             //for admin
+    if (this.router.url == '/search-detail'
+    && this.user_details.type == 'admin') {
+    this.router.navigateByUrl('/basic-inventory-search-admin');
+     }
+  
+
+  // for salesrep 
+
+
+  if (this.router.url == '/search-detail'
+    && this.user_details.type == 'salesrep') {
+    this.router.navigateByUrl('/basic-inventory-search-rep');
+  }
+  
+
+  // for customer 
+
+  if (this.router.url == '/search-detail'
+    && this.user_details.type == 'customer') {
+    this.router.navigateByUrl('/basic-inventory-search-customer');
+  }
+
           }
         })
       }
@@ -419,7 +443,7 @@ export class InventoryDetailComponent implements OnInit {
 
 
   //for details from similar vehical
-  inventoryDetails(val) {
+  inventoryDetails(val:any) {
     // console.log('id>>', val)
     if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
       this.router.navigateByUrl('/rsvp-detail/' + val)

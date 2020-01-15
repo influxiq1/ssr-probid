@@ -125,10 +125,10 @@
                       (click)="removeItem(data._id)">Remove</mat-button>
 
                       <mat-button class="btngreencls" *ngIf="router.url == '/search-detail' 
-                       && addedCar == ''" (click)="addCar(data)">Add</mat-button>  
+                       && addedCar == '' " (click)="addCar(data)">Add</mat-button>  
                       
                       <mat-button class="btnredcls" *ngIf="router.url == '/search-detail' && 
-                      addedCar != '' && addedCar !=null" (click)="removeAddSave(addedCar,data)">Remove</mat-button>
+                      addedCar != '' && addedCar !=null " (click)="removeAddSave(addedCar,data)">Remove</mat-button>
 
 
                       <mat-form-field class="select-customer" *ngIf="user_details.type == 'salesrep'">
