@@ -73,7 +73,7 @@ export class InventoryDetailComponent implements OnInit {
   public indexImg: any;
   public message: any = "Are you sure you want to delete this?";
   public saveList: any;
-  public indexVal: any = 4;
+  public indexVal: any = 3;
   public makeName: any;
   public user_details: any;
   public user_id: any;
@@ -147,17 +147,29 @@ export class InventoryDetailComponent implements OnInit {
 
     // rsvp data 
     if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
-      let data: any = {
-        source: 'send_rsvp_view',
-        condition: {
-          added_by_object: this.user_id
+      let data: any ;
+      if(this.user_details.type == 'salesrep'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_by_object: this.user_id
+          }
         }
       }
+      if(this.user_details.type == 'customer'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_for_object: this.user_id
+          }
+        }
+      }
+     
       this.apiService.CustomRequest(data,'datalist').subscribe((res: any) => {
 
         this.saveList = res.res;
 
-        // console.log(this.saveList)
+        console.log('>>>>',this.saveList)
 
 
 
