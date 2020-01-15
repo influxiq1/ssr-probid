@@ -361,7 +361,7 @@ const routes: Routes = [
   { path: 'training-report', component: TrainingReportComponent },
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
-  { path: 'job-ticket', component: JobTicketComponent },
+  { path: 'job-ticket-admin', component: JobTicketComponent },
   { path: 'job-ticket-customer', component: JobTicketComponent },
   { path: 'job-ticket-salesrep', component: JobTicketComponent },
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
