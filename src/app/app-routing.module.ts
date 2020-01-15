@@ -361,10 +361,14 @@ const routes: Routes = [
   { path: 'training-report', component: TrainingReportComponent },
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
+
   { path: 'job-ticket-admin', component: JobTicketComponent },
   { path: 'job-ticket-customer', component: JobTicketComponent },
   { path: 'job-ticket-salesrep', component: JobTicketComponent },
+  { path: 'communication', component: JobTicketComponent },
+  
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
+
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
   { path: 'manage-type', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
@@ -454,7 +458,6 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
 
   
 
-  { path: 'communication', component: JobTicketComponent },
   { path: 'training-center-rep', component: TrainingCenterComponent },
   { path: 'my-account', component: MyAccountComponent },
   { path: 'add-salesrep', component: AddSalesrepComponent },
