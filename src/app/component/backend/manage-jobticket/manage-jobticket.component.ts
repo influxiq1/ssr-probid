@@ -14,8 +14,9 @@ export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
   public jobTicketForm: FormGroup;
-  // public jobTicketMsgForm: FormGroup;
+  public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
+  public showbox:any = 0;
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -49,13 +50,13 @@ export class ManageJobticketComponent implements OnInit {
       subject:['',Validators.required],
       description:['',Validators.required],
       jobTicket_picture:['', []],
-        message: ['',Validators.required],
+        // message: ['',Validators.required],
     });
 
-    // this.jobTicketMsgForm = this.fb.group({
-    //   message: ['',Validators.required],
-    //   msg_picture:['', []],
-    // })
+    this.jobTicketMsgForm = this.fb.group({
+      message: ['',Validators.required],
+      msg_picture:['', []],
+    })
   }
 
   ngOnInit() {
@@ -65,64 +66,71 @@ export class ManageJobticketComponent implements OnInit {
       this.user_list = data.job_ticket.result.user_list[0];
       this.rsvp_details = data.job_ticket.result.rsvp_details[0];
       this.job_ticket = data.job_ticket.result.job_ticket[0];
+      console.log(this.job_ticket)
     })
+    
 
-    this.getData();
+    // this.getData();
 
   }
-  getData(){
-    // this.apploader.loader = 1;
-    let dataType: any;
-    if (this.status != 1) {
-    dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
-    } else {
+  showMessage(){
+    this.showbox = 1;
+  }
+  // getData(){
+  //   // this.apploader.loader = 1;
+  //   let dataType: any;
+  //   if (this.status != 1) {
+  //   dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
+  //   } else {
       
-      dataType = { "source": 'job_ticket_message', condition: { "rsvp_id_object": this.rsvp_id} };
-    }
-
-    this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
-      console.log(res.res)
-      this.message_details = res.res;
-
-      this.jobTicketForm.controls['subject'].patchValue(this.job_ticket.subject);
-      this.jobTicketForm.controls['description'].patchValue(this.job_ticket.description);
-      // subject:['',Validators.required],
-      // description:['',Validators.required],
-      // jobTicket_picture:['', []]
-      this.apploader.loader = 0;
-      // console.log("@@>>>", this.rsvp_list[0].profile_picture);
-    })
-
-  }
-  // jobTicketMsgFormSubmit(){
-  //   for (let x in this.jobTicketMsgForm.controls) {
-  //     this.jobTicketMsgForm.controls[x].markAsTouched();
+  //     dataType = { "source": 'job_ticket_message', condition: { "rsvp_id_object": this.rsvp_id} };
   //   }
-  //   if (this.jobTicketMsgForm.valid) {
-  //     let endpoint: any = "addorupdatedata";
-  //     let data: any = {
-  //       source: "job_ticket_msg",
-  //       data: {
-  //         ticket_added_by: this.userid,
-  //         rsvp_id:this.rsvp_id,
-  //         message: this.jobTicketMsgForm.value.message,
-  //         job_ticket:1
-  //       },
-  //       sourceobj:["rsvp_id","ticket_added_by"]
-  //     };
-  //     this.apploader.loader = 1;
 
-  //     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-  //       console.log(res);
-  //       // this.getData();
-  //       this.jobTicketForm.controls['message'].reset();
-  //       // this.apploader.loader = 0;
-        
-     
-  //     })
-  //   }
+  //   this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
+  //     console.log(res.res)
+  //     this.message_details = res.res;
+
+  //     this.jobTicketForm.controls['subject'].patchValue(this.job_ticket.subject);
+  //     this.jobTicketForm.controls['description'].patchValue(this.job_ticket.description);
+  //     // subject:['',Validators.required],
+  //     // description:['',Validators.required],
+  //     // jobTicket_picture:['', []]
+  //     this.apploader.loader = 0;
+  //     // console.log("@@>>>", this.rsvp_list[0].profile_picture);
+  //   })
 
   // }
+  jobTicketMsgFormSubmit(){
+    for (let x in this.jobTicketMsgForm.controls) {
+      this.jobTicketMsgForm.controls[x].markAsTouched();
+    }
+    if (this.jobTicketMsgForm.valid) {
+      this.apploader.loader = 1;
+      let endpoint: any = "addorupdatedata";
+      let data: any = {
+        source: "job_ticket_msg",
+        data: {
+          job_ticket_id:this.job_ticket._id,
+          ticket_added_by: this.userid,
+          rsvp_id:this.rsvp_id,
+          message: this.jobTicketMsgForm.value.message,
+          job_ticket:1
+        },
+        sourceobj:["rsvp_id","ticket_added_by","job_ticket_id"]
+      };
+
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        console.log(res);
+        this.showbox = 0;
+        // this.getData();
+        this.jobTicketMsgForm.controls['message'].reset();
+        this.apploader.loader = 0;
+        
+     
+      })
+    }
+
+  }
 
   jobTicketFormSubmit(){
     for (let x in this.jobTicketForm.controls) {
@@ -144,6 +152,7 @@ export class ManageJobticketComponent implements OnInit {
       this.jobTicketForm.controls['jobTicket_picture'].patchValue(this.images_array);
     // }
     if (this.jobTicketForm.valid) {
+      this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
       let data: any = {
         source: "job_ticket",
@@ -158,13 +167,13 @@ export class ManageJobticketComponent implements OnInit {
         },
         sourceobj:["rsvp_id","ticket_added_by"]
       };
-      this.apploader.loader = 1;
+      
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
-        this.getData();
-        this.jobTicketForm.controls['message'].reset();
-        // this.apploader.loader = 0;
+        // console.log(res);
+        // this.getData();
+        // this.jobTicketForm.controls['message'].reset();
+        this.apploader.loader = 0;
         
      
       })
@@ -196,6 +205,9 @@ export class ManageJobticketComponent implements OnInit {
   }
   inputUntouched(val: any) {
     this.jobTicketForm.controls[val].markAsUntouched();
+  }
+  inputValUntouched(val: any) {
+    this.jobTicketMsgForm.controls[val].markAsUntouched();
   }
 
 }
