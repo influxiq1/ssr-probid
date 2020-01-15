@@ -255,6 +255,10 @@
     justify-content: flex-end;
 }
 
+.job-title-pg .rsvplisttypebottom {
+  justify-content: space-between;
+}
+
   @media only screen and (max-width: 1500px) {
     .rsvplisttypebottom .btnblue {
       margin-left: 3px;
