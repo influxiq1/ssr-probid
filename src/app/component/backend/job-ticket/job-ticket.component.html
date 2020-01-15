@@ -1,13 +1,17 @@
 <div class="adminwrappercls">
   <app-header></app-header>
       <div class="main-content-wrap">
-        <mat-card class="generalcls job-title-pg" style="padding: 0 !important;">
+        <mat-card class="generalcls job-title-pg" style="padding: 0 !important;" >
             <span>
               <mat-card-content class="adm_inner_banner rsvpadmin">
-                  <mat-card-title class="adm_inner_title">job ticket</mat-card-title>
-                  <p class="adm_inner_para">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
-                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p> -->
-                  <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p> -->
+                  <mat-card-title class="adm_inner_title" *ngIf=" router.url =='/job-ticket-admin'">job ticket admin</mat-card-title>
+                  <mat-card-title class="adm_inner_title" *ngIf=" router.url =='/job-ticket-customer'">job ticket Customer</mat-card-title>
+                  <mat-card-title class="adm_inner_title" *ngIf=" router.url =='/job-ticket-salesrep'">job ticket SalesRep</mat-card-title>
+                  <mat-card-title class="adm_inner_title" *ngIf=" router.url =='/communication'">communication</mat-card-title>
+                  <p class="adm_inner_para" *ngIf=" router.url =='/job-ticket-admin'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
+                  <p class="adm_inner_para" *ngIf=" router.url =='/job-ticket-customer'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
+                  <p class="adm_inner_para" *ngIf=" router.url =='/job-ticket-salesrep'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
+                  <p class="adm_inner_para" *ngIf=" router.url =='/communication'">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
               </mat-card-content>
               <mat-card-content class="bred_cram_wrapper">
                   <a mat-list-item routerLinkActive="active"> Dashboard </a>
@@ -16,7 +20,10 @@
               <span class="searchblock rsvpsearch">
                 <span class="searchblockwrapper">
                   <span>
-                    <h2>job ticket</h2>
+                    <h2 *ngIf=" router.url =='/job-ticket-admin'">job ticket admin</h2>
+                    <h2 *ngIf=" router.url =='/job-ticket-customer'">job ticket customer</h2>
+                    <h2 *ngIf=" router.url =='/job-ticket-salesrep'">job ticket salesrep</h2>
+                    <h2 *ngIf=" router.url =='/communication'">communication</h2>
                   </span>
                   <!-- <span *ngIf="userCookies.type == 'admin'">
                     <mat-label>Search By Status :</mat-label>
@@ -129,7 +136,6 @@
         <div>
           <button mat-flat-button class="btnblue" type="button" >Load More</button>
         </div>
-
       </div>
   </div>
 <app-footer></app-footer>

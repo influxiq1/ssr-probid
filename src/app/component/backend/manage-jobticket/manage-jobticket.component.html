@@ -205,24 +205,26 @@
 
                   <ng-container *ngIf="status == 1 ">
                     <mat-list-item>
-                      <span class="jobcommentboximg">
-                        <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="assets/images/no-image-default.jpg">
-                        <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''" [attr.src]="job_ticket.profile_picture">
-                    </span>
-                    <span class="jobcommentboxcontent" >
-                      <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
-                      <mat-card-content>{{job_ticket.description}}</mat-card-content>
-                    </span>   
-                    
-                    
-                    <span class="msgblock">
-                      <mat-list class="jobticketimglists">
-                        <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                          <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
-                          <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
-                        </mat-list-item>
-                      </mat-list>
-                    </span>
+                      <span class="toppart jobcommentbox">
+                        <span class="jobcommentboximg">
+                          <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="assets/images/no-image-default.jpg">
+                          <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''" [attr.src]="job_ticket.profile_picture">
+                        </span>
+                        <span class="jobcommentboxcontent" >
+                          <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
+                          <mat-card-content>{{job_ticket.description}}</mat-card-content>
+                        </span>   
+                      </span>
+                      <span class="toppart">
+                        <span class="msgblock">
+                          <mat-list class="jobticketimglists">
+                            <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
+                              <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
+                              <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
+                            </mat-list-item>
+                          </mat-list>
+                        </span>
+                      </span>
                   </mat-list-item>
                   
                     <mat-list-item *ngFor="let item of message_details" class="msgblockwrapper">

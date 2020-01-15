@@ -56,7 +56,10 @@
     font-size: 18px !important;
     margin: 0;
     text-transform: uppercase;
+    margin-bottom: 10px;
 }
+
+
 
 .salesrepadmininfocontentlist{
     display:-webkit-box;
