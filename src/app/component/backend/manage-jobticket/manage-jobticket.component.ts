@@ -16,7 +16,9 @@ export class ManageJobticketComponent implements OnInit {
   public jobTicketForm: FormGroup;
   public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
+  public images_arr:any=[];
   public showbox:any = 0;
+  // for job ticket 
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -29,6 +31,23 @@ export class ManageJobticketComponent implements OnInit {
     conversionNeeded: 0,
     bucketName: "probidfiles-dev.com" 
   }
+
+
+// job ticket message 
+
+public configDataJobTicket: any = {
+  baseUrl: "https://fileupload.influxhostserver.com/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format:["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
+  type: "jobTicket-img-picture",
+  path: "jobTicketImgPicture",
+  prefix: "jobTicket-img-picture",
+  formSubmit: false,
+  conversionNeeded: 0,
+  bucketName: "probidfiles-dev.com" 
+}
+
   public userCookies: any;
   public userid: any;
   public rsvp_id: any;
@@ -91,10 +110,29 @@ export class ManageJobticketComponent implements OnInit {
     })
 
   }
+
   jobTicketMsgFormSubmit(){
     for (let x in this.jobTicketMsgForm.controls) {
       this.jobTicketMsgForm.controls[x].markAsTouched();
     }
+
+   // if (this.configDataJobTicket.files.length > 0) {
+    for (const loop in this.configDataJobTicket.files) {
+      this.images_arr =
+        this.images_arr.concat({
+          "upload_server_id": this.configDataJobTicket.files[loop].upload.data._id,
+          "basepath": this.configDataJobTicket.files[loop].upload.data.basepath + '/' + this.configDataJobTicket.path + '/',
+          "fileservername": this.configDataJobTicket.files[loop].upload.data.data.fileservername,
+          "name": this.configDataJobTicket.files[loop].name,
+          "type": this.configDataJobTicket.files[loop].type,
+          "bucketname": this.configDataJobTicket.bucketName
+        });
+    }
+
+    this.jobTicketMsgForm.controls['msg_picture'].patchValue(this.images_arr);
+
+
+
     if (this.jobTicketMsgForm.valid) {
       this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
@@ -105,13 +143,14 @@ export class ManageJobticketComponent implements OnInit {
           ticket_added_by: this.userid,
           rsvp_id:this.rsvp_id,
           message: this.jobTicketMsgForm.value.message,
-          job_ticket:1
+          job_ticket:1,
+          msg_picture:this.jobTicketMsgForm.value.msg_picture
         },
         sourceobj:["rsvp_id","ticket_added_by","job_ticket_id"]
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        console.log('>>>',res);
         this.showbox = 0;
         this.getData();
         this.jobTicketMsgForm.controls['message'].reset();

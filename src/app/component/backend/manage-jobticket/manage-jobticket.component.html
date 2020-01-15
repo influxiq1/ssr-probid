@@ -174,7 +174,7 @@
                   <p >{{job_ticket.description}}</p>
                 </ng-container>
                 </span>
-                <mat-list class="jobticketimglists">
+                <mat-list  class="jobticketimglists">
                   <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
                   <ng-container *ngIf="job_ticket !='' && job_ticket !=undefined && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined">
                     <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
@@ -264,9 +264,16 @@
                     <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
                   </span>
                   <mat-list class="jobticketimglists">
-                    <mat-list-item>
-                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                    </mat-list-item>
+                    
+                      <!-- <img class="defaultimg" src="assets/images/no-image-default.jpg"> -->
+                      <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
+                      <!-- <ng-container *ngIf="job_ticket_msg !='' && job_ticket_msg !=undefined && job_ticket_msg.msg_picture != null && job_ticket_msg.msg_picture != '' && job_ticket_msg.msg_picture != undefined">
+                        <mat-list-item *ngFor="let item of job_ticket_msg.msg_picture">
+                          <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
+                        </mat-list-item>
+                      </ng-container> -->
+
+                    
                   </mat-list>  
                   <span class="statusjobticket">
                     <button mat-raised-button type="submit" class="btnblue">SEND</button>

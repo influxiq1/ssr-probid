@@ -360,8 +360,11 @@ const routes: Routes = [
   { path: 'training-center', component: TrainingCenterComponent },
   { path: 'training-report', component: TrainingReportComponent },
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
+
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
+
   { path: 'job-ticket', component: JobTicketComponent },
+
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
@@ -422,7 +425,10 @@ const routes: Routes = [
 resolve: { inventory_search: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
 },
-  { path: 'mysalesrep', component: MysalesrepComponent },
+  { path: 'mysalesrep', component: MysalesrepComponent ,
+  resolve: { rep_details: ResolveService },
+data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }, endpoint: 'for-rep-details' }
+},
   
 
   // { path:'contact-us-dashboard', component:ContactUsDashboardComponent,  resolve: { serviceList: ResolveService },
