@@ -994,6 +994,10 @@ html input.disabled {
 }
 
 
+.generalcls .salesrepadmininfocontent .mat-card-header-text{
+  width: auto !important;
+}
+
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
 .modalttitlewrapper{background-color:#22282c; display: block;  padding: 50px; height: 100%;    border-bottom-left-radius: 15px;
