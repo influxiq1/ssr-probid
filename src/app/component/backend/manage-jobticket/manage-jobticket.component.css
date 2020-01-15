@@ -508,6 +508,10 @@
         margin-left: 10px;
       }
 
+      .jobcommentbox .jobcommentboxcontent .jobticketimglists .mat-list-item  span{
+        color: #b93d2b;
+      }
+
       .jobcommentbox .jobcommentboxcontent .mat-card-content{
         color: #72787a;
         font-family: "Helvetica-Normal";
