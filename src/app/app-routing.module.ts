@@ -72,7 +72,7 @@ import { BookAnAppointmentComponent } from './component/backend/book-an-appointm
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
 import { BasicInventorySearchBackendComponent } from './component/backend/inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
 import { MysalesrepComponent } from './component/backend/mysalesrep/mysalesrep.component';
-import { CommunicationComponent } from './component/backend/communication/communication.component';
+// import { CommunicationComponent } from './component/backend/communication/communication.component';
 import { AdminManageCategoriesComponent } from './component/backend/admin-manage-categories/admin-manage-categories.component';
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
@@ -362,6 +362,8 @@ const routes: Routes = [
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
   { path: 'job-ticket', component: JobTicketComponent },
+  { path: 'job-ticket-customer', component: JobTicketComponent },
+  { path: 'job-ticket-salesrep', component: JobTicketComponent },
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
@@ -452,7 +454,7 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
 
   
 
-  { path: 'communication', component: CommunicationComponent },
+  { path: 'communication', component: JobTicketComponent },
   { path: 'training-center-rep', component: TrainingCenterComponent },
   { path: 'my-account', component: MyAccountComponent },
   { path: 'add-salesrep', component: AddSalesrepComponent },
