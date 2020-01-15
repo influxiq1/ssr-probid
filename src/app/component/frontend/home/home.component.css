@@ -448,6 +448,7 @@
   }
   .search-sec h2.innertitle2{
     flex: 1 1 100%;
+    margin-top: 10px;
   }
   .search-sec .mat-search-bar {
     margin-right: .5%;

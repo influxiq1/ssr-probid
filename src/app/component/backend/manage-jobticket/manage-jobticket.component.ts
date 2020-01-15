@@ -143,7 +143,6 @@ export class ManageJobticketComponent implements OnInit {
       this.jobTicketForm.controls['jobTicket_picture'].patchValue(this.images_array);
     // }
     if (this.jobTicketForm.valid) {
-
       this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
       let data: any = {
@@ -161,7 +160,7 @@ export class ManageJobticketComponent implements OnInit {
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         // this.getData();
         // this.jobTicketForm.controls['message'].reset();
         this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')

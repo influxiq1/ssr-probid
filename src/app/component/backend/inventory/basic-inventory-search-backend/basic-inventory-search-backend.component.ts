@@ -474,7 +474,10 @@ this.apploader.loader = 0;
     };
 
     this.detailService.carData(carData)
-    this.router.navigate(['/search-detail']);
+    setTimeout(() => {
+      this.router.navigate(['/search-detail']);
+    }, 500);
+   
   }
 
 }

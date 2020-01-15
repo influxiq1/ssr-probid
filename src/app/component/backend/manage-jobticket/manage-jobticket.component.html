@@ -216,25 +216,35 @@
                     </span>                   
                   </mat-list-item>
                   
-                    <mat-list-item *ngFor="let item of message_details">
+                    <mat-list-item *ngFor="let item of message_details" class="msgblockwrapper">
+                      <span class="msgblock">
+                        <span class="jobcommentboximg">
+                          <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
+                          <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
+                    <!-- <mat-list-item *ngFor="let item of contract_details">
                       <span class="jobcommentboximg">
                         <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
-                        <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
-
+                        <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">                       -->
+                      </span>
+                      <span class="jobcommentboxcontent" >
+                        <mat-card-title>{{item.Fullname}}</mat-card-title>
+                        <mat-card-content>{{item.message}}</mat-card-content>
+                        <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
+                      </span>  
                     </span>
-                    <span class="jobcommentboxcontent" >
-                      <mat-card-title>{{item.Fullname}}</mat-card-title>
-                      <mat-card-content>{{item.message}}</mat-card-content>
-                      <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
-                    </span>                   
+                    <span class="msgblock">
+                      <mat-list class="jobticketimglists">
+                        <mat-list-item>
+                          <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                        </mat-list-item>
+                      </mat-list>
+                    </span>                 
                   </mat-list-item>
+
+
                 </ng-container>
                 </mat-list>  
-                <mat-list class="jobticketimglists">
-                  <mat-list-item>
-                    <img class="defaultimg" src="assets/images/no-image-default.jpg">
-                  </mat-list-item>
-                </mat-list>
+                
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
                 <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()">
@@ -242,8 +252,7 @@
                 
                 <mat-form-field>
                   <span class="commentbox">
-                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">           
-                    <!-- <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message')">            -->
+                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
                   </span>
                   <mat-list class="jobticketimglists">
                     <mat-list-item>

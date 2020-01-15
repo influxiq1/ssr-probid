@@ -53,9 +53,10 @@ export class ResolveService implements Resolve<any> {
                     requestData.id = this.userid;
                 }
                 if (requestData.condition[d] == 'customer-dashboard') {
+                    console.log(requestData.condition[d])
                     requestData.id = this.userid;
                     requestData.salesrep = this.userCookies.salesrep;
-                    delete requestData.condition
+                    delete requestData.condition.castomer;
                 }
                 if (requestData.condition[d] == 'rsvp_id') {
                      requestData.rsvp_id = requestData.condition._id
