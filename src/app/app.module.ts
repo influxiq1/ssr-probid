@@ -132,7 +132,7 @@ import { BookAnAppointmentComponent } from './component/backend/book-an-appointm
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
 import { BasicInventorySearchBackendComponent } from './component/backend/inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
 import { MysalesrepComponent, RemoveSalesRepRSvpModalComponent } from './component/backend/mysalesrep/mysalesrep.component';
-// import { CommunicationComponent } from './component/backend/communication/communication.component';
+import { CommunicationComponent } from './component/backend/communication/communication.component';
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
 import { AdminManageCategoriesComponent, DialogModalOpenDialog } from './component/backend/admin-manage-categories/admin-manage-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
@@ -267,7 +267,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     AdvanceInventorySearchBackendComponent,
     BasicInventorySearchBackendComponent,
     MysalesrepComponent,
-    // CommunicationComponent,
+    CommunicationComponent,
     AdminManageCategoriesComponent,
     AddAdminCategoriesComponent,
     DialogModalOpenDialog,
