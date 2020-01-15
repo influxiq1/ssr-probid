@@ -75,8 +75,10 @@ export class BkHeaderComponent implements OnInit {
       this.cookieService.deleteAll();
 
     }, 1000);
-    this.router.navigateByUrl('/');
-    // console.log("logout");
+    if (this.cookieService.get('jwtToken') != '') {
+      this.router.navigateByUrl('/');
+    }
+    console.log("logout");
    }
 
    myAccount() {

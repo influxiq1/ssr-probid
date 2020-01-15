@@ -46,7 +46,10 @@ public user_full_name: any = '';
     setTimeout(() => {
       this.cookieService.deleteAll();
     }, 1000);
-    this.router.navigateByUrl('/');
+    if (this.cookieService.get('jwtToken') != '') {
+      this.router.navigateByUrl('/');
+    }
+    console.log("logout");
     // console.log("logout");
     // console.log(this.token);
   }
