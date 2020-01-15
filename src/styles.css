@@ -949,6 +949,31 @@ html input.disabled {
 }
 .whitebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0em !important;
+  background: transparent;
+}
+
+.cdk-overlay-pane .mat-menu-content {
+  padding: 0!important;
+  border-radius: 0!important;
+  background-color: #222;
+  color: #fff;
+}
+
+.cdk-overlay-pane .mat-menu-content .mat-menu-item {
+  height: auto;
+  border-radius: 0!important;
+  line-height: 32px;
+  border-bottom: 1px solid #f3f3f3;
+  color: #fff;
+}
+
+
+.cdk-overlay-pane .mat-menu-content .mat-menu-item:hover{  
+  color: #fb4a32 !important;
+}
+
+.cdk-overlay-pane .mat-menu-content .mat-menu-item:last-child{
+  border-bottom: 0px solid #f3f3f3 !important;
 }
 
 /******Dialog CSS********/

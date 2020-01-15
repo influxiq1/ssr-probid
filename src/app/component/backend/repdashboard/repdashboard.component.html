@@ -335,15 +335,33 @@
 
             <mat-card-content class="rep-dashboard-block5">
                 <span class="rep-dashboard-block5-inner">
-                    <h1 class="titleadmin">Social Advo</h1>
+                    <h1 class="titleadmin">Social Advo Banners <mat-button class="btnblue" [routerLink]="['/social-advo-admin']">View All</mat-button></h1>
                     <span class="rep-dashboard-block5-header">
-                        <span class="rep-dashboard-block5-header-bg">
-                            <span></span>
-                            <span class="btnwrappercls">
-                                <button mat-button class="btnblue" [routerLink]="['/training-report']">View All</button>
-                            </span>
+                       
+                        <span class="block1socialadvo">
+                            <h2>facebook Banner</h2>
+                            <mat-list role="list" class="flexbox4column">      
+                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
+                                <img src="../../../../assets/images/{{item}}">
+                                <span class="postblock">
+                                  <a class="btnshare btnsharecls txtwhite" target="_blank"  (click)="share(item)"><span>Post</span></a>
+                                </span>
+                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>                          
+                                </p>
+                              </mat-list-item>
+                            </mat-list>
+                            <h2>linkedin Banner</h2>
+                            <mat-list role="list" class="flexbox4column">
+                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
+                                <img src="../../../../assets/images/{{item}}">
+                                <span class="postblock">
+                                  <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
+                                </span>
+                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p>
+                              </mat-list-item>
+                            </mat-list>
                         </span>
-                        <mat-tab-group class="tabwrapper">
+                        <!-- <mat-tab-group class="tabwrapper">
 
                             <mat-tab>
                                 <ng-template mat-tab-label>
@@ -517,9 +535,6 @@
                             <mat-tab>
                                 <ng-template mat-tab-label>
                                     <h2>Set Frequency</h2>
-                                    <!-- <span class="btnwrappercls">
-                                                <button mat-button class="btnblue" [routerLink]="['/commission-report']">View All</button>
-                                            </span> -->
                                 </ng-template>
                                 <ng-template matTabContent>
                                     <mat-list class="flexbox5column">
@@ -691,9 +706,6 @@
                             <mat-tab>
                                 <ng-template mat-tab-label>
                                     <h2>Create my own Inventory</h2>
-                                    <!-- <span class="btnwrappercls">
-                                                <button mat-button class="btnblue" [routerLink]="['/commission-report']">View All</button>
-                                            </span> -->
                                 </ng-template>
                                 <ng-template matTabContent>
                                     <mat-list class="flexbox5column">
@@ -860,7 +872,7 @@
                                     </mat-list>
                                 </ng-template>
                             </mat-tab>
-                        </mat-tab-group>
+                        </mat-tab-group> -->
                     </span>
                 </span>
             </mat-card-content>
