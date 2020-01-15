@@ -43,15 +43,20 @@ public user_full_name: any = '';
   }
 
   logOut() {
-    setTimeout(() => {
-      this.cookieService.deleteAll();
-    }, 1000);
-    if (this.cookieService.get('jwtToken') != '') {
-      this.router.navigateByUrl('/');
-    }
-    console.log("logout");
+    this.cookieService.deleteAll('/');
+      setTimeout(()=>{
+          console.log(this.cookieService.get('userid'));
+          this.router.navigate(['/']);
+      },500);
+    // setTimeout(() => {
+    //   this.cookieService.deleteAll();
+    // }, 1000);
+    // if (this.cookieService.get('jwtToken') != '') {
+    //   this.router.navigateByUrl('/');
+    // }
     // console.log("logout");
-    // console.log(this.token);
+    // // console.log("logout");
+    // // console.log(this.token);
   }
 
   openDialog(): void {

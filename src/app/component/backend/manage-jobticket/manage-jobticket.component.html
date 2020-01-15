@@ -13,8 +13,8 @@
       <span class="mainwrappercontent">
         <span class="searchblock rsvpsearch">
           <span class="searchblockwrapper">
-            <span>
-              <h2>Rep Simon Santos [ Ticket ID : #0001222 ] </h2>
+            <span *ngIf="job_ticket!= undefined && job_ticket!= null && job_ticket!= ''">
+              <h2>Rep Simon Santos [ Ticket ID : #{{job_ticket._id}} ]</h2>
             </span>
             <span class="statusjobticket">
               <mat-label>Status :</mat-label>
