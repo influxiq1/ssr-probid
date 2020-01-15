@@ -851,8 +851,13 @@ html input.disabled {
 
 .jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
-.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 10px !important; align-items: flex-start; display: flex; flex-wrap: wrap;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 10px !important; align-items: flex-start; display: flex; flex-wrap: wrap;flex-direction: column;}
 .jobcommentbox .jobticketimglists .mat-list-item .mat-list-item-content{padding: 0 !important;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content .toppart.jobcommentbox{
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 5px !important;
   background: #dde2e5;
