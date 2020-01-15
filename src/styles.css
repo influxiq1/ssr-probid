@@ -947,6 +947,9 @@ html input.disabled {
   height: 50px;
   line-height: 25px;
 }
+.whitebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
+  padding: 0em !important;
+}
 
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
