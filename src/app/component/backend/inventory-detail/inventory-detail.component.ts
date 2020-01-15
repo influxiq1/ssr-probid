@@ -82,6 +82,8 @@ export class InventoryDetailComponent implements OnInit {
   public errorMsg: any = 'Please Choose customer';
   public carData: any;
   public addedCar: any = '';
+  public searchRecord:any;
+
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
     //  public catItemByObservable: BasicInventorySearchBackendComponent,
       public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService) {
@@ -101,11 +103,11 @@ export class InventoryDetailComponent implements OnInit {
     if(this.router.url == '/search-detail' ){
     this.detailService.currentData.subscribe(res =>{
       console.log('>>>>',res)
-      let result:any
-      result=res
-      console.log('ressssssss>>>>',result)
+      // let result:any
+      this.searchRecord=res
+      console.log('ressssssss>>>>',this.searchRecord)
 
-   this.data = result.carData;
+     this.data = this.searchRecord.carData;
     })
 
     }
