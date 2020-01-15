@@ -159,11 +159,12 @@
                   <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                 </mat-form-field>
                 <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
-                <p>{{job_ticket.subject}}</p>
+                <p>{{job_ticket.subject}}</p> 
+                <button mat-raised-button type="button" class="btnblue" (click)="showMessage()">Reply</button>
               </ng-container>
               
               </span>
-              <span class="whitebg">
+              <span *ngIf="status !=1" class="whitebg">
                 <span class="sectionheader">Description</span>
                 <span class="graybg">
                   <mat-form-field class="example-full-width" *ngIf="status != 1">
@@ -197,12 +198,23 @@
                 </span>
               </span>
               
-            <!-- </form> -->
+            </form>
 
               <span class="whitebg jobcommentbox">
                 <mat-list>
 
                   <ng-container *ngIf="status == 1 ">
+                    <!-- <mat-list-item>
+                      <span class="jobcommentboximg">
+                        <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
+                        <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
+                    </span>
+                    <span class="jobcommentboxcontent" >
+                      <mat-card-title>{{item.Fullname}}</mat-card-title>
+                      <mat-card-content>{{item.message}}</mat-card-content>
+                      <h6 style="text-align: left;"><strong>Date: </strong> {{item.date}}</h6>
+                    </span>                   
+                  </mat-list-item> -->
                   
                     <mat-list-item *ngFor="let item of message_details">
                       <span class="jobcommentboximg">
@@ -227,13 +239,13 @@
                   </mat-list-item>
                 </mat-list>
               </span>
-              <!-- <form  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
+              <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()">
               <span class="whitebg">   
                 
                 <mat-form-field>
                   <span class="commentbox">
-                    <!-- <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message', 'jobTicketMsgForm')">            -->
-                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message')">           
+                    <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">           
+                    <!-- <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputUntouched('message')">            -->
                   </span>
                   <mat-list class="jobticketimglists">
                     <mat-list-item>
