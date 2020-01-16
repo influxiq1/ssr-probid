@@ -365,3 +365,68 @@
   .topcontactinfoblock .mat-list{display: flex;justify-content: center;align-items: center;padding-top: 0;flex-wrap: wrap}
   .carousalinfo h1 {font-size: 32px!important;}
 }
+
+
+    /*----------------amitava 15-01-2020-------------*/
+
+@media only screen and (max-width:640px) {
+  .headertopwrapper.mat-card-content{ display: block;}
+  .headertopwrapper.mat-card-content .langblock{display: block;
+    margin: 0 auto;
+    width: 240px;}
+
+    .headertopwrapper.mat-card-content .infoblock{display: block;
+      margin: 0 auto;
+      width: 370px;     padding-bottom: 16px;}
+}
+
+
+
+
+
+@media only screen and (max-width:420px) {
+  .headertopwrapper.mat-card-content .infoblock{ width: 100%;}
+  .infoblock .mat-list-base {
+    flex-wrap: inherit;     text-align: center;
+}
+
+.infoblock  .mat-list .mat-list-item  {
+  -webkit-box-flex: 1;
+  flex: inherit;
+  width: 100%;
+  color: #a7a6a6;
+  text-transform: uppercase;
+  display: block;
+  float: none;
+  text-align: center;
+}
+
+.infoblock .mat-list-base {
+  display: block;
+  padding-top: 0;
+  height: auto;
+}
+
+.infoblock .mat-list-item-content {
+ padding: 0 5px;
+  display: inherit!important;
+}
+
+
+.infoblock .mat-list-item{ display: inline-block!important;
+  width: auto!important;  border: none;}
+
+  .infoblock .mat-list .mat-list-item span{border: none;}
+
+  .infoblock .mat-list-item:nth-of-type(1){display: block!important;
+    width: 220px!important;
+    padding-bottom: 15px;
+    margin: 0 auto;}
+
+    .infoblock .mat-list-item:nth-of-type(1).mat-list-item-content{ display: inline-block;}
+
+}
+
+ 
+
+    /*-------------end---amitava 09-01-2020-------------*/

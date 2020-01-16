@@ -218,7 +218,7 @@ flex: 1 1 100%;
   display: inline-block;
   width: 96%;
   outline: 0;
-  padding: 10px 10px !important;
+  padding: 10px 2% !important;
   background: #fff;
   border: 1px solid #cfcccc;
 }
@@ -227,7 +227,7 @@ flex: 1 1 100%;
 display: inline-block;
 width: 96%;
 outline: 0;
-padding: 10px 10px !important;
+padding: 10px 2% !important;
 background: #fff;
 border: 1px solid #cfcccc;
 }
@@ -236,7 +236,7 @@ border: 1px solid #cfcccc;
 display: inline-block;
 width: 96%;
 outline: 0;
-padding: 10px 10px !important;
+padding: 10px 2% !important;
 background: #fff;
 border: 1px solid #cfcccc;
 overflow-y: scroll;
@@ -469,4 +469,52 @@ font-family: "HelveticaBold";
 text-transform: uppercase !important;
 text-shadow: -1px -1px 1px rgba(255,255,255,.1), 1px 1px 1px rgba(0,0,0,.5);
 background-color: transparent !important;
+}
+
+
+@media only screen and (max-width: 667px) {
+  .inventorysearch .example-container h4 { display: block;}
+
+  .inventorysearch  .example-container  > .section1  span { display: block;}
+
+  .inventorysearch .example-container .mat-select {
+   margin-bottom: 15px;
+  }
+  
+  .inventorysearch .example-container input {
+    margin-bottom: 15px;
+  }
+  
+  .inventorysearch .example-container .textarea {
+    margin-bottom: 15px;
+  }
+
+  .inventorysearch  .example-container  > .section2 { display: block;}
+
+}
+
+@media only screen and (max-width: 440px) {
+
+  .inventorysearch  .example-container  .section2 span  span { display: block;}
+
+  .inventorysearch  .example-container  .section2  .doublecolumn  h4 {display: block;}
+  .inventorysearch  .example-container  .section2  .column  h4  {display: block;}
+
+  .inventorysearch  .example-container  .textarea { height: auto;}
+
+  .inventorysearch  .example-container  > .section2  > span  {
+    box-sizing: border-box;
+    width: auto;
+    margin: 0;
+    margin-top: 0px;
+}
+}
+
+@media only screen and (max-width: 420px) {
+  .example-container .mat-form-field {
+    width: 100%!important;
+}
+.inventorysearch .example-container .mat-form-field-appearance-legacy .mat-form-field-infix{
+  width: 96%!important;
+}
 }

@@ -125,6 +125,26 @@
     .righttxt p {font-size: 34px; padding-right: 35px;}
   }
 
+  @media only screen and (max-width: 1600px) {
+  .carousalinfo {
+    width: 480px; right: 8%;
+}
+
+ 
+  }
+
+  @media only screen and (max-width: 1570px) {
+    .carousalinfo {
+      width: 400px; right: 8%;     top: 45%;
+  }
+
+  .carousalinfo  h1 { font-size: 44px!important;}
+  .righttxt  {
+    bottom: -75%;
+}
+   
+    }
+
 
   @media only screen and (max-width: 1550px) {
     .homebanner .carousel-slide .carousel-slide-content .d-block{display: block; margin-left: -17%;}
@@ -132,7 +152,70 @@
     .homebanner .carousel-slide{height:100%!important;}
   }
 
+  
+  @media only screen and (max-width: 1480px) {
+    .carousalinfo {
+      width: 300px; right: 8%;     top: 45%;
+  }
+
+  .carousalinfo  h1 { font-size: 40px!important;}
+  .righttxt  {
+    bottom: -65%;
+}
+.righttxt :after { height: 44px;
+  display: block;
+}
+   
+    }
+
+
+    @media only screen and (max-width: 1380px) {
+      .carousalinfo {
+        width: 240px; right: 8%;     top: 45%;
+    }
+  
+    .carousalinfo  h1 { font-size: 26px!important;}
+    .righttxt  {
+      bottom: -92%;
+  }
+  .righttxt :after { height: 44px;
+    display: block;     background-size: 132px;
+  }
+
+  .carousalinfo  p { width: 100%; font-size: 17px;}
+
+  .righttxt p  {
+    font-size: 24px; 
+}
+     
+      }
+
+      @media only screen and (max-width: 1310px) {
+        .carousalinfo {  right: 8%;     top: 0%; transform: translateY(0%);  }
+      }
+
+      
+      @media only screen and (max-width: 1260px) {
+
+        .carousalinfo {
+          width: 580px;  }
+
+          .righttxt{
+            bottom: -122%;
+            width: 150px;
+        }
+      }
+
+
+    
+
 @media only screen and (max-width: 1199px) {
+
+
+  .righttxt{ width: 100%;}
+
+  .righttxt p{ padding-right: 0px;}
+
     .homebanner .carousalinfo p {margin: 0 auto;}
     .homebanner .righttxt {position: inherit; text-align: center; transform: rotate(0deg); -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); bottom: 0; right: 0;}
     .homebanner .carousel-slide {width: 100% !important; height: 100% !important; text-align: center; position:inherit !important; background-color:#03080c;}
@@ -169,13 +252,13 @@
       position: inherit;
       right: 0;
       top: 0;
-      width: 100%;
+      width: auto;
       margin: 0 auto;
       height: auto;
       -webkit-transform: inherit;
       transform: inherit;
       background-color: #333;
-      padding: 20px 0px 50px;
+      padding: 20px 15px;
       text-align: center;
     }
     .carousalinfo h1{
