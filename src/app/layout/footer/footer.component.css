@@ -196,6 +196,8 @@
     /* .footertopwrapper .mat-nav-list {margin: 0;width: 100%;} */
 .footertopwrapper .mat-nav-list .mat-list-item {font-size: 13px;}
 .footerwrapper .mainwrappercontent .mat-card-content {margin-bottom: 0px; justify-content: center;display: flex; flex-wrap: wrap;text-align: center;}
+
+.footertopwrapper  .mat-nav-list span.menuwrapper span.bdr:nth-of-type(1){ background: none!important; padding: 0px;}
 }
 
 
