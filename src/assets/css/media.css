@@ -1221,6 +1221,8 @@
   height: auto;
 }
 }
+
+
 @media only screen and (max-width:480px) {
 .formblock_bottomtextnew h4 span{ line-height: inherit;}
 
@@ -1258,8 +1260,12 @@
 
         .smartbidtop h3 {
           font-size: 36px;}
+
+          .innerpagebanner.mat-card h1{ width: 100%;}
 }
  
+
+
 
     /*-------------end---amitava 09-01-2020-------------*/
 

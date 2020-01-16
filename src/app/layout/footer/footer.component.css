@@ -199,6 +199,10 @@
 }
 
 
+@media (max-width: 960px) {
+.newsletterwrapper{ margin-bottom: 25px;}
+}
+
 @media (max-width: 909px) {
     .newsletterwrapper{
         margin-bottom: 25px; width: auto!important;
