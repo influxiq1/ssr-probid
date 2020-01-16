@@ -1000,6 +1000,11 @@ html input.disabled {
   width: auto !important;
 }
 
+.salesrepadminblock3 .flexbox3column .rsvplistsingle .mat-list-item-content{
+  width: 100%;
+}
+
+
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
 .modalttitlewrapper{background-color:#22282c; display: block;  padding: 50px; height: 100%;    border-bottom-left-radius: 15px;
