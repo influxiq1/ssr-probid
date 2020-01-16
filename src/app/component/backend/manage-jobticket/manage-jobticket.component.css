@@ -22,7 +22,7 @@
 
 .adm_dashboard_block1_left{display: block; border-radius: 10px;}
 .adm_dashboard_block1_right{
-  width: 71%;
+  flex: 1 1 auto;
   display: block;
   margin-left: 1%;
   background-color: #dde2e5;
@@ -542,7 +542,8 @@
       }
 
       .commentboxscroll{
-        height: 260px;
+        height: auto;
+        max-height: 260px;
         overflow: auto;
       }
 
@@ -555,7 +556,7 @@
         overflow: hidden;
         border: 1px solid #a8d5e2;
         border-radius: 5px;
-        margin-right: 5px;
+        margin-right: 0;
         text-align: center;
       }
 

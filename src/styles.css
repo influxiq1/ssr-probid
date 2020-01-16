@@ -851,7 +851,7 @@ html input.disabled {
 
 .jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content, .jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item{height: auto !important;}
-.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 10px !important; align-items: flex-start; display: flex; flex-wrap: wrap;flex-direction: column;}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 10px !important; align-items: flex-start; display: flex; flex-wrap: wrap;flex-direction: column; width: 100%;}
 .jobcommentbox .jobticketimglists .mat-list-item .mat-list-item-content{padding: 0 !important;}
 .jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content .toppart.jobcommentbox{
   display: flex;
@@ -952,6 +952,8 @@ html input.disabled {
   box-sizing: border-box;
   height: 50px;
   line-height: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 .whitebg .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix {
   padding: 0em !important;
@@ -997,6 +999,11 @@ html input.disabled {
 .generalcls .salesrepadmininfocontent .mat-card-header-text{
   width: auto !important;
 }
+
+.salesrepadminblock3 .flexbox3column .rsvplistsingle .mat-list-item-content{
+  width: 100%;
+}
+
 
 /******Dialog CSS********/
 /* .mat-dialog-content {padding: 0 !important;}
@@ -1952,16 +1959,23 @@ box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
 .jobticketimglists .file_upload .uploadfilecontainer{
   margin: 0px auto !important;
   height: auto !important;
-  border: 2px dashed #222222;
+  border: 1px dashed #dde2e5;
   border-radius: 0;
 }
-.jobticketimglists .file_upload .uploadfilecontainer .files-view{
+.jobticketimglists .file_upload .files-view{
   margin: 0 !important;
+  width: 100% !important;
+}
+
+.jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper{
+  padding: 10px;
+  width: 100%;
 }
 .jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper h2{
   color: #333;
   font-size: 18px !important;
   line-height: normal !important;
+  margin: 0;
 }
 .jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper p{
   color: #333;
@@ -2006,7 +2020,7 @@ box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
   position: relative;
   margin: 0 auto 20px;
   border: 2px solid #f3f3f3;
-  padding: 5px;
+  padding: 10px;
   overflow: hidden;
 }
 
