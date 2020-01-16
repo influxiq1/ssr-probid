@@ -22,7 +22,7 @@
 
 .adm_dashboard_block1_left{display: block; border-radius: 10px;}
 .adm_dashboard_block1_right{
-  width: 71%;
+  flex: 1 1 auto;
   display: block;
   margin-left: 1%;
   background-color: #dde2e5;
