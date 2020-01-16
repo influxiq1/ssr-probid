@@ -33,6 +33,7 @@ public user_full_name: any = '';
     //console.log(this.router.url)
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    console.log(this.userCookies)
     }
    }
 
@@ -45,7 +46,10 @@ public user_full_name: any = '';
     setTimeout(() => {
       this.cookieService.deleteAll();
     }, 1000);
-    this.router.navigateByUrl('/');
+    if (this.cookieService.get('jwtToken') != '') {
+      this.router.navigateByUrl('/');
+    }
+    console.log("logout");
     // console.log("logout");
     // console.log(this.token);
   }

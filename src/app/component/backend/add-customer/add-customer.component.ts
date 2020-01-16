@@ -159,7 +159,7 @@ public btn_text:any="Submit"
 
         /**Api service for insert form */
 
-        var data = { "source": "user", "data": this.addcustomerForm.value }
+        var data = { source: "user", data: this.addcustomerForm.value }
         this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
           // console.log(data);
           if (data.status == 'success' && data.update==1) {

@@ -25,17 +25,18 @@
               </mat-card-content>
               <mat-card-content class="bred_cram_wrapper">
                   <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                  <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/rsvp-admin'"> RSVP</a>
+                  <a mat-list-item routerLinkActive="active activebread" 
+                  [routerLink]="'/mysalesrep'"> salesrep</a>
               </mat-card-content>   
               <mat-card-content class="salesrepadminwrapper">
                 <span class="salesrepadminblock1">
                   <h2 class="headercls">Salesrep Information</h2>
-                  <span class="salesrepadminblock1info">
+                  <span class="salesrepadminblock1info" *ngFor="let rep of repDetails">
                     <span class="salesrepadmininfoimg">
                       <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
                     </span>
                     <span class="salesrepadmininfocontent">
-                      <mat-card-header>Ipsum is simply</mat-card-header>
+                      <mat-card-header>{{rep.username}}</mat-card-header>
                       <mat-list class="salesrepadmininfocontentlist">
                         <mat-list-item>
                           <span class="iconbg">
@@ -43,7 +44,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>Phone Number :</label>
-                            <p>1234 567 890</p>
+                            <p>{{rep.phone}}</p>
                           </span>
                         </mat-list-item>
                         <mat-list-item>
@@ -52,7 +53,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>Email Address :</label>
-                            <p>Lorem Ipsum@gmail.com</p>
+                            <p>{{rep.email}}</p>
                           </span>
                         </mat-list-item>
                         <mat-list-item>
@@ -61,7 +62,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>Address :</label>
-                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the1500s, when an unknown printer took a galley of type and scrambled it tomake a type specimen book.</p>
+                            <p>{{rep.address}}</p>
                           </span>
                         </mat-list-item>
                         <mat-list-item>
@@ -70,7 +71,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>City :</label>
-                            <p>Simply dummy text</p>
+                            <p>{{rep.city}}</p>
                           </span>
                         </mat-list-item>
                         <mat-list-item>
@@ -79,7 +80,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>State :</label>
-                            <p>Lorem Ipsum is simply dummy text</p>
+                            <p>{{rep.state}}</p>
                           </span>
                         </mat-list-item>
                         <mat-list-item>
@@ -88,7 +89,7 @@
                           </span>
                           <span class="iconcontent">
                             <label>Zip Code :</label>
-                            <p>1234 567 890</p>
+                            <p>{{rep.zip}}</p>
                           </span>
                         </mat-list-item>
                       </mat-list>
@@ -165,15 +166,17 @@
                 </span>
                 <span class="salesrepadminblock3">
                   <h1 class="titleadmin">Others Customer <mat-button class="btnblue" [routerLink]="['/customer']">view all</mat-button></h1>
-                  <mat-list role="list" class="flexbox3column">
+                  <mat-list role="list" class="flexbox3column" 
+                  *ngFor="let customer of customerDetails">
 
                     <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
+                     <span class="salesrepadminblock1info"  
+                      >
                         <span class="salesrepadmininfoimg">
                           <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
                         </span>
                         <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
+                          <mat-card-header>{{customer.firstname +" "+ customer.lastname }}</mat-card-header>
                           <mat-list class="salesrepadmininfocontentlist">
                             <mat-list-item>
                               <span class="iconbg">
@@ -181,7 +184,7 @@
                               </span>
                               <span class="iconcontent">
                                 <label>Phone Number :</label>
-                                <p>1234 567 890</p>
+                                <p>{{customer.phone}}</p>
                               </span>
                             </mat-list-item>
                             <mat-list-item>
@@ -190,7 +193,7 @@
                               </span>
                               <span class="iconcontent">
                                 <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
+                                <p>{{customer.email}}</p>
                               </span>
                             </mat-list-item>
                             <mat-list-item>
@@ -199,7 +202,7 @@
                               </span>
                               <span class="iconcontent">
                                 <label>City :</label>
-                                <p>Simply dummy text</p>
+                                <p>{{customer.city}}</p>
                               </span>
                             </mat-list-item>
                             <mat-list-item>
@@ -208,56 +211,7 @@
                               </span>
                               <span class="iconcontent">
                                 <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                          </mat-list>
-                        </span>
-                      </span>
-                    </mat-list-item>
-
-                    <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
-                        </span>
-                        <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
-                          <mat-list class="salesrepadmininfocontentlist">
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon1.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Phone Number :</label>
-                                <p>1234 567 890</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon2.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon4.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>City :</label>
-                                <p>Simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon5.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
+                                <p>{{customer.state}}</p>
                               </span>
                             </mat-list-item>
                           </mat-list>
@@ -265,201 +219,7 @@
                       </span>
                     </mat-list-item>
 
-                    <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
-                        </span>
-                        <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
-                          <mat-list class="salesrepadmininfocontentlist">
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon1.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Phone Number :</label>
-                                <p>1234 567 890</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon2.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon4.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>City :</label>
-                                <p>Simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon5.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                          </mat-list>
-                        </span>
-                      </span>
-                    </mat-list-item>
-                    
-                    <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
-                        </span>
-                        <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
-                          <mat-list class="salesrepadmininfocontentlist">
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon1.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Phone Number :</label>
-                                <p>1234 567 890</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon2.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon4.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>City :</label>
-                                <p>Simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon5.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                          </mat-list>
-                        </span>
-                      </span>
-                    </mat-list-item>
 
-                    <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
-                        </span>
-                        <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
-                          <mat-list class="salesrepadmininfocontentlist">
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon1.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Phone Number :</label>
-                                <p>1234 567 890</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon2.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon4.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>City :</label>
-                                <p>Simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon5.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                          </mat-list>
-                        </span>
-                      </span>
-                    </mat-list-item>
-
-                    <mat-list-item class="rsvplistsingle">
-                      <span class="salesrepadminblock1info">
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
-                        </span>
-                        <span class="salesrepadmininfocontent">
-                          <mat-card-header>Ipsum is simply</mat-card-header>
-                          <mat-list class="salesrepadmininfocontentlist">
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon1.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Phone Number :</label>
-                                <p>1234 567 890</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon2.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>Email Address :</label>
-                                <p>Lorem Ipsum@gmail.com</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon4.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>City :</label>
-                                <p>Simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                            <mat-list-item>
-                              <span class="iconbg">
-                                <img src="../../../../assets/images/icon5.png">
-                              </span>
-                              <span class="iconcontent">
-                                <label>State :</label>
-                                <p>Lorem Ipsum is simply dummy text</p>
-                              </span>
-                            </mat-list-item>
-                          </mat-list>
-                        </span>
-                      </span>
-                    </mat-list-item>
 
                   </mat-list>
 

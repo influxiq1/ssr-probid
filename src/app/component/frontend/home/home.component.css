@@ -133,6 +133,7 @@
   }
 
 @media only screen and (max-width: 1199px) {
+    .homebanner .carousalinfo p {margin: 0 auto;}
     .homebanner .righttxt {position: inherit; text-align: center; transform: rotate(0deg); -webkit-transform: rotate(0deg); -moz-transform: rotate(0deg); -o-transform: rotate(0deg); bottom: 0; right: 0;}
     .homebanner .carousel-slide {width: 100% !important; height: 100% !important; text-align: center; position:inherit !important; background-color:#03080c;}
     .homebanner .carousel-slide-content {position: inherit !important;}
@@ -165,16 +166,17 @@
     }
         
     .carousalinfo{
-        position: inherit;
-        right: 0;
-        top: 0;
-        width: 100%;
-        margin: 0 auto;
-        height: auto;
-        transform: inherit;
-        background-color: #333;
-        padding: 20px;
-        text-align: center;
+      position: inherit;
+      right: 0;
+      top: 0;
+      width: 100%;
+      margin: 0 auto;
+      height: auto;
+      -webkit-transform: inherit;
+      transform: inherit;
+      background-color: #333;
+      padding: 20px 0px 50px;
+      text-align: center;
     }
     .carousalinfo h1{
         margin-top: 0;
@@ -200,6 +202,8 @@
         transform: translateX(-50%);
         outline: 0;
     }
+
+    
 }
 
 @media only screen and (max-width: 991px) {

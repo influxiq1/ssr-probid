@@ -22,7 +22,7 @@ export class CustomerListComponent implements OnInit {
 
   pendingmodelapplicationarray: any = [];
   pendingmodelapplicationarray_skip: any = ['_id','type','city','state','password','zip','salesrep_id','created_at','id','salesrep','updated_at'];
-  pendingmodelapplicationarray_detail_skip: any = ['_id'];
+  pendingmodelapplicationarray_detail_skip: any = ['_id','password'];
   updateendpoint = 'addorupdatedata';
   deleteendpoint = 'deletesingledata';
   tablename = 'user';

@@ -24,47 +24,31 @@ export class InventoryDetailComponent implements OnInit {
   carouselOptions = {
     margin: 5,
     nav: true,
-    loop: true,
-    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    loop: false,
+    rewind: true,
+    autoplayTimeout: 6000,
+    autoplay: false,
+    autoplayHoverPause: true,
+    center: true,
     responsiveClass: true,
     dots: false,
+    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
         items: 1,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       600: {
         items: 2,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       991: {
         items: 4,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       992: {
         items: 4,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
-        dot: false,
       }
     }
   }
@@ -147,17 +131,29 @@ export class InventoryDetailComponent implements OnInit {
 
     // rsvp data 
     if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
-      let data: any = {
-        source: 'send_rsvp_view',
-        condition: {
-          added_by_object: this.user_id
+      let data: any ;
+      if(this.user_details.type == 'salesrep'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_by_object: this.user_id
+          }
         }
       }
+      if(this.user_details.type == 'customer'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_for_object: this.user_id
+          }
+        }
+      }
+     
       this.apiService.CustomRequest(data,'datalist').subscribe((res: any) => {
 
         this.saveList = res.res;
 
-        // console.log(this.saveList)
+        console.log('>>>>',this.saveList)
 
 
 
