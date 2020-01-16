@@ -33,7 +33,13 @@
                   <h2 class="headercls">Salesrep Information</h2>
                   <span class="salesrepadminblock1info" *ngFor="let rep of repDetails">
                     <span class="salesrepadmininfoimg">
-                      <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
+                      <img  *ngIf="rep.profile_picture !='' && rep.profile_picture !=null"
+                [src]="rep.profile_picture[0].basepath + rep.profile_picture[0].fileservername" 
+                    style="width: 100%; display: block; margin: 0; padding: 0;">
+
+                    <img  *ngIf="rep.profile_picture =='' || rep.profile_picture ==null"
+                    src="../../../../assets/images/no-image-default.jpg"
+                        style="width: 100%; display: block; margin: 0; padding: 0;">
                     </span>
                     <span class="salesrepadmininfocontent">
                       <mat-card-header>{{rep.username}}</mat-card-header>
@@ -166,14 +172,21 @@
                 </span>
                 <span class="salesrepadminblock3">
                   <h1 class="titleadmin">Others Customer <mat-button class="btnblue" [routerLink]="['/customer']">view all</mat-button></h1>
-                  <mat-list role="list" class="flexbox3column" 
-                  *ngFor="let customer of customerDetails">
+                  <mat-list role="list" class="flexbox3column">
 
-                    <mat-list-item class="rsvplistsingle">
+                    <mat-list-item class="rsvplistsingle" 
+                    *ngFor="let customer of customerDetails | slice:0:indexLoad">
                      <span class="salesrepadminblock1info"  
                       >
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
+                 <span class="salesrepadmininfoimg" >
+                 <img  *ngIf="customer.profile_picture !='' && customer.profile_picture !=null"
+                [src]="customer.profile_picture[0].basepath + customer.profile_picture[0].fileservername" 
+                    style="width: 100%; display: block; margin: 0; padding: 0;">
+
+                    <img  *ngIf="customer.profile_picture =='' || customer.profile_picture ==null"
+                    src="../../../../assets/images/no-image-default.jpg"
+                        style="width: 100%; display: block; margin: 0; padding: 0;">
+
                         </span>
                         <span class="salesrepadmininfocontent">
                           <mat-card-header>{{customer.firstname +" "+ customer.lastname }}</mat-card-header>
@@ -224,7 +237,7 @@
                   </mat-list>
 
                   <div>
-                    <button mat-flat-button class="btnblue" type="button" >Load More</button>
+                    <button mat-flat-button class="btnblue" type="button" *ngIf="customerDetails !=null && indexLoad < customerDetails.length" (click)="loadMore() " >Load More</button>
                   </div>
                   
                 </span>

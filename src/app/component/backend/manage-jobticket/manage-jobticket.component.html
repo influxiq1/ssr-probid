@@ -151,14 +151,16 @@
             </mat-list>
           </span>
           <span class="adm_dashboard_block1_right">
-              <form [formGroup]="jobTicketForm" (ngSubmit)="jobTicketFormSubmit()">
+              <form [formGroup]="jobTicketForm" >
                 <span class="bluebg">
                   <!-- <span class="sectionheader">Car RSVP Info</span> -->
                   <mat-form-field *ngIf="status != 1">
                     <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                   </mat-form-field>
                   <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
-                    <p>{{job_ticket.subject}}</p> 
+                    <div class="subjectcls">
+                      <p>{{job_ticket.subject}}</p> 
+                    </div>
                   <!-- <button mat-raised-button type="button" class="btnblue" (click)="showMessage()">Reply</button> -->
                   </ng-container>                
                 </span>
@@ -180,8 +182,8 @@
                       </mat-list-item>
                     </ng-container>
                     <ng-container *ngIf="job_ticket =='' || job_ticket ==undefined || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == undefined">
-                    <mat-list-item>
-                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                    <mat-list-item *ngIf="status != 0">
+                      <!-- <img  class="defaultimg" src="assets/images/no-image-default.jpg"> -->
                     </mat-list-item>
                   </ng-container>
                   </mat-list>
@@ -189,7 +191,8 @@
                     <strong>Added Date:</strong> 10-01-2019
                   </span>
                   <span class="statusjobticket">
-                    <button mat-raised-button type="submit" class="btnblue">Submit</button>
+                    <button mat-raised-button type="button" class="btnblue"
+                     (click)="jobTicketFormSubmit()">Submit</button>
                     <!-- <button mat-raised-button type="submit" class="btnblue">Reply</button> -->
                   </span>
                 </span>              
@@ -201,7 +204,8 @@
                         <span class="toppart jobcommentbox">
                           <span class="jobcommentboximg">
                             <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="../../../../assets/images/default_car_img.jpeg">
-                            <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''" [attr.src]="job_ticket.profile_picture">
+                            <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''"
+                             [attr.src]="job_ticket.profile_picture">
                           </span>
                           <span class="jobcommentboxcontent" >
                             <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
@@ -251,7 +255,7 @@
                 </mat-list> 
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
-              <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()">
+              <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
                 <span class="whitebg"> 
                   <mat-form-field>
                     <span class="commentbox">

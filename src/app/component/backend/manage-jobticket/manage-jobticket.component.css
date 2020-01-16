@@ -22,7 +22,7 @@
 
 .adm_dashboard_block1_left{display: block; border-radius: 10px;}
 .adm_dashboard_block1_right{
-  width: 71%;
+  flex: 1 1 auto;
   display: block;
   margin-left: 1%;
   background-color: #dde2e5;
@@ -350,9 +350,18 @@
         padding: 10px;
         display: block;
     }
+    .bluebg .subjectcls{
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      -webkit-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+      -moz-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+      box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+    }
 
     .bluebg p{
         color:#fff;
+        font-size: 20px;
+        text-transform: uppercase;
     }
 
     .whitebg .sectionheader{
@@ -542,6 +551,32 @@
       }
 
       .commentboxscroll{
-        height: 260px;
+        height: auto;
+        max-height: 260px;
         overflow: auto;
       }
+
+
+      .jobticketimglists .file_upload{
+        width: 100%;
+        height: auto !important;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid #a8d5e2;
+        border-radius: 5px;
+        margin-right: 0;
+        text-align: center;
+      }
+
+      .jobticketimglists .file_upload .button-group {
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: center;
+        height: auto;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 0px;
+        text-align: center;
+    }
+
