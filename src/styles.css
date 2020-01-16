@@ -1949,6 +1949,26 @@ box-shadow:         0px 2px 1px rgba(50, 50, 50, 0.75);
 }
 
 
+.jobticketimglists .file_upload .uploadfilecontainer{
+  margin: 0px auto !important;
+  height: auto !important;
+  border: 2px dashed #222222;
+  border-radius: 0;
+}
+.jobticketimglists .file_upload .uploadfilecontainer .files-view{
+  margin: 0 !important;
+}
+.jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper h2{
+  color: #333;
+  font-size: 18px !important;
+  line-height: normal !important;
+}
+.jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper p{
+  color: #333;
+  font-size: 14px !important;
+  line-height: normal !important;
+}
+
 
 @media(max-width:600px) {
   .success-modal {
