@@ -204,7 +204,7 @@
                         <span class="toppart jobcommentbox">
                           <span class="jobcommentboximg">
                             <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="../../../../assets/images/default_car_img.jpeg">
-                            <img class="defaultimg" *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''"
+                            <img class="defaultimg"  *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''"
                              [attr.src]="job_ticket.profile_picture">
                           </span>
                           <span class="jobcommentboxcontent" >
@@ -216,8 +216,10 @@
                           <span class="msgblock">
                             <mat-list class="jobticketimglists">
                               <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                                <img *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
-                                <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" [src]="item">
+                                <img (click)="viewImage(item)" *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" 
+                                [src]="item">
+                                <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg"
+                                 [src]="item">
                               </mat-list-item>
                             </mat-list>
                           </span>
@@ -227,7 +229,7 @@
                       <mat-list-item *ngFor="let item of message_details" class="msgblockwrapper">
                         <span class="msgblock">
                           <span class="jobcommentboximg">
-                            <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined" src="assets/images/no-image-default.jpg">
+                            <img class="defaultimg" *ngIf="item.profile_picture == null || item.profile_picture == undefined"  src="assets/images/no-image-default.jpg">
                             <img class="defaultimg" *ngIf="item.profile_picture != null && item.profile_picture != ''" [attr.src]="item.profile_picture">
                       <!-- <mat-list-item *ngFor="let item of contract_details">
                         <span class="jobcommentboximg">
@@ -244,7 +246,7 @@
                         <mat-list class="jobticketimglists">
                           <mat-list-item *ngFor="let jobImage of item.msg_picture">
                             <img *ngIf="item.msg_picture !=null && item.msg_picture !='' && jobImage"  class="defaultimg" 
-                            [src]="jobImage">
+                            [src]="jobImage" (click)="viewJobImage(jobImage)">
                           </mat-list-item>
                         </mat-list>
                       </span>                 

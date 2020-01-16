@@ -56,7 +56,7 @@ public topPart: any ='';
     this.activatedRoute.data.forEach((data:any) => {
       // console.log(data)
       this.rsvp_list = data.rsvp.res;
-      // console.log('rsvp>>',this.rsvp_list)
+      console.log('rsvp>>',this.rsvp_list)
     })
 
     // this.getdata();

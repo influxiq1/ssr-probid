@@ -1,9 +1,16 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { ActivatedRoute ,Router, Route} from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponent } from '../../../app.component';
+
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+
+export interface DialogData {
+  data: any;
+  msg:any;
+} 
 
 @Component({
   selector: 'app-manage-jobticket',
@@ -57,7 +64,7 @@ public configDataJobTicket: any = {
   public user_list:any = '';
   public job_ticket: any = '';
   public rsvp_details: any = '';
-  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
+  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
     console.log(this.rsvp_id, this.status)
@@ -230,6 +237,24 @@ public configDataJobTicket: any = {
         // this.getdata();
       });
   }
+
+  //view image from comment place
+  viewImage(val:any){
+    console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      width: '250px',
+      data:val
+    });
+
+  }
+
+  viewJobImage(val:any){
+    console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      width: '250px',
+      data:val
+    });
+  }
   
   rsvpDetail(val:any){
     this.router.navigateByUrl('/rsvp-detail/'+val);
@@ -241,4 +266,19 @@ public configDataJobTicket: any = {
     this.jobTicketMsgForm.controls[val].markAsUntouched();
   }
 
+}
+
+
+//modal component for image view
+
+
+@Component({
+  selector:'viewImage',
+  templateUrl:'./viewImage.html'
+})
+export class ViewImageComponent {
+  constructor( public dialogRef: MatDialogRef<ViewImageComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
 }
