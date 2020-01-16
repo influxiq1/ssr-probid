@@ -545,3 +545,28 @@
         height: 260px;
         overflow: auto;
       }
+
+
+      .jobticketimglists .file_upload{
+        width: 100%;
+        height: auto !important;
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border: 1px solid #a8d5e2;
+        border-radius: 5px;
+        margin-right: 5px;
+        text-align: center;
+      }
+
+      .jobticketimglists .file_upload .button-group {
+        background-repeat: no-repeat;
+        background-size: 100px;
+        background-position: center;
+        height: auto;
+        width: 80%;
+        margin: 20px auto;
+        border-radius: 0px;
+        text-align: center;
+    }
+
