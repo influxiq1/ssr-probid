@@ -54,6 +54,7 @@ export class MysalesrepComponent implements OnInit {
       this.customerDetails=result.customer_details;
             console.log('cus>>',this.customerDetails)
 
+
     })
   }
 
