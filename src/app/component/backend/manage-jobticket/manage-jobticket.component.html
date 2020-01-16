@@ -151,7 +151,7 @@
             </mat-list>
           </span>
           <span class="adm_dashboard_block1_right">
-              <form [formGroup]="jobTicketForm" (ngSubmit)="jobTicketFormSubmit()">
+              <form [formGroup]="jobTicketForm" >
                 <span class="bluebg">
                   <!-- <span class="sectionheader">Car RSVP Info</span> -->
                   <mat-form-field *ngIf="status != 1">
@@ -181,7 +181,7 @@
                     </ng-container>
                     <ng-container *ngIf="job_ticket =='' || job_ticket ==undefined || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == undefined">
                     <mat-list-item>
-                      <img class="defaultimg" src="assets/images/no-image-default.jpg">
+                      <!-- <img  class="defaultimg" src="assets/images/no-image-default.jpg"> -->
                     </mat-list-item>
                   </ng-container>
                   </mat-list>
@@ -189,7 +189,8 @@
                     <strong>Added Date:</strong> 10-01-2019
                   </span>
                   <span class="statusjobticket">
-                    <button mat-raised-button type="submit" class="btnblue">Submit</button>
+                    <button mat-raised-button type="button" class="btnblue"
+                     (click)="jobTicketFormSubmit()">Submit</button>
                     <!-- <button mat-raised-button type="submit" class="btnblue">Reply</button> -->
                   </span>
                 </span>              

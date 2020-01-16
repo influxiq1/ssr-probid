@@ -27,6 +27,7 @@ export class MysalesrepComponent implements OnInit {
   public message: any = "Are you sure you want to delete this?";
   public repDetails:any;
   public customerDetails:any;
+  public indexLoad:any=3;
 
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
@@ -127,6 +128,11 @@ export class MysalesrepComponent implements OnInit {
         }
     });
   }
+
+  loadMore(){
+    this.indexLoad=this.indexLoad+3;
+  }
+
 
 
 

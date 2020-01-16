@@ -174,7 +174,8 @@
                   <h1 class="titleadmin">Others Customer <mat-button class="btnblue" [routerLink]="['/customer']">view all</mat-button></h1>
                   <mat-list role="list" class="flexbox3column">
 
-                    <mat-list-item class="rsvplistsingle" *ngFor="let customer of customerDetails">
+                    <mat-list-item class="rsvplistsingle" 
+                    *ngFor="let customer of customerDetails | slice:0:indexLoad">
                      <span class="salesrepadminblock1info"  
                       >
                  <span class="salesrepadmininfoimg" >
@@ -236,7 +237,7 @@
                   </mat-list>
 
                   <div>
-                    <button mat-flat-button class="btnblue" type="button" >Load More</button>
+                    <button mat-flat-button class="btnblue" type="button" *ngIf="customerDetails !=null && indexLoad < customerDetails.length" (click)="loadMore() " >Load More</button>
                   </div>
                   
                 </span>
