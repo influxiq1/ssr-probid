@@ -570,20 +570,3 @@
         text-align: center;
     }
 
-    .generalcls .jobticketimglists .file_upload .mat-card-title {
-      font-family: 'HelveticaBold';
-      font-size: 24px!important;
-      line-height: normal!important;
-      text-transform: uppercase;
-      margin: 0;
-      padding: 0;
-      margin-bottom: 30px!important;
-      color: #2a2b2c;
-      display: -webkit-box;
-      display: flex;
-      width: 100%;
-      -webkit-box-align: center;
-      align-items: center;
-      -webkit-box-pack: center;
-      justify-content: center;
-  }
