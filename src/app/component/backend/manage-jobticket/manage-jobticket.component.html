@@ -158,7 +158,9 @@
                     <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                   </mat-form-field>
                   <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
-                    <p>{{job_ticket.subject}}</p> 
+                    <div class="subjectcls">
+                      <p>{{job_ticket.subject}}</p> 
+                    </div>
                   <!-- <button mat-raised-button type="button" class="btnblue" (click)="showMessage()">Reply</button> -->
                   </ng-container>                
                 </span>
@@ -180,7 +182,7 @@
                       </mat-list-item>
                     </ng-container>
                     <ng-container *ngIf="job_ticket =='' || job_ticket ==undefined || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == undefined">
-                    <mat-list-item>
+                    <mat-list-item *ngIf="status != 0">
                       <!-- <img  class="defaultimg" src="assets/images/no-image-default.jpg"> -->
                     </mat-list-item>
                   </ng-container>

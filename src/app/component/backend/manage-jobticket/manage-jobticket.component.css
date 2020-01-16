@@ -350,9 +350,18 @@
         padding: 10px;
         display: block;
     }
+    .bluebg .subjectcls{
+      background: rgba(255, 255, 255, 0.1);
+      padding: 10px;
+      -webkit-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+      -moz-box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+      box-shadow: inset 0px 0px 2px 1px rgba(0,0,0,0.33);
+    }
 
     .bluebg p{
         color:#fff;
+        font-size: 20px;
+        text-transform: uppercase;
     }
 
     .whitebg .sectionheader{
