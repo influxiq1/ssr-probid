@@ -27,10 +27,7 @@
   }
 
   @media only screen and (max-width: 1199px) {
-    
-    /* .homebanner .owl-carousel.owl-drag .owl-stage[style] {
-        flex-wrap: wrap;
-    } */
+
 
     .probidhomeblock1 .mat-list-base.lists .mat-list-item {width: 32%;}
 

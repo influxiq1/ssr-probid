@@ -202,6 +202,8 @@
         transform: translateX(-50%);
         outline: 0;
     }
+
+    
 }
 
 @media only screen and (max-width: 991px) {

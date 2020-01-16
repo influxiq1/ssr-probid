@@ -92,9 +92,11 @@ export class HomeComponent implements OnInit {
     autoplayTimeout: 6000,
     autoplay: false,
     autoplayHoverPause: true,
-    center: true,
+    center: false,
     responsiveClass: true,
     dots: true,
+    autoWidth: true,
+    autoHeight:true,
     navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
