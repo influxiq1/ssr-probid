@@ -107,6 +107,7 @@ public configDataJobTicket: any = {
       this.message_details = res.res;
       this.apploader.loader = 0;
 
+
     })
 
   }
@@ -153,8 +154,8 @@ public configDataJobTicket: any = {
         console.log('>>>',res);
         this.showbox = 0;
         this.getData();
-        this.jobTicketMsgForm.controls['message'].reset();
-        this.apploader.loader = 0;
+        this.jobTicketMsgForm.reset();
+        // this.apploader.loader = 0;
         
      
       })
