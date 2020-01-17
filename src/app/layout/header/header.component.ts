@@ -71,6 +71,14 @@ public user_full_name: any = '';
 
 
 
+  openGMDialog(): void {
+    const dialogRef = this.dialog.open(googlemapDialog, {
+      data: {name: this.name}
+    });
+  }
+
+
+
 }
 
 
@@ -87,6 +95,25 @@ export class comingSoonDialog {
 
   constructor(
     public dialogRef: MatDialogRef<comingSoonDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+
+@Component({
+  selector: 'googlemap',
+  templateUrl: '../googlemapDialog.html'
+})
+export class googlemapDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<googlemapDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
