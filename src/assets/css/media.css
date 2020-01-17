@@ -44,6 +44,8 @@
   }
   @media only screen and (max-width: 1024px) {
   .probidhomeblock1 .mat-list-base.lists .mat-list-item{width:49%}
+
+  .owl-theme .owl-nav{ display: none;}
   }
   @media only screen and (max-width: 991px) {
   .mat-list-base.lists .mat-list-item{width:49%}
@@ -59,6 +61,8 @@
   }
   @media only screen and (max-width:1024px) {
   .probidhomeblock4 .mat-list-base.lists .mat-list-item{padding:11px}
+
+  .homebanner .owl-carousel.owl-drag .owl-item img{     width: 1500px!important;}
   }
   @media only screen and (max-width:991px) {
   .servicewrappercontent .mainwrappercontent .servinfo{background:url(../images/servinfobg_mobile.png) no-repeat top center #222527!important;background-size:100%;padding-top:470px}
@@ -106,6 +110,8 @@
   .bottom_blog .item_wrapper .item{width:100%}
   .probidhomeblock6 .bottom_blog .item_wrapper .item .item_images{height:170px}
   .categorywrapper{margin-left:0}
+
+  .homebanner .owl-carousel.owl-drag .owl-item img{     width: 1160px!important;}
   }
   @media only screen and (max-width: 640px) {
   .probidhomeblock2inner .mat-list .mat-list-item{height:auto;position:relative;width:40%;padding:15px}
@@ -133,6 +139,8 @@
   .mat-tab-label{min-width:100%!important}
   .mat-ink-bar style{width:100%!important}
   .blogdetail .bottom_blog .item_wrapper .item{width:100%}
+
+  .homebanner .owl-carousel.owl-drag .owl-item img{     width: 900px!important;}
   }
   @media only screen and (max-width: 540px) {
   .testimonial .mat-list .mat-list-item{width:99%}
@@ -440,4 +448,11 @@
   .customerget h2{font-size:36px}
   .smartbidtop h3{font-size:36px}
   .innerpagebanner.mat-card h1{width:100%}
+
+  
+  }
+
+  @media only screen and (max-width:460px) {
+    .homebanner .owl-carousel.owl-drag .owl-item img{     width:650px!important;}
+ 
   }
