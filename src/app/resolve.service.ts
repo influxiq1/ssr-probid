@@ -68,6 +68,8 @@ export class ResolveService implements Resolve<any> {
 
                if (requestData.condition[d] == 'mysalesrep') {
                 requestData.id = this.userCookies.salesrep
+                requestData.customer_id=this.userCookies._id
+
             //    delete requestData.condition.rsvp_id
                delete requestData.condition._id
                delete requestData.condition.mysalesrep
