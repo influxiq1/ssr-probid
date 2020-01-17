@@ -107,12 +107,8 @@
                     <span class="customer-dashboard-block2-inner">
                       <h1 class="titleadmin">RSVP <mat-button class="btnblue" [routerLink]="['/rsvp-customer']" *ngIf="rsvpDetails.length > indexval">view all</mat-button></h1>     
                       <mat-list role="list" class="flexbox1column">
-<<<<<<< HEAD
                           <mat-list-item role="listitem" class="rsvplistsingle"
                               *ngFor="let item of rsvpDetails | slice:0:indexval; let i=index">
-=======
-                          <mat-list-item role="listitem" class="rsvplistsingle" *ngFor="let item of rsvp_list | slice:0:indexval; let i=index">
->>>>>>> b747efe484457d8850b35e3b8caa0c9c6947929e
                                 <span class="deletecls"><i class="material-icons" (click)="deleteRsvp(item,i)">delete</i></span>
                                   <span class="rsvplistsingleinner">                                    
                                       <span class="rsvplistsingleleft">

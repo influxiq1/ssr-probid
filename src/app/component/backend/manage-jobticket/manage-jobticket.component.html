@@ -15,16 +15,17 @@
           <span class="searchblockwrapper">
             <span>
               <h2>Rep Simon Santos [ Ticket ID : #0001222 ] </h2>
+              <button mat-button class="btnblue greenbtn"
+              *ngIf=" rsvp_details.status == 0 || rsvp_details.status == 2" 
+              (click)="changeStatus(rsvp_details, 1)">Accepted</button>
+              
             </span>
 
             <span class="statusjobticket">
               <mat-label>Status :</mat-label>
               <button mat-raised-button type="reset" class="btnblue">Mark As Resolved</button>
 
-              <button mat-button class="btnblue greenbtn"
-              *ngIf=" rsvp_details.status == 0 || rsvp_details.status == 2" 
-              (click)="changeStatus(rsvp_details, 1)">Accepted</button>
-
+             
 
               <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
 
