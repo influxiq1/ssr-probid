@@ -132,16 +132,17 @@
                         </span>
                       </span>
                       <span class="rsvplisttypecontent mt10">
-                        <h2>{{item.subject}}<span>Date:{{item.date}}</span></h2>
+                        <h2>{{item.subject}}</h2>
                           <span class="rsvplisttypecontentinfo">
                             <span class="jobcommentboxcontent">
                               <mat-card-title></mat-card-title>
                               <mat-card-content>{{item.description}}</mat-card-content>
                             </span>                                  
                           </span>
-                          <span class="rsvplisttypebottom">
+                          <span class="rsvplisttypebottom datefieldcls">
+                            <span>Date:{{item.date}}</span>
                             <button mat-button class="btnblue" (click)="viewDetails(item)">Know More</button>                              
-                        </span>
+                          </span>
                       </span>  
                     </span>
                   </span>
