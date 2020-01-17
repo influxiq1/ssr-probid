@@ -58,6 +58,14 @@ export class ResolveService implements Resolve<any> {
                    delete requestData.condition._id
                    delete requestData.condition.status
                }
+
+               if (requestData.condition[d] == 'ticket_added_by_object') {
+                requestData.condition[d] = this.userid
+               
+             
+           }
+
+
                if (requestData.condition[d] == 'mysalesrep') {
                 requestData.id = this.userCookies.salesrep
             //    delete requestData.condition.rsvp_id

@@ -373,12 +373,14 @@ const routes: Routes = [
   
   { path: 'communication-rep', component: JobTicketComponent,
   resolve: { jobTicketList: ResolveService },
-  data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {"ticket_added_by_object":"ticket_added_by_object"}}, endpoint: 'datalist' }
 },
 
   { path: 'communication-customer', component: JobTicketComponent,
   resolve: { jobTicketList: ResolveService },
-  data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {
+    "ticket_added_by_object":"ticket_added_by_object"
+  }}, endpoint: 'datalist' }
 },
   
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
