@@ -51,7 +51,7 @@
 .rsvplistsingleinnerwrapper{display:flex;justify-content:space-between;flex-wrap:wrap;flex-direction:column}
 .rsvplistsingleinnerwrapper .rsvplisttypecontent.mt10 .rsvplisttypebottom{-webkit-box-pack:flex-end;justify-content:flex-end}
 .rsvplistsingleinnerwrapper .mt10{margin-top:10px}
-.rsvplistsingleinnerwrapper .mt10 h2{overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;padding: 5px 7px 2px;}
+.rsvplistsingleinnerwrapper .mt10 h2{overflow: hidden;display: -webkit-box;-webkit-line-clamp: 2;-webkit-box-orient: vertical;padding: 5px 7px 0px;}
 .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5)}
 .job-title-pg .rsvplisttypebottom.datefieldcls{justify-content: space-between !important;}
 .rsvplisttypecontentinfo .jobcommentboxcontent .mat-card-content{overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3;-webkit-box-orient: vertical;}
