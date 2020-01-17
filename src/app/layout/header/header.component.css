@@ -33,7 +33,8 @@
 .headermiddle.mat-card{background:#131414!important;padding:5px!important}
 .headermiddle .logowrapper{margin-top:-27%!important;margin-bottom:26px!important;width:350px}
 .topcontactinfoblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
-.contactinfo,.phoneinfo{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0}
+.contactinfo, .phoneinfo{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0}
+.phoneinfo a{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0; flex-wrap: wrap; flex-direction: column;}
 .topsocialblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
 .topsocialblock .mat-list-item{margin-left: 16px;}
 .topsocialblock .iconwarpper{width:30px;height:30px;background-color:#1e1e1b;padding:5px;border-radius:50px;line-height:15px;display:block}
