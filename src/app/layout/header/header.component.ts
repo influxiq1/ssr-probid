@@ -73,7 +73,11 @@ public user_full_name: any = '';
 
   openGMDialog(): void {
     const dialogRef = this.dialog.open(googlemapDialog, {
-      data: {name: this.name}
+      data: {name: this.name},
+      height: 'auto',
+      width: '100%',
+      maxWidth:'90vw',
+      panelClass: 'googleMapDialogCls'
     });
   }
 

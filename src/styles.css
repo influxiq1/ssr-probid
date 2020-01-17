@@ -275,13 +275,16 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalcls .jobticketimglists .file_upload .files-view .mat-card{position:relative;z-index:9;flex:1 1 24.33%;margin:10px!important;display:flex;flex-wrap:wrap;border:1px solid #ecf1f3}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper{height:160px;width:160px;position:relative;margin:0 auto 20px;border:2px solid #f3f3f3;padding:10px;overflow:hidden}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper img{max-width:100%;-o-object-fit:cover;object-fit:cover;margin:0 auto;z-index:99;position:relative;max-width:100%;width:100%;display:block;margin-top:0!important;height:100%;object-fit:cover}
-.googlemaphome #cdk-overlay-0 .mat-dialog-container {
+.googlemaphome .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {
     min-width: 450px;
     max-width: 100%;
-    margin: 0 auto;
     width: 100%!important;
   }
-  
+  .cdk-overlay-pane[style]{
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}
