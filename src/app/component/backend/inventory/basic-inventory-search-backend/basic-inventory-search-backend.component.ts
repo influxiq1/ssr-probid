@@ -10,6 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable, Subject, Subscription,Subscriber } from 'rxjs';
 import { AppComponent } from '../../../../app.component';
 import {DetailServiceService} from '../../../../detail-service.service'
+import { error } from 'util';
 
 export interface DialogData {
   errorMsg: string;
@@ -89,7 +90,8 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   public indexForCustomer: number;
   public spinnerval: any = 0;
   public car_data: any;
- 
+  public apikey:any;
+
   // public carItem=new Subject<any>();
 
   constructor(
@@ -175,6 +177,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
       let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
+        console.log('>>>>>',res)
         this.apploader.loader = 0;
         if (field == 'make') {
           this.make_list = res.terms;
@@ -197,7 +200,27 @@ export class BasicInventorySearchBackendComponent implements OnInit {
           // console.log(field, this.vehicle_list);
         }
 
-      });
+      }, error =>{
+        console.log('Invalid_Api')
+        console.log(this.apiService.invalidApi)
+
+        
+        this.apikey=this.apiService.invalidApi;
+
+        let data:any;
+        data={
+          
+          "apikey":this.apikey
+        }
+
+        this.apiService.CustomRequest(data,'deleteapi').subscribe((res)=>{
+          console.log("error")
+        })
+
+
+
+      })
+     
     }
 
   }
@@ -276,7 +299,8 @@ export class BasicInventorySearchBackendComponent implements OnInit {
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
 
         this.http.get(search_link).subscribe((res: any) => {
-this.apploader.loader = 0;
+          console.log('>>>>',res)
+          this.apploader.loader = 0;
           this.search = res.listings;
 
           // console.log('search list', this.search)
@@ -312,8 +336,6 @@ this.apploader.loader = 0;
 
 
   favorite(item: any) {
-
-
     // console.log('this is favorite ')
     if (this.user_id == '') {
       this.cookieService.set('favorite_car', item);

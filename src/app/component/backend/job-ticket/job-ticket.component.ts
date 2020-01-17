@@ -76,9 +76,9 @@ public message:any="Are you sure you want to delete this?";
     this.indexVal=this.indexVal+2;
   }
 
-  viewDetails(item:any){
+  viewDetails(item:any,status:any){
     console.log(item)
-    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+item.status)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 
 }
