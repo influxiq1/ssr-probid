@@ -222,3 +222,8 @@
 .pa_blockfooterlogo img{max-width:100%}
 .pa_blockfooterlogo{width:100%;background:#222;padding:5px!important}
 .favorite{color:red}
+
+@media only screen and (max-width:460px) {
+  
+    .carousalinfo  h1 { font-size: 35px!important;}
+  }
