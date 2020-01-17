@@ -24,6 +24,8 @@ public indexVal:any=4;
 public message:any="Are you sure you want to delete this?";
 
 
+
+
   constructor(public router: Router,public activatedRoute:ActivatedRoute,
     public apiService: ApiService,
     public dialog: MatDialog,

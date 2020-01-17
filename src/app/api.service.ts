@@ -56,8 +56,6 @@ export class ApiService {
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService) {
 
-
-
     let data={
       source:'search_api_key'
     }
