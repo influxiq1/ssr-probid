@@ -20,6 +20,7 @@ export interface DialogData {
 export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
+  public changeStatus:any;
   public jobTicketForm: FormGroup;
   public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
