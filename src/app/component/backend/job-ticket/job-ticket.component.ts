@@ -37,6 +37,8 @@ public message:any="Are you sure you want to delete this?";
       this.jobTicketDataList=res.jobTicketList.res
 
     })
+
+
     
   }
 

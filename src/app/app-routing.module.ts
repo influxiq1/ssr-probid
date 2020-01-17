@@ -363,6 +363,9 @@ const routes: Routes = [
 
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
 
+  { path: 'communication', component: JobTicketComponent },
+
+
   { path: 'job-ticket-admin', component: JobTicketComponent ,
   resolve: { jobTicketList: ResolveService },
   data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
@@ -370,7 +373,7 @@ const routes: Routes = [
 
   { path: 'job-ticket-customer', component: JobTicketComponent },
   { path: 'job-ticket-salesrep', component: JobTicketComponent },
-  { path: 'communication', component: JobTicketComponent },
+
   
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
 
