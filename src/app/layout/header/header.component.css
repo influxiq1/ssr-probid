@@ -35,6 +35,7 @@
 .topcontactinfoblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
 .contactinfo,.phoneinfo{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0}
 .topsocialblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
+.topsocialblock .mat-list-item{margin-left: 16px;}
 .topsocialblock .iconwarpper{width:30px;height:30px;background-color:#1e1e1b;padding:5px;border-radius:50px;line-height:15px;display:block}
 .topsocialblock a{width:20px;height:20px;padding:5px;border-radius:50px;line-height:20px}
 .topsocialblock .iconwarpper img{max-width:100%;height:100%}

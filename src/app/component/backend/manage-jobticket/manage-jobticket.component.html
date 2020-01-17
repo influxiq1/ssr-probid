@@ -80,7 +80,7 @@
                       <h2>User</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img src="../../../../assets/images/imguser.jpg">
+                          <img [src]="rsvp_details.added_for_picture">
                         </span>
                         <span class="listscontent">
                           <mat-list>
@@ -100,7 +100,8 @@
                       <h2>Salesrep</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img src="../../../../assets/images/imgsalesrep.jpg">
+                          <img [src]="rsvp_details.added_by_picture">
+
                         </span>
                         <span class="listscontent">
                           <mat-list>

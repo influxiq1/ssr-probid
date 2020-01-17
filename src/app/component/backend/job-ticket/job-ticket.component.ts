@@ -32,12 +32,27 @@ public message:any="Are you sure you want to delete this?";
 
   ngOnInit() {
 
-    this.activatedRoute.data.forEach((res)=>{
-      console.log(res.jobTicketList.res)
-      this.jobTicketDataList=res.jobTicketList.res
+    if(this.router.url =='/job-ticket-admin'){
+      this.activatedRoute.data.forEach((res)=>{
+        console.log(res.jobTicketList.res)
+        this.jobTicketDataList=res.jobTicketList.res
+      })
+    }
 
-    })
 
+    if(this.router.url =='/communication-customer'){
+      this.activatedRoute.data.forEach((res)=>{
+        console.log(res.jobTicketList.res)
+        this.jobTicketDataList=res.jobTicketList.res
+      })
+    }
+
+    if(this.router.url =='/communication-rep'){
+      this.activatedRoute.data.forEach((res)=>{
+        console.log(res.jobTicketList.res)
+        this.jobTicketDataList=res.jobTicketList.res
+      })
+    }
 
     
   }
