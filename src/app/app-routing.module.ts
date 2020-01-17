@@ -370,7 +370,9 @@ const routes: Routes = [
 
   { path: 'job-ticket-customer', component: JobTicketComponent },
   { path: 'job-ticket-salesrep', component: JobTicketComponent },
-  { path: 'communication', component: JobTicketComponent },
+  
+  { path: 'communication-rep', component: JobTicketComponent },
+  { path: 'communication-customer', component: JobTicketComponent },
   
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
 
