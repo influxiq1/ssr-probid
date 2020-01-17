@@ -184,6 +184,8 @@ export class HomeComponent implements OnInit {
   public indexCount: number;
   public indexCountForImg: number;
 
+  public currentUrl: any;
+
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
@@ -197,6 +199,16 @@ export class HomeComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+
+    const body = document.getElementsByTagName('body')[0];
+    this.currentUrl = this.router.url;
+    if (this.currentUrl == '/home') {
+      body.classList.add('googlemaphome')
+    } else{
+      body.classList.remove('googlemaphome')
+    }
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {

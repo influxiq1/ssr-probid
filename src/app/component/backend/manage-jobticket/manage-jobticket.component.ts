@@ -144,6 +144,10 @@ public configDataJobTicket: any = {
     if (this.jobTicketMsgForm.valid) {
       this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
+
+
+    
+
       let data: any = {
         source: "job_ticket_msg",
         data: {
@@ -219,24 +223,24 @@ public configDataJobTicket: any = {
 
 
   }
-  changeStatus(item: any, val: any) {
-    // console.log('rsvpSend status',item, val)
-    let endpoint: any = "addorupdatedata";
-    item.status = val;
-    let card_data:any = {
-      card_data: item,
-      id:item._id
-    }
-    let data: any = {
-      data: card_data,
-      source: "send_for_rsvp",
-    };
-      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-        // console.log(res);
-        (res.status == "success");
-        // this.getdata();
-      });
-  }
+  // changeStatus(item: any, val: any) {
+  //   // console.log('rsvpSend status',item, val)
+  //   let endpoint: any = "addorupdatedata";
+  //   item.status = val;
+  //   let card_data:any = {
+  //     card_data: item,
+  //     id:item._id
+  //   }
+  //   let data: any = {
+  //     data: card_data,
+  //     source: "send_for_rsvp",
+  //   };
+  //     this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+  //       // console.log(res);
+  //       (res.status == "success");
+  //       // this.getdata();
+  //     });
+  // }
 
   //view image from comment place
   viewImage(val:any){
