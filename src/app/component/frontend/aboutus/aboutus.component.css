@@ -1,10 +1,6 @@
-.aboutusbg.mat-card{background:url(../../../../assets/images/aboutusbg.jpg) no-repeat center center !important;}
-.testimonialblock1{background: #fff;}
-.testimonialblock2{background: #7fafcd;}
-
-
+.aboutusbg.mat-card{background:url(../../../../assets/images/aboutusbg.jpg) no-repeat center center!important}
+.testimonialblock1{background:#fff}
+.testimonialblock2{background:#7fafcd}
 @media only screen and (max-width:1024px) {
-    .aboutusbg.mat-card {background: url(../../../../assets/images/aboutusbg.jpg) no-repeat left 25% center !important;}
+.aboutusbg.mat-card{background:url(../../../../assets/images/aboutusbg.jpg) no-repeat left 25% center!important}
 }
-
-
