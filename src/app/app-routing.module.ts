@@ -585,8 +585,8 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
     //  },
 
 
-    { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },
-    data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} }
+    // { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },
+    // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} }
 ];
 
 @NgModule({

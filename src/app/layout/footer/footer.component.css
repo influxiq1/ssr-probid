@@ -31,9 +31,9 @@
 .footertopwrapper .mat-list-item .mat-list-item-content {padding: 0 4px;}
 .footertopwrapper .mat-nav-list {margin: 0;}
 .footertopwrapper .mat-nav-list span.menuwrapper {display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex; flex-wrap: wrap;}
-.footertopwrapper .mat-nav-list span.menuwrapper span.bdr{		
+/* .footertopwrapper .mat-nav-list span.menuwrapper span.bdr{		
     background:url('../../../assets/images/borderleftimg.png') no-repeat left top 50% #0f1014 !important; min-height: 20px;    padding-left: 10px;	    width: 31.33%;	
-}
+} */
 .footertopwrapper .mat-menu-item {height:auto;border-radius: 0px !important;line-height: 24px;}
 .footertopwrapper .mat-toolbar.mat-primary {background: transparent !important;color: #fff;}
 .footerbottomwrapper {background-color: #ffffff;text-align: center;}
