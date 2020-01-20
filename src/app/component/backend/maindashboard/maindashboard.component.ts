@@ -383,17 +383,21 @@ console.log('hit')
     let data:any;
     
       data={
-        data:this.apikeyForm.value,
-        source:'search_api_key'
+        no:this.apikeyForm.value.keynum,
+        apikey:this.apikeyForm.value.apikey
       } 
   
 
-    this.apiService.CustomRequest(data,'addorupdatedata').subscribe((res)=>{
+    this.apiService.CustomRequest(data,'apiupdate').subscribe((res)=>{
       let result:any;
       result=res
 
       if(result.status == 'success'){
         this.formDirective.resetForm();
+        this.snack.open('Api Key Updated','ok',{
+          duration:2000
+        })
+        
         
       }
     })

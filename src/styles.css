@@ -76,7 +76,7 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .tablediv .searchbar .mat-form-field{margin:0 2px}
 .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#fff;margin-bottom:10px}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0!important;background-color:#333!important;color:#fff}
-.rightsideformcls .serialnumbercls.mat-form-field-appearance-legacy .mat-form-field-infix{width: 5px;}
+.rightsideformcls .serialnumbercls.mat-form-field-appearance-legacy .mat-form-field-infix{width: 30px;}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-label{color:#fff!important}
 .topinnerinforight .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0}
 .contact-form .mat-form-field-appearance-legacy .mat-form-field-infix{background:#eee}
