@@ -65,12 +65,15 @@ public configDataJobTicket: any = {
   public user_list:any = '';
   public job_ticket: any = '';
   public rsvp_details: any = '';
+  public markresolve:any='';
+  public re_Open:any='';
   constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
     console.log(this.rsvp_id, this.status)
     if (this.cookieservice.get('jwtToken') != undefined  && this.cookieservice.get('user_details') != null && this.cookieservice.get('jwtToken') != null && this.cookieservice.get('jwtToken') != '') {
       this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
+      console.log('>>>>>>>',this.userCookies)
       this.userid = this.userCookies._id;
       }
     this.jobTicketForm = this.fb.group({
@@ -157,6 +160,7 @@ public configDataJobTicket: any = {
           rsvp_id:this.rsvp_id,
           message: this.jobTicketMsgForm.value.message,
           job_ticket:1,
+          
           msg_picture:this.jobTicketMsgForm.value.msg_picture
         },
         sourceobj:["rsvp_id","ticket_added_by","job_ticket_id"]
@@ -247,7 +251,7 @@ public configDataJobTicket: any = {
   viewImage(val:any){
     console.log('>>',val)
     const dialogRef = this.dialog.open(ViewImageComponent, {
-      width: '250px',
+
       data:val
     });
 
@@ -256,7 +260,7 @@ public configDataJobTicket: any = {
   viewJobImage(val:any){
     console.log('>>',val)
     const dialogRef = this.dialog.open(ViewImageComponent, {
-      width: '250px',
+      
       data:val
     });
   }
@@ -270,6 +274,58 @@ public configDataJobTicket: any = {
   inputValUntouched(val: any) {
     this.jobTicketMsgForm.controls[val].markAsUntouched();
   }
+
+//mark as resolve
+  markAsResolve(val:any, status: any){
+    console.log('hit',val)
+
+    let endpoint: any = "addorupdatedata";
+      let data:any;
+      data={
+        source: "job_ticket",
+        "data":{
+          status: status,
+          id:val
+        }
+        
+      }
+
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        console.log(res);
+        let result :any=res
+        if(result.status == 'success'){
+          console.log('**>>>',this.job_ticket,status);
+          this.job_ticket.message_flag = status;
+          console.log(this.job_ticket.message_flag,status);
+        }
+      
+      })
+  }
+
+  // reOpen(val:any){
+  //   console.log('hit',val)
+
+  //   let endpoint: any = "addorupdatedata";
+  //     let data:any;
+  //     data={
+  //       source: "job_ticket",
+  //       "data":{
+  //         status:0,
+  //         id:val
+  //       }
+        
+  //     }
+
+  //     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+  //       console.log(res);
+      
+  //       let result :any=res
+  //       if(result.status == 'success'){
+  //         this.re_Open=1;
+  //       }
+  //     })
+
+  // }
 
 }
 

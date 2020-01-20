@@ -363,7 +363,8 @@ public errorMsg: string = '';
 
 generateForm(){
   this.apikeyForm=this.fb.group({
-    apikey:['',Validators.required]
+    apikey:['',Validators.required],
+    keynum:['',Validators.required]
   })
 }
 

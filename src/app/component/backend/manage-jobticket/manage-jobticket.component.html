@@ -13,14 +13,21 @@
       <span class="mainwrappercontent">
         <span class="searchblock rsvpsearch">
           <span class="searchblockwrapper">
-            <span>
+            <span >
               <h2>Rep Simon Santos [ Ticket ID : #0001222 ] </h2>
               <span class="statusjobticket">
                 <mat-label>Status :</mat-label>                
   
-                <button mat-button class="btnblue greenbtn"
-               
-               >Replied By Admin</button>
+                <!-- <button mat-button class="btnblue greenbtn" 
+                *ngIf="message_details!=null && message_details[0].type == 'admin'" >Replied By Admin</button> -->
+
+                <button mat-button class="btnblue greenbtn" 
+                *ngIf="job_ticket.message_flag == 0" >Re-Open</button>
+
+                <button mat-button class="btnblue greenbtn" 
+                *ngIf="job_ticket.message_flag == 1" >Closed</button>
+
+
   
   
                 <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
@@ -28,14 +35,21 @@
                <!-- <button mat-button class="btnblue yellowbtn" *ngIf="rsvp_details.status == 1 && rsvp_details.status == 2" 
                >Pending</button> -->
   
-               <button mat-button class="btnblue greenbtn" 
-              >Open</button>
-                <button mat-raised-button type="reset" class="btnblue yellowbtn">Pending</button>
+               <!-- <button mat-button class="btnblue greenbtn" 
+               *ngIf="message_details != null && message_details[0].type == 'salesrep'
+                || message_details[0].type == 'customer '" >Open</button>
+
+                <button mat-raised-button type="reset" class="btnblue yellowbtn" 
+                *ngIf="message_details[0].type == '' || message_details[0].type == '' || message_details[0].type == ''">Pending</button> -->
               </span>
             </span>
 
-            <span class="statusjobticket">
-              <button mat-raised-button type="reset" class="btnblue">Mark As Resolved</button>
+            <span class="statusjobticket" *ngIf="userCookies.type == 'admin'">
+              <button mat-raised-button type="reset" class="btnblue" 
+              (click)="markAsResolve(job_ticket._id,1)" *ngIf=" job_ticket.message_flag == 0 " >Mark As Resolved</button>
+
+              <button mat-raised-button type="reset" class="btnblue"
+               (click)="markAsResolve(job_ticket._id,0)" *ngIf="job_ticket.message_flag == 1" >Re-Opened</button>
             </span>
             
           </span>
@@ -257,28 +271,19 @@
                       </span>                 
                     </mat-list-item>
 
-
                   </ng-container>
                 </mat-list> 
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
+                <span *ngIf=" job_ticket.message_flag != 1 ">
               <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
-                <span class="whitebg"> 
+                <span class="whitebg" > 
                   <mat-form-field>
                     <span class="commentbox">
                       <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
                     </span>
                     <mat-list class="jobticketimglists">
-                      
-                        <!-- <img class="defaultimg" src="assets/images/no-image-default.jpg"> -->
                         <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
-                        <!-- <ng-container *ngIf="job_ticket_msg !='' && job_ticket_msg !=undefined && job_ticket_msg.msg_picture != null && job_ticket_msg.msg_picture != '' && job_ticket_msg.msg_picture != undefined">
-                          <mat-list-item *ngFor="let item of job_ticket_msg.msg_picture">
-                            <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
-                          </mat-list-item>
-                        </ng-container> -->
-
-                      
                     </mat-list>  
                     <span class="statusjobticket">
                       <button mat-raised-button type="submit" class="btnblue">SEND</button>
@@ -287,6 +292,10 @@
                   </mat-form-field>
                 </span>
               </form>
+              </span>
+              <!-- <span *ngIf=" job_ticket.message_flag != 1 " style="color: crimson;">closed from admin</span> -->
+
+
           </span>
         </span>
       </span>
