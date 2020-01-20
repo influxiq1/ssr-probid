@@ -76,6 +76,7 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .tablediv .searchbar .mat-form-field{margin:0 2px}
 .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#fff;margin-bottom:10px}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0!important;background-color:#333!important;color:#fff}
+.rightsideformcls .serialnumbercls.mat-form-field-appearance-legacy .mat-form-field-infix{width: 5px;}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-label{color:#fff!important}
 .topinnerinforight .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0}
 .contact-form .mat-form-field-appearance-legacy .mat-form-field-infix{background:#eee}
@@ -279,7 +280,8 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper{height:160px;width:160px;position:relative;margin:0 auto 20px;border:2px solid #f3f3f3;padding:10px;overflow:hidden}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper img{max-width:100%;-o-object-fit:cover;object-fit:cover;margin:0 auto;z-index:99;position:relative;max-width:100%;width:100%;display:block;margin-top:0!important;height:100%;object-fit:cover}
 .googlemaphome .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;width: 100%!important;}
-/* .cdk-overlay-pane[style]{margin-left: auto !important;margin-right: auto !important;} */
+.cdk-overlay-pane.googleMapDialogCls[style]{margin-left: auto; margin-right: auto;}
+.cdk-overlay-pane[style]{margin-left: 0 !important;}
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
 
 @media(max-width:600px) {
