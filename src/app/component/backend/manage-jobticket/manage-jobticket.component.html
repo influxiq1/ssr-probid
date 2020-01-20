@@ -275,27 +275,25 @@
                 </mat-list> 
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
-                <span *ngIf=" job_ticket.message_flag != 1 ">
-              <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
-                <span class="whitebg" > 
-                  <mat-form-field>
-                    <span class="commentbox">
-                      <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
-                    </span>
-                    <mat-list class="jobticketimglists">
-                        <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
-                    </mat-list>  
-                    <span class="statusjobticket">
-                      <button mat-raised-button type="submit" class="btnblue">SEND</button>
-                      <button mat-raised-button type="reset" class="btnblue redbtn">cancel</button>
-                    </span>                  
-                  </mat-form-field>
-                </span>
-              </form>
+              <span *ngIf=" job_ticket.message_flag != 1 ">
+                <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
+                  <span class="whitebg" > 
+                    <mat-form-field>
+                      <span class="commentbox">
+                        <input matInput placeholder="Comment...." formControlName="message" cols="50" rows="4" (blur)="inputValUntouched('message')">
+                      </span>
+                      <mat-list class="jobticketimglists">
+                          <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
+                      </mat-list>  
+                      <span class="statusjobticket">
+                        <button mat-raised-button type="submit" class="btnblue">SEND</button>
+                        <button mat-raised-button type="reset" class="btnblue redbtn">cancel</button>
+                      </span>                  
+                    </mat-form-field>
+                  </span>
+                </form>
               </span>
-              <!-- <span *ngIf=" job_ticket.message_flag != 1 " style="color: crimson;">closed from admin</span> -->
-
-
+              <span *ngIf=" job_ticket.message_flag == 1 " class="markasresolvedadmincls redbtn">Mark as resolved from admin</span>
           </span>
         </span>
       </span>
