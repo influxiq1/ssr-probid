@@ -100,7 +100,7 @@
   .blogdetail .bottom_blog .item_wrapper .item{width:48%}
   }
   @media only screen and (max-width:900px) {
-  .probidhomeblock4 .mat-list-base.lists .mat-list-item{padding:20px}
+    .probidhomeblock4 .mat-list-base.lists .mat-list-item {padding: 10px; width: 45%;}
   }
   @media only screen and (max-width: 768px) {
   .bloglistinner .bottom_blog .item_wrapper .item{width:calc(1/1*100% - (1 - 1/1)*18px)}
@@ -452,7 +452,7 @@
   
   }
 
-  @media only screen and (max-width:460px) {
-    .homebanner .owl-carousel.owl-drag .owl-item img{     width:650px!important;}
- 
+  @media only screen and (max-width:480px) {
+    .generalcls h2.innertitle2 {font-size: 24px!important;}
+    .homebanner .owl-carousel.owl-drag .owl-item img{width:650px!important;} 
   }

@@ -120,6 +120,7 @@
 .carousel > button:first-of-type{left:0}
 }
 @media screen and (max-width:540px) {
+ .topcontactinfoblock .mat-list .mat-list-item{font-size: 14px;}
 .infoblock{margin-bottom:10px!important}
 .langblock select{color:#fff;margin-bottom:0;display:inline-block;margin-top:10px}
 .headertopwrapper.mat-card-content{display:flex;align-items:center;justify-content:center;margin-bottom:0;flex-wrap:wrap}
@@ -128,8 +129,9 @@
 }
 @media only screen and (max-width:640px) {
 .headertopwrapper.mat-card-content{display:block}
-.headertopwrapper.mat-card-content .langblock{display:block;margin:0 auto;width:240px}
-.headertopwrapper.mat-card-content .infoblock{display:block;margin:0 auto;width:370px;padding-bottom:16px}
+.headertopwrapper.mat-card-content .langblock{display:block;margin:0 auto;width:100%;}
+.headertopwrapper.mat-card-content .infoblock{display:block;margin:0 auto;width:370px;padding-bottom: 0; padding-top: 10px;}
+.headertopwrapper.mat-card-content .langblock .mat-form-field {width: 100%;}
 }
 @media only screen and (max-width:420px) {
 .headertopwrapper.mat-card-content .infoblock{width:100%}

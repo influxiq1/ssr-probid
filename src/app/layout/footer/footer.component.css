@@ -79,6 +79,8 @@
 .footertopwrapper .mat-nav-list .mat-list-item a{display:inline-block;width:100%;padding:5px}
 }
 @media (max-width: 600px) {
+    
+.footertopwrapper .mat-nav-list span.menuwrapper span .mat-list-item{margin-top:0px!important}
 .footerwrapper .mainwrappercontent .mat-card-content{display:inline-block;text-align:center;justify-content:center;width:100%}
 .footertopwrapper{display:inline-block;justify-content:space-between;flex-direction:row;align-items:center;width:100%;margin-top:20px}
 .footertopwrapper .mat-nav-list span.menuwrapper{display:inline-block;width:100%;text-align:center}
@@ -87,4 +89,9 @@
 .footerddress{margin-top:14px;display:inline-block}
 .footertopwrapper .mat-nav-list span.menuwrapper span.bdr{padding-left:0;width:100%;background-image:none!important}
 .footertopwrapper .mat-list-item:before{display:none}
+}
+
+@media (max-width: 480px) {
+    .footerwrapper span h3 {font-size: 15px;}
+    .footerbottom h3 a {font-size: 14px;}
 }
