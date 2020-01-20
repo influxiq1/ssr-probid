@@ -26,10 +26,9 @@
               *ngIf="errorApiKey !='' && apikeyForm.value.apikey.length !=32 && apikeyForm.value.apikey.length !='' && apikeyForm.value.apikey.length !=null">
               {{errorApiKey}}
             </mat-error>
-<<<<<<< HEAD
 
-            <mat-form-field>
-              <input matInput type="number" placeholder="Enter number" (blur)="inputUntouched('keynum')"
+            <mat-form-field class="serialnumbercls">
+              <input matInput type="number" placeholder="0" (blur)="inputUntouched('keynum')"
                 formControlName="keynum">
 
             </mat-form-field>&nbsp;
@@ -37,13 +36,7 @@
               *ngIf="!apikeyForm.controls['keynum'].valid && apikeyForm.controls['keynum'].errors.required && apikeyForm.controls['keynum'].touched">
               number field can not be blank</mat-error>
 
-=======
-            <mat-form-field class="serialnumbercls">
-              <input matInput type="text" placeholder="1" (blur)="inputUntouched('serialnumber')"
-                formControlName="serialnumber">
 
-            </mat-form-field>&nbsp;
->>>>>>> 754ccef7a111d383492979485bd8db5df04d2751
             <button mat-raised-button type="button'" class="btnblue" (click)="apiKeySubmit()">Update Api Key</button>
             &nbsp;
 
