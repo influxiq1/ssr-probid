@@ -16,7 +16,9 @@
     .topmenulist .navigation-left .nav-item .mat-list-item-content{padding:0 6px}
     }
     @media only screen and (max-width: 1199px) {
-    .admcls .header{height:auto}
+    .admcls .header{height:auto;position: relative;}
+    .adminwrappercls .main-content-wrap {padding: 20px 20px 20px;min-height: calc(100vh - 20px);}
+    .block1totalreview > .block1_single {padding: 5px;}
     .admcls .header .header-part-right{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;flex:1 1 100%;justify-content:center}
     .admcls .header .toolbar-row{padding:0!important;overflow:hidden;height:auto;flex-wrap:wrap}
     .admcls .header .toolbar-row .logo{width:150px;display:flex;flex:1 1 100%;justify-content:center;padding:10px}
