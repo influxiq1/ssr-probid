@@ -209,20 +209,28 @@
                                         </span>
                                     </span>
                                     <span class="rsvplistsbottom">
-                                        <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2>
+                                        <h2 >{{item.heading}}</h2><span (click)="viewRsvpDetails(item._id)" > View Details</span>
                                         <h1>Price - <span>$ {{item.price}}</span></h1>
                                         <span class="rsvplistsbottombtm">
                                             <mat-list>
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                            src="../../../../assets/images/milesicon.png"></strong> 100
+                                                            src="../../../../assets/images/milesicon.png"></strong>
+                                                            <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
+                                              <span *ngIf="item.miles ==null"> N/A</span> 
                                                 </mat-list-item>
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
                                                             src="../../../../assets/images/drivetrainicon.png"></strong>
-                                                    50</mat-list-item>
+                                                            <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
+                                                            <span *ngIf="item.build.drivetrain ==null"> N/A</span> 
+                                                    </mat-list-item>
 
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
                                                             src="../../../../assets/images/bodytypeicon.png"></strong>
-                                                    {{item.build.transmission}}</mat-list-item>
+                                                            <span *ngIf="item.build.transmission !=null"> {{item.build.transmission}}</span>
+                                                            <span *ngIf="item.build.transmission ==null">N/A</span>
+
+                                                   
+                                                </mat-list-item>
                                             </mat-list>
                                         </span>
                                     </span>
@@ -232,7 +240,9 @@
                                         <h2>User</h2>
                                         <span class="rsvplisttypecontentinfo">
                                             <span class="rsvplisttypeimgwrapper">
-                                                <img src="../../../../assets/images/imguser.jpg">
+                                                <img *ngIf="item.added_for_picture ==null" src="../../../../assets/images/imguser.jpg">
+                                                <img *ngIf="item.added_for_picture !=null" 
+                                                [src]="item.added_for_picture">
                                             </span>
                                             <span class="listscontent">
                                                 <mat-list>
@@ -249,7 +259,9 @@
                                         <h2>Salesrep</h2>
                                         <span class="rsvplisttypecontentinfo">
                                             <span class="rsvplisttypeimgwrapper">
-                                                <img src="../../../../assets/images/imgsalesrep.jpg">
+                                                <img *ngIf="item.added_by_picture ==null" src="../../../../assets/images/no-image-default.jpg">
+                                                <img *ngIf="item.added_by_picture !=null" 
+                                                [src]="item.added_by_picture">
                                             </span>
                                             <span class="listscontent">
                                                 <mat-list>
@@ -317,15 +329,27 @@
                             <span class="bottomblockss">
                                 <mat-list *ngIf="item.build != null">
                                     <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                src="../../../../assets/images/milesicon.png"></strong> {{item.miles}}
+                                                src="../../../../assets/images/milesicon.png"></strong> 
+                                              <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
+                                              <span *ngIf="item.miles ==null"> N/A</span> 
+
                                     </mat-list-item>
                                     <mat-list-item class="pa_blockfootertext" *ngIf="item.build.drivetrain != null">
                                         <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
-                                        {{item.build.drivetrain}}</mat-list-item>
+                                       
+                                        <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
+                                              <span *ngIf="item.build.drivetrain ==null || item.build.drivetrain ==''"> N/A</span> 
+                                    </mat-list-item>
 
                                     <mat-list-item class="pa_blockfootertext" *ngIf="item.build.transmission != null">
                                         <strong><img src="../../../../assets/images/bodytypeicon.png"></strong>
-                                        {{item.build.transmission}}</mat-list-item>
+                                       
+                                        <span *ngIf="item.build.transmission !=null">  
+                                             {{item.build.transmission}}</span> 
+                                        <span *ngIf="item.build.transmission ==null || 
+                                        item.build.transmission ==''"> N/A</span> 
+
+                                    </mat-list-item>
                                 </mat-list>
                             </span>
                         </span>

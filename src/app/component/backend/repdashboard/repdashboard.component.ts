@@ -97,6 +97,8 @@ public allLinkdinBanner : any = [
 
       this.datalist = data.rsvp.result;
 
+      console.log('...>>',this.datalist.customer_list)
+
       this.rsvpList=data.rsvp.result.rsvp_list
 
       this.saveSearchList=data.rsvp.result.save_search 
@@ -205,6 +207,7 @@ public allLinkdinBanner : any = [
 
   //for rsvp details
   viewRsvpDetails(val:any){
+    console.log(val)
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
