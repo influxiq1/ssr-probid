@@ -211,7 +211,6 @@ public allLinkdinBanner : any = [
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
-
 }
 
 

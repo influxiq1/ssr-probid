@@ -60,12 +60,12 @@ export class ApiService {
       source:'search_api_key'
     }
     this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
-      console.log(res);
+      // console.log(res);
       if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
         
       this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
       this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
-      console.log(this.inventory_url);
+      // console.log(this.inventory_url);
 
       this.invalidApi=res.res[0].apikey;
 

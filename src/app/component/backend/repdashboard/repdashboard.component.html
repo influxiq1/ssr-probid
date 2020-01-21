@@ -152,7 +152,7 @@
                             <span class="customerinfobottom">
                                 <h3>RSVP</h3>
                                 <mat-list class="customerinfobottomimagelists"  >
-                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.rsvp_list | slice:0:3" >
+                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.customer_list | slice:0:3" >
                                         <span class="customerinfotopimgwrapper">
                                             <span *ngIf="itemVal.car_image !=null">
                                                 <img [src]="itemVal.car_image"  ></span>
@@ -164,7 +164,7 @@
                                 </mat-list>
                                 <h3>FAVORITES</h3>
                                 <mat-list class="customerinfobottomimagelists">
-                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.save_search | slice:0:3"  >
+                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.customer_list | slice:0:3"  >
                                         <span class="customerinfotopimgwrapper">
                                             <span *ngIf="itemVal.car_image !=null">
                                                 <img [src]="itemVal.car_image"  ></span>
