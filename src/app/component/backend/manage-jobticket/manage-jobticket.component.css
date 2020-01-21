@@ -90,4 +90,4 @@
 .jobticketimglists .file_upload .button-group{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;width:80%;margin:20px auto;border-radius:0;text-align:center}
 .statusjobticket{margin-left: 10px;}
 .markasresolvedadmincls{display: inline-block!important;background: #00c0ff!important;font-size: 16px!important;color: #fff!important;text-transform: uppercase; font-family: 'HelveticaBold'!important;text-decoration: none!important;line-height: normal!important;text-align: center!important;margin: 0;border-radius: 0;margin-top: 40px!important;text-decoration: none!important;box-shadow: 0 1px 2px rgba(0,0,0,0.5);padding: 14px 18px 10px!important;cursor: pointer;}
-.markasresolvedadmincls.greenbtn{background:#54aa0f!important;margin-left: auto !important;margin-right: auto !important;display: block !important;width: 280px;}
+.markasresolvedadmincls.redbtn{background:red!important;margin-left: auto !important;margin-right: auto !important;display: block !important;width: 280px;}

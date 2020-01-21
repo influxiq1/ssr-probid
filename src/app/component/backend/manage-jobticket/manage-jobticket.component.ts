@@ -26,6 +26,7 @@ export class ManageJobticketComponent implements OnInit {
   public images_array:any=[];
   public images_arr:any=[];
   public showbox:any = 0;
+  public msgUserType:any;
   // for job ticket 
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
@@ -141,6 +142,7 @@ public configDataJobTicket: any = {
         });
     }
 
+
     this.jobTicketMsgForm.controls['msg_picture'].patchValue(this.images_arr);
 
 
@@ -148,9 +150,6 @@ public configDataJobTicket: any = {
     if (this.jobTicketMsgForm.valid) {
       this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
-
-
-    
 
       let data: any = {
         source: "job_ticket_msg",
@@ -160,18 +159,29 @@ public configDataJobTicket: any = {
           rsvp_id:this.rsvp_id,
           message: this.jobTicketMsgForm.value.message,
           job_ticket:1,
-          
+          type:this.userCookies.type,
           msg_picture:this.jobTicketMsgForm.value.msg_picture
         },
         sourceobj:["rsvp_id","ticket_added_by","job_ticket_id"]
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log('>>>',res);
+        console.log('>>>',res)
         this.showbox = 0;
         this.getData();
         this.jobTicketMsgForm.reset();
         // this.apploader.loader = 0;
+        let result:any=res;
+        console.log('++++',result.status)
+        this.msgUserType=this.message_details[this.message_details.length - 1]
+
+     
+        console.log('>>>>>>****', this.msgUserType)
+
+        // if(result.type == 'admin'){
+
+ 
+        // }
         
      
       })

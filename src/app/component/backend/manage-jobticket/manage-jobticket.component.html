@@ -18,10 +18,9 @@
               <span class="statusjobticket">
                 <mat-label>Status :</mat-label>                
   
-                <!-- <button mat-button class="btnblue greenbtn" 
-                *ngIf="message_details!=null && message_details[0].type == 'admin'" >Replied By Admin</button> -->
+               
 
-                <button mat-button class="btnblue greenbtn" 
+                 <button mat-button class="btnblue greenbtn" 
                 *ngIf="job_ticket.message_flag == 0" >Re-Open</button>
 
                 <button mat-button class="btnblue greenbtn" 
@@ -34,22 +33,25 @@
   
                <!-- <button mat-button class="btnblue yellowbtn" *ngIf="rsvp_details.status == 1 && rsvp_details.status == 2" 
                >Pending</button> -->
+
+               <button mat-button class="btnblue greenbtn"  
+               *ngIf="msgUserType == 'admin'">Replied By Admin</button>
   
-               <!-- <button mat-button class="btnblue greenbtn" 
-               *ngIf="message_details != null && message_details[0].type == 'salesrep'
-                || message_details[0].type == 'customer '" >Open</button>
+               <button mat-button class="btnblue greenbtn" *ngIf="msgUserType == 'salesrep' || msgUserType == 'customer'" >Open</button>
 
                 <button mat-raised-button type="reset" class="btnblue yellowbtn" 
-                *ngIf="message_details[0].type == '' || message_details[0].type == '' || message_details[0].type == ''">Pending</button> -->
+                *ngIf="message_details == '' || message_details == null">Pending</button>
+
               </span>
             </span>
 
-            <span class="statusjobticket" *ngIf="userCookies.type == 'admin'">
+            <span class="statusjobticket">
               <button mat-raised-button type="reset" class="btnblue" 
-              (click)="markAsResolve(job_ticket._id,1)" *ngIf=" job_ticket.message_flag == 0 " >Mark As Resolved</button>
+              (click)="markAsResolve(job_ticket._id,1)" *ngIf="job_ticket.message_flag == 0 && userCookies.type == 'admin' " >Mark As Resolved</button>
+
 
               <button mat-raised-button type="reset" class="btnblue"
-               (click)="markAsResolve(job_ticket._id,0)" *ngIf="job_ticket.message_flag == 1" >Re-Opened</button>
+               (click)="markAsResolve(job_ticket._id,0)" *ngIf="job_ticket.message_flag == 1 " >Re-Opened</button>
             </span>
             
           </span>
@@ -293,7 +295,7 @@
                   </span>
                 </form>
               </span>
-              <span *ngIf=" job_ticket.message_flag == 1 " class="markasresolvedadmincls greenbtn">Mark as resolved from admin</span>
+              <span *ngIf=" job_ticket.message_flag == 1 " class="markasresolvedadmincls redbtn">Mark as resolved from admin</span>
           </span>
         </span>
       </span>

@@ -53,7 +53,12 @@ export class ResolveService implements Resolve<any> {
                     delete requestData.condition.castomer;
                 }
                 if (requestData.condition[d] == 'rsvp_id') {
-                    requestData.rsvp_id = requestData.condition._id
+                    requestData.rsvp_id = requestData.condition._id;
+                    // requestData.ticket_id=requestData._id
+                    // requestData.ticket_id=
+
+                    console.log(">>>", requestData)
+
                    delete requestData.condition.rsvp_id
                    delete requestData.condition._id
                    delete requestData.condition.status
@@ -62,7 +67,6 @@ export class ResolveService implements Resolve<any> {
                if (requestData.condition[d] == 'ticket_added_by_object') {
                 requestData.condition[d] = this.userid
                
-             
            }
 
 
