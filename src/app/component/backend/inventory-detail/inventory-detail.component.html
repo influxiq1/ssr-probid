@@ -160,7 +160,11 @@
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
-                        <img src="../../../../assets/images/imguser.jpg">
+
+                      <span *ngIf="data.added_for_picture ==null"> <img src="../../../../assets/images/no-image-default.jpg"></span> 
+                      <span *ngIf="data.added_for_picture !=null">  
+                        <img [src]="data.added_for_picture"></span>
+                        
                       </span>
                       <span class="listscontent">
                         <mat-list>
@@ -182,7 +186,9 @@
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
-                        <img src="../../../../assets/images/imguser.jpg">
+                        <span *ngIf="data.added_by_picture ==null"> <img src="../../../../assets/images/no-image-default.jpg"></span> 
+                        <span *ngIf="data.added_by_picture !=null">  
+                          <img [src]="data.added_by_picture"></span>
                       </span>
                       <span class="listscontent">
                         <mat-list>

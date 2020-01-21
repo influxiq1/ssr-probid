@@ -207,6 +207,7 @@ public allLinkdinBanner : any = [
 
   //for rsvp details
   viewRsvpDetails(val:any){
+    console.log(val)
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
