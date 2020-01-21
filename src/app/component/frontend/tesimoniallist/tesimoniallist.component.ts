@@ -29,8 +29,8 @@ export class TesimoniallistComponent implements OnInit {
     this.meta.setTag('og:title', 'ProBid Auto - Testimonials lists');
     this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials lists');
     this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', '../../assets/images/logomain.png');
-    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
+    this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
 
 
    }
