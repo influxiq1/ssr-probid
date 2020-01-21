@@ -28,7 +28,8 @@
 .blogsociallists a{margin-right:5px}
 .sharelinkrightlists{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;padding-top:0}
 .rep-dashboard-block2 .flexbox4column{border-top:5px solid #393f45;margin-top:10px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
-.rep-dashboard-block2 .flexbox4column > .listsingle{box-sizing:border-box;margin-top:0;width:calc(1/4*100% - (1 - 1/4)*20px);height:auto;height:auto;background-color:#c2c9cd;padding:20px;margin-right:20px;margin-bottom:20px}
+.rep-dashboard-block2 .flexbox4column > .listsingle{box-sizing:border-box;margin-top:0;width:calc(1/3*100% - (1 - 1/3)*20px);height:auto;height:auto;background-color:#c2c9cd;padding:20px;margin-right:20px;margin-bottom:20px}
+.rep-dashboard-block2 .flexbox4column > .listsingle:nth-child(3n){margin-right: 0 !important;}
 .rep-dashboard-block2 .flexbox4column > .listsingle:last-child{padding:20px;margin-right:0!important}
 .customerinfotop{display:flex;flex-direction:row;justify-content:space-between;align-items:stretch;background:#fff;padding:5px}
 .customerinfotopimgwrapper{display:flex;flex-basis:160px;position:relative;display:block!important;border:1px px solid #e0e2e5;min-height:160px}
