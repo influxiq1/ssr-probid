@@ -334,14 +334,15 @@
                                               <span *ngIf="item.miles ==null"> N/A</span> 
 
                                     </mat-list-item>
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.build.drivetrain != null">
+                                    <mat-list-item class="pa_blockfootertext" >
                                         <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
                                        
                                         <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
                                               <span *ngIf="item.build.drivetrain ==null || item.build.drivetrain ==''"> N/A</span> 
+
                                     </mat-list-item>
 
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.build.transmission != null">
+                                    <mat-list-item class="pa_blockfootertext" >
                                         <strong><img src="../../../../assets/images/bodytypeicon.png"></strong>
                                        
                                         <span *ngIf="item.build.transmission !=null">  

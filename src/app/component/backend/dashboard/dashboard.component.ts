@@ -148,6 +148,16 @@ export class DashboardComponent implements OnInit {
 
   }
 
+  rsvpDetail(val:any){
+    // console.log('hit',val)
+    this.router.navigateByUrl('/rsvp-detail/'+val);
+  }
+
+  inventoryDetails(val:any){
+    // console.log('details>>',val)
+    this.router.navigateByUrl('/inventory-detail/'+val);
+  }
+
 }
 
 
