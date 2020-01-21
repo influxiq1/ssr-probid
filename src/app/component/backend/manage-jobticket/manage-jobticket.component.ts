@@ -6,6 +6,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponent } from '../../../app.component';
 
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 export interface DialogData {
   data: any;
@@ -68,10 +69,11 @@ public configDataJobTicket: any = {
   public rsvp_details: any = '';
   public markresolve:any='';
   public re_Open:any='';
+  public msgStatus:any=''
   constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
-    console.log(this.rsvp_id, this.status)
+    // console.log(this.rsvp_id, this.status)
     if (this.cookieservice.get('jwtToken') != undefined  && this.cookieservice.get('user_details') != null && this.cookieservice.get('jwtToken') != null && this.cookieservice.get('jwtToken') != '') {
       this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
       console.log('>>>>>>>',this.userCookies)
@@ -92,16 +94,22 @@ public configDataJobTicket: any = {
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      console.log(data.job_ticket.result)
+      // console.log(data.job_ticket.result)
       this.message_details = data.job_ticket.result.message_details;
       this.user_list = data.job_ticket.result.user_list[0];
       this.rsvp_details = data.job_ticket.result.rsvp_details[0];
       this.job_ticket = data.job_ticket.result.job_ticket[0];
-      console.log(this.job_ticket)
+      // console.log(this.job_ticket)
     })
     
 
     // this.getData();
+
+    this.msgUserType=this.message_details[this.message_details.length - 1]
+
+    // console.log('msssssstype++++',this.msgUserType)
+
+    // console.log('>>><<<', this.job_ticket.message_flag)
 
   }
   showMessage(){
@@ -115,7 +123,7 @@ public configDataJobTicket: any = {
     } 
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
-      console.log(res.res)
+      // console.log(res.res)
       this.message_details = res.res;
       this.apploader.loader = 0;
 
@@ -166,23 +174,20 @@ public configDataJobTicket: any = {
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log('>>>',res)
+        // console.log('>>>',res)
         this.showbox = 0;
         this.getData();
         this.jobTicketMsgForm.reset();
         // this.apploader.loader = 0;
         let result:any=res;
-        console.log('++++',result.status)
-        this.msgUserType=this.message_details[this.message_details.length - 1]
+        // console.log('++++',result.status)
+       
+          // this.msgUserType.type=result.type;
 
-     
-        console.log('>>>>>>****', this.msgUserType)
+          let msgType:any
+          msgType=this.msgUserType.type;
 
-        // if(result.type == 'admin'){
-
- 
-        // }
-        
+          // console.log('&&&&&&>>>>>', msgType)
      
       })
     }
@@ -259,7 +264,7 @@ public configDataJobTicket: any = {
 
   //view image from comment place
   viewImage(val:any){
-    console.log('>>',val)
+    // console.log('>>',val)
     const dialogRef = this.dialog.open(ViewImageComponent, {
 
       data:val
@@ -268,7 +273,7 @@ public configDataJobTicket: any = {
   }
 
   viewJobImage(val:any){
-    console.log('>>',val)
+    // console.log('>>',val)
     const dialogRef = this.dialog.open(ViewImageComponent, {
       
       data:val
@@ -301,12 +306,15 @@ public configDataJobTicket: any = {
       }
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         let result :any=res
         if(result.status == 'success'){
-          console.log('**>>>',this.job_ticket,status);
+          // console.log('**>>>',this.job_ticket,status);
           this.job_ticket.message_flag = status;
-          console.log(this.job_ticket.message_flag,status);
+
+          // this.msgStatus= this.job_ticket.message_flag
+
+          // console.log(this.msgStatus);
         }
       
       })
