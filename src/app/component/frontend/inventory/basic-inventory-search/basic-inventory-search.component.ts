@@ -111,8 +111,8 @@ export class BasicInventorySearchComponent implements OnInit {
     this.meta.setTag('og:title', 'ProBid Auto - Inventory');
     this.meta.setTag('twitter:title', 'ProBid Auto - Inventory');
     this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', '../../assets/images/logomain.png');
-    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
+    this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
 
 
 if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {

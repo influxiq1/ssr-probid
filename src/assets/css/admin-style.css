@@ -139,7 +139,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .d_block4_label span:nth-of-type(2){background:url(../images/ami_amin_blockcon4_icon2.png) no-repeat left center!important}
 .d_block4_label span:nth-of-type(3){background:url(../images/ami_amin_blockcon4_icon4.png) no-repeat left center!important}
 .starimgnew{width:43px!important;position:absolute;left:1px;top:1px;border:none!important}
-.footerbg.mat-card{width:100%;display:block;background:#dde2e5!important;padding:10px;text-align:left;color:#fff}
+.footerbg.mat-card{display:block;background:#dde2e5!important;padding:10px;text-align:left;color:#fff}
 .footerbg .mat-card{background:#dde2e5!important}
 .footerblock.mat-card{background:#dde2e5!important}
 .searchblock .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:0;line-height:60px}
