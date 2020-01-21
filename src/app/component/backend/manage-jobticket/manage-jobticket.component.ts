@@ -57,7 +57,7 @@ public configDataJobTicket: any = {
   conversionNeeded: 0,
   bucketName: "probidfiles-dev.com" 
 }
-
+  public msgType:any;
   public userCookies: any;
   public userid: any;
   public rsvp_id: any;
@@ -184,8 +184,8 @@ public configDataJobTicket: any = {
        
           // this.msgUserType.type=result.type;
 
-          let msgType:any
-          msgType=this.msgUserType.type;
+         
+          this.msgType=this.msgUserType.type;
 
           // console.log('&&&&&&>>>>>', msgType)
      
