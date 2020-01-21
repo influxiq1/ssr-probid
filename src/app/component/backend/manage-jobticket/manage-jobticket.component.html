@@ -18,13 +18,12 @@
               <span class="statusjobticket">
                 <mat-label>Status :</mat-label>                
   
-               
 
-                 <button mat-button class="btnblue greenbtn" 
-                *ngIf="job_ticket.message_flag == 0" >Re-Open</button>
+                 <!-- <button mat-button class="btnblue greenbtn" 
+                *ngIf="job_ticket.message_flag == 0 && job_ticket !='' && job_ticket.message_flag !=''" >Re-Open</button>
 
                 <button mat-button class="btnblue greenbtn" 
-                *ngIf="job_ticket.message_flag == 1" >Closed</button>
+                *ngIf="job_ticket.message_flag == 1 && job_ticket !='' && job_ticket.message_flag !=''" >Closed</button> -->
 
 
   
@@ -35,12 +34,14 @@
                >Pending</button> -->
 
                <button mat-button class="btnblue greenbtn"  
-               *ngIf="msgUserType == 'admin'">Replied By Admin</button>
+               *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=null && (msgType == 'admin' || msgUserType.type == 'admin') ">Replied By Admin</button>
   
-               <button mat-button class="btnblue greenbtn" *ngIf="msgUserType == 'salesrep' || msgUserType == 'customer'" >Open</button>
+               <button mat-button class="btnblue greenbtn"
+                *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=undefined && (msgUserType.type == 'salesrep' || msgUserType.type == 'customer' || msgType =='salesrep' || msgType == 'customer')" >Open</button>
 
                 <button mat-raised-button type="reset" class="btnblue yellowbtn" 
-                *ngIf="message_details == '' || message_details == null">Pending</button>
+                *ngIf="message_details == '' || message_details == null && 
+                msgUserType.type == ''">Pending</button>
 
               </span>
             </span>
@@ -224,7 +225,7 @@
                       <mat-list-item>
                         <span class="toppart jobcommentbox">
                           <span class="jobcommentboximg">
-                            <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined" src="../../../../assets/images/default_car_img.jpeg">
+                            <img class="defaultimg" *ngIf="job_ticket.profile_picture == null || job_ticket.profile_picture == undefined || job_ticket.profile_picture == ''" src="../../../../assets/images/default_car_img.jpeg">
                             <img class="defaultimg"  *ngIf="job_ticket.profile_picture != null && job_ticket.profile_picture != ''"
                              [attr.src]="job_ticket.profile_picture">
                           </span>
@@ -277,7 +278,7 @@
                 </mat-list> 
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
-              <span *ngIf=" job_ticket.message_flag != 1 ">
+              <span *ngIf=" job_ticket.message_flag !=null && job_ticket.message_flag != 1 ">
                 <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
                   <span class="whitebg" > 
                     <mat-form-field>
