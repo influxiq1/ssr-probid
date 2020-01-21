@@ -35,7 +35,13 @@ export class FooterComponent implements OnInit {
     }
 
     termscondition() {
-        const dialogRef = this.dialog.open(DialogTermsDialog);
+        // const dialogRef = this.dialog.open(DialogTermsDialog);
+        const dialogRef = this.dialog.open(DialogTermsDialog, {
+            height: 'auto',
+            width: '100%',
+            maxWidth:'90vw',
+            panelClass: 'termsconditionDialogCls'
+          });
 
         dialogRef.afterClosed().subscribe(result => {
             // console.log(`Dialog result: ${result}`);
@@ -43,10 +49,16 @@ export class FooterComponent implements OnInit {
     }
 
     privacypolicy() {
-        const dialogRef = this.dialog.open(DialogPrivacyDialog);
+        const dialogRef = this.dialog.open(DialogPrivacyDialog, {
+            height: 'auto',
+            width: '100%',
+            maxWidth:'90vw',
+            panelClass: 'privacypolicyDialogCls'
+          });
 
         dialogRef.afterClosed().subscribe(result => {
             // console.log(`Dialog result: ${result}`);
+            
         });
     }
 

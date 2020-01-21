@@ -246,7 +246,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .salesrepadmininfocontentlist .mat-list-item .mat-list-item-content{padding:0!important;align-items:stretch!important}
 .emailwrapper{max-width:600px;margin:0 auto}
 .homebanner .owl-carousel.owl-drag .owl-item{position:relative;margin-top:0;width:100%!important;height:100%}
-.owl-carousel.owl-drag .owl-item[style]{width:100%!important}
+/* .owl-carousel.owl-drag .owl-item[style]{width:100%!important} */
 .homebanner .owl-carousel.owl-drag .owl-stage[style]{width:100%!important;display:flex;justify-content:flex-start}
 .homebanner .owl-carousel.owl-drag .owl-item .itemcls{position:relative;height:100%;width:100%}
 .homebanner.mat-card{background:#000!important}
@@ -280,7 +280,12 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper{height:160px;width:160px;position:relative;margin:0 auto 20px;border:2px solid #f3f3f3;padding:10px;overflow:hidden}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper img{max-width:100%;-o-object-fit:cover;object-fit:cover;margin:0 auto;z-index:99;position:relative;max-width:100%;width:100%;display:block;margin-top:0!important;height:100%;object-fit:cover}
 .googlemaphome .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;width: 100%!important;}
-.cdk-overlay-pane.googleMapDialogCls[style]{margin-left: auto; margin-right: auto;}
+.cdk-overlay-pane.googleMapDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
+.cdk-overlay-pane.termsconditionDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.termsconditionDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
+.cdk-overlay-pane.privacypolicyDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.privacypolicyDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
 .cdk-overlay-pane[style]{margin-left: 0 !important;}
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
 
