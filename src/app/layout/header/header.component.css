@@ -17,7 +17,7 @@
 .langblock select.mat-input-element:not(:disabled){cursor:pointer;background-color:#131414;padding:0 10px;border:none!important}
 .infoblock .mat-list .mat-list-item{flex:1 1 auto;width:inherit;color:#a7a6a6;text-transform:uppercase}
 .infoblock .mat-list .mat-list-item a,.infoblock .mat-list .mat-list-item a:hover{color:#a7a6a6}
-.infoblock .mat-list .mat-list-item span{border-right:1px solid #333;display:inline-flex;padding-right:10px;margin-right:10px}
+.infoblock .mat-list .mat-list-item span{display:inline-flex;padding-right:10px;margin-right:10px}
 .infoblock .mat-list .mat-list-item span:last-child{border-right:0 solid #333!important;padding-right:0;margin-right:0}
 .infoblock .mat-list .mat-list-item img{margin-right:10px}
 .headertopwrapper.mat-card-content{display:flex;align-items:center;justify-content:space-between;margin-bottom:0}
@@ -33,7 +33,7 @@
 .headermiddle.mat-card{background:#131414!important;padding:5px!important}
 .headermiddle .logowrapper{margin-top:-27%!important;margin-bottom:26px!important;width:350px}
 .topcontactinfoblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
-.contactinfo, .phoneinfo{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0}
+.contactinfo, .phoneinfo{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0; cursor: pointer;}
 .phoneinfo a{color:#fff;display:flex;align-items:center;justify-content:space-between;padding-top:0; flex-wrap: wrap; flex-direction: column;}
 .topsocialblock .mat-list{display:flex;justify-content:space-between;align-items:center;padding-top:0}
 .topsocialblock .mat-list-item{margin-left: 16px;}

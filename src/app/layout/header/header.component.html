@@ -25,9 +25,9 @@
               <span><a *ngIf="cookieService.get('jwtToken')==''" [routerLink]="['/login']">login</a></span>
               <span><a *ngIf="cookieService.get('jwtToken')!=''" (click)="logOut()">logout</a></span>
             </mat-list-item>
-            <mat-list-item role="listitem" class="activedropmenu">
+            <!-- <mat-list-item role="listitem" class="activedropmenu">
               <span><a *ngIf="cookieService.get('jwtToken')==''" [routerLink]="['/sign-up']">Register</a></span>
-            </mat-list-item>
+            </mat-list-item> -->
           </mat-list>
         </span>
       </mat-card-content>
