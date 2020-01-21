@@ -97,6 +97,8 @@ public allLinkdinBanner : any = [
 
       this.datalist = data.rsvp.result;
 
+      console.log('...>>',this.datalist.customer_list)
+
       this.rsvpList=data.rsvp.result.rsvp_list
 
       this.saveSearchList=data.rsvp.result.save_search 
