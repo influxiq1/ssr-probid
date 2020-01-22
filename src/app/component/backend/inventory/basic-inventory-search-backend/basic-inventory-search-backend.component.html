@@ -25,7 +25,8 @@
       <span class="formblockwrapper">
         <span class="mainwrappercontent">
           <span class="formblock">
-            <form class="example-container" [formGroup]="inventoryCustomerForm" (ngSubmit)="inventoryCustomerSearch()">
+            <form class="example-container" [formGroup]="inventoryCustomerForm"
+             (ngSubmit)="inventoryCustomerSearch()">
 
               <span class="section1">
                 <span>
@@ -33,7 +34,8 @@
                     <h4>Make:</h4>
                     <mat-form-field>
                       <input type="text" (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
-                        aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
+                        aria-label="Number" matInput formControlName="make" 
+                        [matAutocomplete]="auto">
                       <mat-autocomplete #auto="matAutocomplete">
                         <mat-option *ngFor="let option of make_list" [value]="option">
                           {{option}}

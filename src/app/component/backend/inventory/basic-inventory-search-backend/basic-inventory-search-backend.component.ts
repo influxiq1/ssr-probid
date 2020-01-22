@@ -217,8 +217,6 @@ export class BasicInventorySearchBackendComponent implements OnInit {
           console.log("error")
         })
 
-
-
       })
      
     }

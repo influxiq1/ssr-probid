@@ -168,13 +168,14 @@ const routes: Routes = [
   data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' } },
 
 
-
   { path: 'advance-inventory-search', component: AdvanceInventorySearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' } },
   { path: 'basic-inventory-search', component: BasicInventorySearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }},
+
+  { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent},
 
 
   { path: 'save-search-admin', component: SaveSearchComponent ,

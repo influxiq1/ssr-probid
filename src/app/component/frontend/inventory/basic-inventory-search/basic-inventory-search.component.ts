@@ -89,6 +89,7 @@ export class BasicInventorySearchComponent implements OnInit {
   public customur_id: any = '';
   public indexCount: number;
   public indexCountForImg: number;
+  public apikey:any;
 
 
   
@@ -158,6 +159,10 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       // this.year_list = this.inventory_search_list.result.manage_year;
     })
 
+//     this.routeData=this.activatedRoute.data.subscribe(res=>{
+// console.log(res)
+      // this.search=JSON.parse(res)
+    // })
   }
 
   
@@ -190,9 +195,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   }
 
   //____________search function for inventory customer search_________________//
-  reset() {
-    this.inventoryCustomerForm.clearValidators();
-  }
+  // reset() {
+  //   this.inventoryCustomerForm.clearValidators();
+  // }
 
   inventoryCustomerSearch() {
     console.log('--------')
@@ -247,6 +252,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
           // console.log('search list',this.search)
           //   console.log(this.search);
         })
+
       } else {
         this.apploader.loader = 0;
         this.errorMsg = "Please select at least one field";
@@ -266,9 +272,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
 
   searchAutoComplete(event: any, field: string) {
-
     this.apploader.loader = 1;
-    
+
+
     let input: string = '';
     let inputField: string = '';
     if (event.target.value != null && event.target.value != '' && event.target.value.length >= 0) {
@@ -282,8 +288,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
+
       this.apploader.loader = 0;
-     
+
       if (field == 'make') {
         this.make_list = res.terms; 
         // console.log(field, this.make_list);
@@ -301,7 +308,25 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         // console.log(field, this.trim_list); 
       }
 
-    });
+
+
+    },error =>{
+      console.log('Invalid_Api')
+      console.log(this.apiService.invalidApi)
+
+      
+      this.apikey=this.apiService.invalidApi;
+
+      let data:any;
+      data={
+        
+        "apikey":this.apikey
+      }
+
+      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
+        console.log("error")
+      })
+  });
   }
 
   }

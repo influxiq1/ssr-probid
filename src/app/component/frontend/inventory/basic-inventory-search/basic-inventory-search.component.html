@@ -50,7 +50,8 @@
                 <h4>Model:</h4>
                 <mat-form-field>
                   <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
-                    aria-label="Number" matInput formControlName="model" [matAutocomplete]="automodel">
+                    aria-label="Number" matInput formControlName="model" 
+                    [matAutocomplete]="automodel">
                   <mat-autocomplete #automodel="matAutocomplete">
                     <mat-option *ngFor="let option of model_list" [value]="option">
                       {{option}}
@@ -134,8 +135,8 @@
 
             </span>
             <span class="buttonslist">
-              <button mat-raised-button color="primary" type="button" (click)="reset()"> Reset</button>
-              <button mat-raised-button color="primary" type="submit"> Search</button>
+              <button mat-raised-button color="primary" type="reset" > Reset</button>
+              <button mat-raised-button color="primary" type="button"> Search</button>
             </span>
 
           </span>

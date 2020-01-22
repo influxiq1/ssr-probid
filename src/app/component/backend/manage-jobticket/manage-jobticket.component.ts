@@ -57,7 +57,6 @@ public configDataJobTicket: any = {
   conversionNeeded: 0,
   bucketName: "probidfiles-dev.com" 
 }
-  public msgType:any;
   public userCookies: any;
   public userid: any;
   public rsvp_id: any;
@@ -184,8 +183,7 @@ public configDataJobTicket: any = {
        
           // this.msgUserType.type=result.type;
 
-         
-          this.msgType=this.msgUserType.type;
+      
 
           // console.log('&&&&&&>>>>>', msgType)
      
@@ -312,38 +310,10 @@ public configDataJobTicket: any = {
           // console.log('**>>>',this.job_ticket,status);
           this.job_ticket.message_flag = status;
 
-          // this.msgStatus= this.job_ticket.message_flag
-
-          // console.log(this.msgStatus);
         }
       
       })
   }
-
-  // reOpen(val:any){
-  //   console.log('hit',val)
-
-  //   let endpoint: any = "addorupdatedata";
-  //     let data:any;
-  //     data={
-  //       source: "job_ticket",
-  //       "data":{
-  //         status:0,
-  //         id:val
-  //       }
-        
-  //     }
-
-  //     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-  //       console.log(res);
-      
-  //       let result :any=res
-  //       if(result.status == 'success'){
-  //         this.re_Open=1;
-  //       }
-  //     })
-
-  // }
 
 }
 

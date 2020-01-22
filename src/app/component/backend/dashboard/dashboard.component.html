@@ -63,7 +63,8 @@
 
         <mat-card-content class="customer-dashboard-block2">
           <span class="customer-dashboard-block2-inner">
-            <h1 class="titleadmin">RSVP <mat-button class="btnblue">view all</mat-button></h1>     
+            <h1 class="titleadmin">RSVP <mat-button class="btnblue"
+               [routerLink]="['/rsvp-customer']">view all</mat-button></h1>     
             <mat-list role="list" class="flexbox1column">
                             <mat-list-item role="listitem" class="rsvplistsingle"
                              *ngFor="let item of datalist.rsvp_list | slice:0:indexval; let i=index">
@@ -144,7 +145,8 @@
 
 
         <mat-card-content class="rep-dashboard-block6">
-          <h1 class="titleadmin">Save Search <mat-button class="btnblue" [routerLink]="['/save-search-admin']">View All</mat-button></h1> 
+          <h1 class="titleadmin">Save Search <mat-button class="btnblue"
+             [routerLink]="['/save-search-castomer']">View All</mat-button></h1> 
           <mat-list role="list" class="flexbox5column">
               <mat-list-item role="listitem" class="block1socialadvosingle" 
               *ngFor="let item of datalist.save_search | slice:0:indexvalue; let i=index">

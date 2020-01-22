@@ -10,6 +10,7 @@ import {AppComponent} from '../../../app.component';
 
 
 
+
 export interface DialogData {
   errorMsg: string;
   loginMsg: string;
@@ -24,6 +25,8 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   public saveCarDataList:any;
   public inventoryCustomerForm: FormGroup;
+
+  public inventoryPreownForm:FormGroup;
 
   public type: string = '';
   public year: string = '';
@@ -45,6 +48,7 @@ export class HomeComponent implements OnInit {
   public user_details:any = '';
   public loginMsg: string ='';
   public errorMsg: string = '';
+  public apikey:any;
 
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
 
@@ -293,17 +297,21 @@ export class HomeComponent implements OnInit {
     // this.getData;
 
     let data: any = {
-      source:'save_favorite_view', 
+      source:'allcar_view', 
       
     
     }
     this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
       // console.log('>>>>',resc.res);
       this.saveCarDataList=resc.res
+      console.log('>>>>',this.saveCarDataList);
+
+
     })
 
     this.generateForm();
     this.getStateList();
+    this.generatePreownForm();
 
 
     //for year list
@@ -343,6 +351,55 @@ let datay:any;
 
     })
   }
+
+  //generate form for preown car
+
+  generatePreownForm(){
+    this.inventoryPreownForm=this.fb.group({
+      make:[''],
+      model:[''],
+      year:[''],
+      type:['']
+    })
+  }
+
+//for preown car
+inventoryPreownSearch(){
+
+  this.apploader.loader = 1;
+
+  console.log('hit')
+  let yearVal = this.inventoryPreownForm.value.year;
+  let typeVal = this.inventoryPreownForm.value.type;
+  let makeVal = this.inventoryPreownForm.value.make;
+  let modelVal = this.inventoryPreownForm.value.model;
+
+
+  let data: any = {
+    source:'save_favorite_view',
+    condition:{
+    	"build.make":makeVal || modelVal || typeVal || yearVal
+    }
+  }
+
+  this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+    // console.log('>>>>',resc.res);
+    this.saveCarDataList=resc.res
+    // console.log('>>>>',this.saveCarDataList);
+
+    this.apploader.loader = 0;
+
+  })
+
+
+
+}
+
+
+
+
+
+
 
   //for basic inventory search
 
@@ -398,7 +455,8 @@ let datay:any;
 
           this.search = res.listings;
           // console.log('search list',this.search)
-            // console.log(this.search);
+            console.log(this.search);
+            
         })
       } 
       else {
@@ -412,7 +470,6 @@ let datay:any;
         });
 
       }
-
 
     }
 
@@ -456,7 +513,23 @@ let datay:any;
         // console.log(field, this.trim_list); 
       }
 
-    });
+    },error =>{
+      console.log('Invalid_Api')
+      console.log(this.apiService.invalidApi)
+
+      
+      this.apikey=this.apiService.invalidApi;
+
+      let data:any;
+      data={
+        
+        "apikey":this.apikey
+      }
+
+      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
+        console.log("error")
+      })
+  });
   }
 
   }
