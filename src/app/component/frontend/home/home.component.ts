@@ -6,6 +6,8 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
+import {AppComponent} from '../../../app.component';
+
 
 
 export interface DialogData {
@@ -224,7 +226,7 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService, public apploader: AppComponent) { 
     // this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     // this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     // this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -345,6 +347,8 @@ let datay:any;
   //for basic inventory search
 
   inventoryCustomerSearch() {
+    this.apploader.loader = 1;
+
     if (this.inventoryCustomerForm.valid) {
 
       let yearVal = this.inventoryCustomerForm.value.year;
@@ -390,12 +394,16 @@ let datay:any;
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
+          this.apploader.loader = 0;
+
           this.search = res.listings;
           // console.log('search list',this.search)
             // console.log(this.search);
         })
       } 
       else {
+        this.apploader.loader = 0;
+
         this.errorMsg = "Please select at least one field";
 
         const dialogRef = this.dialog.open(errorSearchModal, {
@@ -412,6 +420,8 @@ let datay:any;
 
 
   searchAutoComplete(event: any, field: string) {
+    this.apploader.loader = 1;
+
 
     let input: string = '';
     let inputField: string = '';
@@ -426,6 +436,8 @@ let datay:any;
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
+      this.apploader.loader = 0;
+
      
       if (field == 'make') {
         this.make_list = res.terms; 
