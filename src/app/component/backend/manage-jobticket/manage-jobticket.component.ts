@@ -21,7 +21,6 @@ export interface DialogData {
 export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
-  public changeStatus:any;
   public jobTicketForm: FormGroup;
   public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
@@ -241,24 +240,25 @@ public configDataJobTicket: any = {
 
 
   }
-  // changeStatus(item: any, val: any) {
-  //   // console.log('rsvpSend status',item, val)
-  //   let endpoint: any = "addorupdatedata";
-  //   item.status = val;
-  //   let card_data:any = {
-  //     card_data: item,
-  //     id:item._id
-  //   }
-  //   let data: any = {
-  //     data: card_data,
-  //     source: "send_for_rsvp",
-  //   };
-  //     this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-  //       // console.log(res);
-  //       (res.status == "success");
-  //       // this.getdata();
-  //     });
-  // }
+
+  changeStatus(item: any, val: any) {
+    // console.log('rsvpSend status',item, val)
+    let endpoint: any = "addorupdatedata";
+    item.status = val;
+    let card_data:any = {
+      card_data: item,
+      id:item._id
+    }
+    let data: any = {
+      data: card_data,
+      source: "send_for_rsvp",
+    };
+      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+        // console.log(res);
+        (res.status == "success");
+        // this.getdata();
+      });
+  }
 
   //view image from comment place
   viewImage(val:any){

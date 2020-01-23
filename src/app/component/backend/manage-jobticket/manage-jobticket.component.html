@@ -53,11 +53,12 @@
 
             <span class="statusjobticket">
               <button mat-raised-button type="reset" class="btnblue" 
-              (click)="markAsResolve(job_ticket._id,2)" *ngIf="job_ticket !=null && job_ticket !='' &&job_ticket.message_flag == 3 && userCookies.type == 'admin' " >Mark As Resolved</button>
+              (click)="markAsResolve(job_ticket._id,2)" *ngIf="job_ticket !=null && job_ticket.message_flag == 3 && userCookies.type == 'admin' " >Mark As Resolved</button>
 
 
               <button mat-raised-button type="reset" class="btnblue"
-               (click)="markAsResolve(job_ticket._id,3)" *ngIf="job_ticket !=null && job_ticket !='' &&job_ticket.message_flag == 2 " >Re-Opened</button>
+               (click)="markAsResolve(job_ticket._id,3)" *ngIf="job_ticket !=null 
+               && job_ticket.message_flag == 2 " >Re-Opened</button>
             </span>
             
           </span>
@@ -211,12 +212,12 @@
                   </span>
                   <mat-list  class="jobticketimglists">
                     <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
-                    <ng-container *ngIf="job_ticket !='' && job_ticket !=undefined && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined">
+                    <ng-container *ngIf="job_ticket !='' && job_ticket !=null && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != ''">
                       <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
                         <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
                       </mat-list-item>
                     </ng-container>
-                    <ng-container *ngIf="job_ticket =='' || job_ticket ==undefined || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == undefined">
+                    <ng-container *ngIf="job_ticket =='' || job_ticket ==null || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' ">
                     <mat-list-item *ngIf="status != 0">
                       <!-- <img  class="defaultimg" src="assets/images/no-image-default.jpg"> -->
                     </mat-list-item>
@@ -243,18 +244,18 @@
                              [attr.src]="job_ticket.profile_picture">
                           </span>
                           <span class="jobcommentboxcontent" >
-                            <mat-card-title>{{job_ticket.Fullname}} <span>Date: {{job_ticket.date}}</span></mat-card-title>
-                            <mat-card-content>{{job_ticket.description}}</mat-card-content>
+                            <mat-card-title *ngIf="job_ticket !=null">{{job_ticket.Fullname}} <span *ngIf="job_ticket !=null">Date: {{job_ticket.date}}</span></mat-card-title>
+                            <mat-card-content *ngIf="job_ticket !=null">{{job_ticket.description}}</mat-card-content>
                           </span>   
                         </span>
                         <span class="toppart">
-                          <span class="msgblock">
-                            <mat-list class="jobticketimglists">
+                          <span class="msgblock" *ngIf="job_ticket !=null">
+                            <mat-list class="jobticketimglists"  >
                               <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                                <img (click)="viewImage(item)" *ngIf="job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != undefined" class="defaultimg" 
+                                <img (click)="viewImage(item)" *ngIf="  job_ticket !=null &&  job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined" class="defaultimg" 
                                 [src]="item">
-                                <img *ngIf="job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg"
-                                 [src]="item">
+                                <img *ngIf="job_ticket ==null &&job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg"
+                                 src="../../../../assets/images/no-image-default.jpg">
                               </mat-list-item>
                             </mat-list>
                           </span>
@@ -292,7 +293,7 @@
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
                 <!-- *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.message_flag !=null && job_ticket.message_flag != 2 " -->
-              <span >
+            <span  *ngIf="job_ticket !=null && job_ticket.message_flag !=2 ">
                 <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
                   <span class="whitebg" > 
                     <mat-form-field>
