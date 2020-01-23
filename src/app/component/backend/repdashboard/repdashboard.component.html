@@ -26,9 +26,10 @@
                                         </span>
                                         <span class="sharelinkcontent">
                                             <h2>ProBid Auto Customer share link</h2>
-                                            <p> <input matInput type="text"
-                                                    value="{{apiService.share_link}}customer-signup/{{userid}}"
-                                                    #userinput></p>
+                                           <textarea rows="3" value="{{apiService.share_link}}customer-signup/{{userid}}"
+                                                #userinput></textarea>
+                                            
+                                            <!-- <input matInput type="text" oninput="auto_grow()"> -->
                                             <span class="blogsociallists">
                                                 <a class="sociallink fa fb">
                                                     <fa name="facebook" class="fa-facebook"></fa>
