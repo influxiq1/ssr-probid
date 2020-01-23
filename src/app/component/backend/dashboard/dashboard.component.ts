@@ -72,6 +72,7 @@ export class DashboardComponent implements OnInit {
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+        this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
 
 

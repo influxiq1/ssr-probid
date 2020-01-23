@@ -4,6 +4,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { MatDialogRef } from '@angular/material';
 import { DialogModalOpenDialog } from '../admin-manage-categories/admin-manage-categories.component';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-admin-add-categories',
@@ -20,8 +21,14 @@ export class AdminAddCategoriesComponent implements OnInit {
   public makeArray: any;
   public typeArray: any;
   public typeYear: any;
-  constructor(public route: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public router: Router, public dialogRef: MatDialogRef<DialogModalOpenDialog>) {
+  constructor(public route: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public router: Router, private readonly meta: MetaService, public dialogRef: MatDialogRef<DialogModalOpenDialog>) {
 
+    this.meta.setTitle('ProBid Auto - admin Add Categories');
+    this.meta.setTag('og:title', 'ProBid Auto - admin Add Categories');
+    this.meta.setTag('twitter:title', 'ProBid Auto - admin Add Categories');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     let id = route.snapshot.params.id;
 
