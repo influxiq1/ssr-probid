@@ -4,6 +4,7 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
  
 @Component({
   selector: 'app-add-birddog',
@@ -18,7 +19,13 @@ public cityList: any;
 public header_text:any="Add Birddog"
 public btn_text:any="Submit"
 @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService) { 
+constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService,private readonly meta: MetaService) { 
+    this.meta.setTitle('ProBid Auto - Add Birddog');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Birddog');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Birddog');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
     /**genarate Add-birddog form */
 
     if(router.url != '/add-birddog'){

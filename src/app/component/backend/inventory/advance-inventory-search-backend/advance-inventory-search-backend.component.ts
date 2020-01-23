@@ -84,7 +84,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
         }
 
 
-    this.meta.setTitle('ProBid Auto - Inventory');
+    this.meta.setTitle('ProBid Auto - Advance Inventory Search');
     this.meta.setTag('og:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
     this.meta.setTag('twitter:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
 

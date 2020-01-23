@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 
 
 export interface DialogData {
@@ -47,7 +48,14 @@ export class AdminManageCategoriesComponent implements OnInit {
   public editrouteyear:any = 'edityear';
 
 
-  constructor(public router: Router, public apiService: ApiService, public activatedRoute: ActivatedRoute, public dialog: MatDialog, public cookieService: CookieService) { }
+  constructor(public router: Router, public apiService: ApiService, public activatedRoute: ActivatedRoute, public dialog: MatDialog, public cookieService: CookieService,private readonly meta: MetaService) { 
+    this.meta.setTitle('ProBid Auto - Add edit manage Category');
+    this.meta.setTag('og:title', 'ProBid Auto - Add edit manage Category');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add edit manage Category');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+  }
 
 
   ngOnInit() {

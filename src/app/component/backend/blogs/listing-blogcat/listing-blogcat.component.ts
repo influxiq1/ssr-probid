@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-blogcat',
@@ -47,11 +48,18 @@ export class ListingBlogcatComponent implements OnInit {
  // ====================================================================
 
   
-  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService) {
+  constructor(private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, private readonly meta: MetaService) {
     // this.activatedRoute.data.subscribe(resolveData => {
     //   this.blogListConfig.datasource = resolveData.blogCatList.res;
     //   this.blogListConfig.jwtToken = this.cookieService.get('jwtToken');
     // });
+
+    this.meta.setTitle('ProBid Auto - Blog Category Lists');
+    this.meta.setTag('og:title', 'ProBid Auto - Blog Category Lists');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Blog Category Lists');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
     
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.user_cookie = JSON.parse(this.cookieService.get('user_details'));

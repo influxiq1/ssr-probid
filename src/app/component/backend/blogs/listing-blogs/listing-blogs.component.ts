@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../api.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-blogs',
@@ -46,7 +47,15 @@ export class ListingBlogsComponent implements OnInit {
  
  // ====================================================================
 
-constructor(private cookieService: CookieService,public apiService: ApiService, private activatedRoute: ActivatedRoute) {
+constructor(private cookieService: CookieService,public apiService: ApiService, private activatedRoute: ActivatedRoute, private readonly meta: MetaService) {
+
+  this.meta.setTitle('ProBid Auto - Blog Lists');
+    this.meta.setTag('og:title', 'ProBid Auto - Blog Lists');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Blog Lists');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
       // let data: any = {
       //   source:"blogs_view",
       //   endpoint: "datalist"
