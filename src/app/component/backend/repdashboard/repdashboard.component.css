@@ -13,6 +13,10 @@
 .sharelinklists > .mat-list-item{box-sizing:border-box;margin-bottom:10px;width:calc(1/1*100% - (1 - 1/1)*2px);height:auto;padding:11px;background-color:#fff;border:2px solid #dedddd;height:auto}
 .sharelinklists > .mat-list-item:last-child{margin-bottom:0!important}
 .sharelinklistsingle span{display:flex;flex-direction:row;justify-content:space-between;padding-top:0;align-items:stretch;margin-top:0}
+.sharelinklistsingle span.sharelinkcontent{flex-direction: column;}
+.sharelinklistsingle span.sharelinkcontent h2{flex: 1;}
+.sharelinklistsingle span.sharelinkcontent .blogsociallists{ margin-top: 10px; justify-content: flex-start;}
+
 .sharelinkimgwrapper{width:180px;height:167px;position:relative;display:block!important;background:#333}
 .sharelinkimgwrapper img{height:auto;position:absolute;top:50%;left:50%;-webkit-transform:translate(-50%,0);transform:translate(-50%,-50%);width:90%!important;cursor:pointer;-o-object-fit:cover;object-fit:cover;padding:10px}
 .sharelinkcontent{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;padding-top:0;margin-left:10px}
@@ -25,6 +29,8 @@
 .sharelinklistsingle:nth-child(1){background-image:url(../../../../assets/images/slsingleimg.png);background-position:right 0;background-size:contain;background-repeat:no-repeat}
 .sharelinklistsingle:nth-child(2){background-image:url(../../../../assets/images/slsingleimg2.png);background-position:right 0;background-size:contain;background-repeat:no-repeat}
 .blogsociallists fa{padding:6px;color:#fff;font-size:24px;width:32px;height:32px;display:block;overflow:hidden;line-height:32px;text-align:center}
+
+.blogsociallists .graburl{padding: 6px;color: #fff;font-size: 24px;width: 129px;height: 32px;display: block;overflow: hidden;line-height: 36px;text-align: center;background: #f7462e;border-radius: 0px;font-family: 'HelveticaBold';text-transform: uppercase;}
 .blogsociallists a{margin-right:5px}
 .sharelinkrightlists{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;padding-top:0}
 .rep-dashboard-block2 .flexbox4column{border-top:5px solid #393f45;margin-top:10px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
@@ -157,6 +163,26 @@
 .block1socialadvo .flexbox4column .mat-list-item .mat-list-item-content{height:100%!important;width:100%;padding:0}
 .rep-dashboard-block5 .titleadmin{-webkit-box-pack:justify;justify-content:space-between;display:-webkit-box;display:flex}
 
+textarea {
+    resize: none;
+    overflow: hidden;
+    min-height: 50px;
+    max-height: 100px;
+}
+/* 
+p#note {
+	width:100%;
+	box-sizing:border-box;
+	direction:rtl;
+	display:block;
+	max-width:100%;
+	line-height:1.5;
+	padding:15px 15px 30px;
+	border-radius:3px;
+	border:1px solid #F7E98D;
+	font:13px Tahoma, cursive;
+	transition:box-shadow 0.5s ease;
+} */
 
 @media only screen and (max-width: 1199px) {
 

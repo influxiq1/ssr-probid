@@ -49,6 +49,7 @@ public allLinkdinBanner : any = [
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
+      
       }
       fb1.init({
         appId: '2540470256228526',
@@ -62,6 +63,8 @@ public allLinkdinBanner : any = [
       this.meta.setTag('og:image', '../../assets/images/logomain.png');
       this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
    }
+
+
 
    
    /* To copy Text from Textbox */
@@ -92,6 +95,13 @@ public allLinkdinBanner : any = [
   logoutWithFacebook(): void {
     this.fb1.logout().then();
   }
+
+  // auto_grow(element) {
+  //     element.style.height = "5px";
+  //     element.style.height = (element.scrollHeight)+"px";
+  // }
+
+  
 
   linkdinShare(url: any){
     var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
