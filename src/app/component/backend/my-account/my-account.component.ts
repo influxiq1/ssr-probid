@@ -71,9 +71,9 @@ export class MyAccountComponent implements OnInit {
   }
 
 
-  togglePasswordText() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
+  // togglePasswordText() {
+  //   this.isPasswordVisible = !this.isPasswordVisible;
+  // }
 
 
   ngOnInit() {
@@ -98,8 +98,7 @@ export class MyAccountComponent implements OnInit {
 
 
   changePasswordFormSubmit() {
-    let x: any;
-    for (x in this.changePasswordFormGroup.controls) {
+    for (let x in this.changePasswordFormGroup.controls) {
       this.changePasswordFormGroup.controls[x].markAsTouched();
     }
     if (this.changePasswordFormGroup.valid) {
@@ -114,7 +113,7 @@ export class MyAccountComponent implements OnInit {
       this.apploader.loader = 1;
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        
         this.apploader.loader = 0;
 
       })
