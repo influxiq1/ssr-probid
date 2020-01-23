@@ -37,7 +37,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 // import { TestimonialModule } from 'testimonial-lib-influxiq';
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { LoginModule } from 'login-lib-influxiq';
-// import { BlogModule } from 'blog-lib-influxiq';
+import { BlogModule } from 'blog-lib-influxiq';
 // import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { ContactusModule } from 'contactus-lib-influxiq';
 // import { SharetoolsModule } from 'sharetools';
@@ -336,7 +336,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
-    // BlogModule,
+    BlogModule,
     FileUploadModule,
     // NgxUploaderModule,
     AngularFontAwesomeModule,
