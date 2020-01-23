@@ -22,23 +22,8 @@
                  <button mat-button class="btnblue greenbtn" 
                 *ngIf="job_ticket !=null && job_ticket !=''  && job_ticket.job_ticket_status == 3 " >Re-Opened</button>
 
-                <button mat-button class="btnblue greenbtn" 
+                <button mat-button class="btnblue redbtn" 
                 *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.job_ticket_status == 2 ">Closed</button>
-
-
-  
-  
-                <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
-  
-               <!-- <button mat-button class="btnblue yellowbtn" *ngI*ngIf="job_ticket !=null"
-              <button mat-button class="btnblue greenbtn"  
-               *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=null && (msgType == 'admin' || msgUserType.type == 'admin') && (job_ticket.message_flag != 1 || job_ticket.message_flag != 0)   ">Replied By Admin</button> -->
-
-              
-  
-               
-               <!-- <button mat-button class="btnblue greenbtn"
-                *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=undefined && (msgUserType.type == 'salesrep' || msgUserType.type == 'customer' || msgType =='salesrep' || msgType == 'customer') && (job_ticket.message_flag != 1 || job_ticket.message_flag != 0)  " >Open</button> -->
 
                 
 
@@ -312,7 +297,7 @@
 
                         <button mat-raised-button type="button" class="btnblue" 
                         (click)="jobTicketMsgFormSubmit(job_ticket._id,0)" *ngIf="userCookies.type =='salesrep' || 
-                        userCookies.type=='customer'">SEND msg</button>
+                        userCookies.type=='customer'">SEND</button>
                         <button mat-raised-button type="reset" class="btnblue redbtn">cancel</button>
                       </span>                  
                     </mat-form-field>
