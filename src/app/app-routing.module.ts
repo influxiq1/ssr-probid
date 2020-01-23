@@ -517,7 +517,10 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
 
   
-  { path: 'api-manager', component: ApiManagerComponent },
+  { path: 'api-manager', component: ApiManagerComponent,
+  resolve: {apiKey: ResolveService },
+  data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
+ },
 
 
 
