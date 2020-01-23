@@ -130,7 +130,7 @@ public configDataJobTicket: any = {
 
   }
 
-  jobTicketMsgFormSubmit(){
+  jobTicketMsgFormSubmit(val:any,status:any){
     for (let x in this.jobTicketMsgForm.controls) {
       this.jobTicketMsgForm.controls[x].markAsTouched();
     }
@@ -178,16 +178,34 @@ public configDataJobTicket: any = {
         this.jobTicketMsgForm.reset();
         // this.apploader.loader = 0;
         let result:any=res;
-        // console.log('++++',result.status)
-       
-          // this.msgUserType.type=result.type;
 
-      
-
-          // console.log('&&&&&&>>>>>', msgType)
      
       })
     }
+
+    let endpoint: any = "addorupdatedata";
+    let data:any;
+    data={
+      source: "job_ticket",
+      "data":{
+        job_ticket_status: status,
+        id:val
+      }
+      
+    }
+
+    this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+      // console.log(res);
+      let result :any=res
+      if(result.status == 'success'){
+        // console.log('**>>>',this.job_ticket,status);
+        this.job_ticket.job_ticket_status = status;
+
+      }
+    
+    })
+
+    
 
   }
 
@@ -222,15 +240,16 @@ public configDataJobTicket: any = {
           description: this.jobTicketForm.value.description,
           jobTicket_picture: this.jobTicketForm.value.jobTicket_picture,
           message: this.jobTicketForm.value.message,
-          job_ticket:1
+          job_ticket:1,
+          job_ticket_status:0
         },
         sourceobj:["rsvp_id","ticket_added_by"]
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        // console.log(res);
+        console.log(res);
         // this.getData();
-        this.jobTicketForm.reset();
+        // this.jobTicketForm.reset();
         this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
         // this.apploader.loader = 0;
         this.getData();
@@ -288,8 +307,9 @@ public configDataJobTicket: any = {
     this.jobTicketMsgForm.controls[val].markAsUntouched();
   }
 
-//mark as resolve
-  markAsResolve(val:any, status: any){
+//jobTicketStatus
+
+jobTicketStatus(val:any, status: any){
     console.log('hit',val)
 
     let endpoint: any = "addorupdatedata";
@@ -297,7 +317,7 @@ public configDataJobTicket: any = {
       data={
         source: "job_ticket",
         "data":{
-          status: status,
+          job_ticket_status: status,
           id:val
         }
         
@@ -308,7 +328,7 @@ public configDataJobTicket: any = {
         let result :any=res
         if(result.status == 'success'){
           // console.log('**>>>',this.job_ticket,status);
-          this.job_ticket.message_flag = status;
+          this.job_ticket.job_ticket_status = status;
 
         }
       
