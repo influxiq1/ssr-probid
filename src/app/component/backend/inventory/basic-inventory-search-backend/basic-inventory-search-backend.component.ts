@@ -108,10 +108,21 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     public detailService:DetailServiceService
 
   ) {
+
+    this.meta.setTitle('ProBid Auto - Basic inventory search');
+    this.meta.setTag('og:title', 'ProBid Auto - Basic inventory search');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Basic inventory search');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
     this.spinnerval = 0;
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+
+      
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.user_id = this.user_details._id;
       // console.log(this.user_id);

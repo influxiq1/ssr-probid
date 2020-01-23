@@ -95,6 +95,7 @@ ckeditor{margin-bottom:9px!important;display:inline-block;width:100%}
 .lib-addedit-testimonial .mat-toolbar.mat-primary{display:none}
 .singleservice .mat-list-item-content{height:100%}
 .singleservice{cursor:pointer}
+.cursor{cursor: pointer;}
 .smartbidbottom.mat-list-base .mat-list-item{height:auto!important}
 .smartbidbottom.mat-list-base .mat-list-item .mat-list-item-content{display:flex!important;align-items:stretch!important;flex-wrap:wrap}
 .clearfix:after{clear:both}

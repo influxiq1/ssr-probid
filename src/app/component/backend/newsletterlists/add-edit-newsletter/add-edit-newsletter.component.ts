@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router,ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api.service';
 import { environment } from '../../../../../environments/environment';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-add-edit-newsletter',
@@ -33,8 +34,15 @@ export class AddEditNewsletterComponent implements OnInit {
     
   }  
   
-  constructor(public cookieService: CookieService, private activatedRoute: ActivatedRoute, public apiservice: ApiService) {
+  constructor(public cookieService: CookieService, private activatedRoute: ActivatedRoute, public apiservice: ApiService, private readonly meta: MetaService) {
     // console.log('data',this.configAddEdit.endpoint );
+
+    this.meta.setTitle('ProBid Auto - Add Edit Newsletter');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Edit Newsletter');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Edit Newsletter');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
   }
 
 

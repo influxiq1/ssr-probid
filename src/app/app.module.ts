@@ -37,7 +37,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 // import { TestimonialModule } from 'testimonial-lib-influxiq';
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { LoginModule } from 'login-lib-influxiq';
-// import { BlogModule } from 'blog-lib-influxiq';
+import { BlogModule } from 'blog-lib-influxiq';
 // import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { ContactusModule } from 'contactus-lib-influxiq';
 // import { SharetoolsModule } from 'sharetools';
@@ -178,6 +178,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 
 
 //****** for video Modal*********//
@@ -320,7 +321,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RsvpSuccessComponent,
     ViewJobTicketComponent,
     ManageJobticketComponent,
-    ViewImageComponent
+    ViewImageComponent,
+    ApiManagerComponent
   ],
   imports: [
     TranslateModule.forRoot(),
@@ -336,7 +338,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
-    // BlogModule,
+    BlogModule,
     FileUploadModule,
     // NgxUploaderModule,
     AngularFontAwesomeModule,

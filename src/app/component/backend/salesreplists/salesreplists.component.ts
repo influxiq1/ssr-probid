@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-salesreplists',
   templateUrl: './salesreplists.component.html',
@@ -40,7 +41,14 @@ export class SalesreplistsComponent implements OnInit {
       search:[{label:"Search By autocomplete",field:'name'}]     // this is use for  Autocomplete search
   }
 
-  constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService, public cookieService: CookieService) { }
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService, public cookieService: CookieService, private readonly meta: MetaService) {
+    this.meta.setTitle('ProBid Auto - Sales rep Lists');
+    this.meta.setTag('og:title', 'ProBid Auto - Sales rep Lists');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Sales rep Lists');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
 
   ngOnInit() {
     this.activatedRoute.data.forEach(data=>{   

@@ -7,6 +7,7 @@ import { AppComponent } from '../../../app.component';
 
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   data: any;
@@ -68,7 +69,15 @@ public configDataJobTicket: any = {
   public markresolve:any='';
   public re_Open:any='';
   public msgStatus:any=''
-  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog) {
+  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog, private readonly meta: MetaService) {
+    
+        this.meta.setTitle('ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('og:title', 'ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
     // console.log(this.rsvp_id, this.status)

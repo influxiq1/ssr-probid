@@ -56,11 +56,11 @@ public allLinkdinBanner : any = [
       });
 
       this.meta.setTitle('ProBid Auto - SalesRep Dashboard!');
-        this.meta.setTag('og:title', 'ProBid Auto - SalesRep Dashboard');
-        this.meta.setTag('twitter:title', 'ProBid Auto - SalesRep Dashboard');
-        this.meta.setTag('og:type', 'website');
-        this.meta.setTag('og:image', '../../assets/images/logomain.png');
-        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+      this.meta.setTag('og:title', 'ProBid Auto - SalesRep Dashboard');
+      this.meta.setTag('twitter:title', 'ProBid Auto - SalesRep Dashboard');
+      this.meta.setTag('og:type', 'website');
+      this.meta.setTag('og:image', '../../assets/images/logomain.png');
+      this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
    }
 
    

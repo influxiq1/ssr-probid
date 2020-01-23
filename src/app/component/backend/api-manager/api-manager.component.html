@@ -1,0 +1,44 @@
+
+<div class="adminwrappercls">
+    <app-header></app-header>
+        <div class="main-content-wrap">
+          <mat-card class="generalcls blog" style="padding: 0 !important;">  
+              <mat-card-content class="adm_inner_banner testimoniallistsadmin">
+                  <mat-card-title class="adm_inner_title">api manager</mat-card-title>
+                  <p class="adm_inner_para">Find Out What Our Customers and Other Industry Leaders and Professionals Have to Say About Our Services, Vehicles, Prices, and Other Offerings That We Bring To You.</p>
+              </mat-card-content>
+              <mat-card-content class="bred_cram_wrapper">
+                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
+                  <a mat-list-item routerLinkActive="active"> Manage Website </a>
+                  <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/api-manager'"> api manager </a>
+              </mat-card-content>
+              <span class="searchblock">
+                  <span class="searchblockwrapper">
+                      <span>
+                          <h2>api manager</h2>
+                      </span>                                     
+                  </span>
+              </span>
+              <div class="tablediv">
+  
+                  <!-- <lib-listing *ngIf="apiManagerConfig != null && apiManagerConfig.length>0"
+                      [datasource]="apiManagerConfig"
+                      [skip]="apiManagerConfig_skip" 
+                      [modify_header_array]="apiManagerConfig_modify_header"
+                      [sourcedata]="tableName" 
+                      [apiurl]="apiUrl"
+                      [editroute]="editUrl"
+                      [jwttoken]="user_cookie"
+                      [statusarr]="status" 
+                      [updateendpoint]="UpdateEndpoint" 
+                      [deleteendpoint]="deleteEndpoint"
+                      [date_search_endpoint]="searchingEndpoint" 
+                      [detail_datatype]="image_detail_datatype"
+                      [detail_skip_array]="detail_skip_array">
+                  </lib-listing>  -->
+  
+              </div>
+          </mat-card>
+        </div>
+    </div>
+  <app-footer></app-footer>

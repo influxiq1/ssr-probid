@@ -106,6 +106,7 @@ import { ListingSubcategoryComponent } from './component/backend/newsletterlists
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -253,20 +254,21 @@ const routes: Routes = [
 // / ________________BLOGS______________
 
 
-{ path: 'blogs/add', component: AddEditBlogsComponent },
+{ 
+  path: 'blogs/add', component: AddEditBlogsComponent
+ },
 
   {
     path: 'blogs/list',
-    component: ListingBlogsComponent
-
-    // resolve: { blogsList: ResolveService },
-    // data: {
-    //   requestcondition: {
-    //     source: 'blogs_view',
-    //     condition: {}
-    //   },
-    //   endpoint: 'datalist'
-    // },
+    component: ListingBlogsComponent,
+    resolve: { blogsList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'blogs_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   {
     path: 'blogs/edit/:_id',
@@ -320,7 +322,21 @@ const routes: Routes = [
     data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
   },
 
-  { path: 'blog-management', component: BlogManagementComponent },
+  // { path: 'blog-management', component: BlogManagementComponent },
+  {
+    path: 'blog-management',
+    component: BlogManagementComponent,
+    resolve: { blogsList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'blogs_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+
   { path: 'commission-report', component: CommissionReportComponent },
   { path: 'inventory-list', component: InventorySearchComponent },
   { path: 'manage-availability', component: ManageAvailabilityComponent },
@@ -499,6 +515,9 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   { path: 'edityear/:id', component: AddAdminCategoriesComponent },
 
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
+
+  
+  { path: 'api-manager', component: ApiManagerComponent },
 
 
 

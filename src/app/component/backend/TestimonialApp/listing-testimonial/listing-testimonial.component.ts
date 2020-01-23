@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-listing-testimonial',
@@ -49,7 +50,15 @@ view:any="blog_category";
 
 
 
-  constructor(public router: Router, public activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService) { 
+  constructor(public router: Router, public activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService, private readonly meta: MetaService) { 
+
+
+    this.meta.setTitle('ProBid Auto - Testimonial Listing');
+    this.meta.setTag('og:title', 'ProBid Auto - Testimonial Listing');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Testimonial Listing');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
   // this.activatedRoute.data.subscribe(resolveData => {
   //   // this.testimonialListConfig.datasource = resolveData.testimonialList.res;
