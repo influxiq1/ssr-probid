@@ -18,10 +18,13 @@ export class AddEditBlogcatComponent implements OnInit {
     condition: {},
     defaultData: null,
     jwtToken: this.cookieService.get('jwtToken'),
-    callBack: "/blog-category/list",
+    callBack: "/blog-management",
     userData: { id: "18801017007", name: "Admin" },
     defaultDataAlways: null
   }
+
+
+  
   constructor(private activatedRouter: ActivatedRoute, private cookieService: CookieService,public apiService: ApiService, private readonly meta: MetaService) {
 
     this.meta.setTitle('ProBid Auto - Add edit Blog Category');
@@ -31,6 +34,7 @@ export class AddEditBlogcatComponent implements OnInit {
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
    }
+
 
   ngOnInit() {
     this.activatedRouter.params.subscribe(params => {
