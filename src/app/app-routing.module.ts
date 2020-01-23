@@ -106,6 +106,7 @@ import { ListingSubcategoryComponent } from './component/backend/newsletterlists
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -514,6 +515,9 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   { path: 'edityear/:id', component: AddAdminCategoriesComponent },
 
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
+
+  
+  { path: 'api-manager', component: ApiManagerComponent },
 
 
 
