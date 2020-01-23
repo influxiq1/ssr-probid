@@ -37,15 +37,15 @@ export class AddEditBlogcatComponent implements OnInit {
 
 
   ngOnInit() {
-    // this.activatedRouter.params.subscribe(params => {
-    //   if (params._id) {
-    //     this.activatedRouter.data.subscribe(resolveData => {
-    //       this.configAddEdit.defaultData = resolveData.blogCatList.res[0];
-    //       this.configAddEdit.action = "edit";
-    //       this.configAddEdit.condition = { id: params._id };
-    //     });
-    //   }
-    // });
+    this.activatedRouter.params.subscribe(params => {
+      if (params._id) {
+        this.activatedRouter.data.subscribe(resolveData => {
+          this.configAddEdit.defaultData = resolveData.blogCatList.res[0];
+          this.configAddEdit.action = "edit";
+          this.configAddEdit.condition = { id: params._id };
+        });
+      }
+    });
   }
 
 }

@@ -15,7 +15,6 @@ export class ListingBlogcatComponent implements OnInit {
 
   // ===============================Declarations=========================
 
-<<<<<<< HEAD
   public user_cookie: any;
   blogListConfig: any = [];
   blogListConfig_skip: any = ["_id", "description_html", "description", "created_at", "inventory_image", 'image'];
