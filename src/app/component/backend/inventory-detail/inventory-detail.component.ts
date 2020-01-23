@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import {DetailServiceService} from '../../../detail-service.service'
+import { MetaService } from '@ngx-meta/core';
 
 
 
@@ -70,7 +71,15 @@ export class InventoryDetailComponent implements OnInit {
   // public removeCar:any;
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
     //  public catItemByObservable: BasicInventorySearchBackendComponent,
-      public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService) {
+      public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService,
+      private readonly meta: MetaService) {
+
+        this.meta.setTitle('ProBid Auto - Inventory Detail');
+        this.meta.setTag('og:title', 'ProBid Auto - Inventory Detail');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Inventory Detail');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
