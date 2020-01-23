@@ -7,6 +7,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 import { FormBuilder } from '@angular/forms';
+import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   data: any;
@@ -44,7 +45,7 @@ public allLinkdinBanner : any = [
 
 
   
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, private fb1: FacebookService, public fb:FormBuilder) {
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, private fb1: FacebookService, public fb:FormBuilder, private readonly meta: MetaService) {
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
@@ -53,6 +54,13 @@ public allLinkdinBanner : any = [
         appId: '2540470256228526',
         version: 'v2.9'
       });
+
+      this.meta.setTitle('ProBid Auto - SalesRep Dashboard!');
+        this.meta.setTag('og:title', 'ProBid Auto - SalesRep Dashboard');
+        this.meta.setTag('twitter:title', 'ProBid Auto - SalesRep Dashboard');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
    }
 
    

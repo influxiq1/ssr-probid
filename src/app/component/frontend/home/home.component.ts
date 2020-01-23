@@ -167,7 +167,11 @@ export class HomeComponent implements OnInit {
     //     nav: true,
     //   }
     // }
-
+    autoPlay: true, 
+    touchDrag  : true,
+    mouseDrag  : true,    
+    singleItem:true,
+    transitionStyle:"fade",
     margin: 5,
     nav: true,
     loop: true,

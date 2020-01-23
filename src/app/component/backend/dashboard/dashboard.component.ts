@@ -60,11 +60,18 @@ export class DashboardComponent implements OnInit {
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
 
-    this.meta.setTitle('About us dynamic');
-    this.meta.setTag('og:description', 'This is dynamic decription ');
-    this.meta.setTag('og:title', 'This is dynamic title with meta og ');
-    this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
+    // this.meta.setTitle('About us dynamic');
+    // this.meta.setTag('og:description', 'This is dynamic decription ');
+    // this.meta.setTag('og:title', 'This is dynamic title with meta og ');
+    // this.meta.setTag('og:type', 'website');
+    // this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
+
+        this.meta.setTitle('ProBid Auto - Admin Dashboard!');
+        this.meta.setTag('og:title', 'ProBid Auto - Admin Dashboard');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Admin Dashboard');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
 
 

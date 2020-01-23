@@ -315,9 +315,34 @@ export class NewslatterDialogComponent {
 export class NewslattersuccessDialogComponent {
 
     public myformnews: FormGroup
+    windowScrolled: boolean;
 
     constructor(public dialogRef: MatDialogRef<NewslattersuccessDialogComponent>,
                 /* @Inject(MAT_DIALOG_DATA) public data: DialogData*/) { }
+
+                @HostListener("window:scroll", [])
+
+                onWindowScroll() {
+                    if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
+                        this.windowScrolled = true;
+                    }
+                    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+                        this.windowScrolled = false;
+                    }
+                }
+                
+                scrollToTop() {
+                    (function smoothscroll() {
+                
+                        var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                        if (currentScroll > 0) {
+                            window.requestAnimationFrame(smoothscroll);
+                            window.scrollTo(0, currentScroll - (currentScroll / 8));
+                        }
+                
+                    })();
+                }
 
     public onNoClick(): void {
         this.dialogRef.close();

@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { MetaService } from '@ngx-meta/core';
 // import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
@@ -205,10 +206,18 @@ public errorMsg: string = '';
         public snack:MatSnackBar,
         public router:Router,
         public fb:FormBuilder,
-         private fb1: FacebookService) {
+         private fb1: FacebookService,
+         private readonly meta: MetaService ) {
+
+        this.meta.setTitle('ProBid Auto - Customer Dashboard!');
+        this.meta.setTag('og:title', 'ProBid Auto - Customer Dashboard');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Customer Dashboard');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
     
 
-    this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+        this.userCookies = JSON.parse(this.cookieService.get('user_details'));
    
     
     fb1.init({
