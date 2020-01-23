@@ -37,7 +37,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 // import { TestimonialModule } from 'testimonial-lib-influxiq';
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { LoginModule } from 'login-lib-influxiq';
-// import { BlogModule } from 'blog-lib-influxiq';
+import { BlogModule } from 'blog-lib-influxiq';
 // import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { ContactusModule } from 'contactus-lib-influxiq';
 // import { SharetoolsModule } from 'sharetools';
@@ -57,7 +57,7 @@ import { BloglistfrontendComponent, CommonVideoModalComponent } from './componen
 
 /**Frontend Component**/
 
-import { HeaderComponent, comingSoonDialog } from './layout/header/header.component';
+import { HeaderComponent, comingSoonDialog, googlemapDialog } from './layout/header/header.component';
 import { FooterComponent, DialogTermsDialog, DialogPrivacyDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent } from './layout/footer/footer.component';
 import { HomeComponent, loginDialog,errorSearchModal } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
@@ -126,7 +126,7 @@ import { TrainingCenterComponent } from './component/backend/training-center/tra
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
 import { MyAppointmentComponent } from './component/backend/my-appointment/my-appointment.component';
 import { CreateNewInventoryComponent } from './component/backend/create-new-inventory/create-new-inventory.component';
-import { JobTicketComponent } from './component/backend/job-ticket/job-ticket.component';
+import { JobTicketComponent, DeleteJobModalComponent } from './component/backend/job-ticket/job-ticket.component';
 import { SocialAdvoComponent } from './component/backend/social-advo/social-advo.component';
 import { BookAnAppointmentComponent } from './component/backend/book-an-appointment/book-an-appointment.component';
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
@@ -177,7 +177,8 @@ import {TranslateModule, TranslateService} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
-import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 
 
 //****** for video Modal*********//
@@ -187,11 +188,11 @@ export function metaFactory(): MetaLoader {
   return new MetaStaticLoader({
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: ' - ',
-    applicationName: 'Tour of (lazy/busy) heroes',
+    applicationName: '',
     defaults: {
-      title: 'Mighty mighty mouse',
-      description: 'Mighty Mouse is an animated superhero mouse character',
-      'og:image': 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg',
+      title: '',
+      description: '',
+      'og:image': '',
       'og:type': 'website',
       'og:locale': 'en_US',
       'og:locale:alternate': 'en_US,nl_NL,tr_TR'
@@ -219,6 +220,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     HeaderComponent,
     comingSoonDialog,
+    googlemapDialog,
     customerSignUpsuccessDialog,
     FooterComponent,
     DialogPrivacyDialog,
@@ -294,6 +296,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeleteModalRsvpComponent,
     loginDialog,
     errorSearchModal,
+    DeleteJobModalComponent,
 
     AddEditNewsletterComponent,
     AddEditSubscriberComponent,
@@ -317,7 +320,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     AskForConfirmationComponent,
     RsvpSuccessComponent,
     ViewJobTicketComponent,
-    ManageJobticketComponent
+    ManageJobticketComponent,
+    ViewImageComponent,
+    ApiManagerComponent
   ],
   imports: [
     TranslateModule.forRoot(),
@@ -333,7 +338,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
-    // BlogModule,
+    BlogModule,
     FileUploadModule,
     // NgxUploaderModule,
     AngularFontAwesomeModule,
@@ -365,7 +370,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [CookieService, AuthGuard, ApiService, SidenavService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal]
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog]
   // errorDialogbackend
 })
 export class AppModule { }

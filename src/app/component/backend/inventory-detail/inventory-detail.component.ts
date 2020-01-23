@@ -6,6 +6,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import {DetailServiceService} from '../../../detail-service.service'
+import { MetaService } from '@ngx-meta/core';
 
 
 
@@ -24,47 +25,31 @@ export class InventoryDetailComponent implements OnInit {
   carouselOptions = {
     margin: 5,
     nav: true,
-    loop: true,
-    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    loop: false,
+    rewind: true,
+    autoplayTimeout: 6000,
+    autoplay: false,
+    autoplayHoverPause: true,
+    center: true,
     responsiveClass: true,
     dots: false,
+    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
         items: 1,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       600: {
         items: 2,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       991: {
         items: 4,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       992: {
         items: 4,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
-        dot: false,
       }
     }
   }
@@ -82,9 +67,19 @@ export class InventoryDetailComponent implements OnInit {
   public errorMsg: any = 'Please Choose customer';
   public carData: any;
   public addedCar: any = '';
+  public searchRecord:any;
+  // public removeCar:any;
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
     //  public catItemByObservable: BasicInventorySearchBackendComponent,
-      public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService) {
+      public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService,
+      private readonly meta: MetaService) {
+
+        this.meta.setTitle('ProBid Auto - Inventory Detail');
+        this.meta.setTag('og:title', 'ProBid Auto - Inventory Detail');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Inventory Detail');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
@@ -101,11 +96,11 @@ export class InventoryDetailComponent implements OnInit {
     if(this.router.url == '/search-detail' ){
     this.detailService.currentData.subscribe(res =>{
       console.log('>>>>',res)
-      let result:any
-      result=res
-      console.log('ressssssss>>>>',result)
+      // let result:any
+      this.searchRecord=res
+      console.log('ressssssss>>>>',this.searchRecord)
 
-   this.data = result.carData;
+     this.data = this.searchRecord.carData;
     })
 
     }
@@ -145,17 +140,29 @@ export class InventoryDetailComponent implements OnInit {
 
     // rsvp data 
     if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
-      let data: any = {
-        source: 'send_rsvp_view',
-        condition: {
-          added_by_object: this.user_id
+      let data: any ;
+      if(this.user_details.type == 'salesrep'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_by_object: this.user_id
+          }
         }
       }
+      if(this.user_details.type == 'customer'){
+        data= {
+          source: 'send_rsvp_view',
+          condition: {
+            added_for_object: this.user_id
+          }
+        }
+      }
+     
       this.apiService.CustomRequest(data,'datalist').subscribe((res: any) => {
 
         this.saveList = res.res;
 
-        // console.log(this.saveList)
+        console.log('>>>>',this.saveList)
 
 
 
@@ -390,7 +397,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //remove data for search-details page
   removeAddSave(val: any, item: any) {
-    // console.log('++>>', val, item)
+    console.log('val++>>', val, item)
     const dialogRef = this.dialog.open(RemoveRsvpComponent, {
       width: '250px',
       data: this.message
@@ -408,6 +415,30 @@ export class InventoryDetailComponent implements OnInit {
           if (res.status == 'success') {
             this.snack.open('Record Removed Successfully..!', 'Ok', { duration: 2000 })
 
+            // this.removeCar=result.res;
+             //for admin
+    if (this.router.url == '/search-detail'
+    && this.user_details.type == 'admin') {
+    this.router.navigateByUrl('/basic-inventory-search-admin');
+     }
+  
+
+  // for salesrep 
+
+
+  if (this.router.url == '/search-detail'
+    && this.user_details.type == 'salesrep') {
+    this.router.navigateByUrl('/basic-inventory-search-rep');
+  }
+  
+
+  // for customer 
+
+  if (this.router.url == '/search-detail'
+    && this.user_details.type == 'customer') {
+    this.router.navigateByUrl('/basic-inventory-search-customer');
+  }
+
           }
         })
       }
@@ -417,7 +448,7 @@ export class InventoryDetailComponent implements OnInit {
 
 
   //for details from similar vehical
-  inventoryDetails(val) {
+  inventoryDetails(val:any) {
     // console.log('id>>', val)
     if (this.activatedRoute.snapshot.routeConfig.path == 'rsvp-detail/:_id') {
       this.router.navigateByUrl('/rsvp-detail/' + val)

@@ -3,6 +3,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute } from '@angular/router';
 // import { environment } from '../../../../../environments/environment';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-add-edit-subscriber-group',
@@ -46,7 +47,14 @@ export class AddEditSubscriberGroupComponent implements OnInit {
   }
 
 
-  constructor( private cookieService : CookieService, private activatedRoute : ActivatedRoute, public apiservice: ApiService ) { }
+  constructor( private cookieService : CookieService, private activatedRoute : ActivatedRoute, public apiservice: ApiService, private readonly meta: MetaService ) {
+    this.meta.setTitle('ProBid Auto - Add Edit Subscriber Group');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Edit Subscriber Group');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Edit Subscriber Group');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {

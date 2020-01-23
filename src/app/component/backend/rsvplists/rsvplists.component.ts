@@ -6,6 +6,7 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
+import { MetaService } from '@ngx-meta/core';
 
 
 export interface DialogData {
@@ -43,7 +44,14 @@ public topPart: any ='';
     public dialog: MatDialog,
     public snack:MatSnackBar,
     public cookieservice: CookieService,
-    public router:Router) {
+    public router:Router, private readonly meta: MetaService) {
+
+      this.meta.setTitle('ProBid Auto - RSVP Lists');
+    this.meta.setTag('og:title', 'ProBid Auto - RSVP Lists');
+    this.meta.setTag('twitter:title', 'ProBid Auto - RSVP Lists');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
       if (this.cookieservice.get('user_details') != undefined && this.cookieservice.get('user_details') != null && this.cookieservice.get('user_details') != '') {
         this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
@@ -56,7 +64,7 @@ public topPart: any ='';
     this.activatedRoute.data.forEach((data:any) => {
       // console.log(data)
       this.rsvp_list = data.rsvp.res;
-      // console.log('rsvp>>',this.rsvp_list)
+      console.log('rsvp>>',this.rsvp_list)
     })
 
     // this.getdata();
@@ -193,6 +201,8 @@ if (val !='') {
         }
     });
   }
+
+
 
   loadMoreRsvp(){
     this.indexval=this.indexval+2;

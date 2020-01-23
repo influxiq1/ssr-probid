@@ -12,20 +12,17 @@ export interface EndpointComponent {
 export class ResolveService implements Resolve<any> {
     public userid: any;
     public userCookies: any;
-
     constructor(private _apiService: ApiService, public cookieservice: CookieService , public activedrouter:ActivatedRoute, public router:Router) {
-
         if (this.cookieservice.get('user_details') != undefined && this.cookieservice.get('user_details') != null && this.cookieservice.get('user_details') != '') {
             this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
             this.userid = this.userCookies._id;
-            // console.log('>>>>',this.userid)   
+            // console.log('>>>>',this.userid)
             }
         // if (this.cookieservice.get('userid') != null)
         //     this.userid = this.cookieservice.get('userid');
     }
     resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> | Promise<any> | any {
         let _id = route.params['id'];
-       
         // if (route.data.requestcondition.condition._id == 'id') {
         //     route.data.requestcondition.condition._id = _id;
         //     delete route.data.requestcondition.condition.id;
@@ -35,14 +32,11 @@ export class ResolveService implements Resolve<any> {
         var source = route.data.source;
         var condition = route.data.condition;
         var requestData: any = route.data.requestcondition;
-      
-
-            
             requestData.condition = Object.assign(requestData.condition, route.params);
             if(this.cookieservice.get('user_details') !='' && this.cookieservice.get('user_details') !=null){
                 this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
                 this.userid = this.userCookies._id;
-                // console.log('>>>>',this.userCookies)  
+                // console.log('>>>>',this.userCookies)
               }
             for(let d in requestData.condition){
                 if(requestData.condition[d]=='user_id' ){
@@ -53,19 +47,37 @@ export class ResolveService implements Resolve<any> {
                     requestData.id = this.userid;
                 }
                 if (requestData.condition[d] == 'customer-dashboard') {
+                    console.log(requestData.condition[d])
                     requestData.id = this.userid;
                     requestData.salesrep = this.userCookies.salesrep;
-                    delete requestData.condition
+                    delete requestData.condition.castomer;
                 }
                 if (requestData.condition[d] == 'rsvp_id') {
-                     requestData.rsvp_id = requestData.condition._id
-                    delete requestData.condition.rsvp_id
-                    delete requestData.condition._id
-                    delete requestData.condition.status
-                    // console.log(requestData.condition.rsvp_id)
-                    // console.log(_id)
-                    // requestData.rsvp_id = _id
-                }
+                    requestData.rsvp_id = requestData.condition._id;
+                    // requestData.ticket_id=requestData._id
+                    // requestData.ticket_id=
+
+                    console.log(">>>", requestData)
+
+                   delete requestData.condition.rsvp_id
+                   delete requestData.condition._id
+                   delete requestData.condition.status
+               }
+
+               if (requestData.condition[d] == 'ticket_added_by_object') {
+                requestData.condition[d] = this.userid
+               
+           }
+
+
+               if (requestData.condition[d] == 'mysalesrep') {
+                requestData.id = this.userCookies.salesrep
+                requestData.customer_id=this.userCookies._id
+
+            //    delete requestData.condition.rsvp_id
+               delete requestData.condition._id
+               delete requestData.condition.mysalesrep
+           }
               }
             // delete route.data.requestcondition.condition.id;
             // console.log(route.data)
@@ -74,7 +86,6 @@ export class ResolveService implements Resolve<any> {
                 // console.log(route.data.requestcondition.condition)
             //     // route.data.requestcondition.condition._id_object = route.params['id'] ;
             //     // delete route.data.requestcondition.condition.id
-
             // }
             // if(route.url[0].path == 'inventory-detail') {
             //     route.data.requestcondition.condition._id_object = route.params['id'] ;
@@ -88,8 +99,6 @@ export class ResolveService implements Resolve<any> {
             //     route.data.requestcondition.condition._id = route.params['id'] ;
             //     delete route.data.requestcondition.condition.id ;
             // }
-
-
             // if(route.url[0].path == 'rsvp-salesrep') {
             //     route.data.requestcondition.condition.added_by_object = this.userid ;
             // }
@@ -134,4 +143,3 @@ export class ResolveService implements Resolve<any> {
         // });
     }
 }
-

@@ -25,25 +25,47 @@ export class MysalesrepComponent implements OnInit {
   public datalist: any = '';  
   public indexval:number=3;
   public message: any = "Are you sure you want to delete this?";
+  public repDetails:any;
+  public customerDetails:any;
+  public indexLoad:any=3;
+  public rsvpDetails:any;
 
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
 
     
-    this.meta.setTitle('My Sales Rep dynamic');
-    this.meta.setTag('og:description', 'This is dynamic decription ');
-    this.meta.setTag('og:title', 'This is dynamic title with meta og ');
-    this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
+    // this.meta.setTitle('My Sales Rep dynamic');
+    // this.meta.setTag('og:description', 'This is dynamic decription ');
+    // this.meta.setTag('og:title', 'This is dynamic title with meta og ');
+    // this.meta.setTag('og:type', 'website');
+    // this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
+    this.meta.setTitle('ProBid Auto - My Sales Rep');
+        this.meta.setTag('og:title', 'ProBid Auto - My Sales Rep');
+        this.meta.setTag('twitter:title', 'ProBid Auto - My Sales Rep');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+        this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
 
    }
 
   ngOnInit() {
-    this.activatedRoute.data.forEach((data:any) => {
-      // console.log(data)
-      this.rsvp_list = data.rsvp;
+    this.activatedRoute.data.forEach((res:any) => {
+      console.log(res.rep_details.result)
+      let result:any;
+      result=res.rep_details.result;
+      // this.rsvp_list = data.rsvp;
       // console.log('rsvp>>',this.rsvp_list)
+      this.repDetails=result.salesrep_details;
+            console.log('rep>>', this.repDetails)
+
+      this.customerDetails=result.customer_details;
+            console.log('cus>>',this.customerDetails)
+
+    this.rsvpDetails=result.rsvp_details
+
+
     })
   }
 
@@ -66,6 +88,7 @@ export class MysalesrepComponent implements OnInit {
       });
   }
   
+
   getdata() {
     let data: any = {
       endpoint: 'datalist',
@@ -115,6 +138,11 @@ export class MysalesrepComponent implements OnInit {
         }
     });
   }
+
+  loadMore(){
+    this.indexLoad=this.indexLoad+3;
+  }
+
 
 
 

@@ -1,5 +1,17 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+import { Router ,ActivatedRoute} from '@angular/router';
+
+import { ApiService } from '../../../api.service';
+import {MatSnackBar} from '@angular/material/snack-bar';
+import { MetaService } from '@ngx-meta/core';
+
+
+export interface DialogData {
+  data: any;
+  msg:any;
+} 
+
 
 @Component({
   selector: 'app-job-ticket',
@@ -8,15 +20,110 @@ import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 })
 export class JobTicketComponent implements OnInit {
 
-  constructor() { }
+public jobTicketDataList:any;
+public indexVal:any=4;
+public message:any="Are you sure you want to delete this?";
+
+
+
+
+  constructor(public router: Router,public activatedRoute:ActivatedRoute,
+    public apiService: ApiService,
+    public dialog: MatDialog,
+    public snack:MatSnackBar, private readonly meta: MetaService) 
+    { 
+      this.meta.setTitle('ProBid Auto - Job Ticket List');
+        this.meta.setTag('og:title', 'ProBid Auto - Job Ticket List');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Job Ticket List');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    }
 
   ngOnInit() {
+
+    if(this.router.url =='/job-ticket-admin' || this.router.url =='/communication-customer' || this.router.url =='/communication-rep'){
+      this.activatedRoute.data.forEach((res)=>{
+        console.log(res.jobTicketList.res)
+        this.jobTicketDataList=res.jobTicketList.res
+      })
+    }
+
+
+    // if(this.router.url =='/communication-customer'){
+    //   this.activatedRoute.data.forEach((res)=>{
+    //     console.log(res.jobTicketList.res)
+    //     this.jobTicketDataList=res.jobTicketList.res
+    //   })
+    // }
+
+    // if(this.router.url =='/communication-rep'){
+    //   this.activatedRoute.data.forEach((res)=>{
+    //     console.log(res.jobTicketList.res)
+    //     this.jobTicketDataList=res.jobTicketList.res
+    //   })
+    // }
+
     
   }
-  deleteRsvp(val: any, item: any){
 
+   //delete JobTicket record
+   deleteJobTicket(val:any,index:any){
+    console.log('delete hit',val,index)
+    const dialogRef = this.dialog.open(DeleteJobModalComponent, {
+      width: '250px',
+      data:this.message
+
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      
+        if(result=='yes'){
+          let data:any;
+            data={
+            "source":"job_ticket",
+            id:val
+            }
+            this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
+              let result:any;
+              result=res;
+              
+              if(result.status=='success'){
+                this.jobTicketDataList.splice(index,index+1);
+                this.snack.open('Record Deleted Successfully..!','Ok',{duration:2000})
+                
+              }
+            })
+        }
+    });
   }
 
-   
+  // load more function 
+  loadMore(){
+    this.indexVal=this.indexVal+2;
+  }
+
+  viewDetails(item:any,status:any){
+    console.log(item)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
+  }
 
 }
+
+
+//modal component for delete
+
+
+@Component({
+  selector:'deleteJobModal',
+  templateUrl:'./deleteJobModal.html'
+})
+export class DeleteJobModalComponent {
+  constructor( public dialogRef: MatDialogRef<DeleteJobModalComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
+}
+
+
+

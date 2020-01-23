@@ -4,6 +4,7 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import {CookieService} from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-add-customer',
@@ -20,7 +21,14 @@ export class AddCustomerComponent implements OnInit {
   public header_text:any="Add Customer"
 public btn_text:any="Submit"
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-  constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService) { 
+  constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService,private readonly meta: MetaService) { 
+
+    this.meta.setTitle('ProBid Auto - Add Salesrep');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Salesrep');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Salesrep');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     this.userDetails = JSON.parse(this.cookieService.get('user_details'));
 
@@ -159,7 +167,7 @@ public btn_text:any="Submit"
 
         /**Api service for insert form */
 
-        var data = { "source": "user", "data": this.addcustomerForm.value }
+        var data = { source: "user", data: this.addcustomerForm.value }
         this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe((data: any) => {
           // console.log(data);
           if (data.status == 'success' && data.update==1) {

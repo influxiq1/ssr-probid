@@ -5,6 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, Subscription } from 'rxjs';
 import{CookieService} from 'ngx-cookie-service';
 import {environment } from '../environments/environment';
+import { Router } from '@angular/router';
 
 
 @Injectable({   
@@ -37,6 +38,7 @@ export class ApiService {
   deletemultiple_endpointUrl: any;
   updatestatus_multiple_endpointUrl: any;
   getdata_endpointUrl: any;
+  public invalidApi:any;
   // private subjectForServerUrl = new Subject<any>();
   // private subjectForaddEndpointUrl = new Subject<any>();
   // private subjectForuploadEndpointUrl = new Subject<any>();  //added by souresh
@@ -58,16 +60,20 @@ export class ApiService {
       source:'search_api_key'
     }
     this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
-      console.log(res);
+      // console.log(res);
       if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
         
       this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
       this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
-      console.log(this.inventory_url);
+      // console.log(this.inventory_url);
+
+      this.invalidApi=res.res[0].apikey;
 
     }
 
     })
+
+
 
     // this.subscriptionServer = this.getServerUrl().subscribe(message => {
     //  let result: any;

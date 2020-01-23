@@ -78,7 +78,11 @@
                               <span class="rsvplisttypecontentinfo">
                                 <span class="rsvplisttypeimgwrapper">
                                   <!-- <img [src]="item.media.photo_links[0]"> -->
-                                  <img src="../../../../assets/images/imguser.jpg">
+                                  
+                                  <img *ngIf="item.added_for_picture !=null && item.added_for_picture !=''" [src]="item.added_for_picture">
+
+                                  <img *ngIf="item.added_for_picture ==null || item.added_for_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
+
                                   <span class="listscontentshape"></span>
                                 </span>
                                 <span class="listscontent">
@@ -101,7 +105,10 @@
                                 <span class="rsvplisttypecontentinfo">
                                     <span class="rsvplisttypeimgwrapper">
                                       <!-- <img [src]="item.media.photo_links[0]"> -->
-                                      <img src="../../../../assets/images/imgsalesrep.jpg">
+                                      <img *ngIf="item.added_by_picture !=null && item.added_by_picture !=''" [src]="item.added_by_picture">
+
+                                      <img *ngIf="item.added_by_picture ==null || item.added_by_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
+
                                       <span class="listscontentshape"></span>
                                     </span>
                                     <span class="listscontent">
@@ -136,9 +143,11 @@
                                       <button mat-button class="btnblue" 
                                       (click)="rsvpDetail(item._id)">Know More</button>
 
-                                  <button mat-button *ngIf="item.job_ticket ==null || item.job_ticket != 1"  class="btnblue orangebtn" (click)="goToOpenTicket(item,'')">Open Ticket</button>
+                                  <button mat-button *ngIf="( item.job_ticket ==null || item.job_ticket != 1 ) && (userCookies.type == 'salesrep' || userCookies.type == 'customer')"  class="btnblue orangebtn"
+                                   (click)="goToOpenTicket(item,'') ">Open Ticket</button>
 
-                                  <button mat-button *ngIf="item.job_ticket == 1"  class="btnblue orangebtn" (click)="goToOpenTicket(item,'1')">View Ticket</button>
+                                  <button mat-button *ngIf="item.job_ticket == 1 "  class="btnblue orangebtn" 
+                                  (click)="goToOpenTicket(item,'1')">View Ticket</button>
                                     </span>                                   
                                   </span>
                             </span>                            

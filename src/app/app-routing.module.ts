@@ -72,7 +72,7 @@ import { BookAnAppointmentComponent } from './component/backend/book-an-appointm
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
 import { BasicInventorySearchBackendComponent } from './component/backend/inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
 import { MysalesrepComponent } from './component/backend/mysalesrep/mysalesrep.component';
-import { CommunicationComponent } from './component/backend/communication/communication.component';
+// import { CommunicationComponent } from './component/backend/communication/communication.component';
 import { AdminManageCategoriesComponent } from './component/backend/admin-manage-categories/admin-manage-categories.component';
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
@@ -106,6 +106,7 @@ import { ListingSubcategoryComponent } from './component/backend/newsletterlists
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -168,13 +169,14 @@ const routes: Routes = [
   data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' } },
 
 
-
   { path: 'advance-inventory-search', component: AdvanceInventorySearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' } },
   { path: 'basic-inventory-search', component: BasicInventorySearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }},
+
+  { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent},
 
 
   { path: 'save-search-admin', component: SaveSearchComponent ,
@@ -252,20 +254,21 @@ const routes: Routes = [
 // / ________________BLOGS______________
 
 
-{ path: 'blogs/add', component: AddEditBlogsComponent },
+{ 
+  path: 'blogs/add', component: AddEditBlogsComponent
+ },
 
   {
     path: 'blogs/list',
-    component: ListingBlogsComponent
-
-    // resolve: { blogsList: ResolveService },
-    // data: {
-    //   requestcondition: {
-    //     source: 'blogs_view',
-    //     condition: {}
-    //   },
-    //   endpoint: 'datalist'
-    // },
+    component: ListingBlogsComponent,
+    resolve: { blogsList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'blogs_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   {
     path: 'blogs/edit/:_id',
@@ -319,7 +322,21 @@ const routes: Routes = [
     data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
   },
 
-  { path: 'blog-management', component: BlogManagementComponent },
+  // { path: 'blog-management', component: BlogManagementComponent },
+  {
+    path: 'blog-management',
+    component: BlogManagementComponent,
+    resolve: { blogsList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'blogs_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
+
+
   { path: 'commission-report', component: CommissionReportComponent },
   { path: 'inventory-list', component: InventorySearchComponent },
   { path: 'manage-availability', component: ManageAvailabilityComponent },
@@ -360,9 +377,31 @@ const routes: Routes = [
   { path: 'training-center', component: TrainingCenterComponent },
   { path: 'training-report', component: TrainingReportComponent },
   { path: 'my-appointment-admin', component: MyAppointmentComponent },
+
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
-  { path: 'job-ticket', component: JobTicketComponent },
+
+  { path: 'job-ticket-admin', component: JobTicketComponent ,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
+},
+
+  { path: 'job-ticket-customer', component: JobTicketComponent },
+  { path: 'job-ticket-salesrep', component: JobTicketComponent },
+  
+  { path: 'communication-rep', component: JobTicketComponent,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {"ticket_added_by_object":"ticket_added_by_object"}}, endpoint: 'datalist' }
+},
+
+  { path: 'communication-customer', component: JobTicketComponent,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {
+    "ticket_added_by_object":"ticket_added_by_object"
+  }}, endpoint: 'datalist' }
+},
+  
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
+
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
   { path: 'manage-type', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
@@ -422,7 +461,10 @@ const routes: Routes = [
 resolve: { inventory_search: ResolveService },
 data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
 },
-  { path: 'mysalesrep', component: MysalesrepComponent },
+  { path: 'mysalesrep', component: MysalesrepComponent ,
+  resolve: { rep_details: ResolveService },
+data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }, endpoint: 'for-rep-details' }
+},
   
 
   // { path:'contact-us-dashboard', component:ContactUsDashboardComponent,  resolve: { serviceList: ResolveService },
@@ -452,7 +494,6 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
 
   
 
-  { path: 'communication', component: CommunicationComponent },
   { path: 'training-center-rep', component: TrainingCenterComponent },
   { path: 'my-account', component: MyAccountComponent },
   { path: 'add-salesrep', component: AddSalesrepComponent },
@@ -474,6 +515,9 @@ data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-se
   { path: 'edityear/:id', component: AddAdminCategoriesComponent },
 
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
+
+  
+  { path: 'api-manager', component: ApiManagerComponent },
 
 
 

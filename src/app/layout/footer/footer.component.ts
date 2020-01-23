@@ -35,7 +35,13 @@ export class FooterComponent implements OnInit {
     }
 
     termscondition() {
-        const dialogRef = this.dialog.open(DialogTermsDialog);
+        // const dialogRef = this.dialog.open(DialogTermsDialog);
+        const dialogRef = this.dialog.open(DialogTermsDialog, {
+            height: 'auto',
+            width: '100%',
+            maxWidth:'90vw',
+            panelClass: 'termsconditionDialogCls'
+          });
 
         dialogRef.afterClosed().subscribe(result => {
             // console.log(`Dialog result: ${result}`);
@@ -43,10 +49,16 @@ export class FooterComponent implements OnInit {
     }
 
     privacypolicy() {
-        const dialogRef = this.dialog.open(DialogPrivacyDialog);
+        const dialogRef = this.dialog.open(DialogPrivacyDialog, {
+            height: 'auto',
+            width: '100%',
+            maxWidth:'90vw',
+            panelClass: 'privacypolicyDialogCls'
+          });
 
         dialogRef.afterClosed().subscribe(result => {
             // console.log(`Dialog result: ${result}`);
+            
         });
     }
 
@@ -303,9 +315,34 @@ export class NewslatterDialogComponent {
 export class NewslattersuccessDialogComponent {
 
     public myformnews: FormGroup
+    windowScrolled: boolean;
 
     constructor(public dialogRef: MatDialogRef<NewslattersuccessDialogComponent>,
                 /* @Inject(MAT_DIALOG_DATA) public data: DialogData*/) { }
+
+                @HostListener("window:scroll", [])
+
+                onWindowScroll() {
+                    if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
+                        this.windowScrolled = true;
+                    }
+                    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
+                        this.windowScrolled = false;
+                    }
+                }
+                
+                scrollToTop() {
+                    (function smoothscroll() {
+                
+                        var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
+                
+                        if (currentScroll > 0) {
+                            window.requestAnimationFrame(smoothscroll);
+                            window.scrollTo(0, currentScroll - (currentScroll / 8));
+                        }
+                
+                    })();
+                }
 
     public onNoClick(): void {
         this.dialogRef.close();

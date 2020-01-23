@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-add-edit-blogs',
   templateUrl: './add-edit-blogs.component.html',
@@ -37,7 +38,14 @@ export class AddEditBlogsComponent implements OnInit {
     path: "blogs",
     prefix: "blogs-file"
   }
-  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,public apiService: ApiService) { }
+  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute,public apiService: ApiService, private readonly meta: MetaService) {
+    this.meta.setTitle('ProBid Auto - Add edit Blog');
+    this.meta.setTag('og:title', 'ProBid Auto - Add edit Blog');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add edit Blog');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
 
   ngOnInit() {
 

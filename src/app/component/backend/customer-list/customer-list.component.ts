@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-customer-list',
@@ -14,15 +15,23 @@ export class CustomerListComponent implements OnInit {
   public userType:any;
   public datalist:any
 
-  constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService , public cookieService:CookieService) { 
+  constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService , public cookieService:CookieService,private readonly meta: MetaService) { 
     this.userDetails = JSON.parse(this.cookieService.get('user_details'));
     this.userType=this.userDetails.type;
+
+    this.meta.setTitle('ProBid Auto - Customer List');
+        this.meta.setTag('og:title', 'ProBid Auto - Customer List');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Customer List');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
   }
   public statusarray: any = [{val: 1, name: 'Active'}, {val: 0, name: 'Pending'}, {val: 2, name: 'Inactive'}]; 
 
   pendingmodelapplicationarray: any = [];
   pendingmodelapplicationarray_skip: any = ['_id','type','city','state','password','zip','salesrep_id','created_at','id','salesrep','updated_at'];
-  pendingmodelapplicationarray_detail_skip: any = ['_id'];
+  pendingmodelapplicationarray_detail_skip: any = ['_id','password'];
   updateendpoint = 'addorupdatedata';
   deleteendpoint = 'deletesingledata';
   tablename = 'user';

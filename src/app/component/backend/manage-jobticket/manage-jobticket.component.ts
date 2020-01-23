@@ -1,9 +1,18 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { ActivatedRoute ,Router, Route} from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponent } from '../../../app.component';
+
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { MetaService } from '@ngx-meta/core';
+
+export interface DialogData {
+  data: any;
+  msg:any;
+} 
 
 @Component({
   selector: 'app-manage-jobticket',
@@ -14,8 +23,12 @@ export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
   public jobTicketForm: FormGroup;
-  // public jobTicketMsgForm: FormGroup;
+  public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
+  public images_arr:any=[];
+  public showbox:any = 0;
+  public msgUserType:any;
+  // for job ticket 
   public configData: any = {
     baseUrl: "https://fileupload.influxhostserver.com/",
     endpoint: "uploads",
@@ -28,6 +41,22 @@ export class ManageJobticketComponent implements OnInit {
     conversionNeeded: 0,
     bucketName: "probidfiles-dev.com" 
   }
+
+
+// job ticket message 
+
+public configDataJobTicket: any = {
+  baseUrl: "https://fileupload.influxhostserver.com/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format:["jpg", "jpeg", "png", "bmp", "zip", 'html'],  // use all small font
+  type: "jobTicket-img-picture",
+  path: "jobTicketImgPicture",
+  prefix: "jobTicket-img-picture",
+  formSubmit: false,
+  conversionNeeded: 0,
+  bucketName: "probidfiles-dev.com" 
+}
   public userCookies: any;
   public userid: any;
   public rsvp_id: any;
@@ -37,92 +66,139 @@ export class ManageJobticketComponent implements OnInit {
   public user_list:any = '';
   public job_ticket: any = '';
   public rsvp_details: any = '';
-  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
+  public markresolve:any='';
+  public re_Open:any='';
+  public msgStatus:any=''
+  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog, private readonly meta: MetaService) {
+    
+        this.meta.setTitle('ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('og:title', 'ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Manage Job Ticket');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
-    console.log(this.rsvp_id, this.status)
+    // console.log(this.rsvp_id, this.status)
     if (this.cookieservice.get('jwtToken') != undefined  && this.cookieservice.get('user_details') != null && this.cookieservice.get('jwtToken') != null && this.cookieservice.get('jwtToken') != '') {
       this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
+      console.log('>>>>>>>',this.userCookies)
       this.userid = this.userCookies._id;
       }
     this.jobTicketForm = this.fb.group({
       subject:['',Validators.required],
       description:['',Validators.required],
       jobTicket_picture:['', []],
-        message: ['',Validators.required],
+        // message: ['',Validators.required],
     });
 
-    // this.jobTicketMsgForm = this.fb.group({
-    //   message: ['',Validators.required],
-    //   msg_picture:['', []],
-    // })
+    this.jobTicketMsgForm = this.fb.group({
+      message: ['',Validators.required],
+      msg_picture:['', []],
+    })
   }
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      console.log(data.job_ticket.result)
+      // console.log(data.job_ticket.result)
       this.message_details = data.job_ticket.result.message_details;
       this.user_list = data.job_ticket.result.user_list[0];
       this.rsvp_details = data.job_ticket.result.rsvp_details[0];
       this.job_ticket = data.job_ticket.result.job_ticket[0];
+      // console.log(this.job_ticket)
     })
+    
 
-    this.getData();
+    // this.getData();
 
+    this.msgUserType=this.message_details[this.message_details.length - 1]
+
+    // console.log('msssssstype++++',this.msgUserType)
+
+    // console.log('>>><<<', this.job_ticket.message_flag)
+
+  }
+  showMessage(){
+    this.showbox = 1;
   }
   getData(){
     // this.apploader.loader = 1;
     let dataType: any;
-    if (this.status != 1) {
-    dataType = { "source": 'send_rsvp_view', condition: { "_id": this.rsvp_id} };
-    } else {
-      
-      dataType = { "source": 'job_ticket_message', condition: { "rsvp_id_object": this.rsvp_id} };
-    }
+    if (this.status == 1) {
+      dataType = { "source": 'job_ticket_msg_view', condition: { "rsvp_id_object": this.rsvp_id} };
+    } 
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
-      console.log(res.res)
+      // console.log(res.res)
       this.message_details = res.res;
-
-      this.jobTicketForm.controls['subject'].patchValue(this.job_ticket.subject);
-      this.jobTicketForm.controls['description'].patchValue(this.job_ticket.description);
-      // subject:['',Validators.required],
-      // description:['',Validators.required],
-      // jobTicket_picture:['', []]
       this.apploader.loader = 0;
-      // console.log("@@>>>", this.rsvp_list[0].profile_picture);
+
+
     })
 
   }
-  // jobTicketMsgFormSubmit(){
-  //   for (let x in this.jobTicketMsgForm.controls) {
-  //     this.jobTicketMsgForm.controls[x].markAsTouched();
-  //   }
-  //   if (this.jobTicketMsgForm.valid) {
-  //     let endpoint: any = "addorupdatedata";
-  //     let data: any = {
-  //       source: "job_ticket_msg",
-  //       data: {
-  //         ticket_added_by: this.userid,
-  //         rsvp_id:this.rsvp_id,
-  //         message: this.jobTicketMsgForm.value.message,
-  //         job_ticket:1
-  //       },
-  //       sourceobj:["rsvp_id","ticket_added_by"]
-  //     };
-  //     this.apploader.loader = 1;
 
-  //     this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-  //       console.log(res);
-  //       // this.getData();
-  //       this.jobTicketForm.controls['message'].reset();
-  //       // this.apploader.loader = 0;
-        
+  jobTicketMsgFormSubmit(){
+    for (let x in this.jobTicketMsgForm.controls) {
+      this.jobTicketMsgForm.controls[x].markAsTouched();
+    }
+
+   // if (this.configDataJobTicket.files.length > 0) {
+    for (const loop in this.configDataJobTicket.files) {
+      this.images_arr =
+        this.images_arr.concat({
+          "upload_server_id": this.configDataJobTicket.files[loop].upload.data._id,
+          "basepath": this.configDataJobTicket.files[loop].upload.data.basepath + '/' + this.configDataJobTicket.path + '/',
+          "fileservername": this.configDataJobTicket.files[loop].upload.data.data.fileservername,
+          "name": this.configDataJobTicket.files[loop].name,
+          "type": this.configDataJobTicket.files[loop].type,
+          "bucketname": this.configDataJobTicket.bucketName
+        });
+    }
+
+
+    this.jobTicketMsgForm.controls['msg_picture'].patchValue(this.images_arr);
+
+
+
+    if (this.jobTicketMsgForm.valid) {
+      this.apploader.loader = 1;
+      let endpoint: any = "addorupdatedata";
+
+      let data: any = {
+        source: "job_ticket_msg",
+        data: {
+          job_ticket_id:this.job_ticket._id,
+          ticket_added_by: this.userid,
+          rsvp_id:this.rsvp_id,
+          message: this.jobTicketMsgForm.value.message,
+          job_ticket:1,
+          type:this.userCookies.type,
+          msg_picture:this.jobTicketMsgForm.value.msg_picture
+        },
+        sourceobj:["rsvp_id","ticket_added_by","job_ticket_id"]
+      };
+
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        // console.log('>>>',res)
+        this.showbox = 0;
+        this.getData();
+        this.jobTicketMsgForm.reset();
+        // this.apploader.loader = 0;
+        let result:any=res;
+        // console.log('++++',result.status)
+       
+          // this.msgUserType.type=result.type;
+
+      
+
+          // console.log('&&&&&&>>>>>', msgType)
      
-  //     })
-  //   }
+      })
+    }
 
-  // }
+  }
 
   jobTicketFormSubmit(){
     for (let x in this.jobTicketForm.controls) {
@@ -144,6 +220,7 @@ export class ManageJobticketComponent implements OnInit {
       this.jobTicketForm.controls['jobTicket_picture'].patchValue(this.images_array);
     // }
     if (this.jobTicketForm.valid) {
+      this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
       let data: any = {
         source: "job_ticket",
@@ -158,20 +235,21 @@ export class ManageJobticketComponent implements OnInit {
         },
         sourceobj:["rsvp_id","ticket_added_by"]
       };
-      this.apploader.loader = 1;
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
-        this.getData();
-        this.jobTicketForm.controls['message'].reset();
+        // console.log(res);
+        // this.getData();
+        this.jobTicketForm.reset();
+        this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
         // this.apploader.loader = 0;
-        
+        this.getData();
      
       })
     }
 
 
   }
+
   changeStatus(item: any, val: any) {
     // console.log('rsvpSend status',item, val)
     let endpoint: any = "addorupdatedata";
@@ -190,6 +268,24 @@ export class ManageJobticketComponent implements OnInit {
         // this.getdata();
       });
   }
+
+  //view image from comment place
+  viewImage(val:any){
+    // console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+
+      data:val
+    });
+
+  }
+
+  viewJobImage(val:any){
+    // console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      
+      data:val
+    });
+  }
   
   rsvpDetail(val:any){
     this.router.navigateByUrl('/rsvp-detail/'+val);
@@ -197,5 +293,50 @@ export class ManageJobticketComponent implements OnInit {
   inputUntouched(val: any) {
     this.jobTicketForm.controls[val].markAsUntouched();
   }
+  inputValUntouched(val: any) {
+    this.jobTicketMsgForm.controls[val].markAsUntouched();
+  }
 
+//mark as resolve
+  markAsResolve(val:any, status: any){
+    console.log('hit',val)
+
+    let endpoint: any = "addorupdatedata";
+      let data:any;
+      data={
+        source: "job_ticket",
+        "data":{
+          status: status,
+          id:val
+        }
+        
+      }
+
+      this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        // console.log(res);
+        let result :any=res
+        if(result.status == 'success'){
+          // console.log('**>>>',this.job_ticket,status);
+          this.job_ticket.message_flag = status;
+
+        }
+      
+      })
+  }
+
+}
+
+
+//modal component for image view
+
+
+@Component({
+  selector:'viewImage',
+  templateUrl:'./viewImage.html'
+})
+export class ViewImageComponent {
+  constructor( public dialogRef: MatDialogRef<ViewImageComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
 }

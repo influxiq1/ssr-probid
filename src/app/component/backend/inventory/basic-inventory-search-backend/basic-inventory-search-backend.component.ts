@@ -10,6 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { Observable, Subject, Subscription,Subscriber } from 'rxjs';
 import { AppComponent } from '../../../../app.component';
 import {DetailServiceService} from '../../../../detail-service.service'
+import { error } from 'util';
 
 export interface DialogData {
   errorMsg: string;
@@ -28,47 +29,31 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   carouselOptions = {
     margin: 5,
     nav: true,
-    loop: true,
-    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    loop: false,
+    rewind: true,
+    autoplayTimeout: 6000,
+    autoplay: false,
+    autoplayHoverPause: true,
+    center: true,
     responsiveClass: true,
     dots: false,
+    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
         items: 3,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       600: {
         items: 4,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       991: {
         items: 5,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
       },
       992: {
         items: 8,
-        autoplay: false,
-        autoplayTimeout: 6000,
-        autoplayHoverPause: true,
-        center: true,
-        loop: true,
         nav: true,
-        dot: false,
       }
     }
   }
@@ -105,7 +90,8 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   public indexForCustomer: number;
   public spinnerval: any = 0;
   public car_data: any;
- 
+  public apikey:any;
+
   // public carItem=new Subject<any>();
 
   constructor(
@@ -122,10 +108,21 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     public detailService:DetailServiceService
 
   ) {
+
+    this.meta.setTitle('ProBid Auto - Basic inventory search');
+    this.meta.setTag('og:title', 'ProBid Auto - Basic inventory search');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Basic inventory search');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
     this.spinnerval = 0;
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+
+      
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
       this.user_id = this.user_details._id;
       // console.log(this.user_id);
@@ -191,6 +188,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
       let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
+        console.log('>>>>>',res)
         this.apploader.loader = 0;
         if (field == 'make') {
           this.make_list = res.terms;
@@ -213,7 +211,25 @@ export class BasicInventorySearchBackendComponent implements OnInit {
           // console.log(field, this.vehicle_list);
         }
 
-      });
+      }, error =>{
+        console.log('Invalid_Api')
+        console.log(this.apiService.invalidApi)
+
+        
+        this.apikey=this.apiService.invalidApi;
+
+        let data:any;
+        data={
+          
+          "apikey":this.apikey
+        }
+
+        this.apiService.CustomRequest(data,'deleteapi').subscribe((res)=>{
+          console.log("error")
+        })
+
+      })
+     
     }
 
   }
@@ -292,7 +308,8 @@ export class BasicInventorySearchBackendComponent implements OnInit {
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
 
         this.http.get(search_link).subscribe((res: any) => {
-this.apploader.loader = 0;
+          console.log('>>>>',res)
+          this.apploader.loader = 0;
           this.search = res.listings;
 
           // console.log('search list', this.search)
@@ -328,8 +345,6 @@ this.apploader.loader = 0;
 
 
   favorite(item: any) {
-
-
     // console.log('this is favorite ')
     if (this.user_id == '') {
       this.cookieService.set('favorite_car', item);
@@ -474,7 +489,10 @@ this.apploader.loader = 0;
     };
 
     this.detailService.carData(carData)
-    this.router.navigate(['/search-detail']);
+    setTimeout(() => {
+      this.router.navigate(['/search-detail']);
+    }, 500);
+   
   }
 
 }

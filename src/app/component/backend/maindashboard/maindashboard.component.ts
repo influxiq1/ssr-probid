@@ -9,6 +9,7 @@ import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { MetaService } from '@ngx-meta/core';
 // import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
@@ -205,10 +206,18 @@ public errorMsg: string = '';
         public snack:MatSnackBar,
         public router:Router,
         public fb:FormBuilder,
-         private fb1: FacebookService) {
+         private fb1: FacebookService,
+         private readonly meta: MetaService ) {
+
+        this.meta.setTitle('ProBid Auto - Admin Dashboard!');
+        this.meta.setTag('og:title', 'ProBid Auto - Admin Dashboard');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Admin Dashboard');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
     
 
-    this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+        this.userCookies = JSON.parse(this.cookieService.get('user_details'));
    
     
     fb1.init({
@@ -363,7 +372,8 @@ public errorMsg: string = '';
 
 generateForm(){
   this.apikeyForm=this.fb.group({
-    apikey:['',Validators.required]
+    apikey:['',Validators.required],
+    keynum:['',Validators.required]
   })
 }
 
@@ -380,17 +390,23 @@ apiKeySubmit(){
 
 console.log('hit')
     let data:any;
-    data={
-      data:this.apikeyForm.value,
-      source:'search_api_key'
-    }
+    
+      data={
+        no:this.apikeyForm.value.keynum,
+        apikey:this.apikeyForm.value.apikey
+      } 
+  
 
-    this.apiService.CustomRequest(data,'addorupdatedata').subscribe((res)=>{
+    this.apiService.CustomRequest(data,'apiupdate').subscribe((res)=>{
       let result:any;
       result=res
 
       if(result.status == 'success'){
         this.formDirective.resetForm();
+        this.snack.open('Api Key Updated','ok',{
+          duration:2000
+        })
+        
         
       }
     })
@@ -509,6 +525,12 @@ inputUntouched(val: any) {
   viewJobTicket(val:any){
     this.router.navigateByUrl('/manage-job-ticket/'+val);
   }
+
+  goToOpenTicket(item: any, status: any){
+    console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
+  }
+
 
 
   private handleError(error) {

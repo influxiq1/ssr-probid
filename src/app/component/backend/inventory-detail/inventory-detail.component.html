@@ -118,17 +118,17 @@
                     <!-- Save Search DETAILS for salesrep-->
                     <span class="topinnerinforight" 
                     *ngIf="activatedRoute.snapshot.routeConfig.path != 'rsvp-detail/:_id'" >
-                      <h1 class="btnrsvp" *ngIf="user_details.type == 'customer' || user_details.type == 'salesrep'"
-                        (click)="addRsvp(data)">RSVP</h1>
+                      <mat-button class="btnrsvp" *ngIf="user_details.type == 'customer' || user_details.type == 'salesrep'"
+                        (click)="addRsvp(data)">RSVP</mat-button>
 
                       <mat-button class="btnredcls" *ngIf="router.url != '/search-detail'" 
                       (click)="removeItem(data._id)">Remove</mat-button>
 
                       <mat-button class="btngreencls" *ngIf="router.url == '/search-detail' 
-                       && addedCar == ''" (click)="addCar(data)">Add</mat-button>  
+                       && addedCar == '' " (click)="addCar(data)">Add</mat-button>  
                       
                       <mat-button class="btnredcls" *ngIf="router.url == '/search-detail' && 
-                      addedCar != '' && addedCar !=null" (click)="removeAddSave(addedCar,data)">Remove</mat-button>
+                      addedCar != '' && addedCar !=null " (click)="removeAddSave(addedCar,data)">Remove</mat-button>
 
 
                       <mat-form-field class="select-customer" *ngIf="user_details.type == 'salesrep'">
@@ -160,7 +160,11 @@
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
-                        <img src="../../../../assets/images/imguser.jpg">
+
+                      <span *ngIf="data.added_for_picture ==null"> <img src="../../../../assets/images/no-image-default.jpg"></span> 
+                      <span *ngIf="data.added_for_picture !=null">  
+                        <img [src]="data.added_for_picture"></span>
+                        
                       </span>
                       <span class="listscontent">
                         <mat-list>
@@ -182,7 +186,9 @@
                   <span class="rsvplisttypecontentinfowrapper">
                     <span class="rsvplisttypecontentinfo">
                       <span class="rsvplisttypeimgwrapper">
-                        <img src="../../../../assets/images/imguser.jpg">
+                        <span *ngIf="data.added_by_picture ==null"> <img src="../../../../assets/images/no-image-default.jpg"></span> 
+                        <span *ngIf="data.added_by_picture !=null">  
+                          <img [src]="data.added_by_picture"></span>
                       </span>
                       <span class="listscontent">
                         <mat-list>
@@ -624,7 +630,7 @@
 
             </mat-list>
             <span class="btnwrappercls">
-              <mat-button mat-button class="btnblue" (click)="viewAll()" *ngIf="saveList !=null &&  saveList.length >= indexVal" >View All</mat-button>
+              <mat-button mat-button class="btnblue" (click)="viewAll()" *ngIf="saveList !=null &&  saveList.length > indexVal" >View All</mat-button>
             </span>
           </mat-card-content>
 

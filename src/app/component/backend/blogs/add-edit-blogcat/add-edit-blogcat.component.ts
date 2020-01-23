@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-add-edit-blogcat',
   templateUrl: './add-edit-blogcat.component.html',
@@ -17,11 +18,23 @@ export class AddEditBlogcatComponent implements OnInit {
     condition: {},
     defaultData: null,
     jwtToken: this.cookieService.get('jwtToken'),
-    callBack: "/blog-category/list",
+    callBack: "/blog-management",
     userData: { id: "18801017007", name: "Admin" },
     defaultDataAlways: null
   }
-  constructor(private activatedRouter: ActivatedRoute, private cookieService: CookieService,public apiService: ApiService) { }
+
+
+  
+  constructor(private activatedRouter: ActivatedRoute, private cookieService: CookieService,public apiService: ApiService, private readonly meta: MetaService) {
+
+    this.meta.setTitle('ProBid Auto - Add edit Blog Category');
+    this.meta.setTag('og:title', 'ProBid Auto - Add edit Blog Category');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add edit Blog Category');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
+
 
   ngOnInit() {
     this.activatedRouter.params.subscribe(params => {

@@ -33,6 +33,7 @@ public user_full_name: any = '';
     //console.log(this.router.url)
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    console.log(this.userCookies)
     }
    }
 
@@ -45,7 +46,10 @@ public user_full_name: any = '';
     setTimeout(() => {
       this.cookieService.deleteAll();
     }, 1000);
-    this.router.navigateByUrl('/');
+    if (this.cookieService.get('jwtToken') != '') {
+      this.router.navigateByUrl('/');
+    }
+    console.log("logout");
     // console.log("logout");
     // console.log(this.token);
   }
@@ -67,6 +71,18 @@ public user_full_name: any = '';
 
 
 
+  openGMDialog(): void {
+    const dialogRef = this.dialog.open(googlemapDialog, {
+      data: {name: this.name},
+      height: 'auto',
+      width: '100%',
+      maxWidth:'90vw',
+      panelClass: 'googleMapDialogCls'
+    });
+  }
+
+
+
 }
 
 
@@ -83,6 +99,25 @@ export class comingSoonDialog {
 
   constructor(
     public dialogRef: MatDialogRef<comingSoonDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+
+@Component({
+  selector: 'googlemap',
+  templateUrl: '../googlemapDialog.html'
+})
+export class googlemapDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<googlemapDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

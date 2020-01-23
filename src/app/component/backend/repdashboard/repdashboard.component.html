@@ -9,7 +9,7 @@
                 <span class="rep-dashboard-banner-inner">
                     <h1 class="titleadmin">Put Your Car Sales Practices To Good Use By Selling Used Cars At Great Prices And Pulling In Massive Commissions In The Process.</h1>
                     <p>The landscape Car dealers and Car Salespersons have changed drastically ever since the inception of Online Used Car Sales. The Used-Car and Automobile industry is a constantly evolving one. Hence, as a Used-Car salesperson, evolution and an upgrade to your Car Sales practices is the need of the hour, which will enable you to put your practices to good use and rake in millions in commissions.<br><br>Our approach to Used Car sales and our practices of sourcing and selling Used Cars online will not only help you offer the best cars and other vehicles to your customers, but it will also help you earn handsome commissions along the way. The fact that we source used vehicles directly from the biggest Car Auctions in America allows us to offer incredible prices - a factor that will go a long way in helping you offer top-end vehicles to your customers at prices unmatched anywhere else in the industry!</p>
-                    <mat-button class="btnblue">Lean More</mat-button>
+                    <!-- <mat-button class="btnblue">Lean More</mat-button> -->
                 </span>
             </mat-card-content>
 
@@ -26,8 +26,7 @@
                                         </span>
                                         <span class="sharelinkcontent">
                                             <h2>ProBid Auto Customer share link</h2>
-                                            <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
-                                                    URL</button> <input matInput type="text"
+                                            <p> <input matInput type="text"
                                                     value="{{apiService.share_link}}customer-signup/{{userid}}"
                                                     #userinput></p>
                                             <span class="blogsociallists">
@@ -43,9 +42,10 @@
                                                 <!-- <a class="sociallink fa env">
                                                         <fa name="envelope" class="fa-envelope"></fa>
                                                       </a> -->
-                                                <a class="sociallink fa share">
+                                                <!-- <a class="sociallink fa share">
                                                     <fa name="share" class="fa-share"></fa>
-                                                </a>
+                                                </a> -->
+                                                <a (click)="copyInputMessage(userinput)" class="graburl" value="click to copy">Grab URL</a>
                                             </span>
                                         </span>
                                     </span>
@@ -122,9 +122,14 @@
                     </h1>
                     <span class="flexbox4column">
                         <span class="listsingle" *ngFor="let item of datalist.customer_list">
-                            <mat-list class="customerinfotop">
-                                <span class="customerinfotopimgwrapper">
-                                    <img src="../../../../assets/images/customerinfo-img1.jpg">
+                            <mat-list class="customerinfotop" >
+                                <span class="customerinfotopimgwrapper"  >
+                                    
+                                    <span *ngIf="item.profile_picture !=null">
+                                        <img [src]="item.profile_picture[0].basepath + item.profile_picture[0].fileservername"></span>
+
+                                    <span *ngIf="item.profile_picture == null"><img src="../../../../assets/images/no-image-default.jpg"></span>
+
                                 </span>
                                 <span class="customerinfotopcontent">
                                     <mat-list class="customerinfotopclswrapper">
@@ -144,44 +149,35 @@
 
                                 </span>
                             </mat-list>
-                            <span class="customerinfobottom">
+
+                            <!-- <span class="customerinfobottom">
                                 <h3>RSVP</h3>
-                                <mat-list class="customerinfobottomimagelists">
-                                    <mat-list-item class="listsingle">
+                                <mat-list class="customerinfobottomimagelists"  >
+                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.customer_list | slice:0:3" >
                                         <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
+                                            <span *ngIf="itemVal.car_image !=null">
+                                                <img [src]="itemVal.car_image"  ></span>
+                                                <span *ngIf="itemVal.car_image ==null">
+                                                    <img src="../../../../assets/images/no-image-default.jpg"></span>
                                         </span>
                                     </mat-list-item>
-                                    <mat-list-item class="listsingle">
-                                        <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
-                                        </span>
-                                    </mat-list-item>
-                                    <mat-list-item class="listsingle">
-                                        <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
-                                        </span>
-                                    </mat-list-item>
+                                   
                                 </mat-list>
                                 <h3>FAVORITES</h3>
                                 <mat-list class="customerinfobottomimagelists">
-                                    <mat-list-item class="listsingle">
+                                    <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.customer_list | slice:0:3"  >
                                         <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
+                                            <span *ngIf="itemVal.car_image !=null">
+                                                <img [src]="itemVal.car_image"  ></span>
+                                                <span *ngIf="itemVal.car_image ==null">
+                                                    <img src="../../../../assets/images/no-image-default.jpg"></span>
                                         </span>
                                     </mat-list-item>
-                                    <mat-list-item class="listsingle">
-                                        <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
-                                        </span>
-                                    </mat-list-item>
-                                    <mat-list-item class="listsingle">
-                                        <span class="customerinfotopimgwrapper">
-                                            <img src="../../../../assets/images/customerinfo-img1.jpg">
-                                        </span>
-                                    </mat-list-item>
+                                   
                                 </mat-list>
-                            </span>
+                            </span> -->
+
+
                         </span>
                     </span>
                 </span>
@@ -209,20 +205,28 @@
                                         </span>
                                     </span>
                                     <span class="rsvplistsbottom">
-                                        <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2>
+                                        <h2 >{{item.heading}} <span (click)="viewRsvpDetails(item._id)" > View Details</span> </h2>
                                         <h1>Price - <span>$ {{item.price}}</span></h1>
                                         <span class="rsvplistsbottombtm">
                                             <mat-list>
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                            src="../../../../assets/images/milesicon.png"></strong> 100
+                                                            src="../../../../assets/images/milesicon.png"></strong>
+                                                            <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
+                                              <span *ngIf="item.miles ==null"> N/A</span> 
                                                 </mat-list-item>
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
                                                             src="../../../../assets/images/drivetrainicon.png"></strong>
-                                                    50</mat-list-item>
+                                                            <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
+                                                            <span *ngIf="item.build.drivetrain ==null"> N/A</span> 
+                                                    </mat-list-item>
 
                                                 <mat-list-item class="pa_blockfootertext"> <strong><img
                                                             src="../../../../assets/images/bodytypeicon.png"></strong>
-                                                    {{item.build.transmission}}</mat-list-item>
+                                                            <span *ngIf="item.build.transmission !=null"> {{item.build.transmission}}</span>
+                                                            <span *ngIf="item.build.transmission ==null">N/A</span>
+
+                                                   
+                                                </mat-list-item>
                                             </mat-list>
                                         </span>
                                     </span>
@@ -232,7 +236,9 @@
                                         <h2>User</h2>
                                         <span class="rsvplisttypecontentinfo">
                                             <span class="rsvplisttypeimgwrapper">
-                                                <img src="../../../../assets/images/imguser.jpg">
+                                                <img *ngIf="item.added_for_picture ==null" src="../../../../assets/images/no-image-default.jpg">
+                                                <img *ngIf="item.added_for_picture !=null" 
+                                                [src]="item.added_for_picture">
                                             </span>
                                             <span class="listscontent">
                                                 <mat-list>
@@ -249,7 +255,9 @@
                                         <h2>Salesrep</h2>
                                         <span class="rsvplisttypecontentinfo">
                                             <span class="rsvplisttypeimgwrapper">
-                                                <img src="../../../../assets/images/imgsalesrep.jpg">
+                                                <img *ngIf="item.added_by_picture ==null" src="../../../../assets/images/no-image-default.jpg">
+                                                <img *ngIf="item.added_by_picture !=null" 
+                                                [src]="item.added_by_picture">
                                             </span>
                                             <span class="listscontent">
                                                 <mat-list>
@@ -265,6 +273,7 @@
                                     <!-- <mat-button class="btnblue">view details</mat-button>                             -->
                                 </span>
                             </span>
+
                         </mat-list-item>
                     </mat-list>
                 </span>
@@ -316,15 +325,28 @@
                             <span class="bottomblockss">
                                 <mat-list *ngIf="item.build != null">
                                     <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                src="../../../../assets/images/milesicon.png"></strong> {{item.miles}}
-                                    </mat-list-item>
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.build.drivetrain != null">
-                                        <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
-                                        {{item.build.drivetrain}}</mat-list-item>
+                                                src="../../../../assets/images/milesicon.png"></strong> 
+                                              <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
+                                              <span *ngIf="item.miles ==null"> N/A</span> 
 
-                                    <mat-list-item class="pa_blockfootertext" *ngIf="item.build.transmission != null">
+                                    </mat-list-item>
+                                    <mat-list-item class="pa_blockfootertext" >
+                                        <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
+                                       
+                                        <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
+                                              <span *ngIf="item.build.drivetrain ==null || item.build.drivetrain ==''"> N/A</span> 
+
+                                    </mat-list-item>
+
+                                    <mat-list-item class="pa_blockfootertext" >
                                         <strong><img src="../../../../assets/images/bodytypeicon.png"></strong>
-                                        {{item.build.transmission}}</mat-list-item>
+                                       
+                                        <span *ngIf="item.build.transmission !=null">  
+                                             {{item.build.transmission}}</span> 
+                                        <span *ngIf="item.build.transmission ==null || 
+                                        item.build.transmission ==''"> N/A</span> 
+
+                                    </mat-list-item>
                                 </mat-list>
                             </span>
                         </span>
@@ -335,15 +357,33 @@
 
             <mat-card-content class="rep-dashboard-block5">
                 <span class="rep-dashboard-block5-inner">
-                    <h1 class="titleadmin">Social Advo</h1>
+                    <h1 class="titleadmin">Social Advo Banners <mat-button class="btnblue" [routerLink]="['/social-advo-admin']">View All</mat-button></h1>
                     <span class="rep-dashboard-block5-header">
-                        <span class="rep-dashboard-block5-header-bg">
-                            <span></span>
-                            <span class="btnwrappercls">
-                                <button mat-button class="btnblue" [routerLink]="['/training-report']">View All</button>
-                            </span>
+                       
+                        <span class="block1socialadvo">
+                            <h2>facebook Banner</h2>
+                            <mat-list role="list" class="flexbox4column">      
+                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
+                                <img src="../../../../assets/images/{{item}}">
+                                <span class="postblock">
+                                  <a class="btnshare btnsharecls txtwhite" target="_blank"  (click)="share(item)"><span>Post</span></a>
+                                </span>
+                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>                          
+                                </p>
+                              </mat-list-item>
+                            </mat-list>
+                            <h2>linkedin Banner</h2>
+                            <mat-list role="list" class="flexbox4column">
+                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
+                                <img src="../../../../assets/images/{{item}}">
+                                <span class="postblock">
+                                  <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
+                                </span>
+                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p>
+                              </mat-list-item>
+                            </mat-list>
                         </span>
-                        <mat-tab-group class="tabwrapper">
+                        <!-- <mat-tab-group class="tabwrapper">
 
                             <mat-tab>
                                 <ng-template mat-tab-label>
@@ -517,9 +557,6 @@
                             <mat-tab>
                                 <ng-template mat-tab-label>
                                     <h2>Set Frequency</h2>
-                                    <!-- <span class="btnwrappercls">
-                                                <button mat-button class="btnblue" [routerLink]="['/commission-report']">View All</button>
-                                            </span> -->
                                 </ng-template>
                                 <ng-template matTabContent>
                                     <mat-list class="flexbox5column">
@@ -691,9 +728,6 @@
                             <mat-tab>
                                 <ng-template mat-tab-label>
                                     <h2>Create my own Inventory</h2>
-                                    <!-- <span class="btnwrappercls">
-                                                <button mat-button class="btnblue" [routerLink]="['/commission-report']">View All</button>
-                                            </span> -->
                                 </ng-template>
                                 <ng-template matTabContent>
                                     <mat-list class="flexbox5column">
@@ -860,7 +894,7 @@
                                     </mat-list>
                                 </ng-template>
                             </mat-tab>
-                        </mat-tab-group>
+                        </mat-tab-group> -->
                     </span>
                 </span>
             </mat-card-content>
