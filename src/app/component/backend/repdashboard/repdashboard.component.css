@@ -25,6 +25,8 @@
 .sharelinklistsingle:nth-child(1){background-image:url(../../../../assets/images/slsingleimg.png);background-position:right 0;background-size:contain;background-repeat:no-repeat}
 .sharelinklistsingle:nth-child(2){background-image:url(../../../../assets/images/slsingleimg2.png);background-position:right 0;background-size:contain;background-repeat:no-repeat}
 .blogsociallists fa{padding:6px;color:#fff;font-size:24px;width:32px;height:32px;display:block;overflow:hidden;line-height:32px;text-align:center}
+
+.blogsociallists .graburl{padding: 6px;color: #fff;font-size: 24px;width: 129px;height: 32px;display: block;overflow: hidden;line-height: 36px;text-align: center;background: #f7462e;border-radius: 0px;font-family: 'HelveticaBold';text-transform: uppercase;}
 .blogsociallists a{margin-right:5px}
 .sharelinkrightlists{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;padding-top:0}
 .rep-dashboard-block2 .flexbox4column{border-top:5px solid #393f45;margin-top:10px;display:flex;flex-direction:row;flex-wrap:wrap;justify-content:flex-start}
@@ -156,7 +158,6 @@
 .generalcls .block1socialadvo .btnwrappercls{margin-top:8px}
 .block1socialadvo .flexbox4column .mat-list-item .mat-list-item-content{height:100%!important;width:100%;padding:0}
 .rep-dashboard-block5 .titleadmin{-webkit-box-pack:justify;justify-content:space-between;display:-webkit-box;display:flex}
-
 
 @media only screen and (max-width: 1199px) {
 

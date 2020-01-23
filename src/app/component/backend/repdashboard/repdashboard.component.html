@@ -9,7 +9,7 @@
                 <span class="rep-dashboard-banner-inner">
                     <h1 class="titleadmin">Put Your Car Sales Practices To Good Use By Selling Used Cars At Great Prices And Pulling In Massive Commissions In The Process.</h1>
                     <p>The landscape Car dealers and Car Salespersons have changed drastically ever since the inception of Online Used Car Sales. The Used-Car and Automobile industry is a constantly evolving one. Hence, as a Used-Car salesperson, evolution and an upgrade to your Car Sales practices is the need of the hour, which will enable you to put your practices to good use and rake in millions in commissions.<br><br>Our approach to Used Car sales and our practices of sourcing and selling Used Cars online will not only help you offer the best cars and other vehicles to your customers, but it will also help you earn handsome commissions along the way. The fact that we source used vehicles directly from the biggest Car Auctions in America allows us to offer incredible prices - a factor that will go a long way in helping you offer top-end vehicles to your customers at prices unmatched anywhere else in the industry!</p>
-                    <mat-button class="btnblue">Lean More</mat-button>
+                    <!-- <mat-button class="btnblue">Lean More</mat-button> -->
                 </span>
             </mat-card-content>
 
@@ -26,8 +26,7 @@
                                         </span>
                                         <span class="sharelinkcontent">
                                             <h2>ProBid Auto Customer share link</h2>
-                                            <p><button (click)="copyInputMessage(userinput)" value="click to copy">Grab
-                                                    URL</button> <input matInput type="text"
+                                            <p> <input matInput type="text"
                                                     value="{{apiService.share_link}}customer-signup/{{userid}}"
                                                     #userinput></p>
                                             <span class="blogsociallists">
@@ -43,9 +42,10 @@
                                                 <!-- <a class="sociallink fa env">
                                                         <fa name="envelope" class="fa-envelope"></fa>
                                                       </a> -->
-                                                <a class="sociallink fa share">
+                                                <!-- <a class="sociallink fa share">
                                                     <fa name="share" class="fa-share"></fa>
-                                                </a>
+                                                </a> -->
+                                                <a (click)="copyInputMessage(userinput)" class="graburl" value="click to copy">Grab URL</a>
                                             </span>
                                         </span>
                                     </span>
