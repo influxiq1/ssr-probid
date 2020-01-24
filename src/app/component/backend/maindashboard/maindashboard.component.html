@@ -543,8 +543,8 @@
 
                       <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> <a class="btnorange" 
-                          (click)="viewDetails(element,'1')" > {{element.action}}</a> </td>
+                        <td mat-cell *matCellDef="let element"> 
+                          <a (click)="viewDetails(element,'1')" ><i class="material-icons"> edit </i></a> </td>
                       </ng-container>
 
                       <tr mat-header-row *matHeaderRowDef="JTColumns"></tr>

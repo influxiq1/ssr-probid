@@ -15,10 +15,21 @@ import { CookieService } from 'ngx-cookie-service';
 export class ApiManagerComponent implements OnInit {
 
   public apiKeyList:any=[]; 
+  public currentUrl:any;
 
   displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','action'];
 
-  constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService) { }
+  constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService, public router: Router) {
+
+    const body = document.getElementsByTagName('body')[0];
+    this.currentUrl = this.router.url;
+    if (this.currentUrl == '/api-manager') {
+      body.classList.add('apimanager')
+    } else{
+      body.classList.remove('apimanager')
+    }
+
+   }
 
   ngOnInit() {
 
