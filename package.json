@@ -27,7 +27,6 @@
     "@angular/platform-server": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ckeditor/ckeditor5-angular": "^1.1.2",
-    "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ng-toolkit/universal": "^1.1.51",
     "@ngmodule/material-carousel": "^0.5.1",
     "@nguniversal/express-engine": "^8.2.6",
