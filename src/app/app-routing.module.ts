@@ -179,15 +179,15 @@ const routes: Routes = [
   { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent},
 
 
-  { path: 'save-search-admin', component: SaveSearchComponent ,
+  { path: 'saved-search-admin', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
-  { path: 'save-search-castomer', component: SaveSearchComponent ,
+  { path: 'saved-search-customer', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
-  { path: 'save-search-rep', component: SaveSearchComponent ,
+  { path: 'saved-search-rep', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 

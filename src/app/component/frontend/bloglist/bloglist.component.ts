@@ -117,11 +117,12 @@ export class BloglistfrontendComponent implements OnInit {
       
       // console.log('>>>>>>>>>>>>>>>>>>',this.safeSrc)
       const dialogRef = this.dialog.open(CommonVideoModalComponent, {
-        panelClass:['modal-md','success-modal'],
-       
-        width:'450px',
+        panelClass:['modal-md','commonVideoDialogCls'],
+        // width:'450px',
         data:this.safeSrc,
- 
+        height: 'auto',
+        width: '100%',
+        maxWidth:'90vw',     
       });
       dialogRef.afterClosed().subscribe(result => {  
       });

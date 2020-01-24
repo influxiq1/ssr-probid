@@ -184,6 +184,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .salesrepadminblock3 .flexbox3column .rsvplistsingle .mat-list-item-content{width:100%}
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:600px!important}
 /* .cdk-overlay-pane[style]{width:auto!important} */
+.cdk-overlay-pane.commonVideoDialogCls .mat-dialog-container{min-width:450px;max-width:96%;margin:0 auto;width:900px!important}
 .cdk-overlay-pane .mat-dialog-container{min-width:450px;max-width:96%;margin:0 auto;width:600px!important}
 .cdk-overlay-pane .mat-dialog-container lib-dialog-box{display:block;background:#f9f9f9;position:relative;z-index:20;border-radius:0;color:#000;box-shadow:none;position:relative;padding:15px;-moz-box-shadow:inset 0 0 10px #000;-webkit-box-shadow:inset 0 0 10px #000}
 .cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-dialog-title{background-color:#151519;padding:15px;margin-bottom:15px;text-align:center;color:#fff;font-size:24px}
@@ -291,6 +292,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 /* .cdk-overlay-pane.commonVideoModalCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;} */
 /* .cdk-overlay-pane[style]{margin-left: 0 !important;} */
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
+.titlecls{cursor: pointer;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}

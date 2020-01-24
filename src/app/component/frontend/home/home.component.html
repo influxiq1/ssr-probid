@@ -562,11 +562,11 @@
                   <mat-card-content class="bottom_blog">    
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
-                        <span class="item_images">
+                        <span class="item_images" (click)="blogdetail(item._id)">
                           <img [src]="item.profile_picture">
                         </span>
                         <mat-card-content class="contentsection">
-                          <mat-card-title class="inner_header">{{item.blogtitle}}</mat-card-title>
+                          <mat-card-title class="inner_header" (click)="blogdetail(item._id)">{{item.blogtitle}}</mat-card-title>
                           <span class="author">
                             <span class="authornmimg">
                               <span class="writer_image">
