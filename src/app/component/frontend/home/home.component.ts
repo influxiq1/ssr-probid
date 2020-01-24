@@ -14,7 +14,7 @@ import {AppComponent} from '../../../app.component';
 export interface DialogData {
   errorMsg: string;
   loginMsg: string;
-  
+  name:string;
 }
 
 @Component({
@@ -23,6 +23,9 @@ export interface DialogData {
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+
+  public  name: string;
+  
   public saveCarDataList:any;
   public inventoryCustomerForm: FormGroup;
 
@@ -284,6 +287,20 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+
+  
+//*********** Coming Soon ************//
+comingSoonDialogBloghome(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogBloghome, {
+   
+    data: {name: this.name}
+  });
+
+  setTimeout(() => {
+    this.dialog.closeAll();
+  }, 4000);
+}
+//*********** Coming Soon ************//
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data: any) =>{
@@ -712,6 +729,23 @@ export class errorSearchModal {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     // console.log(data);
   }
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+@Component({
+  templateUrl: '../../../layout/coming-soon.html'
+})
+export class comingSoonDialogBloghome {
+
+  constructor(
+    public dialogRef: MatDialogRef<comingSoonDialogBloghome>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {
     this.dialogRef.close();

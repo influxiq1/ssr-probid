@@ -542,9 +542,6 @@
       </owl-carousel>
       <button mat-button class="btnblue sim-button" (click)="btnClick();">View All</button>
 
-
-
-
     </span>
   </mat-card>
 
@@ -582,12 +579,12 @@
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
                           <a class="next_page"  (click)="blogdetail(item._id)" >read more</a>
                           <span class="blogsociallists">
-                              <a class="sociallink fa fb"><fa name="facebook" class="fa-facebook"></fa></a>
-                              <a class="sociallink fa twi"><fa name="twitter" class="fa-twitter"></fa></a>
-                              <a class="sociallink fa pin"><fa name="pinterest" class="fa-pinterest"></fa></a>
-                              <a class="sociallink fa lin"><fa name="linkedin" class="fa-linkedin"></fa></a>
-                              <a class="sociallink fa env"><fa name="envelope" class="fa-envelope"></fa></a>
-                              <a class="sociallink fa share"><fa name="share" class="fa-share"></fa></a>
+                              <a class="sociallink fa fb" (click)="comingSoonDialogBloghome()"><fa name="facebook" class="fa-facebook"></fa></a>
+                              <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
+                              <a class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a>
+                              <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
+                              <a class="sociallink fa env" (click)="comingSoonDialogBloghome()"><fa name="envelope" class="fa-envelope"></fa></a>
+                              <a class="sociallink fa share" (click)="comingSoonDialogBloghome()"><fa name="share" class="fa-share"></fa></a>
                             </span>          
                         </mat-card-content>
                     </mat-card-content>
