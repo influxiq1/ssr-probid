@@ -209,7 +209,7 @@ if (val !='') {
   }
 
   goToOpenTicket(item: any, status: any){
-    console.log(item);
+    // console.log(item);
     this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
   }
 

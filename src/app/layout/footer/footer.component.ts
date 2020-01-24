@@ -107,7 +107,7 @@ export class FooterComponent implements OnInit {
 
 
     doSubmit() {
-        console.log('do Submit');
+        // console.log('do Submit');
         // this.data = this.myform.value;
         // console.log(this.data);
         // this.newslatterViewModal(this.data);

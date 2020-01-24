@@ -83,7 +83,7 @@ public configDataJobTicket: any = {
     // console.log(this.rsvp_id, this.status)
     if (this.cookieservice.get('jwtToken') != undefined  && this.cookieservice.get('user_details') != null && this.cookieservice.get('jwtToken') != null && this.cookieservice.get('jwtToken') != '') {
       this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
-      console.log('>>>>>>>',this.userCookies)
+      // console.log('>>>>>>>',this.userCookies)
       this.userid = this.userCookies._id;
       }
     this.jobTicketForm = this.fb.group({
@@ -256,7 +256,7 @@ public configDataJobTicket: any = {
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        // console.log(res);
         // this.getData();
         // this.jobTicketForm.reset();
         this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
@@ -319,7 +319,7 @@ public configDataJobTicket: any = {
 //jobTicketStatus
 
 jobTicketStatus(val:any, status: any){
-    console.log('hit',val)
+    // console.log('hit',val)
 
     let endpoint: any = "addorupdatedata";
       let data:any;

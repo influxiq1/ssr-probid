@@ -155,7 +155,7 @@ export class MyAccountComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res: any) => {
       this.userData = res.res[0];
-      console.log("editabla data",this.userData);
+      // console.log("editabla data",this.userData);
       // setTimeout(() => {
       //   this.getCityByName(this.userData.state);
       // }, 400);
@@ -235,7 +235,7 @@ export class MyAccountComponent implements OnInit {
         this.snackBar.open(message, action, {
           duration: 1000,
         });
-        console.log(res);
+        // console.log(res);
         this.apploader.loader = 0;
 
       })

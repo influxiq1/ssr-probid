@@ -325,7 +325,7 @@ comingSoonDialogBloghome(): void {
     this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
       // console.log('>>>>',resc.res);
       this.saveCarDataList=resc.res
-      console.log('>>>>',this.saveCarDataList);
+      // console.log('>>>>',this.saveCarDataList);
 
 
     })
@@ -389,7 +389,7 @@ inventoryPreownSearch(){
 
   this.apploader.loader = 1;
 
-  console.log('hit')
+  // console.log('hit')
   let yearVal = this.inventoryPreownForm.value.year;
   let typeVal = this.inventoryPreownForm.value.type;
   let makeVal = this.inventoryPreownForm.value.make;
@@ -535,8 +535,8 @@ inventoryPreownSearch(){
       }
 
     },error =>{
-      console.log('Invalid_Api')
-      console.log(this.apiService.invalidApi)
+      // console.log('Invalid_Api')
+      // console.log(this.apiService.invalidApi)
 
       
       this.apikey=this.apiService.invalidApi;
@@ -548,7 +548,7 @@ inventoryPreownSearch(){
       }
 
       this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
-        console.log("error")
+        // console.log("error")
       })
   });
   }
