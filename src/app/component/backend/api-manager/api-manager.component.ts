@@ -14,34 +14,9 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ApiManagerComponent implements OnInit {
 
-  public apiKeyList:any=[];
-  public tableName:'search_api_key';
-  public apiUrl: any = this.apiService.serverUrlDemo;
-  public apiKeyList_skip:any;
-  public apiKeyList_modify_header:any;
-  public status:any;
-  public UpdateEndpoint:any;
-  public deleteendpoint:any;
-  public detail_skip_array:any;
-  public editroute:any;
-  public searchendpoint:'datalist';
-  public modify_header_array:any;
+  public apiKeyList:any=[]; 
 
-  statusarray: any = [{val: 1, name: 'Active'}, {val: 0, name: 'Pending'}, {val: 2, name: 'Inactive'}]; 
-  
-
-//   // this is use for  All type of search 
-//   search_settings:any={
-
-//     datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"created_at"}],   // this is use for  date search 
-
-//     textsearch:[{label:"Search By email",field:'email'},{label:"Search By Full name",field:'name'}],  // this is use for  text search
-
-//     search:[{label:"Search By autocomplete",field:'name'}]     // this is use for  Autocomplete search
-// }
-
-
-  
+  displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','action'];
 
   constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService) { }
 
@@ -55,6 +30,10 @@ export class ApiManagerComponent implements OnInit {
 
     })
 
+
+  }
+
+  editRoute(){
 
   }
 
