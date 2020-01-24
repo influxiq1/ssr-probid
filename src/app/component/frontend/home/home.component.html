@@ -132,10 +132,18 @@
                     <span class="listsbottominfo">
                         <mat-list class="listsbottom">
                             <mat-list-item> 
-                              <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> {{item.miles}} 
+                              <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png">
+                              <span *ngIf="item.miles !=null">{{item.miles}}</span>  
+                              <span *ngIf="item.miles ==null">N/A</span> 
                             </mat-list-item>
-                            <mat-list-item> <img src="../../../../assets/images/drivetrainicon.png"> {{item.build.drivetrain}} </mat-list-item>
-                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> {{item.build.transmission}} </mat-list-item>
+                            <mat-list-item> <img src="../../../../assets/images/drivetrainicon.png"> {{item.build.drivetrain}} 
+                              <span *ngIf="item.build.drivetrain !=null">{{item.build.drivetrain}}</span>  
+                              <span *ngIf="item.build.drivetrain ==null">N/A</span> 
+                            </mat-list-item>
+                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> {{item.build.transmission}} 
+                              <span *ngIf="item.build.transmission !=null">{{item.build.transmission}}</span>  
+                              <span *ngIf="item.build.transmission ==null">N/A</span> 
+                            </mat-list-item>
                          </mat-list>
                     </span> 
                   </mat-list-item>

@@ -38,7 +38,7 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { LoginModule } from 'login-lib-influxiq';
 // import { BlogModule } from 'blog-lib-influxiq';
-import { NewsTitleModule } from 'news-title-lib-influxiq';
+// import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { ContactusModule } from 'contactus-lib-influxiq';
 // import { SharetoolsModule } from 'sharetools';
 // import { ImageCropperModule } from 'ngx-image-cropper';
@@ -49,7 +49,7 @@ import { ContactusModule } from 'contactus-lib-influxiq';
 
 // import { NgxUploaderModule } from 'ngx-uploader';
 // import { CarouselModule } from 'ngx-bootstrap/carousel';
-import { CKEditorModule } from 'ngx-ckeditor';
+// import { CKEditorModule } from 'ngx-ckeditor';
 // import { ClipboardModule } from 'ngx-clipboard';
 import { OwlModule } from 'ngx-owl-carousel'; 
 
@@ -338,7 +338,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     // MetaModule.forRoot(),
     FacebookModule.forRoot(),
-    NewsTitleModule,
+    // NewsTitleModule,
     // TrainingModule,
     // BlogModule,
     FileUploadModule,
@@ -358,7 +358,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     // ImageCropperModule,
     //  CarouselModule.forRoot(),
-    CKEditorModule,
+    // CKEditorModule,
     // ClipboardModule,
     // BsDatepickerModule.forRoot(),
     // TimepickerModule.forRoot(),
