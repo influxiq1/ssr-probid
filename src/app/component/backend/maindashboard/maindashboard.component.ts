@@ -173,6 +173,7 @@ public errorMsg: string = '';
   public customur_id: any = '';
   public crsvplist:any ='';
   public count:any ='';
+  public jobTicketList:any;
 
 
   // socialAdvFacebookLists: socialFacebookAdvos[];
@@ -187,7 +188,7 @@ public errorMsg: string = '';
 
 
 
-  JTColumns: string[] = ['ticket', 'name', 'title', 'repName', 'customerName',  'subject', 'status', 'action'];
+  JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
   jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
   @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
 
@@ -287,6 +288,19 @@ public errorMsg: string = '';
     this.reportsDataSource.paginator = this.reportPaginator;
    this.generateForm();
 
+   //for job ticket
+
+   let data:any;
+   data={
+     "source":"job_ticket_customer"
+   }
+   this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
+     let result:any=res;
+     this.jobTicketList=result.res
+     console.log('>>>>>', this.jobTicketList)
+
+   })
+
   }
 
 
@@ -307,6 +321,12 @@ public errorMsg: string = '';
       })
       .catch();
    
+  }
+
+
+  viewDetails(item:any,status:any){
+    console.log(item)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 
   changeStatus(item: any, val: any) {

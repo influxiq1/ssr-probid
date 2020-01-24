@@ -21,21 +21,33 @@
               </span>
               <div class="tablediv">
   
-                  <!-- <lib-listing *ngIf="apiManagerConfig != null && apiManagerConfig.length>0"
-                      [datasource]="apiManagerConfig"
-                      [skip]="apiManagerConfig_skip" 
-                      [modify_header_array]="apiManagerConfig_modify_header"
+                  <!-- <lib-listing *ngIf="apiKeyList != null && apiKeyList.length>0"
+                      [datasource]="apiKeyList"
+                      [skip]="apiKeyList_skip" 
+                      [modify_header_array]="apiKeyList_modify_header"
                       [sourcedata]="tableName" 
                       [apiurl]="apiUrl"
                       [editroute]="editUrl"
-                      [jwttoken]="user_cookie"
+                      [jwttoken]="cookieService.get('jwtToken')"
                       [statusarr]="status" 
                       [updateendpoint]="UpdateEndpoint" 
-                      [deleteendpoint]="deleteEndpoint"
-                      [date_search_endpoint]="searchingEndpoint" 
-                      [detail_datatype]="image_detail_datatype"
                       [detail_skip_array]="detail_skip_array">
-                  </lib-listing>  -->
+                      </lib-listing> -->
+
+                      <!-- <lib-listing *ngIf="apiKeyList!=null && apiKeyList.length>0" 
+                        [datasource]="apiKeyList"
+                        [skip]="apiKeyList_skip" 
+                        [modify_header_array]="modify_header_array" 
+                        [apiurl]="apiUrl" 
+                        [deleteendpoint]="deleteendpoint" 
+                        [updateendpoint]="updateendpoint" 
+                        [jwttoken]="cookieService.get('jwtToken')" 
+                        [editroute]="editroute"
+                        [sourcedata]="tablename"  
+                        [statusarr]="statusarray" 
+                        [detail_skip_array]="apiKeyList_detail_skip" 
+                        [searchendpoint]="searchendpoint">
+                      </lib-listing> -->
   
               </div>
           </mat-card>

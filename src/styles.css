@@ -184,6 +184,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .salesrepadminblock3 .flexbox3column .rsvplistsingle .mat-list-item-content{width:100%}
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:600px!important}
 /* .cdk-overlay-pane[style]{width:auto!important} */
+.cdk-overlay-pane.commonVideoDialogCls .mat-dialog-container{min-width:450px;max-width:96%;margin:0 auto;width:900px!important}
 .cdk-overlay-pane .mat-dialog-container{min-width:450px;max-width:96%;margin:0 auto;width:600px!important}
 .cdk-overlay-pane .mat-dialog-container lib-dialog-box{display:block;background:#f9f9f9;position:relative;z-index:20;border-radius:0;color:#000;box-shadow:none;position:relative;padding:15px;-moz-box-shadow:inset 0 0 10px #000;-webkit-box-shadow:inset 0 0 10px #000}
 .cdk-overlay-pane .mat-dialog-container lib-dialog-box .mat-dialog-title{background-color:#151519;padding:15px;margin-bottom:15px;text-align:center;color:#fff;font-size:24px}
@@ -195,7 +196,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .cdk-overlay-dark-backdrop{background:rgba(0,0,0,.60)}
 .generalmodalcls .modal-content{position: relative;}
 .generalmodalcls .material-icons.closeicon{position: absolute;top: -7px;right: -7px;background-color: #ff0000;padding: 5px;font-size: 20px;z-index: 99;border-radius: 100%;color: #fff;
-  font-weight: bold;}
+  font-weight: bold; cursor: pointer;}
 .generalmodalcls .videoWrapper{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}
 .generalmodalcls .videoWrapper iframe,.generalmodalcls .videoWrapper object,.generalmodalcls .videoWrapper embed{position:absolute;top:0;left:0;width:100%;height:100%}
 .generalmodalcls .mat-dialog-content{margin:0!important;padding:0!important;overflow: hidden !important;}
@@ -262,12 +263,12 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .homebanner .owl-next.disabled,.homebanner .owl-prev.disabled{display:none!important}
 .postblock{display:none;position:relative}
 .postblock .btnshare{background:#12C3E3!important}
-.mat-list .block1socialadvosingle.mat-list-item:hover .postblock{display:block;background:rgba(0,0,0,0.7);position:absolute;top:0;left:0;width:100%;height:90%}
+.mat-list .block1socialadvosingle.mat-list-item:hover .postblock{display:block;background:rgba(0,0,0,0.7);position:absolute;top:0;left:0;width:100%; height: 77%;}
 .mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-transform:uppercase}
 .mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare span{padding:0 30px;font-size:24px}
 .grapurl{position:relative;z-index:9;width:100%;height:auto;white-space:normal;word-break:break-all}
 .grapurl button{width:100%;margin:0 auto;display:block;padding:5px;color:#e6e6e6;font-size:16px;padding:9px;text-shadow:0 -1px 0 rgba(30,30,30,0.8);background:#000;background:-moz-linear-gradient(90deg,#000 30%,#595959 70%);background:-webkit-linear-gradient(90deg,#000 30%,#595959 70%);background:-o-linear-gradient(90deg,#000 30%,#595959 70%);background:-ms-linear-gradient(90deg,#000 30%,#595959 70%);background:linear-gradient(0deg,#000 30%,#595959 70%);-webkit-box-shadow:0 2px 1px rgba(50,50,50,0.75);-moz-box-shadow:0 2px 1px rgba(50,50,50,0.75);box-shadow:0 2px 1px rgba(50,50,50,0.75)}
-.grapurl span{width:100%;margin:0 auto;display:block;border:0;height:24px;padding:1px 0;white-space:nowrap;float:left;overflow:hidden}
+.grapurl span{width:100%;margin:0 auto;display:block;border:0;height:auto;padding:1px 0;white-space:normal;float:left;overflow:hidden}
 .block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content{padding:0!important;height:100%;height:100%!important;width:100%;padding:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}
 .jobcommentbox .mat-list .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#efefef;border:1px solid #c1c1c1!important}
 .jobticketimglists .file_upload .uploadfilecontainer{margin:0 auto!important;height:auto!important;border:1px dashed #dde2e5;border-radius:0}
@@ -291,6 +292,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 /* .cdk-overlay-pane.commonVideoModalCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;} */
 /* .cdk-overlay-pane[style]{margin-left: 0 !important;} */
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
+.titlecls{cursor: pointer;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}

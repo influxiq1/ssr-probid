@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { ApiService } from '../../../api.service';
 
+
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -14,8 +15,8 @@ export class ResetPasswordComponent implements OnInit {
   // public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
   public serverUrl: any = this.apiService.serverUrlDemo;
   public addEndpoint: any = {
-    endpoint:'addorupdatedata',
-    source:'usermanagement'
+    endpoint:'resetpassword',
+    source:'user'
   };
   
   constructor(private readonly meta: MetaService, public apiService: ApiService) {

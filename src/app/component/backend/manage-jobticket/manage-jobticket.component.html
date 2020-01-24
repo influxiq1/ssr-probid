@@ -20,45 +20,33 @@
   
 
                  <button mat-button class="btnblue greenbtn" 
-                *ngIf="job_ticket !=null && job_ticket !=''  && job_ticket.message_flag == 3 " >Re-Open</button>
+                *ngIf="job_ticket !=null && job_ticket !=''  && job_ticket.job_ticket_status == 3 " >Re-Opened</button>
 
-                <button mat-button class="btnblue greenbtn" 
-                *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.message_flag == 2  && job_ticket.message_flag !=''" >Closed</button>
-
-
-  
-  
-                <!-- <button  *ngIf="rsvp_details.status == 1 " (click)="openModale(rsvp_details)" mat-button class="btnblue whitebtn">Send Email To Customer</button> -->
-  
-               <!-- <button mat-button class="btnblue yellowbtn" *ngIf="rsvp_details.status == 1 && rsvp_details.status == 2" 
-               >Pending</button> -->
-
-               <!-- <button mat-button class="btnblue greenbtn"  
-               *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=null && (msgType == 'admin' || msgUserType.type == 'admin') && (job_ticket.message_flag != 1 || job_ticket.message_flag != 0)   ">Replied By Admin</button> -->
-
-              
-  
-               
-               <!-- <button mat-button class="btnblue greenbtn"
-                *ngIf="msgUserType!=undefined && msgUserType.type !='' && msgUserType.type !=undefined && (msgUserType.type == 'salesrep' || msgUserType.type == 'customer' || msgType =='salesrep' || msgType == 'customer') && (job_ticket.message_flag != 1 || job_ticket.message_flag != 0)  " >Open</button> -->
+                <button mat-button class="btnblue redbtn" 
+                *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.job_ticket_status == 2 ">Closed</button>
 
                 
 
-                <button mat-raised-button type="reset" class="btnblue yellowbtn" 
-                *ngIf="message_details == '' || message_details == null && 
-                msgUserType.type == '' && (job_ticket.message_flag != 2 || job_ticket.message_flag != 3) " >Pending</button>
+                <button mat-raised-button type="reset" class="btnblue greenbtn" 
+                *ngIf="job_ticket != null && job_ticket.job_ticket_status == 0">Open</button>
+
+                <button mat-raised-button type="reset" class="btnblue greenbtn" 
+                *ngIf="job_ticket != null && job_ticket.job_ticket_status == 1">Replied By Admin</button>
 
               </span>
             </span>
 
             <span class="statusjobticket">
-              <button mat-raised-button type="reset" class="btnblue" 
-              (click)="markAsResolve(job_ticket._id,2)" *ngIf="job_ticket !=null && job_ticket.message_flag == 3 && userCookies.type == 'admin' " >Mark As Resolved</button>
+              <span *ngIf="userCookies.type == 'admin'">
+                <button mat-raised-button type="reset" class="btnblue" 
+              (click)="jobTicketStatus(job_ticket._id,2)" *ngIf="job_ticket !=null && job_ticket.job_ticket_status == 0 || job_ticket.job_ticket_status == 1  ||job_ticket.job_ticket_status == 3 ">Mark As Resolved</button>
+              </span>
+              
 
 
               <button mat-raised-button type="reset" class="btnblue"
-               (click)="markAsResolve(job_ticket._id,3)" *ngIf="job_ticket !=null 
-               && job_ticket.message_flag == 2 " >Re-Opened</button>
+               (click)="jobTicketStatus(job_ticket._id,3)" *ngIf="job_ticket !=null 
+               && job_ticket.job_ticket_status == 2 " >Re-Open</button>
             </span>
             
           </span>
@@ -292,9 +280,9 @@
                 </mat-list> 
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
-                <!-- *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.message_flag !=null && job_ticket.message_flag != 2 " -->
-            <span  *ngIf="job_ticket !=null && job_ticket.message_flag !=2 ">
-                <form [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()" *ngIf="status == 1 ">
+                <!-- *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.job_ticket_status !=null && job_ticket.message_flag != 2 " -->
+            <span  *ngIf="job_ticket !=null && job_ticket.job_ticket_status !=2 ">
+                <form [formGroup]="jobTicketMsgForm"  *ngIf="status == 1 ">
                   <span class="whitebg" > 
                     <mat-form-field>
                       <span class="commentbox">
@@ -304,14 +292,19 @@
                           <lib-file-upload [config]="configDataJobTicket" class="file_upload"></lib-file-upload>
                       </mat-list>  
                       <span class="statusjobticket">
-                        <button mat-raised-button type="submit" class="btnblue">SEND</button>
+                        <button mat-raised-button type="button" class="btnblue" 
+                        (click)="jobTicketMsgFormSubmit(job_ticket._id,1)" *ngIf="userCookies.type=='admin'">SEND</button>
+
+                        <button mat-raised-button type="button" class="btnblue" 
+                        (click)="jobTicketMsgFormSubmit(job_ticket._id,0)" *ngIf="userCookies.type =='salesrep' || 
+                        userCookies.type=='customer'">SEND</button>
                         <button mat-raised-button type="reset" class="btnblue redbtn">cancel</button>
                       </span>                  
                     </mat-form-field>
                   </span>
                 </form>
               </span>
-              <span *ngIf="job_ticket !=null && job_ticket !=''&& job_ticket.message_flag == 2 " class="markasresolvedadmincls redbtn">Mark as resolved from admin</span>
+              <span *ngIf="job_ticket !=null && job_ticket !=''&& job_ticket.job_ticket_status == 2 " class="markasresolvedadmincls redbtn">Mark as resolved from admin</span>
           </span>
         </span>
       </span>

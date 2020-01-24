@@ -142,6 +142,22 @@
                           </span>
                           <span class="rsvplisttypebottom datefieldcls">
                             <span>Date:{{item.date}}</span>
+
+                           
+                            <span>Job Ticket Status :
+                              <span class="btnblue greenbtn" *ngIf=" item !=null &&item.job_ticket_status == 0"> Open</span>
+
+                              <span class="btnblue greenbtn" *ngIf=" item !=null &&item.job_ticket_status == 1">Replied By Admin </span>
+
+                              <span class="btnblue redbtn" *ngIf=" item !=null &&item.job_ticket_status == 2">Closed </span>
+
+                              <span class="btnblue greenbtn" *ngIf=" item !=null &&item.job_ticket_status == 3" >Re-Opened </span>
+
+                            </span>
+
+                           
+                        
+
                             <button mat-button class="btnblue" (click)="viewDetails(item,'1')">Know More</button>                              
                         </span>
                       </span>  
