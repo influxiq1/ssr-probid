@@ -53,13 +53,13 @@ import { CKEditorModule } from 'ngx-ckeditor';
 // import { ClipboardModule } from 'ngx-clipboard';
 import { OwlModule } from 'ngx-owl-carousel'; 
 
-import { BloglistfrontendComponent, CommonVideoModalComponent } from './component/frontend/bloglist/bloglist.component';
+import { BloglistfrontendComponent, CommonVideoModalComponent, comingSoonDialogBlog} from './component/frontend/bloglist/bloglist.component';
 
 /**Frontend Component**/
 
 import { HeaderComponent, comingSoonDialog, googlemapDialog } from './layout/header/header.component';
 import { FooterComponent, DialogTermsDialog, DialogPrivacyDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent } from './layout/footer/footer.component';
-import { HomeComponent, loginDialog,errorSearchModal } from './component/frontend/home/home.component';
+import { HomeComponent, loginDialog,errorSearchModal,comingSoonDialogBloghome } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
 import { ForgetPasswordComponent } from './component/frontend/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/frontend/reset-password/reset-password.component';
@@ -220,6 +220,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     HeaderComponent,
     comingSoonDialog,
+    comingSoonDialogBlog,    
+    comingSoonDialogBloghome,
     googlemapDialog,
     customerSignUpsuccessDialog,
     FooterComponent,
@@ -370,7 +372,7 @@ export function HttpLoaderFactory(http: HttpClient) {
   providers: [CookieService, AuthGuard, ApiService, SidenavService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog]
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome]
   // errorDialogbackend
 })
 export class AppModule { }
