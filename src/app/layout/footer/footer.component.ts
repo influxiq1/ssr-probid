@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dia
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CookieService } from "ngx-cookie-service";
 import { ApiService } from "../../api.service";
-
+// import { DOCUMENT } from "@angular/platform-browser";
 
 export interface DialogData { }
 
@@ -20,9 +20,16 @@ export class FooterComponent implements OnInit {
     public data: any;
     public serverUrl: any;
 
-    public windowScrolled: any ='';
+    windowScrolled: boolean;
 
-    constructor(public router: Router, public route: ActivatedRoute, public dialog: MatDialog, public formbuilder: FormBuilder, public apiService: ApiService, public activeroute: ActivatedRoute, public cookie: CookieService) {
+    constructor(public router: Router,
+        // @Inject(DOCUMENT) private document: Document,
+         public route: ActivatedRoute,
+          public dialog: MatDialog,
+           public formbuilder: FormBuilder,
+            public apiService: ApiService,
+             public activeroute: ActivatedRoute,
+              public cookie: CookieService) {
 
         // console.log(this.router.url)
         this.serverUrl = apiService.serverUrlDemo;
@@ -62,7 +69,7 @@ export class FooterComponent implements OnInit {
         });
     }
 
-    @HostListener("window:scroll", [])
+    // @HostListener("window:scroll", [])
 
     onWindowScroll() {
         if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
@@ -87,6 +94,7 @@ export class FooterComponent implements OnInit {
     }
 
     ngOnInit() {
+        
         this.router.events.subscribe(() =>
             window.scrollTo({
                 top: 0,

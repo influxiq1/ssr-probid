@@ -13,7 +13,7 @@ export class BkFooterComponent implements OnInit {
   public userCookies: any;
   public userid: any = '';
 
-   public windowScrolled: any ='';
+  windowScrolled: boolean;
   
   constructor(public cookieService: CookieService, public router: Router, public activeroute: ActivatedRoute ) {
     this.user_data = JSON.parse(this.cookieService.get('user_details'))
@@ -25,7 +25,7 @@ export class BkFooterComponent implements OnInit {
     
    }
 
-   @HostListener("window:scroll", [])
+  //  @HostListener("window:scroll", [])
 
    onWindowScroll() {
        if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
