@@ -33,7 +33,13 @@
                   <h2 class="headercls">Salesrep Information</h2>
                   <span class="salesrepadminblock1info" *ngFor="let rep of repDetails">
                     <span class="salesrepadmininfoimg">
-                      <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
+                      <img  *ngIf="rep.profile_picture !='' && rep.profile_picture !=null"
+                [src]="rep.profile_picture[0].basepath + rep.profile_picture[0].fileservername" 
+                    style="width: 100%; display: block; margin: 0; padding: 0;">
+
+                    <img  *ngIf="rep.profile_picture =='' || rep.profile_picture ==null"
+                    src="../../../../assets/images/no-image-default.jpg"
+                        style="width: 100%; display: block; margin: 0; padding: 0;">
                     </span>
                     <span class="salesrepadmininfocontent">
                       <mat-card-header>{{rep.username}}</mat-card-header>
@@ -99,10 +105,9 @@
                 <span class="salesrepadminblock2">
                   <mat-card-content class="customer-dashboard-block2">
                     <span class="customer-dashboard-block2-inner">
-                      <h1 class="titleadmin">RSVP <mat-button class="btnblue" [routerLink]="['/rsvp-customer']">view all</mat-button></h1>     
+                      <h1 class="titleadmin">RSVP <mat-button class="btnblue" [routerLink]="['/rsvp-customer']" *ngIf="rsvpDetails.length > indexval">view all</mat-button></h1>     
                       <mat-list role="list" class="flexbox1column">
-                          <mat-list-item role="listitem" class="rsvplistsingle"
-                              *ngFor="let item of rsvp_list | slice:0:indexval; let i=index">
+                          <mat-list-item role="listitem" class="rsvplistsingle" *ngFor="let item of rsvpDetails | slice:0:indexval; let i=index">
                                 <span class="deletecls"><i class="material-icons" (click)="deleteRsvp(item,i)">delete</i></span>
                                   <span class="rsvplistsingleinner">                                    
                                       <span class="rsvplistsingleleft">
@@ -156,7 +161,7 @@
                                                   </span>
                                                 </span>
                                           </span>
-                                          <mat-button class="btnblue">view details</mat-button>                            
+                                          <mat-button class="btnblue" >view details</mat-button>                            
                                       </span>
                                   </span>                       
                           </mat-list-item>                              
@@ -165,15 +170,26 @@
                   </mat-card-content>
                 </span>
                 <span class="salesrepadminblock3">
-                  <h1 class="titleadmin">Others Customer <mat-button class="btnblue" [routerLink]="['/customer']">view all</mat-button></h1>
-                  <mat-list role="list" class="flexbox3column" 
-                  *ngFor="let customer of customerDetails">
+                  <h1 class="titleadmin">Others Customer <mat-button class="btnblue" [routerLink]="['/customer']" *ngIf="customerDetails.length > indexLoad" >view all</mat-button></h1>
 
-                    <mat-list-item class="rsvplistsingle">
+
+
+              
+                  <mat-list role="list" class="flexbox3column">
+
+                    <mat-list-item class="rsvplistsingle" 
+                    *ngFor="let customer of customerDetails | slice:0:indexLoad">
                      <span class="salesrepadminblock1info"  
                       >
-                        <span class="salesrepadmininfoimg">
-                          <img src="../../../../assets/images/salesrepadminimg.jpg" style="width: 100%; display: block; margin: 0; padding: 0;">
+                 <span class="salesrepadmininfoimg" >
+                 <img  *ngIf="customer.profile_picture !='' && customer.profile_picture !=null"
+                [src]="customer.profile_picture[0].basepath + customer.profile_picture[0].fileservername" 
+                    style="width: 100%; display: block; margin: 0; padding: 0;">
+
+                    <img  *ngIf="customer.profile_picture =='' || customer.profile_picture ==null"
+                    src="../../../../assets/images/no-image-default.jpg"
+                        style="width: 100%; display: block; margin: 0; padding: 0;">
+
                         </span>
                         <span class="salesrepadmininfocontent">
                           <mat-card-header>{{customer.firstname +" "+ customer.lastname }}</mat-card-header>
@@ -224,7 +240,7 @@
                   </mat-list>
 
                   <div>
-                    <button mat-flat-button class="btnblue" type="button" >Load More</button>
+                    <button mat-flat-button class="btnblue" type="button" *ngIf="customerDetails !=null && indexLoad < customerDetails.length" (click)="loadMore() " >Load More</button>
                   </div>
                   
                 </span>

@@ -363,10 +363,25 @@ const routes: Routes = [
 
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
 
-  { path: 'job-ticket-admin', component: JobTicketComponent },
+  { path: 'job-ticket-admin', component: JobTicketComponent ,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
+},
+
   { path: 'job-ticket-customer', component: JobTicketComponent },
   { path: 'job-ticket-salesrep', component: JobTicketComponent },
-  { path: 'communication', component: JobTicketComponent },
+  
+  { path: 'communication-rep', component: JobTicketComponent,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {"ticket_added_by_object":"ticket_added_by_object"}}, endpoint: 'datalist' }
+},
+
+  { path: 'communication-customer', component: JobTicketComponent,
+  resolve: { jobTicketList: ResolveService },
+  data: { requestcondition: { source: 'job_ticket_customer', condition: {
+    "ticket_added_by_object":"ticket_added_by_object"
+  }}, endpoint: 'datalist' }
+},
   
   {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
 

@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 
 export interface DialogData {
@@ -29,14 +30,28 @@ export class HeaderComponent implements OnInit {
   public userCookies: any ='';
 public user_full_name: any = '';
   //  public token:any='';
-  constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute) {
+  constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
+    // translate.addLangs(['en', 'fr']);  
+    // if (localStorage.getItem('locale')) {  
+    //   const browserLang = localStorage.getItem('locale');  
+    //   translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');  
+    // } else {  
+    //   localStorage.setItem('locale', 'en');  
+    //   translate.setDefaultLang('en');  
+    // }  
+   
     //console.log(this.router.url)
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
     console.log(this.userCookies)
     }
    }
-
+   
+  // changeLang(language: string) { 
+  //   console.log(language) 
+  //   localStorage.setItem('locale', language);  
+  //   this.translate.use(language);  
+  // } 
   ngOnInit() {
     // this.cookieService.get('jwtToken');
     
@@ -76,6 +91,18 @@ public user_full_name: any = '';
 
 
 
+  openGMDialog(): void {
+    const dialogRef = this.dialog.open(googlemapDialog, {
+      data: {name: this.name},
+      height: 'auto',
+      width: '100%',
+      maxWidth:'90vw',
+      panelClass: 'googleMapDialogCls'
+    });
+  }
+
+
+
 }
 
 
@@ -92,6 +119,25 @@ export class comingSoonDialog {
 
   constructor(
     public dialogRef: MatDialogRef<comingSoonDialog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+
+@Component({
+  selector: 'googlemap',
+  templateUrl: '../googlemapDialog.html'
+})
+export class googlemapDialog {
+
+  constructor(
+    public dialogRef: MatDialogRef<googlemapDialog>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

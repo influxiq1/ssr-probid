@@ -1,9 +1,16 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit,Inject} from '@angular/core';
 import { ActivatedRoute ,Router, Route} from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AppComponent } from '../../../app.component';
+
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+
+export interface DialogData {
+  data: any;
+  msg:any;
+} 
 
 @Component({
   selector: 'app-manage-jobticket',
@@ -13,6 +20,7 @@ import { AppComponent } from '../../../app.component';
 export class ManageJobticketComponent implements OnInit {
 
   public rsvp_list: any = '';
+  public changeStatus:any;
   public jobTicketForm: FormGroup;
   public jobTicketMsgForm: FormGroup;
   public images_array:any=[];
@@ -57,7 +65,7 @@ public configDataJobTicket: any = {
   public user_list:any = '';
   public job_ticket: any = '';
   public rsvp_details: any = '';
-  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent) {
+  constructor( public activatedRoute: ActivatedRoute, public apiService: ApiService,  public cookieservice: CookieService,  public router:Router, public fb:FormBuilder, public apploader: AppComponent,  public dialog: MatDialog) {
     this.rsvp_id = activatedRoute.snapshot.params['_id'];
     this.status = activatedRoute.snapshot.params['status'];
     console.log(this.rsvp_id, this.status)
@@ -107,6 +115,7 @@ public configDataJobTicket: any = {
       this.message_details = res.res;
       this.apploader.loader = 0;
 
+
     })
 
   }
@@ -136,6 +145,10 @@ public configDataJobTicket: any = {
     if (this.jobTicketMsgForm.valid) {
       this.apploader.loader = 1;
       let endpoint: any = "addorupdatedata";
+
+
+    
+
       let data: any = {
         source: "job_ticket_msg",
         data: {
@@ -153,8 +166,8 @@ public configDataJobTicket: any = {
         console.log('>>>',res);
         this.showbox = 0;
         this.getData();
-        this.jobTicketMsgForm.controls['message'].reset();
-        this.apploader.loader = 0;
+        this.jobTicketMsgForm.reset();
+        // this.apploader.loader = 0;
         
      
       })
@@ -201,33 +214,51 @@ public configDataJobTicket: any = {
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
         // console.log(res);
         // this.getData();
-        // this.jobTicketForm.controls['message'].reset();
+        this.jobTicketForm.reset();
         this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
-        this.apploader.loader = 0;
-        
+        // this.apploader.loader = 0;
+        this.getData();
      
       })
     }
 
 
   }
-  changeStatus(item: any, val: any) {
-    // console.log('rsvpSend status',item, val)
-    let endpoint: any = "addorupdatedata";
-    item.status = val;
-    let card_data:any = {
-      card_data: item,
-      id:item._id
-    }
-    let data: any = {
-      data: card_data,
-      source: "send_for_rsvp",
-    };
-      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-        // console.log(res);
-        (res.status == "success");
-        // this.getdata();
-      });
+  // changeStatus(item: any, val: any) {
+  //   // console.log('rsvpSend status',item, val)
+  //   let endpoint: any = "addorupdatedata";
+  //   item.status = val;
+  //   let card_data:any = {
+  //     card_data: item,
+  //     id:item._id
+  //   }
+  //   let data: any = {
+  //     data: card_data,
+  //     source: "send_for_rsvp",
+  //   };
+  //     this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+  //       // console.log(res);
+  //       (res.status == "success");
+  //       // this.getdata();
+  //     });
+  // }
+
+  //view image from comment place
+  viewImage(val:any){
+    console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      width: '250px',
+      data:val
+    });
+
+  }
+
+  viewJobImage(val:any){
+    console.log('>>',val)
+    const dialogRef = this.dialog.open(ViewImageComponent, {
+      width: '250px',
+      data:val
+    });
   }
   
   rsvpDetail(val:any){
@@ -240,4 +271,19 @@ public configDataJobTicket: any = {
     this.jobTicketMsgForm.controls[val].markAsUntouched();
   }
 
+}
+
+
+//modal component for image view
+
+
+@Component({
+  selector:'viewImage',
+  templateUrl:'./viewImage.html'
+})
+export class ViewImageComponent {
+  constructor( public dialogRef: MatDialogRef<ViewImageComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
 }

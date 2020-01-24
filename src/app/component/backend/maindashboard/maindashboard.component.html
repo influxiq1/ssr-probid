@@ -148,7 +148,9 @@
                       <h2>User</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img src="../../../../assets/images/imguser.jpg">
+                          <img *ngIf="item.added_for_picture !=null && item.added_for_picture !=''" [src]="item.added_for_picture">
+
+                          <img *ngIf="item.added_for_picture ==null || item.added_for_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
                         </span>
                         <span class="listscontent">
                           <mat-list>
@@ -170,7 +172,9 @@
                       <h2>Salesrep</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img src="../../../../assets/images/imgsalesrep.jpg">
+                          <img *ngIf="item.added_by_picture !=null && item.added_by_picture !=''" [src]="item.added_by_picture">
+
+                                      <img *ngIf="item.added_by_picture ==null || item.added_by_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
                         </span>
                         <span class="listscontent">
                           <mat-list>

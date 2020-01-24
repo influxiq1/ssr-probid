@@ -57,7 +57,7 @@ import { BloglistfrontendComponent, CommonVideoModalComponent } from './componen
 
 /**Frontend Component**/
 
-import { HeaderComponent, comingSoonDialog } from './layout/header/header.component';
+import { HeaderComponent, comingSoonDialog, googlemapDialog } from './layout/header/header.component';
 import { FooterComponent, DialogTermsDialog, DialogPrivacyDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent } from './layout/footer/footer.component';
 import { HomeComponent, loginDialog,errorSearchModal } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
@@ -126,7 +126,7 @@ import { TrainingCenterComponent } from './component/backend/training-center/tra
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
 import { MyAppointmentComponent } from './component/backend/my-appointment/my-appointment.component';
 import { CreateNewInventoryComponent } from './component/backend/create-new-inventory/create-new-inventory.component';
-import { JobTicketComponent } from './component/backend/job-ticket/job-ticket.component';
+import { JobTicketComponent, DeleteJobModalComponent } from './component/backend/job-ticket/job-ticket.component';
 import { SocialAdvoComponent } from './component/backend/social-advo/social-advo.component';
 import { BookAnAppointmentComponent } from './component/backend/book-an-appointment/book-an-appointment.component';
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
@@ -173,11 +173,11 @@ import { AskForConfirmationComponent } from './component/backend/ask-for-confirm
 
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
-import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 
 
 //****** for video Modal*********//
@@ -187,7 +187,7 @@ export function metaFactory(): MetaLoader {
   return new MetaStaticLoader({
     pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
     pageTitleSeparator: ' - ',
-    applicationName: 'Tour of (lazy/busy) heroes',
+    applicationName: '',
     defaults: {
       title: 'Mighty mighty mouse',
       description: 'Mighty Mouse is an animated superhero mouse character',
@@ -198,18 +198,21 @@ export function metaFactory(): MetaLoader {
     }
   });
 }
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function translateLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
+}
+export class I18nModule {
+  constructor(translate: TranslateService) {
+    translate.addLangs(['en', 'ru']);
+    const browserLang = translate.getBrowserLang();
+    translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+  }
 }
 
 
 @NgModule({
   declarations: [
     BloglistfrontendComponent,
-    // BloglistComponent,
-    // AddComponent,
-    // AddeditBlogmanagementComponent,
-    // ListingBlogmanagementComponent,
     AppComponent,
     LoginComponent,
     ContactusComponent,
@@ -219,6 +222,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DashboardComponent,
     HeaderComponent,
     comingSoonDialog,
+    googlemapDialog,
     customerSignUpsuccessDialog,
     FooterComponent,
     DialogPrivacyDialog,
@@ -294,6 +298,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     DeleteModalRsvpComponent,
     loginDialog,
     errorSearchModal,
+    DeleteJobModalComponent,
 
     AddEditNewsletterComponent,
     AddEditSubscriberComponent,
@@ -317,15 +322,26 @@ export function HttpLoaderFactory(http: HttpClient) {
     AskForConfirmationComponent,
     RsvpSuccessComponent,
     ViewJobTicketComponent,
-    ManageJobticketComponent
+    ManageJobticketComponent,
+    ViewImageComponent
   ],
   imports: [
-    TranslateModule.forRoot(),
-    MetaModule.forRoot({
-      provide: MetaLoader,
-      useFactory: (metaFactory),
-      deps: [TranslateService]
-    }),
+    TranslateModule.forRoot(
+      {
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateLoaderFactory,
+        deps: [HttpClient]
+      }
+    }
+    ),
+    MetaModule.forRoot(
+    //   {
+    //   provide: MetaLoader,
+    //   useFactory: (metaFactory),
+    //   deps: [TranslateService]
+    // }
+    ),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -362,10 +378,11 @@ export function HttpLoaderFactory(http: HttpClient) {
     
     // SharetoolsModule
   ],
+  exports: [TranslateModule],
   providers: [CookieService, AuthGuard, ApiService, SidenavService],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal]
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog]
   // errorDialogbackend
 })
 export class AppModule { }

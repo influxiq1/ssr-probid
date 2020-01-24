@@ -15,8 +15,6 @@
   },
   "private": true,
   "dependencies": {
-    "domino": "^2.1.2",
-    "xhr2": "^0.2.0",
     "@angular/animations": "~8.1.2",
     "@angular/cdk": "~8.2.3",
     "@angular/common": "~8.1.2",
@@ -38,6 +36,7 @@
     "angular-font-awesome": "^3.1.2",
     "compression": "^1.7.4",
     "contactus-lib-influxiq": "0.0.1",
+    "domino": "^2.1.2",
     "express": "^4.15.2",
     "file-upload-lib-influxiq": "0.0.13",
     "font-awesome": "^4.7.0",
@@ -53,6 +52,7 @@
     "ngx-uploader": "^8.0.0",
     "rxjs": "~6.4.0",
     "tslib": "^1.9.0",
+    "xhr2": "^0.2.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

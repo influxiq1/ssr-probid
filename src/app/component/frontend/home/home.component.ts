@@ -46,33 +46,78 @@ export class HomeComponent implements OnInit {
 
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
 
+  // carouselBannerOptions = {
+  //   loop: false,
+  //   autoplay: true,
+  //   margin: 0,
+  //   startPosition: -0,
+  //   autoplayHoverPause:true,
+  //   items: 3,
+  //   nav: true,
+  //   center: false,
+  //   autoWidth: true,
+  //   autoHeight:true,
+  //   navRewind: true,
+  //   autoPlay: 3000,
+  //   navigation: true,
+  //   slideSpeed: 300,
+  //   rewind: true,
+  //   paginationSpeed: 400,
+  //   singleItem: false,
+  //   navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+  //   dots: true,
+  //   responsiveClass:true,
+  //   responsive:{
+  //       0:{
+  //           items:1,
+  //           dots: true
+  //       },
+  //       600:{
+  //           items:3,
+  //           dots: true,
+  //       },
+  //       1000:{
+  //           items:3,
+  //           dots: true
+  //       }
+  //   }
+  // }
+
+
   carouselBannerOptions = {
-    loop: false,
-    autoplay: false,
     margin: 0,
-    startPosition: -0,
-    autoplayHoverPause:true,
-    items: 1,
     nav: true,
-    center: false,
-    autoWidth: true,
-    autoHeight:true,
-    navRewind: true,
-    autoPlay: 3000,
-    navigation: true,
-    slideSpeed: 300,
+    loop: false,
     rewind: true,
-    paginationSpeed: 400,
-    singleItem: true,
-    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    autoplayTimeout: 6000,
+    autoplay: false,
+    autoplayHoverPause: true,
+    center: false,
     responsiveClass: true,
     dots: true,
+    autoWidth: true,
+    autoHeight:true,
+    navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
-        items: 1
+        items: 1,
+        nav: true,
+      },
+      600: {
+        items: 1,
+        nav: true,
+      },
+      991: {
+        items: 1,
+        nav: true,
       },
       992: {
-        items:1,      
+        items: 1,
+        nav: true,
+      },
+      1199: {
+        items: 1,
+        nav: true,
       }
     }
   }
@@ -139,6 +184,8 @@ export class HomeComponent implements OnInit {
   public indexCount: number;
   public indexCountForImg: number;
 
+  public currentUrl: any;
+
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
@@ -152,6 +199,16 @@ export class HomeComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+
+    const body = document.getElementsByTagName('body')[0];
+    this.currentUrl = this.router.url;
+    if (this.currentUrl == '/home') {
+      body.classList.add('googlemaphome')
+    } else{
+      body.classList.remove('googlemaphome')
+    }
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
