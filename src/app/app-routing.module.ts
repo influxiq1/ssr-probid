@@ -183,7 +183,7 @@ const routes: Routes = [
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
-  { path: 'saved-search-castomer', component: SaveSearchComponent ,
+  { path: 'saved-search-customer', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
