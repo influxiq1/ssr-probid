@@ -292,6 +292,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 /* .cdk-overlay-pane.commonVideoModalCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;} */
 /* .cdk-overlay-pane[style]{margin-left: 0 !important;} */
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
+.titlecls{cursor: pointer;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
