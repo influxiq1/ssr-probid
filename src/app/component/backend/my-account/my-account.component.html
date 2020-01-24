@@ -6,7 +6,7 @@
       <span class="myaccountwrapper">
         <mat-card-title>My Account</mat-card-title>
         <span class="profile-area">
-          <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
+          <lib-file-upload [config]="configData" class="file_upload" ></lib-file-upload>
           <span class="profileimg">
             
             <ng-container *ngIf="userData.profile_picture">
@@ -114,6 +114,7 @@
               <button mat-raised-button class="btnredclsnew">Cancel</button>
             </form>
           </mat-tab>
+          <!-- change password form start here -->
           <mat-tab>
             <ng-template mat-tab-label>Change Password</ng-template>
             <form [formGroup]="changePasswordFormGroup" (ngSubmit)="changePasswordFormSubmit()">
@@ -122,8 +123,9 @@
                   (blur)="inputUntouched(changePasswordFormGroup,'oldPassword')">
                 <mat-error
                   *ngIf="!changePasswordFormGroup.controls['oldPassword'].valid && changePasswordFormGroup.controls['oldPassword'].errors.required && changePasswordFormGroup.controls['oldPassword'].touched">
-                  Current Password</mat-error>
+                  Please Put Current Password</mat-error>
               </mat-form-field>
+
               <mat-form-field>
                 <input matInput [type]="isPasswordVisible ? 'text' : 'password'" placeholder="New Password"
                   formControlName="newPassword" (blur)="inputUntouched(changePasswordFormGroup,'newPassword')">
@@ -134,13 +136,21 @@
                 <mat-error
                   *ngIf="!changePasswordFormGroup.controls['newPassword'].valid && changePasswordFormGroup.controls['newPassword'].errors.required && changePasswordFormGroup.controls['newPassword'].touched">
                   Please Put new password</mat-error>
+                  <mat-error
+                  *ngIf="!changePasswordFormGroup.controls['newPassword'].valid && changePasswordFormGroup.controls['newPassword'].touched">
+                  worksss </mat-error>
+                  
               </mat-form-field>
+
               <mat-form-field>
                 <input matInput type="password" placeholder="Confirm Password" formControlName="confirmPassword"
                   (blur)="inputUntouched(changePasswordFormGroup,'confirmPassword')">
                 <mat-error
                   *ngIf="!changePasswordFormGroup.controls['confirmPassword'].valid && changePasswordFormGroup.controls['confirmPassword'].errors.required && changePasswordFormGroup.controls['confirmPassword'].touched">
-                  Please Confirm password</mat-error>
+                  Please Put Confirm password</mat-error>
+                  <mat-error
+                    *ngIf="!changePasswordFormGroup.controls['confirmPassword'].valid && changePasswordFormGroup.controls['confirmPassword'].touched">
+                    Password does not match </mat-error>
               </mat-form-field>
               <button mat-raised-button class="btnblue">Update</button>
               <button mat-raised-button class="btnredclsnew">Cancel</button>

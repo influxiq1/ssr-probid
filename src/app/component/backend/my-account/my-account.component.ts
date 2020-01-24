@@ -4,7 +4,7 @@ import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../api.service';
 import { AppComponent } from '../../../app.component';
 import { MetaService } from '@ngx-meta/core';
-
+import { MatSnackBar } from '@angular/material';
 @Component({
   selector: 'app-my-account',
   templateUrl: './my-account.component.html',
@@ -42,8 +42,9 @@ export class MyAccountComponent implements OnInit {
     bucketName: "probidfiles-dev.com"
   }
   constructor(public fb: FormBuilder,
-    public apiService: ApiService, public cook: CookieService, public apploader: AppComponent,private readonly meta: MetaService
+    public apiService: ApiService, public cook: CookieService, public apploader: AppComponent,private readonly meta: MetaService,public snackBar :MatSnackBar
   ) {
+    this.allStateCityData();
 
     this.meta.setTitle('ProBid Auto - My Account');
         this.meta.setTag('og:title', 'ProBid Auto - My Account');
@@ -73,16 +74,16 @@ export class MyAccountComponent implements OnInit {
     });
     this.changePasswordFormGroup = this.fb.group({
       oldPassword: [null, Validators.required],
-      newPassword: ['', [Validators.required, Validators.maxLength(16), Validators.minLength(6)]],
+      newPassword: ['', Validators.required],
       confirmPassword: []
-    }, { validator: this.matchpassword('newPassword', 'confirmPassword') })
-    this.allStateCityData();
+    }, { validator: this.matchpassword('newPassword', 'confirmPassword') ,
+         validator1:this.misMatchPassword('oldPassword','newPassword')})
   }
 
 
-  togglePasswordText() {
-    this.isPasswordVisible = !this.isPasswordVisible;
-  }
+  // togglePasswordText() {
+  //   this.isPasswordVisible = !this.isPasswordVisible;
+  // }
 
 
   ngOnInit() {
@@ -104,11 +105,22 @@ export class MyAccountComponent implements OnInit {
       }
     };
   }
+  misMatchPassword(oldPassword: string, newPassword: string) {
+   
+    return (group: FormGroup) => {
+      let oldPasswordInput = group.controls[oldPassword],
+      newPasswordInput = group.controls[newPassword];
+      if (oldPasswordInput.value === newPasswordInput.value) {
+        return newPasswordInput.setErrors({ notEquivalent: true });
+      } else {
+        return oldPasswordInput.setErrors(null);
+      }
+    };
+  }
 
 
   changePasswordFormSubmit() {
-    let x: any;
-    for (x in this.changePasswordFormGroup.controls) {
+    for (let x in this.changePasswordFormGroup.controls) {
       this.changePasswordFormGroup.controls[x].markAsTouched();
     }
     if (this.changePasswordFormGroup.valid) {
@@ -123,12 +135,16 @@ export class MyAccountComponent implements OnInit {
       this.apploader.loader = 1;
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
-        console.log(res);
+        let message = "Successfully Changed Password";
+        let action  = "Ok"
+        this.snackBar.open(message, action, {
+          duration: 1000,
+        });
         this.apploader.loader = 0;
 
       })
     }
-  }
+  }                                               
   getdata() {
     let data: any = {
       endpoint: 'datalist',
@@ -139,13 +155,16 @@ export class MyAccountComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res: any) => {
       this.userData = res.res[0];
+      console.log("editabla data",this.userData);
+      // setTimeout(() => {
+      //   this.getCityByName(this.userData.state);
+      // }, 400);
       this.UpdateForm.controls['firstname'].patchValue(this.userData.firstname);
       this.UpdateForm.controls['lastname'].patchValue(this.userData.lastname);
       this.UpdateForm.controls['email'].patchValue(this.userData.email);
       this.UpdateForm.controls['phone'].patchValue(this.userData.phone);
       this.UpdateForm.controls['address'].patchValue(this.userData.address);
       this.UpdateForm.controls['zip'].patchValue(this.userData.zip);
-     
       this.UpdateForm.controls['city'].patchValue(this.userData.city);
       this.UpdateForm.controls['state'].patchValue(this.userData.state);
     });
@@ -158,7 +177,6 @@ export class MyAccountComponent implements OnInit {
 
     this.apiService.getSiteSettingData("./assets/data/city.json").subscribe(response => {
       this.cities = response;
-      this.getdata();
     });
   }
   /**for getting all states & cities  function end here**/
@@ -212,6 +230,11 @@ export class MyAccountComponent implements OnInit {
       this.apploader.loader = 1;
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        let message = "Successfully Updted";
+        let action  = "Ok"
+        this.snackBar.open(message, action, {
+          duration: 1000,
+        });
         console.log(res);
         this.apploader.loader = 0;
 
