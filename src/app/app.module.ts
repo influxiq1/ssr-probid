@@ -37,8 +37,8 @@ import { MatCarouselModule } from '@ngmodule/material-carousel';
 // import { TestimonialModule } from 'testimonial-lib-influxiq';
 import { FileUploadModule } from 'file-upload-lib-influxiq';
 import { LoginModule } from 'login-lib-influxiq';
-import { BlogModule } from 'blog-lib-influxiq';
-// import { NewsTitleModule } from 'news-title-lib-influxiq';
+// import { BlogModule } from 'blog-lib-influxiq';
+import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { ContactusModule } from 'contactus-lib-influxiq';
 // import { SharetoolsModule } from 'sharetools';
 // import { ImageCropperModule } from 'ngx-image-cropper';
@@ -336,9 +336,9 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserAnimationsModule,
     // MetaModule.forRoot(),
     FacebookModule.forRoot(),
-    // NewsTitleModule,
+    NewsTitleModule,
     // TrainingModule,
-    BlogModule,
+    // BlogModule,
     FileUploadModule,
     // NgxUploaderModule,
     AngularFontAwesomeModule,
