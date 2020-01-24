@@ -103,7 +103,7 @@ import { BkLeftdivComponent } from './layout/bk-leftdiv/bk-leftdiv.component';
 import { MaindashboardComponent, DeleteModalRsvpComponent } from './component/backend/maindashboard/maindashboard.component';
 import { UserManagementComponent } from './component/backend/user-management/user-management.component';
 import { RepdashboardComponent, RemoveDialogComponent } from './component/backend/repdashboard/repdashboard.component';
-
+import { TestimonialModule } from 'testimonial-lib-influxiq';
 
 
 import { BlogManagementComponent } from './component/backend/blog-management/blog-management.component';
@@ -136,7 +136,7 @@ import { CommunicationComponent } from './component/backend/communication/commun
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
 import { AdminManageCategoriesComponent, DialogModalOpenDialog } from './component/backend/admin-manage-categories/admin-manage-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
-
+import { ServicelibModule } from 'service-lib-influxiq';
 
 
 
@@ -148,7 +148,7 @@ import { MyAccountComponent } from './component/backend/my-account/my-account.co
 import { AddSalesrepComponent } from './component/backend/add-salesrep/add-salesrep.component';
 import { AddCustomerComponent } from './component/backend/add-customer/add-customer.component';
 import { AddBirddogComponent } from './component/backend/add-birddog/add-birddog.component';
-
+import { NewsTitleModule } from 'news-title-lib-influxiq';
 
 
 
@@ -332,11 +332,13 @@ export function HttpLoaderFactory(http: HttpClient) {
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
+    TestimonialModule,
     // MetaModule.forRoot(),
     FacebookModule.forRoot(),
     // NewsTitleModule,
     // TrainingModule,
     BlogModule,
+    ServicelibModule,
     FileUploadModule,
     // NgxUploaderModule,
     AngularFontAwesomeModule,
@@ -344,6 +346,7 @@ export function HttpLoaderFactory(http: HttpClient) {
     // DragScrollModule,
     DemoMaterialModule,
     CommonModule,
+    NewsTitleModule,
     
     HttpClientModule,
     LoginModule,

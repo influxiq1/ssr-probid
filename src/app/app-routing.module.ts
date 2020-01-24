@@ -311,17 +311,28 @@ const routes: Routes = [
     data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
   },
 
+  // {
+  //   path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
+  //   data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+  // },
   {
-    path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
-    data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+    path: 'service-listing',
+    component: ListingServiceComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'services_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   { path: 'service/add', component: AddeditServiceComponent ,canActivate: [AuthGuard]},
   {
-    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { serviceList: ResolveService },
+    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { data: ResolveService },
     data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
   },
 
-  // { path: 'blog-management', component: BlogManagementComponent },
   {
     path: 'blog-management',
     component: BlogManagementComponent,
@@ -597,16 +608,12 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
     // ________________________sender's list_____________________
     { path: 'sender/add', component: AddEditSenderappComponent },
     {
-      path: 'newsletter-list',
+      path: 'sender/list',
       component: ListingSenderappComponent 
     },
-
     {
       path: 'sender/edit/:_id',
       component: AddEditSenderappComponent
-      
-    
-      
     },
 
 
