@@ -29,49 +29,21 @@ export class HeaderComponent implements OnInit {
 
   public userCookies: any ='';
 public user_full_name: any = '';
-  //  public token:any='';
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
-    // translate.addLangs(['en', 'fr']);  
-    // if (localStorage.getItem('locale')) {  
-    //   const browserLang = localStorage.getItem('locale');  
-    //   translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');  
-    // } else {  
-    //   localStorage.setItem('locale', 'en');  
-    //   translate.setDefaultLang('en');  
-    // }  
-   
-    //console.log(this.router.url)
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-    console.log(this.userCookies)
     }
    }
    
-  // changeLang(language: string) { 
-  //   console.log(language) 
-  //   localStorage.setItem('locale', language);  
-  //   this.translate.use(language);  
-  // } 
   ngOnInit() {
-    // this.cookieService.get('jwtToken');
     
   }
 
   logOut() {
     this.cookieService.deleteAll('/');
       setTimeout(()=>{
-          console.log(this.cookieService.get('userid'));
           this.router.navigate(['/']);
       },500);
-    // setTimeout(() => {
-    //   this.cookieService.deleteAll();
-    // }, 1000);
-    // if (this.cookieService.get('jwtToken') != '') {
-    //   this.router.navigateByUrl('/');
-    // }
-    // console.log("logout");
-    // // console.log("logout");
-    // // console.log(this.token);
   }
 
   openDialog(): void {

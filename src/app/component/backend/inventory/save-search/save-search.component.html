@@ -99,8 +99,11 @@
                       <mat-card-content class="rrblock1 currentbidprice">
                         <span class="text-wrapper" *ngIf="item.price != null">
                           <p>Current Bid Price: </p>
-                          <h5>${{item.price}}</h5>
+                          <h5 *ngIf="item.price !=null">${{item.price}}</h5>
+                           <h5 *ngIf="item.price ==null || item.price =='' ">N/A</h5>
+
                           <h6 *ngIf="item.build.engine != null"><strong>Engine Type</strong> <span>{{item.build.engine}}</span></h6>
+                          <h6 *ngIf="item.build.engine == null"><strong>Engine Type</strong> <span>N/A</span></h6>
                         </span>
                       </mat-card-content>
                     </span>

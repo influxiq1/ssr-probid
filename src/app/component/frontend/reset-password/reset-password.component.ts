@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { ApiService } from '../../../api.service';
 
+
 @Component({
   selector: 'app-reset-password',
   templateUrl: './reset-password.component.html',
@@ -14,8 +15,8 @@ export class ResetPasswordComponent implements OnInit {
   // public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
   public serverUrl: any = this.apiService.serverUrlDemo;
   public addEndpoint: any = {
-    endpoint:'addorupdatedata',
-    source:'usermanagement'
+    endpoint:'resetpassword',
+    source:'user'
   };
   
   constructor(private readonly meta: MetaService, public apiService: ApiService) {
@@ -28,8 +29,8 @@ export class ResetPasswordComponent implements OnInit {
     this.meta.setTag('og:title', 'ProBid Auto - Reset Password');
     this.meta.setTag('twitter:title', 'ProBid Auto - Reset Password');
     this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', '../../assets/images/logomain.png');
-    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+    this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
+    this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
 
  }
 

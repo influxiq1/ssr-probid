@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../api.service';
 import { AppComponent } from '../../../app.component';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-my-account',
@@ -41,8 +42,16 @@ export class MyAccountComponent implements OnInit {
     bucketName: "probidfiles-dev.com"
   }
   constructor(public fb: FormBuilder,
-    public apiService: ApiService, public cook: CookieService, public apploader: AppComponent,
+    public apiService: ApiService, public cook: CookieService, public apploader: AppComponent,private readonly meta: MetaService
   ) {
+
+    this.meta.setTitle('ProBid Auto - My Account');
+        this.meta.setTag('og:title', 'ProBid Auto - My Account');
+        this.meta.setTag('twitter:title', 'ProBid Auto - My Account');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
     let allcookies: any;
     allcookies = cook.getAll();
     this.user_cookies = JSON.parse(allcookies.user_details);

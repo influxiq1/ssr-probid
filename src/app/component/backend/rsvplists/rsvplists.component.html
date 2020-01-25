@@ -143,10 +143,11 @@
                                       <button mat-button class="btnblue" 
                                       (click)="rsvpDetail(item._id)">Know More</button>
 
-                                  <button mat-button *ngIf="item.job_ticket ==null || item.job_ticket != 1"  class="btnblue orangebtn"
-                                   (click)="goToOpenTicket(item,'')">Open Ticket</button>
+                                  <button mat-button *ngIf="( item.job_ticket ==null || item.job_ticket != 1 ) && (userCookies.type == 'salesrep' || userCookies.type == 'customer')"  class="btnblue orangebtn"
+                                   (click)="goToOpenTicket(item,'') ">Open Ticket</button>
 
-                                  <button mat-button *ngIf="item.job_ticket == 1"  class="btnblue orangebtn" (click)="goToOpenTicket(item,'1')">View Ticket</button>
+                                  <button mat-button *ngIf="item.job_ticket == 1 "  class="btnblue orangebtn" 
+                                  (click)="goToOpenTicket(item,'1')">View Ticket</button>
                                     </span>                                   
                                   </span>
                             </span>                            

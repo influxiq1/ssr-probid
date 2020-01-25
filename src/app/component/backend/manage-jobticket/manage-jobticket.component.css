@@ -27,6 +27,7 @@
 .flexbox1column .rsvplisttypecontent:last-child{margin-top:auto}
 .rsvplisttypebottom{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:end;justify-content:flex-end;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;padding-top:5px;padding-bottom:0;flex-wrap:wrap}
 .rsvplisttypebottom > span{flex:1 1 100%;justify-content:flex-end;display:flex;padding:10px 0}
+.rsvplisttypebottom > span.singlespan{padding:0}
 .rsvplisttypebottom > span.dateadded{font-family:"HelveticaBold";font-size:13px;text-transform:uppercase;color:#000}
 .rsvplisttypebottom{font-family:"HelveticaBold";font-size:13px;text-transform:uppercase;color:#000}
 .redcls{color:red!important}
@@ -88,3 +89,5 @@
 .jobticketimglists .file_upload{width:100%;height:auto!important;position:relative;display:block;overflow:hidden;border:1px solid #a8d5e2;border-radius:5px;margin-right:0;text-align:center}
 .jobticketimglists .file_upload .button-group{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;width:80%;margin:20px auto;border-radius:0;text-align:center}
 .statusjobticket{margin-left: 10px;}
+.markasresolvedadmincls{display: inline-block!important;background: #00c0ff!important;font-size: 16px!important;color: #fff!important;text-transform: uppercase; font-family: 'HelveticaBold'!important;text-decoration: none!important;line-height: normal!important;text-align: center!important;margin: 0;border-radius: 0;margin-top: 40px!important;text-decoration: none!important;box-shadow: 0 1px 2px rgba(0,0,0,0.5);padding: 14px 18px 10px!important;cursor: pointer;}
+.markasresolvedadmincls.redbtn{background:red!important;margin-left: auto !important;margin-right: auto !important;display: block !important;width: 280px;}

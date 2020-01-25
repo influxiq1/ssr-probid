@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../../../api.service';
 import { FormBuilder, FormGroup, FormControl, Validators, FormGroupDirective } from '@angular/forms';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-add-admin-categories',
   templateUrl: './add-admin-categories.component.html',
@@ -21,9 +22,14 @@ export class AddAdminCategoriesComponent implements OnInit {
   public dataType: any=null;
   public typeChacking: any ;
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-  constructor(public route: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public router: Router) {
+  constructor(public route: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public router: Router,private readonly meta: MetaService) {
 
-
+    this.meta.setTitle('ProBid Auto - Add admin Category!');
+    this.meta.setTag('og:title', 'ProBid Auto - Add admin Category');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add admin Category');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     this.addType = this.fb.group({
      

@@ -76,6 +76,7 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .tablediv .searchbar .mat-form-field{margin:0 2px}
 .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#fff;margin-bottom:10px}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0!important;background-color:#333!important;color:#fff}
+.rightsideformcls .serialnumbercls.mat-form-field-appearance-legacy .mat-form-field-infix{width: 30px;}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-label{color:#fff!important}
 .topinnerinforight .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0}
 .contact-form .mat-form-field-appearance-legacy .mat-form-field-infix{background:#eee}
@@ -94,6 +95,7 @@ ckeditor{margin-bottom:9px!important;display:inline-block;width:100%}
 .lib-addedit-testimonial .mat-toolbar.mat-primary{display:none}
 .singleservice .mat-list-item-content{height:100%}
 .singleservice{cursor:pointer}
+.cursor{cursor: pointer;}
 .smartbidbottom.mat-list-base .mat-list-item{height:auto!important}
 .smartbidbottom.mat-list-base .mat-list-item .mat-list-item-content{display:flex!important;align-items:stretch!important;flex-wrap:wrap}
 .clearfix:after{clear:both}
@@ -196,7 +198,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
   font-weight: bold;}
 .generalmodalcls .videoWrapper{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}
 .generalmodalcls .videoWrapper iframe,.generalmodalcls .videoWrapper object,.generalmodalcls .videoWrapper embed{position:absolute;top:0;left:0;width:100%;height:100%}
-.generalmodalcls .mat-dialog-content{margin:0!important;padding:0!important}
+.generalmodalcls .mat-dialog-content{margin:0!important;padding:0!important;overflow: hidden !important;}
 .generalmodalcls .mat-dialog-content .mat-card-header .mat-card-header-text{margin:0!important}
 .generalmodalcls .emailwrapper form .mat-card-header .mat-card-header-text{margin:0!important}
 .generalmodalcls .mat-dialog-content .mat-card-header h2{font-size:24px;margin-bottom:5px}
@@ -245,7 +247,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .salesrepadmininfocontentlist .mat-list-item .mat-list-item-content{padding:0!important;align-items:stretch!important}
 .emailwrapper{max-width:600px;margin:0 auto}
 .homebanner .owl-carousel.owl-drag .owl-item{position:relative;margin-top:0;width:100%!important;height:100%}
-.owl-carousel.owl-drag .owl-item[style]{width:100%!important}
+/* .owl-carousel.owl-drag .owl-item[style]{width:100%!important} */
 .homebanner .owl-carousel.owl-drag .owl-stage[style]{width:100%!important;display:flex;justify-content:flex-start}
 .homebanner .owl-carousel.owl-drag .owl-item .itemcls{position:relative;height:100%;width:100%}
 .homebanner.mat-card{background:#000!important}
@@ -260,12 +262,12 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .homebanner .owl-next.disabled,.homebanner .owl-prev.disabled{display:none!important}
 .postblock{display:none;position:relative}
 .postblock .btnshare{background:#12C3E3!important}
-.mat-list .block1socialadvosingle.mat-list-item:hover .postblock{display:block;background:rgba(0,0,0,0.7);position:absolute;top:0;left:0;width:100%;height:90%}
+.mat-list .block1socialadvosingle.mat-list-item:hover .postblock{display:block;background:rgba(0,0,0,0.7);position:absolute;top:0;left:0;width:100%; height: 77%;}
 .mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-transform:uppercase}
 .mat-list .block1socialadvosingle.mat-list-item:hover .postblock .btnshare span{padding:0 30px;font-size:24px}
 .grapurl{position:relative;z-index:9;width:100%;height:auto;white-space:normal;word-break:break-all}
 .grapurl button{width:100%;margin:0 auto;display:block;padding:5px;color:#e6e6e6;font-size:16px;padding:9px;text-shadow:0 -1px 0 rgba(30,30,30,0.8);background:#000;background:-moz-linear-gradient(90deg,#000 30%,#595959 70%);background:-webkit-linear-gradient(90deg,#000 30%,#595959 70%);background:-o-linear-gradient(90deg,#000 30%,#595959 70%);background:-ms-linear-gradient(90deg,#000 30%,#595959 70%);background:linear-gradient(0deg,#000 30%,#595959 70%);-webkit-box-shadow:0 2px 1px rgba(50,50,50,0.75);-moz-box-shadow:0 2px 1px rgba(50,50,50,0.75);box-shadow:0 2px 1px rgba(50,50,50,0.75)}
-.grapurl span{width:100%;margin:0 auto;display:block;border:0;height:24px;padding:1px 0;white-space:nowrap;float:left;overflow:hidden}
+.grapurl span{width:100%;margin:0 auto;display:block;border:0;height:auto;padding:1px 0;white-space:normal;float:left;overflow:hidden}
 .block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content{padding:0!important;height:100%;height:100%!important;width:100%;padding:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}
 .jobcommentbox .mat-list .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#efefef;border:1px solid #c1c1c1!important}
 .jobticketimglists .file_upload .uploadfilecontainer{margin:0 auto!important;height:auto!important;border:1px dashed #dde2e5;border-radius:0}
@@ -278,23 +280,30 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalcls .jobticketimglists .file_upload .files-view .mat-card{position:relative;z-index:9;flex:1 1 24.33%;margin:10px!important;display:flex;flex-wrap:wrap;border:1px solid #ecf1f3}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper{height:160px;width:160px;position:relative;margin:0 auto 20px;border:2px solid #f3f3f3;padding:10px;overflow:hidden}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper img{max-width:100%;-o-object-fit:cover;object-fit:cover;margin:0 auto;z-index:99;position:relative;max-width:100%;width:100%;display:block;margin-top:0!important;height:100%;object-fit:cover}
-.googlemaphome .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {
-    min-width: 450px;
-    max-width: 100%;
-    width: 100%!important;
-  }
-  .cdk-overlay-pane[style]{
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
+.googlemaphome .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;width: 100%!important;}
+.cdk-overlay-pane.googleMapDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
+.cdk-overlay-pane.termsconditionDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.termsconditionDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
+.cdk-overlay-pane.privacypolicyDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.privacypolicyDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
+/* .cdk-overlay-pane.commonVideoModalCls[style] {margin-left: auto !important;margin-right: auto !important;} */
+/* .cdk-overlay-pane.commonVideoModalCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;} */
+/* .cdk-overlay-pane[style]{margin-left: 0 !important;} */
+.loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}
 .generalmodalcls h2{font-size:20px}
+.langblock .mat-form-field-appearance-legacy .mat-form-field-infix {background: transparent!important;padding: 0px !important; margin-bottom: 0px !important;}
 }
 @media(max-width:540px) {
+  .langblock select.mat-input-element:not(:disabled) {padding: 5px !important; margin-top: 0 !important;}
+  .langblock .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 10px!important; margin-bottom: 0px !important;}  
+ .topcontactinfoblock .mat-list .mat-list-item .mat-list-item-content{padding: 0 5px !important;}
 .newsletter_modal{width:auto}
+.mat-form-field-type-mat-native-select .mat-form-field-infix::after {right: 22px; margin-top: 0;}
 }
 @media screen and (max-width: 480px) {
 .logomodalwrapper{width:90%;margin:0 auto;display:block}
@@ -306,7 +315,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 @media screen and (max-width: 1199px) {
 .homebanner .owl-theme .owl-dots{display:block;display:block;position:inherit;left:0;padding-top:15px;bottom:10px}
 }
-@media screen and (max-width: 991px) {
+@media screen and (max-width: 991px) { 
 .owl-carousel .owl-item.active.center p.quatation{display:block!important;width:100%!important;margin-left:auto!important;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit}
 .generalcls .owl-carousel .owl-item.active.center .quatation p{max-height:inherit!important;overflow:inherit!important}
 }

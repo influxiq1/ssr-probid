@@ -1,0 +1,56 @@
+
+<div class="adminwrappercls">
+    <app-header></app-header>
+        <div class="main-content-wrap">
+          <mat-card class="generalcls blog" style="padding: 0 !important;">  
+              <mat-card-content class="adm_inner_banner testimoniallistsadmin">
+                  <mat-card-title class="adm_inner_title">api manager</mat-card-title>
+                  <p class="adm_inner_para">Find Out What Our Customers and Other Industry Leaders and Professionals Have to Say About Our Services, Vehicles, Prices, and Other Offerings That We Bring To You.</p>
+              </mat-card-content>
+              <mat-card-content class="bred_cram_wrapper">
+                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
+                  <a mat-list-item routerLinkActive="active"> Manage Website </a>
+                  <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/api-manager'"> api manager </a>
+              </mat-card-content>
+              <span class="searchblock">
+                  <span class="searchblockwrapper">
+                      <span>
+                          <h2>api manager</h2>
+                      </span>                                     
+                  </span>
+              </span>
+              <div class="tablediv">
+  
+                  <!-- <lib-listing *ngIf="apiKeyList != null && apiKeyList.length>0"
+                      [datasource]="apiKeyList"
+                      [skip]="apiKeyList_skip" 
+                      [modify_header_array]="apiKeyList_modify_header"
+                      [sourcedata]="tableName" 
+                      [apiurl]="apiUrl"
+                      [editroute]="editUrl"
+                      [jwttoken]="cookieService.get('jwtToken')"
+                      [statusarr]="status" 
+                      [updateendpoint]="UpdateEndpoint" 
+                      [detail_skip_array]="detail_skip_array">
+                      </lib-listing> -->
+
+                      <!-- <lib-listing *ngIf="apiKeyList!=null && apiKeyList.length>0" 
+                        [datasource]="apiKeyList"
+                        [skip]="apiKeyList_skip" 
+                        [modify_header_array]="modify_header_array" 
+                        [apiurl]="apiUrl" 
+                        [deleteendpoint]="deleteendpoint" 
+                        [updateendpoint]="updateendpoint" 
+                        [jwttoken]="cookieService.get('jwtToken')" 
+                        [editroute]="editroute"
+                        [sourcedata]="tablename"  
+                        [statusarr]="statusarray" 
+                        [detail_skip_array]="apiKeyList_detail_skip" 
+                        [searchendpoint]="searchendpoint">
+                      </lib-listing> -->
+  
+              </div>
+          </mat-card>
+        </div>
+    </div>
+  <app-footer></app-footer>

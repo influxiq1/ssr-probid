@@ -34,43 +34,84 @@
               <span class="search-sec">                
                   <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Pre-owned Cars</h2>
                   <span class="mat-search-bar">
-                      <form class="example-form">
+                      <form class="example-form" [formGroup]="inventoryPreownForm" 
+                      (ngSubmit)="inventoryPreownSearch()">
                           <mat-form-field class="example-full-width">
+
+
                             <span matPrefix></span>
-                            <input type="text" matInput placeholder="Make">
-                            <button mat-button>
-                                <i class="material-icons">search</i>
-                            </button>
+                            <input type="text" (keyup)="searchAutoComplete($event, 'make')" matInput placeholder="Make" formControlName="make"
+                            [matAutocomplete]="auto">
+                            <mat-autocomplete #auto="matAutocomplete">
+                              <mat-option *ngFor="let option of make_list" [value]="option">
+                                {{option}}
+                              </mat-option>
+                            </mat-autocomplete>
+                            <!-- <button mat-button>
+                                <i class="material-icons" (click)="inventoryPreownSearch()">search</i>
+                            </button> -->
+
+
                           </mat-form-field>  
                           <mat-form-field class="example-full-width">
                             <span matPrefix></span>
-                            <input type="text" matInput placeholder="Model">
-                            <button mat-button>
-                                <i class="material-icons">
+                            <input type="text"  (keyup)="searchAutoComplete($event, 'model')" matInput placeholder="Model"  formControlName="model"  [matAutocomplete]="autotype">
+                           
+                            <mat-autocomplete #automodel="matAutocomplete">
+                              <mat-option *ngFor="let option of model_list" [value]="option">
+                                {{option}}
+                              </mat-option>
+                            </mat-autocomplete>
+                            <!-- <button mat-button>
+                                <i class="material-icons" (click)="inventoryPreownSearch()">
                                     search
                                 </i>
-                            </button>
+                            </button> -->
+
+
                           </mat-form-field>
                           <mat-form-field class="example-full-width">
                             <span matPrefix></span>
-                            <input type="text" matInput placeholder="Year">
-                            <button mat-button>
-                                <i class="material-icons">
+                            <mat-select formControlName="year" placeholder="Year">
+                              <mat-option *ngFor="let yearval of year_list" [value]='yearval.year'>
+                                {{yearval.year}}
+                              </mat-option>
+                            </mat-select>
+                            <!-- <input type="text" matInput placeholder="Year"  formControlName="year"
+                            [matAutocomplete]="auto" > -->
+                            <!-- <button mat-button >
+                                <i class="material-icons" (click)="inventoryPreownSearch()">
                                     search
                                 </i>
-                            </button>
+                            </button> -->
+                            
                           </mat-form-field>     
                           <mat-form-field class="example-full-width">
                             <span matPrefix></span>
-                            <input type="text" matInput placeholder="Type">
-                            <button mat-button>
-                                <i class="material-icons">
+                            <input type="text" (keyup)="searchAutoComplete($event, 'body_type')" matInput placeholder="Type"  formControlName="type"  [matAutocomplete]="autotype">
+                            <mat-autocomplete #autotype="matAutocomplete">
+                              <mat-option *ngFor="let option of type_list" [value]="option">
+                                {{option}}
+                              </mat-option>
+                            </mat-autocomplete>
+                            <!-- <button mat-button>
+                                <i class="material-icons" (click)="inventoryPreownSearch()">
                                     search
                                 </i>
-                            </button>
-                          </mat-form-field>                   
+                            </button> -->
+                          </mat-form-field>  
+                          <button mat-button >
+                            search
+                        </button> 
+
+                        <button mat-button type="reset">
+                          Reset
+                      </button> 
+                          
+                          
                         </form>
                   </span>
+                  <span style="color: red;" *ngIf="saveCarDataList =='' || saveCarDataList == null">No Record Found</span>
               </span>       
               <mat-list class="lists" >
                   <mat-list-item *ngFor="let item of saveCarDataList | slice:0:8"> 
@@ -80,12 +121,14 @@
                     </span>
                     <span class="listsinfo">
                       <span class="listsinfoprice">
-                          $ {{item.price}}
+                         <span *ngIf="item.price !=null"> $ {{item.price}}</span>
+                         <span *ngIf="item.price ==null"> N/A</span>
+
                       </span>
                       <span class="listsinfoaddress">
                       {{item.heading}}
                       </span>
-                    </span> 
+                    </span>
                     <span class="listsbottominfo">
                         <mat-list class="listsbottom">
                             <mat-list-item> 
@@ -122,7 +165,8 @@
                                        <span>
                                          <h4>Make:</h4>
                                          <mat-form-field>
-                                           <input type="text" (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
+                                           <input type="text"
+                                            (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
                                              aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
                                            <mat-autocomplete #auto="matAutocomplete">
                                              <mat-option *ngFor="let option of make_list" [value]="option">
@@ -134,10 +178,12 @@
                                        <span>
                                          <h4>Model:</h4>
                                          <mat-form-field>
-                                           <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
+                                           <input type="text"
+                                            (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
                                              aria-label="Number" matInput formControlName="model" [matAutocomplete]="automodel">
                                            <mat-autocomplete #automodel="matAutocomplete">
-                                             <mat-option *ngFor="let option of model_list" [value]="option">
+                                             <mat-option *ngFor="let option of model_list" 
+                                             [value]="option">
                                                {{option}}
                                              </mat-option>
                                            </mat-autocomplete>
@@ -231,8 +277,7 @@
    
                               </span><br>
 
-
-                              <span class="mainwrappercontent">
+                             <span class="mainwrappercontent">
                                 <mat-list class="rightcontent" *ngIf="search != null && search.length>=0">
                                     <mat-list-item class="rightcontentrow" *ngFor="let item of search |  slice:0:indexval; let i= index;">
                                       <mat-card-content class="col-1-3">
@@ -483,7 +528,7 @@
        <owl-carousel [options]="carouselOptions" [items]="TestimonialListArray" [carouselClasses]="['owl-theme', 'row', 'sliding']">
         <div *ngFor="let image of TestimonialListArray;let i= index">
           <span class="slide-image-wrapper">
-            <img class="slide-image" src="{{image.image}}" >
+            <img class="slide-image" (click)="showBut()" src="{{image.image}}" >
           </span>
           <span class="slide-text" (click)="showBut()">
               <h1 class="title1 demo cursor">{{image.name}}</h1>

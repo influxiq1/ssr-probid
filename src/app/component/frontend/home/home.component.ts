@@ -6,6 +6,9 @@ import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
+import {AppComponent} from '../../../app.component';
+
+
 
 
 export interface DialogData {
@@ -22,6 +25,8 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
   public saveCarDataList:any;
   public inventoryCustomerForm: FormGroup;
+
+  public inventoryPreownForm:FormGroup;
 
   public type: string = '';
   public year: string = '';
@@ -43,6 +48,7 @@ export class HomeComponent implements OnInit {
   public user_details:any = '';
   public loginMsg: string ='';
   public errorMsg: string = '';
+  public apikey:any;
 
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
 
@@ -126,6 +132,46 @@ export class HomeComponent implements OnInit {
 
 
   carouselOptions = {
+    // margin: 0,
+    // nav: true,
+    // loop: false,
+    // rewind: true,
+    // autoplayTimeout: 6000,
+    // autoplay: false,
+    // autoplayHoverPause: true,
+    // center: false,
+    // responsiveClass: true,
+    // dots: false,
+    // autoWidth: true,
+    // autoHeight:true,
+    // navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
+    // responsive: {
+    //   0: {
+    //     items: 1,
+    //     nav: true,
+    //   },
+    //   600: {
+    //     items: 1,
+    //     nav: true,
+    //   },
+    //   991: {
+    //     items: 1,
+    //     nav: true,
+    //   },
+    //   992: {
+    //     items: 1,
+    //     nav: true,
+    //   },
+    //   1199: {
+    //     items: 1,
+    //     nav: true,
+    //   }
+    // }
+    autoPlay: true, 
+    touchDrag  : true,
+    mouseDrag  : true,    
+    singleItem:true,
+    transitionStyle:"fade",
     margin: 5,
     nav: true,
     loop: true,
@@ -188,17 +234,17 @@ export class HomeComponent implements OnInit {
 
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService) { 
-    this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
-    this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
-    this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
-    this.meta.setTag('og:keyword', 'ProBid Auto, Used Cars for Sale in USA, Buy Used Cars USA, Used Car Dealership the USA');
-    this.meta.setTag('twitter:keyword', 'ProBid Auto, Used Cars for Sale in USA, Buy Used Cars USA, Used Car Dealership the USA');
-    this.meta.setTag('og:title', 'ProBid Auto - Car-Buying Made Easy!');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Car-Buying Made Easy!');
-    this.meta.setTag('og:type', 'website');
-    this.meta.setTag('og:image', '../../assets/images/logomain.png');
-    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService, public apploader: AppComponent) { 
+    // this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
+    // this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
+    // this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
+    // this.meta.setTag('og:keyword', 'ProBid Auto, Used Cars for Sale in USA, Buy Used Cars USA, Used Car Dealership the USA');
+    // this.meta.setTag('twitter:keyword', 'ProBid Auto, Used Cars for Sale in USA, Buy Used Cars USA, Used Car Dealership the USA');
+    // this.meta.setTag('og:title', 'ProBid Auto - Car-Buying Made Easy!');
+    // this.meta.setTag('twitter:title', 'ProBid Auto - Car-Buying Made Easy!');
+    // this.meta.setTag('og:type', 'website');
+    // this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    // this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
 
 
@@ -255,17 +301,21 @@ export class HomeComponent implements OnInit {
     // this.getData;
 
     let data: any = {
-      source:'save_favorite_view', 
+      source:'allcar_view', 
       
     
     }
     this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
       // console.log('>>>>',resc.res);
       this.saveCarDataList=resc.res
+      console.log('>>>>',this.saveCarDataList);
+
+
     })
 
     this.generateForm();
     this.getStateList();
+    this.generatePreownForm();
 
 
     //for year list
@@ -306,9 +356,60 @@ let datay:any;
     })
   }
 
+  //generate form for preown car
+
+  generatePreownForm(){
+    this.inventoryPreownForm=this.fb.group({
+      make:[''],
+      model:[''],
+      year:[''],
+      type:['']
+    })
+  }
+
+//for preown car
+inventoryPreownSearch(){
+
+  this.apploader.loader = 1;
+
+  console.log('hit')
+  let yearVal = this.inventoryPreownForm.value.year;
+  let typeVal = this.inventoryPreownForm.value.type;
+  let makeVal = this.inventoryPreownForm.value.make;
+  let modelVal = this.inventoryPreownForm.value.model;
+
+
+  let data: any = {
+    source:'save_favorite_view',
+    condition:{
+    	"build.make":makeVal || modelVal || typeVal || yearVal
+    }
+  }
+
+  this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+    // console.log('>>>>',resc.res);
+    this.saveCarDataList=resc.res
+    // console.log('>>>>',this.saveCarDataList);
+
+    this.apploader.loader = 0;
+
+  })
+
+
+
+}
+
+
+
+
+
+
+
   //for basic inventory search
 
   inventoryCustomerSearch() {
+    this.apploader.loader = 1;
+
     if (this.inventoryCustomerForm.valid) {
 
       let yearVal = this.inventoryCustomerForm.value.year;
@@ -354,12 +455,17 @@ let datay:any;
         let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
+          this.apploader.loader = 0;
+
           this.search = res.listings;
           // console.log('search list',this.search)
-            // console.log(this.search);
+            console.log(this.search);
+            
         })
       } 
       else {
+        this.apploader.loader = 0;
+
         this.errorMsg = "Please select at least one field";
 
         const dialogRef = this.dialog.open(errorSearchModal, {
@@ -369,13 +475,14 @@ let datay:any;
 
       }
 
-
     }
 
   }
 
 
   searchAutoComplete(event: any, field: string) {
+    this.apploader.loader = 1;
+
 
     let input: string = '';
     let inputField: string = '';
@@ -390,6 +497,8 @@ let datay:any;
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
+      this.apploader.loader = 0;
+
      
       if (field == 'make') {
         this.make_list = res.terms; 
@@ -408,7 +517,23 @@ let datay:any;
         // console.log(field, this.trim_list); 
       }
 
-    });
+    },error =>{
+      console.log('Invalid_Api')
+      console.log(this.apiService.invalidApi)
+
+      
+      this.apikey=this.apiService.invalidApi;
+
+      let data:any;
+      data={
+        
+        "apikey":this.apikey
+      }
+
+      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
+        console.log("error")
+      })
+  });
   }
 
   }

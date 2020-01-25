@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-addedit-service',
@@ -22,7 +23,14 @@ export class AddeditServiceComponent implements OnInit {
   }
 
 
-  constructor(private router : Router , private activatedRoute : ActivatedRoute ,private cookieService : CookieService, public ApiService: ApiService) { }
+  constructor(private router : Router , private activatedRoute : ActivatedRoute ,private cookieService : CookieService, public ApiService: ApiService, private readonly meta: MetaService) {
+    this.meta.setTitle('ProBid Auto - Add Edit Service');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Edit Service');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Edit Service');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
 
  
   ngOnInit() {
