@@ -12,45 +12,47 @@ import { MetaService } from '@ngx-meta/core';
 export class ListingTestimonialComponent implements OnInit {
 
   image_detail_datatype: any;
-  user_cookie:any;
-  /************** lib list setup start here *************/
-  // public testimonialListConfig:any = {
-  //   // apiBaseUrl: "https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/",
-  //   apiBaseUrl: this.ApiService.serverUrlDemo,
-  //   listEndPoint: "datalist",
-  //   datasource: "",
-  //   tableName: "testimonial_view",
-  //   updateurl: "addorupdatedata",
-  //   editUrl: "testimonial/edit",
-  //   jwtToken: this.ApiService.accesstoken,
-  //   deleteEndPoint: "deletesingledata",
-  //   addLink: "/testimonial/add",
-  //   view: "testimonial_view"
-  // }
-
+  user_cookie: any;
 
 
 
   // ===============================Declarations=========================
-  testimonialListConfig: any = [];
-  testimonialListConfig_skip: any = ["_id","description_html","description","created_at","inventory_image",'image'];
-detail_skip_array:any=["_id"]
-testimonialListConfig_modify_header: any = {"brand name":"Brand Name",
-"parent category":"Parent Category","priority":"Priority","status":"Status"};
-tableName: any = 'blog_category';
-UpdateEndpoint: any = "addorupdatedata";
-deleteEndpoint: any = "deletesingledata";
-searchingEndpoint: any = "datalist";
-editUrl: any = 'testimonial/edit';
-apiUrl: any = this.ApiService.serverUrlDemo;
-status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
-view:any="blog_category";
+  // testimonialListConfig: any = [];
+  // testimonialListConfig_skip: any = ["_id", "description_html", "description", "created_at", "inventory_image", 'image'];
+  // detail_skip_array: any = ["_id"]
+  // testimonialListConfig_modify_header: any = {
+  //   "brand name": "Brand Name",
+  //   "parent category": "Parent Category", "priority": "Priority", "status": "Status"
+  // };
+  // tableName: any = 'blog_category';
+  // UpdateEndpoint: any = "addorupdatedata";
+  // deleteEndpoint: any = "deletesingledata";
+  // searchingEndpoint: any = "datalist";
+  // editUrl: any = 'testimonial/edit';
+  // apiUrl: any = this.ApiService.serverUrlDemo;
+  // status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
+  // view: any = "blog_category";
 
-// ====================================================================
+
+
+  public testimonialListConfig:any = {
+    apiBaseUrl: this.ApiService.serverUrlDemo,
+    listEndPoint: "datalist",
+    datasource: "",
+    tableName: "testimonial",
+    updateurl: "addorupdatedata",
+    editUrl: "testimonial/edit",
+    jwtToken: "",   
+    deleteEndPoint: "deletesingledata",
+    addLink: "/testimonial/add",
+    view: "testimonial_view"
+  }
+
+  // ====================================================================
 
 
 
-  constructor(public router: Router, public activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService, private readonly meta: MetaService) { 
+  constructor(public router: Router, public activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService, private readonly meta: MetaService) {
 
 
     this.meta.setTitle('ProBid Auto - Testimonial Listing');
@@ -59,22 +61,21 @@ view:any="blog_category";
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
-
-  // this.activatedRoute.data.subscribe(resolveData => {
-  //   // this.testimonialListConfig.datasource = resolveData.testimonialList.res;
-  //   // this.testimonialListConfig.jwtToken = this.cookieService.get('jwtToken');
-    
-  // });
-
-  this.activatedRoute.data.forEach((res)=>{
-    this.testimonialListConfig=res.testimonialList.res;
-    // console.log('>>>>',this.testimonialListConfig)
-  })
-
-
-}
+  }
 
   ngOnInit() {
+
+    /** calling the testi list **/
+    this.onTestiDataPopulate();
+    
+  }
+
+  /** populating the testimonial data **/
+  onTestiDataPopulate(){
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.testimonialListConfig.datasource = resolveData.testimonialList.res;
+      this.testimonialListConfig.jwtToken = this.cookieService.get('jwtToken');      
+    });
   }
 
 }

@@ -51,9 +51,9 @@ export class AddEditNewsletterComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if(params._id) {
         this.activatedRoute.data.subscribe(resolveData => {
-          this.configAddEdit.defaultData = resolveData.newsLetterAdd.res;
+          this.configAddEdit.defaultData = resolveData.newsData.res[0];
 
-          // console.log( this.configAddEdit.defaultData );
+          console.log(">>>", this.configAddEdit.defaultData );
           this.configAddEdit.action = "edit";
           this.configAddEdit.condition = { id: params._id };
 

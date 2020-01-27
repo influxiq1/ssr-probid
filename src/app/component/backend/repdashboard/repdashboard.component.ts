@@ -5,7 +5,7 @@ import { ApiService } from '../../../api.service';
 // import { MatDialog } from '@angular/material';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { FormBuilder } from '@angular/forms';

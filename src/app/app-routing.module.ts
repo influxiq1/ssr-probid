@@ -88,14 +88,14 @@ import { AddBirddogComponent } from './component/backend/add-birddog/add-birddog
 
 
 import { AddEditNewsletterComponent } from './component/backend/newsletterlists/add-edit-newsletter/add-edit-newsletter.component';
- 
+
 import { AddEditSubscriberComponent } from './component/backend/newsletterlists/add-edit-subscriber/add-edit-subscriber.component';
 import { AddEditSubscriberGroupComponent } from './component/backend/newsletterlists/add-edit-subscriber-group/add-edit-subscriber-group.component';
- 
- import { AddEditTestemailComponent } from './component/backend/newsletterlists/add-edit-testemail/add-edit-testemail.component';
 
- import { AddEditSenderappComponent } from './component/backend/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
- 
+import { AddEditTestemailComponent } from './component/backend/newsletterlists/add-edit-testemail/add-edit-testemail.component';
+
+import { AddEditSenderappComponent } from './component/backend/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
+
 
 import { ListingNewsletterComponent } from './component/backend/newsletterlists/listing-newsletter/listing-newsletter.component';
 
@@ -112,12 +112,16 @@ import { ApiManagerComponent } from './component/backend/api-manager/api-manager
 const routes: Routes = [
 
   /**Frontend Routing**/
-  
-  { path: '', component: HomeComponent ,resolve: { home_data: ResolveService },
-  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
 
-  { path: 'home', component: HomeComponent ,resolve: { home_data: ResolveService },
-  data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} },
+  {
+    path: '', component: HomeComponent, resolve: { home_data: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-home' }
+  },
+
+  {
+    path: 'home', component: HomeComponent, resolve: { home_data: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-home' }
+  },
 
   { path: 'login', component: LoginComponent },
   { path: 'login/:id', component: LoginComponent },
@@ -127,7 +131,7 @@ const routes: Routes = [
 
   { path: 'sign-up', component: SignUpComponent },
   { path: 'salesrep-signup', component: SalesrepSignupComponent },
-  
+
   { path: 'customer-signup', component: CustomerSignupComponent },
   { path: 'customer-signup/:id', component: CustomerSignupComponent },
   { path: 'customer-signup/:img/:id', component: CustomerSignupComponent },
@@ -147,7 +151,7 @@ const routes: Routes = [
       endpoint: "datalistwithouttoken"
     }
   },
-  
+
   {
     path: 'service',
     component: ServicelistComponent,
@@ -157,106 +161,131 @@ const routes: Routes = [
   // { path: 'blog-category/list', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
   // data: { requestcondition: { source: 'blog_category_view', condition: {} }, endpoint: 'datalist' }},
 
-  { path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
-  data: { requestcondition: { condition: {"limit": 4, "skip":1} }, endpoint: 'blogdata' } },
+  {
+    path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
+    data: { requestcondition: { condition: { "limit": 4, "skip": 1 } }, endpoint: 'blogdata' }
+  },
 
   // { path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
   // data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalist' } },
 
 
 
-  { path: 'blogdetail/:_id_object', component: BlogdetailComponent,resolve: { blogCatList: ResolveService },
-  data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' } },
+  {
+    path: 'blogdetail/:_id_object', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
+    data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' }
+  },
 
 
-  { path: 'advance-inventory-search', component: AdvanceInventorySearchComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' } },
-  { path: 'basic-inventory-search', component: BasicInventorySearchComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }},
+  {
+    path: 'advance-inventory-search', component: AdvanceInventorySearchComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  },
+  {
+    path: 'basic-inventory-search', component: BasicInventorySearchComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  },
 
-  { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent},
+  { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent },
 
 
-  { path: 'saved-search-admin', component: SaveSearchComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
+  {
+    path: 'saved-search-admin', component: SaveSearchComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: 'save_favorite_view', condition: { added_by: 'user_id' } }, endpoint: 'datalist' }
+  },
 
-  { path: 'saved-search-customer', component: SaveSearchComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
+  {
+    path: 'saved-search-customer', component: SaveSearchComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: 'save_favorite_view', condition: { added_by: 'user_id' } }, endpoint: 'datalist' }
+  },
 
-  { path: 'saved-search-rep', component: SaveSearchComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
+  {
+    path: 'saved-search-rep', component: SaveSearchComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: 'save_favorite_view', condition: { added_by: 'user_id' } }, endpoint: 'datalist' }
+  },
 
 
 
   { path: 'pre-owned', component: PreOwnedComponent },
   { path: 'aboutus', component: AboutusComponent },
   { path: 'blog-category', component: BlogCategoryComponent },
-  { path: 'inventory-detail/:_id', component: InventoryDetailComponent,
-  resolve: { inventory_details: ResolveService },
-  data: { requestcondition: { source: 'save_favorite_view', condition: {} }, 
-  endpoint: 'datalist' }
+  {
+    path: 'inventory-detail/:_id', component: InventoryDetailComponent,
+    resolve: { inventory_details: ResolveService },
+    data: {
+      requestcondition: { source: 'save_favorite_view', condition: {} },
+      endpoint: 'datalist'
+    }
   },
 
-  { path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
-  resolve: { inventory_details: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
-   endpoint: 'datalist'}},
+  {
+    path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
+    resolve: { inventory_details: ResolveService },
+    data: {
+      requestcondition: { source: 'send_rsvp_view', condition: {} },
+      endpoint: 'datalist'
+    }
+  },
 
-  {path: 'rsvp-final/:_id', component: RsvpSuccessComponent,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} },
-   endpoint: 'datalist'}},
+  {
+    path: 'rsvp-final/:_id', component: RsvpSuccessComponent,
+    resolve: { rsvp: ResolveService },
+    data: {
+      requestcondition: { source: 'send_rsvp_view', condition: {} },
+      endpoint: 'datalist'
+    }
+  },
 
-   { path: 'search-detail', component: InventoryDetailComponent},
+  { path: 'search-detail', component: InventoryDetailComponent },
 
-// ___________________BLOG MANAGEMENT_________________
-// =======================================================
+  // ___________________BLOG MANAGEMENT_________________
+  // =======================================================
 
-// _____________________BLOG CATEGORY________________
-{ path: 'blog-category/add', component: AddEditBlogcatComponent },
+  // _____________________BLOG CATEGORY________________
+  { path: 'blog-category/add', component: AddEditBlogcatComponent },
 
-{
-  path: 'blog-category/list',
-  component: ListingBlogcatComponent
-  // ,
+  {
+    path: 'blog-category/list',
+    component: ListingBlogcatComponent
+    // ,
 
-  // resolve: { blogCatList: ResolveService },
-  // data: {
-  //   requestcondition: {
-  //     source: 'blog_category',
-  //     condition: {}
-  //   },
-  //   endpoint: 'datalist'
-  // },
-},
-{
-  path: 'blog-category/edit/:_id',
-  component: AddEditBlogcatComponent,
+    // resolve: { blogCatList: ResolveService },
+    // data: {
+    //   requestcondition: {
+    //     source: 'blog_category',
+    //     condition: {}
+    //   },
+    //   endpoint: 'datalist'
+    // },
+  },
+  {
+    path: 'blog-category/edit/:_id',
+    component: AddEditBlogcatComponent,
 
-  resolve: { blogCatList: ResolveService },
-  data: {
-    requestcondition: {
-      source: 'blog_category',
-      condition: {}
+    resolve: { blogCatList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'blog_category',
+        condition: {}
+      },
+      endpoint: 'datalist'
     },
-    endpoint: 'datalist'
   },
-},
-// -----------------------------------------------
+  // -----------------------------------------------
 
 
-// ______________________BLOGS_________________
-// / ________________BLOGS______________
+  // ______________________BLOGS_________________
+  // / ________________BLOGS______________
 
 
-{ 
-  path: 'blogs/add', component: AddEditBlogsComponent
- },
+  {
+    path: 'blogs/add', component: AddEditBlogsComponent
+  },
 
   {
     path: 'blogs/list',
@@ -283,7 +312,7 @@ const routes: Routes = [
       endpoint: 'datalist'
     },
   },
-// -------------------------------------------
+  // -------------------------------------------
 
 
 
@@ -292,16 +321,20 @@ const routes: Routes = [
 
   /**Backend Routing**/
   // {path: 'customer-dashboard', component:DashboardComponent, canActivate:[AuthGuard]},       // Useing for canActive
-  { path: 'customer-dashboard', component: DashboardComponent , canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {"customer":"customer-dashboard"} }, endpoint: 'for-customer-dashboard' }},
+  {
+    path: 'customer-dashboard', component: DashboardComponent, canActivate: [AuthGuard], resolve: { rsvp: ResolveService },
+    data: { requestcondition: { source: '', condition: { "customer": "customer-dashboard" } }, endpoint: 'for-customer-dashboard' }
+  },
   // { path: 'admin-dashboard', component: MaindashboardComponent,canActivate: [AuthGuard] },
-  { path: 'admin-dashboard', component: MaindashboardComponent,canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-dashboard' } },
+  {
+    path: 'admin-dashboard', component: MaindashboardComponent, canActivate: [AuthGuard], resolve: { rsvp: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-dashboard' }
+  },
   { path: 'bk-leftdiv', component: BkLeftdivComponent },
-  { path: 'testimonial/add', component: AddeditTestimonialComponent,canActivate: [AuthGuard] },
+  { path: 'testimonial/add', component: AddeditTestimonialComponent, canActivate: [AuthGuard] },
   {
     path: 'testimonial/edit/:_id', component: AddeditTestimonialComponent, resolve: { testimonialData: ResolveService },
-    data: { requestcondition: { source: 'testimonial', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+    data: { requestcondition: { source: 'testimonial', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
   },
   // {
   //   path: 'testimonial-listing', component: ListingTestimonialComponent, resolve: { testimonialList: ResolveService },
@@ -309,20 +342,31 @@ const routes: Routes = [
   // },
   {
     path: 'testimonial-lists-admin', component: ListingTestimonialComponent, resolve: { testimonialList: ResolveService },
-    data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+    data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
   },
 
+  // {
+  //   path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
+  //   data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+  // },
   {
-    path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
-    data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+    path: 'service-listing',
+    component: ListingServiceComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'services_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
-  { path: 'service/add', component: AddeditServiceComponent ,canActivate: [AuthGuard]},
+  { path: 'service/add', component: AddeditServiceComponent, canActivate: [AuthGuard] },
   {
-    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { serviceList: ResolveService },
-    data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
+    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { data: ResolveService },
+    data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
   },
 
-  // { path: 'blog-management', component: BlogManagementComponent },
   {
     path: 'blog-management',
     component: BlogManagementComponent,
@@ -342,35 +386,48 @@ const routes: Routes = [
   { path: 'manage-availability', component: ManageAvailabilityComponent },
   // { path: 'testimonial-lists-admin', component: TestimonialListsAdminComponent },
 
-  { path: 'birddog-list', component: BirddogListComponent,resolve: {birddoglist: ResolveService },
-  data: { requestcondition: { source: 'user_view', condition: {"type": "birddog"} },endpoint: 'datalist',canActivate: [AuthGuard]}
+  {
+    path: 'birddog-list', component: BirddogListComponent, resolve: { birddoglist: ResolveService },
+    data: { requestcondition: { source: 'user_view', condition: { "type": "birddog" } }, endpoint: 'datalist', canActivate: [AuthGuard] }
   },
 
 
   { path: 'commission-list', component: CommissionListComponent },
 
-  { path: 'customer-list-admin', component: CustomerListComponent,resolve: { customerlist: ResolveService },
-  data: { requestcondition: { source: 'type_customer_view', condition: {} },endpoint: 'datalist',canActivate: [AuthGuard]} },
+  {
+    path: 'customer-list-admin', component: CustomerListComponent, resolve: { customerlist: ResolveService },
+    data: { requestcondition: { source: 'type_customer_view', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
+  },
 
   { path: 'manage-commission', component: ManageCommissionComponent },
   // { path: 'newsletter-list', component: NewsletterlistsComponent },
   { path: 'sales-report', component: SalesReportComponent },
-  
-  { path: 'salesrep-list-admin', component: SalesreplistsComponent,resolve: { salesreplist: ResolveService },
-  data: { requestcondition: { source: 'user_view', condition: {"type": "salesrep"} },endpoint: 'datalist',canActivate: [AuthGuard]} },
 
-  { path: 'rsvp-admin', component: RsvplistsComponent ,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' }},
+  {
+    path: 'salesrep-list-admin', component: SalesreplistsComponent, resolve: { salesreplist: ResolveService },
+    data: { requestcondition: { source: 'user_view', condition: { "type": "salesrep" } }, endpoint: 'datalist', canActivate: [AuthGuard] }
+  },
 
-  { path: 'rsvp-salesrep', component: RsvplistsComponent,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {"added_by_object":"user_id"} }, 
-  endpoint: 'datalist' }},
+  {
+    path: 'rsvp-admin', component: RsvplistsComponent,
+    resolve: { rsvp: ResolveService },
+    data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' }
+  },
 
-  { path: 'rsvp-customer', component: RsvplistsComponent ,
-  resolve: { rsvp: ResolveService },
-  data: { requestcondition: { source: 'send_rsvp_view', condition: {"added_for_object":"user_id"} }, endpoint: 'datalist' }},
+  {
+    path: 'rsvp-salesrep', component: RsvplistsComponent,
+    resolve: { rsvp: ResolveService },
+    data: {
+      requestcondition: { source: 'send_rsvp_view', condition: { "added_by_object": "user_id" } },
+      endpoint: 'datalist'
+    }
+  },
+
+  {
+    path: 'rsvp-customer', component: RsvplistsComponent,
+    resolve: { rsvp: ResolveService },
+    data: { requestcondition: { source: 'send_rsvp_view', condition: { "added_for_object": "user_id" } }, endpoint: 'datalist' }
+  },
 
   // { path: 'manage-training1', component: ManageTrainingComponent },
   { path: 'manage-lessons', component: ManageLessonsComponent },
@@ -380,41 +437,56 @@ const routes: Routes = [
 
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
 
-  { path: 'job-ticket-admin', component: JobTicketComponent ,
-  resolve: { jobTicketList: ResolveService },
-  data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
-},
+  {
+    path: 'job-ticket-admin', component: JobTicketComponent,
+    resolve: { jobTicketList: ResolveService },
+    data: { requestcondition: { source: 'job_ticket_customer', condition: {} }, endpoint: 'datalist' }
+  },
 
   // { path: 'job-ticket-customer', component: JobTicketComponent },
   // { path: 'job-ticket-salesrep', component: JobTicketComponent },
-  
-  { path: 'job-ticket-salesrep', component: JobTicketComponent,
-  resolve: { jobTicketList: ResolveService },
-  data: { requestcondition: { source: 'job_ticket_customer', condition: {"ticket_added_by_object":"ticket_added_by_object"}}, endpoint: 'datalist' }
-},
 
-  { path: 'job-ticket-customer', component: JobTicketComponent,
-  resolve: { jobTicketList: ResolveService },
-  data: { requestcondition: { source: 'job_ticket_customer', condition: {
-    "ticket_added_by_object":"ticket_added_by_object"
-  }}, endpoint: 'datalist' }
-},
-  
-  {path: 'job-ticket-view/:_id', component:ViewJobTicketComponent},
+  {
+    path: 'job-ticket-salesrep', component: JobTicketComponent,
+    resolve: { jobTicketList: ResolveService },
+    data: { requestcondition: { source: 'job_ticket_customer', condition: { "ticket_added_by_object": "ticket_added_by_object" } }, endpoint: 'datalist' }
+  },
+
+  {
+    path: 'job-ticket-customer', component: JobTicketComponent,
+    resolve: { jobTicketList: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'job_ticket_customer', condition: {
+          "ticket_added_by_object": "ticket_added_by_object"
+        }
+      }, endpoint: 'datalist'
+    }
+  },
+
+  { path: 'job-ticket-view/:_id', component: ViewJobTicketComponent },
 
   { path: 'social-advo-admin', component: SocialAdvoComponent },
 
-  { path: 'manage-type', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
-  data: { requestcondition: { source: 'manage-type', condition: {"categoriesType": "type"} }, endpoint: 'datalist' }},
+  {
+    path: 'manage-type', component: AdminManageCategoriesComponent, resolve: { serviceList: ResolveService },
+    data: { requestcondition: { source: 'manage-type', condition: { "categoriesType": "type" } }, endpoint: 'datalist' }
+  },
 
-  { path: 'manage-make', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
-  data: { requestcondition: { source: 'manage-make', condition: {"categoriesType": "make"} }, endpoint: 'datalist' } },
+  {
+    path: 'manage-make', component: AdminManageCategoriesComponent, resolve: { serviceList: ResolveService },
+    data: { requestcondition: { source: 'manage-make', condition: { "categoriesType": "make" } }, endpoint: 'datalist' }
+  },
 
-  { path: 'manage-model', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
-  data: { requestcondition: { source: 'manage-model', condition: {"categoriesType": "model"} }, endpoint: 'datalist' } },
+  {
+    path: 'manage-model', component: AdminManageCategoriesComponent, resolve: { serviceList: ResolveService },
+    data: { requestcondition: { source: 'manage-model', condition: { "categoriesType": "model" } }, endpoint: 'datalist' }
+  },
 
-  { path: 'manage-year', component: AdminManageCategoriesComponent , resolve: { serviceList: ResolveService },
-  data: { requestcondition: { source: 'manage-year', condition: {"categoriesType": "year"} }, endpoint: 'datalist' } },
+  {
+    path: 'manage-year', component: AdminManageCategoriesComponent, resolve: { serviceList: ResolveService },
+    data: { requestcondition: { source: 'manage-year', condition: { "categoriesType": "year" } }, endpoint: 'datalist' }
+  },
 
   { path: 'manage-make-edit/:id', component: AdminManageCategoriesComponent },
   { path: 'admin-add-categories', component: AdminAddCategoriesComponent },
@@ -427,64 +499,77 @@ const routes: Routes = [
 
   {
     path: 'user-m', component: UserManagementComponent, resolve: { serviceList: ResolveService },
-    data: { requestcondition: { source: 'user', condition: {'id':'user_id'} }, endpoint: 'datalist' }
+    data: { requestcondition: { source: 'user', condition: { 'id': 'user_id' } }, endpoint: 'datalist' }
   },
 
   { path: 'manage-appointment-user', component: MyAppointmentComponent },
   { path: 'manage-availability-user', component: BookAnAppointmentComponent },
 
 
-  { path: 'advance-inventory-search-admin', component: AdvanceInventorySearchBackendComponent,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  {
+    path: 'advance-inventory-search-admin', component: AdvanceInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
   },
 
-  { path: 'advance-inventory-search-customer', component: AdvanceInventorySearchBackendComponent,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  {
+    path: 'advance-inventory-search-customer', component: AdvanceInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
   },
-  { path: 'advance-inventory-search-rep', component: AdvanceInventorySearchBackendComponent,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  {
+    path: 'advance-inventory-search-rep', component: AdvanceInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
   },
 
-  { path: 'basic-inventory-search-customer', component: BasicInventorySearchBackendComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
-},
+  {
+    path: 'basic-inventory-search-customer', component: BasicInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  },
 
-  { path: 'basic-inventory-search-admin', component: BasicInventorySearchBackendComponent ,
-  resolve: { inventory_search: ResolveService },
-  data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
-},
-{ path: 'basic-inventory-search-rep', component: BasicInventorySearchBackendComponent ,
-resolve: { inventory_search: ResolveService },
-data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
-},
-  { path: 'mysalesrep', component: MysalesrepComponent ,
-  resolve: { rep_details: ResolveService },
-data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }, endpoint: 'for-rep-details' }
-},
-  
+  {
+    path: 'basic-inventory-search-admin', component: BasicInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  },
+  {
+    path: 'basic-inventory-search-rep', component: BasicInventorySearchBackendComponent,
+    resolve: { inventory_search: ResolveService },
+    data: { requestcondition: { source: '', condition: {} }, endpoint: 'inventory-search' }
+  },
+  {
+    path: 'mysalesrep', component: MysalesrepComponent,
+    resolve: { rep_details: ResolveService },
+    data: { requestcondition: { source: '', condition: { "mysalesrep": 'mysalesrep' } }, endpoint: 'for-rep-details' }
+  },
+
 
   // { path:'contact-us-dashboard', component:ContactUsDashboardComponent,  resolve: { serviceList: ResolveService },
   // data: { requestcondition: { source: 'contactusForm', condition: {} }, endpoint: 'datalist'}},
   /**************** Rep Management *****************/
-  { path: 'rep-dashboard', component: RepdashboardComponent, canActivate: [AuthGuard] , resolve: {rsvp: ResolveService },
-  data: { requestcondition: { source: '', condition: {"for-rep":"for-rep"} }, endpoint: 'for-rep-dashboard' }  },
+  {
+    path: 'rep-dashboard', component: RepdashboardComponent, canActivate: [AuthGuard], resolve: { rsvp: ResolveService },
+    data: { requestcondition: { source: '', condition: { "for-rep": "for-rep" } }, endpoint: 'for-rep-dashboard' }
+  },
   { path: 'my-commission', component: CommissionListComponent },
   { path: 'my-birddog', component: BirddogListComponent },
 
   { path: 'manage-appointment-rep', component: MyAppointmentComponent },
   { path: 'manage-availability-rep', component: BookAnAppointmentComponent },
-  { path: 'customer-list-rep', component: CustomerListComponent,resolve: { customerlist: ResolveService },
-  data: { requestcondition: { source: 'user', condition: {"type": "customer", "salesrep":"user_id" }},endpoint: 'datalist',canActivate: [AuthGuard] }},
+  {
+    path: 'customer-list-rep', component: CustomerListComponent, resolve: { customerlist: ResolveService },
+    data: { requestcondition: { source: 'user', condition: { "type": "customer", "salesrep": "user_id" } }, endpoint: 'datalist', canActivate: [AuthGuard] }
+  },
 
   { path: 'social-advo-rep', component: SocialAdvoComponent },
 
 
-  { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent , resolve: {job_ticket: ResolveService },
-  data: { requestcondition: { source: '', condition: {'rsvp_id':"rsvp_id"} }, endpoint: 'job-ticket' ,canActivate: [AuthGuard]}},
+  {
+    path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent, resolve: { job_ticket: ResolveService },
+    data: { requestcondition: { source: '', condition: { 'rsvp_id': "rsvp_id" } }, endpoint: 'job-ticket', canActivate: [AuthGuard] }
+  },
 
   // { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent },
 
@@ -492,17 +577,17 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   // resolve: { rsvp: ResolveService },
   // data: { requestcondition: { source: 'send_rsvp_view', condition: {} }, endpoint: 'datalist' } },
 
-  
+
 
   { path: 'training-center-rep', component: TrainingCenterComponent },
   { path: 'my-account', component: MyAccountComponent },
   { path: 'add-salesrep', component: AddSalesrepComponent },
   { path: 'editsalesrep/:_id', component: AddSalesrepComponent },
-  {path:'add-customer',component:AddCustomerComponent,},
-  {path:'editcustomer/:_id',component:AddCustomerComponent},
+  { path: 'add-customer', component: AddCustomerComponent, },
+  { path: 'editcustomer/:_id', component: AddCustomerComponent },
 
-  {path:'add-birddog',component:AddBirddogComponent},
-  {path:'editbirddog/:_id',component:AddBirddogComponent},
+  { path: 'add-birddog', component: AddBirddogComponent },
+  { path: 'editbirddog/:_id', component: AddBirddogComponent },
 
   /**End Backend Routing**/
 
@@ -516,11 +601,12 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
 
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
 
-  
-  { path: 'api-manager', component: ApiManagerComponent,
-  resolve: {apiKey: ResolveService },
-  data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
- },
+
+  {
+    path: 'api-manager', component: ApiManagerComponent,
+    resolve: { apiKey: ResolveService },
+    data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
+  },
 
 
 
@@ -541,91 +627,96 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   },
 
 
-    // _____________________newsletter________________
-    { path: 'newsletter/add', component: AddEditNewsletterComponent },
+  // _____________________newsletter________________
+  { path: 'newsletter/add', component: AddEditNewsletterComponent },
 
-    {
-      path: 'newsletter/list',
-      component: ListingNewsletterComponent
-    },
-    {
-      path: 'newsletter/edit/:_id',
-      component: AddEditNewsletterComponent
-    },
-    // -----------------------------------------------
+  {
+    path: 'newsletter/list',
+    component: ListingNewsletterComponent
+  },
+  {
+    path: 'newsletter/edit/:_id',
+    component: AddEditNewsletterComponent,
+    resolve: { newsData: ResolveService },
+    data: { requestcondition: { source: 'newsletters', condition: {} }, endpoint: 'datalist' }
+  },
+  // -----------------------------------------------
 
-    
+
   // _____________________Subscriber________________
   { path: 'subscriber/add', component: AddEditSubscriberComponent },
 
   {
     path: 'newsletter-list',
-    component: ListingSubscriptionComponent 
+    component: ListingSubscriptionComponent
   },
   {
     path: 'subscriber/add-group/edit/:_id',
-    component: AddEditSubscriberComponent
+    component: AddEditSubscriberComponent,
+    resolve: { subscriptiongroupData: ResolveService },
+    data: { requestcondition: { source: 'subscriptions', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
   // -------------------------------------------
 
 
 
-    // _____________________Subscriber GROUP________________
-    { path: 'subscriber-group/add', component: AddEditSubscriberGroupComponent },
+  // _____________________Subscriber GROUP________________
+  { path: 'subscriber-group/add', component: AddEditSubscriberGroupComponent },
 
-    {
-      path: 'newsletter-list',
-      component: ListingSubcategoryComponent 
-    },
-    {
-      path: 'subscriber-group/edit/:_id',
-      component: AddEditSubscriberGroupComponent
-    },
-    // -----------------------------------------------
-    // -------------------------------------------
-  
+  {
+    path: 'newsletter-list',
+    component: ListingSubcategoryComponent
+  },
+  {
+    path: 'subscriber-group/edit/:_id',
+    component: AddEditSubscriberGroupComponent,
+    resolve: { subscriptiongroupData: ResolveService },
+    data: { requestcondition: { source: 'news_category', condition: {} }, endpoint: 'datalist' }
+  },
+  // -----------------------------------------------
+  // -------------------------------------------
+
 
 
   // ________________________test email _____________________
   { path: 'test/add', component: AddEditTestemailComponent },
   {
     path: 'newsletter-list',
-    component: LisitngTestemailappComponent 
-  
+    component: LisitngTestemailappComponent
+
   },
   {
     path: 'test/edit/:_id',
-    component: AddEditTestemailComponent
-    
-  
-    
+    component: AddEditTestemailComponent,
+    resolve: { testData: ResolveService },
+    data: { requestcondition: { source: 'testemail', condition: {} }, endpoint: 'datalist' }
   },
-  
-    // ________________________sender's list_____________________
-    { path: 'sender/add', component: AddEditSenderappComponent },
-    {
-      path: 'newsletter-list',
-      component: ListingSenderappComponent 
-    },
 
-    {
-      path: 'sender/edit/:_id',
-      component: AddEditSenderappComponent
-      
-    
-      
-    },
-
-
-    // { path: '',
-    // redirectTo: '/home',
-    // pathMatch: 'full',
-    //  },
+  // ________________________sender's list_____________________
+  { path: 'sender/add', component: AddEditSenderappComponent },
+  {
+    path: 'sender/list',
+    component: ListingSenderappComponent,
+    resolve: { senderData: ResolveService },
+    data: { requestcondition: { source: 'senders_view', condition: {} }, endpoint: 'datalist' }
+  },
+  {
+    path: 'sender/edit/:_id',
+    component: AddEditSenderappComponent,
+    resolve: { senderData: ResolveService },
+    data: { requestcondition: { source: 'senders', condition: {} }, endpoint: 'datalist' }
+  },
 
 
-    // { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },
-    // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} }
+  // { path: '',
+  // redirectTo: '/home',
+  // pathMatch: 'full',
+  //  },
+
+
+  // { path: '**', component: HomeComponent,resolve: { home_data: ResolveService },
+  // data: { requestcondition: { source: '', condition: {}},endpoint: 'for-home'} }
 ];
 
 @NgModule({

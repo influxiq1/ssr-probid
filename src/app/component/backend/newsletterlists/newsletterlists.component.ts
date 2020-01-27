@@ -4,7 +4,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MetaService } from '@ngx-meta/core';
- 
+
 import { environment } from '../../../../environments/environment';
 
 
@@ -21,9 +21,9 @@ export class NewsletterlistsComponent implements OnInit {
   public myformsetting: FormGroup;
 
 
-  public indexval:any;
+  public indexval: any;
 
-  public BaseUrl:any= environment["API_URL"];
+  public BaseUrl: any = environment["API_URL"];
 
   public newsConfigForm: any = {
     apiBaseUrl: this.BaseUrl,
@@ -35,30 +35,30 @@ export class NewsletterlistsComponent implements OnInit {
     jwtToken: "",
     deleteEndPoint: "deletesingledata",
     addLink: "newsletter/add",
-    view: ""
+    view: "newsletters_view"
   }
 
 
-  
-public subscriptionForm: any = {
-  apiBaseUrl: this.BaseUrl,
-  listEndPoint: "datalist",
-  datasource: "",
-  tableName: "subscriptions",
-  updateurl: "addorupdatedata",
-  editUrl: "subscriber/add-group/edit/",
-  jwtToken: "",  
-  deleteEndPoint: "deletesingledata",
-  addLink: "subscriber/add",
-  view: "subscriptions_view"
 
-}
+  public subscriptionForm: any = {
+    apiBaseUrl: this.BaseUrl,
+    listEndPoint: "datalist",
+    datasource: "",
+    tableName: "subscriptions",
+    updateurl: "addorupdatedata",
+    editUrl: "subscriber/add-group/edit/",
+    jwtToken: "",
+    deleteEndPoint: "deletesingledata",
+    addLink: "subscriber/add",
+    view: "subscriptions_view"
+
+  }
 
   public subscriptionCatForm: any = {
     apiBaseUrl: this.BaseUrl,
     listEndPoint: "datalist",
     datasource: "",
-    tableName: "resources",
+    tableName: "news_category",
     updateurl: "addorupdatedata",
     editUrl: "subscriber-group/edit/",
     jwtToken: "",
@@ -70,11 +70,10 @@ public subscriptionForm: any = {
 
 
 
- 
+
 
 
   public testEmailConfigForm: any = {
-    // apiBaseUrl: "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/",
     apiBaseUrl: this.BaseUrl,
     listEndPoint: "datalist",
     datasource: "",
@@ -89,10 +88,10 @@ public subscriptionForm: any = {
   }
 
 
- 
+
   public senderConfigForm: any = {
     // apiBaseUrl: "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/",
-    apiBaseUrl: this.BaseUrl,
+    apiUrl: this.BaseUrl,
     listEndPoint: "datalist",
     datasource: "",
     tableName: "senders",
@@ -104,28 +103,32 @@ public subscriptionForm: any = {
     view: ""
 
   }
-  
+
   constructor(private readonly meta: MetaService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService,  public apiservice: ApiService, public fb: FormBuilder ) { 
 
+this.meta.setTitle('ProBid Auto - Manage Newsletters');
+this.meta.setTag('og:title', 'ProBid Auto - Manage Newsletters');
+this.meta.setTag('twitter:title', 'ProBid Auto - Manage Newsletters');
+this.meta.setTag('og:type', 'website');
+this.meta.setTag('og:image', '../../assets/images/logomain.png');
+this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
 
-    this.meta.setTitle('ProBid Auto - Manage Newsletters');
-        this.meta.setTag('og:title', 'ProBid Auto - Manage Newsletters');
-        this.meta.setTag('twitter:title', 'ProBid Auto - Manage Newsletters');
-        this.meta.setTag('og:type', 'website');
-        this.meta.setTag('og:image', '../../assets/images/logomain.png');
-        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
-        this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
-     // SubscriptionsList
+    
 
-     let data: any = {
-      source:"subscriptions_view",
+
+    // SubscriptionsList
+
+    let data: any = {
+      source: "subscriptions_view",
       endpoint: "datalist"
 
     }
-    this.apiservice.getDatalist(data).subscribe((result: any)=>{
+    this.apiservice.getDatalist(data).subscribe((result: any) => {
       this.subscriptionForm.datasource = result.res;
+      this.subscriptionForm.jwtToken = cookieService.get('jwtToken');
       // console.log('>>>>>>>>>>>>koushik subscription>>>>>>>>>>>>>', this.subscriptionForm.datasource);
     });
 
@@ -134,60 +137,62 @@ public subscriptionForm: any = {
     // SubscriptionsCATEGORYList
 
     let dataSubCat: any = {
-      source:"news_category_view",
+      source: "news_category_view",
       endpoint: "datalist"
 
     }
-    this.apiservice.getDatalist(dataSubCat).subscribe((result: any)=>{
+    this.apiservice.getDatalist(dataSubCat).subscribe((result: any) => {
       this.subscriptionCatForm.datasource = result.res;
+      this.subscriptionCatForm.jwtToken = cookieService.get('jwtToken');
       // console.log('>>>>>>>>>>>>koushik subscription Category>>>>>>>>>>>>>', this.subscriptionCatForm.datasource);
     });
-        
-
-       // testemail 
-
-       let dataTestemail: any = {
-        source:"testemail_view",
-        endpoint: "datalist"
-  
-      }
-      this.apiservice.getDatalist(dataTestemail).subscribe((result: any)=>{
-        this.testEmailConfigForm.datasource = result.res;
-        //  console.log('>>>>>>>>>>>>amitavatestemail>>>>>>>>>>>>>', this.testEmailConfigForm.datasource);
-      });
 
 
-      
-       // sender 
+    // testemail 
 
-       let dataSenderapp: any = {
-        source:"senders_view",
-        endpoint: "datalist"
-  
-      }
-      this.apiservice.getDatalist(dataSenderapp).subscribe((result: any)=>{
-        this.senderConfigForm.datasource = result.res;
-        //  console.log('>>>>>>>>>>>>amitavasender>>>>>>>>>>>>>', this.senderConfigForm.datasource);
-      });
+    let dataTestemail: any = {
+      source: "testemail_view",
+      endpoint: "datalist"
+
+    }
+    this.apiservice.getDatalist(dataTestemail).subscribe((result: any) => {
+      this.testEmailConfigForm.datasource = result.res;
+      this.testEmailConfigForm.jwtToken = cookieService.get('jwtToken');
+    });
 
 
 
-      this.myformsetting = this.fb.group({ 
-        email: [null, [Validators.required, Validators.email, Validators.maxLength(100)]],
-       
-      })
-    
+    // sender 
+
+    let dataSenderapp: any = {
+      source: "senders_view",
+      endpoint: "datalist"
+
+    }
+    this.apiservice.getDatalist(dataSenderapp).subscribe((result: any) => {
+      this.senderConfigForm.datasource = result.res;
+      this.senderConfigForm.jwtToken = cookieService.get('jwtToken');
+      //  console.log('>>>>>>>>>>>>amitavasender>>>>>>>>>>>>>', this.senderConfigForm.datasource);
+    });
+
+
+
+    this.myformsetting = this.fb.group({
+      email: [null, [Validators.required, Validators.email, Validators.maxLength(100)]],
+
+    })
+
   }
 
   ngOnInit() {
-      // NewsletterList 
+    // NewsletterList 
 
-  this.activatedRoute.data.subscribe(resolveData => {
-    this.newsConfigForm.datasource = resolveData.newsData.res;
-    this.newsConfigForm.jwtToken = this.cookieService.get('jwtToken');
-    // console.log('test', this.newsConfigForm.datasource);
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.newsConfigForm.datasource = resolveData.newsData.res;
+      this.newsConfigForm.jwtToken = this.cookieService.get('jwtToken');
+      // console.log('test', this.newsConfigForm.datasource);
 
-  });
+    });
   }
 
 
@@ -209,20 +214,20 @@ public subscriptionForm: any = {
         if (result.status == 'success') {
 
           this.myformsetting.reset();
-          
-           
+
+
 
         }
       })
     }
   }
 
-    /**blur function */
-    inputUntouch(form: any, val: any) {
-      form.controls[val].markAsUntouched();
-      //console.log('on blur .....');
-    }
-  
+  /**blur function */
+  inputUntouch(form: any, val: any) {
+    form.controls[val].markAsUntouched();
+    //console.log('on blur .....');
+  }
+
 }
 
 
