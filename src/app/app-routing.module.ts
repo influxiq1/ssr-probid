@@ -636,7 +636,9 @@ const routes: Routes = [
   },
   {
     path: 'newsletter/edit/:_id',
-    component: AddEditNewsletterComponent
+    component: AddEditNewsletterComponent,
+    resolve: { newsData: ResolveService },
+    data: { requestcondition: { source: 'newsletters', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
 
@@ -650,7 +652,9 @@ const routes: Routes = [
   },
   {
     path: 'subscriber/add-group/edit/:_id',
-    component: AddEditSubscriberComponent
+    component: AddEditSubscriberComponent,
+    resolve: { subscriptiongroupData: ResolveService },
+    data: { requestcondition: { source: 'subscriptions', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
   // -------------------------------------------

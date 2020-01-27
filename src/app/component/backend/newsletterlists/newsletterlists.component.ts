@@ -34,7 +34,7 @@ export class NewsletterlistsComponent implements OnInit {
     jwtToken: "",
     deleteEndPoint: "deletesingledata",
     addLink: "newsletter/add",
-    view: ""
+    view: "newsletters_view"
   }
 
 
