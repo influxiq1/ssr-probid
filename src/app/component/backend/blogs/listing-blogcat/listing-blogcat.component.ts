@@ -31,6 +31,7 @@ export class ListingBlogcatComponent implements OnInit {
   apiUrl: any = this.apiService.serverUrlDemo;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "blog_category_view";
+  public image_detail_datatype:any;
 
   // ====================================================================
 

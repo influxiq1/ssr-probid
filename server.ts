@@ -19,7 +19,20 @@ import 'zone.js/dist/zone-node';
 
 import * as express from 'express';
 import {join} from 'path';
+const domino = require("domino");
+const fs = require("fs");
+const path = require("path");
+const templateA = fs
+  .readFileSync(path.join("dist/browser", "index.html"))
+  .toString();
+const win = domino.createWindow(templateA);
+global["window"] = win;
+global["document"] = win.document;
+global['HTMLElement'] = win.HTMLElement;
+global['navigator'] = win.navigator;
 // import Buffer from Buffer()
+new Buffer('string') // Deprecated 
+Buffer.from('string') // New
 
 // Express server
 const app = express();

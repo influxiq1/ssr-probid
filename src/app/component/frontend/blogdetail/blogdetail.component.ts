@@ -121,8 +121,14 @@ export class BlogdetailComponent implements OnInit {
       const dialogRef = this.dialog.open(VideoModalComponent, {
         // panelClass:['modal-md','success-modal'],
        
-        width:'450px',
+        // width:'450px',
+        // data:this.safeSrc,
+
+        panelClass:['modal-md','commonVideoDialogCls'],
         data:this.safeSrc,
+        height: 'auto',
+        width: '100%',
+        maxWidth:'90vw', 
       
         
   

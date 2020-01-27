@@ -12,6 +12,7 @@ export class BkFooterComponent implements OnInit {
   public user_data: any;
   public userCookies: any;
   public userid: any = '';
+
   windowScrolled: boolean;
   
   constructor(public cookieService: CookieService, public router: Router, public activeroute: ActivatedRoute ) {

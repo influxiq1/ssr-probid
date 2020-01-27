@@ -95,10 +95,10 @@ export class InventoryDetailComponent implements OnInit {
 
     if(this.router.url == '/search-detail' ){
     this.detailService.currentData.subscribe(res =>{
-      console.log('>>>>',res)
+      // console.log('>>>>',res)
       // let result:any
       this.searchRecord=res
-      console.log('ressssssss>>>>',this.searchRecord)
+      // console.log('ressssssss>>>>',this.searchRecord)
 
      this.data = this.searchRecord.carData;
     })
@@ -162,7 +162,7 @@ export class InventoryDetailComponent implements OnInit {
 
         this.saveList = res.res;
 
-        console.log('>>>>',this.saveList)
+        // console.log('>>>>',this.saveList)
 
 
 
@@ -397,7 +397,7 @@ export class InventoryDetailComponent implements OnInit {
 
   //remove data for search-details page
   removeAddSave(val: any, item: any) {
-    console.log('val++>>', val, item)
+    // console.log('val++>>', val, item)
     const dialogRef = this.dialog.open(RemoveRsvpComponent, {
       width: '250px',
       data: this.message

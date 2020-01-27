@@ -70,15 +70,20 @@ export class BkHeaderComponent implements OnInit {
      
    }
    logout() {
+    this.cookieService.deleteAll('/');
+    setTimeout(()=>{
+        console.log(this.cookieService.get('userid'));
+        this.router.navigate(['/']);
+    },500);
 
-    setTimeout(() => {
-      this.cookieService.deleteAll();
+    // setTimeout(() => {
+    //   this.cookieService.deleteAll();
 
-    }, 1000);
-    if (this.cookieService.get('jwtToken') != '') {
-      this.router.navigateByUrl('/');
-    }
-    console.log("logout");
+    // }, 1000);
+    // if (this.cookieService.get('jwtToken') != '') {
+    //   this.router.navigateByUrl('/');
+    // }
+    // console.log("logout");
    }
 
    myAccount() {

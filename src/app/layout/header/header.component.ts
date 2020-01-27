@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, Inject } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 
 export interface DialogData {
@@ -28,30 +29,21 @@ export class HeaderComponent implements OnInit {
 
   public userCookies: any ='';
 public user_full_name: any = '';
-  //  public token:any='';
-  constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute) {
-    //console.log(this.router.url)
+  constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
     this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-    // console.log(this.userCookies)
     }
    }
-
+   
   ngOnInit() {
-    // this.cookieService.get('jwtToken');
     
   }
 
   logOut() {
-    setTimeout(() => {
-      this.cookieService.deleteAll();
-    }, 1000);
-    if (this.cookieService.get('jwtToken') != '') {
-      this.router.navigateByUrl('/');
-    }
-    console.log("logout");
-    // console.log("logout");
-    // console.log(this.token);
+    this.cookieService.deleteAll('/');
+      setTimeout(()=>{
+          this.router.navigate(['/']);
+      },500);
   }
 
   openDialog(): void {
@@ -87,13 +79,13 @@ public user_full_name: any = '';
 
 
 @Component({
-  selector: 'coming',
-  // templateUrl: './coming-soon.html',
-  template: `
-  <div class="logomodalwrapper">
-  <div class="logomodal"><img src="https://dev.probidauto.com/assets/images/logo.png"></div>
-  <h2>coming soon</h2></div>
-  `
+  // selector: 'coming',
+  templateUrl: '../../layout/coming-soon.html',
+  // template: `
+  // <div class="logomodalwrapper">
+  // <div class="logomodal"><img src="https://dev.probidauto.com/assets/images/logo.png"></div>
+  // <h2>coming soon</h2></div>
+  // `
 })
 export class comingSoonDialog {
 

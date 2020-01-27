@@ -44,7 +44,7 @@ public message:any="Are you sure you want to delete this?";
 
     if(this.router.url =='/job-ticket-admin' || this.router.url =='/communication-customer' || this.router.url =='/communication-rep'){
       this.activatedRoute.data.forEach((res)=>{
-        console.log(res.jobTicketList.res)
+        // console.log(res.jobTicketList.res)
         this.jobTicketDataList=res.jobTicketList.res
       })
     }
@@ -69,7 +69,7 @@ public message:any="Are you sure you want to delete this?";
 
    //delete JobTicket record
    deleteJobTicket(val:any,index:any){
-    console.log('delete hit',val,index)
+    // console.log('delete hit',val,index)
     const dialogRef = this.dialog.open(DeleteJobModalComponent, {
       width: '250px',
       data:this.message
@@ -104,7 +104,7 @@ public message:any="Are you sure you want to delete this?";
   }
 
   viewDetails(item:any,status:any){
-    console.log(item)
+    // console.log(item)
     this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 

@@ -27,7 +27,6 @@
     "@angular/platform-server": "~8.1.2",
     "@angular/router": "~8.1.2",
     "@ckeditor/ckeditor5-angular": "^1.1.2",
-    "@ckeditor/ckeditor5-build-classic": "^16.0.0",
     "@ng-toolkit/universal": "^1.1.51",
     "@ngmodule/material-carousel": "^0.5.1",
     "@nguniversal/express-engine": "^8.2.6",
@@ -40,6 +39,7 @@
     "blog-lib-influxiq": "0.0.5",
     "compression": "^1.7.4",
     "contactus-lib-influxiq": "0.0.1",
+    "domino": "^2.1.2",
     "express": "^4.15.2",
     "file-upload-lib-influxiq": "0.0.13",
     "font-awesome": "^4.7.0",
@@ -60,6 +60,7 @@
     "service-lib-influxiq": "0.0.2",
     "testimonial-lib-influxiq": "0.0.2",
     "tslib": "^1.9.0",
+    "xhr2": "^0.2.0",
     "zone.js": "~0.9.1"
   },
   "devDependencies": {

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dia
 import { FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CookieService } from "ngx-cookie-service";
 import { ApiService } from "../../api.service";
-
+// import { DOCUMENT } from "@angular/platform-browser";
 
 export interface DialogData { }
 
@@ -15,14 +15,21 @@ export interface DialogData { }
 })
 export class FooterComponent implements OnInit {
 
-    myform: FormGroup;
+    public myform: FormGroup;
 
     public data: any;
     public serverUrl: any;
 
     windowScrolled: boolean;
 
-    constructor(public router: Router, public route: ActivatedRoute, public dialog: MatDialog, public formbuilder: FormBuilder, public apiService: ApiService, public activeroute: ActivatedRoute, public cookie: CookieService) {
+    constructor(public router: Router,
+        // @Inject(DOCUMENT) private document: Document,
+         public route: ActivatedRoute,
+          public dialog: MatDialog,
+           public formbuilder: FormBuilder,
+            public apiService: ApiService,
+             public activeroute: ActivatedRoute,
+              public cookie: CookieService) {
 
         // console.log(this.router.url)
         this.serverUrl = apiService.serverUrlDemo;
@@ -87,6 +94,7 @@ export class FooterComponent implements OnInit {
     }
 
     ngOnInit() {
+        
         this.router.events.subscribe(() =>
             window.scrollTo({
                 top: 0,
@@ -99,7 +107,7 @@ export class FooterComponent implements OnInit {
 
 
     doSubmit() {
-        console.log('do Submit');
+        // console.log('do Submit');
         // this.data = this.myform.value;
         // console.log(this.data);
         // this.newslatterViewModal(this.data);
@@ -315,34 +323,11 @@ export class NewslatterDialogComponent {
 export class NewslattersuccessDialogComponent {
 
     public myformnews: FormGroup
-    windowScrolled: boolean;
 
     constructor(public dialogRef: MatDialogRef<NewslattersuccessDialogComponent>,
                 /* @Inject(MAT_DIALOG_DATA) public data: DialogData*/) { }
 
-                @HostListener("window:scroll", [])
-
-                onWindowScroll() {
-                    if (window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop > 100) {
-                        this.windowScrolled = true;
-                    }
-                    else if (this.windowScrolled && window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop < 10) {
-                        this.windowScrolled = false;
-                    }
-                }
                 
-                scrollToTop() {
-                    (function smoothscroll() {
-                
-                        var currentScroll = document.documentElement.scrollTop || document.body.scrollTop;
-                
-                        if (currentScroll > 0) {
-                            window.requestAnimationFrame(smoothscroll);
-                            window.scrollTo(0, currentScroll - (currentScroll / 8));
-                        }
-                
-                    })();
-                }
 
     public onNoClick(): void {
         this.dialogRef.close();
