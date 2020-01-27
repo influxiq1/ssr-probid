@@ -369,7 +369,22 @@
                                 <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank"  (click)="share(item)"><span>Post</span></a>
                                 </span>
-                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>                          
+                                <p class="grapurl">
+                                    <span class="blogsociallists">
+                                        <a class="sociallink fa fb">
+                                            <fa name="facebook" class="fa-facebook"></fa>
+                                        </a>
+                                        <a class="sociallink fa twi">
+                                            <fa name="twitter" class="fa-twitter"></fa>
+                                        </a>
+                                        <a class="sociallink fa lin">
+                                            <fa name="linkedin" class="fa-linkedin"></fa>
+                                        </a>
+                                        <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
+                                    </span>
+                                    <span>
+                                        <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
+                                    </span>           
                                 </p>
                               </mat-list-item>
                             </mat-list>
