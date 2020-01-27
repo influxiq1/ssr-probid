@@ -538,7 +538,12 @@
 
                       <ng-container matColumnDef="status" >
                         <th mat-header-cell *matHeaderCellDef> Status </th>
-                        <td mat-cell *matCellDef="let element" > {{element.job_ticket_status}}</td>
+                        <td mat-cell *matCellDef="let element"  >
+                          <span *ngIf="element.job_ticket_status == 0">Open</span>
+                          <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
+                          <span *ngIf="element.job_ticket_status == 2">Closed</span>
+                          <span *ngIf="element.job_ticket_status == 3">Re-Open</span>
+                          </td>
                       </ng-container>
 
                       <ng-container matColumnDef="action">
@@ -551,7 +556,7 @@
                       <tr mat-row *matRowDef="let row; columns: JTColumns;"></tr>
                     </table>
 
-                    <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
+                    <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
                   </div>
                 </div>
                 <span class="btnwrappercls">

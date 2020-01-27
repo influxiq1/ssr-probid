@@ -10,9 +10,9 @@ import { MetaService } from '@ngx-meta/core';
 export class BlogManagementComponent implements OnInit {
 
   constructor(public router:Router, public activatedRoute: ActivatedRoute, private readonly meta: MetaService) { 
-    this.meta.setTitle('ProBid Auto - Blog Management');
-    this.meta.setTag('og:title', 'ProBid Auto - Blog Management');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Blog Management');
+    this.meta.setTitle('ProBid Auto - Manage Blogs');
+    this.meta.setTag('og:title', 'ProBid Auto - Manage Blogs');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Manage Blogs');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');

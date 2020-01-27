@@ -21,13 +21,13 @@ export class TesimoniallistComponent implements OnInit {
     this.dataformate = moment(); // add this 2 of 4
     //console.log(this.dataformate)
     
-    this.meta.setTitle('ProBid Auto - Testimonials lists');
+    this.meta.setTitle('ProBid Auto - Testimonials');
     this.meta.setTag('og:description', 'ProBid Testimonials, BroBid Auto Customer Reviews, ProBid Auto User Reviews');
     this.meta.setTag('twitter:description', 'Check out what our Customers and Sales Reps have to say about ProBid Auto. Customer reviews that will help you to understand the convenient ways in which we get you the Pre-Owned Vehicles you desire');    
     this.meta.setTag('og:keyword', 'ProBid Testimonials, BroBid Auto Customer Reviews, ProBid Auto User Reviews');
     this.meta.setTag('twitter:keyword', 'ProBid Testimonials, BroBid Auto Customer Reviews, ProBid Auto User Reviews');
-    this.meta.setTag('og:title', 'ProBid Auto - Testimonials lists');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials lists');
+    this.meta.setTag('og:title', 'ProBid Auto - Testimonials');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
     this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');

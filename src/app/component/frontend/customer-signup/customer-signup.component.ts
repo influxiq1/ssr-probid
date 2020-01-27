@@ -40,13 +40,13 @@ export class CustomerSignupComponent implements OnInit {
       }
     });
 
-    this.meta.setTitle('ProBid Auto - Sales Rep SignUp');
-    this.meta.setTag('og:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');
-    this.meta.setTag('twitter:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');    
-    this.meta.setTag('og:keyword', 'ProBid Auto Sales Rep SignUp, Sign Up With ProBid Auto, Join ProBid Auto');
-    this.meta.setTag('twitter:keyword', 'ProBid Auto Sales Rep SignUp, Sign Up With ProBid Auto, Join ProBid Auto');
-    this.meta.setTag('og:title', 'ProBid Auto - Sales Rep SignUp');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Sales Rep SignUp');
+    this.meta.setTitle('ProBid Auto - Customer Sign-up');
+    this.meta.setTag('og:description', 'Customer can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');
+    this.meta.setTag('twitter:description', 'Customer can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');    
+    this.meta.setTag('og:keyword', 'ProBid Auto Customer Sign-up, Sign Up With ProBid Auto, Join ProBid Auto');
+    this.meta.setTag('twitter:keyword', 'ProBid Auto Customer Sign-up, Sign Up With ProBid Auto, Join ProBid Auto');
+    this.meta.setTag('og:title', 'ProBid Auto - Customer Sign-up');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Customer Sign-up');
     this.meta.setTag('og:type', 'website');
 
     if (this.img != '') {

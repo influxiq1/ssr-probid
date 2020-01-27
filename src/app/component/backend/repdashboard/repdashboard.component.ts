@@ -1,18 +1,65 @@
-import { Component, OnInit,Inject} from '@angular/core';
+import { Component, OnInit,Inject, ViewChild} from '@angular/core';
 import { CookieService } from 'ngx-cookie-service';
 import { ActivatedRoute ,Router} from '@angular/router';
 import { ApiService } from '../../../api.service';
 // import { MatDialog } from '@angular/material';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
-import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { FormBuilder } from '@angular/forms';
 import { MetaService } from '@ngx-meta/core';
+
+
+
+const UA_DATA: UpcomingAppoinement[] = [
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img1.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img2.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img3.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img4.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img5.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img6.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img7.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img8.jpg'},
+  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img9.jpg'},
+];
+
+
+const JobTicket_DATA: JobTicket[] = [
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+];
 
 export interface DialogData {
   data: any;
   msg:any;
 } 
+
+export interface UpcomingAppoinement {
+  name: string;
+  phoneNumber: string;
+  date: string;
+  repName: string;
+  action: string;
+  image_URL: string;
+}
+
+export interface JobTicket {
+  ticket: string;
+  image_URL: string;
+  name: string;
+  title: string;
+  repName: string;
+  customerName: string;
+  subject: string;
+  status: string;
+  action: string;
+}
 
 @Component({
   selector: 'app-repdashboard',
@@ -28,6 +75,7 @@ export class RepdashboardComponent implements OnInit {
   public message:any="Are you sure you want to delete this?";
   public rsvpList:any;
   public saveSearchList:any;
+  public jobTicketList:any;
 
   
   public indexval:any=6;
@@ -41,6 +89,15 @@ public allLinkdinBanner : any = [
 
 
 
+      UAColumns: string[] = ['name', 'phoneNumber', 'date', 'repName', 'action'];
+      upcomingAppoinementDataSource = new MatTableDataSource<UpcomingAppoinement>(UA_DATA);
+      @ViewChild(MatPaginator, {static: false}) uaPaginator: MatPaginator;
+    
+    
+    
+      JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+      jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+      @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
 
 
 
@@ -109,6 +166,26 @@ public allLinkdinBanner : any = [
 
   }
 
+  share(url: string) {
+
+    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+
+    this.cookieService.set('shareIngUrl',fullUrl);
+    // console.log(fullUrl)
+
+    let params: UIParams = {
+      href: fullUrl,
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
+    };
+   
+    this.fb1.ui(params)
+      .then((res: UIResponse) =>{
+
+      })
+      .catch();   
+  }
+
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
       // console.log('dash-data',data)
@@ -121,30 +198,52 @@ public allLinkdinBanner : any = [
 
       this.saveSearchList=data.rsvp.result.save_search 
     })
+
+
+
+    this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
+
+    this.jobTicketDataSource.paginator = this.jtPaginator;
+
+
+   //for job ticket
+
+   let data:any;
+   data={
+     "source":"job_ticket_customer"
+   }
+   this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
+     let result:any=res;
+     this.jobTicketList=result.res
+     console.log('>>>>>', this.jobTicketList)
+
+   })
+
+
   }
 
 
 
   
   
-  share(url: string) {
-    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-    this.cookieService.set('shareIngUrl',fullUrl);
-    // console.log(fullUrl)
+  // share(url: string) {
+  //   var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+  //   this.cookieService.set('shareIngUrl',fullUrl);
+  //   // console.log(fullUrl)
  
-    let params: UIParams = {
-      href: fullUrl,
-      method: 'share',
-      quote: 'https://dev.probidauto.com/'
-    };
+  //   let params: UIParams = {
+  //     href: fullUrl,
+  //     method: 'share',
+  //     quote: 'https://dev.probidauto.com/'
+  //   };
    
-    this.fb1.ui(params)
-      .then((res: UIResponse) =>{
+  //   this.fb1.ui(params)
+  //     .then((res: UIResponse) =>{
 
-      })
-      .catch();
+  //     })
+  //     .catch();
    
-  }
+  // }
 
   /* To copy Text from Textbox */
   copyInputMessage(inputElement){

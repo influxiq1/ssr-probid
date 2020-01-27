@@ -3,6 +3,7 @@ import { ApiService } from '../../../api.service';
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
+import { MetaService } from '@ngx-meta/core';
 
 import { environment } from '../../../../environments/environment';
 
@@ -103,10 +104,19 @@ export class NewsletterlistsComponent implements OnInit {
 
   }
 
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiservice: ApiService, public fb: FormBuilder) {
+  constructor(private readonly meta: MetaService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService,  public apiservice: ApiService, public fb: FormBuilder ) { 
 
-     console.log("sss",this.senderConfigForm);
+this.meta.setTitle('ProBid Auto - Manage Newsletters');
+this.meta.setTag('og:title', 'ProBid Auto - Manage Newsletters');
+this.meta.setTag('twitter:title', 'ProBid Auto - Manage Newsletters');
+this.meta.setTag('og:type', 'website');
+this.meta.setTag('og:image', '../../assets/images/logomain.png');
+this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
+
+
+    
 
 
     // SubscriptionsList
