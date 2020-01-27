@@ -313,6 +313,20 @@ postdata(requestdata: any) {
   }
 
 
+  // getDataForEndpoint(endpoint: any) {
+
+  //   const httpOptions = {
+  //       headers: new HttpHeaders({
+  //           'Content-Type':  'application/json'
+  //       })
+  //   };
+  
+  //   // this.isTokenExpired()
+  //   var result = this._http.post(this.serverUrlDemo + endpoint, httpOptions).pipe(map(res => res));
+  
+  //   return result;
+  // }
+
 
  
 
