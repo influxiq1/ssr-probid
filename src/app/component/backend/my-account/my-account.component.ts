@@ -120,6 +120,7 @@ export class MyAccountComponent implements OnInit {
 
 
   changePasswordFormSubmit() {
+
     for (let x in this.changePasswordFormGroup.controls) {
       this.changePasswordFormGroup.controls[x].markAsTouched();
     }
@@ -159,6 +160,7 @@ export class MyAccountComponent implements OnInit {
       // setTimeout(() => {
       //   this.getCityByName(this.userData.state);
       // }, 400);
+
       this.UpdateForm.controls['firstname'].patchValue(this.userData.firstname);
       this.UpdateForm.controls['lastname'].patchValue(this.userData.lastname);
       this.UpdateForm.controls['email'].patchValue(this.userData.email);
