@@ -76,8 +76,8 @@ export class TesimoniallistComponent implements OnInit {
 
   
 //*********** Coming Soon ************//
-comingSoonDialogTestimonhome(): void {
-  const dialogRef = this.dialog.open(comingSoonDialogTestimonhome, {
+comingSoonDialogTestimonList(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogTestimonListhome, {
    
     data: {name: this.name}
   });
@@ -95,10 +95,10 @@ comingSoonDialogTestimonhome(): void {
   selector:'app-coming-soon',
   templateUrl: '../../../layout/coming-soon.html'
 })
-export class comingSoonDialogTestimonhome {
+export class comingSoonDialogTestimonListhome {
 
   constructor(
-    public dialogRef: MatDialogRef<comingSoonDialogTestimonhome>,
+    public dialogRef: MatDialogRef<comingSoonDialogTestimonListhome>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
 
   onNoClick(): void {

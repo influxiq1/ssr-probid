@@ -12,7 +12,6 @@ import { MetaService } from '@ngx-meta/core';
 export class AddeditServiceComponent implements OnInit {
   public configAddEdit: any = {
     action: "add",
-    // endpoint: "https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/addorupdatedata",
     endpoint: this.ApiService.serverUrlDemo + 'addorupdatedata',
     source: "services",
     condition: {},
@@ -21,6 +20,33 @@ export class AddeditServiceComponent implements OnInit {
     callBack: "service/list",
     userData: { id: "18801017007", name: "Admin" },
   }
+
+  public configData: any = {
+    baseUrl: "https://fileupload.influxhostserver.com/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format: ["jpg", "jpeg","png"], // use all small font
+    type: "service-image",
+    path: "services",
+    prefix: "service-image_",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "crmfiles.influxhostserver"
+  }
+
+  public configData2: any = {
+    baseUrl: "https://fileupload.influxhostserver.com/",
+    endpoint: "uploads",
+    size: "51200", // kb
+    format: ["jpg", "jpeg","png"], // use all small font
+    type: "additional_service-image",
+    path: "services",
+    prefix: "additional_service-image_",
+    formSubmit: false,
+    conversionNeeded: 0,
+    bucketName: "crmfiles.influxhostserver"
+  }
+
 
 
   constructor(private router : Router , private activatedRoute : ActivatedRoute ,private cookieService : CookieService, public ApiService: ApiService, private readonly meta: MetaService) {
@@ -37,7 +63,7 @@ export class AddeditServiceComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       if(params._id) {
         this.activatedRoute.data.subscribe(resolveData => {
-          this.configAddEdit.defaultData = resolveData.serviceList.res[0];
+          this.configAddEdit.defaultData = resolveData.data.res[0];
           this.configAddEdit.action = "edit";
           this.configAddEdit.condition = { id: params._id };
         });

@@ -358,17 +358,28 @@ const routes: Routes = [
     data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
   },
 
+  // {
+  //   path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
+  //   data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]
+  // },
   {
-    path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
-    data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
+    path: 'service-listing',
+    component: ListingServiceComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'services_view',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
   },
   { path: 'service/add', component: AddeditServiceComponent, canActivate: [AuthGuard] },
   {
-    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { serviceList: ResolveService },
+    path: 'service/edit/:_id', component: AddeditServiceComponent, resolve: { data: ResolveService },
     data: { requestcondition: { source: 'services', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
   },
 
-  // { path: 'blog-management', component: BlogManagementComponent },
   {
     path: 'blog-management',
     component: BlogManagementComponent,
@@ -638,7 +649,9 @@ const routes: Routes = [
   },
   {
     path: 'newsletter/edit/:_id',
-    component: AddEditNewsletterComponent
+    component: AddEditNewsletterComponent,
+    resolve: { newsData: ResolveService },
+    data: { requestcondition: { source: 'newsletters', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
 
@@ -652,7 +665,9 @@ const routes: Routes = [
   },
   {
     path: 'subscriber/add-group/edit/:_id',
-    component: AddEditSubscriberComponent
+    component: AddEditSubscriberComponent,
+    resolve: { subscriptiongroupData: ResolveService },
+    data: { requestcondition: { source: 'subscriptions', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
   // -------------------------------------------
@@ -668,7 +683,9 @@ const routes: Routes = [
   },
   {
     path: 'subscriber-group/edit/:_id',
-    component: AddEditSubscriberGroupComponent
+    component: AddEditSubscriberGroupComponent,
+    resolve: { subscriptiongroupData: ResolveService },
+    data: { requestcondition: { source: 'news_category', condition: {} }, endpoint: 'datalist' }
   },
   // -----------------------------------------------
   // -------------------------------------------
@@ -684,72 +701,26 @@ const routes: Routes = [
   },
   {
     path: 'test/edit/:_id',
-    component: AddEditTestemailComponent
-
-
-
+    component: AddEditTestemailComponent,
+    resolve: { testData: ResolveService },
+    data: { requestcondition: { source: 'testemail', condition: {} }, endpoint: 'datalist' }
   },
 
   // ________________________sender's list_____________________
   { path: 'sender/add', component: AddEditSenderappComponent },
   {
-    path: 'newsletter-list',
-    component: ListingSenderappComponent
+    path: 'sender/list',
+    component: ListingSenderappComponent,
+    resolve: { senderData: ResolveService },
+    data: { requestcondition: { source: 'senders_view', condition: {} }, endpoint: 'datalist' }
   },
-
   {
     path: 'sender/edit/:_id',
-    component: AddEditSenderappComponent
+    component: AddEditSenderappComponent,
+    resolve: { senderData: ResolveService },
+    data: { requestcondition: { source: 'senders', condition: {} }, endpoint: 'datalist' }
   },
-  /**Lession Management **/
-  { path: 'manage-lession/add', component: AddEditLessionsComponent },
 
-  {
-    path: 'manage-lession/list', component: ListLessionComponent,
-    resolve: { lessionData: ResolveService },
-    data: { requestcondition: { source: 'manage_lession_view', condition: {} }, endpoint: 'datalist' }
-  },
-  { path: 'manage-lession/edit/:id', component: AddEditLessionsComponent },
-
-  /**Training Management**/
-  { path: 'manage-training/add', component: AddEditTrainingComponent },
-
-  {
-    path: 'manage-training/list', component: ListingTrainingComponent,
-    resolve: { trainingdata: ResolveService },
-    data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
-  },
-  { path: 'manage-training/edit/:id', component: AddEditTrainingComponent },
-  /**Training center**/
-  {
-    path: 'training-center/list', component: ListComponent,
-    resolve: { trainingdata: ResolveService },
-    data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
-  },
-  { path: 'manage-center/add', component: AddEditCenterComponent },
-  { path: 'manage-center/edit/:id', component: AddEditCenterComponent },
-  /**Quiz Management**/
-  {
-    path: 'manage-quiz/list/:lesson_id_object', component: ManageQuizComponent,
-    resolve: { trainingdata: ResolveService },
-    data: { requestcondition: { source: 'quiz_question_view', condition: {} }, endpoint: 'datalist' }
-  },
-  {
-    path: 'manage-quiz/add/:id', component: AddEditComponent
-  },
-  {
-    path: 'manage-quiz/edit/:_id', component: AddEditComponent,
-    resolve: { quizQuestionData: ResolveService },
-    data: { requestcondition: { source: 'quiz_question', condition: {} }, endpoint: 'datalist' }
-  },
-  {
-    path: 'manage-quiz/add-answer/:id', component: AddUpdateAnswerComponent
-  },
-  {
-    path: 'manage-quiz/update-answer/:questionId_object', component: UpdateAnswerComponent,
-    resolve: { quizQuestionData: ResolveService },
-    data: { requestcondition: { source: 'quiz_answer', condition: {} }, endpoint: 'datalist' }
-  }
 
   // { path: '',
   // redirectTo: '/home',
