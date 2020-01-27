@@ -29,7 +29,7 @@ i{font-style:normal;font-weight:400;font-variant:normal;text-transform:none;line
 .form_floating_div{width:100%}
 admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:transparent!important;margin-bottom:10px;display:flex;align-items:center;justify-content:space-between}
 .admcls .mat-card{padding:0!important;border-radius:0!important;box-shadow:none}
-.admcls .header{position:fixed;width:100%;height:89px;display:flex;align-items:stretch;flex-wrap:wrap;justify-content:space-between;background:#fafafa;z-index:100; border-bottom: 1px solid #bbbbbb;background: rgba(255,255,255,1); background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(237,237,237,1)));background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );}
+.admcls .header{position:fixed;width:100%;height:89px;display:flex;align-items:stretch;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:space-between;background:#fafafa;z-index:100; border-bottom: 1px solid #bbbbbb;background: rgba(255,255,255,1); background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(100%, rgba(237,237,237,1)));background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%);filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );}
 .admcls .header .toolbar-row{padding:0!important;overflow:hidden;height: 100%;}
 .admcls .header .toolbar-row .logo{width: 234px;background: #222;padding: 20px;display: -webkit-box;display: flex;-webkit-box-align: center;align-items: center;}
 .admcls .header .toolbar-row .logo img{max-width:100%}
@@ -71,7 +71,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .admcls .leftSidenav-secondary li.nav-item>div>a>.dd-arrow{transition:all .4s ease-in-out}
 .admcls .leftSidenav-secondary li.nav-item>div>.childNav{max-height:0;overflow:hidden;background:#fff;transition:all .4s ease-in-out}
 .admcls .leftSidenav-secondary li.nav-item>div>.childNav li.nav-item a{padding:12px 12px 12px 50px}
-.admcls .header .toolbar-row .topmenuicon{display:none;width:36px;background:#f9f9f9;padding:22px 8px;display:flex;align-items:center;box-shadow:7px 0 24px -11px rgba(50,50,50,0.44);flex-wrap:wrap;justify-content:center}
+.admcls .header .toolbar-row .topmenuicon{display:none;width:36px;background:#f9f9f9;padding:22px 8px;display:flex;align-items:center;box-shadow:7px 0 24px -11px rgba(50,50,50,0.44);flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:center}
 .admcls .header .toolbar-row .topmenuicon.active .leftSidenav{left:0}
 .admcls .header .toolbar-row .topmenuicon div{width:100%;height:1px;background:#47404f;margin:3px 0}
 .admcls .header .header-part-right{display:flex;align-items:center; margin-right: 10px;}
@@ -252,7 +252,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .breadcrumb li a:hover{background:#b5bdbf}
 .breadcrumb li a:hover:after{border-left-color:#b5bdbf!important}
 app-bk-leftdiv{position:relative;z-index:999;display:none}
-.adm_inner_banner{background:url(../images/managetype_banner.jpg) no-repeat center center;background-size:cover;border-top-left-radius:10px;border-top-right-radius:10px;padding:50px;padding-right:45%}
+.adm_inner_banner{background:url(../images/managetype_banner.jpg) no-repeat center center;background-size:cover;border-top-left-radius:10px;border-top-right-radius:10px;padding:50px;padding-right:45%;min-height: 160px;display: flex !important;align-items: center;}
 .generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5)}
 .adm_inner_banner .adm_inner_para{font-size:24px;color:#fff;font-family:"HelveticaBold";margin:0;text-shadow:3px 2px 3px rgba(255,255,255,.2);width:80%}
 .adm_inner_banner.managemake{background:url(../images/managemake_banner.jpg) no-repeat center center!important;background-size:cover!important}
@@ -264,8 +264,8 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .adm_inner_banner.managetraining{background:url(../images/managetraining_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.rsvpadmin{background:url(../images/adminrsvp_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.adminbannerdashnboard{background:url(../images/admin-dashboard-banner-img.jpg) no-repeat center center!important;background-size:cover!important;padding:100px 50px!important}
-.bred_cram_wrapper{background:#DDE2E5;display:flex!important;padding:8px;align-items:stretch}
-.bred_cram_wrapper a{background:#b5bdbf;background:#b5bdbf;display:flex!important;color:#252525;padding:8px 20px;text-decoration:none;margin:0;width:auto;justify-content:center;font-size:18px;text-transform:capitalize;font-family:"Helvetica-Normal"}
+.bred_cram_wrapper{background:#DDE2E5;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;padding:8px;align-items:stretch}
+.bred_cram_wrapper a{background:#b5bdbf;background:#b5bdbf;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;color:#252525;padding:8px 20px;text-decoration:none;margin:0;width:auto;justify-content:center;font-size:18px;text-transform:capitalize;font-family:"Helvetica-Normal"}
 .activebread{background:#fff!important;color:#000!important;position:relative}
 .activebread::before{content:'';width:15px;height:100%;background:#B5BDBF;display:inline-block;position:absolute;top:0;left:0;clip-path:polygon(0 0,0% 100%,100% 50%)}
 .activebread::after{content:'';width:15px;height:100%;background:#FFF;display:inline-block;position:absolute;right:-15px;top:0;clip-path:polygon(0 0,0% 100%,100% 54%)}
@@ -284,17 +284,17 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .setting_formblock_btngroup button{display:inline-block;border:none;box-shadow:none;width:98px;height:35px;text-align:center;line-height:30px;font-size:16px;cursor:pointer;text-transform:uppercase;color:#fff;background:#323234}
 .setting_formblock_btngroup button:nth-of-type(2){background:#e03621;margin-left:10px}
 .subrighrwrapper .sub-col-6 .mat-radio-group{margin:0!important}
-.sharelinkrighttop{display:flex;flex-direction:column;flex-wrap:wrap;justify-content:space-between;padding-top:0;height:50%!important;align-items:center}
+.sharelinkrighttop{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:column;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:space-between;padding-top:0;height:50%!important;align-items:center}
 .sharelinkrighttop .mat-list-item-content{padding:0!important;height:100%!important}
 .sharelinkrighttop .mat-list-item-content span h3{margin:0;padding:0;font-family:'HelveticaBold';font-size:24px!important;line-height:normal!important;color:#e64631!important;text-transform:uppercase!important;text-align:left!important}
 .sharelinkrighttop span{box-sizing:border-box;margin-bottom:0;width:calc(1/2*100% - (1 - 1/2)*5px);height:auto;padding:0;height:auto;justify-content:center;text-align:center}
 .sharelinkrightmiddle{position:relative;display:block!important;background:#32393f;color:#fffefe;margin:0;padding:0;font-family:'Helvetica-Regular';font-size:36px!important;line-height:normal!important;text-transform:uppercase;height:auto!important;margin-top:auto}
 .sharelinkrightmiddle .mat-list-item-content{justify-content:center;color:#fffefe;margin:0;padding:5px 5px 10px!important;font-size:30px!important;line-height:normal!important;text-transform:uppercase}
-.sharelinkrightbottom{position:relative;display:flex!important;background:#494949;color:#fffefe;margin:0;padding:0;font-family:'Helvetica-Regular';font-size:30px!important;line-height:normal!important;text-transform:uppercase;height:auto!important;justify-content:space-between;align-items:stretch;height:auto!important;margin-top:5px}
+.sharelinkrightbottom{position:relative;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;background:#494949;color:#fffefe;margin:0;padding:0;font-family:'Helvetica-Regular';font-size:30px!important;line-height:normal!important;text-transform:uppercase;height:auto!important;justify-content:space-between;align-items:stretch;height:auto!important;margin-top:5px}
 .sharelinkrightbottom span{box-sizing:border-box;width:calc(1/2*100% - (1 - 1/2)*2px);height:auto;padding:11px;height:auto!important;text-align:center;color:#fffefe;margin:0;padding:5px;font-family:'Helvetica-Regular';font-size:24px;line-height:normal!important;text-transform:uppercase}
 span.smltxt{font-size:16px!important;line-height:18px!important;display:block;text-align:center;width:100%}
 .customerinfotopcontent .mat-list-item .mat-list-item-content span{display:block!important;width:100%}
-.customerinfotopcontent .mat-list-item:nth-child(1) .mat-list-item-content span{width:auto;display:flex;font-weight:700;color:#2e353b!important}
+.customerinfotopcontent .mat-list-item:nth-child(1) .mat-list-item-content span{width:auto;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-weight:700;color:#2e353b!important}
 @media only screen and (max-width: 1199px) {
 .setting_formblock label{display:block;float:none;margin:10px 0}
 .setting_formblock .mat-form-field{display:block;float:none;margin:0 0 20px}
@@ -330,11 +330,11 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .newform_css .bottompart{padding:6px 0;display:block;text-align:left!important}
 .newform_css button{background:#f7462e!important;font-size:15px!important;color:#fff!important}
 .newform_css button:nth-of-type(2){background:#333!important;margin-left:10px!important}
-.myaccount .myaccountwrapper{width:1000px;margin:0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh}
-.myaccount.generalcls .myaccountwrapper .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;color:#fff;display:-webkit-box;display:flex;width:100%;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background:#333;margin-bottom:2px!important;padding:20px 0 15px}
-.myaccount .mat-tab-group{display:flex;flex-direction:row;width:100%}
+.myaccount .myaccountwrapper{width:1000px;margin:0 auto;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;min-height:100vh}
+.myaccount.generalcls .myaccountwrapper .mat-card-title{font-family:'HelveticaBold';font-size:48px!important;line-height:48px!important;text-transform:uppercase;margin:0;padding:0;color:#fff;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background:#333;margin-bottom:2px!important;padding:20px 0 15px}
+.myaccount .mat-tab-group{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:row;width:100%}
 .myaccount .mat-tab-group .mat-form-field{width:100%}
-.myaccount .mat-tab-labels{display:flex;flex-direction:column}
+.myaccount .mat-tab-labels{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:column}
 .myaccount .mat-ink-bar{position:absolute;right:0!important;height:100%;transition:.5s cubic-bezier(.35,0,.25,1);top:0;width:1px!important}
 .myaccount .mat-ink-bar[style]{right:0!important;background-color:transparent!important}
 .myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix{border:1px solid #bfbfbf!important;display:inherit}
@@ -347,22 +347,22 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .myaccount .mattabgroup .mat-tab-label-active{background:#5d5a55;opacity:1;border-left:5px solid #e04530}
 .myaccount .mattabgroup .mat-tab-label-active .mat-tab-label-content{color:#fff;text-transform:uppercase}
 .myaccount .profile-area .profile-info .social-icon{margin-top:15px}
-.myaccount .profile-area{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:start;justify-content:flex-start;background:#d7d7d7;padding:0;width:100%;position:relative}
-.myaccount .profile-area .file_upload{position:absolute;top:80%;width:248px;display:-webkit-box;display:flex;-webkit-box-pack:justify;justify-content:space-between;-webkit-box-align:stretch;align-items:stretch;height:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;z-index:9;background-color:#fff}
-.myaccount .profile-area .file_upload .uploadfilecontainer{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;margin:0;border:none;border-radius:0;text-align:center;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#333!important;width:248px!important}
+.myaccount .profile-area{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align:center;align-items:center;-webkit-box-pack:start;justify-content:flex-start;background:#d7d7d7;padding:0;width:100%;position:relative}
+.myaccount .profile-area .file_upload{position:absolute;top:80%;width:248px;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack:justify;justify-content:space-between;-webkit-box-align:stretch;align-items:stretch;height:auto;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column;z-index:9;background-color:#fff}
+.myaccount .profile-area .file_upload .uploadfilecontainer{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;margin:0;border:none;border-radius:0;text-align:center;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:center;align-items:center;background-color:#333!important;width:248px!important}
 .myaccount .profile-area .file_upload .uploadfilecontainer .uploadtextwrapper h2{font-family:'HelveticaBold';font-size:16px!important;line-height:normal!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:0;margin-top:0;color:#fff;white-space:normal!important}
 .myaccount .profile-area .file_upload .uploadfilecontainer .uploadtextwrapper p{font-family:'Helvetica-Normal';font-size:14px;color:#d7d7d7;margin:0;padding:0;line-height:18px;font-weight:400;display:none}
-.myaccount .profile-area .file_upload .uploadfilecontainer .uploadtextwrapper{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center;flex-wrap:wrap;-webkit-box-pack:center;justify-content:center;height:auto;width:247px;padding-top:8px;padding-bottom:5px}
-.myaccount .profile-area .file_upload .files-view{background-repeat:no-repeat;background-size:cover;background-position:center;height:auto!important;width:auto;margin:0 auto;border-radius:0;display:-webkit-box;display:flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:stretch;align-items:stretch;flex-wrap:wrap}
-.myaccount .profile-area .file_upload .files-view .mat-card{position:relative;z-index:9;flex:1 1 28.33%;margin:0!important;display:flex;flex-wrap:wrap;padding:10px}
+.myaccount .profile-area .file_upload .uploadfilecontainer .uploadtextwrapper{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align:center;align-items:center;flex-wrap: wrap;  -webkit-flex-wrap: wrap;-webkit-box-pack:center;justify-content:center;height:auto;width:247px;padding-top:8px;padding-bottom:5px}
+.myaccount .profile-area .file_upload .files-view{background-repeat:no-repeat;background-size:cover;background-position:center;height:auto!important;width:auto;margin:0 auto;border-radius:0;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-pack:center;justify-content:center;-webkit-box-align:stretch;align-items:stretch;flex-wrap:wrap}
+.myaccount .profile-area .file_upload .files-view .mat-card{position:relative;z-index:9;flex:1 1 28.33%;margin:0!important;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;padding:10px}
 .myaccount .profile-area .file_upload .files-view .mat-card .fileDescription.mat-card-subtitle{margin-top:0;margin-bottom:0}
 .myaccount .profile-area .file_upload .button-group{background-repeat:no-repeat;background-size:100px;background-position:center;height:40px;width:100%;margin:20px auto;border-radius:0;display:none}
 .myaccount .profile-area .file_upload .files-view .viewUrlwrapper img{height:99999px;object-fit:contain;max-height:100%;max-width:100%;display:block;margin:auto;width:100%;margin-top:0!important}
-.myaccount .profile-area .file_upload .mat-card-title{font-family:'HelveticaBold';font-size:18px!important;line-height:normal!important;text-transform:capitalize;margin:0;padding:0;color:#fff;display:-webkit-box;display:flex;width:100%;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background:#333;margin-bottom:2px!important;padding:7px 0 5px}
+.myaccount .profile-area .file_upload .mat-card-title{font-family:'HelveticaBold';font-size:18px!important;line-height:normal!important;text-transform:capitalize;margin:0;padding:0;color:#fff;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;background:#333;margin-bottom:2px!important;padding:7px 0 5px}
 .myaccount .profile-area .profileimg{width:247px;height:165px;background:#fff;overflow:hidden}
 .myaccount .profile-area .profileinfo{padding:20px;text-align:left;-webkit-box-flex:1;flex:1 1 auto;position:relative}
 .myaccount .profile-area .profileinfo .file_upload{position:absolute;-webkit-box-ordinal-group:2;order:1;top:-9px;left:0;width:100%;height:100%}
-.myaccount .profile-area .profileinfo .file_upload .uploadfilecontainer{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;width:100%;margin:0 auto;border:none;border-radius:0;text-align:center;display:flex;justify-content:center;align-items:center}
+.myaccount .profile-area .profileinfo .file_upload .uploadfilecontainer{background-repeat:no-repeat;background-size:100px;background-position:center;height:auto;width:100%;margin:0 auto;border:none;border-radius:0;text-align:center;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;justify-content:center;align-items:center}
 .myaccount .profile-area .profileimg img{height:99999px;object-fit:contain;max-height:100%;max-width:100%;display:block;margin:auto;width:100%;margin-top:0!important}
 .myaccount .profile-area .profile-info{color:#333}
 .myaccount .profile-area .profileinfo h2{color:#333!important;margin-bottom:10px;margin-top:0}
