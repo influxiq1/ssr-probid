@@ -185,6 +185,19 @@ import { HttpLoaderService } from './http-loader.service';
 
 
 //****** for video Modal*********//
+/**Training library**/
+import {TraningModule } from 'traning-lib-influxiq';
+import { AddEditLessionsComponent } from '../app/component/backend/training/manage-lessions/add-edit-lessions/add-edit-lessions.component';
+import { ListLessionComponent } from '../app/component/backend/training/manage-lessions/list-lession/list-lession.component';
+import { AddEditComponent } from '../app/component/backend/training/manage-quiz/add-edit/add-edit.component';
+import { AddUpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/add-update-answer/add-update-answer.component';
+import { UpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/update-answer/update-answer.component';
+import { ManageQuizComponent } from '../app/component/backend/training/manage-quiz/manage-quiz.component';
+import { AddEditTrainingComponent } from '../app/component/backend/training/manage-training/add-edit-training/add-edit-training.component';
+import { ListingTrainingComponent } from '../app/component/backend/training/manage-training/listing-training/listing-training.component';
+import { AddEditCenterComponent } from '../app/component/backend/training/training-center/add-edit-center/add-edit-center.component';
+import { ListComponent } from '../app/component/backend/training/training-center/list/list.component';
+
 
 
 export function metaFactory(): MetaLoader {
@@ -334,6 +347,19 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     HttpLoaderComponent,
     ApiModalComponent,    
     comingSoonDialogTestimonhome,
+    // training library
+    AddEditLessionsComponent,
+    ListLessionComponent,
+    AddEditComponent,
+    AddUpdateAnswerComponent,
+    UpdateAnswerComponent,
+    ManageQuizComponent,
+    AddEditTrainingComponent,
+    ListingTrainingComponent,
+    AddEditCenterComponent,
+    ListComponent
+
+
   ],
   imports: [
     TranslateModule.forRoot(
@@ -361,6 +387,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     // TrainingModule,
     // BlogModule,
     FileUploadModule,
+    TraningModule , //Training library
     // NgxUploaderModule,
     AngularFontAwesomeModule,
     MatCarouselModule.forRoot(),
