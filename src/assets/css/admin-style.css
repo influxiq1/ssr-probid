@@ -253,7 +253,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .breadcrumb li a:hover:after{border-left-color:#b5bdbf!important}
 app-bk-leftdiv{position:relative;z-index:999;display:none}
 .adm_inner_banner{background:url(../images/managetype_banner.jpg) no-repeat center center;background-size:cover;border-top-left-radius:10px;border-top-right-radius:10px;padding:50px;padding-right:45%;min-height: 160px;display: flex !important;align-items: center;}
-.generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5)}
+.generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5);margin: 0;}
 .adm_inner_banner .adm_inner_para{font-size:24px;color:#fff;font-family:"HelveticaBold";margin:0;text-shadow:3px 2px 3px rgba(255,255,255,.2);width:80%}
 .adm_inner_banner.managemake{background:url(../images/managemake_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.managemodel{background:url(../images/managemodel_banner.jpg) no-repeat center center!important;background-size:cover!important}

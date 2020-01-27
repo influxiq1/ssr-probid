@@ -65,18 +65,34 @@ export class AdminManageCategoriesComponent implements OnInit {
       // console.log('result.res');
       // console.log(result.serviceList.res);
       if (this.router.url ==='/manage-type') {
+        this.meta.setTitle('ProBid Auto - Manage Type');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
         this.manage_type = result.serviceList.res;
         // console.log('type>>>>',this.manage_type)
       } else if(this.router.url ==='/manage-make') {
+        this.meta.setTitle('ProBid Auto - Manage Make');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
         this.manage_make = result.serviceList.res;
         // console.log('manage_make');
         // console.log('make>>>>',this.manage_make)
 
       } else if(this.router.url ==='/manage-model') {
+        this.meta.setTitle('ProBid Auto - Manage Model');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
         this.manage_model = result.serviceList.res;
         // console.log('model>>>>',this.manage_model)
 
       } else if (this.router.url ==='/manage-year'){
+        this.meta.setTitle('ProBid Auto - Manage Year');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
         this.manage_year = result.serviceList.res;
         // console.log('year>>>>',this.manage_year)
 
