@@ -163,12 +163,7 @@
 .block1socialadvo .flexbox4column .mat-list-item .mat-list-item-content{height:100%!important;width:100%;padding:0}
 .rep-dashboard-block5 .titleadmin{-webkit-box-pack:justify;justify-content:space-between;display:-webkit-box;display:flex}
 .communicationsection .tablediv{margin-top: 0 !important;}
-textarea {
-    resize: none;
-    overflow: hidden;
-    min-height: 50px;
-    max-height: 100px;
-}
+textarea {resize: none;overflow: hidden;min-height: 50px;max-height: 100px;}
 /* 
 p#note {
 	width:100%;
