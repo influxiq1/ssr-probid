@@ -4,6 +4,8 @@ import { LoginComponent } from './component/frontend/login/login.component';
 import { AuthGuard } from './auth.guard';
 
 /**Frontend Routing**/
+/**Training library**/
+
 import { HomeComponent } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
 import { ForgetPasswordComponent } from './component/frontend/forget-password/forget-password.component';
@@ -60,7 +62,7 @@ import { NewsletterlistsComponent } from './component/backend/newsletterlists/ne
 import { SalesReportComponent } from './component/backend/sales-report/sales-report.component';
 import { SalesreplistsComponent } from './component/backend/salesreplists/salesreplists.component';
 import { RsvplistsComponent } from './component/backend/rsvplists/rsvplists.component';
-import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
+// import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
 import { ManageLessonsComponent } from './component/backend/manage-lessons/manage-lessons.component';
 import { TrainingCenterComponent } from './component/backend/training-center/training-center.component';
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
@@ -125,6 +127,56 @@ import { ListComponent } from '../app/component/backend/training/training-center
 const routes: Routes = [
 
   /**Frontend Routing**/
+
+  /**Training library**/
+  
+   /**Lession Management **/
+   { path: 'manage-lession/add', component: AddEditLessionsComponent },
+
+   { path: 'manage-lession/list', component : ListLessionComponent,
+   resolve: { lessionData: ResolveService }, 
+   data: { requestcondition: { source: 'manage_lession_view', condition: {} }, endpoint: 'datalist' }},
+   { path: 'manage-lession/edit/:id', component: AddEditLessionsComponent },
+
+  /**Training Management**/
+   { path: 'manage-training/add', component: AddEditTrainingComponent },
+
+   {
+       path: 'manage-training/list', component: ListingTrainingComponent,
+       resolve: { trainingdata: ResolveService }, 
+       data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
+   },
+   { path: 'manage-training/edit/:id', component: AddEditTrainingComponent },
+   /**Training center**/
+   { 
+       path : 'training-center/list' , component : ListComponent,
+       resolve: { trainingdata: ResolveService }, 
+       data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
+   },
+   { path: 'manage-center/add', component: AddEditCenterComponent },
+   { path: 'manage-center/edit/:id', component: AddEditCenterComponent },
+   /**Quiz Management**/
+   {
+     path : 'manage-quiz/list/:lesson_id_object' , component : ManageQuizComponent,
+     resolve: { trainingdata: ResolveService }, 
+       data: { requestcondition: { source: 'quiz_question_view', condition: {} }, endpoint: 'datalist' }
+   },
+   {
+       path : 'manage-quiz/add/:id', component : AddEditComponent
+   },
+   {
+       path : 'manage-quiz/edit/:_id', component : AddEditComponent,
+       resolve: { quizQuestionData: ResolveService }, 
+       data: { requestcondition: { source: 'quiz_question', condition: {} }, endpoint: 'datalist' }
+   },
+   {
+     path : 'manage-quiz/add-answer/:id' , component : AddUpdateAnswerComponent
+   },
+   {
+       path : 'manage-quiz/update-answer/:questionId_object',component : UpdateAnswerComponent,
+       resolve: { quizQuestionData: ResolveService }, 
+       data: { requestcondition: { source: 'quiz_answer', condition: {} }, endpoint: 'datalist' }
+   },
 
   {
     path: '', component: HomeComponent, resolve: { home_data: ResolveService },
