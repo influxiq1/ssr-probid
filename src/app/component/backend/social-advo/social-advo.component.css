@@ -61,8 +61,8 @@
 .postblock .btnshare{background:#12C3E3!important}
 .grapurl{position:relative;z-index:9;width:100%;height:auto;white-space:normal;word-break:break-all}
 .grapurl button{width:100%;margin:0 auto;display:block;padding:5px;color:#e6e6e6;font-size:16px;padding:9px;text-shadow:0 -1px 0 rgba(30,30,30,0.8);background:#000;background:-moz-linear-gradient(90deg,#000 30%,#595959 70%);background:-webkit-linear-gradient(90deg,#000 30%,#595959 70%);background:-o-linear-gradient(90deg,#000 30%,#595959 70%);background:-ms-linear-gradient(90deg,#000 30%,#595959 70%);background:linear-gradient(0deg,#000 30%,#595959 70%);-webkit-box-shadow:0 2px 1px rgba(50,50,50,0.75);-moz-box-shadow:0 2px 1px rgba(50,50,50,0.75);box-shadow:0 2px 1px rgba(50,50,50,0.75)}
-.grapurl span{width:100%;margin:0 auto;display:block;border:0;height:24px}
-
-.grapurl span.blogsociallists{display: flex;}
+.grapurl span{width:100%;margin:0 auto;display:block;border:0;height: auto;}
+.grapurl span.blogsociallists{display: flex;height: auto;}
 .grapurl span.blogsociallists a{flex: 1;margin-right: 0px;}
 .grapurl span.blogsociallists button{flex: 1 1 auto;}
+.blogsociallists fa {padding: 6px;color: #fff;font-size: 24px;width: 32px;height: 32px;display: block;overflow: hidden;line-height: 32px;text-align: center;}
