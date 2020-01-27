@@ -97,7 +97,7 @@ a{cursor:pointer;outline:none}
 .formheaderblock{background-color:#00c0ff;padding:16px;border-top-right-radius:3px!important;border-top-left-radius:3px!important;border-radius:0;margin-bottom:30px}
 .formheaderblock p{font-family:'HelveticaBold';font-size:19px;color:#fff;padding:0;margin:0;line-height:20px;letter-spacing:0;margin-top:0;text-shadow:0 1px 1px #9c9c9c}
 .formheaderblock p span{color:#1b1e27;font-family:'Helvetica-Normal';font-size:17px;text-shadow:none!important;display:block;margin-top:12px;width:90%;margin-left:auto;margin-right:auto}
-.vpheaderwrapper .mat-toolbar-row,.vpheaderwrapper .mat-toolbar-single-row{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;box-sizing:border-box;padding:0 16px;width:100%;flex-direction:row;align-items:center;white-space:nowrap;justify-content:center}
+.vpheaderwrapper .mat-toolbar-row,.vpheaderwrapper .mat-toolbar-single-row{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;box-sizing:border-box;padding:0 16px;width:100%;-webkit-box-orient: horizontal;-webkit-box-direction: normal;-webkit-flex-direction: row;-ms-flex-direction: row;flex-direction: row;align-items:center;white-space:nowrap;justify-content:center}
 .mat-list-item{float:right}
 .homemain mat-nav-list{margin:0 auto;width:1350px}
 .homemain mat-nav-list span.logowrapper{flex:1 1 20%!important;box-sizing:border-box}
@@ -475,7 +475,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .formhomeinner{padding:0}
 .form-group:last-of-type{margin-bottom:0}
 .formhomeinnertop{background:url(../images/formbgtop.png) no-repeat!important;vertical-align:top;width:333px;height:129px}
-.formhomeinnertop.mat-card-header{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:row;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:center}
+.formhomeinnertop.mat-card-header{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-orient: horizontal;-webkit-box-direction: normal;-webkit-flex-direction: row;-ms-flex-direction: row;flex-direction: row;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:center}
 .formhomeinnertop.mat-card-header .mat-card-header-text{margin:0}
 .formhomeinnerbottom{margin-top:0;background:url(../images/formbg.png) repeat-y;height:100%;padding:10px 20px 0;display:block;position:relative}
 .formhomeinnerbottom:after{content:'';background:url(../images/formbgbottom.png)no-repeat bottom;width:333px;height:166px;display:block;float:left;left:0;position:absolute;bottom:-140px}
