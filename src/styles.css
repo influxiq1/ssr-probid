@@ -118,7 +118,7 @@ ckeditor{margin-bottom:9px!important;display:inline-block;width:100%}
 .as_sm_imgmainwrapper .owl-carousel.owl-loaded .owl-stage[style]{width:100%!important}
 .flexbox4columnthumb .owl-carousel.owl-loaded .owl-stage[style]{width:100%!important}
 .listscontent .mat-list-base .mat-list-item .mat-list-item-content{padding:0!important;width:100%}
-.rightcontent .rightcontentrow .mat-list-item-content{align-items:stretch!important;flex-wrap:wrap}
+.rightcontent .rightcontentrow .mat-list-item-content{-webkit-box-align: stretch;-moz-box-align: stretch;-ms-flex-align: stretch;-webkit-align-items: stretch;align-items: stretch!important;flex-wrap:wrap}
 .block1socialadvo .mat-list .mat-list-item .mat-list-item-content{padding:0!important;height:100%}
 .adm_dashboard_block2 .mat-list .mat-list-item .mat-list-item-content{padding:0!important;height:100%}
 .flexbox1column .rsvplistsingle .mat-list-item-content{padding:0!important;height:100%}
@@ -155,10 +155,10 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .searchblock.rsvpsearch .searchblockwrapper span .mat-form-field .mat-form-field-wrapper select.mat-input-element{-moz-appearance:none;-webkit-appearance:none;position:relative;background-color:#333;display:-webkit-inline-box;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;box-sizing:border-box;padding:5px;top:0;margin-bottom:0;width:100%;flex-basis:100%}
 .jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content,.jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding:0!important}
 .jobcommentbox .mat-list-base .mat-list-item{height:auto!important}
-.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding:0 10px!important;align-items:flex-start;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;flex-direction:column;width:100%}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding:0 10px!important;-webkit-box-align: flex-start;-moz-box-align: flex-start;-ms-flex-align: flex-start;-webkit-align-items: flex-start;align-items: flex-start;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;flex-direction:column;width:100%}
 .jobcommentbox .jobticketimglists .mat-list-item .mat-list-item-content{padding:0!important}
 .jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content .toppart.jobcommentbox{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;justify-content:space-between}
-.jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:5px!important;background:#dde2e5;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:self-start;justify-content:space-between;margin-bottom:0!important;flex-wrap:wrap}
+.jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:5px!important;background:#dde2e5;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: flex-start;-moz-box-align: flex-start;-ms-flex-align: flex-start;-webkit-align-items: flex-start;align-items: flex-start;justify-content:space-between;margin-bottom:0!important;flex-wrap:wrap}
 .jobcommentbox .jobticketimglists .mat-list-item{width:120px;height:90px;position:relative;display:block;overflow:hidden;border:1px solid #f2f2f2;border-radius:5px;margin-right:5px}
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix .commentbox{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;width:100%}
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix .submitcomment .btnblue{margin-top:0!important}
@@ -207,7 +207,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .mat-dialog-container{width:100%;box-shadow:0 1px 4px 0 rgba(168,168,168,0.5);box-sizing:border-box;transition:all .4s ease-in-out;-moz-transition:all .4s ease-in-out;-webkit-transition:all .4s ease-in-out;padding:10px!important;border-radius:0!important;height:inherit!important;margin-top:20px;margin-bottom:20px}
 .mat-dialog-actions{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;
   -webkit-align-items: center;align-items: center;-ms-flex-pack:end;justify-content:flex-end;padding:0}
-.generalmodalcls .mat-dialog-actions{padding:8px 0;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;min-height:52px;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;margin-bottom:0;justify-content:center}
+.generalmodalcls .mat-dialog-actions{padding:8px 0;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;min-height:52px;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;margin-bottom:0;justify-content:center}
 .generalmodalcls .mat-dialog-actions button{margin:2px}
 .generalmodalcls .btnredcls{color:#fff;font-size:20px;text-transform:uppercase;font-family:'HelveticaBold';text-decoration:none;display:inline-block;padding:10px 15px 5px;border-radius:0;background-color:#fb4a32}
 .generalmodalcls .btnbluecls{color:#fff;font-size:20px;text-transform:uppercase;font-family:'HelveticaBold';text-decoration:none;display:inline-block;padding:10px 15px 5px;border-radius:0!important;background-color:#12c3e4}
@@ -277,7 +277,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper{padding:10px;width:100%}
 .jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper h2{color:#333;font-size:18px!important;line-height:normal!important;margin:0}
 .jobticketimglists .file_upload .uploadfilecontainer .uploadtextwrapper p{color:#333;font-size:14px!important;line-height:normal!important}
-.generalcls .jobticketimglists .file_upload .mat-card-title{font-family:'HelveticaBold';font-size:24px!important;line-height:normal!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:10px!important;color:#2a2b2c;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center}
+.generalcls .jobticketimglists .file_upload .mat-card-title{font-family:'HelveticaBold';font-size:24px!important;line-height:normal!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:10px!important;color:#2a2b2c;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;-webkit-box-pack:center;justify-content:center}
 .generalcls .jobticketimglists .file_upload .fileDescription{text-align:center}
 .generalcls .jobticketimglists .file_upload .files-view .mat-card{position:relative;z-index:9;flex:1 1 24.33%;margin:10px!important;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap:wrap;border:1px solid #ecf1f3}
 .generalcls .jobticketimglists .file_upload .viewUrlwrapper{height:160px;width:160px;position:relative;margin:0 auto 20px;border:2px solid #f3f3f3;padding:10px;overflow:hidden}
