@@ -20,6 +20,7 @@ export class ListingBlogsComponent implements OnInit {
     "blogtitle": "Blog Title",
     "parent category": "Parent Category", "priority": "Priority", "status": "Status",'blogcategory':'Blog Category'
   };
+  public jwtToken:any = "";
   tableName: any = 'blogs';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
@@ -28,7 +29,10 @@ export class ListingBlogsComponent implements OnInit {
   apiUrl: any = this.apiService.serverUrlDemo;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "blogs_view";
-  public user_cookie: any;
+  search_settings:any= {
+    textsearch: [{ label: "blog title...", field: 'blogtitle_search' },{ label: "author...", field: 'author_search' }],
+    selectsearch: [{ label: 'status...', field: 'status', values: [{ val: 1, name: "Active" }, { val: 0, name: 'Inactive' }] }],
+  };
   public image_detail_datatype: any;
 
   // ====================================================================
@@ -42,7 +46,7 @@ export class ListingBlogsComponent implements OnInit {
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
-      this.user_cookie = JSON.parse(this.cookieService.get('user_details'));
+      this.jwtToken = JSON.parse(this.cookieService.get('user_details'));
     }
   }
 
@@ -58,6 +62,7 @@ export class ListingBlogsComponent implements OnInit {
   onBlogDataPopulate() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.blogListConfig = resolveData.blogsList.res;
+      this.jwtToken = this.cookieService.get('jwtToken');
     });
   }
 

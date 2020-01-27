@@ -925,7 +925,8 @@
                 <mat-card-title class="sectionheader">Communication</mat-card-title>
                 <span class="adm_dashboard_block4_inner">
                   <mat-tab-group class="tabwrapper">
-                    <mat-tab>
+
+                    <!-- <mat-tab>
                       <ng-template mat-tab-label>
                         <h2>Appointment</h2>
                       </ng-template>
@@ -934,7 +935,7 @@
                           <div class="tablediv">
                             <table mat-table [dataSource]="upcomingAppoinementDataSource">
         
-                              <!-- Position Column -->
+                              
                               <ng-container matColumnDef="name">
                                 <th mat-header-cell *matHeaderCellDef> Name </th>
                                 <td mat-cell *matCellDef="let element"><span class="namewrapper"> <span
@@ -942,25 +943,24 @@
                                       class="nametxt">{{element.name}}</span> </span></td>
                               </ng-container>
         
-                              <!-- Name Column -->
+                              
                               <ng-container matColumnDef="phoneNumber">
                                 <th mat-header-cell *matHeaderCellDef> Phone Number </th>
                                 <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
                               </ng-container>
         
-                              <!-- Weight Column -->
                               <ng-container matColumnDef="date">
                                 <th mat-header-cell *matHeaderCellDef> Date </th>
                                 <td mat-cell *matCellDef="let element"> {{element.date}} </td>
                               </ng-container>
         
-                              <!-- Symbol Column -->
+                             
                               <ng-container matColumnDef="repName">
                                 <th mat-header-cell *matHeaderCellDef> Rep Name </th>
                                 <td mat-cell *matCellDef="let element"> {{element.repName}} </td>
                               </ng-container>
         
-                              <!-- Symbol Column -->
+                              
                               <ng-container matColumnDef="action">
                                 <th mat-header-cell *matHeaderCellDef> Action </th>
                                 <td mat-cell *matCellDef="let element"> <a class="btnorange"> {{element.action}}</a> </td>
@@ -978,10 +978,15 @@
                         </span>
                       </ng-template>
         
-                    </mat-tab>
+                    </mat-tab> -->
+
                     <mat-tab>
                       <ng-template mat-tab-label>
                         <h2>Job Tickets</h2>
+
+                        <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                          </mat-form-field>
                       </ng-template>
                       <ng-template matTabContent>
                         <div class="mat-elevation-z8">
