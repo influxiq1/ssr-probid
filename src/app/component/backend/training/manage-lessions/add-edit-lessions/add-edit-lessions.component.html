@@ -1,11 +1,24 @@
+<div class="adminwrappercls">
+  <app-header></app-header>
+  <div class="main-content-wrap">
+    <mat-card class="generalcls blog" style="padding: 0 !important;">
+      <mat-card-content class="adm_inner_banner testimoniallistsadmin">
+        <mat-card-title class="adm_inner_title">Add Edit Lession</mat-card-title>
+      </mat-card-content>
+      <mat-card-content class="bred_cram_wrapper">
+        <a mat-list-item routerLinkActive="active"> Dashboard </a>
+        <a mat-list-item routerLinkActive="active"> Training Manager </a>
+        <a mat-list-item routerLinkActive="active activebread">
+          Add Edit Lession
+        </a>
+      </mat-card-content>
+      <div class="tablediv">
+        <lib-traning [PageName]="pageName" [formdata]="formdataval" [serverDetails]="serverDetails"
+          [formSource]="formSource" [ObjectId]="additionalData" [ListingPageRoute]="listingPageRoute"
+          [FileUpload]="configFileUpload"></lib-traning>
 
-<lib-traning 
-[PageName]="pageName"
-[formdata]="formdataval" 
-[serverDetails]="serverDetails" 
-[formSource]="formSource"
-[ObjectId]="additionalData"
-[ListingPageRoute]="listingPageRoute"
-[FileUpload]="configFileUpload"
-></lib-traning>
-
+      </div>
+    </mat-card>
+  </div>
+</div>
+<app-footer></app-footer>

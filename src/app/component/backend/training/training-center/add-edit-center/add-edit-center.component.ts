@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { ApiService } from '../../../../../api.service';
 @Component({
   selector: 'app-add-edit-center',
   templateUrl: './add-edit-center.component.html',
@@ -10,8 +12,10 @@ export class AddEditCenterComponent implements OnInit {
   public formdataval: any;
   public recid: any;
   public serverDetails: any = {
-    "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
-    "jwttoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1ODAxODgzNjIsImlhdCI6MTU4MDEwMTk2Mn0.MMZBG-CG9YQkS4nEQY8_wXBFNBawDMj38qv_DJ4IVk8"
+    // "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
+    // "jwttoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1ODAxODgzNjIsImlhdCI6MTU4MDEwMTk2Mn0.MMZBG-CG9YQkS4nEQY8_wXBFNBawDMj38qv_DJ4IVk8"
+      "serverUrl": this.ApiService.serverUrlDemo,
+    "jwttoken": this.cookieService.get('jwtToken')
   };
   public formSource: any = {
     "source":'users',
@@ -19,7 +23,7 @@ export class AddEditCenterComponent implements OnInit {
     "showEndpoint":"datalist",
     "formTitleName": 'Catagory'
   }
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute, public activatedRoute: ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

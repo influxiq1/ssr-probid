@@ -92,14 +92,13 @@
         <mat-list-item class="nav-item" routerLinkActive="activemenu">
                 <a [matMenuTriggerFor]="menu4">Training Manager</a>
                 <mat-menu #menu4="matMenu" class="activedropmenu">
-                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu" [routerLink]="['/addtrainings']">Manage
+                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu" [routerLink]="['/manage-training/list']">Manage
                     Training</a>
                   <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu"
-                    [routerLink]="['/trainingsectionlist']">Manage Lessons</a>
-                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu"
-                    (click)="gototrainingsectionwithcat()">Training Center</a>
-                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu"
-                    [routerLink]="['/training-report']">Training Report</a>
+                     [routerLink]="['/manage-lession/list']">Manage Lessons</a>
+                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu" [routerLink]="['/training-center/list']"
+                    >Training Center</a>
+                  <a class="nav-item-hold" mat-menu-item routerLinkActive="activemenu">Training Report</a>
                 </mat-menu>
                 <div class="triangle"></div>
               </mat-list-item>

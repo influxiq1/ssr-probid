@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
+import { ApiService } from '../../../../../api.service';
 
 @Component({
   selector: 'app-add-edit-lessions',
@@ -14,8 +16,10 @@ export class AddEditLessionsComponent implements OnInit {
   public pageName : any="Manage Lesson";
 
   public serverDetails: any = {
-    "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
-    "jwttoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1ODAyMDE1MzcsImlhdCI6MTU4MDExNTEzN30.EfP5ru45maD0LM9NDkGy7xgUUslVcV3ls-k8-Bid9qU"
+    // "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
+    // "jwttoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1ODAyMDE1MzcsImlhdCI6MTU4MDExNTEzN30.EfP5ru45maD0LM9NDkGy7xgUUslVcV3ls-k8-Bid9qU"
+    "serverUrl": this.ApiService.serverUrlDemo,
+    "jwttoken": this.cookieService.get('jwtToken')
   };
   public formSource: any = {
     "source": 'manage_lession',
@@ -41,7 +45,7 @@ export class AddEditLessionsComponent implements OnInit {
     bucketName: "probidfiles-dev.com"
   }
   
-  constructor(public route: ActivatedRoute) { }
+  constructor(public route: ActivatedRoute, public activatedRoute: ActivatedRoute, public ApiService: ApiService, private cookieService: CookieService) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {
