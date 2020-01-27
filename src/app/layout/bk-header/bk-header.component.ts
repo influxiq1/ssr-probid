@@ -144,6 +144,10 @@ export class BkHeaderComponent implements OnInit {
   //   }
   // }
 
+  gototrainingsectionwithcat(){
+    
+  }
+
    gotoHome(){
     //  console.log('ok')
      this.router.navigateByUrl('/home');

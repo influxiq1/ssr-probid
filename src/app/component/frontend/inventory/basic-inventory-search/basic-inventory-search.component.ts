@@ -354,8 +354,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
    
   }
 
-  viewDetails(){
-    
+  viewDetails(val:any){
+
   }
 
 
