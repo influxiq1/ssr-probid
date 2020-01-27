@@ -371,15 +371,9 @@
                                 </span>
                                 <p class="grapurl">
                                     <span class="blogsociallists">
-                                        <a class="sociallink fa fb">
+                                        <a class="sociallink fa fb" target="_blank"  (click)="share(item)">
                                             <fa name="facebook" class="fa-facebook"></fa>
-                                        </a>
-                                        <a class="sociallink fa twi">
-                                            <fa name="twitter" class="fa-twitter"></fa>
-                                        </a>
-                                        <a class="sociallink fa lin">
-                                            <fa name="linkedin" class="fa-linkedin"></fa>
-                                        </a>
+                                        </a>                                        
                                         <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
                                     </span>
                                     <span>
@@ -395,7 +389,18 @@
                                 <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
                                 </span>
-                                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p>
+                                <!-- <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p> -->
+                                <p class="grapurl">
+                                    <span class="blogsociallists">
+                                        <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
+                                            <fa name="linkedin" class="fa-linkedin"></fa>
+                                        </a>
+                                        <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
+                                    </span>
+                                    <span>
+                                        <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
+                                    </span>           
+                                </p>
                               </mat-list-item>
                             </mat-list>
                         </span>
