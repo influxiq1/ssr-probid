@@ -354,6 +354,10 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
    
   }
 
+  viewDetails(){
+    
+  }
+
 
   favorite(item: any) {
     // console.log('this is favorite ')

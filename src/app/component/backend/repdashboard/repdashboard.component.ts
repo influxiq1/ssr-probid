@@ -10,6 +10,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import { FormBuilder } from '@angular/forms';
 import { MetaService } from '@ngx-meta/core';
+import {MatSort} from '@angular/material/sort';
+
 
 
 
@@ -81,6 +83,8 @@ export class RepdashboardComponent implements OnInit {
   public indexval:any=6;
   public indexValForLinkdin: any = 6;
   public errorApiKey:any;
+  public jobTicketDataList:any;
+
   
   public allFacebookBanner : any = [
     'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
@@ -98,6 +102,8 @@ public allLinkdinBanner : any = [
       JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
       jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
       @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
+      @ViewChild(MatSort, {static: false}) sort: MatSort;
+
 
 
 
@@ -106,6 +112,7 @@ public allLinkdinBanner : any = [
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
+      console.log(this.userCookies)
       
       }
       fb1.init({
@@ -212,17 +219,33 @@ public allLinkdinBanner : any = [
    data={
      source:"job_ticket_customer",
      condition:{
-      "ticket_added_by_object":this.userid
+      ticket_added_by_object:this.userid
       }
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
-     this.jobTicketList=result.res
-     console.log('>>>>>', this.jobTicketList)
+     this.jobTicketDataList=result.res
+     console.log('>>>>>', this.jobTicketDataList)
+
+     this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
+
+     this.jobTicketList.paginator = this.jtPaginator;
+     this.jobTicketList.sort = this.sort;
 
    })
 
 
+  }
+
+  applyFilter(filterVal:any) {
+    console.log(filterVal)
+    this.jobTicketList.filter = filterVal.trim().toLowerCase();
+  }
+
+  viewDetails(item:any,status:any){
+    console.log(item)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 
 
