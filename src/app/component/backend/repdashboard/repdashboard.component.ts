@@ -173,24 +173,27 @@ public allLinkdinBanner : any = [
 
   }
 
-  share(url: string) {
+  // share(url: string) {
 
-    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+  //   var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
 
-    this.cookieService.set('shareIngUrl',fullUrl);
-    // console.log(fullUrl)
+  //   this.cookieService.set('shareIngUrl',fullUrl);
 
-    let params: UIParams = {
-      href: fullUrl,
-      method: 'share',
-      quote: 'https://dev.probidauto.com/'
-    };
+  //   let params: UIParams = {
+  //     href: fullUrl,
+  //     method: 'share',
+  //     quote: 'https://dev.probidauto.com/'
+  //   };
    
-    this.fb1.ui(params)
-      .then((res: UIResponse) =>{
+  //   this.fb1.ui(params)
+  //     .then((res: UIResponse) =>{
 
-      })
-      .catch();   
+  //     })
+  //     .catch();   
+  // }
+
+  share(url: string) {
+    
   }
 
   ngOnInit() {
