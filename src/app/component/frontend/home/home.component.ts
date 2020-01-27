@@ -52,6 +52,7 @@ export class HomeComponent implements OnInit {
   public loginMsg: string ='';
   public errorMsg: string = '';
   public apikey:any;
+  public sepecialCarList:any;
 
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
   carouselBannerOptions = {
@@ -267,6 +268,8 @@ comingSoonDialogBloghome(): void {
     this.activatedRoute.data.forEach((data: any) =>{
       this.blogList = data.home_data.result.blog_list;
       this.TestimonialListArray = data.home_data.result.testmonial_list;
+      this.saveCarDataList=data.home_data.result.car_listing;
+      this.sepecialCarList=data.home_data.result.car_special;
       })
   
 
@@ -274,14 +277,13 @@ comingSoonDialogBloghome(): void {
     //for preown car
     // this.getData;
 
-    let data: any = {
-      source:'allcar_view', 
+    // let data: any = {
+    //   source:'allcar_view', 
       
-    
-    }
-    this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
-      this.saveCarDataList=resc.res;
-    })
+    // }
+    // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+    //   this.saveCarDataList=resc.res;
+    // })
 
     this.generateForm();
     this.getStateList();

@@ -65,9 +65,9 @@ import { ForgetPasswordComponent } from './component/frontend/forget-password/fo
 import { ResetPasswordComponent } from './component/frontend/reset-password/reset-password.component';
 import { SignUpComponent } from './component/frontend/sign-up/sign-up.component';
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
-import { TesimoniallistComponent } from './component/frontend/tesimoniallist/tesimoniallist.component';
+import { TesimoniallistComponent, comingSoonDialogTestimonhome } from './component/frontend/tesimoniallist/tesimoniallist.component';
 
-import { BlogdetailComponent, VideoModalComponent} from './component/frontend/blogdetail/blogdetail.component';
+import { BlogdetailComponent, VideoModalComponent, comingSoonDialogBlogDetail} from './component/frontend/blogdetail/blogdetail.component';
 
 import { AdvanceInventorySearchComponent } from './component/frontend/inventory/advance-inventory-search/advance-inventory-search.component';
 import { BasicInventorySearchComponent, errorDialog, loginBeforeDialog } from './component/frontend/inventory/basic-inventory-search/basic-inventory-search.component';
@@ -178,7 +178,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
-import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
+import { ApiManagerComponent, ApiModalComponent } from './component/backend/api-manager/api-manager.component';
 import { HttpLoaderComponent } from './http-loader/http-loader.component';
 import { LoaderInterceptor } from './loader.interceptor';
 import { HttpLoaderService } from './http-loader.service';
@@ -305,7 +305,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     loginDialog,
     errorSearchModal,
     DeleteJobModalComponent,
-
+    comingSoonDialogBlogDetail,
     AddEditNewsletterComponent,
     AddEditSubscriberComponent,
     AddEditSubscriberGroupComponent,
@@ -331,7 +331,9 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     ManageJobticketComponent,
     ViewImageComponent,
     ApiManagerComponent,
-    HttpLoaderComponent
+    HttpLoaderComponent,
+    ApiModalComponent,    
+    comingSoonDialogTestimonhome,
   ],
   imports: [
     TranslateModule.forRoot(
@@ -387,11 +389,10 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     FormsModule,
     ReactiveFormsModule,
     OwlModule,
-    
     // SharetoolsModule
   ],
   exports: [TranslateModule],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome],
   
   providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
