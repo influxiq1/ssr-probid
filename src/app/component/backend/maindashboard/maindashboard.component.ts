@@ -10,6 +10,8 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
 import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 import { MetaService } from '@ngx-meta/core';
+import {MatSort} from '@angular/material/sort';
+
 // import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
@@ -174,6 +176,7 @@ public errorMsg: string = '';
   public crsvplist:any ='';
   public count:any ='';
   public jobTicketList:any;
+  public jobTicketDataList:any;
 
 
   // socialAdvFacebookLists: socialFacebookAdvos[];
@@ -189,8 +192,10 @@ public errorMsg: string = '';
 
 
   JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
-  jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+  // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
   @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
 
 
   ReportColumns: string[] = ['date_joined', 'name', 'email', 'phoneNumber', 'trainingProgress', 'date_completed', 'status'];
@@ -283,23 +288,38 @@ public errorMsg: string = '';
 
     this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
 
-    this.jobTicketDataSource.paginator = this.jtPaginator;
 
     this.reportsDataSource.paginator = this.reportPaginator;
    this.generateForm();
 
    //for job ticket
 
-   let data:any;
+   let data:any;  
    data={
      "source":"job_ticket_customer"
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
-     this.jobTicketList=result.res
-     console.log('>>>>>', this.jobTicketList)
+     this.jobTicketDataList=result.res
+          // console.log('>>>>>', this.jobTicketList)
+
+    this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
+
+    //  this.jobTicketList = new MatTableDataSource(this.jobTicketDataList);
+     this.jobTicketList.paginator = this.jtPaginator;
+     this.jobTicketList.sort = this.sort;
+      console.log('>>>>>', this.jobTicketList)
+
+
+    //  if (this.jobTicketList.paginator) {
+    //   this.jobTicketList.paginator.firstPage();
+    // }
+
 
    })
+
+ 
 
   }
 
