@@ -107,6 +107,19 @@ import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-suc
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
+
+/**Training library**/
+import { AddEditLessionsComponent } from '../app/component/backend/training/manage-lessions/add-edit-lessions/add-edit-lessions.component';
+import { ListLessionComponent } from '../app/component/backend/training/manage-lessions/list-lession/list-lession.component';
+import { AddEditComponent } from '../app/component/backend/training/manage-quiz/add-edit/add-edit.component';
+import { AddUpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/add-update-answer/add-update-answer.component';
+import { UpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/update-answer/update-answer.component';
+import { ManageQuizComponent } from '../app/component/backend/training/manage-quiz/manage-quiz.component';
+import { AddEditTrainingComponent } from '../app/component/backend/training/manage-training/add-edit-training/add-edit-training.component';
+import { ListingTrainingComponent } from '../app/component/backend/training/manage-training/listing-training/listing-training.component';
+import { AddEditCenterComponent } from '../app/component/backend/training/training-center/add-edit-center/add-edit-center.component';
+import { ListComponent } from '../app/component/backend/training/training-center/list/list.component';
+
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -607,6 +620,9 @@ const routes: Routes = [
     resolve: { apiKey: ResolveService },
     data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
   },
+
+//  { path: 'api-manager/:id', component: ApiManagerComponent,canActivate: [AuthGuard]},
+ 
 
 
 

@@ -59,13 +59,13 @@ import { BloglistfrontendComponent, CommonVideoModalComponent, comingSoonDialogB
 
 import { HeaderComponent, comingSoonDialog, googlemapDialog } from './layout/header/header.component';
 import { FooterComponent, DialogTermsDialog, DialogPrivacyDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent } from './layout/footer/footer.component';
-import { HomeComponent, loginDialog,errorSearchModal,comingSoonDialogBloghome } from './component/frontend/home/home.component';
+import { HomeComponent, loginDialog,errorSearchModal,comingSoonDialogBloghome, comingSoonDialogTestimonhome } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
 import { ForgetPasswordComponent } from './component/frontend/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/frontend/reset-password/reset-password.component';
 import { SignUpComponent } from './component/frontend/sign-up/sign-up.component';
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
-import { TesimoniallistComponent, comingSoonDialogTestimonhome } from './component/frontend/tesimoniallist/tesimoniallist.component';
+import { TesimoniallistComponent,comingSoonDialogTestimonListhome } from './component/frontend/tesimoniallist/tesimoniallist.component';
 
 import { BlogdetailComponent, VideoModalComponent, comingSoonDialogBlogDetail} from './component/frontend/blogdetail/blogdetail.component';
 
@@ -185,6 +185,19 @@ import { HttpLoaderService } from './http-loader.service';
 
 
 //****** for video Modal*********//
+/**Training library**/
+import {TraningModule } from 'traning-lib-influxiq';
+import { AddEditLessionsComponent } from '../app/component/backend/training/manage-lessions/add-edit-lessions/add-edit-lessions.component';
+import { ListLessionComponent } from '../app/component/backend/training/manage-lessions/list-lession/list-lession.component';
+import { AddEditComponent } from '../app/component/backend/training/manage-quiz/add-edit/add-edit.component';
+import { AddUpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/add-update-answer/add-update-answer.component';
+import { UpdateAnswerComponent } from '../app/component/backend/training/manage-quiz/update-answer/update-answer.component';
+import { ManageQuizComponent } from '../app/component/backend/training/manage-quiz/manage-quiz.component';
+import { AddEditTrainingComponent } from '../app/component/backend/training/manage-training/add-edit-training/add-edit-training.component';
+import { ListingTrainingComponent } from '../app/component/backend/training/manage-training/listing-training/listing-training.component';
+import { AddEditCenterComponent } from '../app/component/backend/training/training-center/add-edit-center/add-edit-center.component';
+import { ListComponent } from '../app/component/backend/training/training-center/list/list.component';
+
 
 
 export function metaFactory(): MetaLoader {
@@ -334,6 +347,20 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     HttpLoaderComponent,
     ApiModalComponent,    
     comingSoonDialogTestimonhome,
+    // training library
+    AddEditLessionsComponent,
+    ListLessionComponent,
+    AddEditComponent,
+    AddUpdateAnswerComponent,
+    UpdateAnswerComponent,
+    ManageQuizComponent,
+    AddEditTrainingComponent,
+    ListingTrainingComponent,
+    AddEditCenterComponent,
+    ListComponent,
+
+
+    comingSoonDialogTestimonListhome
   ],
   imports: [
     TranslateModule.forRoot(
@@ -364,6 +391,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     ServicelibModule,
     // BlogModule,
     FileUploadModule,
+    TraningModule , //Training library
     // NgxUploaderModule,
     AngularFontAwesomeModule,
     MatCarouselModule.forRoot(),
@@ -392,9 +420,9 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     // SharetoolsModule
   ],
   exports: [TranslateModule],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome],
   
-  providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
+  providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true, }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   // errorDialogbackend

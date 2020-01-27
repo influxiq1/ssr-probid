@@ -210,7 +210,10 @@ public allLinkdinBanner : any = [
 
    let data:any;
    data={
-     "source":"job_ticket_customer"
+     source:"job_ticket_customer",
+     condition:{
+      "ticket_added_by_object":this.userid
+      }
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
