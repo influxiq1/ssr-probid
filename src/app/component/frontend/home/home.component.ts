@@ -14,11 +14,11 @@ export interface DialogData {
   name:string;
 }
 
-var owl = $('.owl-carousel');
+// var owl = $('.owl-carousel');
 
-owl.children().each( function( index ) {
-  $(this).attr( 'data-position', index );
-});
+// owl.children().each( function( index ) {
+//   $(this).attr( 'data-position', index );
+// });
 
 
 @Component({
@@ -756,10 +756,10 @@ export class comingSoonDialogTestimonhome {
 
 
 
-$(document).on('click', '.owl-item>div', function(){
-  var $speed = 300;
-  owl.trigger('to.owl.carousel', [$(this).data( 'position' ), $speed] );
-})
+// $(document).on('click', '.owl-item>div', function(){
+//   var $speed = 300;
+//   owl.trigger('to.owl.carousel', [$(this).data( 'position' ), $speed] );
+// })
 
 
 
