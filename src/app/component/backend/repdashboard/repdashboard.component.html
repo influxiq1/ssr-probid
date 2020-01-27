@@ -366,9 +366,9 @@
                             <mat-list role="list" class="flexbox4column">      
                               <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
                                 <img src="../../../../assets/images/{{item}}">
-                                <span class="postblock">
+                                <!-- <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank"  (click)="share(item)"><span>Post</span></a>
-                                </span>
+                                </span> -->
                                 <p class="grapurl">
                                     <span class="blogsociallists">
                                         <a class="sociallink fa fb" target="_blank"  (click)="share(item)">
@@ -386,9 +386,9 @@
                             <mat-list role="list" class="flexbox4column">
                               <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
                                 <img src="../../../../assets/images/{{item}}">
-                                <span class="postblock">
+                                <!-- <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
-                                </span>
+                                </span> -->
                                 <!-- <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p> -->
                                 <p class="grapurl">
                                     <span class="blogsociallists">
