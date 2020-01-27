@@ -7,15 +7,19 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 import {AppComponent} from '../../../app.component';
-
-
-
-
+declare var $: any;
 export interface DialogData {
   errorMsg: string;
   loginMsg: string;
   name:string;
 }
+
+var owl = $('.owl-carousel');
+
+owl.children().each( function( index ) {
+  $(this).attr( 'data-position', index );
+});
+
 
 @Component({
   selector: 'app-home',
@@ -24,6 +28,8 @@ export interface DialogData {
 })
 export class HomeComponent implements OnInit {
 
+
+  
   public  name: string;
   
   public saveCarDataList:any;
@@ -94,6 +100,8 @@ export class HomeComponent implements OnInit {
   }
 
 
+ 
+
 
 
   carouselOptions = {
@@ -132,14 +140,16 @@ export class HomeComponent implements OnInit {
     //     nav: true,
     //   }
     // }
-    autoPlay: true, 
-    touchDrag  : true,
-    mouseDrag  : true,    
+    autoPlay: true,    
     singleItem:true,
     transitionStyle:"fade",
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
     margin: 5,
     nav: true,
     loop: true,
+    center: true,
     navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsiveClass: true,
     dots: false,
@@ -183,6 +193,9 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+
+
+  
 
   public TestimonialListArray: any = [];
   public savedUrl: any = [];
@@ -249,6 +262,9 @@ export class HomeComponent implements OnInit {
       }
     }
   }
+
+
+  
 
   
 //*********** Coming Soon ************//
@@ -452,6 +468,8 @@ inventoryPreownSearch(){
   }
 
 
+  
+
   searchAutoComplete(event: any, field: string) {
     this.apploader.loader = 1;
 
@@ -610,8 +628,7 @@ inventoryPreownSearch(){
     this.indexCount = i;
     this.indexCountForImg = j;
   }
-
-
+  
 
 
   rsvpSend(item: any) {
@@ -649,7 +666,18 @@ inventoryPreownSearch(){
   }
 
 
+//*********** Coming Soon ************//
+comingSoonDialogTestimonhome(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogTestimonhome, {
+   
+    data: {name: this.name}
+  });
 
+  setTimeout(() => {
+    this.dialog.closeAll();
+  }, 4000);
+}
+//*********** Coming Soon ************//
 
 }
 
@@ -707,3 +735,31 @@ export class comingSoonDialogBloghome {
   }
 
 }
+
+
+@Component({
+  selector:'app-coming-soon',
+  templateUrl: '../../../layout/coming-soon.html'
+})
+export class comingSoonDialogTestimonhome {
+
+  constructor(
+    public dialogRef: MatDialogRef<comingSoonDialogTestimonhome>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
+
+
+
+
+$(document).on('click', '.owl-item>div', function(){
+  var $speed = 300;
+  owl.trigger('to.owl.carousel', [$(this).data( 'position' ), $speed] );
+})
+
+
+

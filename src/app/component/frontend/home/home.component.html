@@ -528,6 +528,13 @@
               </p>
 
           </span>
+          <span class="blogsociallists">
+            <a class="sociallink fa fb" (click)="comingSoonDialogTestimonhome()"><fa name="facebook" class="fa-facebook"></fa></a>
+            <a class="sociallink fa twi" (click)="comingSoonDialogTestimonhome()"><fa name="twitter" class="fa-twitter"></fa></a>
+            <a class="sociallink fa lin" (click)="comingSoonDialogTestimonhome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
+            <a class="sociallink fa tbl" (click)="comingSoonDialogTestimonhome()"><fa name="tumblr" class="fa-tumblr"></fa></a>
+            <a class="sociallink fa share" (click)="comingSoonDialogTestimonhome()"><fa name="share" class="fa-share"></fa></a>
+          </span>
         </div>
 
       </owl-carousel>
@@ -545,11 +552,7 @@
 
   <mat-card class="probidhomeblock6 generalcls blog ptb-40">
       <span class="mainwrappercontent text-center">
-          <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/blogicon.png"> Blog</h2>
-          
-
-
-
+          <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/blogicon.png"> Blog</h2>          
                   <mat-card-content class="bottom_blog">    
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
@@ -570,13 +573,14 @@
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
                           <a class="next_page"  (click)="blogdetail(item._id)" >read more</a>
                           <span class="blogsociallists">
-                              <a class="sociallink fa fb" (click)="comingSoonDialogBloghome()"><fa name="facebook" class="fa-facebook"></fa></a>
-                              <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
-                              <a class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a>
-                              <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
-                              <a class="sociallink fa env" (click)="comingSoonDialogBloghome()"><fa name="envelope" class="fa-envelope"></fa></a>
-                              <a class="sociallink fa share" (click)="comingSoonDialogBloghome()"><fa name="share" class="fa-share"></fa></a>
-                            </span>          
+                            <a class="sociallink fa fb" (click)="comingSoonDialogBloghome()"><fa name="facebook" class="fa-facebook"></fa></a>
+                            <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
+                            <!-- <fa class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a> -->
+                            <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
+                            <!-- <fa class="sociallink fa env" (click)="comingSoonDialogBloghome()"><fa name="envelope" class="fa-envelope"></fa></a> -->
+                            <a class="sociallink fa tbl" (click)="comingSoonDialogBloghome()"><fa name="tumblr" class="fa-tumblr"></fa></a>
+                            <a class="sociallink fa share" (click)="comingSoonDialogBloghome()"><fa name="share" class="fa-share"></fa></a>
+                          </span>          
                         </mat-card-content>
                     </mat-card-content>
                     

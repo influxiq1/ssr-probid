@@ -1,8 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment'; // add this 1 of 4
 import { ApiService } from '../../../api.service';
 import { MetaService } from '@ngx-meta/core';
+import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
+export interface DialogData {
+  data: any;
+  name: string;
+} 
 @Component({
   selector: 'app-tesimoniallist',
   templateUrl: './tesimoniallist.component.html',
@@ -17,7 +22,9 @@ export class TesimoniallistComponent implements OnInit {
   public dataformate: any;
   public p_id: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,public apiService: ApiService, private readonly meta: MetaService) {
+  public  name: string;
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,public apiService: ApiService, private readonly meta: MetaService,public dialog:MatDialog) {
     this.dataformate = moment(); // add this 2 of 4
     //console.log(this.dataformate)
     
@@ -66,4 +73,36 @@ export class TesimoniallistComponent implements OnInit {
   showvideo() {
     // console.log('showvideo function is wirking')
   }
+
+  
+//*********** Coming Soon ************//
+comingSoonDialogTestimonList(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogTestimonListhome, {
+   
+    data: {name: this.name}
+  });
+
+  setTimeout(() => {
+    this.dialog.closeAll();
+  }, 4000);
+}
+//*********** Coming Soon ************//
+
+}
+
+
+@Component({
+  selector:'app-coming-soon',
+  templateUrl: '../../../layout/coming-soon.html'
+})
+export class comingSoonDialogTestimonListhome {
+
+  constructor(
+    public dialogRef: MatDialogRef<comingSoonDialogTestimonListhome>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
 }

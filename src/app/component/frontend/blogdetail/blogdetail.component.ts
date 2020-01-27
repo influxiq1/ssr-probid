@@ -32,7 +32,7 @@ export class BlogdetailComponent implements OnInit {
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
 
-
+  public  name: string;
 
     /************** lib list setup start here *************/
     public blogListConfig:any = {
@@ -110,6 +110,7 @@ export class BlogdetailComponent implements OnInit {
   subblog(val:any){
         
   }
+  
   openvideourl(val: any){
     //console.log(val)
     let url:any;
@@ -139,6 +140,22 @@ export class BlogdetailComponent implements OnInit {
       });
 
   }
+
+
+  //*********** Coming Soon ************//
+comingSoonDialogBlog(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogBlogDetail, {
+   
+    data: {name: this.name}
+  });
+
+  setTimeout(() => {
+    this.dialog.closeAll();
+  }, 4000);
+}
+//*********** Coming Soon ************//
+
+
 }
 
 
@@ -153,3 +170,19 @@ export class VideoModalComponent {
   }
 }
 
+
+@Component({
+  selector:'app-coming-soon',
+  templateUrl: '../../../layout/coming-soon.html'
+})
+export class comingSoonDialogBlogDetail {
+
+  constructor(
+    public dialogRef: MatDialogRef<comingSoonDialogBlogDetail>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}

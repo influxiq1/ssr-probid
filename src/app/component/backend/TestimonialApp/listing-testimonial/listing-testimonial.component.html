@@ -27,8 +27,8 @@
             </span>
             <div class="tablediv">
                 <!-- <lib-testimonial class="formfilterdiv listingtestimonial" [config]="testimonialListConfig"></lib-testimonial> -->
-
-                <lib-listing *ngIf="testimonialListConfig != null && testimonialListConfig.length>0"
+                <lib-testimonial [config]="testimonialListConfig"></lib-testimonial>
+                <!-- <lib-listing *ngIf="testimonialListConfig != null && testimonialListConfig.length>0"
                     [datasource]="testimonialListConfig"
                     [skip]="testimonialListConfig_skip" 
                     [modify_header_array]="testimonialListConfig_modify_header"
@@ -42,7 +42,7 @@
                     [date_search_endpoint]="searchingEndpoint" 
                     [detail_datatype]="image_detail_datatype"
                     [detail_skip_array]="detail_skip_array">
-                </lib-listing>
+                </lib-listing> -->
 
 
             </div>

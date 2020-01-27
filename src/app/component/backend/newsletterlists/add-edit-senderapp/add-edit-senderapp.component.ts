@@ -10,28 +10,12 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class AddEditSenderappComponent implements OnInit {
 
-  // public configAddEdit: any = {
-  //   action: "add",
-  //   // endpoint: "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/addorupdatedata",
-  //   // endpoint2:"https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/",
-
-  //   endpoint: this.ApiService.serverUrl + 'addorupdatedata',
-  //   endpoint2 : this.ApiService.serverUrl,
-
-  //   source: "senders",
-  //   condition: {},
-  //   defaultData: null,
-  //   jwtToken: this.cookieService.get('jwtToken'),
-  //   callBack: "newsletter-list",
-  //   userData: { id: "18801017007", name: "Admin" },
-  //   defaultDataAlways: null
-  // }
 
 
   public configAddEditSender: any = {
     action: "add",
     endpoint: this.ApiService.serverUrlDemo + 'addorupdatedata',
-    endpoint2 : this.ApiService.serverUrlDemo,
+    endpoint2: this.ApiService.serverUrlDemo,
     source: "senders",
     condition: {},
     defaultData: null,
@@ -41,7 +25,8 @@ export class AddEditSenderappComponent implements OnInit {
     defaultDataAlways: null
   }
 
-  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute, public ApiService: ApiService, private readonly meta: MetaService) { 
+
+  constructor(private cookieService: CookieService, private activatedRoute: ActivatedRoute, public ApiService: ApiService, private readonly meta: MetaService) {
     this.meta.setTitle('ProBid Auto - Add Edit Senderapp');
     this.meta.setTag('og:title', 'ProBid Auto - Add Edit Senderapp');
     this.meta.setTag('twitter:title', 'ProBid Auto - Add Edit Senderapp');
@@ -52,11 +37,9 @@ export class AddEditSenderappComponent implements OnInit {
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
-      // console.log(params._id)
       if (params._id) {
         this.activatedRoute.data.subscribe(resolveData => {
-          // console.log(resolveData)
-          this.configAddEditSender.defaultData = resolveData.eventList.res;
+          this.configAddEditSender.defaultData = resolveData.senderData.res[0];
           this.configAddEditSender.action = "edit";
           this.configAddEditSender.condition = { id: params._id };
         });
