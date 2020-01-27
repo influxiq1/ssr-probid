@@ -237,7 +237,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .generalcls .quatation p{display:inline-block!important;width:100%;font-size:16px!important;font-family:'Helvetica-Normal';color:#858686;display:block;display:block;max-width:100%;margin:0 auto;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;line-height:18px;max-height:86px;-webkit-line-clamp:5;-webkit-box-orient:vertical}
 .generalcls .quatation p a{display:inline-block}
 .generalcls .quatation a{color:#21c4e1;text-align:left}
-.generalcls.blog .mat-card-title{display:block;display:-webkit-box;max-width:100%;height:48px;margin:0 auto;font-size:14px;line-height:1;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;font-size:24px!important;line-height:normal!important;justify-content:space-between;margin-bottom:15px!important;margin-top:25px!important;text-transform:capitalize;-webkit-box-align:initial}
+.generalcls.blog .mat-card-title{display:block;display:-webkit-box;max-width:100%;height:48px;margin:0 auto;font-size:14px;line-height:1;-webkit-line-clamp:2;-webkit-box-orient: vertical;-moz-box-orient: vertical;-ms-box-orient: vertical;box-orient: vertical;overflow:hidden;text-overflow:ellipsis;-o-text-overflow:ellipsis;-ms-text-overflow:ellipsis;font-size:24px!important;line-height:normal!important;justify-content:space-between;margin-bottom:15px!important;margin-top:25px!important;text-transform:capitalize;-webkit-box-align:initial}
 .generalcls.blog .inner_header.mat-card-title{cursor: pointer;}
 .generalcls.blog .item_images{cursor: pointer;}
 .modelthumbwrapper.active .testimonialcontent{display:block!important}
@@ -285,7 +285,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .blogdetail .youmightalsolike .mat-card-content .inner_header.mat-card-title,.blogdetail .mostviewedblogs .mat-card-content .inner_header.mat-card-title{font-size:18px!important; cursor: pointer;}
 .youmightalsolike h2,.mostviewedblogs h2{color:#333!important;font-size:24px!important;line-height:26px!important}
 .youmightalsolike .blogsociallists,.mostviewedblogs .blogsociallists{margin-top:20px!important}
-.blogdetail .youmightalsolike .bottom_blog .item_wrapper .item .contentsection .description,.blogdetail .mostviewedblogs .bottom_blog .item_wrapper .item .contentsection .description{min-height:36px;-webkit-line-clamp:2;-webkit-box-orient:vertical;margin-top:10px}
+.blogdetail .youmightalsolike .bottom_blog .item_wrapper .item .contentsection .description,.blogdetail .mostviewedblogs .bottom_blog .item_wrapper .item .contentsection .description{min-height:36px;-webkit-line-clamp:2;-webkit-box-orient: vertical;-moz-box-orient: vertical;-ms-box-orient: vertical;box-orient: vertical;margin-top:10px}
 .blogdetail .youmightalsolike .bottom_blog .item_wrapper .item .author .date,.blogdetail .mostviewedblogs .bottom_blog .item_wrapper .item .author .date{font-size:14px;line-height:22px}
 .blogdetail .youmightalsolike .bottom_blog .item_wrapper .item .item_images,.blogdetail .mostviewedblogs .bottom_blog .item_wrapper .item .item_images{height:124px!important}
 .photogallerylists{padding:5px}

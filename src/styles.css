@@ -145,7 +145,7 @@ ckeditor{margin-bottom:9px!important;display:inline-block;width:100%}
 .rep-dashboard-block6 .mat-list .mat-list-item .mat-list-item-content{padding:0!important;height:100%}
 .listscontent .mat-list-base .mat-list-item .mat-list-item-content{padding:0!important;width:100%;height:100%}
 .owl-theme .owl-dots{display:none}
-.socialadvolistwarpper .mat-list .mat-list-item .mat-list-item-content{height:100%!important;width:100%;padding:0;flex-direction:column}
+.socialadvolistwarpper .mat-list .mat-list-item .mat-list-item-content{height:100%!important;width:100%;padding:0;-webkit-flex-direction: column;-moz-flex-direction: column;-ms-flex-direction: column;flex-direction: column;}
 button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events:none}
 .searchblock.rsvpsearch .searchblockwrapper span mat-label{margin-right:10px;font-size:16px}
 .searchblock.rsvpsearch .searchblockwrapper span .mat-form-field .mat-form-field-wrapper{line-height:normal!important}
@@ -155,7 +155,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .searchblock.rsvpsearch .searchblockwrapper span .mat-form-field .mat-form-field-wrapper select.mat-input-element{-moz-appearance:none;-webkit-appearance:none;position:relative;background-color:#333;display:-webkit-inline-box;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;box-sizing:border-box;padding:5px;top:0;margin-bottom:0;width:100%;flex-basis:100%}
 .jobticketimglists.mat-list-base .mat-list-item .mat-list-item-content,.jobticketimglists.mat-list-base .mat-list-option .mat-list-item-content{padding:0!important}
 .jobcommentbox .mat-list-base .mat-list-item{height:auto!important}
-.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding:0 10px!important;-webkit-box-align: flex-start;-moz-box-align: flex-start;-ms-flex-align: flex-start;-webkit-align-items: flex-start;align-items: flex-start;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;flex-direction:column;width:100%}
+.jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content{padding:0 10px!important;-webkit-box-align: flex-start;-moz-box-align: flex-start;-ms-flex-align: flex-start;-webkit-align-items: flex-start;align-items: flex-start;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;-webkit-flex-direction: column;-moz-flex-direction: column;-ms-flex-direction: column;flex-direction: column;width:100%}
 .jobcommentbox .jobticketimglists .mat-list-item .mat-list-item-content{padding:0!important}
 .jobcommentbox .mat-list-base .mat-list-item .mat-list-item-content .toppart.jobcommentbox{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;width:100%;justify-content:space-between}
 .jobcommentbox .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:5px!important;background:#dde2e5;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: flex-start;-moz-box-align: flex-start;-ms-flex-align: flex-start;-webkit-align-items: flex-start;align-items: flex-start;justify-content:space-between;margin-bottom:0!important;flex-wrap:wrap}
@@ -223,7 +223,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalmodalcls .mat-form-field-flex{display:block!important;border:none!important;padding:0!important}
 .generalmodalcls h4{display:block;text-align:center;margin:0;padding:10px 0 0;font-size:22px;color:#111;font-family:'Helvetica-Normal';font-weight:400}
 .newsletter_modalsuccess{padding-top:25px!important;padding-bottom:25px!important}
-.success-modal .mat-dialog-container{padding:10px!important;border-radius:0!important;overflow:hidden!important;position:relative;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-ms-flex-direction:column;flex-direction:column;width:100%;pointer-events:auto;background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,0,0,.2);border-radius:.3rem;outline:0}
+.success-modal .mat-dialog-container{padding:10px!important;border-radius:0!important;overflow:hidden!important;position:relative;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-flex-direction: column;-moz-flex-direction: column;-ms-flex-direction: column;flex-direction: column;width:100%;pointer-events:auto;background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,0,0,.2);border-radius:.3rem;outline:0}
 .generalmodalcls .actions{margin:0 auto;display:block;text-align:center}
 .generalmodalcls .actions .btnbluecls{color:#fff;font-size:30px;text-transform:uppercase;font-family:'HelveticaBold';text-decoration:none;display:inline-block;padding:10px 15px 5px;border-radius:0!important;background-color:#12c3e4;margin:10px auto;display:block}
 .cdk-overlay-pane.custom-modalbox[style]{width:inherit!important}
@@ -270,7 +270,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .grapurl{position:relative;z-index:9;width:100%;height:auto;white-space:normal;word-break:break-all}
 .grapurl button{width:100%;margin:0 auto;display:block;padding:5px;color:#e6e6e6;font-size:16px;padding:9px;text-shadow:0 -1px 0 rgba(30,30,30,0.8);background:#000;background:-moz-linear-gradient(90deg,#000 30%,#595959 70%);background:-webkit-linear-gradient(90deg,#000 30%,#595959 70%);background:-o-linear-gradient(90deg,#000 30%,#595959 70%);background:-ms-linear-gradient(90deg,#000 30%,#595959 70%);background:linear-gradient(0deg,#000 30%,#595959 70%);-webkit-box-shadow:0 2px 1px rgba(50,50,50,0.75);-moz-box-shadow:0 2px 1px rgba(50,50,50,0.75);box-shadow:0 2px 1px rgba(50,50,50,0.75)}
 .grapurl span{width:100%;margin:0 auto;display:block;border:0;height:auto;padding:1px 0;white-space:normal;float:left;overflow:hidden}
-.block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content{padding:0!important;height:100%;height:100%!important;width:100%;padding:0;-webkit-box-orient:vertical;-webkit-box-direction:normal;flex-direction:column}
+.block1socialadvo .flexbox4column .block1socialadvosingle .mat-list-item-content{padding:0!important;height:100%;height:100%!important;width:100%;padding:0;-webkit-box-orient: vertical;-moz-box-orient: vertical;-ms-box-orient: vertical;box-orient: vertical;-webkit-flex-direction: column;-moz-flex-direction: column;-ms-flex-direction: column;flex-direction: column;}
 .jobcommentbox .mat-list .mat-form-field.mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#efefef;border:1px solid #c1c1c1!important}
 .jobticketimglists .file_upload .uploadfilecontainer{margin:0 auto!important;height:auto!important;border:1px dashed #dde2e5;border-radius:0}
 .jobticketimglists .file_upload .files-view{margin:0!important;width:100%!important}
@@ -295,6 +295,14 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .loginwrappernew .login-form .mat-form-field-appearance-legacy .mat-form-field-infix {padding: 2px !important;}
 .titlecls{cursor: pointer;}
 .apimanager .tablediv{margin-top: 0px;}
+.image_URL_wrapper{width: 56px;height: 56px;display: block;overflow: hidden;margin-right: 10px;border-radius: 100%;position: relative;border: 4px solid #fff;box-shadow: 0 1px 4px 0 rgba(168,168,168,.5);}
+.image_URL_wrapper img {height: 100%!important;position: absolute;top: 0;left: 50%;-webkit-transform: translate(-50%,0);transform: translate(-50%,0);width: 100%;cursor: pointer;-o-object-fit: cover;object-fit: cover;}
+.namewrapper {display: -webkit-box;display: flex;-webkit-box-align: center;align-items: center;-webkit-box-pack: start;justify-content: flex-start;}
+.tablediv table td.mat-column-subject {width: 28%;}
+.btnwrappercls {font-size: 30px!important;line-height: normal!important;color: #2e2e2e;text-transform: uppercase;background-color: #dde2e5;-webkit-box-pack: start;justify-content: flex-start;padding: 5px 20px 15px;display: block;text-align: right;}
+.communicationsection .mat-elevation-z8 {box-shadow: none!important;margin-bottom: 20px;}
+.generalcls .sectionheader {font-size: 30px!important;line-height: normal!important;color: #2e2e2e;text-transform: uppercase;background-color: #dde2e5;-webkit-box-pack: start;justify-content: flex-start;padding: 20px 20px 15px;margin-bottom: 12px!important;}
+.adm_inner_banner{min-height: 160px; display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;-webkit-box-pack:center;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
