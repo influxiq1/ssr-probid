@@ -187,7 +187,7 @@ public errorMsg: string = '';
   
   UAColumns: string[] = ['name', 'phoneNumber', 'date', 'repName', 'action'];
   upcomingAppoinementDataSource = new MatTableDataSource<UpcomingAppoinement>(UA_DATA);
-  @ViewChild(MatPaginator, {static: false}) uaPaginator: MatPaginator;
+  @ViewChild(MatPaginator, {static: true}) uaPaginator: MatPaginator;
 
 
 
@@ -309,7 +309,7 @@ public errorMsg: string = '';
     //  this.jobTicketList = new MatTableDataSource(this.jobTicketDataList);
      this.jobTicketList.paginator = this.jtPaginator;
      this.jobTicketList.sort = this.sort;
-      console.log('>>>>>', this.jobTicketList)
+      // console.log('>>>>>', this.jobTicketList.paginator.length)
 
 
     //  if (this.jobTicketList.paginator) {
