@@ -42,9 +42,9 @@ export class SalesreplistsComponent implements OnInit {
   }
 
   constructor(public activatedRoute: ActivatedRoute, public router: Router,public apiService: ApiService, public cookieService: CookieService, private readonly meta: MetaService) {
-    this.meta.setTitle('ProBid Auto - Sales rep Lists');
-    this.meta.setTag('og:title', 'ProBid Auto - Sales rep Lists');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Sales rep Lists');
+    this.meta.setTitle('ProBid Auto - SalesRep List');
+    this.meta.setTag('og:title', 'ProBid Auto - SalesRep List');
+    this.meta.setTag('twitter:title', 'ProBid Auto - SalesRep List');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');

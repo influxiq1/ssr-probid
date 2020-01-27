@@ -179,7 +179,7 @@ public allLinkdinBanner : any = [
       quote: 'https://dev.probidauto.com/'
     };
    
-    this.fb.ui(params)
+    this.fb1.ui(params)
       .then((res: UIResponse) =>{
 
       })

@@ -32,9 +32,9 @@ public message:any="Are you sure you want to delete this?";
     public dialog: MatDialog,
     public snack:MatSnackBar, private readonly meta: MetaService) 
     { 
-      this.meta.setTitle('ProBid Auto - Job Ticket List');
-        this.meta.setTag('og:title', 'ProBid Auto - Job Ticket List');
-        this.meta.setTag('twitter:title', 'ProBid Auto - Job Ticket List');
+      this.meta.setTitle('ProBid Auto - Job Ticket');
+        this.meta.setTag('og:title', 'ProBid Auto - Job Ticket');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Job Ticket');
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');

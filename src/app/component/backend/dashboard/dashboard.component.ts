@@ -125,9 +125,9 @@ export class DashboardComponent implements OnInit {
     // this.meta.setTag('og:type', 'website');
     // this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
 
-        this.meta.setTitle('ProBid Auto - Admin Dashboard!');
-        this.meta.setTag('og:title', 'ProBid Auto - Admin Dashboard');
-        this.meta.setTag('twitter:title', 'ProBid Auto - Admin Dashboard');
+        this.meta.setTitle('ProBid Auto - Customer Dashboard!');
+        this.meta.setTag('og:title', 'ProBid Auto - Customer Dashboard');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Customer Dashboard');
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
