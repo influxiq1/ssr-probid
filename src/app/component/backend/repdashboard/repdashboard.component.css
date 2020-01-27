@@ -164,6 +164,9 @@
 .rep-dashboard-block5 .titleadmin{-webkit-box-pack:justify;justify-content:space-between;display:-webkit-box;display:flex}
 .communicationsection .tablediv{margin-top: 0 !important;}
 textarea {resize: none;overflow: hidden;min-height: 50px;max-height: 100px;}
+.grapurl span.blogsociallists{display: flex;}
+.grapurl span.blogsociallists a{flex: 1;margin-right: 0px;}
+.grapurl span.blogsociallists button{flex: 1 1 auto;}
 /* 
 p#note {
 	width:100%;
