@@ -8,6 +8,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MetaService } from '@ngx-meta/core';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
+import {MatSort} from '@angular/material/sort';
+
 
 
 const UA_DATA: UpcomingAppoinement[] = [
@@ -99,6 +101,8 @@ export class DashboardComponent implements OnInit {
   };
   public addEndpoint: any = 'demoappemailsend';
   public indexval: number = 3;
+  public jobTicketDataList:any;
+
   // public getDataUrl: any = 'datalist';
   public contactUsAllDataHeaderSkip: any = ['_id'];
   public contactUsAllDataModifyHeader: any = { addresses: 'Addresses', emails: 'Emails', locationname: 'Location Name', phones: 'Phones' };
@@ -113,8 +117,10 @@ export class DashboardComponent implements OnInit {
     
     
       JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
-      jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+      // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
       @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
+      @ViewChild(MatSort, {static: false}) sort: MatSort;
+
 
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
@@ -137,7 +143,7 @@ export class DashboardComponent implements OnInit {
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-      // console.log(this.userCookies);
+      console.log(this.userCookies);
       this.userid = this.userCookies._id;
       // console.log('>>>>',this.userid)   
     }
@@ -155,23 +161,43 @@ export class DashboardComponent implements OnInit {
 
     this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
 
-    this.jobTicketDataSource.paginator = this.jtPaginator;
 
 
    //for job ticket
 
    let data:any;
    data={
-     "source":"job_ticket_customer"
+     "source":"job_ticket_customer",
+     condition:{
+      ticket_added_by_object:this.userid
+      }
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
-     this.jobTicketList=result.res
-     console.log('>>>>>', this.jobTicketList)
+     this.jobTicketDataList=result.res
+     console.log('>>>>>', this.jobTicketDataList)
+
+     this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
+
+     this.jobTicketList.paginator = this.jtPaginator;
+     this.jobTicketList.sort = this.sort;
 
    })
 
   }
+
+  applyFilter(filterVal:any) {
+    console.log(filterVal)
+    this.jobTicketList.filter = filterVal.trim().toLowerCase();
+  }
+
+
+  viewDetails(item:any,status:any){
+    console.log(item)
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
+  }
+
 
   //rsvp delete
   deleteRsvp(val: any, i: any) {

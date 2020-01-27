@@ -58,7 +58,7 @@
     "npm": "^6.13.6",
     "rxjs": "~6.4.0",
     "service-lib-influxiq": "0.0.2",
-    "testimonial-lib-influxiq": "0.0.3",
+    "testimonial-lib-influxiq": "0.0.4",
     "traning-lib-influxiq": "0.0.3",
     "tslib": "^1.9.0",
     "xhr2": "^0.2.0",

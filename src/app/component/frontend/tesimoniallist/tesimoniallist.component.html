@@ -32,6 +32,7 @@
     <mat-list role="list">
       <mat-list-item role="listitem" class="testimonialserv"
         *ngFor="let testmon of TestimonialListArray | slice:0:indexval; let i=index">
+      
         <mat-card>
           <span class="testiimgwarpper">
             <img src="{{testmon.image}}" class="iconcls">
@@ -53,13 +54,13 @@
                             <span class="fa fa-star checked"></span>
                             <span class="fa fa-star"></span>
                         </span>-->
-            <span class="quatation">
+            <!-- <span class="quatation">
               <p class="truncate" [ngClass]="{'truncate truncateopen':testmon._id == p_id }">
                 <span [innerHtml]="testmon.testimonial"></span>
               </p>
-              <a *ngIf="testmon.testimonial != '' && testmon != '' && testmon.testimonial.length >= 254 "
+              <a *ngIf="testmon.testimonial != '' && testmon != '' && testmon.testimonial.length >= 0 "
                 [ngClass]="{'hide':testmon._id == p_id}" (click)="showmore(testmon)"> read more</a>
-            </span>
+            </span> -->
             <span class="blogsociallists">
               <a class="sociallink fa fb" (click)="comingSoonDialogTestimonList()"><fa name="facebook" class="fa-facebook"></fa></a>
               <a class="sociallink fa twi" (click)="comingSoonDialogTestimonList()"><fa name="twitter" class="fa-twitter"></fa></a>

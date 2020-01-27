@@ -42,7 +42,7 @@ public message:any="Are you sure you want to delete this?";
 
   ngOnInit() {
 
-    if(this.router.url =='/job-ticket-admin' || this.router.url =='/communication-customer' || this.router.url =='/communication-rep'){
+    if(this.router.url =='/job-ticket-admin' || this.router.url =='/job-ticket-salesrep' || this.router.url =='/job-ticket-customer'){
       this.activatedRoute.data.forEach((res)=>{
         // console.log(res.jobTicketList.res)
         this.jobTicketDataList=res.jobTicketList.res
