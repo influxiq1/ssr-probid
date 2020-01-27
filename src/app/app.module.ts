@@ -59,13 +59,13 @@ import { BloglistfrontendComponent, CommonVideoModalComponent, comingSoonDialogB
 
 import { HeaderComponent, comingSoonDialog, googlemapDialog } from './layout/header/header.component';
 import { FooterComponent, DialogTermsDialog, DialogPrivacyDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent } from './layout/footer/footer.component';
-import { HomeComponent, loginDialog,errorSearchModal,comingSoonDialogBloghome } from './component/frontend/home/home.component';
+import { HomeComponent, loginDialog,errorSearchModal,comingSoonDialogBloghome, comingSoonDialogTestimonhome } from './component/frontend/home/home.component';
 import { ContactusComponent } from './component/frontend/contactus/contactus.component';
 import { ForgetPasswordComponent } from './component/frontend/forget-password/forget-password.component';
 import { ResetPasswordComponent } from './component/frontend/reset-password/reset-password.component';
 import { SignUpComponent } from './component/frontend/sign-up/sign-up.component';
 import { ServicelistComponent } from './component/frontend/servicelist/servicelist.component';
-import { TesimoniallistComponent, comingSoonDialogTestimonhome } from './component/frontend/tesimoniallist/tesimoniallist.component';
+import { TesimoniallistComponent,comingSoonDialogTestimonListhome } from './component/frontend/tesimoniallist/tesimoniallist.component';
 
 import { BlogdetailComponent, VideoModalComponent, comingSoonDialogBlogDetail} from './component/frontend/blogdetail/blogdetail.component';
 
@@ -334,6 +334,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     HttpLoaderComponent,
     ApiModalComponent,    
     comingSoonDialogTestimonhome,
+    comingSoonDialogTestimonListhome
   ],
   imports: [
     TranslateModule.forRoot(
@@ -388,7 +389,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     // SharetoolsModule
   ],
   exports: [TranslateModule],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome],
   
   providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
