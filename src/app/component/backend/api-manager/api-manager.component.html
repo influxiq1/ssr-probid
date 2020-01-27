@@ -20,34 +20,34 @@
                   </span>
               </span>
               <div class="tablediv">
-  
-                  <!-- <lib-listing *ngIf="apiKeyList != null && apiKeyList.length>0"
-                      [datasource]="apiKeyList"
-                      [skip]="apiKeyList_skip" 
-                      [modify_header_array]="apiKeyList_modify_header"
-                      [sourcedata]="tableName" 
-                      [apiurl]="apiUrl"
-                      [editroute]="editUrl"
-                      [jwttoken]="cookieService.get('jwtToken')"
-                      [statusarr]="status" 
-                      [updateendpoint]="UpdateEndpoint" 
-                      [detail_skip_array]="detail_skip_array">
-                      </lib-listing> -->
 
-                      <!-- <lib-listing *ngIf="apiKeyList!=null && apiKeyList.length>0" 
-                        [datasource]="apiKeyList"
-                        [skip]="apiKeyList_skip" 
-                        [modify_header_array]="modify_header_array" 
-                        [apiurl]="apiUrl" 
-                        [deleteendpoint]="deleteendpoint" 
-                        [updateendpoint]="updateendpoint" 
-                        [jwttoken]="cookieService.get('jwtToken')" 
-                        [editroute]="editroute"
-                        [sourcedata]="tablename"  
-                        [statusarr]="statusarray" 
-                        [detail_skip_array]="apiKeyList_detail_skip" 
-                        [searchendpoint]="searchendpoint">
-                      </lib-listing> -->
+                <table mat-table [dataSource]="apiKeyList">
+
+                    <ng-container matColumnDef="Key Id">
+                      <th mat-header-cell *matHeaderCellDef> Key ID</th>
+                      <td mat-cell *matCellDef="let element">{{element._id}}</td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="Api Key">
+                        <th mat-header-cell *matHeaderCellDef>Api Key </th>
+                        <td mat-cell *matCellDef="let element"> {{element.apikey}} </td>
+                      </ng-container>
+
+                    <ng-container matColumnDef="Key Number">
+                      <th mat-header-cell *matHeaderCellDef> Key Number </th>
+                      <td mat-cell *matCellDef="let element"> {{element.no}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef> Action </th>
+                        <td mat-cell *matCellDef="let element">                           
+                          <a (click)="editApiData(element._id)" ><i class="material-icons"> edit </i></a> </td>
+                      </ng-container>
+
+                   
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                  </table>
   
               </div>
           </mat-card>

@@ -114,4 +114,6 @@
 .redcls{color:red!important}
 .greencls{color:#54aa0f!important}
 .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5);background-color:transparent!important}
-.inventorydetailsimilarv .middleblock h2 span{font-family:'Helvetica-Normal';font-size:16px;margin:0;font-weight:400;text-transform:capitalize;color:#0dbce7;line-height:normal;cursor:pointer;width:100%;display:block}
+.inventorydetailsimilarv .middleblock h2 span{font-family:'Helvetica-Normal';font-size:16px;margin:0;font-weight:400;text-transform:capitalize;color:#0dbce7;line-height:normal;cursor:pointer;}
+.inventorydetailsimilarv .middleblock h2 span .mat-icon{font-size: 24px;}
+::ng-deep .mat-tooltip{font-family:"Helvetica-Regular";font-size:14px!important;line-height:normal!important;color:#fff;text-transform:uppercase;background-color:#30373d; padding: 5px 10px 2px;}

@@ -1,11 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit ,Inject} from '@angular/core';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { ApiService } from '../../../api.service';
 import { CookieService } from 'ngx-cookie-service';
+import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
+import { MetaService } from '@ngx-meta/core';
 
-
+export interface DialogData {
+  data: any;
+}
 
 @Component({
   selector: 'app-api-manager',
@@ -14,36 +18,29 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ApiManagerComponent implements OnInit {
 
-  public apiKeyList:any=[];
-  public tableName:'search_api_key';
-  public apiUrl: any = this.apiService.serverUrlDemo;
-  public apiKeyList_skip:any;
-  public apiKeyList_modify_header:any;
-  public status:any;
-  public UpdateEndpoint:any;
-  public deleteendpoint:any;
-  public detail_skip_array:any;
-  public editroute:any;
-  public searchendpoint:'datalist';
-  public modify_header_array:any;
+  public apiKeyList:any=[]; 
+  public currentUrl:any;
 
-  statusarray: any = [{val: 1, name: 'Active'}, {val: 0, name: 'Pending'}, {val: 2, name: 'Inactive'}]; 
-  
+  displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','action'];
 
-//   // this is use for  All type of search 
-//   search_settings:any={
+  constructor(private readonly meta: MetaService, public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService, public router: Router,public dialog:MatDialog) {
 
-//     datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"created_at"}],   // this is use for  date search 
+    this.meta.setTitle('ProBid Auto - Manage API');
+    this.meta.setTag('og:title', 'ProBid Auto - Manage API');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Manage API');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
-//     textsearch:[{label:"Search By email",field:'email'},{label:"Search By Full name",field:'name'}],  // this is use for  text search
+    const body = document.getElementsByTagName('body')[0];
+    this.currentUrl = this.router.url;
+    if (this.currentUrl == '/api-manager') {
+      body.classList.add('apimanager')
+    } else{
+      body.classList.remove('apimanager')
+    }
 
-//     search:[{label:"Search By autocomplete",field:'name'}]     // this is use for  Autocomplete search
-// }
-
-
-  
-
-  constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService) { }
+   }
 
   ngOnInit() {
 
@@ -58,4 +55,47 @@ export class ApiManagerComponent implements OnInit {
 
   }
 
+  editApiData(val:any){
+    console.log(val)
+    const dialogRef = this.dialog.open(ApiModalComponent, {
+      data: ''
+
+    });
+
+
+
+  }
+
 }
+
+
+
+//modal for api update 
+
+@Component({
+  selector: 'app-apiModal',
+  templateUrl: './apiModal.html'
+})
+export class ApiModalComponent {
+
+  public apikeyForm:FormGroup;
+
+  constructor(public dialogRef: MatDialogRef<ApiModalComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData,public fb:FormBuilder) {
+
+      this.apikeyForm=this.fb.group({
+        apikey:[''],
+        keynum:['']
+
+      })
+
+
+
+
+  }
+}
+
+
+
+
+

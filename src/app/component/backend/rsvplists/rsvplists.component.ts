@@ -46,9 +46,9 @@ public topPart: any ='';
     public cookieservice: CookieService,
     public router:Router, private readonly meta: MetaService) {
 
-      this.meta.setTitle('ProBid Auto - RSVP Lists');
-    this.meta.setTag('og:title', 'ProBid Auto - RSVP Lists');
-    this.meta.setTag('twitter:title', 'ProBid Auto - RSVP Lists');
+      this.meta.setTitle('ProBid Auto - RSVP');
+    this.meta.setTag('og:title', 'ProBid Auto - RSVP');
+    this.meta.setTag('twitter:title', 'ProBid Auto - RSVP');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
@@ -209,7 +209,7 @@ if (val !='') {
   }
 
   goToOpenTicket(item: any, status: any){
-    console.log(item);
+    // console.log(item);
     this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
   }
 
