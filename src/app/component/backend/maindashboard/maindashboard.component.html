@@ -497,38 +497,38 @@
               <ng-template matTabContent>
                 <div class="mat-elevation-z8">
                   <div class="tablediv">
-                    <table mat-table [dataSource]="jobTicketDataSource">
+                    <table mat-table [dataSource]="jobTicketList">
 
                       <!-- Position Column -->
                       <ng-container matColumnDef="ticket">
-                        <th mat-header-cell *matHeaderCellDef> Ticket# </th>
-                        <td mat-cell *matCellDef="let element">{{element.ticket}}</td>
+                        <th mat-header-cell *matHeaderCellDef> Ticket ID</th>
+                        <td mat-cell *matCellDef="let element">{{element._id}}</td>
                       </ng-container>
 
                       <!-- Position Column -->
                       <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
+                        <th mat-header-cell *matHeaderCellDef>Car Name </th>
                         <td mat-cell *matCellDef="let element"><span class="namewrapper"> <span
-                              class="image_URL_wrapper"><img src="{{element.image_URL}}"></span> <span
-                              class="nametxt">{{element.name}}</span> </span></td>
+                              class="image_URL_wrapper"><img src="{{element.car_image}}"></span> <span
+                              class="nametxt">{{element.car_heading}}</span> </span></td>
                       </ng-container>
 
                       <!-- Weight Column -->
                       <ng-container matColumnDef="title">
                         <th mat-header-cell *matHeaderCellDef> Title </th>
-                        <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.car_heading}} </td>
                       </ng-container>
 
                       <!-- Name Column -->
                       <ng-container matColumnDef="repName">
                         <th mat-header-cell *matHeaderCellDef> Rep Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.repName}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.added_by_fullname}} </td>
                       </ng-container>
 
                       <!-- Name Column -->
                       <ng-container matColumnDef="customerName">
                         <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.customerName}} </td>
+                        <td mat-cell *matCellDef="let element"> {{element.added_for_fullname}} </td>
                       </ng-container>
 
                       <!-- Symbol Column -->
@@ -538,15 +538,16 @@
                       </ng-container>
 
                       <!-- Symbol Column -->
-                      <ng-container matColumnDef="status">
+                      <ng-container matColumnDef="status" >
                         <th mat-header-cell *matHeaderCellDef> Status </th>
-                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                        <td mat-cell *matCellDef="let element" > {{element.job_ticket_status}}</td>
                       </ng-container>
 
                       <!-- Symbol Column -->
                       <ng-container matColumnDef="action">
                         <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> <a class="btnorange"> {{element.action}}</a> </td>
+                        <td mat-cell *matCellDef="let element"> <a class="btnorange" 
+                          (click)="viewDetails(element,'1')" > {{element.action}}</a> </td>
                       </ng-container>
 
                       <tr mat-header-row *matHeaderRowDef="JTColumns"></tr>
@@ -557,7 +558,7 @@
                   </div>
                 </div>
                 <span class="btnwrappercls">
-                  <button mat-button class="btnblue" [routerLink]="['/job-ticket']">View All</button>
+                  <button mat-button class="btnblue" [routerLink]="['/job-ticket-admin']">View All</button>
                 </span>
               </ng-template>
             </mat-tab>
@@ -617,7 +618,7 @@
                       <!-- Symbol Column -->
                       <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef> Status </th>
-                        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                        <td mat-cell *matCellDef="let element" > {{element.status}} </td>
                       </ng-container>
 
                       <tr mat-header-row *matHeaderRowDef="ReportColumns"></tr>

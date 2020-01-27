@@ -106,6 +106,7 @@ import { ListingSubcategoryComponent } from './component/backend/newsletterlists
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 /**End Backend Routing**/
 
 const routes: Routes = [
@@ -526,6 +527,12 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
 
   { path: 'edittype/:id', component: AddAdminCategoriesComponent },
 
+  
+  { path: 'api-manager', component: ApiManagerComponent,
+  resolve: {apiKey: ResolveService },
+  data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
+ },
+
 
 
   // ___________________Newsletter MANAGEMENT_________________
@@ -583,7 +590,9 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
     },
     {
       path: 'subscriber-group/edit/:_id',
-      component: AddEditSubscriberGroupComponent
+      component: AddEditSubscriberGroupComponent,
+      resolve: { subscriptiongroupData: ResolveService },
+      data: { requestcondition: { source: 'news_category', condition: {} }, endpoint: 'datalist' }
     },
     // -----------------------------------------------
     // -------------------------------------------
@@ -599,21 +608,24 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   },
   {
     path: 'test/edit/:_id',
-    component: AddEditTestemailComponent
-    
-  
-    
+    component: AddEditTestemailComponent,
+    resolve: { testData: ResolveService },
+    data: { requestcondition: { source: 'testemail', condition: {} }, endpoint: 'datalist' }
   },
   
     // ________________________sender's list_____________________
-    { path: 'sender/add', component: AddEditSenderappComponent },
+    { path: 'sender/add', component: AddEditSenderappComponent },  
     {
       path: 'sender/list',
-      component: ListingSenderappComponent 
+      component: ListingSenderappComponent,
+      resolve: { senderData: ResolveService },
+      data: { requestcondition: { source: 'senders_view', condition: {} }, endpoint: 'datalist' }
     },
     {
-      path: 'sender/edit/:_id',
-      component: AddEditSenderappComponent
+      path:'sender/edit/:_id',
+      component: AddEditSenderappComponent,
+      resolve: { senderData: ResolveService },
+      data: { requestcondition: { source: 'senders', condition: {} }, endpoint: 'datalist' }
     },
 
 

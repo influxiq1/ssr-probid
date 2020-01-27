@@ -178,6 +178,7 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
+import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
 
 
 //****** for video Modal*********//
@@ -320,7 +321,8 @@ export function HttpLoaderFactory(http: HttpClient) {
     RsvpSuccessComponent,
     ViewJobTicketComponent,
     ManageJobticketComponent,
-    ViewImageComponent
+    ViewImageComponent,
+    ApiManagerComponent
   ],
   imports: [
     TranslateModule.forRoot(),

@@ -38,7 +38,8 @@ export class ListingSenderappComponent implements OnInit {
   ngOnInit() {
 
     /** call sender data **/
-    this.senderData();
+    this.senderData2();
+    
   }
 
   /** sender's data **/
@@ -49,6 +50,15 @@ export class ListingSenderappComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.senderConfigForm.datasource = result.res;
+      this.senderConfigForm.jwtToken = this.cookieService.get('jwtToken');
+    });
+  }
+
+  senderData2(){
+    this.activatedRoute.data.subscribe(resolveData => {
+      this.senderConfigForm.datasource = resolveData.senderData.res;
+      this.senderConfigForm.jwtToken = this.cookieService.get('jwtToken');
+      console.log(">>",this.senderConfigForm.datasource);
     });
   }
 

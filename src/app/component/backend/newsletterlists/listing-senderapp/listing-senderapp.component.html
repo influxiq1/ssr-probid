@@ -1,19 +1,17 @@
-
+<!-- 
 <mat-card>
   <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
       <h2 class="headerSpan">Sender's List</h2>
-  </mat-toolbar>
+  </mat-toolbar>-->
 
  
   <mat-toolbar class="buttonsetToolbar">
       <button class="singleButton" mat-raised-button color="primary" [routerLink]="['/sender/add']">Add Sender</button>
   </mat-toolbar>
-  
+   
 
-
-  
-  <lib-listing-sender ></lib-listing-sender>
+   <lib-listing-sender *ngIf="senderConfigForm.datasource.length>0" [config]="senderConfigForm"></lib-listing-sender>
 
   
-</mat-card>
+<!-- </mat-card> -->
 
