@@ -166,6 +166,26 @@ public allLinkdinBanner : any = [
 
   }
 
+  share(url: string) {
+
+    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+
+    this.cookieService.set('shareIngUrl',fullUrl);
+    // console.log(fullUrl)
+
+    let params: UIParams = {
+      href: fullUrl,
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
+    };
+   
+    this.fb.ui(params)
+      .then((res: UIResponse) =>{
+
+      })
+      .catch();   
+  }
+
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
       // console.log('dash-data',data)
@@ -206,24 +226,24 @@ public allLinkdinBanner : any = [
 
   
   
-  share(url: string) {
-    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-    this.cookieService.set('shareIngUrl',fullUrl);
-    // console.log(fullUrl)
+  // share(url: string) {
+  //   var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+  //   this.cookieService.set('shareIngUrl',fullUrl);
+  //   // console.log(fullUrl)
  
-    let params: UIParams = {
-      href: fullUrl,
-      method: 'share',
-      quote: 'https://dev.probidauto.com/'
-    };
+  //   let params: UIParams = {
+  //     href: fullUrl,
+  //     method: 'share',
+  //     quote: 'https://dev.probidauto.com/'
+  //   };
    
-    this.fb1.ui(params)
-      .then((res: UIResponse) =>{
+  //   this.fb1.ui(params)
+  //     .then((res: UIResponse) =>{
 
-      })
-      .catch();
+  //     })
+  //     .catch();
    
-  }
+  // }
 
   /* To copy Text from Textbox */
   copyInputMessage(inputElement){
