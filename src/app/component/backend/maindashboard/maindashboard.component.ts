@@ -303,13 +303,13 @@ public errorMsg: string = '';
           // console.log('>>>>>', this.jobTicketList)
 
      this.jobTicketList = new MatTableDataSource(result.res);
-     this.jobTicketList.filteredData.paginator = this.jtPaginator;
-     this.jobTicketList.filteredData.sort = this.sort;
+     this.jobTicketList.paginator = this.jtPaginator;
+     this.jobTicketList.sort = this.sort;
                console.log('>>>>>', this.jobTicketList)
 
 
-     if (this.jobTicketList.filteredData.paginator) {
-      this.jobTicketList.filteredData.paginator.firstPage();
+     if (this.jobTicketList.paginator) {
+      this.jobTicketList.paginator.firstPage();
     }
 
 
