@@ -118,7 +118,7 @@
 .block1socialadvosingle:hover .deletecls .material-icons, .rsvplistsingle:hover .deletecls .material-icons{background-color:rgba(255,255,255,0.8);display:block;border-radius:100px;padding:8px;border:2px solid #E41717;font-size:30px;color:#E41717;position:absolute;top:0;right:0}
 .rep-dashboard-block6 .titleadmin{justify-content:space-between;display:flex}
 .customer-dashboard-block1 .listscontent .mat-list-base .mat-list-item .labelcls:after{content:'';position:absolute;left:30%;top:0;width:0;height:0;border-top:29px solid transparent;border-bottom:29px solid transparent;border-left:10px solid #bdc3c6;clear:both}
-
+.communicationsection .tablediv{margin-top: 0 !important;}
 @media only screen and (max-width: 1199px) {
     .customer-dashboard-block1 .imgwrapperblock1right {width: 265px;}
 }
