@@ -13,7 +13,7 @@ import { FacebookModule } from 'ngx-facebook';
 import {DemoMaterialModule} from "../material-module";
 // import { DragScrollModule } from 'ngx-drag-scroll';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LoginComponent } from './component/frontend/login/login.component';
 import { CookieService } from 'ngx-cookie-service';
 import { AuthGuard } from './auth.guard';
@@ -21,7 +21,7 @@ import { ApiService } from './api.service';
 // import { TestimonialModule } from 'testimonial';
 import {ListingModule} from 'listing-angular7';
 
-import {MatIconModule} from '@angular/material/icon';
+import {MatIconModule, MatIconRegistry} from '@angular/material/icon';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 import { MatCarouselModule } from '@ngmodule/material-carousel';
@@ -173,12 +173,15 @@ import { AskForConfirmationComponent } from './component/backend/ask-for-confirm
 
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 
-import {TranslateModule, TranslateService} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
 import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
+import { HttpLoaderComponent } from './http-loader/http-loader.component';
+import { LoaderInterceptor } from './loader.interceptor';
+import { HttpLoaderService } from './http-loader.service';
 
 
 //****** for video Modal*********//
@@ -199,18 +202,21 @@ export function metaFactory(): MetaLoader {
     }
   });
 }
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http);
+export function translateLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient);
 }
+// export class I18nModule {
+//   constructor(translate: TranslateService) {
+//     translate.addLangs(['en', 'ru']);
+//     const browserLang = translate.getBrowserLang();
+//     translate.use(browserLang.match(/en|ru/) ? browserLang : 'en');
+//   }
+// }
 
 
 @NgModule({
   declarations: [
     BloglistfrontendComponent,
-    // BloglistComponent,
-    // AddComponent,
-    // AddeditBlogmanagementComponent,
-    // ListingBlogmanagementComponent,
     AppComponent,
     LoginComponent,
     ContactusComponent,
@@ -324,15 +330,26 @@ export function HttpLoaderFactory(http: HttpClient) {
     ViewJobTicketComponent,
     ManageJobticketComponent,
     ViewImageComponent,
-    ApiManagerComponent
+    ApiManagerComponent,
+    HttpLoaderComponent
   ],
   imports: [
-    TranslateModule.forRoot(),
-    MetaModule.forRoot({
+    TranslateModule.forRoot(
+      {
+      loader: {
+        provide: TranslateLoader,
+        useFactory: translateLoaderFactory,
+        deps: [HttpClient]
+      }
+    }
+    ),
+    MetaModule.forRoot(
+      {
       provide: MetaLoader,
       useFactory: (metaFactory),
-      deps: [TranslateService]
-    }),
+      // deps: [TranslateService]
+    }
+    ),
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -369,10 +386,16 @@ export function HttpLoaderFactory(http: HttpClient) {
     
     // SharetoolsModule
   ],
-  providers: [CookieService, AuthGuard, ApiService, SidenavService],
+  exports: [TranslateModule],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome],
+  
+  providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true }],
   bootstrap: [AppComponent],
-  schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome]
+  schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   // errorDialogbackend
 })
-export class AppModule { }
+export class AppModule {
+  constructor(public http: HttpClient, matIconRegistry: MatIconRegistry) {
+    matIconRegistry.registerFontClassAlias('fontawesome', 'fa');
+  }
+ }

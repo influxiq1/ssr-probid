@@ -191,6 +191,7 @@ export class CommonVideoModalComponent {
 }
 
 @Component({
+  selector:'app-coming-soon',
   templateUrl: '../../../layout/coming-soon.html'
 })
 export class comingSoonDialogBlog {

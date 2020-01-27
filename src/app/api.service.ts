@@ -71,164 +71,13 @@ export class ApiService {
 
     }
 
-    })
-
-
-
-    // this.subscriptionServer = this.getServerUrl().subscribe(message => {
-    //  let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.serverUrl = result;
-    //   } else {
-    //     this.serverUrl = null;
-    //   }
-    // });
-    // this.subscriptionaddEndpoint = this.getaddEndpoint().subscribe(message => {
-    //   let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.addendpointUrl = result;
-    //   } else {
-    //     this.addendpointUrl = null;
-    //   }
-    // });
-    // /*********added by souresh***********/
-    // this.subscriptionuploadEndpoint=this.getuploadEndpoint().subscribe(message=>{
-    //   let result:any;
-    //   result=message;
-    //     if(result!=null){
-    //       this.uploadEndpointUrl = result;
-    //     } else{
-    //       this.uploadEndpointUrl = null;
-    //     }
-    // })
-    // /************souresh end here**************/
-    // this.subscriptionupdateEndpoint = this.getupdateEndpoint().subscribe(message => {
-    //   let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.updateendpointUrl = result;
-    //   } else {
-    //     this.updateendpointUrl = null;
-    //   }
-    // });
-    // this.subscriptiondeletesingleEndpoint = this.getdeletesingleEndpoint().subscribe(message => {
-    //   let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.deletesingle_endpointUrl = result;
-    //   } else {
-    //     this.deletesingle_endpointUrl = null;
-    //   }
-    // });
-    // this.subscriptionupdatestatusSingleEndpoint = this.getupdatestatus_singleEndpoint().subscribe(message => {
-    //   let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.updatestatus_single_endpointUrl = result;
-    //   } else {
-    //     this.updatestatus_single_endpointUrl = null;
-    //   }
-    // });
-    // this.subscriptionGetdataEndpoint = this.getdataEndpoint().subscribe(message => {
-    //   let result: any;
-    //   result = message;
-    //   if (result != null) {
-    //     this.getdata_endpointUrl = result;
-    //   } else {
-    //     this.getdata_endpointUrl = null;
-    //   }
-    // });
-
+    });
     
   }
 
-//   setServerUrl(value: any) {
-//     this.subjectForServerUrl.next(value);
-//   }
-//   public clearServerUrl() {
-//     this.subjectForServerUrl.next(null);
-//   }
-//   public getServerUrl(): Observable<any> {
-//     return this.subjectForServerUrl.asObservable();
-//   }
 
 
-//   setaddEndpoint(value: any) {
-//     this.subjectForaddEndpointUrl.next(value);
-//   }
-//   public clearaddEndpoint() {
-//     this.subjectForaddEndpointUrl.next(null);
-//   }
-//   public getaddEndpoint(): Observable<any> {
-//     return this.subjectForaddEndpointUrl.asObservable();
-//   }
-// /*****added by souresh******/
-//   setuploadEndpont(value:any){
-//     this.subjectForuploadEndpointUrl.next(value);
-//   }
-//   public clearuploadEndpoint(){
-//     this.subjectForuploadEndpointUrl.next(null);
-//   }
-//   public getuploadEndpoint(): Observable <any> {
-//     return this.subjectForuploadEndpointUrl.asObservable();
-//   }
-//    /********souresh end here********/
-
-
-//   setupdateEndpoint(value: any) {
-//     this.subjectForupdateEndpointUrl.next(value);
-//   }
-//   public clearupdateEndpoint() {
-//     this.subjectForupdateEndpointUrl.next(null);
-//   }
-//   public getupdateEndpoint(): Observable<any> {
-//     return this.subjectForupdateEndpointUrl.asObservable();
-//   }
-
-//   setdeletesingleEndpoint(value: any) {
-//     this.subjectFordeletesingleEndpointUrl.next(value);
-//   }
-//   public cleardeletesingleEndpoint() {
-//     this.subjectFordeletesingleEndpointUrl.next(null);
-//   }
-//   public getdeletesingleEndpoint(): Observable<any> {
-//     return this.subjectFordeletesingleEndpointUrl.asObservable();
-//   }
-
-//   setupdatestatus_singleEndpoint(value: any) {
-//     this.subjectForupdatestatusSingleEndpointUrl.next(value);
-//   }
-//   public clearupdatestatus_singleEndpoint() {
-//     this.subjectForupdatestatusSingleEndpointUrl.next(null);
-//   }
-//   public getupdatestatus_singleEndpoint(): Observable<any> {
-//     return this.subjectForupdatestatusSingleEndpointUrl.asObservable();
-//   }
-
-//   setgetdataEndpoint(value: any) {
-//     this.subjectForGetdataEndpointUrl.next(value);
-//   }
-//   public cleargetdataEndpoint() {
-//     this.subjectForGetdataEndpointUrl.next(null);
-//   }
-//   public getdataEndpoint(): Observable<any> {
-//     return this.subjectForGetdataEndpointUrl.asObservable();
-//   }
-
-
-
-  isTokenExpired() {
-
-    // const helper = new JwtHelperService();
-    // const decodedToken = helper.decodeToken(localStorage.getItem('id_token'));
-    // var isIdTokenExpired = helper.isTokenExpired(localStorage.getItem('id_token'));
-    // console.log('refresh_token',localStorage.getItem('refresh_token'))
-    // const isRefreshTokenExpired = helper.isTokenExpired(localStorage.getItem('refresh_token'));
-    // console.log('id_token isExpired:',isIdTokenExpired)
-    // console.log('refresh_token isExpired:',isRefreshTokenExpired)
-  }
+  isTokenExpired() {}
   /* read site setting data */
   public getSiteSettingData(url): Observable<any> {
     return this._http.get(url);
@@ -304,19 +153,6 @@ getDatalistWithToken(requestdata: any, endpoint: any){
     var result = this._http.post(this.serverUrlDemo + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
     return result;
 }
-
-// postDataWithoutToken(endpoint:any, data:any) {
-//   const httpOptions = {
-//     headers: new HttpHeaders({
-//       'Content-Type':  'application/json'
-//     })
-//   };
-//   //console.log('endpoint');
-//   //console.log(endpoint);
-//   var result = this._http.post(this.serverUrl+endpoint, JSON.stringify(data), httpOptions).pipe(map(res => res));
-//   return result;
-// }
-
 getTempToken() {
   var result = this._http.get(this.serverUrlDemo + 'gettemptoken').pipe(map(res => res));
   return result;
