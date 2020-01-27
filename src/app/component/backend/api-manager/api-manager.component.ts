@@ -14,36 +14,22 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class ApiManagerComponent implements OnInit {
 
-  public apiKeyList:any=[];
-  public tableName:'search_api_key';
-  public apiUrl: any = this.apiService.serverUrlDemo;
-  public apiKeyList_skip:any;
-  public apiKeyList_modify_header:any;
-  public status:any;
-  public UpdateEndpoint:any;
-  public deleteendpoint:any;
-  public detail_skip_array:any;
-  public editroute:any;
-  public searchendpoint:'datalist';
-  public modify_header_array:any;
+  public apiKeyList:any=[]; 
+  public currentUrl:any;
 
-  statusarray: any = [{val: 1, name: 'Active'}, {val: 0, name: 'Pending'}, {val: 2, name: 'Inactive'}]; 
-  
+  displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','action'];
 
-//   // this is use for  All type of search 
-//   search_settings:any={
+  constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService, public router: Router) {
 
-//     datesearch:[{startdatelabel:"Start Date",enddatelabel:"End Date",submit:"Search By Date",  field:"created_at"}],   // this is use for  date search 
+    const body = document.getElementsByTagName('body')[0];
+    this.currentUrl = this.router.url;
+    if (this.currentUrl == '/api-manager') {
+      body.classList.add('apimanager')
+    } else{
+      body.classList.remove('apimanager')
+    }
 
-//     textsearch:[{label:"Search By email",field:'email'},{label:"Search By Full name",field:'name'}],  // this is use for  text search
-
-//     search:[{label:"Search By autocomplete",field:'name'}]     // this is use for  Autocomplete search
-// }
-
-
-  
-
-  constructor(public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService) { }
+   }
 
   ngOnInit() {
 
@@ -55,6 +41,10 @@ export class ApiManagerComponent implements OnInit {
 
     })
 
+
+  }
+
+  editRoute(){
 
   }
 

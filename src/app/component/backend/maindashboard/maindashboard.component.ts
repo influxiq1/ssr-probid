@@ -402,13 +402,13 @@ apiKeySubmit(){
   for (let x in this.apikeyForm.controls) {
     this.apikeyForm.controls[x].markAsTouched();
   }
-  console.log(this.apikeyForm.value.apikey.length)
+  // console.log(this.apikeyForm.value.apikey.length)
   if(this.apikeyForm.valid){
     this.errorApiKey=''
     if( this.apikeyForm.value.apikey.length ==32)
    {
 
-console.log('hit')
+// console.log('hit')
     let data:any;
     
       data={
@@ -531,7 +531,7 @@ inputUntouched(val: any) {
 
   //for save search details
   viewSaveDetails(val:any){
-    console.log(val)
+    // console.log(val)
     this.router.navigateByUrl('/inventory-detail/'+val);
   }
 
@@ -547,14 +547,14 @@ inputUntouched(val: any) {
   }
 
   goToOpenTicket(item: any, status: any){
-    console.log(item);
+    // console.log(item);
     this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
   }
 
 
 
   private handleError(error) {
-    console.error('Error processing action', error);
+    // console.error('Error processing action', error);
   }
   
   }

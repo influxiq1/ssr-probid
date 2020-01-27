@@ -5,7 +5,5 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class HttpLoaderService {
   public isLoading = new BehaviorSubject(false);
-  constructor() { 
-    console.log(this.isLoading,'____+++++')
-  }
+  constructor() {}
 }

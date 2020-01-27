@@ -179,15 +179,15 @@ const routes: Routes = [
   { path: 'basic-inventory-search/:val', component: BasicInventorySearchComponent},
 
 
-  { path: 'save-search-admin', component: SaveSearchComponent ,
+  { path: 'saved-search-admin', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
-  { path: 'save-search-castomer', component: SaveSearchComponent ,
+  { path: 'saved-search-customer', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
-  { path: 'save-search-rep', component: SaveSearchComponent ,
+  { path: 'saved-search-rep', component: SaveSearchComponent ,
   resolve: { inventory_search: ResolveService },
   data: { requestcondition: { source: 'save_favorite_view', condition: {added_by:'user_id'} }, endpoint: 'datalist' }},
 
@@ -376,7 +376,7 @@ const routes: Routes = [
   { path: 'manage-lessons', component: ManageLessonsComponent },
   { path: 'training-center', component: TrainingCenterComponent },
   { path: 'training-report', component: TrainingReportComponent },
-  { path: 'my-appointment-admin', component: MyAppointmentComponent },
+  { path: 'manage-appointment-admin', component: MyAppointmentComponent },
 
   { path: 'create-new-inventory', component: CreateNewInventoryComponent },
 
@@ -385,15 +385,15 @@ const routes: Routes = [
   data: { requestcondition: { source: 'job_ticket_customer', condition: {}}, endpoint: 'datalist' }
 },
 
-  { path: 'job-ticket-customer', component: JobTicketComponent },
-  { path: 'job-ticket-salesrep', component: JobTicketComponent },
+  // { path: 'job-ticket-customer', component: JobTicketComponent },
+  // { path: 'job-ticket-salesrep', component: JobTicketComponent },
   
-  { path: 'communication-rep', component: JobTicketComponent,
+  { path: 'job-ticket-salesrep', component: JobTicketComponent,
   resolve: { jobTicketList: ResolveService },
   data: { requestcondition: { source: 'job_ticket_customer', condition: {"ticket_added_by_object":"ticket_added_by_object"}}, endpoint: 'datalist' }
 },
 
-  { path: 'communication-customer', component: JobTicketComponent,
+  { path: 'job-ticket-customer', component: JobTicketComponent,
   resolve: { jobTicketList: ResolveService },
   data: { requestcondition: { source: 'job_ticket_customer', condition: {
     "ticket_added_by_object":"ticket_added_by_object"
@@ -430,8 +430,8 @@ const routes: Routes = [
     data: { requestcondition: { source: 'user', condition: {'id':'user_id'} }, endpoint: 'datalist' }
   },
 
-  { path: 'my-appointment-user', component: MyAppointmentComponent },
-  { path: 'book-an-appointment-user', component: BookAnAppointmentComponent },
+  { path: 'manage-appointment-user', component: MyAppointmentComponent },
+  { path: 'manage-availability-user', component: BookAnAppointmentComponent },
 
 
   { path: 'advance-inventory-search-admin', component: AdvanceInventorySearchBackendComponent,
@@ -475,8 +475,8 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   { path: 'my-commission', component: CommissionListComponent },
   { path: 'my-birddog', component: BirddogListComponent },
 
-  { path: 'my-appointment-rep', component: MyAppointmentComponent },
-  { path: 'book-an-appointment-rep', component: BookAnAppointmentComponent },
+  { path: 'manage-appointment-rep', component: MyAppointmentComponent },
+  { path: 'manage-availability-rep', component: BookAnAppointmentComponent },
   { path: 'customer-list-rep', component: CustomerListComponent,resolve: { customerlist: ResolveService },
   data: { requestcondition: { source: 'user', condition: {"type": "customer", "salesrep":"user_id" }},endpoint: 'datalist',canActivate: [AuthGuard] }},
 
@@ -521,6 +521,7 @@ data: { requestcondition: { source: '', condition: {"mysalesrep":'mysalesrep'} }
   resolve: {apiKey: ResolveService },
   data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist' ,canActivate: [AuthGuard]}
  },
+
 
 
 

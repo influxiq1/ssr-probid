@@ -132,10 +132,18 @@
                     <span class="listsbottominfo">
                         <mat-list class="listsbottom">
                             <mat-list-item> 
-                              <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png"> {{item.miles}} 
+                              <img src="https://dev.probidauto.com/assets/images/listsbottomicon1.png">
+                              <span *ngIf="item.miles !=null">{{item.miles}}</span>  
+                              <span *ngIf="item.miles ==null">N/A</span> 
                             </mat-list-item>
-                            <mat-list-item> <img src="../../../../assets/images/drivetrainicon.png"> {{item.build.drivetrain}} </mat-list-item>
-                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> {{item.build.transmission}} </mat-list-item>
+                            <mat-list-item> <img src="../../../../assets/images/drivetrainicon.png"> {{item.build.drivetrain}} 
+                              <span *ngIf="item.build.drivetrain !=null">{{item.build.drivetrain}}</span>  
+                              <span *ngIf="item.build.drivetrain ==null">N/A</span> 
+                            </mat-list-item>
+                            <mat-list-item> <img src="https://dev.probidauto.com/assets/images/listsbottomicon3.png"> {{item.build.transmission}} 
+                              <span *ngIf="item.build.transmission !=null">{{item.build.transmission}}</span>  
+                              <span *ngIf="item.build.transmission ==null">N/A</span> 
+                            </mat-list-item>
                          </mat-list>
                     </span> 
                   </mat-list-item>
@@ -542,9 +550,6 @@
       </owl-carousel>
       <button mat-button class="btnblue sim-button" (click)="btnClick();">View All</button>
 
-
-
-
     </span>
   </mat-card>
 
@@ -565,11 +570,11 @@
                   <mat-card-content class="bottom_blog">    
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
-                        <span class="item_images">
+                        <span class="item_images" (click)="blogdetail(item._id)">
                           <img [src]="item.profile_picture">
                         </span>
                         <mat-card-content class="contentsection">
-                          <mat-card-title class="inner_header">{{item.blogtitle}}</mat-card-title>
+                          <mat-card-title class="inner_header" (click)="blogdetail(item._id)">{{item.blogtitle}}</mat-card-title>
                           <span class="author">
                             <span class="authornmimg">
                               <span class="writer_image">
@@ -582,12 +587,12 @@
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
                           <a class="next_page"  (click)="blogdetail(item._id)" >read more</a>
                           <span class="blogsociallists">
-                              <a class="sociallink fa fb"><fa name="facebook" class="fa-facebook"></fa></a>
-                              <a class="sociallink fa twi"><fa name="twitter" class="fa-twitter"></fa></a>
-                              <a class="sociallink fa pin"><fa name="pinterest" class="fa-pinterest"></fa></a>
-                              <a class="sociallink fa lin"><fa name="linkedin" class="fa-linkedin"></fa></a>
-                              <a class="sociallink fa env"><fa name="envelope" class="fa-envelope"></fa></a>
-                              <a class="sociallink fa share"><fa name="share" class="fa-share"></fa></a>
+                              <a class="sociallink fa fb" (click)="comingSoonDialogBloghome()"><fa name="facebook" class="fa-facebook"></fa></a>
+                              <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
+                              <a class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a>
+                              <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
+                              <a class="sociallink fa env" (click)="comingSoonDialogBloghome()"><fa name="envelope" class="fa-envelope"></fa></a>
+                              <a class="sociallink fa share" (click)="comingSoonDialogBloghome()"><fa name="share" class="fa-share"></fa></a>
                             </span>          
                         </mat-card-content>
                     </mat-card-content>

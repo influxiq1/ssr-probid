@@ -65,6 +65,7 @@
 .adm_dashboard_block1_right .sectionheader.mat-card-title{font-family:"HelveticaBold";font-size:48px!important;line-height:normal!important;color:#fff;text-transform:capitalize;background-color:#141b2f;justify-content:center;padding:30px 20px 25px;margin-bottom:5px!important}
 .adm_dashboard_block1_right .mat-card{background:0!important;padding:0!important}
 .middleblock{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:center;margin-top:auto;margin-bottom:5px}
+.middleblock h2{cursor: pointer;}
 .middleblock > span{box-sizing:border-box;margin:0 3px!important;width:calc(1/2*100% - (1 - 1/2)*11px);height:auto;-webkit-box-align:center;align-items:center;-webkit-box-pack:center;justify-content:center;display:-webkit-box;display:flex;flex:1!important}
 .pricecls{background:#f7462e;border-radius:0;font-family:'HelveticaBold';font-size:24px!important;text-transform:uppercase;height:50px!important;color:#fff}
 .bottomblockss{padding:16px;background-color:#465157;margin-top:auto}
@@ -113,4 +114,6 @@
 .redcls{color:red!important}
 .greencls{color:#54aa0f!important}
 .adm_inner_banner .adm_inner_title.mat-card-title{font-size:48px!important;color:#fff!important;font-family:"HelveticaBold";text-transform:uppercase!important;text-shadow:-1px -1px 1px rgba(255,255,255,.1),1px 1px 1px rgba(0,0,0,.5);background-color:transparent!important}
-.inventorydetailsimilarv .middleblock h2 span{font-family:'Helvetica-Normal';font-size:16px;margin:0;font-weight:400;text-transform:capitalize;color:#0dbce7;line-height:normal;cursor:pointer;width:100%;display:block}
+.inventorydetailsimilarv .middleblock h2 span{font-family:'Helvetica-Normal';font-size:16px;margin:0;font-weight:400;text-transform:capitalize;color:#0dbce7;line-height:normal;cursor:pointer;}
+.inventorydetailsimilarv .middleblock h2 span .mat-icon{font-size: 24px;}
+::ng-deep .mat-tooltip{font-family:"Helvetica-Regular";font-size:14px!important;line-height:normal!important;color:#fff;text-transform:uppercase;background-color:#30373d; padding: 5px 10px 2px;}

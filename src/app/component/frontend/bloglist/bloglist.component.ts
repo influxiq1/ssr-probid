@@ -8,6 +8,7 @@ import { MetaService } from '@ngx-meta/core';
 
 export interface DialogData {
   data: any;
+  name: string;
 } 
 
 @Component({
@@ -16,6 +17,8 @@ export interface DialogData {
   styleUrls: ['./bloglist.component.css']
 })
 export class BloglistfrontendComponent implements OnInit {
+  
+  public  name: string;
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -64,6 +67,8 @@ export class BloglistfrontendComponent implements OnInit {
 
   panelOpenState = false;
 
+
+  
 //***********blog list view in blog detail************//
   blogdetail(val:any){
     // console.log(val)
@@ -112,11 +117,12 @@ export class BloglistfrontendComponent implements OnInit {
       
       // console.log('>>>>>>>>>>>>>>>>>>',this.safeSrc)
       const dialogRef = this.dialog.open(CommonVideoModalComponent, {
-        panelClass:['modal-md','success-modal'],
-       
-        width:'450px',
+        panelClass:['modal-md','commonVideoDialogCls'],
+        // width:'450px',
         data:this.safeSrc,
- 
+        height: 'auto',
+        width: '100%',
+        maxWidth:'90vw',     
       });
       dialogRef.afterClosed().subscribe(result => {  
       });
@@ -124,6 +130,19 @@ export class BloglistfrontendComponent implements OnInit {
 
 //********* end Video modal section***********//
 
+
+//*********** Coming Soon ************//
+comingSoonDialogBlog(): void {
+  const dialogRef = this.dialog.open(comingSoonDialogBlog, {
+   
+    data: {name: this.name}
+  });
+
+  setTimeout(() => {
+    this.dialog.closeAll();
+  }, 4000);
+}
+//*********** Coming Soon ************//
 
 
 //*********** sub blog list view in blog detail************//
@@ -133,6 +152,7 @@ export class BloglistfrontendComponent implements OnInit {
     }
 
 //*********** end sub blog list view in blog detail************//
+
 
 
 //***********load more view blog *************//
@@ -170,3 +190,18 @@ export class CommonVideoModalComponent {
   }
 }
 
+@Component({
+  selector:'app-coming-soon',
+  templateUrl: '../../../layout/coming-soon.html'
+})
+export class comingSoonDialogBlog {
+
+  constructor(
+    public dialogRef: MatDialogRef<comingSoonDialogBlog>,
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
+
+}
