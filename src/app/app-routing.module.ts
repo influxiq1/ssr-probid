@@ -60,7 +60,7 @@ import { NewsletterlistsComponent } from './component/backend/newsletterlists/ne
 import { SalesReportComponent } from './component/backend/sales-report/sales-report.component';
 import { SalesreplistsComponent } from './component/backend/salesreplists/salesreplists.component';
 import { RsvplistsComponent } from './component/backend/rsvplists/rsvplists.component';
-import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
+// import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
 import { ManageLessonsComponent } from './component/backend/manage-lessons/manage-lessons.component';
 import { TrainingCenterComponent } from './component/backend/training-center/training-center.component';
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
