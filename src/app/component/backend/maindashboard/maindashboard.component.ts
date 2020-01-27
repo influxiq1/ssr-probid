@@ -314,13 +314,17 @@ public errorMsg: string = '';
 
     //  if (this.jobTicketList.paginator) {
     //   this.jobTicketList.paginator.firstPage();
+
     // }
 
-
+  
    })
 
- 
+  }
 
+  applyFilter(filterVal:any) {
+    console.log(filterVal)
+    this.jobTicketList.filter = filterVal.trim().toLowerCase();
   }
 
 

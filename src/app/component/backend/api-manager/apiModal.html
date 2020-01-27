@@ -9,11 +9,13 @@
           </div>       
           <div mat-dialog-content>
 
-            <form [formGroup]="apikeyForm" class="formrightside">
+            <h1>Update Api Key  </h1>
+
+            <form [formGroup]="apikeyForm" class="formrightside" >
               <mat-label _ngcontent-serverapp-c1=""></mat-label>
               <mat-form-field>
-                <input matInput type="text" placeholder="Enter Api Key" (blur)="inputUntouched('apikey')"
-                  formControlName="apikey">
+                <input matInput type="text" placeholder="Enter Api Key" 
+                  formControlName="apikey" >
   
               </mat-form-field>&nbsp;
               <mat-error
@@ -25,8 +27,8 @@
               </mat-error>
   
               <mat-form-field class="serialnumbercls">
-                <input matInput type="number" placeholder= "Enter Number " (blur)="inputUntouched('keynum')"
-                  formControlName="keynum">
+                <input matInput type="number" placeholder= "Enter Number " 
+                  formControlName="keynum" readonly>
   
               </mat-form-field>&nbsp;
               <mat-error
@@ -38,7 +40,8 @@
               &nbsp; -->
   
               <!-- <button mat-raised-button type="reset" class="btnblue greenbtn">Reset</button> -->
-  
+              <button class="btnbluecls" mat-button cdkFocusInitial (click)="apiKeySubmit()">Update</button>&nbsp;
+              <button class="btnredcls" mat-button mat-dialog-close="no" cdkFocusInitial>Cancel</button>
   
   
   
@@ -50,8 +53,7 @@
           </div>
           <mat-dialog-actions >
 
-            <button class="btnbluecls" mat-button mat-dialog-close = "yes" cdkFocusInitial>Update</button>
-            <button class="btnredcls" mat-button mat-dialog-close="no" cdkFocusInitial>Cancel</button>
+           
            
           </mat-dialog-actions>
       </div>

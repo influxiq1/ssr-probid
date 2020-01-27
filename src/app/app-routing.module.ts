@@ -673,6 +673,9 @@ const routes: Routes = [
     data: { requestcondition: { source: 'search_api_key', condition: {} }, endpoint: 'datalist', canActivate: [AuthGuard] }
   },
 
+//  { path: 'api-manager/:id', component: ApiManagerComponent,canActivate: [AuthGuard]},
+ 
+
 
 
 
