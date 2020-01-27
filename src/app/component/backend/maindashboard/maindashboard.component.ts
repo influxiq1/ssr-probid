@@ -176,6 +176,7 @@ public errorMsg: string = '';
   public crsvplist:any ='';
   public count:any ='';
   public jobTicketList:any;
+  public jobTicketDataList:any;
 
 
   // socialAdvFacebookLists: socialFacebookAdvos[];
@@ -191,7 +192,7 @@ public errorMsg: string = '';
 
 
   JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
-  jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+  // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
   @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;
 
@@ -299,18 +300,21 @@ public errorMsg: string = '';
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
-     this.jobTicketList=result.res
+     this.jobTicketDataList=result.res
           // console.log('>>>>>', this.jobTicketList)
 
-     this.jobTicketList = new MatTableDataSource(result.res);
+    this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
+
+    //  this.jobTicketList = new MatTableDataSource(this.jobTicketDataList);
      this.jobTicketList.paginator = this.jtPaginator;
      this.jobTicketList.sort = this.sort;
-               console.log('>>>>>', this.jobTicketList)
+      console.log('>>>>>', this.jobTicketList)
 
 
-     if (this.jobTicketList.paginator) {
-      this.jobTicketList.paginator.firstPage();
-    }
+    //  if (this.jobTicketList.paginator) {
+    //   this.jobTicketList.paginator.firstPage();
+    // }
 
 
    })
