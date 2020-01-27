@@ -55,7 +55,7 @@
                   <span class="subrighrwrapper">
                     <span class="sub-col-6">
                       <span class="text-wrapper">
-                        <h2 *ngIf="item.heading != null" >{{item.heading}} <span  (click)="inventoryDetails(item._id)">View Details</span></h2>
+                        <h2 *ngIf="item.heading != null" >{{item.heading}} <span (click)="inventoryDetails(item._id)" matTooltip="view detail" matTooltipClass='red-tooltip'><mat-icon>visibility</mat-icon></span></h2>
                         <h3 *ngIf="item.vin != null">VIN: {{item.vin}}</h3>
   
                         <p *ngIf="item.build.cylinders != null">{{item.build.cylinders}} Cylinders </p>
