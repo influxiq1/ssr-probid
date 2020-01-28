@@ -82,6 +82,9 @@ import { CustomerSignupComponent, customerSignUpsuccessDialog } from './componen
 import { SearchListViewComponent } from './component/frontend/search-list-view/search-list-view.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 
+import { InventoryDetailsComponent } from './component/frontend/inventory-details/inventory-details.component';
+
+
 
 /**End Frontend Component**/
 
@@ -331,6 +334,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     ListingSubcategoryComponent,
     SaveSearchComponent,
     InventoryDetailComponent,
+    InventoryDetailsComponent,
     RemoveModalComponent,
     RemoveRsvpComponent,
     RemoveDialogComponent,

@@ -12,6 +12,16 @@
           Manage Lession
         </a>
       </mat-card-content>
+      <span class="searchblock">
+        <span class="searchblockwrapper">
+            <span>
+                <h2>Add Quiz</h2>
+            </span>
+            <span>
+                <button mat-button class="btnorange sim-button" [routerLink]="['/manage-lession/add/']"><i class="material-icons">add</i> Add Lession</button>
+            </span>                    
+        </span>
+      </span>
       <div class="tablediv">
         <lib-list-lession [allDataList]="manageLessionList" [serverDetails]="serverDetails" [formSource]="formSource"
           [EditPageRoute]="editPageRoute" [AddPageRoute]="addPageRoute" [SearchSourceName]="searchSourceName"

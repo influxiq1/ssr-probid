@@ -211,7 +211,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .formfilterdiv{margin-top:-10%!important}
 .formfilterdiv .container{width:100%}
 /* .tablediv{margin-top:-73px} */
-.tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row-reverse;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:inherit!important;margin-top:0;z-index:9;height: auto;}
+.tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:flex-end!important;margin-top:0;z-index:9;height: auto;}
 .tablediv .searchbar .mat-form-field-flex{background-color: #465157!important;border: 0 solid #efefef;color: #fff;}
 .tablediv .searchbar .mat-form-field{z-index:99;position:relative}
 .tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;}
@@ -233,6 +233,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .blogcatlists .tablediv .searchbar{padding-right:252px} */
 .tablediv table td.mat-column-Actions{width:98px}
 .tablediv table th.mat-column-date_added{width:114px}
+.tablediv .searchbar .mat-form-field-flex {flex-direction: row-reverse;}
 .inner_search_wrapper input{outline:none;font-size:1em;margin:0;border:none!important;display:block;background:#fff;border-radius:0!important;color:#333!important;border:1px solid #fff!important;box-sizing:border-box;height:40px;margin-right:10px;padding:10px;width:auto;min-width:270px}
 .formaddtraining{width:80%;margin:35px auto!important;display:block;background:#dde2e5;padding:50px}
 .breadcrumb{list-style:none;overflow:hidden;font:18px Helvetica,Arial,Sans-Serif;margin:40px;padding:0}
@@ -297,6 +298,9 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 span.smltxt{font-size:16px!important;line-height:18px!important;display:block;text-align:center;width:100%}
 .customerinfotopcontent .mat-list-item .mat-list-item-content span{display:block!important;width:100%}
 .customerinfotopcontent .mat-list-item:nth-child(1) .mat-list-item-content span{width:auto;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;font-weight:700;color:#2e353b!important}
+
+
+
 @media only screen and (max-width: 1199px) {
 .setting_formblock label{display:block;float:none;margin:10px 0}
 .setting_formblock .mat-form-field{display:block;float:none;margin:0 0 20px}
@@ -372,3 +376,8 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .adminwrappercls button,.adminwrappercls mat-button{border-radius:0!important}
 .myaccount .visibleicon{cursor:pointer}
 .myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix button{margin:0;padding:0;box-shadow:none!important;min-width:1px;line-height:normal}
+
+
+
+
+/* .buttonsetToolbar{display: none;} */
