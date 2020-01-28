@@ -376,3 +376,8 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .adminwrappercls button,.adminwrappercls mat-button{border-radius:0!important}
 .myaccount .visibleicon{cursor:pointer}
 .myaccount .mat-tab-body-wrapper .mat-form-field-appearance-legacy .mat-form-field-infix button{margin:0;padding:0;box-shadow:none!important;min-width:1px;line-height:normal}
+
+
+
+
+.buttonsetToolbar{display: none;}
