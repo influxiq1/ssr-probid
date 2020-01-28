@@ -1,28 +1,19 @@
-
-        
-                            
-        <div class="adminwrappercls">
-            <app-header></app-header>
-                <div class="main-content-wrap">
-                        <mat-card>
-                            <mat-toolbar color="primary" style="justify-content: center; align-items: center;">
-                                <h2 class="headerSpan">Services List</h2>
-                            </mat-toolbar>
-            
-                            <!-- ---------------------Button for adding new role------------------------------ -->
-                            <mat-toolbar class="buttonsetToolbar">
-                                <button class="singleButton" mat-raised-button color="primary" [routerLink]="['/service/add']">Add
-                                    service</button>
-                            </mat-toolbar>        
-                            <lib-servicelib [config]="serviceListConfig" ></lib-servicelib>
-                        </mat-card>
-                    </div>
-                   
-        </div>
-        <app-footer></app-footer>
-
-        
-
-     
-  
-
+<div class="adminwrappercls">
+  <app-header></app-header>
+  <div class="main-content-wrap">
+    <span class="searchblock">
+      <span class="searchblockwrapper">
+        <span>
+          <h2>Services List</h2>
+        </span>
+        <span>
+          <button mat-button class="btnorange sim-button" [routerLink]="['/service/add']"><i class="material-icons">add</i> Add service</button>
+        </span>
+      </span>
+    </span>
+    <div class="tablediv">
+      <lib-servicelib [config]="serviceListConfig"></lib-servicelib>
+    </div>
+  </div>
+</div>
+<app-footer></app-footer>

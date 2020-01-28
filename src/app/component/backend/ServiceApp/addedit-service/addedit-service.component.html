@@ -1,13 +1,17 @@
-
 <div class="adminwrappercls">
-    <app-header></app-header>
-    <div class="main-content-wrap">
-        <mat-card>
-          
-
-            <lib-addedit-service [config]="configAddEdit" [imageUpload]="configData" [imageUpload2]="configData2"></lib-addedit-service>
-        </mat-card>
-    </div>
+  <app-header></app-header>
+  <div class="main-content-wrap">
+    <mat-card class="generalcls blog" style="padding: 0 !important;">
+      <span class="searchblock">
+        <span class="searchblockwrapper">
+          <span>
+            <h2>Manage Service</h2>
+          </span>
+        </span>
+      </span>
+      <lib-addedit-service [config]="configAddEdit" [imageUpload]="configData" [imageUpload2]="configData2">
+      </lib-addedit-service>
+    </mat-card>
+  </div>
 </div>
-
 <app-footer></app-footer>
