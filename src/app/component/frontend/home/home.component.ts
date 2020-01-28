@@ -105,41 +105,7 @@ export class HomeComponent implements OnInit {
 
 
   carouselOptions = {
-    // margin: 0,
-    // nav: true,
-    // loop: false,
-    // rewind: true,
-    // autoplayTimeout: 6000,
-    // autoplay: false,
-    // autoplayHoverPause: true,
-    // center: false,
-    // responsiveClass: true,
-    // dots: false,
-    // autoWidth: true,
-    // autoHeight:true,
-    // navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
-    // responsive: {
-    //   0: {
-    //     items: 1,
-    //     nav: true,
-    //   },
-    //   600: {
-    //     items: 1,
-    //     nav: true,
-    //   },
-    //   991: {
-    //     items: 1,
-    //     nav: true,
-    //   },
-    //   992: {
-    //     items: 1,
-    //     nav: true,
-    //   },
-    //   1199: {
-    //     items: 1,
-    //     nav: true,
-    //   }
-    // }
+    
     autoPlay: true,    
     singleItem:true,
     transitionStyle:"fade",

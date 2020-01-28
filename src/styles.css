@@ -64,7 +64,8 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .owl-carousel .owl-item.active.center h1.title1{display:inline-block!important;text-align:center}
 .owl-carousel .owl-item.active.center .blogsociallists{display: block!important;}
 .owl-carousel .owl-item.active.center p.quatation{display:block!important;width:300%;margin-left:-100%;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit}
-.owl-carousel.owl-drag .owl-item{position:relative;margin-top:60px}
+/* .owl-carousel.owl-drag .owl-item{position:relative;margin-top:60px} */
+.owl-carousel.owl-drag .owl-item{position:relative;}
 .owl-carousel .owl-item.active.center{margin-top:0}
 .owl-carousel .owl-item.active>div:after{content:''}
 .owl-carousel .owl-item.center>div:after{content:''}
@@ -76,7 +77,7 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .tablediv .searchbar .mat-form-field .mat-form-field-prefix,.tablediv .searchbar .mat-form-field .mat-form-field-suffix{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
 .mat-form-field-appearance-legacy .mat-form-field-underline{height:inherit!important}
 /* .tablediv .listingtestimonial .searchbar{padding-right:236px;margin-top:-11px} */
-.tablediv .searchbar .mat-form-field{margin:0 2px}
+.tablediv .searchbar .mat-form-field{margin:0 2px; width: auto;}
 .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#fff;margin-bottom:10px}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0!important;background-color:#333!important;color:#fff}
 .rightsideformcls .serialnumbercls.mat-form-field-appearance-legacy .mat-form-field-infix{width: 30px;}
@@ -225,6 +226,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalmodalcls .mat-form-field{display:block!important}
 .generalmodalcls .mat-form-field-flex{display:block!important;border:none!important;padding:0!important}
 .generalmodalcls h4{display:block;text-align:center;margin:0;padding:10px 0 0;font-size:22px;color:#111;font-family:'Helvetica-Normal';font-weight:400}
+
 .newsletter_modalsuccess{padding-top:25px!important;padding-bottom:25px!important}
 .success-modal .mat-dialog-container{padding:10px!important;border-radius:0!important;overflow:hidden!important;position:relative;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-flex-direction: column;-moz-flex-direction: column;-ms-flex-direction: column;flex-direction: column;width:100%;pointer-events:auto;background-color:#fff;background-clip:padding-box;border:1px solid rgba(0,0,0,.2);border-radius:.3rem;outline:0}
 .generalmodalcls .actions{margin:0 auto;display:block;text-align:center}
@@ -306,6 +308,12 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .communicationsection .mat-elevation-z8 {box-shadow: none!important;margin-bottom: 20px;}
 .generalcls .sectionheader {font-size: 30px!important;line-height: normal!important;color: #2e2e2e;text-transform: uppercase;background-color: #dde2e5;-webkit-box-pack: start;justify-content: flex-start;padding: 20px 20px 15px;margin-bottom: 12px!important;}
 .adm_inner_banner{min-height: 160px; display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;-webkit-box-pack:center;flex-wrap: wrap;  -webkit-flex-wrap: wrap;}
+
+.generalcls .searchblock .searchblockwrapper span .mat-toolbar.mat-primary {font-size: 30px!important;line-height: normal!important;color: #2E2E2E;text-transform: uppercase;
+  background-color:transparent!important;-webkit-box-pack: start;justify-content: flex-start;padding: 10px 10px 5px;margin: 0!important;width: auto;}
+.generalcls .searchblock .searchblockwrapper span h1{font-size: 30px!important;line-height: normal!important;color: #2E2E2E;text-transform: uppercase;background-color:transparent!important;
+  -webkit-box-pack: start;justify-content: flex-start;padding: 10px 10px 5px;margin: 0!important;width: auto;}
+  .generalcls .searchblock span .buttonsetToolbar {background-color: transparent !important;padding: 0 !important;height: auto !important;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
