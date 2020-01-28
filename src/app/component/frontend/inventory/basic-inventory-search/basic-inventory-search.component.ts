@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {AppComponent} from '../../../../app.component';
+import {DetailServiceService} from '../../../../detail-service.service'
+
 
 export interface DialogData {
   errorMsg: string;
@@ -103,7 +105,9 @@ export class BasicInventorySearchComponent implements OnInit {
     public dialog: MatDialog,
     public cookieService: CookieService,
     public router: Router,
-    public apploader: AppComponent) {
+    public apploader: AppComponent,
+    public detailService:DetailServiceService
+    ) {
     this.meta.setTitle('ProBid Auto - Inventory');
     this.meta.setTag('og:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
     this.meta.setTag('twitter:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
@@ -271,6 +275,70 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
 
 
+  // searchAutoComplete(event: any, field: string) {
+  //   this.apploader.loader = 1;
+
+
+  //   let input: string = '';
+  //   let inputField: string = '';
+  //   if (event.target.value != null && event.target.value != '' && event.target.value.length >= 0) {
+  //     input = "&input=" + event.target.value;
+  //   }
+  //   if (field != null && field != '' && field.length >= 0) {
+  //     inputField = "&field=" + field;
+  //   }
+
+  //   if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
+  //   let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
+
+  //   this.http.get(search_url).subscribe((res: any) => {
+
+  //     this.apploader.loader = 0;
+
+  //     if (field == 'make') {
+  //       this.make_list = res.terms; 
+  //       // console.log(field, this.make_list);
+  //     }
+  //     if (field == 'model') {
+  //       this.model_list = res.terms; 
+  //       // console.log(field); 
+  //     }
+  //     if (field == 'body_type') {
+  //       this.type_list = res.terms; 
+  //       // console.log(field, this.type_list); 
+  //     }
+  //     if (field == 'trim') {
+  //       this.trim_list = res.terms; 
+  //       // console.log(field, this.trim_list); 
+  //     }
+
+
+
+  //   },error =>{
+  //     console.log('Invalid_Api')
+  //     console.log(this.apiService.invalidApi)
+
+      
+  //     this.apikey=this.apiService.invalidApi;
+
+  //     let data:any;
+  //     data={
+        
+  //       "apikey":this.apikey
+  //     }
+
+  //     this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
+  //       console.log("error")
+  //     })
+  // });
+  // }
+
+  // }
+
+
+
+  
+
   searchAutoComplete(event: any, field: string) {
     this.apploader.loader = 1;
 
@@ -288,9 +356,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
-
       this.apploader.loader = 0;
 
+     
       if (field == 'make') {
         this.make_list = res.terms; 
         // console.log(field, this.make_list);
@@ -308,11 +376,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         // console.log(field, this.trim_list); 
       }
 
-
-
     },error =>{
-      console.log('Invalid_Api')
-      console.log(this.apiService.invalidApi)
+      // console.log('Invalid_Api')
+      // console.log(this.apiService.invalidApi)
 
       
       this.apikey=this.apiService.invalidApi;
@@ -324,7 +390,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       }
 
       this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
-        console.log("error")
+        // console.log("error")
       })
   });
   }
@@ -354,9 +420,24 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
    
   }
 
-  viewDetails(val:any){
+  // viewDetails(val:any){
+  // console.log(val)
 
-  }
+  // }
+
+    // for observeable
+  public viewDetails(data:any):any {
+      console.log('data_item >>',data)
+      let carData={
+        carData: data
+      };
+  
+      this.detailService.carData(carData)
+      setTimeout(() => {
+        this.router.navigate(['/inventory-details']);
+      }, 500);
+     
+    }
 
 
   favorite(item: any) {

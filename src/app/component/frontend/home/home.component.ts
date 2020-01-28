@@ -333,21 +333,64 @@ inventoryPreownSearch(){
   let modelVal = this.inventoryPreownForm.value.model;
 
 
-  let data: any = {
-    source:'save_favorite_view',
-    condition:{
-    	"build.make":makeVal || modelVal || typeVal || yearVal
-    }
+  // let data: any = {
+  //   source:'save_favorite_view',
+  //   condition:{
+  //   	"build.make":makeVal || modelVal || typeVal || yearVal
+  //   }
+  // }
+
+  // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+  //   this.saveCarDataList=resc.res
+  //   this.apploader.loader = 0;
+
+  // })
+  if (typeVal != null && typeVal != '' && typeVal.length >= 0) {
+    this.type = "&body_type=" + typeVal;
+  }
+  if (yearVal != null && yearVal != '' && yearVal.length >= 0) {
+    this.year = "&year=" + yearVal;
+  }
+  if (makeVal != null && makeVal != '' && makeVal.length >= 0) {
+    this.make = "&make=" + makeVal;
+  }
+  if (modelVal != null && modelVal != '' && modelVal.length >= 0) {
+    this.model = "&model=" + modelVal;
   }
 
-  this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
-    // console.log('>>>>',resc.res);
-    this.saveCarDataList=resc.res
-    // console.log('>>>>',this.saveCarDataList);
+  if (this.type != '' || this.year != '' || this.make != '' || this.model != '') {
 
-    this.apploader.loader = 0;
+    let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.model+ '&rows=50';
 
-  })
+    this.http.get(search_link).subscribe((res: any) => {
+      this.apploader.loader = 0;
+
+      this.saveCarDataList = res.listings;
+      // console.log('search list',this.search)
+        console.log(this.saveCarDataList);
+        
+    },
+    error =>{
+
+      // console.log('Invalid_Api')
+      // console.log(this.apiService.invalidApi)
+
+      
+      this.apikey=this.apiService.invalidApi;
+
+      let data:any;
+      data={
+        
+        "apikey":this.apikey
+      }
+
+      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
+        // console.log("error")
+      })
+  }
+    )
+  } 
+
 
 
 
