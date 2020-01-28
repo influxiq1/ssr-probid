@@ -34,6 +34,7 @@
               <span class="search-sec">                
                   <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Pre-owned Cars</h2>
                   <span class="mat-search-bar">
+
                       <form class="example-form" [formGroup]="inventoryPreownForm" 
                       (ngSubmit)="inventoryPreownSearch()">
                           <mat-form-field class="example-full-width">
@@ -110,6 +111,7 @@
                           
                           
                         </form>
+
                   </span>
                   <span style="color: red;" *ngIf="saveCarDataList =='' || saveCarDataList == null">No Record Found</span>
               </span>       
@@ -117,7 +119,7 @@
                   <mat-list-item *ngFor="let item of saveCarDataList | slice:0:8"> 
                     <span class="listsimgwrap">
                       <img  *ngIf="item.media.photo_links !='' && item.media.photo_links !=null"  [src]="item.media.photo_links[0]">
-                      <img *ngIf="item.media.photo_links =='' && item.media.photo_links ==null" src="../../../../../assets/images/no-image-default.jpg">
+                      <img *ngIf="item.media.photo_links =='' || item.media.photo_links ==null" src="../../../../../assets/images/no-image-default.jpg">
                     </span>
                     <span class="listsinfo">
                       <span class="listsinfoprice">
@@ -165,6 +167,7 @@
                               <span class="inventorysearch">
 
                                 <span class="formblock">
+
                                   <form class="example-container" [formGroup]="inventoryCustomerForm" 
                                  (ngSubmit)="inventoryCustomerSearch()">
                          
@@ -281,6 +284,7 @@
                                    </span>
                          
                                  </form> 
+                                 
                                  </span>
    
                               </span><br>

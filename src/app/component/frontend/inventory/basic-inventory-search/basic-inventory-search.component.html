@@ -29,6 +29,7 @@
       style="width: 100%; display: block; margin: 0; padding: 0;"> -->
 
       <span class="formblock">
+        
         <form class="example-container" [formGroup]="inventoryCustomerForm" 
         (ngSubmit)="inventoryCustomerSearch()">
 
@@ -37,7 +38,8 @@
               <span>
                 <h4>Make:</h4>
                 <mat-form-field>
-                  <input type="text" (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
+                  <input type="text"
+                   (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
                     aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
                   <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of make_list" [value]="option">
@@ -49,11 +51,12 @@
               <span>
                 <h4>Model:</h4>
                 <mat-form-field>
-                  <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
-                    aria-label="Number" matInput formControlName="model" 
-                    [matAutocomplete]="automodel">
+                  <input type="text"
+                   (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
+                    aria-label="Number" matInput formControlName="model" [matAutocomplete]="automodel">
                   <mat-autocomplete #automodel="matAutocomplete">
-                    <mat-option *ngFor="let option of model_list" [value]="option">
+                    <mat-option *ngFor="let option of model_list" 
+                    [value]="option">
                       {{option}}
                     </mat-option>
                   </mat-autocomplete>
@@ -108,10 +111,10 @@
             </span>
             <span>
               <span>
-                <h4>VIN:</h4>
+                <h4>Vin:</h4>
                 <mat-form-field>
-                  <mat-select formControlName="vin" placeholder="VIN">
-                    <mat-option value="">VIN</mat-option>
+                  <mat-select formControlName="vin" placeholder="Vin">
+                    <mat-option value="">Vin</mat-option>
                     <mat-option value="vin1">vin1</mat-option>
                     <mat-option value="vin2">vin2</mat-option>
                   </mat-select>
@@ -120,7 +123,7 @@
               <span>
                 <h4>State:</h4>
                 <mat-form-field>
-                  <mat-select formControlName="state" placeholder="STATE">
+                  <mat-select formControlName="state" placeholder="State">
                     <mat-option *ngFor="let item of stateList" [value]="item.abbreviation">{{item.name}}</mat-option>
                   </mat-select>
                 </mat-form-field>
@@ -135,13 +138,14 @@
 
             </span>
             <span class="buttonslist">
-              <button mat-raised-button color="primary" type="reset" > Reset</button>
-              <button mat-raised-button color="primary" type="button"> Search</button>
+              <button mat-raised-button color="primary" type="reset" 
+               > Reset</button>
+              <button mat-raised-button color="primary" type="submit"> Search</button>
             </span>
 
           </span>
 
-        </form>
+        </form> 
       </span>
 
     </span>
