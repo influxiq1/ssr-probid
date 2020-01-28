@@ -14,13 +14,14 @@ export interface DialogData {
   styleUrls: ['./tesimoniallist.component.css']
 })
 export class TesimoniallistComponent implements OnInit {
-  private indexvallength: any;
+  // private indexvallength: any;
   public TestimonialListArray: any = [];
   // showMore = false;
   showme = true;
   public indexval: any = 6;
   public dataformate: any;
   public p_id: any;
+  // public indexvallength:any ='';
 
   public  name: string;
 
@@ -49,7 +50,8 @@ export class TesimoniallistComponent implements OnInit {
       let result: any = {};
       result = data.testimonialListData.res;
       this.TestimonialListArray = result;
-      this.indexvallength = this.TestimonialListArray.length;
+      // console.warn(this.TestimonialListArray);
+      // this.indexvallength = this.TestimonialListArray.length;
     })
   }
 

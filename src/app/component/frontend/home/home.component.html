@@ -523,12 +523,13 @@
        <owl-carousel [options]="carouselOptions" [items]="TestimonialListArray" [carouselClasses]="['owl-theme', 'row', 'sliding']">
         <div *ngFor="let image of TestimonialListArray;let i= index">
           <span class="slide-image-wrapper">
-            <img class="slide-image" (click)="showBut()" src="{{image.image}}" >
+            <img class="slide-image" (click)="showBut()" src="{{image.testimonial_img}}" >
+            <!-- <p>{{image.testimonial_img.basepath}}</p> -->
           </span>
           <span class="slide-text" (click)="showBut()">
               <h1 class="title1 demo cursor">{{image.name}}</h1>
               <p class="quatation demo cursor">
-                <span [innerHtml]="image.testimonial"></span>
+                <span [innerHtml]="image.description_html"></span>
               </p>
 
           </span>
