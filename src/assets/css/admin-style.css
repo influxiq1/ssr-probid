@@ -187,7 +187,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv table th.empycell,.tablediv table td.empycell{width:2.5%;text-align:left}
 .tablediv .container{background:transparent!important;width:100%;margin-bottom:10px}
 .tablediv .container br{display:none}
-.tablediv .mat-card{background:transparent!important;padding:0;margin-top:10px}
+.tablediv .mat-card{background:transparent!important;padding:0;margin-top:0px}
 .tablediv .mat-paginator{background-color:#e0361f;margin-top:5px;width:100%}
 .tablediv table.mat-table{width:100%}
 .tablediv.actionsectionhide table.mat-table thead th:last-child{display:none}
@@ -210,12 +210,14 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .mat-select-panel-wrap .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){color:#f1f1f1}
 .formfilterdiv{margin-top:-10%!important}
 .formfilterdiv .container{width:100%}
-.tablediv{margin-top:-73px}
-.tablediv .searchbar{padding-right:173px;-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row-reverse;-webkit-box-pack:inherit!important;justify-content:inherit!important;margin-top:0;margin-bottom:23px;z-index:9}
+/* .tablediv{margin-top:-73px} */
+.tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row-reverse;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:inherit!important;margin-top:0;z-index:9;height: auto;}
+.tablediv .searchbar .mat-form-field-flex{background-color: #465157!important;border: 0 solid #efefef;color: #fff;}
 .tablediv .searchbar .mat-form-field{z-index:99;position:relative}
+.tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;}
 .tablediv .mat-form-field-flex{align-items:stretch}
 .tablediv table td span .material-icons{color:#4f5051!important}
-.tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{line-height:normal;padding:8px 3px!important}
+.tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{line-height:normal;padding:8px 3px!important;margin: 5px!important;background: #dde2e5 !important;}
 .tablediv table .actionnewbtn span{cursor:pointer}
 .tablediv.trainingtablediv{margin-top:0!important}
 .tablediv.trainingtablediv table{margin-top:27px}
@@ -227,8 +229,8 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .searchblock span h2{font-family:"Helvetica-Normal";color:#373b3d;font-size:24px!important;margin:0}
 .tablediv .searchbar .mat-form-field .mat-form-field-infix{margin-bottom:0}
 .tablediv .searchbar .mat-form-field .mat-form-field-prefix,.tablediv .searchbar .mat-form-field .mat-form-field-suffix{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center}
-.bloglists .tablediv .searchbar{padding-right:200px}
-.blogcatlists .tablediv .searchbar{padding-right:252px}
+/* .bloglists .tablediv .searchbar{padding-right:200px}
+.blogcatlists .tablediv .searchbar{padding-right:252px} */
 .tablediv table td.mat-column-Actions{width:98px}
 .tablediv table th.mat-column-date_added{width:114px}
 .inner_search_wrapper input{outline:none;font-size:1em;margin:0;border:none!important;display:block;background:#fff;border-radius:0!important;color:#333!important;border:1px solid #fff!important;box-sizing:border-box;height:40px;margin-right:10px;padding:10px;width:auto;min-width:270px}

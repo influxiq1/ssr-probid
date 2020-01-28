@@ -75,7 +75,7 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .tablediv .formfilterdiv mat-toolbar-row[style]{justify-content:inherit!important}
 .tablediv .searchbar .mat-form-field .mat-form-field-prefix,.tablediv .searchbar .mat-form-field .mat-form-field-suffix{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;-webkit-box-align: center;-moz-box-align: center;-ms-flex-align: center;-webkit-align-items: center;align-items: center;}
 .mat-form-field-appearance-legacy .mat-form-field-underline{height:inherit!important}
-.tablediv .listingtestimonial .searchbar{padding-right:236px;margin-top:-11px}
+/* .tablediv .listingtestimonial .searchbar{padding-right:236px;margin-top:-11px} */
 .tablediv .searchbar .mat-form-field{margin:0 2px}
 .mat-form-field-appearance-legacy .mat-form-field-infix{padding:1em!important;background:#fff;margin-bottom:10px}
 .rightsideformcls .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0!important;background-color:#333!important;color:#fff}
@@ -84,8 +84,8 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .topinnerinforight .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0}
 .contact-form .mat-form-field-appearance-legacy .mat-form-field-infix{background:#eee}
 .newslettermain .mat-form-field-appearance-legacy .mat-form-field-infix{margin-bottom:0}
-.bloglists .tablediv .searchbar{padding-right:200px;margin-top:-10px}
-.blogcatlists .tablediv .searchbar{padding-right:252px;margin-top:-10px}
+/* .bloglists .tablediv .searchbar{padding-right:200px;margin-top:-10px}
+.blogcatlists .tablediv .searchbar{padding-right:252px;margin-top:-10px} */
 .formspan .form-field-span,.formspan .mat-form-field{width:100%!important;box-sizing:border-box;margin-bottom:9px!important;background:transparent!important;padding:0!important}
 .formspan .example-container{width:100%!important;box-sizing:border-box}
 ckeditor{margin-bottom:9px!important;display:inline-block;width:100%}

@@ -313,7 +313,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .rateingdiv .checked{color:#f4cd64}
 .hidden{display:none}
 .tablediv .searchbar .mat-form-field .mat-form-field-infix{margin-bottom:0}
-.bloglists .tablediv{margin-top:-73px}
+/* .bloglists .tablediv{margin-top:-73px} */
 .mat-paginator .mat-form-field-appearance-legacy .mat-form-field-infix{padding:13px 3px!important;margin-bottom:0}
 .search-sec{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:center;justify-content:space-between}
 .search-sec .example-form{width:100%;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;justify-content:flex-end;align-items:center;background:#fff;margin:10px 0}
