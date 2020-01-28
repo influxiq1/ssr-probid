@@ -23,9 +23,9 @@ public btn_text:any="Submit"
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
   constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService,private readonly meta: MetaService) { 
 
-    this.meta.setTitle('ProBid Auto - Add Salesrep');
-    this.meta.setTag('og:title', 'ProBid Auto - Add Salesrep');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Add Salesrep');
+    this.meta.setTitle('ProBid Auto - Add Customer');
+    this.meta.setTag('og:title', 'ProBid Auto - Add Customer');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add Customer');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
