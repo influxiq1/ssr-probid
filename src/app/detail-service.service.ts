@@ -11,6 +11,7 @@ export class DetailServiceService {
   constructor() { }
 
   carData(data: any) {
+    // console.log('>>>',data)
     this.dataSource.next(data);
   }
 }

@@ -9,7 +9,6 @@ import {DetailServiceService} from '../../../detail-service.service'
 import { MetaService } from '@ngx-meta/core';
 
 
-
 export interface DialogData {
   errorMsg: string;
 }
@@ -68,9 +67,9 @@ export class InventoryDetailComponent implements OnInit {
   public carData: any;
   public addedCar: any = '';
   public searchRecord:any;
-  // public removeCar:any;
+
   constructor(public activatedRoute: ActivatedRoute, public apiService: ApiService,
-    //  public catItemByObservable: BasicInventorySearchBackendComponent,
+    
       public cookieService: CookieService, public snack: MatSnackBar, public dialog: MatDialog, public router: Router,public detailService:DetailServiceService,
       private readonly meta: MetaService) {
 
@@ -209,24 +208,7 @@ export class InventoryDetailComponent implements OnInit {
     this.indexImg = i
   }
 
-  //datalist for save search
-
-  // saveSearch() {
-  //   let data: any = {
-  //     source: 'save_favorite_view',
-  //     condition:{
-  //       added_by:this.user_id
-  //     }
-  //   }
-  //   this.apiService.getDataForDatalist(data).subscribe((res: any) => {
-
-  //     this.saveList = res.res;
-  //     console.log('save >>',this.saveList);
-
-  //   });
-  // }
-
-
+  
 
   //for rsvp send
   addRsvp(itemData: any) {
@@ -519,15 +501,6 @@ export class InventoryDetailComponent implements OnInit {
 
         this.addedCar = res.res
 
-        // if (this.user_details.type == 'admin') {
-        //   this.router.navigateByUrl('/save-search-admin');
-        // }
-        // if (this.user_details.type == 'customer') {
-        //   this.router.navigateByUrl('/save-search-castomer');
-        // }
-        // if (this.user_details.type == 'salesrep') {
-        //   this.router.navigateByUrl('/save-search-rep');
-        // }
 
       }
     });

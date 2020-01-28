@@ -7,6 +7,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CookieService } from 'ngx-cookie-service';
 import {AppComponent} from '../../../../app.component';
+import {DetailServiceService} from '../../../../detail-service.service'
+
 
 export interface DialogData {
   errorMsg: string;
@@ -103,7 +105,9 @@ export class BasicInventorySearchComponent implements OnInit {
     public dialog: MatDialog,
     public cookieService: CookieService,
     public router: Router,
-    public apploader: AppComponent) {
+    public apploader: AppComponent,
+    public detailService:DetailServiceService
+    ) {
     this.meta.setTitle('ProBid Auto - Inventory');
     this.meta.setTag('og:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
     this.meta.setTag('twitter:description', 'Locate the Pre-Owned Car of your desire at the ProBid Auto Inventory using Basic, as well as Advanced, Search Parameters to make your Car Search easy and convenient, while also saving you loads of time, effort and money');
@@ -416,10 +420,24 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
    
   }
 
-  viewDetails(val:any){
-  console.log(val)
+  // viewDetails(val:any){
+  // console.log(val)
 
-  }
+  // }
+
+    // for observeable
+  public viewDetails(data:any):any {
+      console.log('data_item >>',data)
+      let carData={
+        carData: data
+      };
+  
+      this.detailService.carData(carData)
+      setTimeout(() => {
+        this.router.navigate(['/inventory-details']);
+      }, 500);
+     
+    }
 
 
   favorite(item: any) {

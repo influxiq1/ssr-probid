@@ -133,6 +133,7 @@ const routes: Routes = [
 
   {path:'inventory-details', component:InventoryDetailsComponent},
 
+
   /**Training library**/
   
    /**Lession Management **/
