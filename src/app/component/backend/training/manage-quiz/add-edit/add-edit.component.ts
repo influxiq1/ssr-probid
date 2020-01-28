@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 @Component({
   selector: 'app-add-edit',
@@ -25,7 +26,15 @@ export class AddEditComponent implements OnInit {
   }
   public listingPageRoute : any="/manage-quiz/list/";
 
-  constructor(public activatedRoute: ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService) { 
+  constructor(public activatedRoute: ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
+
+    this.meta.setTitle('ProBid Auto - Manage Answer');
+    this.meta.setTag('og:title', 'ProBid Auto - Manage Answer');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Manage Answer');
+    this.meta.setTag('og:type', 'website');
+    this.meta.setTag('og:image', '../../assets/images/logomain.png');
+    this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
     this.lessonId = this.activatedRoute.snapshot.params.id;
   }
 
@@ -35,7 +44,7 @@ export class AddEditComponent implements OnInit {
         let result: any;
         result = data.quizQuestionData.res;
         this.quizQuestionSingleDataList = result;
-        console.log("kjjihsiuhdata",this.quizQuestionSingleDataList);
+        // console.log("kjjihsiuhdata",this.quizQuestionSingleDataList);
   
       })
     }

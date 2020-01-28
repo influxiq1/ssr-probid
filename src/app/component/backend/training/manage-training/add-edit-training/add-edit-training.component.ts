@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router , ActivatedRoute } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 @Component({
   selector: 'app-add-edit-training',
   templateUrl: './add-edit-training.component.html',
@@ -29,7 +30,14 @@ export class AddEditTrainingComponent implements OnInit {
   public additionalData: any = {
     "objectId": "parent_catagory"
   };
-  constructor(private route : ActivatedRoute, public activatedRoute: ActivatedRoute, public ApiService: ApiService, private cookieService: CookieService) { }
+  constructor(private route : ActivatedRoute, public activatedRoute: ActivatedRoute, public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) {
+    this.meta.setTitle('ProBid Auto - Manage Training');
+        this.meta.setTag('og:title', 'ProBid Auto - Manage Training');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Manage Training');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+   }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

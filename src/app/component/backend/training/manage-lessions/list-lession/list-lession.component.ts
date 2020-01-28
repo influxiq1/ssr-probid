@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../../api.service';
+import { MetaService } from '@ngx-meta/core';
 
 
 @Component({
@@ -27,7 +28,14 @@ public formSource: any = {
   "searchEndpoint":"datalist"
 }
 public searchSourceName :any="manage_lession_view";
-  constructor(public activatedRoute : ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService) { }
+  constructor(public activatedRoute : ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
+    this.meta.setTitle('ProBid Auto - Manage Lessions');
+        this.meta.setTag('og:title', 'ProBid Auto - Manage Lessions');
+        this.meta.setTag('twitter:title', 'ProBid Auto - Manage Lessons');
+        this.meta.setTag('og:type', 'website');
+        this.meta.setTag('og:image', '../../assets/images/logomain.png');
+        this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+  }
 
   ngOnInit() {
     this.activatedRoute.data.forEach(data => {
