@@ -1,6 +1,6 @@
-.inventorydetailbg.mat-card{background:url(../../../../assets/images/contactusbg.jpg) no-repeat center center!important}
+.inventorydetailbg.mat-card{background:url(../../../../assets/images/basicinventorybg.jpg) no-repeat center center!important}
 @media only screen and (max-width:1024px) {
-.inventorydetailbg.mat-card{background:url(../../../../assets/images/contactusbg.jpg) no-repeat left 25% center!important}
+.inventorydetailbg.mat-card{background:url(../../../../assets/images/basicinventorybg.jpg) no-repeat left 25% center!important}
 }
 .inventorydetailblock{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:stretch}
 .inventorydetailblockleft{display:flex;flex-direction:column;flex-wrap:wrap;align-items:stretch;width:40%;margin-right:29px}
