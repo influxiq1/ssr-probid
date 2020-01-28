@@ -34,7 +34,7 @@
               <span class="search-sec">                
                   <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/preownedcarsicon.png"> Pre-owned Cars</h2>
                   <span class="mat-search-bar">
-
+                    <span class="inventorysearch inventorysearchtxtwhite"> 
                       <form class="example-form" [formGroup]="inventoryPreownForm" 
                       (ngSubmit)="inventoryPreownSearch()">
                           <mat-form-field class="example-full-width">
@@ -112,6 +112,7 @@
                           
                         </form>
 
+                    </span>                       
                   </span>
                   <span style="color: red;" *ngIf="saveCarDataList =='' || saveCarDataList == null">No Record Found</span>
               </span>       
