@@ -137,7 +137,7 @@ const routes: Routes = [
    { path: 'manage-lession/list', component : ListLessionComponent,
    resolve: { lessionData: ResolveService }, 
    data: { requestcondition: { source: 'manage_lession_view', condition: {} }, endpoint: 'datalist' }},
-   { path: 'manage-lession/edit/:id', component: AddEditLessionsComponent },
+   { path: 'manage-lession/edit/:_id', component: AddEditLessionsComponent },
 
   /**Training Management**/
    { path: 'manage-training/add', component: AddEditTrainingComponent },
@@ -147,7 +147,7 @@ const routes: Routes = [
        resolve: { trainingdata: ResolveService }, 
        data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
    },
-   { path: 'manage-training/edit/:id', component: AddEditTrainingComponent },
+   { path: 'manage-training/edit/:_id', component: AddEditTrainingComponent },
    /**Training center**/
    { 
        path : 'training-center/list' , component : ListComponent,
@@ -155,7 +155,7 @@ const routes: Routes = [
        data: { requestcondition: { source: 'training_category_management_view', condition: {} }, endpoint: 'datalist' }
    },
    { path: 'manage-center/add', component: AddEditCenterComponent },
-   { path: 'manage-center/edit/:id', component: AddEditCenterComponent },
+   { path: 'manage-center/edit/:_id', component: AddEditCenterComponent },
    /**Quiz Management**/
    {
      path : 'manage-quiz/list/:lesson_id_object' , component : ManageQuizComponent,
@@ -163,7 +163,7 @@ const routes: Routes = [
        data: { requestcondition: { source: 'quiz_question_view', condition: {} }, endpoint: 'datalist' }
    },
    {
-       path : 'manage-quiz/add/:id', component : AddEditComponent
+       path : 'manage-quiz/add/:_id', component : AddEditComponent
    },
    {
        path : 'manage-quiz/edit/:_id', component : AddEditComponent,
@@ -171,7 +171,7 @@ const routes: Routes = [
        data: { requestcondition: { source: 'quiz_question', condition: {} }, endpoint: 'datalist' }
    },
    {
-     path : 'manage-quiz/add-answer/:id' , component : AddUpdateAnswerComponent
+     path : 'manage-quiz/add-answer/:_id' , component : AddUpdateAnswerComponent
    },
    {
        path : 'manage-quiz/update-answer/:questionId_object',component : UpdateAnswerComponent,
