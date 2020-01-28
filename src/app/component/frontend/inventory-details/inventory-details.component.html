@@ -97,14 +97,17 @@
                       *ngIf=" user_details != null && user_details.type == 'customer' || user_details.type == 'salesrep'" 
                       (click)="addRsvp(data)">RSVP</mat-button> -->
 
-                      <mat-button class="btnrsvp"
-                      (click)="addRsvp(data)">RSVP</mat-button>
+                      <!-- <mat-button class="btnrsvp"
+                      (click)="addRsvp(data)">RSVP</mat-button> -->
 
                    
                     <!-- <mat-button class="btngreencls" *ngIf="user_details !=null && router.url == '/inventory-details' 
                      && addedCar == '' " (click)="addCar(data)">Add</mat-button> -->
 
-                     <mat-button class="btngreencls"  (click)="addCar(data)">Add</mat-button>
+                     <!-- <mat-button class="btngreencls"  (click)="addCar(data)">Add</mat-button> -->
+
+                     <span><button class="btnrsvp" (click)="rsvpSend(data)">RSVP</button></span>
+                    <mat-button class="btngreencls"  (click)="favorite(data)">ADD</mat-button>
 
 
                     <!-- <mat-button class="btnredcls" *ngIf="router.url == '/inventory-details' && 
