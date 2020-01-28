@@ -10,16 +10,6 @@
         <a mat-list-item routerLinkActive="active"> Training Manager </a>
         <a mat-list-item routerLinkActive="active activebread"> Manage Quiz </a>
       </mat-card-content>
-      <span class="searchblock">
-        <span class="searchblockwrapper">
-            <span>
-                <h2>Add Quiz</h2>
-            </span>
-            <span>
-                <button mat-button class="btnorange sim-button" [routerLink]="['/manage-quiz/add/']"><i class="material-icons">add</i> Add quiz</button>
-            </span>                    
-        </span>
-      </span>
       <div class="tablediv">
         <lib-manage-quiz [AddPageRoute]="addPageRoute" [LessonPageRoute]="lessonPageRoute"
           [allDataList]="quizQuestionList" [serverDetails]="serverDetails" [formSource]="formSource"
