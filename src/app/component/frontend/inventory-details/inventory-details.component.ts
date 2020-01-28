@@ -72,7 +72,7 @@ export class InventoryDetailsComponent implements OnInit {
         this.user_details = JSON.parse(this.cookieService.get('user_details'));
         this.user_id = this.user_details._id;
         // console.log(this.user_id);
-        // console.log('type>>', this.user_details.type)
+        console.log('type>>', this.user_details)
   
       }
     }
@@ -92,13 +92,46 @@ export class InventoryDetailsComponent implements OnInit {
   
       }
 
+      // customer list for rep
+
+    // if (this.user_details.type == "salesrep") {
+    //   let data: any = {
+    //     endpoint: 'datalist',
+    //     source: 'user',
+    //     condition: {
+    //       "salesrep": this.user_id,
+    //       "type": "customer"
+    //     }
+    //   }
+    //   this.apiService.getDatalist(data).subscribe((res: any) => {
+    //     this.customerList = res.res;
+
+    //   });
+
+    // }
+
+    
+
 
   }
+
+
 
   //show details
   showImage(item: any, i: any) {
     this.indexImg = i
   }
+
+  addCar(val:any){
+    console.log(val)
+    this.router.navigateByUrl('/login' + this.router.url)
+
+  }
+
+
+
+
+
 
 
 

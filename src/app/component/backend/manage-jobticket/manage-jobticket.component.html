@@ -66,10 +66,11 @@
                         <!-- <img *ngIf="item.media.photo_links[0] != null" 
                                           [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)"> -->
                         <!-- <img class="defaultimg" *ngIf="item.media.photo_links[0] == null" src="assets/images/no-image-default.jpg"> -->
+                        <img class="defaultimg" *ngIf="rsvp_details.car_image !=null"
+                          [src]="rsvp_details.car_image">
                         <img class="defaultimg" *ngIf="rsvp_details.car_image =='' || rsvp_details.car_image ==null"
                           src="assets/images/no-image-default.jpg">
-                        <img class="defaultimg" *ngIf="rsvp_details.car_image !='' && rsvp_details.car_image !=null"
-                          [src]="rsvp_details.car_image">
+                        
                       </span>
                     </span>
                     <span class="rsvplistsbottom">
@@ -93,10 +94,11 @@
                       <h2>User</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                         <span *ngIf="rsvp_details.added_for_picture !=null">
-                           <img [src]="rsvp_details.added_for_picture"></span> 
-                           <span *ngIf="rsvp_details.added_for_picture ==null">
-                            <img src="../../../../assets/images/no-image-default.jpg"></span> 
+
+                          <span *ngIf="rsvp_details.added_for_picture !=null">
+                            <img [src]="rsvp_details.added_for_picture"></span> 
+                            <span *ngIf="rsvp_details.added_for_picture ==null">
+                             <img src="../../../../assets/images/no-image-default.jpg"></span> 
                         </span>
                         <span class="listscontent">
                           <mat-list>
