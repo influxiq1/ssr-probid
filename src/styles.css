@@ -64,7 +64,8 @@ body{margin:0;font-family:Roboto,"Helvetica Neue",sans-serif}
 .owl-carousel .owl-item.active.center h1.title1{display:inline-block!important;text-align:center}
 .owl-carousel .owl-item.active.center .blogsociallists{display: block!important;}
 .owl-carousel .owl-item.active.center p.quatation{display:block!important;width:300%;margin-left:-100%;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit}
-.owl-carousel.owl-drag .owl-item{position:relative;margin-top:60px}
+/* .owl-carousel.owl-drag .owl-item{position:relative;margin-top:60px} */
+.owl-carousel.owl-drag .owl-item{position:relative;}
 .owl-carousel .owl-item.active.center{margin-top:0}
 .owl-carousel .owl-item.active>div:after{content:''}
 .owl-carousel .owl-item.center>div:after{content:''}
