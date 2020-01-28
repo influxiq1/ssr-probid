@@ -12,6 +12,16 @@
           Manage Training
         </a>
       </mat-card-content>
+      <span class="searchblock">
+        <span class="searchblockwrapper">
+            <span>
+                <h2>Training List</h2>
+            </span>
+            <span>
+                <button mat-button class="btnorange sim-button" [routerLink]="['/manage-training/add']"><i class="material-icons">add</i> Add Training</button>
+            </span>                    
+        </span>
+      </span>
       <div class="tablediv">
         <lib-listing-training [allDataList]="manageTrainingList" [serverDetails]="serverDetails"
           [formSource]="formSource" [EditPageRoute]="editPageRoute" [AddPageRoute]="addPageRoute"
