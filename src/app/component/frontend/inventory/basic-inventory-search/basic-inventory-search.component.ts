@@ -62,7 +62,7 @@ export class BasicInventorySearchComponent implements OnInit {
   }
 
 
-  public indexval:any=10;
+  public indexval:any=5;
   public loginMsg: string ='';
   public errorMsg: string = '';
   public inventoryCustomerForm: FormGroup;
@@ -248,7 +248,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
      
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=50';
+        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=15';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.apploader.loader = 0;
@@ -509,7 +509,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   }
 
   loadMoreSearchResult(){
-    this.indexval=this.indexval+5;
+    this.indexval=this.indexval+2;
   }
 
 

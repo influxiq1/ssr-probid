@@ -58,7 +58,8 @@
                                   <img class="defaultimg" 
                                   *ngIf="item.car_image !=null && item.car_image !=''" 
                                   [src]="item.car_image">
-                                  <img *ngIf="item.car_image ==null || item.car_image ==''" src="../../../../assets/images/default_car_img.jpeg">
+                                  <img *ngIf="item.car_image ==null || item.car_image ==''" 
+                                  src="../../../../assets/images/no-image-default.jpg">
 
                               </span>                        
                             </span>
@@ -81,7 +82,7 @@
                               <span class="rsvplisttypecontentinfo">
                                 <span class="rsvplisttypeimgwrapper">
                                   <img *ngIf="item.customer_image !=null && item.customer_image !=''" [src]="item.customer_image">
-                                  <img *ngIf="item.customer_image ==null || item.customer_image ==''" src="../../../../assets/images/default_car_img.jpeg">
+                                  <img *ngIf="item.customer_image ==null || item.customer_image ==''" src="../../../../assets/images/no-image-default.jpg">
                                   <span class="listscontentshape"></span>
                                 </span>
                                 <span class="listscontent">
@@ -106,7 +107,7 @@
                                 <span class="rsvplisttypeimgwrapper">
                                   <img *ngIf="item.salesrep_image !=null && item.salesrep_image !=''" [src]="item.salesrep_image">
 
-                                  <img *ngIf="item.salesrep_image ==null || item.salesrep_image ==''" src="../../../../assets/images/default_car_img.jpeg">
+                                  <img *ngIf="item.salesrep_image ==null || item.salesrep_image ==''" src="../../../../assets/images/no-image-default.jpg">
 
                                   <span class="listscontentshape"></span>
                                 </span>
