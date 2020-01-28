@@ -176,6 +176,7 @@ export class HomeComponent implements OnInit {
 
   public currentUrl: any;
 
+  // public testimonial_img: any = '';
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService, public apploader: AppComponent) { 
@@ -250,6 +251,10 @@ comingSoonDialogBloghome(): void {
     this.activatedRoute.data.forEach((data: any) =>{
       this.blogList = data.home_data.result.blog_list;
       this.TestimonialListArray = data.home_data.result.testmonial_list;
+      console.warn(this.TestimonialListArray);
+      
+        // this.testimonial_img = this.testimonial_img[0].basepath+this.testimonial_img[0].image;
+      
       this.saveCarDataList=data.home_data.result.car_listing;
       this.sepecialCarList=data.home_data.result.car_special;
       })
