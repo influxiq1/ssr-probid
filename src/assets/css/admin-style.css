@@ -93,7 +93,8 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .topmenulist .navigation-left .mat-list-item{height: auto; padding: 0 !important;}
 .topmenulist .navigation-left .mat-list-item .mat-list-item-content{padding: 0 !important;}
 .topmenulist .navigation-left a, .topmenulist .navigation-left a:hover{color: #46464d;font-family:'Helvetica-Regular';font-size: 14px;text-transform: capitalize;padding: 9px 22px 7px;line-height: normal;height: auto;}
-.topmenulist .navigation-left a:hover{background:#09c5fb;color:#fff}
+.topmenulist .navigation-left a:hover{background:#f15b46 !important;color:#fff}
+.topmenulist .activemenu{background:#f15b46 !important;color:#fff}
 .dashboard_block1{border:none!important;background:#fff url(../images/ami_amin_block1bg1.jpg) no-repeat right top!important;margin:0!important;outline:none!important;box-shadow:none!important;padding:48px!important}
 .dashboard_block1 mat-card-content{border:none!important;outline:none!important;box-shadow:none!important;width:890px;height:460px;display:table-cell;vertical-align:middle}
 .dashboard_block1 mat-card-content h3{font-size:30px;color:#f15b46;margin:0;padding:15px 0}
@@ -214,7 +215,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:flex-end!important;margin-top:0;z-index:9;height: auto;}
 .tablediv .searchbar .mat-form-field-flex{background-color: #465157!important;border: 0 solid #efefef;color: #fff;}
 .tablediv .searchbar .mat-form-field{z-index:99;position:relative}
-.tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;}
+/* .tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;} */
 .tablediv .mat-form-field-flex{align-items:stretch}
 .tablediv table td span .material-icons{color:#4f5051!important}
 .tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{line-height:normal;padding:8px 3px!important;margin: 5px!important;background: #dde2e5 !important;}
@@ -222,7 +223,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv.trainingtablediv{margin-top:0!important}
 .tablediv.trainingtablediv table{margin-top:27px}
 .searchblock{margin:0;padding:0;position:relative;display:block}
-.searchblock .btnorange{min-width:100%;border-radius:0;padding:9px 8px 7px!important;margin:0!important;display:flex!important;align-items:center;cursor:pointer}
+.searchblock .btnorange{min-width:100%;border-radius:0;padding: 14px 12px 12px!important;margin:0!important;display:flex!important;align-items:center;cursor:pointer}
 .searchblock{background:#dde2e5!important;padding:8px;width:auto;display:block;margin:0 auto!important}
 .searchblock span{display:flex;align-items:center;position:relative;z-index:99}
 .searchblock .searchblockwrapper{display:flex;align-items:stretch;justify-content:space-between;flex-direction:row}

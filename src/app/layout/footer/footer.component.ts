@@ -14,6 +14,7 @@ export interface DialogData { }
     styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
+    
 
     public myform: FormGroup;
 
@@ -104,6 +105,7 @@ export class FooterComponent implements OnInit {
         );
     }
 
+  
 
 
     doSubmit() {
@@ -159,7 +161,15 @@ export class FooterComponent implements OnInit {
 
     }
 
+    
+    inputUntouch(form: any, val: any) {
+        // console.log('on blur .....');
+        form.controls[val].markAsUntouched();
+    }
+
+
 }
+
 
 
 @Component({

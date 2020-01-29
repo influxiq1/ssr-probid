@@ -69,19 +69,19 @@
 .vpheaderwrapper .mat-nav-list{display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;justify-content:space-between;padding-top:0}
 .vpheaderwrapper .mat-nav-list .mat-list-item a{font-family:'open_sanssemibold';font-size:14px;color:#1e1e1e;padding:0;margin:0 auto;line-height:16px;letter-spacing:0;margin-top:0;text-transform:uppercase;cursor:pointer;height:64px;line-height:64px}
 .vpheaderwrapper .mat-nav-list .mat-list-item:hover a{color:#fff}
-.vpheaderwrapper .mat-nav-list .mat-list-item:not(.mat-list-item-disabled):hover{background:#0071bc}
+.vpheaderwrapper .mat-nav-list .mat-list-item:not(.mat-list-item-disabled):hover{background:#e63a22}
 .landinglogoblock{position:relative!important;top:0;left:0;z-index:999;color:#fff;width:100%}
 .mat-card-content.topbannerhomewrapper{display:block;margin-bottom:16px;position:relative;z-index:99}
 .vpblock1imgleftwrapper{position:absolute;left:-24px;top:10%;width:620px}
 .vpblock1imgleftwrapper img{max-width:100%}
-.mat-menu-content{padding:0!important;border-radius:0!important;background-color:#0071bc;color:#fff}
+.mat-menu-content{padding:0!important;border-radius:0!important;background-color:#e63a22;color:#fff}
 .mat-menu-content a.mat-menu-item{color:#fff!important;text-align:center}
 .mat-menu-panel{position:relative;min-width:inherit;max-width:inherit;border-radius:0!important;min-width:100%;max-width:100%;overflow:auto;border-radius:0;outline:0;margin-left:-25%;margin-top:10px}
-.mat-menu-content:before{content:"";width:0;height:0;border-style:solid;border-width:0 10px 10px;border-color:transparent transparent #0071bc;line-height:0;_border-color:#0071bc #0071bc #2a2b2c #0071bc;_filter:progid:DXImageTransform.Microsoft.Chroma(color='#000000');top:-10px;z-index:99999;position:absolute;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-o-transform:translateX(-50%)}
+.mat-menu-content:before{content:"";width:0;height:0;border-style:solid;border-width:0 10px 10px;border-color:transparent transparent #e63a22;line-height:0;_border-color:#e63a22 #e63a22 #2a2b2c #e63a22;_filter:progid:DXImageTransform.Microsoft.Chroma(color='#000000');top:-10px;z-index:99999;position:absolute;left:50%;transform:translateX(-50%);-webkit-transform:translateX(-50%);-moz-transform:translateX(-50%);-o-transform:translateX(-50%)}
 .mat-menu-content .mat-menu-item{height:auto;border-radius:0!important;line-height:24px}
 .vpheaderwrapper .mat-toolbar.mat-primary{background:transparent!important;color:#fff;width: 100%;}
 .topmenuiconlogo{display:none}
-.vpheaderwrapper .mat-nav-list .mat-list-item.activemenu{background-color:#0071bc}
+.vpheaderwrapper .mat-nav-list .mat-list-item.activemenu{background-color:#e63a22}
 .vpheaderwrapper .mat-nav-list .mat-list-item.activemenu a{color:#fff!important}
 .logowrapper img{max-width:100%}
 

@@ -1,54 +1,39 @@
+<ng-container
+  *ngIf="router.url =='/' || router.url =='/home' || router.url =='/forget-password' || router.url =='/reset-password' || router.url =='/sign-up' || router.url == '/contactus' || router.url == '/service' || router.url == '/servicelist' || router.url == '/testimonial' || router.url == '/testimoniallist' || router.url == '/bloglist' || router.url == '/blogdetail' || router.url == '/basic-inventory-search' || router.url == '/advance-inventory-search' || router.url == '/save-search' || router.url == '/pre-owned' || router.url == '/aboutus' || router.url == '/pre-owned-list' || router.url == '/online-inventory-list' || router.url == '/search-inventory-list' || router.url == '/specials-list' || router.url == '/customer-signup' || router.url == '/salesrep-signup' || router.url == '/most-popular-blog' || router.url == '/youmight-alsolike-blog' || activeroute.snapshot.routeConfig.path == 'inventory-details'">
+  <mat-card class="footerwrapper" style="padding: 0">
 
-<ng-container  *ngIf="router.url =='/' || router.url =='/home' || router.url =='/forget-password' || router.url =='/reset-password' || router.url =='/sign-up' || router.url == '/contactus' || router.url == '/service' || router.url == '/servicelist' || router.url == '/testimonial' || router.url == '/testimoniallist' || router.url == '/bloglist' || router.url == '/blogdetail' || router.url == '/basic-inventory-search' || router.url == '/advance-inventory-search' || router.url == '/save-search' || router.url == '/pre-owned' || router.url == '/aboutus' || router.url == '/pre-owned-list' || router.url == '/online-inventory-list' || router.url == '/search-inventory-list' || router.url == '/specials-list' || router.url == '/customer-signup' || router.url == '/salesrep-signup' || router.url == '/most-popular-blog' || router.url == '/youmight-alsolike-blog' || activeroute.snapshot.routeConfig.path == 'inventory-details'">
-<mat-card class="footerwrapper" style="padding: 0" >
-  
-  <span class="scroll-to-top" [ngClass]="{ 'show-scrollTop': windowScrolled }">
-    <a (click)="scrollToTop()">
-      <mat-icon aria-hidden="false">keyboard_arrow_up</mat-icon> 
-    </a>
-  </span>
+    <span class="scroll-to-top" [ngClass]="{ 'show-scrollTop': windowScrolled }">
+      <a (click)="scrollToTop()">
+        <mat-icon aria-hidden="false">keyboard_arrow_up</mat-icon>
+      </a>
+    </span>
 
 
-  <span class="footerwrappercontent">
-    <span class="mainwrappercontent">
+    <span class="footerwrappercontent">
+      <span class="mainwrappercontent">
         <mat-card-content>
-          
           <span class="newsletterwrapper">
-              <h3>Newsletter</h3>
-              <span class="newslettermain">
-                <h4>Subscribe to our newsletter</h4>
-                <div class="example-container">
-
-
-                     <form [formGroup]="myform" name="myform" (ngSubmit)="doSubmit()">
-                   <mat-form-field>
-
-        <input matInput placeholder="Email Address" id="newsEmail" [formControl]="myform.controls['email']">
-  </mat-form-field>
-
-
-                          <button  mat-raised-button><img src="/assets/images/newlettericon.png"></button>
-
-      <mat-error *ngIf="myform.controls['email'].touched && !myform.controls['email'].valid
-           && myform.controls['email'].errors.required">
-                  Email field can not be blank</mat-error>
-
-                <mat-error *ngIf="myform.controls['email'].touched && !myform.controls['email'].valid
-                && myform.controls['email'].errors.pattern">
-
-                  Email is not Valid</mat-error>
-
-                     </form>
-
-                </div>
-               <h5>We’ll never share your email address</h5>
-              </span>
+            <h3>Newsletter</h3>
+            <span class="newslettermain">
+              <h4>Subscribe to our newsletter</h4>
+              <div class="example-container">
+                <form [formGroup]="myform" name="myform" (ngSubmit)="doSubmit()">
+                  <mat-form-field>
+                    <input matInput placeholder="Email Address" id="newsEmail" [formControl]="myform.controls['email']" (blur)="inputUntouch(myform,'email')">
+                  </mat-form-field>
+                  <button mat-raised-button><img src="/assets/images/newlettericon.png"></button>
+                  <mat-error *ngIf="!myform.controls['email'].valid && myform.controls['email'].touched"
+                    class="errortext">Email field can not be blank</mat-error>
+                </form>
+              </div>
+              <h5>We’ll never share your email address</h5>
+            </span>
           </span>
           <span class="footertopwrapper footernavlist footerborder">
-              <h3>Navigation</h3>
-              <mat-nav-list fxLayout>
-                <span class="menuwrapper">
-                    <span class="bdr">
+            <h3>Navigation</h3>
+            <mat-nav-list fxLayout>
+              <span class="menuwrapper">
+                <span class="bdr">
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/home']">Home</a>
                   </mat-list-item>
@@ -56,25 +41,29 @@
                     <a [routerLink]="['/pre-owned-list']">Pre-Owned</a>
                   </mat-list-item> -->
                   <mat-list-item fxFlex routerLinkActive="activemenu">
-                      <a [matMenuTriggerFor]="menu1">Inventory</a>
-                      <mat-menu #menu1="matMenu" class="activedropmenu">
-                        <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/basic-inventory-search']">Basic Inventory Search</a>
-                        <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/advance-inventory-search']">Advance Inventory Search</a>
-                        <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/save-search']">Save Search</a>
-                      </mat-menu>
+                    <a [matMenuTriggerFor]="menu1">Inventory</a>
+                    <mat-menu #menu1="matMenu" class="activedropmenu">
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/basic-inventory-search']">Basic
+                        Inventory Search</a>
+                      <a mat-menu-item routerLinkActive="activemenu"
+                        [routerLink]="['/advance-inventory-search']">Advance Inventory Search</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/save-search']">Save Search</a>
+                    </mat-menu>
                   </mat-list-item>
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [matMenuTriggerFor]="menu">Join Probid</a>
                     <mat-menu #menu="matMenu" class="activedropmenu">
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/salesrep-signup']">Sign up as Sales Rep</a>
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/customer-signup']">Sign up as Customer</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/salesrep-signup']">Sign up as
+                        Sales Rep</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/customer-signup']">Sign up as
+                        Customer</a>
                     </mat-menu>
                   </mat-list-item>
-                  </span>
-                  <span class="bdr">
-                 
+                </span>
+                <span class="bdr">
+
                   <mat-list-item fxFlex routerLinkActive="activemenu">
-                   <!-- <a [routerLink]="['/aboutus']">About Us</a> -->
+                    <!-- <a [routerLink]="['/aboutus']">About Us</a> -->
                     <a [routerLink]="['/aboutus']">About Us</a>
                   </mat-list-item>
                   <mat-list-item fxFlex routerLinkActive="activemenu">
@@ -83,9 +72,9 @@
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/testimonial']">Testimonials</a>
                   </mat-list-item>
-                  </span>
-                  <span class="bdr">
-                 
+                </span>
+                <span class="bdr">
+
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [routerLink]="['/bloglist']">Blog</a>
                   </mat-list-item>
@@ -97,37 +86,34 @@
                     </mat-list-item> -->
                 </span>
               </span>
-              </mat-nav-list>
-           </span>
-           
-           <span class="footerddress">
-             <span class="footerddressinner">
-                <span class="logowrapper" fxFlex>
-                    <a [routerLink]="['/home']"><img src="../../assets/images/logomain.png" class="landinglogoblock1"></a>
-                  </span>
-                  <p>© 2019 ProBidAutoMotive. All rights reserved.</p>
-             </span>               
-           </span>
+            </mat-nav-list>
+          </span>
+
+          <span class="footerddress">
+            <span class="footerddressinner">
+              <span class="logowrapper" fxFlex>
+                <a [routerLink]="['/home']"><img src="../../assets/images/logomain.png" class="landinglogoblock1"></a>
+              </span>
+              <p>© 2019 ProBidAutoMotive. All rights reserved.</p>
+            </span>
+          </span>
         </mat-card-content>
-     </span>
-</span>
+      </span>
+    </span>
 
-  <!-- <img src="../../../assets/images/pro-home-block8-ft.jpg" style="padding: 0; margin: 0; display: block; width: 100%;"> -->
-  <span class="footerbottom">
-    <h3><a mat-raised-button (click)="termscondition()">terms of service</a> | <a mat-raised-button (click)="privacypolicy()">privacy policy</a> </h3>
-  </span>
-</mat-card>
+    <!-- <img src="../../../assets/images/pro-home-block8-ft.jpg" style="padding: 0; margin: 0; display: block; width: 100%;"> -->
+    <span class="footerbottom">
+      <h3><a mat-raised-button (click)="termscondition()">terms of service</a> | <a mat-raised-button
+          (click)="privacypolicy()">privacy policy</a> </h3>
+    </span>
+  </mat-card>
 </ng-container>
 
-<ng-container  *ngIf="router.url =='/service-listing' || router.url =='/admin-dashboard' || router.url == '/contact-us-dashboard' || router.url == '/rep-dashboard' || router.url == '/add-edit-blogs' || router.url == '/add-edit-blogcat' || router.url == '/blogs/add' || router.url == 'blog-category/add' || router.url == '/customer-dashboard' || router.url == '/blog-management' || router.url == '/commission-report' || router.url == '/inventory-list' || router.url == '/manage-availability' || router.url == '/testimonial-lists-admin'|| router.url == '/commission-list' || router.url == '/customer-list-admin' || router.url == '/customer-list-rep' || router.url == '/manage-commission' || router.url == '/newsletter-list' || router.url == '/sales-report' || router.url == '/salesrep-list-admin' || router.url == '/mysalesrep' || router.url == '/rsvp' || router.url == '/birddog-list' || router.url == '/manage-training' || router.url == '/manage-lessons' || router.url == '/training-center' || router.url == '/training-report' || router.url == '/manage-appointment-admin' || router.url == '/manage-appointment-user' || router.url == '/manage-appointment-rep' || router.url == '/create-new-inventory' || router.url == '/job-ticket-admin' || router.url == '/social-advo-admin' || router.url == '/social-advo-rep' || router.url == '/my-commission' || router.url == '/my-birddog' || router.url == '/manage-availability-user' || router.url == '/manage-availability-rep' || router.url == '/advance-inventory-search-rep' || router.url == '/basic-inventory-search-rep' || router.url == '/advance-inventory-search-customer' || router.url == '/basic-inventory-search-customer' || router.url == '/communication-customer' || router.url == '/communicatio-rep' || router.url == '/training-center-rep' || router.url == '/manage-type' || router.url == '/manage-make' || router.url == '/manage-model' || router.url == '/manage-year' || router.url == '/admin-add-categories' || router.url == '/tranningcategory' || router.url == '/addtrainings'  || router.url == '/trainingsectionlist' || router.url == '/trainingsection' || router.url == '/my-account' || router.url == '/add-salesrep' || router.url == '/add-customer' || activeroute.snapshot.routeConfig.path == 'editcustomer/:_id' || router.url == '/add-birddog' || activeroute.snapshot.routeConfig.path == 'editsalesrep/:_id' || activeroute.snapshot.routeConfig.path == 'editbirddog/:_id' || router.url == '/service/add' || activeroute.snapshot.routeConfig.path == 'blogs/edit/:_id' || activeroute.snapshot.routeConfig.path == 'service/edit/:_id' || router.url == '/testimonial/add' || activeroute.snapshot.routeConfig.path == 'testimonial/edit/:_id' || router.url == '/saved-search' || router.url == '/saved-search-customer' || router.url == '/saved-search-rep' || router.url == '/rsvp-admin' || router.url == '/rsvp-salesrep' || router.url == '/rsvp-customer' || router.url == '/newsletter/add' || activeroute.snapshot.routeConfig.path == 'newsletter/edit/:_id' || router.url == '/subscriber/add' || activeroute.snapshot.routeConfig.path == 'subscriber/add-group/edit/:_id' || router.url == '/subscriber-group/add' || activeroute.snapshot.routeConfig.path == 'subscriber-group/edit/:_id' || router.url == '/test/add' || activeroute.snapshot.routeConfig.path == 'test/edit/:_id' || router.url == '/sender/add' || activeroute.snapshot.routeConfig.path == 'sender/edit/:_id' || router.url == '/basic-inventory-search-admin' || router.url == '/advance-inventory-search-admin' || router.url == '/saved-search-admin'|| router.url=='/blog-category/add' || router.url == '/inventory-detail'|| activeroute.snapshot.routeConfig.path == 'inventory-detail/:_id' ||  activeroute.snapshot.routeConfig.path == 'rsvp-detail/:_id'  || activeroute.snapshot.routeConfig.path ==  'search-detail'  || activeroute.snapshot.routeConfig.path == 'job-ticket-view/:_id' || activeroute.snapshot.routeConfig.path == 'manage-job-ticket/add/:_id/:status' ||  activeroute.snapshot.routeConfig.path == 'manage-job-ticket/edit/:_id' || router.url == '/job-ticket-customer' || router.url == '/job-ticket-salesrep' || router.url == '/api-manager' || router.url == '/communication-rep' || router.url == '/manage-training/list' || router.url == '/manage-training/add' || router.url == '/manage-training/edit/:id' || activeroute.snapshot.routeConfig.path == '/manage-training/edit/:id' || router.url == '/manage-lession/list' || router.url == '/manage-lession/add' || activeroute.snapshot.routeConfig.path == '/manage-lession/edit/:id' || router.url == '/training-center/list' || router.url == '/manage-center/add' || router.url == '/manage-center/edit/:id' || activeroute.snapshot.routeConfig.path == '/manage-center/edit/:id' || router.url == 'manage-quiz/list/:lesson_id_object' || router.url == '/manage-quiz/add/:id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/edit/:_id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/add-answer/:id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/update-answer/:questionId_object'">
- <mat-card class="adminheaderleftdiv footerbg">
-  <mat-card-content>
-    <app-bk-footer></app-bk-footer>
-  </mat-card-content>
-</mat-card>
+<ng-container
+  *ngIf="router.url =='/service-listing' || router.url =='/admin-dashboard' || router.url == '/contact-us-dashboard' || router.url == '/rep-dashboard' || router.url == '/add-edit-blogs' || router.url == '/add-edit-blogcat' || router.url == '/blogs/add' || router.url == 'blog-category/add' || router.url == '/customer-dashboard' || router.url == '/blog-management' || router.url == '/commission-report' || router.url == '/inventory-list' || router.url == '/manage-availability' || router.url == '/testimonial-lists-admin'|| router.url == '/commission-list' || router.url == '/customer-list-admin' || router.url == '/customer-list-rep' || router.url == '/manage-commission' || router.url == '/newsletter-list' || router.url == '/sales-report' || router.url == '/salesrep-list-admin' || router.url == '/mysalesrep' || router.url == '/rsvp' || router.url == '/birddog-list' || router.url == '/manage-training' || router.url == '/manage-lessons' || router.url == '/training-center' || router.url == '/training-report' || router.url == '/manage-appointment-admin' || router.url == '/manage-appointment-user' || router.url == '/manage-appointment-rep' || router.url == '/create-new-inventory' || router.url == '/job-ticket-admin' || router.url == '/social-advo-admin' || router.url == '/social-advo-rep' || router.url == '/my-commission' || router.url == '/my-birddog' || router.url == '/manage-availability-user' || router.url == '/manage-availability-rep' || router.url == '/advance-inventory-search-rep' || router.url == '/basic-inventory-search-rep' || router.url == '/advance-inventory-search-customer' || router.url == '/basic-inventory-search-customer' || router.url == '/communication-customer' || router.url == '/communicatio-rep' || router.url == '/training-center-rep' || router.url == '/manage-type' || router.url == '/manage-make' || router.url == '/manage-model' || router.url == '/manage-year' || router.url == '/admin-add-categories' || router.url == '/tranningcategory' || router.url == '/addtrainings'  || router.url == '/trainingsectionlist' || router.url == '/trainingsection' || router.url == '/my-account' || router.url == '/add-salesrep' || router.url == '/add-customer' || activeroute.snapshot.routeConfig.path == 'editcustomer/:_id' || router.url == '/add-birddog' || activeroute.snapshot.routeConfig.path == 'editsalesrep/:_id' || activeroute.snapshot.routeConfig.path == 'editbirddog/:_id' || router.url == '/service/add' || activeroute.snapshot.routeConfig.path == 'blogs/edit/:_id' || activeroute.snapshot.routeConfig.path == 'service/edit/:_id' || router.url == '/testimonial/add' || activeroute.snapshot.routeConfig.path == 'testimonial/edit/:_id' || router.url == '/saved-search' || router.url == '/saved-search-customer' || router.url == '/saved-search-rep' || router.url == '/rsvp-admin' || router.url == '/rsvp-salesrep' || router.url == '/rsvp-customer' || router.url == '/newsletter/add' || activeroute.snapshot.routeConfig.path == 'newsletter/edit/:_id' || router.url == '/subscriber/add' || activeroute.snapshot.routeConfig.path == 'subscriber/add-group/edit/:_id' || router.url == '/subscriber-group/add' || activeroute.snapshot.routeConfig.path == 'subscriber-group/edit/:_id' || router.url == '/test/add' || activeroute.snapshot.routeConfig.path == 'test/edit/:_id' || router.url == '/sender/add' || activeroute.snapshot.routeConfig.path == 'sender/edit/:_id' || router.url == '/basic-inventory-search-admin' || router.url == '/advance-inventory-search-admin' || router.url == '/saved-search-admin'|| router.url=='/blog-category/add' || router.url == '/inventory-detail'|| activeroute.snapshot.routeConfig.path == 'inventory-detail/:_id' ||  activeroute.snapshot.routeConfig.path == 'rsvp-detail/:_id'  || activeroute.snapshot.routeConfig.path ==  'search-detail'  || activeroute.snapshot.routeConfig.path == 'job-ticket-view/:_id' || activeroute.snapshot.routeConfig.path == 'manage-job-ticket/add/:_id/:status' ||  activeroute.snapshot.routeConfig.path == 'manage-job-ticket/edit/:_id' || router.url == '/job-ticket-customer' || router.url == '/job-ticket-salesrep' || router.url == '/api-manager' || router.url == '/communication-rep' || router.url == '/manage-training/list' || router.url == '/manage-training/add' || router.url == '/manage-training/edit/:id' || activeroute.snapshot.routeConfig.path == '/manage-training/edit/:id' || router.url == '/manage-lession/list' || router.url == '/manage-lession/add' || activeroute.snapshot.routeConfig.path == '/manage-lession/edit/:id' || router.url == '/training-center/list' || router.url == '/manage-center/add' || router.url == '/manage-center/edit/:id' || activeroute.snapshot.routeConfig.path == '/manage-center/edit/:id' || router.url == 'manage-quiz/list/:lesson_id_object' || router.url == '/manage-quiz/add/:id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/edit/:_id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/add-answer/:id' || activeroute.snapshot.routeConfig.path == '/manage-quiz/update-answer/:questionId_object'">
+  <mat-card class="adminheaderleftdiv footerbg">
+    <mat-card-content>
+      <app-bk-footer></app-bk-footer>
+    </mat-card-content>
+  </mat-card>
 </ng-container>
-
-
-
-
-

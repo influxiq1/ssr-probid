@@ -34,7 +34,7 @@
 .blogsociallists .sociallink{margin-left:5px}
 .blogsociallists .sociallink:first-child{margin-left:0}
 .adm_dashboard_block1_right{background-color:#dde2e5;padding:15px 22px}
-.adm_dashboard_block1_right .sectionheader.mat-card-title{font-family:"HelveticaBold";font-size:48px!important;line-height:normal!important;color:#fff;text-transform:capitalize;background-color:#141b2f;justify-content:center;padding:30px 20px 25px;margin-bottom:5px!important;width:auto}
+.adm_dashboard_block1_right .sectionheader.mat-card-title{font-family: "HelveticaBold";font-size: 40px!important;line-height: normal!important;color: #fff;text-transform: capitalize;background-color: #141b2f;-webkit-box-pack: center;justify-content: center;padding: 20px 20px 20px;margin-bottom: 5px!important;width: auto;}
 .adm_dashboard_block1_right .mat-card{background:0!important;padding:0!important}
 .flexbox1column{display:flex;flex-direction:row;flex-wrap:wrap;justify-content:space-between}
 .flexbox1column > .rsvplistsingle{box-sizing:border-box;margin-bottom:16px;width:calc(1/1*100% - (1 - 1/1)*16px);height:auto}
