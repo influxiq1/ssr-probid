@@ -152,6 +152,9 @@ export class FooterComponent implements OnInit {
 
         const dialogGenreRef = this.dialog.open(NewslatterDialogComponent, {
             panelClass: ['modal-sm', 'infomodal'],
+            // height: '100px',
+            // width: '100%',
+            
             //disableClose: true,
             //data: {name:'testname', email:deta.email, phone:'999999999', company:'companyname'}
         });
@@ -161,7 +164,7 @@ export class FooterComponent implements OnInit {
 
     }
 
-    
+
     inputUntouch(form: any, val: any) {
         // console.log('on blur .....');
         form.controls[val].markAsUntouched();
@@ -217,7 +220,7 @@ export class NewslatterDialogComponent {
 
         })
 
-        this.myformnews.value.email.setvalue();
+        // this.myformnews.value.email.setvalue();
 
         this.myformnews.patchValue({
             email: this.cookie.get('email_modal'),
