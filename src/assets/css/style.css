@@ -380,6 +380,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .probidhomeblock5{text-align:center}
 .probidhomeblock5 .btnblue{margin:0 auto;display:block}
 .probidhomeblock5 .mainwrappercontent{overflow:hidden}
+.probidhomeblock5 .owl-carousel .owl-stage{align-items: center;}
 .probidhomeblock6.mat-card{background:#e2ecee!important}
 .probidhomeblock6.mat-card .btnblue{margin:1%}
 .sociallink fa{padding:6px;color:#fff;font-size:24px}
