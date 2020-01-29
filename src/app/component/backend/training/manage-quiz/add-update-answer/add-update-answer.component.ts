@@ -11,7 +11,8 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class AddUpdateAnswerComponent implements OnInit {
 public paramsId:any;
-public listingPageRoute:any="/manage-quiz/list";
+public lessonId:any;
+public listingPageRoute:any="/manage-quiz/list/";
 public serverDetails: any = {
   // "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
   // "jwttoken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmb28iOiJiYXIiLCJleHAiOjE1ODAyMDE1MzcsImlhdCI6MTU4MDExNTEzN30.EfP5ru45maD0LM9NDkGy7xgUUslVcV3ls-k8-Bid9qU"
@@ -36,6 +37,8 @@ public formSource: any = {
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     this.paramsId = activatedRoute.snapshot.params.id;
+    this.lessonId = activatedRoute.snapshot.params.lessonid;
+
     // console.log("dkjfhdjhsc",this.paramsId);
   }
 
