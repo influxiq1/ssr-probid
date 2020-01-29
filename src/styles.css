@@ -292,8 +292,10 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .cdk-overlay-pane.googleMapDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
 .cdk-overlay-pane.googleMapDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
 .cdk-overlay-pane.termsconditionDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.termsconditionDialogCls h1{text-align: center; margin-bottom: 20px;}
 .cdk-overlay-pane.termsconditionDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
 .cdk-overlay-pane.privacypolicyDialogCls[style]{margin-left: auto !important; margin-right: auto !important;}
+.cdk-overlay-pane.privacypolicyDialogCls h1{text-align: center; margin-bottom: 20px;}
 .cdk-overlay-pane.privacypolicyDialogCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;}
 /* .cdk-overlay-pane.commonVideoModalCls[style] {margin-left: auto !important;margin-right: auto !important;} */
 /* .cdk-overlay-pane.commonVideoModalCls .mat-dialog-container {min-width: 450px;max-width: 100%;margin: 0 auto;width: inherit!important;} */
