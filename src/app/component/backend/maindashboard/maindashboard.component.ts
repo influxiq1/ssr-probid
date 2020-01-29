@@ -8,7 +8,7 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
-import { UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import {  LoginResponse, UIParams, UIResponse, FacebookService } from 'ngx-facebook';
 import { MetaService } from '@ngx-meta/core';
 import {MatSort} from '@angular/material/sort';
 
@@ -263,7 +263,15 @@ public errorMsg: string = '';
   logoutWithFacebook(): void {
     this.fb1.logout().then();
   }
-
+  login() {
+    this.fb1.login()
+      .then((res: LoginResponse) => {
+       
+        // this.getProfile();
+      })
+      .catch();
+  }
+  
   linkdinShare(url: any){
     var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
     // console.log(fullUrl)
@@ -346,8 +354,25 @@ public errorMsg: string = '';
    
   // }
 
-  share(url: string){
-    
+ 
+  share(url: string) {
+
+    // var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+
+    // this.cookieService.set('shareIngUrl',fullUrl);
+    // // console.log(fullUrl)
+
+    // let params: UIParams = {
+    //   href: fullUrl,
+    //   method: 'share',
+    //   quote: 'https://dev.probidauto.com/'
+    // };
+   
+    // this.fb1.ui(params)
+    //   .then((res: UIResponse) =>{
+
+    //   })
+    //   .catch();   
   }
 
 
