@@ -204,7 +204,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   // }
 
   inventoryCustomerSearch() {
-    console.log('--------')
+    // console.log('--------')
     this.apploader.loader = 1;
     if (this.inventoryCustomerForm.valid) {
 
