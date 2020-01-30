@@ -132,7 +132,7 @@ if (val !='') {
   openModale(data:any){
     // console.log(data)
     const dialogRef = this.dialog.open(askForconfirmationModalComponent, {
-      width: '250px',
+      
       data:data
 
     });
@@ -256,6 +256,7 @@ public flagVal:any = 1;
   }
 
   submitform(val: any, flag: string, val1: any){
+    console.log(val, val1, flag)
     // this.data.topPart = JSON.stringify(val);
     this.data.topPart = val;
     this.data.highest_bid = val1;

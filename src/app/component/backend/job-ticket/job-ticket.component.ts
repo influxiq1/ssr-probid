@@ -1,16 +1,30 @@
-import { Component, OnInit,Inject} from '@angular/core';
+import { Component, OnInit,Inject,ViewChild} from '@angular/core';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { Router ,ActivatedRoute} from '@angular/router';
-
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 import { ApiService } from '../../../api.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MetaService } from '@ngx-meta/core';
+import {MatSort} from '@angular/material/sort';
 
 
 export interface DialogData {
   data: any;
   msg:any;
 } 
+
+export interface JobTicket {
+  ticket: string;
+  image_URL: string;
+  name: string;
+  title: string;
+  repName: string;
+  customerName: string;
+  subject: string;
+  status: string;
+  action: string;
+}
 
 
 @Component({
@@ -20,9 +34,18 @@ export interface DialogData {
 })
 export class JobTicketComponent implements OnInit {
 
+
+
+  JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+  // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+  @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
+  @ViewChild(MatSort, {static: false}) sort: MatSort;
+
 public jobTicketDataList:any;
 public indexVal:any=4;
 public message:any="Are you sure you want to delete this?";
+public jobTicketList:any;
+
 
 
 
@@ -46,25 +69,28 @@ public message:any="Are you sure you want to delete this?";
       this.activatedRoute.data.forEach((res)=>{
         // console.log(res.jobTicketList.res)
         this.jobTicketDataList=res.jobTicketList.res
+
+
+    this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
+
+    //  this.jobTicketList = new MatTableDataSource(this.jobTicketDataList);
+    setTimeout(() => {
+      this.jobTicketList.paginator = this.jtPaginator;
+
+    }, 500);
       })
     }
 
 
-    // if(this.router.url =='/communication-customer'){
-    //   this.activatedRoute.data.forEach((res)=>{
-    //     console.log(res.jobTicketList.res)
-    //     this.jobTicketDataList=res.jobTicketList.res
-    //   })
-    // }
+  }
 
-    // if(this.router.url =='/communication-rep'){
-    //   this.activatedRoute.data.forEach((res)=>{
-    //     console.log(res.jobTicketList.res)
-    //     this.jobTicketDataList=res.jobTicketList.res
-    //   })
-    // }
 
-    
+  applyFilter(filterVal:any) {
+    console.log(filterVal)
+    // console.log(this.jobTicketList)
+    this.jobTicketList.filter = filterVal.trim().toLowerCase();
+    // console.log(this.jobTicketList)
   }
 
    //delete JobTicket record
@@ -89,7 +115,10 @@ public message:any="Are you sure you want to delete this?";
               result=res;
               
               if(result.status=='success'){
-                this.jobTicketDataList.splice(index,index+1);
+                this.jobTicketDataList = this.jobTicketDataList.filter( jobTicketDataList => jobTicketDataList._id != val)
+                // this.jobTicketDataList.splice(index,1);
+                this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
+
                 this.snack.open('Record Deleted Successfully..!','Ok',{duration:2000})
                 
               }
