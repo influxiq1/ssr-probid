@@ -26,7 +26,9 @@ public formSource: any = {
   "source":'manage_lession',
   "endpoint": "deletesingledata",
   "searchEndpoint":"datalist",
-  "associatedTrainingSourceName":"training_category_management"
+  "associatedTrainingSourceName":"training_category_management",
+  "statusUpdateEndpoint":"statusChange",
+  "statusUpdateSourceName":"manage_lession",
 
 }
 public searchSourceName :any="manage_lession_view";

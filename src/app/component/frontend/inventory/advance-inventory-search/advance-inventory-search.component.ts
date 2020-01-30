@@ -55,6 +55,10 @@ export class AdvanceInventorySearchComponent implements OnInit {
   public stateList: any;
   public odometerList: any;
   public enginetypeList: any;
+  public odometer: any;
+  public odometer1: any;
+  public enginetype: any;
+  public transmissiontype: any;
   public inventory_search_list: any;
   public make_list: any;
   public type_list: any;
@@ -71,6 +75,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
   public state = '';
   public zip = '';
   public search = '';
+  public transmissiontypeList: any;
 
   public indexCountForImg:any;
   public indexCount:any;
@@ -105,6 +110,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
     this.getStateList();
     this.getodometerList();
     this.getenginetypeList();
+    this.gettransmissiontypeList();
   }
 
   ngOnInit() {
@@ -138,7 +144,16 @@ export class AdvanceInventorySearchComponent implements OnInit {
       let result: any = {};
       result = response;
       this.enginetypeList = result;
-      console.log(this.enginetypeList);
+      // console.log(this.enginetypeList);
+    })
+  }
+
+  gettransmissiontypeList() {
+    this.apiService.getJsonObject('assets/data/transmission.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.transmissiontypeList = result;
+      // console.log(this.transmissiontypeList);
     })
   }
 
@@ -164,7 +179,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
       odometer: [''],
       odometer1: [''],
       enginetype: [''],
-
+      transmissiontypelist: ['']
     })
   }
 
@@ -207,6 +222,10 @@ export class AdvanceInventorySearchComponent implements OnInit {
       let vehicleVal = this.advanceInventoryCustomerForm.value.vehicle;
       let stateVal = this.advanceInventoryCustomerForm.value.state;
       let zipVal = this.advanceInventoryCustomerForm.value.zip;
+      let odometerVal = this.advanceInventoryCustomerForm.value.odometer;
+      let odometer1Val = this.advanceInventoryCustomerForm.value.odometer1;
+      let enginetypeVal = this.advanceInventoryCustomerForm.value.enginetype;
+      let transmissiontypeVal = this.advanceInventoryCustomerForm.value.transmissiontype;
 
       if (typeVal != null && typeVal != '' && typeVal.length >= 0) {
         this.type = "&body_type=" + typeVal;
@@ -235,11 +254,24 @@ export class AdvanceInventorySearchComponent implements OnInit {
       if (zipVal != null && zipVal != '' && zipVal.length >= 0) {
         this.zip = "&zip=" + zipVal;
       }
+      if (odometerVal != null && odometerVal != '' && odometerVal.length >= 0) {
+        this.odometer = "&odometer=" + odometerVal;
+      }
+      if (odometer1Val != null && odometer1Val != '' && odometer1Val.length >= 0) {
+        this.odometer1 = "&odometer1=" + odometer1Val;
+      }
+      if (enginetypeVal != null && enginetypeVal != '' && enginetypeVal.length >= 0) {
+        this.enginetype = "&enginetype=" + enginetypeVal;
+      }
+      if (transmissiontypeVal != null && transmissiontypeVal != '' && transmissiontypeVal.length >= 0) {
+        this.transmissiontype = "&transmissiontype=" + transmissiontypeVal;
+      }
+      
       
      
-      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
+      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=5';
+        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.model+ '&rows=5';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
@@ -273,7 +305,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
       inputField = "&field=" + field;
     }
 
-    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.model != '')) {
+    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.model != '')) {
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {

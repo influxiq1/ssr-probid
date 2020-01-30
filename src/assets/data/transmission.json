@@ -1,0 +1,20 @@
+[
+    
+    {
+        "transmissiontype": "Automatic",
+        "transmission": "automatic"
+      },
+      {
+        "transmissiontype": "Manual",
+        "transmission": "manual"
+      },
+      {
+        "transmissiontype": "Automanual",
+        "transmission": "automanual"
+      },
+      {
+        "transmissiontype": "CVT",
+        "transmission": "cvt"
+      }
+      
+]
