@@ -23,7 +23,9 @@ public serverDetails: any = {
 public formSource: any = {
   "source":'training_category_management',
   "endpoint": "deletesingledata",
-  "searchEndpoint":"datalist"
+  "searchEndpoint":"datalist",
+  "statusUpdateEndpoint":"statusChange",
+  "statusUpdateSourceName":"training_category_management",
 }
   constructor(public activatedRoute : ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
         this.meta.setTitle('ProBid Auto - Manage Training');
