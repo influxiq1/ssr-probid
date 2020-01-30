@@ -44,7 +44,6 @@
                 </mat-form-field>
               </span>
               <span>
-
                 <h4>Model:</h4>
                 <mat-form-field>
                   <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
@@ -64,10 +63,9 @@
                     <mat-option value='Truck'>Truck</mat-option>
                   </mat-select>
                 </mat-form-field>
-              </span>  
-                          
-        </span>
-            <span>
+              </span>                            
+            </span>
+          <span>
               <span>
                 <h4>Year:</h4> 
                 <mat-form-field>
@@ -78,9 +76,7 @@
                       </mat-select>
                 </mat-form-field> 
               </span>                  
-              <span>
-
-
+              <!--<span>
                 <h4>Trim:</h4>
                 <mat-form-field>
                   <input type="text" (keyup)="searchAutoComplete($event, 'trim')" placeholder="Pick one trim"
@@ -91,27 +87,23 @@
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
-              </span>           
+              </span>-->
               <span>
                   <h4>VIN:</h4> 
                   <mat-form-field>
-                    <mat-select placeholder="VIN">
-                      <mat-option value="vin">VIN</mat-option>
-                      <mat-option value="vin1">vin1</mat-option>
-                      <mat-option value="vin2">vin2</mat-option>
-                    </mat-select>
+                    <input matInput type="text" placeholder="VIN">
                   </mat-form-field>
               </span>
-            </span>
-            <span>
               <span>
                 <h4>State:</h4> 
-            <mat-form-field>
-                <mat-select formControlName="state" placeholder="STATE">
-                    <mat-option *ngFor="let item of stateList" [value]="item.abbreviation">{{item.name}}</mat-option>
-                </mat-select>
-            </mat-form-field>
-            </span>            
+                <mat-form-field>
+                    <mat-select formControlName="state" placeholder="STATE">
+                        <mat-option *ngFor="let item of stateList" [value]="item.abbreviation">{{item.name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+              </span>    
+            </span>
+            <span>                     
               <span>
                   <h4>Zip:</h4> 
               <mat-form-field>
@@ -119,9 +111,8 @@
                 <input matInput type="ZIP" placeholder="ZIP">
               </mat-form-field>
               </span>
-              <span>
-
-              </span>
+              <span></span>
+              <span></span>
             </span>
           </span>
           <mat-card-title>Specifications</mat-card-title>
@@ -144,11 +135,10 @@
                               <mat-option value="nomax2">nomax 2</mat-option> -->
                             </mat-select>
                         </mat-form-field>
-                        <h4>Bid or Buy Now Price:</h4> 
+                        <!-- <h4>Bid or Buy Now Price:</h4> 
                         <mat-form-field>        
                             <mat-select placeholder="No min">
                                 <mat-option value="bidorbuy">No min</mat-option>
-                                <!-- <mat-option *ngFor="let item of bidorbuyList" [value]="item.engine">{{item.enginetype}}</mat-option> -->
                                 <mat-option value="bidorbuy1">Odometer 1</mat-option>
                                 <mat-option value="bidorbuy2">Odometer 2</mat-option>
                             </mat-select>
@@ -159,7 +149,7 @@
                                 <mat-option value="bnomax1">nomax 1</mat-option>
                                 <mat-option value="bnomax2">nomax 2</mat-option>
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
                     </span>
                     <span class="column">
                         <h4>Engine Type</h4> 
@@ -173,13 +163,14 @@
                     <span class="column">
                         <h4>Transmission:</h4> 
                         <mat-form-field>         
-                            <mat-select placeholder="All">
-                              <mat-option value="transm1">Any Transmission</mat-option>
+                            <mat-select formControlName="transmissiontype" placeholder="All">
+                              <mat-option *ngFor="let item of transmissiontypeList" [value]="item.transmission">{{item.transmissiontype}}</mat-option>
+                              <!-- <mat-option value="transm1">Any Transmission</mat-option>
                               <mat-option value="transm2">Manual</mat-option>
                               <mat-option value="transm3">Automatic</mat-option>
                               <mat-option value="transm4">Automanual</mat-option>
                               <mat-option value="transm5">CVT</mat-option>
-                              <mat-option value="transm6">Other / Unknown</mat-option>
+                              <mat-option value="transm6">Other / Unknown</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                     </span>
