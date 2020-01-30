@@ -245,14 +245,15 @@ export class DeleteModalComponent {
   templateUrl:'./askForconfirmationModal.html'
 })
 export class askForconfirmationModalComponent {
-  public editorconfig: any = [];
+  // public editorconfig: any = [];
 public topPart: any =''; 
 public highest_bid: any = '';
 public flagVal:any = 1;
 
   constructor( public dialogRef: MatDialogRef<askForconfirmationModalComponent>,
                @Inject(MAT_DIALOG_DATA) public data: DialogData1, public fb:FormBuilder, public apiService: ApiService, public _sanitizer: DomSanitizer){
-               this.editorconfig.extraAllowedContent = '*[class](*),span;ul;li;table;td;style;*[id];*(*);*{*}';
+                 
+              //  this.editorconfig.extraAllowedContent = '*[class](*),span;ul;li;table;td;style;*[id];*(*);*{*}';
   }
 
   submitform(val: any, flag: string, val1: any){

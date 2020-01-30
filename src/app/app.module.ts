@@ -49,7 +49,8 @@ import { ContactusModule } from 'contactus-lib-influxiq';
 
 // import { NgxUploaderModule } from 'ngx-uploader';
 // import { CarouselModule } from 'ngx-bootstrap/carousel';
-// import { CKEditorModule } from 'ngx-ckeditor';
+import { CKEditorModule } from 'ngx-ckeditor';
+
 // import { ClipboardModule } from 'ngx-clipboard';
 import { OwlModule } from 'ngx-owl-carousel'; 
 
@@ -414,7 +415,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     MatIconModule,
     // ImageCropperModule,
     //  CarouselModule.forRoot(),
-    // CKEditorModule,
+    CKEditorModule,
     // ClipboardModule,
     // BsDatepickerModule.forRoot(),
     // TimepickerModule.forRoot(),

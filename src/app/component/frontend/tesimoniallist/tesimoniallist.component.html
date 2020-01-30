@@ -78,8 +78,9 @@
         </mat-card>
       </mat-list-item>
     </mat-list>
-    <button *ngIf="indexval.length > indexval" (click)="showMoreFunc()" mat-stroked-button
-      class="btngeneral btngray">Load more</button>
+    <button mat-button class="btnblue sim-button" *ngIf="TestimonialListArray !=null && indexval < TestimonialListArray.length" (click)="showMoreFunc()">Load More</button>
+
+    <!-- <button *ngIf="indexval.length > 0" (click)="showMoreFunc()" mat-stroked-button class="btngeneral btngray">Load more</button> -->
   </span>
 </mat-card>
 

@@ -1,143 +1,147 @@
-
 <div class="generalmodalcls">
   <div class="modal-content">
     <div class="emailwrapper">
-          <mat-card-header class="">
-            <h2>Ask For Confirmation</h2>
-          </mat-card-header>
-          <ng-container *ngIf="flagVal == 1">
-          <div mat-dialog-content>
-
-            <div style="width: auto; background: #222222; padding: 15px;">
-              <img src="https://www.probidautomotive.com/wp-content/themes/probidnewtheme/images/logo.png" style="display: block; margin: 15px auto;">
-                <h1 style="border-top: solid 1px #4c4c4c; margin: 30px 0 0 0; padding: 30px 0 15px 0; text-align: center; font-family: Arial; font-size: 22px;   color: #fafbf7;"> Vehicle Details for Accepted RSVP For 
-                  <span style="color: #f04d24;">{{data.heading}}</span> Sent By Sales Rep 
-                  <span style="color: #f04d24;">{{data.added_by_fullname}}</span>
-                </h1>
-              </div>
-              <div style="width: auto; background: #fafbf7; padding: 15px;">
-                <div style="border: solid 1px #ccceca; padding:15px 15px; font-family: Arial; font-size: 16px; color: #222; line-height: 24px;">
-                  <div style="display: block; margin-bottom: 25px;">Hey 
-                    <span style="color: #f04d24;">{{data.added_for_fullname}}</span> / 
-                    <span style="color: #f04d24;">{{data.added_by_fullname}}</span>,
-                    <br/>
-                    <br/>
-                We have received an RSVP from you for the following vehicle:
-                
-                  </div>
-
-                  <div style="display: block; margin-top: 25px;">
-          
-          
-                        The RSVP for the 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.heading}}</strong>, sent by Sales Rep 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.added_by_fullname}}</strong> for 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been accepted. Based on desired specifications, we have located the vehicle detailed below.
-                    <br/>
-                    <div>
-                        <span class="example-full-width">
-                          <input matInput placeholder="HighestBid" [(ngModel)]="highest_bid">
-                        </span>
-                     
-                    </div>
-                    <br/>
-                    <strong style="color: #ff0167; font-size: 22px;">Thank You.</strong>
-                    <br/>
-                    <br/>
-                    <span style="display: block;">Please 
-                      <strong>ACCEPT/DECLINE to PROCEED/DISCARD</strong> Purchase Process.
-                    </span>
-                    <span style="display: block; margin: 10px 0 20px 0; ">
-                      <button style=" background: #fb4a32; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; border: solid 1px #fff;">CONFIRM</button>
-                      <button style=" background: #222; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; margin-left: 2px;  border: solid 1px #fff;">DECLINE</button>
-                    </span>
-                  </div>
-                </div>
-              </div>
-             
-             
-              <div style="width: 100%; height: 5px; background: #222;">
-               
-              </div>
-            <span *ngIf="editorconfig != null && editorconfig != ''">
-              <ck-editor  [config]="editorconfig != null" [(ngModel)]="topPart"></ck-editor>
-            </span>
-<p>{{editorconfig | json}}</p>
+      <mat-card-header class="">
+        <h2>Ask For Confirmation</h2>
+      </mat-card-header>
+      <ng-container *ngIf="flagVal == 1">
+        <div mat-dialog-content>
+          <div style="width: auto; background: #222222; padding: 15px;">
+            <img src="https://www.probidautomotive.com/wp-content/themes/probidnewtheme/images/logo.png"
+              style="display: block; margin: 15px auto;">
+            <h1
+              style="border-top: solid 1px #4c4c4c; margin: 30px 0 0 0; padding: 30px 0 15px 0; text-align: center; font-family: Arial; font-size: 22px;   color: #fafbf7;">
+              Vehicle Details for Accepted RSVP For
+              <span style="color: #f04d24;">{{data.heading}}</span> Sent By Sales Rep
+              <span style="color: #f04d24;">{{data.added_by_fullname}}</span>
+            </h1>
           </div>
-        </ng-container>
-        <ng-container *ngIf="flagVal == 0">
-          <div mat-dialog-content>
-
-            <div style="width: auto; background: #222222; padding: 15px;">
-              <img src="https://www.probidautomotive.com/wp-content/themes/probidnewtheme/images/logo.png" style="display: block; margin: 15px auto;">
-                <h1 style="border-top: solid 1px #4c4c4c; margin: 30px 0 0 0; padding: 30px 0 15px 0; text-align: center; font-family: Arial; font-size: 22px;   color: #fafbf7;"> Vehicle Details for Accepted RSVP For 
-                  <span style="color: #f04d24;">{{data.heading}}</span> Sent By Sales Rep 
-                  <span style="color: #f04d24;">{{data.added_by_fullname}}</span>
-                </h1>
-              </div>
-              <div style="width: auto; background: #fafbf7; padding: 15px;">
-                <div style="border: solid 1px #ccceca; padding:15px 15px; font-family: Arial; font-size: 16px; color: #222; line-height: 24px;">
-                  <div style="display: block; margin-bottom: 25px;">Hey 
-                    <span style="color: #f04d24;">{{data.added_for_fullname}}</span> / 
-                    <span style="color: #f04d24;">{{data.added_by_fullname}}</span>,
-                    <br/>
-                    <br/>
+          <div style="width: auto; background: #fafbf7; padding: 15px;">
+            <div
+              style="border: solid 1px #ccceca; padding:15px 15px; font-family: Arial; font-size: 16px; color: #222; line-height: 24px;">
+              <div style="display: block; margin-bottom: 25px;">Hey
+                <span style="color: #f04d24;">{{data.added_for_fullname}}</span> /
+                <span style="color: #f04d24;">{{data.added_by_fullname}}</span>,
+                <br />
+                <br />
                 We have received an RSVP from you for the following vehicle:
-                
-                  </div>
 
-                  <div style="display: block; margin-top: 25px;">
-          
-          
-                        The RSVP for the 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.heading}}</strong>, sent by Sales Rep 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.added_by_fullname}}</strong> for 
-                    <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been accepted. Based on desired specifications, we have located the vehicle detailed below.
-                    <br/>
-                    <div>
-                      <mat-dialog-content>
-                        <span class="example-full-width">
-                        <input matInput placeholder="Highest Bid"  [(ngModel)]="highest_bid">
-                        </span>
-                    </mat-dialog-content>
+              </div>
 
-                      
-                    </div>
-                    <br/>
-                    <strong style="color: #ff0167; font-size: 22px;">Thank You.</strong>
-                    <br/>
-                    <br/>
-                    <span style="display: block;">Please 
-                      <strong>ACCEPT/DECLINE to PROCEED/DISCARD</strong> Purchase Process.
-                    </span>
-                    <span style="display: block; margin: 10px 0 20px 0; ">
-                      <button style=" background: #fb4a32; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; border: solid 1px #fff;">CONFIRM</button>
-                      <button style=" background: #222; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; margin-left: 2px;  border: solid 1px #fff;">DECLINE</button>
-                    </span>
-                  </div>
+              <div style="display: block; margin-top: 25px;">
+
+
+                The RSVP for the
+                <strong style="color: #f04d24; display: inline-block;">{{data.heading}}</strong>, sent by Sales Rep
+                <strong style="color: #f04d24; display: inline-block;">{{data.added_by_fullname}}</strong> for
+                <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been
+                accepted. Based on desired specifications, we have located the vehicle detailed below.
+                <br />
+                <div>
+                  <span class="example-full-width">
+                    <input matInput placeholder="Highest Bid" [(ngModel)]="highest_bid">
+                  </span>
+
                 </div>
+                <br />
+                <strong style="color: #ff0167; font-size: 22px;">Thank You.</strong>
+                <br />
+                <br />
+                <span style="display: block;">Please
+                  <strong>ACCEPT/DECLINE to PROCEED/DISCARD</strong> Purchase Process.
+                </span>
+                <span style="display: block; margin: 10px 0 20px 0; ">
+                  <button
+                    style=" background: #fb4a32; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; border: solid 1px #fff;">CONFIRM</button>
+                  <button
+                    style=" background: #222; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; margin-left: 2px;  border: solid 1px #fff;">DECLINE</button>
+                </span>
               </div>
-             
-             
-              <div style="width: 100%; height: 5px; background: #222;">
-               
-              </div>
-            <mat-card-content >
+            </div>
+          </div>
+          <div style="width: 100%">
+            <span >
               <span [innerHTML]="safeHtml(topPart)"></span>
-              <ck-editor [(ngModel)]="topPart" [config]="editorconfig"></ck-editor>
-
-            </mat-card-content>
-
+              <ck-editor [(ngModel)]="topPart"></ck-editor>
+            </span>
           </div>
-        </ng-container>
-          <mat-dialog-actions >
-            <button class="btnredcls" mat-button mat-dialog-close="no" cdkFocusInitial>Cancel</button>
-            <button class="btnbluecls" mat-button (click)="submitform(topPart, 'yes', highest_bid)" cdkFocusInitial>Confirm</button>
-            <button class="btnbluecls" mat-button (click)="preview()">Preview</button>
-          </mat-dialog-actions>
+         
+          <!-- <p>{{editorconfig | json}}</p> -->
+        </div>
+      </ng-container>
+
+      <ng-container *ngIf="flagVal == 0">
+        <div mat-dialog-content>
+
+          <div style="width: auto; background: #222222; padding: 15px;">
+            <img src="https://www.probidautomotive.com/wp-content/themes/probidnewtheme/images/logo.png"
+              style="display: block; margin: 15px auto;">
+            <h1
+              style="border-top: solid 1px #4c4c4c; margin: 30px 0 0 0; padding: 30px 0 15px 0; text-align: center; font-family: Arial; font-size: 22px;   color: #fafbf7;">
+              Vehicle Details for Accepted RSVP For
+              <span style="color: #f04d24;">{{data.heading}}</span> Sent By Sales Rep
+              <span style="color: #f04d24;">{{data.added_by_fullname}}</span>
+            </h1>
+          </div>
+          <div style="width: auto; background: #fafbf7; padding: 15px;">
+            <div
+              style="border: solid 1px #ccceca; padding:15px 15px; font-family: Arial; font-size: 16px; color: #222; line-height: 24px;">
+              <div style="display: block; margin-bottom: 25px;">Hey
+                <span style="color: #f04d24;">{{data.added_for_fullname}}</span> /
+                <span style="color: #f04d24;">{{data.added_by_fullname}}</span>,
+                <br />
+                <br />
+                We have received an RSVP from you for the following vehicle:
+
+              </div>
+
+              <div style="display: block; margin-top: 25px;">The RSVP for the
+                <strong style="color: #f04d24; display: inline-block;">{{data.heading}}</strong>, sent by Sales Rep
+                <strong style="color: #f04d24; display: inline-block;">{{data.added_by_fullname}}</strong> for
+                <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been
+                accepted. Based on desired specifications, we have located the vehicle detailed below.
+                <br />
+                <div>
+                  <mat-dialog-content>
+                    <span class="example-full-width">
+                      <input matInput placeholder="Highest Bid" [(ngModel)]="highest_bid">
+                    </span>
+                  </mat-dialog-content>
+                </div>
+                <br />
+                <strong style="color: #ff0167; font-size: 22px;">Thank You.</strong>
+                <br />
+                <br />
+                <span style="display: block;">Please
+                  <strong>ACCEPT/DECLINE to PROCEED/DISCARD</strong> Purchase Process.
+                </span>
+                <span style="display: block; margin: 10px 0 20px 0; ">
+                  <button
+                    style=" background: #fb4a32; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; border: solid 1px #fff;">CONFIRM</button>
+                  <button
+                    style=" background: #222; border: none; box-shadow: none; cursor: pointer; font-size: 14px; color: #fff; padding: 8px 15px; outline: none; margin-left: 2px;  border: solid 1px #fff;">DECLINE</button>
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div style="width: 100%;">
+
+                <!-- [config]="editorconfig" -->
+           
+            <span [innerHTML]="safeHtml(topPart)"></span>
+            <ck-editor [(ngModel)]="topPart"></ck-editor>
+            
+          </div>
+
+        </div>
+      </ng-container>
+      <mat-dialog-actions>
+        <button class="btnredcls" mat-button mat-dialog-close="no" cdkFocusInitial>Cancel</button>
+        <button class="btnbluecls" mat-button (click)="submitform(topPart, 'yes', highest_bid)"
+          cdkFocusInitial>Confirm</button>
+        <button class="btnbluecls" mat-button (click)="preview()">Preview</button>
+      </mat-dialog-actions>
     </div>
   </div>
 </div>
-
-
-

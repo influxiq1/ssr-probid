@@ -204,7 +204,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
   font-weight: bold; cursor: pointer;}
 .generalmodalcls .videoWrapper{position:relative;padding-bottom:56.25%;padding-top:25px;height:0}
 .generalmodalcls .videoWrapper iframe,.generalmodalcls .videoWrapper object,.generalmodalcls .videoWrapper embed{position:absolute;top:0;left:0;width:100%;height:100%}
-.generalmodalcls .mat-dialog-content{margin:0!important;padding:0!important;overflow: hidden !important;}
+.generalmodalcls .mat-dialog-content{margin:0!important;padding:0!important;overflow: auto !important;}
 .generalmodalcls .mat-dialog-content .mat-card-header .mat-card-header-text{margin:0!important}
 .generalmodalcls .emailwrapper form .mat-card-header .mat-card-header-text{margin:0!important}
 .generalmodalcls .mat-dialog-content .mat-card-header h2{font-size:24px;margin-bottom:5px}

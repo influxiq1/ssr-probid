@@ -43,20 +43,16 @@
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [matMenuTriggerFor]="menu1">Inventory</a>
                     <mat-menu #menu1="matMenu" class="activedropmenu">
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/basic-inventory-search']">Basic
-                        Inventory Search</a>
-                      <a mat-menu-item routerLinkActive="activemenu"
-                        [routerLink]="['/advance-inventory-search']">Advance Inventory Search</a>
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/save-search']">Save Search</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/basic-inventory-search']">Basic Inventory Search</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/advance-inventory-search']">Advance Inventory Search</a>
+                      <!-- <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/save-search']">Save Search</a> -->
                     </mat-menu>
                   </mat-list-item>
                   <mat-list-item fxFlex routerLinkActive="activemenu">
                     <a [matMenuTriggerFor]="menu">Join Probid</a>
                     <mat-menu #menu="matMenu" class="activedropmenu">
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/salesrep-signup']">Sign up as
-                        Sales Rep</a>
-                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/customer-signup']">Sign up as
-                        Customer</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/salesrep-signup']">Sign up as Sales Rep</a>
+                      <a mat-menu-item routerLinkActive="activemenu" [routerLink]="['/customer-signup']">Sign up as Customer</a>
                     </mat-menu>
                   </mat-list-item>
                 </span>
