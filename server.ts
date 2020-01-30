@@ -26,6 +26,9 @@ const templateA = fs
   .readFileSync(path.join("dist/browser", "index.html"))
   .toString();
 const win = domino.createWindow(templateA);
+// const win = domino.createWindow(template);
+win.Object = Object;
+global['Event'] = null;
 global["window"] = win;
 global["document"] = win.document;
 global['HTMLElement'] = win.HTMLElement;

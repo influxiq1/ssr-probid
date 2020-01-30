@@ -108,17 +108,19 @@ public allLinkdinBanner : any = [
 
 
   
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, private fb1: FacebookService, public fb:FormBuilder, private readonly meta: MetaService) {
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, 
+    // private fb1: FacebookService, 
+    public fb:FormBuilder, private readonly meta: MetaService) {
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
       console.log(this.userCookies)
       
       }
-      fb1.init({
-        appId: '2540470256228526',
-        version: 'v2.9'
-      });
+      // fb1.init({
+      //   appId: '2540470256228526',
+      //   version: 'v2.9'
+      // });
 
       this.meta.setTitle('ProBid Auto - SalesRep Dashboard!');
       this.meta.setTag('og:title', 'ProBid Auto - SalesRep Dashboard');
@@ -156,9 +158,9 @@ public allLinkdinBanner : any = [
 
   }
 
-  logoutWithFacebook(): void {
-    this.fb1.logout().then();
-  }
+  // logoutWithFacebook(): void {
+  //   this.fb1.logout().then();
+  // }
 
   // auto_grow(element) {
   //     element.style.height = "5px";
@@ -167,11 +169,11 @@ public allLinkdinBanner : any = [
 
   
 
-  linkdinShare(url: any){
-    var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-    // console.log(fullUrl)
+  // linkdinShare(url: any){
+  //   var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+  //   // console.log(fullUrl)
 
-  }
+  // }
 
   // share(url: string) {
 
@@ -192,9 +194,7 @@ public allLinkdinBanner : any = [
   //     .catch();   
   // }
 
-  share(url: string) {
-    
-  }
+
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
@@ -202,7 +202,7 @@ public allLinkdinBanner : any = [
 
       this.datalist = data.rsvp.result;
 
-      console.log('...>>',this.datalist.customer_list)
+      // console.log('...>>',this.datalist.customer_list)
 
       this.rsvpList=data.rsvp.result.rsvp_list
 
@@ -228,7 +228,7 @@ public allLinkdinBanner : any = [
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
      this.jobTicketDataList=result.res
-     console.log('>>>>>', this.jobTicketDataList)
+    //  console.log('>>>>>', this.jobTicketDataList)
 
      this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
 
@@ -242,12 +242,12 @@ public allLinkdinBanner : any = [
   }
 
   applyFilter(filterVal:any) {
-    console.log(filterVal)
+    // console.log(filterVal)
     this.jobTicketList.filter = filterVal.trim().toLowerCase();
   }
 
   viewDetails(item:any,status:any){
-    console.log(item)
+    // console.log(item)
     this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 

@@ -11,6 +11,13 @@ import { ApiService } from '../../../api.service';
 export class ResetPasswordComponent implements OnInit {
 
   public logo: any = '../../assets/images/logo.png';
+  public loginRouteingUrl: any = { 
+    "path":"",
+    "buttonName":"Login",
+    "customLink":"/login",
+    "customURl":""
+  };
+
   public fromTitleName: any = 'Reset Password';
   // public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
   public serverUrl: any = this.apiService.serverUrlDemo;

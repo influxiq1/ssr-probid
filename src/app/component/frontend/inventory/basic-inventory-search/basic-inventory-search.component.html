@@ -1,3 +1,5 @@
+<mat-progress-bar mode="indeterminate" *ngIf="loader1"></mat-progress-bar>
+
 <app-header></app-header>
 <mat-card class="innerpagebanner basicinventorysearchbg">
   <span class="mainwrappercontent">
@@ -39,7 +41,7 @@
                 <h4>Make:</h4>
                 <mat-form-field>
                   <input type="text"
-                   (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
+                   (keyup.enter)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
                     aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
                   <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of make_list" [value]="option">
@@ -140,7 +142,7 @@
             <span class="buttonslist">
               <button mat-raised-button color="primary" type="reset" 
                > Reset</button>
-              <button mat-raised-button color="primary" type="submit"> Search</button>
+              <button mat-raised-button color="primary" type="button"> Search</button>
             </span>
 
           </span>

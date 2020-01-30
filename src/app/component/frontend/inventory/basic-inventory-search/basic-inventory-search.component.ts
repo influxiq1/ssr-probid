@@ -92,6 +92,7 @@ export class BasicInventorySearchComponent implements OnInit {
   public indexCount: number;
   public indexCountForImg: number;
   public apikey:any;
+  public loader1 = false;
 
 
   
@@ -158,9 +159,10 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
     //for make,model,year,type drop down list
     this.activatedRoute.data.forEach((data) => {
-      this.inventory_search_list = data.inventory_search
+      // this.inventory_search_list = data.result.manage_year
       // this.type_list = this.inventory_search_list.result.manage_type;
-      // this.year_list = this.inventory_search_list.result.manage_year;
+      console.log(data)
+      this.year_list = data.inventory_search.result.manage_year;
     })
 
 //     this.routeData=this.activatedRoute.data.subscribe(res=>{
@@ -205,7 +207,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
   inventoryCustomerSearch() {
     // console.log('--------')
-    this.apploader.loader = 1;
+    // this.apploader.loader = 1;
+    this.loader1 = true;
     if (this.inventoryCustomerForm.valid) {
 
       let yearVal = this.inventoryCustomerForm.value.year;
@@ -258,7 +261,9 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         })
 
       } else {
-        this.apploader.loader = 0;
+        // this.apploader.loader = 0;
+        
+    this.loader1 = false;
         this.errorMsg = "Please select at least one field";
 
         const dialogRef = this.dialog.open(errorDialog, {
@@ -340,6 +345,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
   
 
   searchAutoComplete(event: any, field: string) {
+    console.log( event.target.value )
     this.apploader.loader = 1;
 
 

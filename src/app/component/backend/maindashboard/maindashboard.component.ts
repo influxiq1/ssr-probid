@@ -212,7 +212,7 @@ public errorMsg: string = '';
         public snack:MatSnackBar,
         public router:Router,
         public fb:FormBuilder,
-         private fb1: FacebookService,
+        //  private fb1: FacebookService,
          private readonly meta: MetaService ) {
 
         this.meta.setTitle('ProBid Auto - Admin Dashboard!');
@@ -226,10 +226,10 @@ public errorMsg: string = '';
         this.userCookies = JSON.parse(this.cookieService.get('user_details'));
    
     
-    fb1.init({
-      appId: '2540470256228526',
-      version: 'v2.9'
-    });
+    // fb1.init({
+    //   appId: '2540470256228526',
+    //   version: 'v2.9'
+    // });
   
     
    }
@@ -260,17 +260,6 @@ public errorMsg: string = '';
 
   }
 
-  logoutWithFacebook(): void {
-    this.fb1.logout().then();
-  }
-  login() {
-    this.fb1.login()
-      .then((res: LoginResponse) => {
-       
-        // this.getProfile();
-      })
-      .catch();
-  }
   
   linkdinShare(url: any){
     var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
@@ -335,45 +324,6 @@ public errorMsg: string = '';
     this.jobTicketList.filter = filterVal.trim().toLowerCase();
   }
 
-
-  // share(url: string) {
-  //   var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-  //   this.cookieService.set('shareIngUrl',fullUrl);
- 
-  //   let params: UIParams = {
-  //     href: fullUrl,
-  //     method: 'share',
-  //     quote: 'https://dev.probidauto.com/'
-  //   };
-   
-  //   this.fb1.ui(params)
-  //     .then((res: UIResponse) =>{
-
-  //     })
-  //     .catch();
-   
-  // }
-
- 
-  share(url: string) {
-
-    // var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-
-    // this.cookieService.set('shareIngUrl',fullUrl);
-    // // console.log(fullUrl)
-
-    // let params: UIParams = {
-    //   href: fullUrl,
-    //   method: 'share',
-    //   quote: 'https://dev.probidauto.com/'
-    // };
-   
-    // this.fb1.ui(params)
-    //   .then((res: UIResponse) =>{
-
-    //   })
-    //   .catch();   
-  }
 
 
   viewDetails(item:any,status:any){
