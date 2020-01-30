@@ -172,9 +172,11 @@
 
                   
                   
+                   <div>
                     <mat-form-field>
                       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                     </mat-form-field>
+                   </div>
                     <div class="mat-elevation-z8">
                       <div class="tablediv">
                         <table mat-table [dataSource]="jobTicketList">
@@ -209,6 +211,11 @@
                           <ng-container matColumnDef="subject">
                             <th mat-header-cell *matHeaderCellDef> Subject </th>
                             <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+                          </ng-container>
+
+                          <ng-container matColumnDef="Date">
+                            <th mat-header-cell *matHeaderCellDef> Date </th>
+                            <td mat-cell *matCellDef="let element"> {{element.date}} </td>
                           </ng-container>
     
                           <ng-container matColumnDef="status" >

@@ -22,6 +22,7 @@ export interface JobTicket {
   repName: string;
   customerName: string;
   subject: string;
+  Date:any;
   status: string;
   action: string;
 }
@@ -36,7 +37,7 @@ export class JobTicketComponent implements OnInit {
 
 
 
-  JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+  JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject',  'Date' ,'status', 'action'];
   // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
   @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
   @ViewChild(MatSort, {static: false}) sort: MatSort;

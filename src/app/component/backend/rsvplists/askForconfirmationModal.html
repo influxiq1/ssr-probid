@@ -2,12 +2,6 @@
 <div class="generalmodalcls">
   <div class="modal-content">
     <div class="emailwrapper">
-      <!-- <form class=""> -->
-          <!-- <div class="logowrapperouter">
-              <div class="logowrapper">
-                  <img src="../../assets/images/logomain.png">
-              </div>
-          </div>        -->
           <mat-card-header class="">
             <h2>Ask For Confirmation</h2>
           </mat-card-header>
@@ -41,11 +35,9 @@
                     <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been accepted. Based on desired specifications, we have located the vehicle detailed below.
                     <br/>
                     <div>
-                      <mat-dialog-content>
-                        <mat-form-field class="example-full-width">
+                        <span class="example-full-width">
                           <input matInput placeholder="HighestBid" [(ngModel)]="highest_bid">
-                        </mat-form-field>
-                      </mat-dialog-content>
+                        </span>
                      
                     </div>
                     <br/>
@@ -67,10 +59,10 @@
               <div style="width: 100%; height: 5px; background: #222;">
                
               </div>
-            <!-- <mat-card-content class="">
-              <ck-editor  [config]="editorconfig" [(ngModel)]="topPart"></ck-editor>
-            </mat-card-content> -->
-
+            <span *ngIf="editorconfig != null && editorconfig != ''">
+              <ck-editor  [config]="editorconfig != null" [(ngModel)]="topPart"></ck-editor>
+            </span>
+<p>{{editorconfig | json}}</p>
           </div>
         </ng-container>
         <ng-container *ngIf="flagVal == 0">
@@ -103,9 +95,11 @@
                     <strong style="color: #f04d24; display: inline-block;">{{data.added_for_fullname}}</strong> has been accepted. Based on desired specifications, we have located the vehicle detailed below.
                     <br/>
                     <div>
-                      <mat-dialog-content><mat-form-field class="example-full-width">
+                      <mat-dialog-content>
+                        <span class="example-full-width">
                         <input matInput placeholder="Highest Bid"  [(ngModel)]="highest_bid">
-                      </mat-form-field></mat-dialog-content>
+                        </span>
+                    </mat-dialog-content>
 
                       
                     </div>
@@ -128,7 +122,7 @@
               <div style="width: 100%; height: 5px; background: #222;">
                
               </div>
-            <mat-card-content class="">
+            <mat-card-content >
               <span [innerHTML]="safeHtml(topPart)"></span>
               <ck-editor [(ngModel)]="topPart" [config]="editorconfig"></ck-editor>
 
@@ -141,7 +135,6 @@
             <button class="btnbluecls" mat-button (click)="submitform(topPart, 'yes', highest_bid)" cdkFocusInitial>Confirm</button>
             <button class="btnbluecls" mat-button (click)="preview()">Preview</button>
           </mat-dialog-actions>
-      <!-- </form>       -->
     </div>
   </div>
 </div>
