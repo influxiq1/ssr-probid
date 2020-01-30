@@ -39,7 +39,8 @@
             <span class="statusjobticket">
               <span *ngIf="userCookies.type == 'admin'">
                 <button mat-raised-button type="reset" class="btnblue" 
-              (click)="jobTicketStatus(job_ticket._id,2)" *ngIf="job_ticket !=null && job_ticket.job_ticket_status == 0 || job_ticket.job_ticket_status == 1  ||job_ticket.job_ticket_status == 3 ">Mark As Resolved</button>
+              (click)="jobTicketStatus(job_ticket._id,2)" 
+              *ngIf="job_ticket !=null && job_ticket.job_ticket_status == 0 || job_ticket.job_ticket_status == 1  ||job_ticket.job_ticket_status == 3 ">Mark As Resolved</button>
               </span>
               
 
