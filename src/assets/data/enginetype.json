@@ -1,0 +1,107 @@
+[
+    {
+        "enginetype": "1 Cylinder",
+        "engine": "1 Cylinder"
+    },
+    {
+        "enginetype": "1 Cylinder Turbo",
+        "engine": "1 Cylinder Turbo"
+    },
+    {
+        "enginetype": "2 Cylinder",
+        "engine": "2 Cylinder"
+    },
+    {
+        "enginetype": "2 Cylinder Turbo",
+        "engine": "2 Cylinder Turbo"
+    },
+    {
+        "enginetype": "3 Cylinder",
+        "engine": "3 Cylinder"
+    },
+    {
+        "enginetype": "3 Cylinder Turbo",
+        "engine": "3 Cylinder Turbo"
+    },
+    {
+        "enginetype": "4 Cylinder",
+        "engine": "4 Cylinder"
+    },
+    {
+        "enginetype": "4 Cylinder Turbo",
+        "engine": "4 Cylinder Turbo"
+    },
+    {
+        "enginetype": "5 Cylinder",
+        "engine": "5 Cylinder"
+    },
+    {
+        "enginetype": "5 Cylinder Turbo",
+        "engine": "5 Cylinder Turbo"
+    },
+    {
+        "enginetype": "6 Cylinder",
+        "engine": "6 Cylinder"
+    },
+    {
+        "enginetype": "6 Cylinder Turbo",
+        "engine": "6 Cylinder Turbo"
+    },{
+        "enginetype": "7 Cylinder",
+        "engine": "7 Cylinder"
+    },
+    {
+        "enginetype": "7 Cylinder Turbo",
+        "engine": "7 Cylinder Turbo"
+    },
+    {
+        "enginetype": "8 Cylinder",
+        "engine": "8 Cylinder"
+    },
+    {
+        "enginetype": "8 Cylinder Turbo",
+        "engine": "8 Cylinder Turbo"
+    },{
+        "enginetype": "9 Cylinder",
+        "engine": "9 Cylinder"
+    },
+    {
+        "enginetype": "9 Cylinder Turbo",
+        "engine": "9 Cylinder Turbo"
+    },
+    {
+        "enginetype": "10 Cylinder",
+        "engine": "10 Cylinder"
+    },
+    {
+        "enginetype": "10 Cylinder Turbo",
+        "engine": "10 Cylinder Turbo"
+    },{
+        "enginetype": "12 Cylinder",
+        "engine": "12 Cylinder"
+    },
+    {
+        "enginetype": "12 Cylinder Turbo",
+        "engine": "12 Cylinder Turbo"
+    },
+    {
+        "enginetype": "16 Cylinder",
+        "engine": "16 Cylinder"
+    },
+    {
+        "enginetype": "16 Cylinder Turbo",
+        "engine": "16 Cylinder Turbo"
+    },
+    {
+        "enginetype": "Electric",
+        "engine": "Electric"
+    },
+    {
+        "enginetype": "Hybrid",
+        "engine": "Hybrid"
+    },
+    {
+        "enginetype": "Rotary",
+        "engine": "Rotary"
+    }
+]
