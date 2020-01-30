@@ -479,7 +479,7 @@ inputUntouched(val: any) {
   displayedColumns2 = [ 'name', 'email', 'phoneNumber', 'trainingProgress', 'date_completed', 'status'];
   dataSource2 = new MatTableDataSource<CRElement>(CommissionReports_DATA);
 
-  displayedColumns3 = ['name', 'phoneNumber', 'date', 'repName', 'action', 'image_URL1'];
+  displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
   dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
 
   displayedColumns4 = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];

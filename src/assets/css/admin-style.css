@@ -146,57 +146,75 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .searchblock .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:0;line-height:60px}
 .adminbtnred,.adminbtnred:hover{display:inline-block!important;height:auto;background:#c33!important;font-size:18px;color:#fff!important;text-transform:uppercase;cursor:pointer;font-family:'Ralewaybold';text-decoration:none!important;line-height:normal;text-align:center;margin:0 auto;white-space:normal;margin-top:0;padding:12px 10px;border-radius:0!important}
 .adminbtnred span{text-transform:uppercase!important;color:#fff!important;margin-left:0!important}
-.tablediv table{border:0 solid #ccc;border-collapse:collapse;padding:0;width:100%;max-width:100%}
-.tablediv table caption{font-size:1.5em;margin:.5em 0 .75em}
+
+.tablediv table, .tablediv mat-table{border:0 solid #ccc;border-collapse:collapse;padding:0;width:100%;max-width:100%}
+.tablediv table caption, .tablediv mat-table caption{font-size:1.5em;margin:.5em 0 .75em}
 .tablediv table tr{background-color:#fff;border:0;padding:.35em;display:table-row;color:#fff}
-.tablediv table tr:nth-child(odd){background-color:#dde2e5}
-.tablediv table tr:last-child{border-bottom:0!important}
-.tablediv table tr:last-child td{border-bottom:0!important}
+.tablediv mat-table mat-row{background-color:#fff;border:0;color:#fff;align-items: initial;}
+.tablediv table tr:nth-child(odd), .tablediv mat-table mat-row:nth-child(odd){background-color:#dde2e5}
+.tablediv table tr:last-child, .tablediv mat-table mat-row:last-child{border-bottom:0!important}
+.tablediv table tr:last-child td, .tablediv mat-table mat-row:last-child mat-cell{border-bottom:0!important}
 .tablediv lib-listing .container{width:100%;padding:0}
-.tablediv table .empycell{border-bottom:0 solid #fff!important}
-.tablediv table th,.tablediv table td{padding:.625em;text-align:left;display:table-cell;border-bottom:1px solid #959595!important}
-.tablediv table th{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:10px;letter-spacing:.1em;text-transform:capitalize}
-.tablediv table td{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
-.tablediv table td br{display:none}
-.tablediv table td.text-center{text-align:center!important}
-.tablediv table th.descriptiondiv{width:26%}
+.tablediv table .empycell, .tablediv mat-table .empycell{border-bottom:0 solid #fff!important}
+.tablediv table th, .tablediv table td{padding:.625em;text-align:left;display:table-cell;border-bottom:1px solid #959595!important}
+.tablediv mat-table mat-header-row, .tablediv mat-table mat-cell{text-align:left;border-bottom:1px solid #959595!important}
+
+.tablediv table th, .tablediv mat-table mat-header-row{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:10px;letter-spacing:.1em;text-transform:capitalize}
+.tablediv table td, .tablediv mat-table mat-cell{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
+.tablediv table td br, .tablediv mat-table mat-cell br{display:none}
+.tablediv table td.text-center, .tablediv mat-table mat-cell.text-center{text-align:center!important}
+.tablediv table th.descriptiondiv, .tablediv mat-table mat-header-row.descriptiondiv{width:26%}
+.tablediv table td button span, .tablediv mat-table mat-cell button span{padding-left:5px}
+.tablediv table td button,.tablediv table td button:hover, .tablediv mat-table mat-cell button,.tablediv mat-table mat-cell button:hover{padding:6px 5px!important;text-align:center;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-orient:horizontal;-moz-box-orient:horizontal;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;align-items:center;justify-content:space-between;font-size:9px;margin:2px;color:#fff!important;border:none!important;text-transform:uppercase;outline:none}
+.tablediv table td button:focus, .tablediv mat-table mat-cell button:focus{outline:none!important;border:0!important}
+.tablediv table tr.content, .tablediv mat-table mat-row.content{background-color:#676767!important}
+.tablediv table tr.content .empycell, .tablediv mat-table mat-row.content .empycell{background-color:#4f4f4f!important}
+.tablediv table tr.content tr{background-color:transparent!important}
+.tablediv table tr.colorblue td.empycell, .tablediv mat-table mat-row.colorblue td.empycell{color:#fff!important;background-color:transparent!important}
+.noborder table tr, .noborder mat-table mat-row{background-color:rgba(97,97,97,1)}
+.tablediv table tr.graybgwcolorblack td, .tablediv mat-table mat-row.graybgwcolorblack td{color:#0b0b0b;background-color:rgba(139,139,139,1)}
+.tablediv table tr.content1.colorblue .txtbluenew td, .tablediv mat-table mat-row.content1.colorblue .txtbluenew mat-cell{color:#4acbda}
+.tablediv table tr.content2 td, .tablediv mat-table mat-row.content2 mat-cell{color:#fff!important}
+.noborder{border:0!important;padding:0!important}
+.tablediv table th .mat-sort-header-button, .tablediv mat-table mat-header-row .mat-sort-header-button{text-transform:capitalize}
+.tablediv table th.empycell,.tablediv table td.empycell, .tablediv mat-table mat-header-row.empycell,.tablediv mat-table mat-cell.empycell{width:2.5%;text-align:left}
+.tablediv table td.mat-column-Actions, .tablediv mat-table mat-cell.mat-column-Actions{width:98px}
+.tablediv table th.mat-column-date_added, .tablediv mat-table mat-header-row.mat-column-date_added{width:114px}
+.tablediv table .actionnewbtn span, .tablediv mat-table .actionnewbtn span{cursor:pointer}
+.tablediv table td span .material-icons, .tablediv mat-table mat-cell span .material-icons{color:#4f5051!important}
+
+
+.tablediv table.mat-table, .tablediv mat-table{width:100%}
+.tablediv table.mat-table tr .mat-footer-cell, .tablediv mat-table mat-row .mat-footer-cell{color:#fff}
+.tablediv table.mat-table .mat-checkbox-frame, .tablediv mat-table .mat-checkbox-frame{border-color:rgba(0,0,0,.54)!important}
+
+
+
 .norecordfound{color:#ee680f!important;padding:18px!important;text-align:center!important;text-transform:uppercase!important}
 .tablediv .btnedit,.tablediv .btndelete,.tablediv .btnedit:hover,.tablediv .btndelete:hover{padding:6px 5px!important;text-align:center;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-orient:horizontal;-moz-box-orient:horizontal;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;align-items:center;justify-content:center;font-size:12px;margin:2px!important;color:#fff!important;margin:0 0 5px 0!important;cursor:pointer}
 .tablediv .btnedit span,.tablediv .btndelete span{padding-left:5px}
 .tablediv .btnedit:last-child,.tablediv .btndelete:last-child{margin-bottom:0!important}
 .tablediv .btndelete,.tablediv .btndelete:hover{background:rgba(227,75,75,1);background:-moz-linear-gradient(top,rgba(227,75,75,1) 0%,rgba(181,33,33,1) 100%);background:-webkit-gradient(left top,left bottom,color-stop(0%,rgba(227,75,75,1)),color-stop(100%,rgba(181,33,33,1)));background:-webkit-linear-gradient(top,rgba(227,75,75,1) 0%,rgba(181,33,33,1) 100%);background:-o-linear-gradient(top,rgba(227,75,75,1) 0%,rgba(181,33,33,1) 100%);background:-ms-linear-gradient(top,rgba(227,75,75,1) 0%,rgba(181,33,33,1) 100%);background:linear-gradient(to bottom,rgba(227,75,75,1) 0%,rgba(181,33,33,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#e34b4b',endColorstr='#b52121',GradientType=0)}
 .tablediv .btnedit,.tablediv .btnedit:hover{background:rgba(67,179,2,1);background:-moz-linear-gradient(top,rgba(67,179,2,1) 0%,rgba(79,138,21,1) 100%);background:-webkit-gradient(left top,left bottom,color-stop(0%,rgba(67,179,2,1)),color-stop(100%,rgba(79,138,21,1)));background:-webkit-linear-gradient(top,rgba(67,179,2,1) 0%,rgba(79,138,21,1) 100%);background:-o-linear-gradient(top,rgba(67,179,2,1) 0%,rgba(79,138,21,1) 100%);background:-ms-linear-gradient(top,rgba(67,179,2,1) 0%,rgba(79,138,21,1) 100%);background:linear-gradient(to bottom,rgba(67,179,2,1) 0%,rgba(79,138,21,1) 100%);filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#43b302',endColorstr='#4f8a15',GradientType=0)}
-.tablediv table td button span{padding-left:5px}
-.tablediv table td button,.tablediv table td button:hover{padding:6px 5px!important;text-align:center;display:-webkit-box;display:-moz-box;display:-ms-flexbox;display:-webkit-flex;display:flex;-webkit-box-orient:horizontal;-moz-box-orient:horizontal;-webkit-box-direction:normal;-moz-box-direction:normal;-webkit-flex-direction:row;-ms-flex-direction:row;flex-direction:row;align-items:center;justify-content:space-between;font-size:9px;margin:2px;color:#fff!important;border:none!important;text-transform:uppercase;outline:none}
-.tablediv table td button:focus{outline:none!important;border:0!important}
+
 .graburlcls .linktxt1,.graburlcls .linktxt2{background:transparent!important}
 .graburlcls .linktxt1 span{color:#2ed0ff;font-size:13px;text-transform:capitalize}
 .graburlcls .linktxt2 span{color:#f7a311;font-size:13px;text-transform:capitalize}
 .statusactive{color:#70c71d}
 .statusinactive{color:#f58b8b}
 .statuspendinng{color:#FF8C00}
-.tablediv table tr.content{background-color:#676767!important}
-.tablediv table tr.content .empycell{background-color:#4f4f4f!important}
-.tablediv table tr.content tr{background-color:transparent!important}
-.tablediv table tr.colorblue td.empycell{color:#fff!important;background-color:transparent!important}
-.noborder table tr{background-color:rgba(97,97,97,1)}
-.tablediv table tr.graybgwcolorblack td{color:#0b0b0b;background-color:rgba(139,139,139,1)}
-.tablediv table tr.content1.colorblue .txtbluenew td{color:#4acbda}
-.tablediv table tr.content2 td{color:#fff!important}
-.noborder{border:0!important;padding:0!important}
-.tablediv table th .mat-sort-header-button{text-transform:capitalize}
-.tablediv table th.empycell,.tablediv table td.empycell{width:2.5%;text-align:left}
+
+
 .tablediv .container{background:transparent!important;width:100%;margin-bottom:10px}
 .tablediv .container br{display:none}
 .tablediv .mat-card{background:transparent!important;padding:0;margin-top:0px}
 .tablediv .mat-paginator{background-color:#e0361f;margin-top:5px;width:100%}
-.tablediv table.mat-table{width:100%}
+
 .tablediv.actionsectionhide table.mat-table thead th:last-child{display:none}
 .tablediv.actionsectionhide table.mat-table tbody td:last-child{display:none}
 .tablediv.actionsectionhide table.mat-table thead th:first-child{display:none}
 .tablediv.actionsectionhide table.mat-table tbody td:first-child{display:none}
-.tablediv table.mat-table tr .mat-footer-cell{color:#fff}
-.tablediv table.mat-table .mat-checkbox-frame{border-color:rgba(0,0,0,.54)!important}
+
 .tablediv .mat-paginator .mat-button.mat-accent[disabled],.tablediv .mat-paginator .mat-button.mat-primary[disabled],.tablediv .mat-paginator .mat-button.mat-warn[disabled],.tablediv .mat-paginator .mat-button[disabled][disabled],.tablediv .mat-paginator .mat-icon-button.mat-accent[disabled],.tablediv .mat-paginator .mat-icon-button.mat-primary[disabled],.tablediv .mat-paginator .mat-icon-button.mat-warn[disabled],.tablediv .mat-paginator .mat-icon-button[disabled][disabled],.tablediv .mat-paginator .mat-stroked-button.mat-accent[disabled],.tablediv .mat-paginator .mat-stroked-button.mat-primary[disabled],.tablediv .mat-paginator .mat-stroked-button.mat-warn[disabled],.tablediv .mat-paginator .mat-stroked-button[disabled][disabled]{color:#fff}
 .tablediv .mat-paginator,.tablediv .mat-paginator-page-size .mat-select-trigger{color:#f1f1f1}
 .tablediv .mat-paginator .mat-form-field-infix .mat-select{padding:0 5px;color:#f1f1f1}
@@ -207,33 +225,40 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv .mat-card .mat-form-field-label-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none;border-bottom:1px solid #fff;top:-1em;padding-top:1em}
 .tablediv button.mat-raised-button{display:inline-block!important;height:auto!important;background:#c33!important;font-size:12px!important;color:#fff!important;text-transform:uppercase!important;font-family:'Ralewaybold';text-decoration:none!important;line-height:normal!important;text-align:center!important;margin:0 auto!important;white-space:normal!important;margin-top:10px!important;padding:12px 10px!important;border-radius:0!important;margin-right:5px!important;margin-bottom:10px!important}
 .mat-select-panel-wrap .mat-select-panel{background:#969696}
-.mat-select-panel-wrap .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple){background:rgba(0,0,0,.22)}
-.mat-select-panel-wrap .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){color:#f1f1f1}
-.formfilterdiv{margin-top:-10%!important}
-.formfilterdiv .container{width:100%}
+
 /* .tablediv{margin-top:-73px} */
 .tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:flex-end!important;margin-top:0;z-index:9;height: auto;}
 .tablediv .searchbar .mat-form-field-flex{background-color: #465157!important;border: 0 solid #efefef;color: #fff;}
 .tablediv .searchbar .mat-form-field{z-index:99;position:relative}
 /* .tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;} */
 .tablediv .mat-form-field-flex{align-items:stretch}
-.tablediv table td span .material-icons{color:#4f5051!important}
+
 .tablediv .mat-form-field-appearance-legacy .mat-form-field-infix{line-height:normal;padding:8px 3px!important;margin: 5px!important;background: #dde2e5 !important;}
-.tablediv table .actionnewbtn span{cursor:pointer}
+
 .tablediv.trainingtablediv{margin-top:0!important}
 .tablediv.trainingtablediv table{margin-top:27px}
+.tablediv .searchbar .mat-form-field .mat-form-field-infix{margin-bottom:0}
+.tablediv .searchbar .mat-form-field .mat-form-field-prefix,.tablediv .searchbar .mat-form-field .mat-form-field-suffix{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center}
+/* .bloglists .tablediv .searchbar{padding-right:200px}
+.blogcatlists .tablediv .searchbar{padding-right:252px} */
+
+
 .searchblock{margin:0;padding:0;position:relative;display:block}
 .searchblock .btnorange{min-width:100%;border-radius:0;padding: 14px 12px 12px!important;margin:0!important;display:flex!important;align-items:center;cursor:pointer}
 .searchblock{background:#dde2e5!important;padding:8px;width:auto;display:block;margin:0 auto!important}
 .searchblock span{display:flex;align-items:center;position:relative;z-index:99}
 .searchblock .searchblockwrapper{display:flex;align-items:stretch;justify-content:space-between;flex-direction:row}
 .searchblock span h2{font-family:"Helvetica-Normal";color:#373b3d;font-size:24px!important;margin:0}
-.tablediv .searchbar .mat-form-field .mat-form-field-infix{margin-bottom:0}
-.tablediv .searchbar .mat-form-field .mat-form-field-prefix,.tablediv .searchbar .mat-form-field .mat-form-field-suffix{display:-webkit-box;display:flex;-webkit-box-align:center;align-items:center}
-/* .bloglists .tablediv .searchbar{padding-right:200px}
-.blogcatlists .tablediv .searchbar{padding-right:252px} */
-.tablediv table td.mat-column-Actions{width:98px}
-.tablediv table th.mat-column-date_added{width:114px}
+
+.mat-select-panel-wrap .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple){background:rgba(0,0,0,.22)}
+.mat-select-panel-wrap .mat-primary .mat-option.mat-selected:not(.mat-option-disabled){color:#f1f1f1}
+.formfilterdiv{margin-top:-10%!important}
+.formfilterdiv .container{width:100%}
+
+
+
+
+
 .tablediv .searchbar .mat-form-field-flex {flex-direction: row-reverse;}
 .inner_search_wrapper input{outline:none;font-size:1em;margin:0;border:none!important;display:block;background:#fff;border-radius:0!important;color:#333!important;border:1px solid #fff!important;box-sizing:border-box;height:40px;margin-right:10px;padding:10px;width:auto;min-width:270px}
 .formaddtraining{width:80%;margin:35px auto!important;display:block;background:#dde2e5;padding:50px}
