@@ -53,6 +53,8 @@ export class AdvanceInventorySearchComponent implements OnInit {
   public indexval:any=10;
   public advanceInventoryCustomerForm: FormGroup;
   public stateList: any;
+  public odometerList: any;
+  public enginetypeList: any;
   public inventory_search_list: any;
   public make_list: any;
   public type_list: any;
@@ -101,6 +103,8 @@ export class AdvanceInventorySearchComponent implements OnInit {
 
     this.generateForm();
     this.getStateList();
+    this.getodometerList();
+    this.getenginetypeList();
   }
 
   ngOnInit() {
@@ -120,12 +124,32 @@ export class AdvanceInventorySearchComponent implements OnInit {
       this.stateList = result;
     })
   }
+
+  getodometerList() {
+    this.apiService.getJsonObject('assets/data/odometer.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.odometerList = result;
+    })
+  }
+
+  getenginetypeList() {
+    this.apiService.getJsonObject('assets/data/enginetype.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.enginetypeList = result;
+      console.log(this.enginetypeList);
+    })
+  }
+
   rsvpSend(val: any) {
 
   }
+
  favorite(val: any) {
     
   }
+
   generateForm() {
     this.advanceInventoryCustomerForm = this.fb.group({
       type: [''],
@@ -137,6 +161,9 @@ export class AdvanceInventorySearchComponent implements OnInit {
       vin: [''],
       state: [''],
       zip: [''],
+      odometer: [''],
+      odometer1: [''],
+      enginetype: [''],
 
     })
   }
@@ -208,6 +235,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
       if (zipVal != null && zipVal != '' && zipVal.length >= 0) {
         this.zip = "&zip=" + zipVal;
       }
+      
      
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 

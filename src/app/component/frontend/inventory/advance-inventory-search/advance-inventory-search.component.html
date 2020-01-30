@@ -109,7 +109,7 @@
             <mat-form-field>
                 <mat-select formControlName="state" placeholder="STATE">
                     <mat-option *ngFor="let item of stateList" [value]="item.abbreviation">{{item.name}}</mat-option>
-                  </mat-select>
+                </mat-select>
             </mat-form-field>
             </span>            
               <span>
@@ -131,23 +131,24 @@
                     <span class="doublecolumn">
                         <h4>Odometer:</h4> 
                         <mat-form-field>                                   
-                            <mat-select placeholder="No min">
-                              <mat-option value="Odometer">No min</mat-option>
-                              <mat-option value="Odometer1">Odometer 1</mat-option>
-                              <mat-option value="Odometer2">Odometer 2</mat-option>
+                            <mat-select formControlName="odometer" placeholder="No min">
+                              <mat-option *ngFor="let item of odometerList" [value]="item.numeric">{{item.number}}</mat-option>
+                              <!-- <mat-option value="Odometer1">Odometer 1</mat-option>
+                              <mat-option value="Odometer2">Odometer 2</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                         <mat-form-field>          
-                            <mat-select placeholder="No max">
-                              <mat-option value="nomax">No max</mat-option>
-                              <mat-option value="nomax1">nomax 1</mat-option>
-                              <mat-option value="nomax2">nomax 2</mat-option>
+                            <mat-select formControlName="odometer1" placeholder="No max">
+                              <mat-option  *ngFor="let item of odometerList" [value]="item.numeric">{{item.number}}</mat-option>
+                              <!-- <mat-option value="nomax1">nomax 1</mat-option>
+                              <mat-option value="nomax2">nomax 2</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                         <h4>Bid or Buy Now Price:</h4> 
                         <mat-form-field>        
                             <mat-select placeholder="No min">
                                 <mat-option value="bidorbuy">No min</mat-option>
+                                <!-- <mat-option *ngFor="let item of bidorbuyList" [value]="item.engine">{{item.enginetype}}</mat-option> -->
                                 <mat-option value="bidorbuy1">Odometer 1</mat-option>
                                 <mat-option value="bidorbuy2">Odometer 2</mat-option>
                             </mat-select>
@@ -163,9 +164,9 @@
                     <span class="column">
                         <h4>Engine Type</h4> 
                         <mat-form-field>          
-                            <mat-select placeholder="All">
-                              <mat-option value="ET">All</mat-option> 
-                              <mat-option value="ET1">ET 1</mat-option>
+                            <mat-select formControlName="enginetype" placeholder="All">
+                              <mat-option *ngFor="let item of enginetypeList" [value]="item.engine">{{item.enginetype}}</mat-option>
+                              <!-- <mat-option value="ET1">ET 1</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                     </span>
