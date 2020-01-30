@@ -177,7 +177,10 @@
               </mat-list-item>
             </mat-list>
           </span>
+
           <span class="adm_dashboard_block1_right">
+
+            <span >
               <form [formGroup]="jobTicketForm" >
                 <span class="bluebg">
                   <!-- <span class="sectionheader">Car RSVP Info</span> -->
@@ -192,9 +195,9 @@
                   </ng-container>                
                 </span>
                 <span *ngIf="status !=1" class="whitebg">
-                  <span class="sectionheader">Description</span>
+                  <!-- <span class="sectionheader"></span> -->
                   <span class="graybg">
-                    <mat-form-field class="example-full-width" *ngIf="status != 1">
+                    <mat-form-field class="example-full-width" *ngIf="status != 1 ">
                       <textarea matInput placeholder="Description" formControlName="description" (blur)="inputUntouched('description')"></textarea>
                     </mat-form-field>
                     <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket.description != undefined">
@@ -224,6 +227,8 @@
                   </span>
                 </span>              
               </form>
+            </span>
+
               <span class="whitebg jobcommentbox" *ngIf="status == 1 ">
                 <mat-list class="commentboxscroll">
                   <ng-container>

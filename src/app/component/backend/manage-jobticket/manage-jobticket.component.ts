@@ -266,7 +266,6 @@ public configDataJobTicket: any = {
       })
     }
 
-
   }
 
   changeStatus(item: any, val: any) {
