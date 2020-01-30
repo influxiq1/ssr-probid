@@ -924,7 +924,7 @@
                         <span *ngIf="element.job_ticket_status == 0">Open</span>
                             <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
                             <span *ngIf="element.job_ticket_status == 2">Closed</span>
-                            <span *ngIf="element.job_ticket_status == 3">Re-Open</span>
+                            <span *ngIf="element.job_ticket_status == 3">Re-Opened</span>
                       </mat-cell>
                     </ng-container>
 
@@ -934,8 +934,11 @@
                       <mat-header-cell *matHeaderCellDef>
                         Action
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element;let i = index">
                         <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
+                        <a  (click)="deleteJobTicket(element._id,i)" ><i class="material-icons">
+                          delete_outline
+                          </i></a> 
                       </mat-cell>
                     </ng-container>
 

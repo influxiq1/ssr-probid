@@ -399,38 +399,6 @@ inputUntouched(val: any) {
   }
 
 
-  //delete for save search data
-  
-//   deleteSaveAny(val:any,index:any){
-//     const dialogRef = this.dialog.open(DeleteModalRsvpComponent, {
-//       width: '250px',
-//       data:this.message
-//     });
-//     dialogRef.afterClosed().subscribe(result => {
-//       console.log(result)
-//         if(result=='yes'){
-//           let data:any;
-//               data={
-//                 source:"save_favorite ",
-//                 id:val
-//                 }
-//                 this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
-//                   let result:any;
-//                   result=res;
-//                   // console.log('success',result)
-                  
-//                   if(result.status=='success'){
-//                     this.saveSearch_list.splice(index,index+1);
-//                     this.snack.open('Record Deleted Successfully..!','Ok',{duration:4000})
-                    
-//                   }
-//                 })
-//           }
-//   })
-// }
-
-
-
   // loadMoreSearchResult(){
   //   this.socialadvoIndex=this.socialadvoIndex+2;
   // }
@@ -457,6 +425,40 @@ inputUntouched(val: any) {
     // console.log(item);
     this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
   }
+
+    //delete JobTicket record
+    deleteJobTicket(val:any,index:any){
+      console.log('delete hit',val,index)
+      const dialogRef = this.dialog.open(DeleteJobTicketModalComponent, {
+       
+        data:this.message
+  
+      });
+  
+      dialogRef.afterClosed().subscribe(result => {
+        
+          if(result=='yes'){
+            let data:any;
+              data={
+              "source":"job_ticket",
+              id:val
+              }
+              this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
+                let result:any;
+                result=res;
+                
+                if(result.status=='success'){
+                  this.jobTicketDataList = this.jobTicketDataList.filter( jobTicketDataList => jobTicketDataList._id != val)
+                  // this.jobTicketDataList.splice(index,1);
+                  this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+  
+                  this.snack.open('Record Deleted Successfully..!','Ok',{duration:2000})
+                  
+                }
+              })
+          }
+      });
+    }
 
 
 
@@ -643,4 +645,24 @@ export class DeleteModalRsvpComponent {
 
   }
 }
+
+
+
+
+//modal component for delete job ticket
+
+
+@Component({
+  selector:'deleteJobticket',
+  templateUrl:'./deleteJobticket.html'
+})
+export class DeleteJobTicketModalComponent {
+  constructor( public dialogRef: MatDialogRef<DeleteJobTicketModalComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
+}
+
+
+
 

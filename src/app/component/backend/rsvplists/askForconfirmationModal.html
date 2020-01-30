@@ -59,11 +59,13 @@
               </div>
             </div>
           </div>
-          <div style="width: 100%; height: 5px; background: #222;">
+          <div style="width: 100%">
+            <span >
+              <span [innerHTML]="safeHtml(topPart)"></span>
+              <ck-editor [(ngModel)]="topPart"></ck-editor>
+            </span>
           </div>
-          <span *ngIf="editorconfig != null && editorconfig != ''">
-            <ck-editor [config]="editorconfig != null" [(ngModel)]="topPart"></ck-editor>
-          </span>
+         
           <!-- <p>{{editorconfig | json}}</p> -->
         </div>
       </ng-container>
@@ -124,9 +126,12 @@
           </div>
 
           <div style="width: 100%;">
+
+                <!-- [config]="editorconfig" -->
            
             <span [innerHTML]="safeHtml(topPart)"></span>
-            <ck-editor [(ngModel)]="topPart" [config]="editorconfig"></ck-editor>
+            <ck-editor [(ngModel)]="topPart"></ck-editor>
+            
           </div>
 
         </div>
