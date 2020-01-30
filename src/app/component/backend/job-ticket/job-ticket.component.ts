@@ -22,6 +22,7 @@ export interface JobTicket {
   repName: string;
   customerName: string;
   subject: string;
+  Date:any;
   status: string;
   action: string;
 }
