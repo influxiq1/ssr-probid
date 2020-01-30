@@ -4,8 +4,10 @@
     <mat-card style="padding: 0 !important;">
       <mat-card-content class="adm_inner_banner adminbannerdashnboard">
         <mat-card-title class="adm_inner_title"><span>Welcome to</span> ProBid Auto</mat-card-title>
-        <p class="adm_inner_para">Sourcing Action-Direct Vehicles At Unbelievable Prices Unmatched Anywhere Else In The
-          Industry.</p>
+        <p class="adm_inner_para">
+          Sourcing Action-Direct Vehicles At Unbelievable Prices Unmatched
+          Anywhere Else In The Industry.
+        </p>
       </mat-card-content>
       <!-- <mat-card-content class="bred_cram_wrapper rightsideformcls">
         <a mat-list-item routerLinkActive="active activebread"> Dashboard </a>
@@ -45,32 +47,38 @@
             <mat-card-content class="block1totalreview">
               <span class="block1_single orangecolor">
                 <span class="block1_single_content">
-                  <h2>{{count.customer_count}}</h2>
+                  <h2>{{ count.customer_count }}</h2>
                   <p>Customers</p>
                 </span>
-                <button mat-button [routerLink]="['/customer-list-admin']">view all</button>
+                <button mat-button [routerLink]="['/customer-list-admin']">
+                  view all
+                </button>
                 <span class="block1_single_icon">
-                  <img src="../../../../assets/images/adm-dashboard-b1-icon1.png">
+                  <img src="../../../../assets/images/adm-dashboard-b1-icon1.png" />
                 </span>
               </span>
               <span class="block1_single bluecolor">
                 <span class="block1_single_content">
-                  <h2>{{count.salesrep_count}}</h2>
+                  <h2>{{ count.salesrep_count }}</h2>
                   <p>Salesrep</p>
                 </span>
-                <button mat-button [routerLink]="['/salesrep-list-admin']">view all</button>
+                <button mat-button [routerLink]="['/salesrep-list-admin']">
+                  view all
+                </button>
                 <span class="block1_single_icon">
-                  <img src="../../../../assets/images/adm-dashboard-b1-icon2.png">
+                  <img src="../../../../assets/images/adm-dashboard-b1-icon2.png" />
                 </span>
               </span>
               <span class="block1_single greencolor">
                 <span class="block1_single_content">
-                  <h2>{{count.birddog_count}}</h2>
+                  <h2>{{ count.birddog_count }}</h2>
                   <p>Birddogs</p>
                 </span>
-                <button mat-button [routerLink]="['/birddog-list']">view all</button>
+                <button mat-button [routerLink]="['/birddog-list']">
+                  view all
+                </button>
                 <span class="block1_single_icon">
-                  <img src="../../../../assets/images/adm-dashboard-b1-icon3.png">
+                  <img src="../../../../assets/images/adm-dashboard-b1-icon3.png" />
                 </span>
               </span>
             </mat-card-content>
@@ -80,55 +88,53 @@
             <mat-card-title class="sectionheader">Social Advo Banners</mat-card-title>
             <h2>facebook Banner</h2>
             <mat-list role="list" class="flexbox4column">
-
               <mat-list-item role="listitem" class="block1socialadvosingle"
-                *ngFor="let item of allFacebookBanner | slice:0:indexval;">
-                <img src="../../../../assets/images/{{item}}">
-                <!-- <span class="postblock">
-                  <a class="btnshare btnsharecls txtwhite" target="_blank" (click)="share(item)"><span>Post</span></a>
-                </span> -->
-                <!-- <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy">Grab
-                    URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
-                </p> -->
+                *ngFor="let item of allFacebookBanner | slice: 0:indexval">
+                <img src="../../../../assets/images/{{ item }}" />
                 <p class="grapurl">
                   <span class="blogsociallists">
-                      <a class="sociallink fa fb" target="_blank">
-                          <fa name="facebook" class="fa-facebook"></fa>
-                      </a>                                        
-                      <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
+                    <a class="sociallink fa fb" target="_blank" (click)="share(item)">
+                      <i name="facebook" class="fa fa-facebook"></i>
+                    </a>
+                    <button (click)="copyMessage(item)" value="click to copy">
+                      Grab URL
+                    </button>
                   </span>
                   <span>
-                      <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
-                  </span>           
-              </p>
+                    <span>https://dev.probidauto.com/customer-signup/{{ item }}/{{
+                        userCookies._id
+                      }}</span>
+                  </span>
+                </p>
               </mat-list-item>
             </mat-list>
             <h2>linkedin Banner</h2>
             <mat-list role="list" class="flexbox4column">
-              <mat-list-item role="listitem" class="block1socialadvosingle"
-                *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
-                <img src="../../../../assets/images/{{item}}">
-                <!-- <span class="postblock">
-                  <a class="btnshare btnsharecls txtwhite" target="_blank"
-                    [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
-                </span>
-                <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy">Grab
-                    URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p> -->
-                    <p class="grapurl">
-                      <span class="blogsociallists">
-                          <!-- <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
-                              <fa name="linkedin" class="fa-linkedin"></fa>
-                          </a> -->
-                          <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
-                      </span>
-                      <span>
-                          <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
-                      </span>           
-                  </p>
+              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="
+                  let item of allLinkdinBanner | slice: 0:indexValForLinkdin
+                ">
+                <img src="../../../../assets/images/{{ item }}" />
+                <p class="grapurl">
+                  <span class="blogsociallists">
+                    <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
+                              <i name="linkedin" class="fa fa-linkedin"></i>
+                          </a>
+                    <button (click)="copyMessage(item)" value="click to copy">
+                      Grab URL
+                    </button>
+                  </span>
+                  <span>
+                    <span>https://dev.probidauto.com/customer-signup/{{ item }}/{{
+                        userCookies._id
+                      }}</span>
+                  </span>
+                </p>
               </mat-list-item>
             </mat-list>
             <span class="btnwrappercls">
-              <button mat-button class="btnblue" [routerLink]="['/social-advo-admin']">View All</button>
+              <button mat-button class="btnblue" [routerLink]="['/social-advo-admin']">
+                View All
+              </button>
             </span>
           </span>
         </span>
@@ -136,23 +142,26 @@
           <mat-card>
             <mat-card-title class="sectionheader">Current RSVP</mat-card-title>
             <mat-list role="list" class="flexbox1column">
-              <mat-list-item role="listitem" class="rsvplistsingle"
-                *ngFor="let item of rsvp_list | slice:0:rsvpIndex; let i = index">
-                <span (click)="deleteAny(item._id,i,'rsvp')" class="deletecls"><i
+              <mat-list-item role="listitem" class="rsvplistsingle" *ngFor="
+                  let item of rsvp_list | slice: 0:rsvpIndex;
+                  let i = index
+                ">
+                <span (click)="deleteAny(item._id, i, 'rsvp')" class="deletecls"><i
                     class="material-icons">delete</i></span>
                 <span class="rsvplistsingleinner">
-
                   <span class="rsvplistsingleleft">
                     <span class="rsvpliststop">
                       <span class="rsvplistimgwrapper">
                         <img *ngIf="item.media.photo_links[0] != null" [src]="item.media.photo_links[0]"
-                          (click)="viewRsvpDetails(item._id)">
+                          (click)="viewRsvpDetails(item._id)" />
                         <img class="defaultimg" *ngIf="item.media.photo_links[0] == null"
-                          src="assets/images/no-image-default.jpg">
+                          src="assets/images/no-image-default.jpg" />
                       </span>
                     </span>
                     <span class="rsvplistsbottom">
-                      <h2 (click)="viewRsvpDetails(item._id)">{{item.heading}}</h2>
+                      <h2 (click)="viewRsvpDetails(item._id)">
+                        {{ item.heading }}
+                      </h2>
                       <span class="rsvplistsbottombtm">
                         <span>Status</span>
                         <span *ngIf="item.status == 2" class="btnactive">Rejected <span class="colorred"></span></span>
@@ -168,19 +177,26 @@
                       <h2>User</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img *ngIf="item.added_for_picture !=null && item.added_for_picture !=''" [src]="item.added_for_picture">
+                          <img *ngIf="
+                              item.added_for_picture != null &&
+                              item.added_for_picture != ''
+                            " [src]="item.added_for_picture" />
 
-                          <img *ngIf="item.added_for_picture ==null || item.added_for_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
+                          <img *ngIf="
+                              item.added_for_picture == null ||
+                              item.added_for_picture == ''
+                            " src="../../../../assets/images/default_car_img.jpeg" />
                         </span>
                         <span class="listscontent">
                           <mat-list>
-                            <mat-list-item><span class="labelcls">Name:</span> <span>{{item.added_for_fullname}}</span>
+                            <mat-list-item><span class="labelcls">Name:</span>
+                              <span>{{ item.added_for_fullname }}</span>
                             </mat-list-item>
-                            <mat-list-item><span class="labelcls">Email ID:</span> <span>{{item.added_for_email}}</span>
+                            <mat-list-item><span class="labelcls">Email ID:</span>
+                              <span>{{ item.added_for_email }}</span>
                             </mat-list-item>
                             <!-- <mat-list-item><span class="labelcls">Phone:</span> <span>{{item.added_for_phone}}</span> </mat-list-item> -->
                           </mat-list>
-
                         </span>
                       </span>
                       <!-- <span class="rsvplisttypebottom">
@@ -192,14 +208,24 @@
                       <h2>Salesrep</h2>
                       <span class="rsvplisttypecontentinfo">
                         <span class="rsvplisttypeimgwrapper">
-                          <img *ngIf="item.added_by_picture !=null && item.added_by_picture !=''" [src]="item.added_by_picture">
+                          <img *ngIf="
+                              item.added_by_picture != null &&
+                              item.added_by_picture != ''
+                            " [src]="item.added_by_picture" />
 
-                                      <img *ngIf="item.added_by_picture ==null || item.added_by_picture ==''" src="../../../../assets/images/default_car_img.jpeg">
+                          <img *ngIf="
+                              item.added_by_picture == null ||
+                              item.added_by_picture == ''
+                            " src="../../../../assets/images/default_car_img.jpeg" />
                         </span>
                         <span class="listscontent">
                           <mat-list>
-                            <mat-list-item><span>Name:</span> <span>{{item.added_by_fullname}}</span> </mat-list-item>
-                            <mat-list-item><span>Email ID:</span> <span>{{item.added_by_email}}</span> </mat-list-item>
+                            <mat-list-item><span>Name:</span>
+                              <span>{{ item.added_by_fullname }}</span>
+                            </mat-list-item>
+                            <mat-list-item><span>Email ID:</span>
+                              <span>{{ item.added_by_email }}</span>
+                            </mat-list-item>
                             <!-- <mat-list-item><span>Phone:</span> <span>{{item.added_by_phone}}</span> </mat-list-item> -->
                           </mat-list>
                         </span>
@@ -217,49 +243,62 @@
                     <span class="rsvplisttypebottom">
                       <span>
                         <span *ngIf="userCookies.type == 'admin'">
+                          <button mat-button class="btnblue greenbtn" *ngIf="
+                              (item.status != 1 && item.status == 0) ||
+                              item.status == 2
+                            " (click)="changeStatus(item, 1)">
+                            Accept
+                          </button>
 
-                          <button mat-button class="btnblue greenbtn"
-                            *ngIf=" (item.status != 1) && item.status == 0 || item.status == 2"
-                            (click)="changeStatus(item, 1)">Accept</button>
-
-                          <button *ngIf="item.status == 1 " (click)="openModale(item)" mat-button
-                            class="btnblue whitebtn">Send Email To Customer</button>
+                          <button *ngIf="item.status == 1" (click)="openModale(item)" mat-button
+                            class="btnblue whitebtn">
+                            Send Email To Customer
+                          </button>
 
                           <button mat-button class="btnblue yellowbtn" *ngIf="item.status != 1 && item.status == 2"
-                            (click)="changeStatus(item, 0)">Pending</button>
+                            (click)="changeStatus(item, 0)">
+                            Pending
+                          </button>
 
                           <button mat-button class="btnblue redbtn" *ngIf="item.status == 0 && item.status != 1"
-                            (click)="changeStatus(item, 2)">Reject</button>
-
+                            (click)="changeStatus(item, 2)">
+                            Reject
+                          </button>
                         </span>
                         <!-- 
                                             <button mat-button class="btnblue orangebtn" 
                                             (click)="viewJobTicket(item)">View ticket</button> -->
 
-                        <button mat-button *ngIf="item.job_ticket ==null || item.job_ticket != 1"
-                          class="btnblue orangebtn" (click)="goToOpenTicket(item,'')">Open Ticket</button>
+                        <button mat-button *ngIf="
+                            item.job_ticket == null || item.job_ticket != 1
+                          " class="btnblue orangebtn" (click)="goToOpenTicket(item, '')">
+                          Open Ticket
+                        </button>
 
                         <button mat-button *ngIf="item.job_ticket == 1" class="btnblue orangebtn"
-                          (click)="goToOpenTicket(item,'1')">View Ticket</button>
+                          (click)="goToOpenTicket(item, '1')">
+                          View Ticket
+                        </button>
 
-                        <button mat-button class="btnblue" (click)="viewRsvpDetails(item._id)">Know More</button>
+                        <button mat-button class="btnblue" (click)="viewRsvpDetails(item._id)">
+                          Know More
+                        </button>
                       </span>
                     </span>
                   </span>
                 </span>
               </mat-list-item>
-
             </mat-list>
             <span class="btnwrappercls">
               <button mat-button class="btnblue" [routerLink]="['/rsvp-admin']"
-                *ngIf="rsvp_list !=null && rsvp_list.length !='' ">View All</button>
+                *ngIf="rsvp_list != null && rsvp_list.length != ''">
+                View All
+              </button>
 
-               
-                <span class="norecordfound" *ngIf="rsvp_list ==null ">
-                  <h3 >No Record Found</h3>
-                </span>
+              <span class="norecordfound" *ngIf="rsvp_list == null">
+                <h3>No Record Found</h3>
+              </span>
             </span>
-
           </mat-card>
         </span>
       </mat-card-content>
@@ -267,27 +306,30 @@
       <mat-card-content class="adm_dashboard_block2">
         <mat-card-title class="sectionheader">Saved Search</mat-card-title>
         <mat-list role="list" class="flexbox5column">
-          <mat-list-item role="listitem" class="block1socialadvosingle"
-            *ngFor="let item of saveSearch_list | slice:0:saveSearchIndex; let i = index">
-
-
-            <span (click)="deleteAny(item._id,i,'save_search')" class="deletecls"><i
+          <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="
+              let item of saveSearch_list | slice: 0:saveSearchIndex;
+              let i = index
+            ">
+            <span (click)="deleteAny(item._id, i, 'save_search')" class="deletecls"><i
                 class="material-icons">delete</i></span>
 
             <span class="block1socialadvosingleinner">
               <span class="topblock">
                 <span class="rsvplistimgwrapper">
-                  <img
-                    *ngIf="item.card_data.media.photo_links != null && item.card_data.media.photo_links[0] !=null && modalImg == ''"
-                    [src]="item.card_data.media.photo_links[0]" (click)="viewSaveDetails(item._id)">
-                  <img *ngIf="modalImg != ''" [src]="modalImg">
-                  <img *ngIf="item.card_data.media.photo_links == null" src="../../assets/images/default_car_img.jpeg">
+                  <img *ngIf="
+                      item.card_data.media.photo_links != null &&
+                      item.card_data.media.photo_links[0] != null &&
+                      modalImg == ''
+                    " [src]="item.card_data.media.photo_links[0]" (click)="viewSaveDetails(item._id)" />
+                  <img *ngIf="modalImg != ''" [src]="modalImg" />
+                  <img *ngIf="item.card_data.media.photo_links == null"
+                    src="../../assets/images/default_car_img.jpeg" />
                 </span>
               </span>
               <span class="middleblock">
                 <span class="pricecls">
                   <span *ngIf="item.card_data.price != null">
-                    ${{item.card_data.price}}
+                    ${{ item.card_data.price }}
                   </span>
                   <span *ngIf="item.card_data.price == null">
                     N/A
@@ -295,43 +337,43 @@
                 </span>
 
                 <span class="titlecls">
-
                   <span *ngIf="item.card_data.heading != null"
-                    (click)="viewSaveDetails(item)">{{item.card_data.heading}}</span>
+                    (click)="viewSaveDetails(item)">{{ item.card_data.heading }}</span>
                   <span *ngIf="item.card_data.heading == null"> N/A</span>
                 </span>
               </span>
               <span class="bottomblockss">
                 <mat-list>
-
                   <mat-list-item class="pa_blockfootertext">
-                    <span *ngIf="item.card_data.miles != null"> <strong><img
-                          src="../../../../assets/images/milesicon.png"></strong> {{item.card_data.miles}}</span>
+                    <span *ngIf="item.card_data.miles != null">
+                      <strong><img src="../../../../assets/images/milesicon.png" /></strong>
+                      {{ item.card_data.miles }}</span>
 
-                    <span *ngIf="item.card_data.miles == null"> <strong><img
-                          src="../../../../assets/images/milesicon.png"></strong> {{item.card_data.miles}}</span>
+                    <span *ngIf="item.card_data.miles == null">
+                      <strong><img src="../../../../assets/images/milesicon.png" /></strong>
+                      {{ item.card_data.miles }}</span>
                   </mat-list-item>
 
                   <mat-list-item class="pa_blockfootertext">
-                    <span *ngIf="item.card_data.build.drivetrain != null"> <strong><img
-                          src="../../../../assets/images/drivetrainicon.png"></strong>
-                      {{item.card_data.build.drivetrain}}</span>
+                    <span *ngIf="item.card_data.build.drivetrain != null">
+                      <strong><img src="../../../../assets/images/drivetrainicon.png" /></strong>
 
-                    <span *ngIf="item.card_data.build.drivetrain == null"> <strong><img
-                          src="../../../../assets/images/drivetrainicon.png"></strong>N/A</span>
+                      {{ item.card_data.build.drivetrain }}</span>
 
+                    <span *ngIf="item.card_data.build.drivetrain == null">
+                      <strong><img src="../../../../assets/images/drivetrainicon.png" /></strong>N/A</span>
                   </mat-list-item>
 
                   <mat-list-item class="pa_blockfootertext">
-                    <span *ngIf="item.card_data.build.transmission != null"> <strong><img
-                          src="../../../../assets/images/bodytypeicon.png"></strong>
-                      {{item.card_data.build.transmission}}</span>
+                    <span *ngIf="item.card_data.build.transmission != null">
+                      <strong><img src="../../../../assets/images/bodytypeicon.png" /></strong>
 
-                    <span *ngIf="item.card_data.build.transmission == null"> <strong><img
-                          src="../../../../assets/images/bodytypeicon.png"></strong>
+                      {{ item.card_data.build.transmission }}</span>
+
+                    <span *ngIf="item.card_data.build.transmission == null">
+                      <strong><img src="../../../../assets/images/bodytypeicon.png" /></strong>
+
                       N/A</span>
-
-
                   </mat-list-item>
                 </mat-list>
               </span>
@@ -339,13 +381,13 @@
           </mat-list-item>
         </mat-list>
         <span class="btnwrappercls">
-          <button mat-button class="btnblue" [routerLink]="['/save-search-admin']">View All</button>
+          <button mat-button class="btnblue" [routerLink]="['/save-search-admin']">
+            View All
+          </button>
         </span>
       </mat-card-content>
 
-
       <!-- <img src="../../../../assets/images/adm-dashboard-img3.jpg" style="width: 100%; display: block; margin: 0; padding: 0;"> -->
-
 
       <!-- <mat-card-content class="adm_dashboard_block3">
                 <mat-list class="flexbox2column">
@@ -445,12 +487,11 @@
                 </mat-list>               
             </mat-card-content> -->
 
-
-      <mat-card-content class="adm_dashboard_block4">
+      <!-- <mat-card-content class="adm_dashboard_block4">
         <mat-card-title class="sectionheader">Communication</mat-card-title>
         <span class="adm_dashboard_block4_inner">
           <mat-tab-group class="tabwrapper">
-            <!-- <mat-tab>
+            <mat-tab>
               <ng-template mat-tab-label>
                 <h2>Appointment</h2>
               </ng-template>
@@ -458,130 +499,155 @@
                 <div class="mat-elevation-z8">
                   <div class="tablediv">
                     <table mat-table [dataSource]="upcomingAppoinementDataSource">
-
-                      
                       <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef> Name </th>
-                        <td mat-cell *matCellDef="let element"><span class="namewrapper"> <span
-                              class="image_URL_wrapper"><img src="{{element.image_URL}}"></span> <span
-                              class="nametxt">{{element.name}}</span> </span></td>
+                        <th mat-header-cell *matHeaderCellDef>Name</th>
+                        <td mat-cell *matCellDef="let element">
+                          <span class="namewrapper">
+                            <span class="image_URL_wrapper"><img src="{{ element.image_URL }}" /></span>
+                            <span class="nametxt">{{ element.name }}</span>
+                          </span>
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="phoneNumber">
-                        <th mat-header-cell *matHeaderCellDef> Phone Number </th>
-                        <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Phone Number</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.phoneNumber }}
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="date">
-                        <th mat-header-cell *matHeaderCellDef> Date </th>
-                        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Date</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.date }}
+                        </td>
                       </ng-container>
 
-                     
                       <ng-container matColumnDef="repName">
-                        <th mat-header-cell *matHeaderCellDef> Rep Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.repName}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Rep Name</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.repName }}
+                        </td>
                       </ng-container>
 
-                      
                       <ng-container matColumnDef="action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> <a class="btnorange"> {{element.action}}</a> </td>
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element">
+                          <a class="btnorange"> {{ element.action }}</a>
+                        </td>
                       </ng-container>
 
                       <tr mat-header-row *matHeaderRowDef="UAColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: UAColumns;"></tr>
+                      <tr mat-row *matRowDef="let row; columns: UAColumns"></tr>
                     </table>
 
                     <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
                   </div>
                 </div>
                 <span class="btnwrappercls">
-                  <button mat-button class="btnblue" [routerLink]="['/my-appointment-admin']">View All</button>
+                  <button mat-button class="btnblue" [routerLink]="['/my-appointment-admin']">
+                    View All
+                  </button>
                 </span>
               </ng-template>
-
-            </mat-tab> -->
+            </mat-tab>
             <mat-tab>
-                <ng-template mat-tab-label>
-                  <h2>Job Tickets</h2>                               
-                </ng-template>     
+              <ng-template mat-tab-label>
+                <h2>Job Tickets</h2>
+              </ng-template>
               <ng-template matTabContent>
                 <mat-form-field>
-                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
+                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
                 </mat-form-field>
                 <div class="mat-elevation-z8">
                   <div class="tablediv">
                     <table mat-table [dataSource]="jobTicketList">
-
                       <ng-container matColumnDef="ticket">
-                        <th mat-header-cell *matHeaderCellDef> Ticket ID</th>
-                        <td mat-cell *matCellDef="let element">{{element._id}}</td>
+                        <th mat-header-cell *matHeaderCellDef>Ticket ID</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element._id }}
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="name">
-                        <th mat-header-cell *matHeaderCellDef>Car Name </th>
-                        <td mat-cell *matCellDef="let element"><span class="namewrapper"> <span
-                              class="image_URL_wrapper"><img src="{{element.car_image}}"></span> <span
-                              class="nametxt">{{element.car_heading}}</span> </span></td>
+                        <th mat-header-cell *matHeaderCellDef>Car Name</th>
+                        <td mat-cell *matCellDef="let element">
+                          <span class="namewrapper">
+                            <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
+                            <span class="nametxt">{{
+                              element.car_heading
+                            }}</span>
+                          </span>
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="title">
-                        <th mat-header-cell *matHeaderCellDef> Title </th>
-                        <td mat-cell *matCellDef="let element"> {{element.car_heading}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Title</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.car_heading }}
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="repName">
-                        <th mat-header-cell *matHeaderCellDef> Rep Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.added_by_fullname}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Rep Name</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.added_by_fullname }}
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="customerName">
-                        <th mat-header-cell *matHeaderCellDef> Customer Name </th>
-                        <td mat-cell *matCellDef="let element"> {{element.added_for_fullname}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Customer Name</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.added_for_fullname }}
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="subject">
-                        <th mat-header-cell *matHeaderCellDef> Subject </th>
-                        <td mat-cell *matCellDef="let element"> {{element.subject}} </td>
+                        <th mat-header-cell *matHeaderCellDef>Subject</th>
+                        <td mat-cell *matCellDef="let element">
+                          {{ element.subject }}
+                        </td>
                       </ng-container>
 
-                      <ng-container matColumnDef="status" >
-                        <th mat-header-cell *matHeaderCellDef> Status </th>
-                        <td mat-cell *matCellDef="let element"  >
+                      <ng-container matColumnDef="status">
+                        <th mat-header-cell *matHeaderCellDef>Status</th>
+                        <td mat-cell *matCellDef="let element">
                           <span *ngIf="element.job_ticket_status == 0">Open</span>
                           <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
                           <span *ngIf="element.job_ticket_status == 2">Closed</span>
                           <span *ngIf="element.job_ticket_status == 3">Re-Open</span>
-                          </td>
+                        </td>
                       </ng-container>
 
                       <ng-container matColumnDef="action">
-                        <th mat-header-cell *matHeaderCellDef> Action </th>
-                        <td mat-cell *matCellDef="let element"> 
-                          <a (click)="viewDetails(element,'1')" ><i class="material-icons"> visibility </i></a> </td>
+                        <th mat-header-cell *matHeaderCellDef>Action</th>
+                        <td mat-cell *matCellDef="let element">
+                          <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
+                        </td>
                       </ng-container>
 
                       <tr mat-header-row *matHeaderRowDef="JTColumns"></tr>
-                      <tr mat-row *matRowDef="let row; columns: JTColumns;"></tr>
+                      <tr mat-row *matRowDef="let row; columns: JTColumns"></tr>
                     </table>
 
                     <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
                   </div>
                 </div>
                 <span class="btnwrappercls">
-                  <button mat-button class="btnblue" [routerLink]="['/job-ticket-admin']" >View All</button>
+                  <button mat-button class="btnblue" [routerLink]="['/job-ticket-admin']">
+                    View All
+                  </button>
                 </span>
               </ng-template>
             </mat-tab>
           </mat-tab-group>
         </span>
-      </mat-card-content>
+      </mat-card-content> -->
 
-      <mat-card-content class="adm_dashboard_block4">
+      <!-- <mat-card-content class="adm_dashboard_block4">
         <mat-card-title class="sectionheader">Report</mat-card-title>
         <span class="adm_dashboard_block4_inner">
-          <mat-tab-group class="tabwrapper">
+          <mat-tab-group class="tabwrapper" (selectedIndexChange)="_setDataSourceReport($event)">
             <mat-tab>
               <ng-template mat-tab-label>
                 <h2>Training</h2>
@@ -589,7 +655,7 @@
               <ng-template matTabContent>
                 <div class="mat-elevation-z8">
                   <div class="tablediv">
-                    <table mat-table [dataSource]="reportsDataSource">
+                    <table mat-table [dataSource]="reportsTrainingDataSource">
 
                       <ng-container matColumnDef="date_joined">
                         <th mat-header-cell *matHeaderCellDef> date joined </th>
@@ -630,7 +696,7 @@
                       <tr mat-row *matRowDef="let row; columns: ReportColumns;"></tr>
                     </table>
 
-                    <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
+                    <mat-paginator #paginator3 [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
                   </div>
                 </div>
                 <span class="btnwrappercls">
@@ -646,45 +712,38 @@
               <ng-template matTabContent>
                 <div class="mat-elevation-z8">
                   <div class="tablediv">
-                    <table mat-table [dataSource]="reportsDataSource">
+                    <table mat-table [dataSource]="reportsCommissionDataSource">
 
-                      <!-- Position Column -->
                       <ng-container matColumnDef="date_joined">
                         <th mat-header-cell *matHeaderCellDef> date joined </th>
                         <td mat-cell *matCellDef="let element">{{element.date_joined}}</td>
                       </ng-container>
 
-                      <!-- Name Column -->
                       <ng-container matColumnDef="name">
                         <th mat-header-cell *matHeaderCellDef> Full Name </th>
                         <td mat-cell *matCellDef="let element"> {{element.name}} </td>
                       </ng-container>
 
-                      <!-- Weight Column -->
                       <ng-container matColumnDef="email">
                         <th mat-header-cell *matHeaderCellDef> Email </th>
                         <td mat-cell *matCellDef="let element"> {{element.email}} </td>
                       </ng-container>
 
-                      <!-- Symbol Column -->
                       <ng-container matColumnDef="phoneNumber">
                         <th mat-header-cell *matHeaderCellDef> phone Number </th>
                         <td mat-cell *matCellDef="let element"> {{element.phoneNumber}} </td>
                       </ng-container>
 
-                      <!-- Symbol Column -->
                       <ng-container matColumnDef="trainingProgress">
                         <th mat-header-cell *matHeaderCellDef> Training Progress </th>
                         <td mat-cell *matCellDef="let element"> {{element.trainingProgress}} </td>
                       </ng-container>
 
-                      <!-- Symbol Column -->
                       <ng-container matColumnDef="date_completed">
                         <th mat-header-cell *matHeaderCellDef> Date Completed </th>
                         <td mat-cell *matCellDef="let element"> {{element.date_completed}} </td>
                       </ng-container>
 
-                      <!-- Symbol Column -->
                       <ng-container matColumnDef="status">
                         <th mat-header-cell *matHeaderCellDef> Status </th>
                         <td mat-cell *matCellDef="let element"> {{element.status}} </td>
@@ -694,7 +753,7 @@
                       <tr mat-row *matRowDef="let row; columns: ReportColumns;"></tr>
                     </table>
 
-                    <mat-paginator [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
+                    <mat-paginator #paginator4 [pageSizeOptions]="[4, 10, 20]" showFirstLastButtons></mat-paginator>
                   </div>
                 </div>
                 <span class="btnwrappercls">
@@ -709,10 +768,345 @@
 
         </span>
 
+      </mat-card-content> -->
+
+      <mat-card-content class="adm_dashboard_block4">
+        <mat-card-title class="sectionheader">Communication</mat-card-title>
+        <span class="adm_dashboard_block4_inner">
+          <mat-tab-group class="tabwrapper" #tabGroup (selectedIndexChange)="_setCommunicationDataSource($event)">
+            <mat-tab label="Appointment">
+              <div class="example-container mat-elevation-z8">
+
+                <mat-table #table [dataSource]="dataSource3">
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <span class="namewrapper">
+                        <span class="nametxt">{{ element.name }}</span>
+                      </span>
+                    </mat-cell>
+                  </ng-container>
+                  <ng-container matColumnDef="image_URL1">
+                    <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <span class="namewrapper">
+                        <span class="image_URL_wrapper"><img [src]="element.image_URL1" /></span>
+                      </span>
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="phoneNumber">
+                    <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.phoneNumber }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="date">
+                    <mat-header-cell *matHeaderCellDef>
+                      Date
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.date }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="repName">
+                    <mat-header-cell *matHeaderCellDef>
+                      Rep Name
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.repName }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef>
+                      Action
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a class="btnorange"> {{ element.action }}</a>
+                    </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns3"></mat-row>
+                </mat-table>
+
+                <mat-paginator #paginator3 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                </mat-paginator>
+              </div>
+              <span class="btnwrappercls">
+                <button mat-button class="btnblue" [routerLink]="['/my-appointment-admin']">
+                  View All
+                </button>
+              </span>
+            </mat-tab>
+            <mat-tab label="Job Tickets">
+              <mat-form-field>
+                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+              </mat-form-field>
+              <div class="example-container mat-elevation-z8">
+                
+                <mat-table #table [dataSource]="jobTicketList">
+                  <!-- Position Column -->
+                  <ng-container matColumnDef="ticket">
+                    <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element._id }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <!-- Name Column -->
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <span class="namewrapper">
+                        <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
+                        <span class="nametxt">{{element.car_heading}}</span>
+                      </span>
+                    </mat-cell>
+                  </ng-container>
+
+                  <!-- Weight Column -->
+                  <ng-container matColumnDef="title">
+                    <mat-header-cell *matHeaderCellDef>
+                      Title
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.car_heading }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="repName">
+                    <mat-header-cell *matHeaderCellDef>
+                      Rep Name
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.added_by_fullname }}
+                    </mat-cell>
+                  </ng-container>
+
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="customerName">
+                    <mat-header-cell *matHeaderCellDef>
+                      Customer Name
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.added_for_fullname }}
+                    </mat-cell>
+                  </ng-container>
+
+
+
+                  <!-- Symbol Column -->
+                  <ng-container matColumnDef="subject">
+                    <mat-header-cell *matHeaderCellDef>
+                      Subject
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.subject }}
+                    </mat-cell>
+                  </ng-container>
+
+
+                   <!-- Symbol Column -->
+                   <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>
+                      Status
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <span *ngIf="element.job_ticket_status == 0">Open</span>
+                          <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
+                          <span *ngIf="element.job_ticket_status == 2">Closed</span>
+                          <span *ngIf="element.job_ticket_status == 3">Re-Open</span>
+                    </mat-cell>
+                  </ng-container>
+
+
+                   <!-- Symbol Column -->
+                   <ng-container matColumnDef="action">
+                    <mat-header-cell *matHeaderCellDef>
+                      Action
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
+                    </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
+                </mat-table>
+
+                <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                </mat-paginator>
+              </div>
+              <span class="btnwrappercls">
+                <button mat-button class="btnblue" [routerLink]="['/job-ticket-admin']">
+                  View All
+                </button>
+              </span>
+            </mat-tab>
+          </mat-tab-group>
+        </span>
       </mat-card-content>
 
-    </mat-card>
+      <mat-card-content class="adm_dashboard_block4">
+        <mat-card-title class="sectionheader">Report</mat-card-title>
+        <span class="adm_dashboard_block4_inner">
+          <mat-tab-group class="tabwrapper" #tabGroup (selectedIndexChange)="_setDataSource($event)">
+            <mat-tab label="Training">
+              <div class="example-container mat-elevation-z8">
+                <mat-table #table [dataSource]="dataSource1">   
 
+                  <ng-container matColumnDef="date_joined">
+                    <mat-header-cell *matHeaderCellDef> date joined </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{element.date_joined}}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.name }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef>
+                      Email
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.email }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="phoneNumber">
+                    <mat-header-cell *matHeaderCellDef>
+                      Phone Number
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.phoneNumber }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="trainingProgress">
+                    <mat-header-cell *matHeaderCellDef>
+                      Training Progress
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.trainingProgress }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="date_completed">
+                    <mat-header-cell *matHeaderCellDef>
+                      Date Completed
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.date_completed }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>
+                      Status
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.status }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+                </mat-table>
+
+                <mat-paginator #paginator [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                </mat-paginator>
+              </div>
+            </mat-tab>
+            <mat-tab label="Commission">
+              <div class="example-container mat-elevation-z8">
+                <mat-table #table [dataSource]="dataSource2">
+                  
+                  <ng-container matColumnDef="date_joined">
+                    <mat-header-cell *matHeaderCellDef> date joined </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{element.date_joined}}
+                    </mat-cell>
+                  </ng-container>
+
+                  <ng-container matColumnDef="name">
+                    <mat-header-cell *matHeaderCellDef> Full Name </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.name }}
+                    </mat-cell>
+                  </ng-container>
+
+                
+                  <ng-container matColumnDef="email">
+                    <mat-header-cell *matHeaderCellDef>
+                      Email
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.email }}
+                    </mat-cell>
+                  </ng-container>
+
+                 
+                  <ng-container matColumnDef="phoneNumber">
+                    <mat-header-cell *matHeaderCellDef>
+                      Phone Number
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.phoneNumber }}
+                    </mat-cell>
+                  </ng-container>
+  
+                  <ng-container matColumnDef="trainingProgress">
+                    <mat-header-cell *matHeaderCellDef>
+                      Training Progress
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.trainingProgress }}
+                    </mat-cell>
+                  </ng-container>
+
+                  
+                  <ng-container matColumnDef="date_completed">
+                    <mat-header-cell *matHeaderCellDef>
+                      Date Completed
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.date_completed }}
+                    </mat-cell>
+                  </ng-container>
+
+                  
+                  <ng-container matColumnDef="status">
+                    <mat-header-cell *matHeaderCellDef>
+                      Status
+                    </mat-header-cell>
+                    <mat-cell *matCellDef="let element">
+                      {{ element.status }}
+                    </mat-cell>
+                  </ng-container>
+
+                  <mat-header-row *matHeaderRowDef="displayedColumns2"></mat-header-row>
+                  <mat-row *matRowDef="let row; columns: displayedColumns2"></mat-row>
+                </mat-table>
+
+                <mat-paginator #paginator2 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                </mat-paginator>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </span>
+      </mat-card-content>
+    </mat-card>
   </div>
 </div>
 <app-footer></app-footer>

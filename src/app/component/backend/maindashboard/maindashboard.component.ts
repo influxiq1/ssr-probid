@@ -8,11 +8,10 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatTableDataSource} from '@angular/material/table';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/forms';
-import {  LoginResponse, UIParams, UIResponse, FacebookService } from 'ngx-facebook';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 import { MetaService } from '@ngx-meta/core';
 import {MatSort} from '@angular/material/sort';
 
-// import { askForconfirmationModalComponent } from '../rsvplists/rsvplists.component';
 
 
 
@@ -21,45 +20,6 @@ export interface DialogData {
   data: any;
   msg:any;
 }
-
-
-const UA_DATA: UpcomingAppoinement[] = [
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img1.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img2.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img3.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img4.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img5.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img6.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img7.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img8.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img9.jpg'},
-];
-
-
-const JobTicket_DATA: JobTicket[] = [
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-];
-
-
-
-const Reports_DATA: Reports[] = [
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'complete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-  {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
-];
-
-
-
 export class socialFacebookAdvos {
   Id: String;
   title_name: String;
@@ -73,38 +33,6 @@ export class socialLinkedinAdvos {
 }
 
 
-export interface UpcomingAppoinement {
-  name: string;
-  phoneNumber: string;
-  date: string;
-  repName: string;
-  action: string;
-  image_URL: string;
-}
-
-export interface JobTicket {
-  ticket: string;
-  image_URL: string;
-  name: string;
-  title: string;
-  repName: string;
-  customerName: string;
-  subject: string;
-  status: string;
-  action: string;
-}
-
-
-export interface Reports {
-  date_joined: string;
-  name: string;
-  email: string;
-  phoneNumber: string;
-  trainingProgress: string;
-  date_completed: string;
-  status: string;
-}
-
 
 
 @Component({
@@ -114,14 +42,18 @@ export interface Reports {
 })
 export class MaindashboardComponent implements OnInit {
 
+
+
   public indexval:any=6;
   public indexValForLinkdin: any = 6;
   public errorApiKey:any;
   
   public allFacebookBanner : any = [
-    'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
+    'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg'];
 public allLinkdinBanner : any = [
-      'linkedinbanner-img1.jpg', 'linkedinbanner-img2.jpg', 'linkedinbanner-img3.jpg', 'linkedinbanner-img4.jpg', 'linkedinbanner-img5.jpg', 'linkedinbanner-img6.jpg', 'linkedinbanner-img7.jpg', 'linkedinbanner-img8.jpg', 'linkedinbanner-img9.jpg', 'linkedinbanner-img10.jpg', 'linkedinbanner-img11.jpg', 'linkedinbanner-img12.jpg', 'linkedinbanner-img13.jpg', 'linkedinbanner-img14.jpg', 'linkedinbanner-img15.jpg', 'linkedinbanner-img16.jpg', 'linkedinbanner-img17.jpg', 'linkedinbanner-img18.jpg', 'linkedinbanner-img19.jpg', 'linkedinbanner-img20.jpg', 'linkedinbanner-img21.jpg', 'linkedinbanner-img22.jpg', 'linkedinbanner-img23.jpg', 'linkedinbanner-img24.jpg', 'linkedinbanner-img25.jpg', 'linkedinbanner-img26.jpg', 'linkedinbanner-img27.jpg', 'linkedinbanner-img28.jpg', 'linkedinbanner-img29.jpg', 'linkedinbanner-img30.jpg', 'linkedinbanner-img31.jpg', 'linkedinbanner-img32.jpg', 'linkedinbanner-img33.jpg', 'linkedinbanner-img34.jpg', 'linkedinbanner-img35.jpg', 'linkedinbanner-img36.jpg', 'linkedinbanner-img37.jpg', 'linkedinbanner-img38.jpg', 'linkedinbanner-img39.jpg', 'linkedinbanner-img40.jpg', 'linkedinbanner-img41.jpg', 'linkedinbanner-img42.jpg'];
+      'linkedinbanner-img1.jpg', 'linkedinbanner-img2.jpg', 'linkedinbanner-img3.jpg', 'linkedinbanner-img4.jpg', 'linkedinbanner-img5.jpg', 'linkedinbanner-img6.jpg'];
+
+
 
 
 
@@ -179,30 +111,6 @@ public errorMsg: string = '';
   public jobTicketDataList:any;
 
 
-  // socialAdvFacebookLists: socialFacebookAdvos[];
-  // socialAdvLinkedinLists: socialLinkedinAdvos[];
-
-  
-
-  
-  UAColumns: string[] = ['name', 'phoneNumber', 'date', 'repName', 'action'];
-  upcomingAppoinementDataSource = new MatTableDataSource<UpcomingAppoinement>(UA_DATA);
-  @ViewChild(MatPaginator, {static: true}) uaPaginator: MatPaginator;
-
-
-
-  JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
-  // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
-  @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
-  @ViewChild(MatSort, {static: false}) sort: MatSort;
-
-
-
-  ReportColumns: string[] = ['date_joined', 'name', 'email', 'phoneNumber', 'trainingProgress', 'date_completed', 'status'];
-  reportsDataSource = new MatTableDataSource<Reports>(Reports_DATA);
-  @ViewChild(MatPaginator, {static: false}) reportPaginator: MatPaginator;
-
-
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
   constructor(public cookieService: CookieService,
      public activatedRoute: ActivatedRoute,
@@ -212,7 +120,7 @@ public errorMsg: string = '';
         public snack:MatSnackBar,
         public router:Router,
         public fb:FormBuilder,
-        //  private fb1: FacebookService,
+         private facebook: FacebookService,
          private readonly meta: MetaService ) {
 
         this.meta.setTitle('ProBid Auto - Admin Dashboard!');
@@ -221,26 +129,15 @@ public errorMsg: string = '';
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
-    
-
         this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-   
-    
-    // fb1.init({
-    //   appId: '2540470256228526',
-    //   version: 'v2.9'
-    // });
-  
-    
-   }
-   
 
+        facebook.init({
+          appId: '2540470256228526',
+          version: 'v2.9'
+         });
+
+   }
    /* To copy Text from Textbox */
-  copyInputMessage(inputElement){
-    inputElement.select();
-    document.execCommand('copy');
-    inputElement.setSelectionRange(0, 0);
-  }
   copyMessage(val: string){
     let url = this.apiService.share_link+'customer-signup/'+val+'/'+this.userCookies._id;
     const selBox = document.createElement('textarea');
@@ -260,34 +157,16 @@ public errorMsg: string = '';
 
   }
 
-  
-  linkdinShare(url: any){
-    var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-    // console.log(fullUrl)
-
-  }
 
   
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      // this.crsvplist = data.fordashboard.result.save_search;
-      // console.log('dash-data',data)
-
       this.rsvp_list = data.rsvp.result.currentRsvp;
-
       this.saveSearch_list = data.rsvp.result.save_search;
       this.count = data.rsvp.result;
-
-      // console.log('dvfdgfhg', this.count)
-    })
-
-
-    this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
-
-
-    this.reportsDataSource.paginator = this.reportPaginator;
-   this.generateForm();
+    });
+    this.generateForm();
 
    //for job ticket
 
@@ -297,34 +176,63 @@ public errorMsg: string = '';
    }
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
-     this.jobTicketDataList=result.res
-          // console.log('>>>>>', this.jobTicketList)
-
-    this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
-
-
-    //  this.jobTicketList = new MatTableDataSource(this.jobTicketDataList);
-     this.jobTicketList.paginator = this.jtPaginator;
-     this.jobTicketList.sort = this.sort;
-      // console.log('>>>>>', this.jobTicketList.paginator.length)
-
-
-    //  if (this.jobTicketList.paginator) {
-    //   this.jobTicketList.paginator.firstPage();
-
-    // }
-
-  
+     this.jobTicketDataList=result.res;
+    this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+    //  this.jobTicketList.paginator = this.paginator4;
+    //  this.jobTicketList.sort = this.sort;
    })
 
   }
+
+  login() {
+    this.facebook.login()
+      .then((res: LoginResponse) => {
+        this.getProfile();
+      })
+      .catch();
+  }
+    getLoginStatus() {
+    this.facebook.getLoginStatus()
+      .then((res: any)=>{
+       
+        this.getProfile();
+      })
+      .catch();
+  }
+
+  getProfile() {
+    this.facebook.api('me/?fields=id,name,email,picture')
+      .then((res: any) => {
+        // this.profile = res;
+      })
+      .catch((error: any) => {
+
+      });
+  }
+  
+  logoutWithFacebook(): void {
+
+    this.facebook.logout().then();
+  }
+  share(url: string) {
+    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+    this.cookieService.set('shareIngUrl',fullUrl);
+    let params: UIParams = {
+      href: fullUrl,
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
+    };
+    this.facebook.ui(params)
+      .then((res: UIResponse) =>{
+      })
+      .catch();   
+  }
+
 
   applyFilter(filterVal:any) {
     console.log(filterVal)
     this.jobTicketList.filter = filterVal.trim().toLowerCase();
   }
-
-
 
   viewDetails(item:any,status:any){
     console.log(item)
@@ -332,7 +240,6 @@ public errorMsg: string = '';
   }
 
   changeStatus(item: any, val: any) {
-    // console.log('rsvpSend status',item, val)
     let endpoint: any = "addorupdatedata";
     item.status = val;
     let card_data:any = {
@@ -344,9 +251,7 @@ public errorMsg: string = '';
       source: "send_for_rsvp",
     };
       this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-        // console.log(res);
         (res.status == "success");
-        // this.getdata();
       });
   }
 
@@ -558,10 +463,171 @@ inputUntouched(val: any) {
   private handleError(error) {
     // console.error('Error processing action', error);
   }
-  
+
+
+
+
+
+
+
+
+
+
+  displayedColumns = [ 'name', 'email', 'phoneNumber', 'trainingProgress', 'date_completed', 'status'];
+  dataSource1 = new MatTableDataSource<TRElement>(TrainingReports_DATA);
+
+  displayedColumns2 = [ 'name', 'email', 'phoneNumber', 'trainingProgress', 'date_completed', 'status'];
+  dataSource2 = new MatTableDataSource<CRElement>(CommissionReports_DATA);
+
+  displayedColumns3 = ['name', 'phoneNumber', 'date', 'repName', 'action', 'image_URL1'];
+  dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
+
+  displayedColumns4 = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+  // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
+
+   
+  @ViewChild('paginator', {static: false}) paginator: MatPaginator;
+  @ViewChild('paginator2', {static: false}) paginator2: MatPaginator;
+  @ViewChild('paginator3', {static: false}) paginator3: MatPaginator;
+  @ViewChild('paginator4', {static: false}) paginator4: MatPaginator;
+
+
+  ngAfterViewInit() {
+    this.dataSource1.paginator = this.paginator;
+    this.dataSource2.paginator = this.paginator2;
+  }
+
+  ngAfterViewInit1() {
+    this.dataSource3.paginator = this.paginator3;
+    this.jobTicketList.paginator = this.paginator4;
+  }
+
+  _setDataSource(indexNumber) {
+    setTimeout(() => {
+      switch (indexNumber) {
+        case 0:
+          !this.dataSource1.paginator ? this.dataSource1.paginator = this.paginator : null;
+          break;
+        case 1:
+          !this.dataSource2.paginator ? this.dataSource2.paginator = this.paginator2 : null;
+      }
+    });
+  }
+
+  _setCommunicationDataSource(indexNumber) {
+    setTimeout(() => {
+      switch (indexNumber) {
+        case 0:
+          !this.dataSource3.paginator ? this.dataSource3.paginator = this.paginator3 : null;
+          break;
+        case 1:
+          !this.jobTicketList.paginator ? this.jobTicketList.paginator = this.paginator4 : null;
+      }
+    });
+  }
+
   }
 
    
+  export interface TRElement {
+    date_joined: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    trainingProgress: string;
+    date_completed: string;
+    status: string;
+  }
+  
+  
+  export interface CRElement {
+    date_joined: string;
+    name: string;
+    email: string;
+    phoneNumber: string;
+    trainingProgress: string;
+    date_completed: string;
+    status: string;
+  }
+
+
+  export interface UAElement {
+    image_URL1: string;
+    name: string;
+    phoneNumber: string;
+    date: string;
+    repName: string;
+    action: string;
+  }
+
+  export interface JTElement {
+      ticket: string;
+      image_URL: string;
+      name: string;
+      title: string;
+      repName: string;
+      customerName: string;
+      subject: string;
+      status: string;
+      action: string;
+  }
+
+
+  
+
+  export interface Element {
+    name: string;
+    position: number;
+    weight: number;
+    symbol: string;
+  }
+  
+  const TrainingReports_DATA: TRElement[] = [
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'complete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+  ];
+
+
+  const CommissionReports_DATA: CRElement[] = [
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'complete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+    {date_joined: '11-09-2019', name: 'Lorem Ipsum' , email: 'LoremIpsumis@gmail.com', phoneNumber:'1234567890', trainingProgress: '56 %', date_completed: '02-12-2019', status:'Incomplete'},
+  ];
+
+
+  const UA_DATA: UAElement[] = [
+  {image_URL1: '../../../../assets/images/adm-UA-img1.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img2.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img3.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img4.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img5.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img6.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img7.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img8.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'}
+  ];
+
+
+  // const JobTicket_DATA: JTElement[] = [
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  //   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+  // ];
+  
+  
 
 
 
