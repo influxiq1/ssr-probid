@@ -54,7 +54,7 @@ export class AddEditTrainingComponent implements OnInit {
       { inputtype: 'textarea', name: 'description', label: 'Description', placeholder: 'Enter Description'},
 
       { inputtype: 'text', name: 'priority', label: 'Priority', placeholder: 'Enter Priority', validationrule: { required: true }, validationerrormsg: 'is required' }, 
-      {inputtype:'radio',name:'type',value:["User","Salesrep","All"],valuelabel:'',label:"Type",placeholder:"",validationrule:{required:true},validationerrormsg:'', class:'radioclass'},
+      {inputtype:'radio',name:'type',value:["User","Salesrep","All"],valuelabel:'',label:"Training accessible to",placeholder:"",validationrule:{required:true},validationerrormsg:'', class:'radioclass'},
 
       // { inputtype: 'text', name: 'catagoryname', label: 'Catagory Name ', placeholder: 'Enter Catagory Name', validationrule: { required: true }, validationerrormsg: 'is required' },
 

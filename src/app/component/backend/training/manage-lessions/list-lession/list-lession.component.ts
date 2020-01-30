@@ -25,7 +25,9 @@ public serverDetails: any = {
 public formSource: any = {
   "source":'manage_lession',
   "endpoint": "deletesingledata",
-  "searchEndpoint":"datalist"
+  "searchEndpoint":"datalist",
+  "associatedTrainingSourceName":"training_category_management"
+
 }
 public searchSourceName :any="manage_lession_view";
   constructor(public activatedRoute : ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
