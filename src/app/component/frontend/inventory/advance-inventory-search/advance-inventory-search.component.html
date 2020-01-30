@@ -163,7 +163,7 @@
                     <span class="column">
                         <h4>Transmission:</h4> 
                         <mat-form-field>         
-                            <mat-select formControlName="transmissiontype" placeholder="All">
+                            <mat-select formControlName="transmissiontypelist" placeholder="All">
                               <mat-option *ngFor="let item of transmissiontypeList" [value]="item.transmission">{{item.transmissiontype}}</mat-option>
                               <!-- <mat-option value="transm1">Any Transmission</mat-option>
                               <mat-option value="transm2">Manual</mat-option>
