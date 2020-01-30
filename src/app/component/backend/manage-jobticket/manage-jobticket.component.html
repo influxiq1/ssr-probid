@@ -242,10 +242,8 @@
                           <span class="msgblock" *ngIf="job_ticket !=null">
                             <mat-list class="jobticketimglists"  >
                               <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                                <img (click)="viewImage(item)" *ngIf="  job_ticket !=null &&  job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined" class="defaultimg" 
-                                [src]="item">
-                                <img *ngIf="job_ticket ==null &&job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg"
-                                 src="../../../../assets/images/no-image-default.jpg">
+                                <img (click)="viewImage(item)" *ngIf="job_ticket !=null &&  job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
+                                <img *ngIf="job_ticket ==null &&job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" src="../../../../assets/images/no-image-default.jpg">
                               </mat-list-item>
                             </mat-list>
                           </span>
@@ -271,8 +269,8 @@
                       <span class="msgblock" *ngIf="item.msg_picture !=null && item.msg_picture !=''">
                         <mat-list class="jobticketimglists">
                           <mat-list-item *ngFor="let jobImage of item.msg_picture">
-                            <img *ngIf="item.msg_picture !=null && item.msg_picture !='' && jobImage"  class="defaultimg" 
-                            [src]="jobImage" (click)="viewJobImage(jobImage)">
+                            <img *ngIf="item.msg_picture !=null && item.msg_picture !='' && jobImage"  class="defaultimg" [src]="jobImage" (click)="viewJobImage(jobImage)">  
+                            <!-- <img class="defaultimg" *ngIf="item.msg_picture == null || item.msg_picture == undefined"  src="assets/images/no-image-default.jpg"> -->
                           </mat-list-item>
                         </mat-list>
                       </span>                 

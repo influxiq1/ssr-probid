@@ -19,6 +19,8 @@
   .probidhomeblock4 .mat-list-base.lists .mat-list-item{width:20%}
   }
   @media only screen and (max-width: 1199px) {
+
+  .homemain .mat-list-item-content a {padding: 0 6px!important;}
   .probidhomeblock1 .mat-list-base.lists .mat-list-item{width:32%}
   .aboutusblock2.mat-card{background-position:top right!important;background-size:260%!important;padding:10px;padding-top:50%!important;background-color:#a1c4dc!important}
   .aboutusblock2.mat-card[style]{padding-top:inherit}
@@ -40,7 +42,8 @@
   .ptb-77.mat-card{padding-top:30px!important;padding-bottom:30px!important}
   .vpheaderwrapper.mat-card{background-color:#47484a!important;position:inherit!important}
   .vpheaderwrapper .mat-list-base .mat-list-item .mat-list-item-content,.vpheaderwrapper .mat-list-base .mat-list-option .mat-list-item-content{padding:0 8px}
-  .homemain mat-nav-list span.logowrapper{flex:1 1 10%!important}
+  .homemain mat-nav-list span.logowrapper{flex:1 1 10%!important}  
+  .topsocialblock .mat-list-item {margin-left: 6px !important;}
   }
   @media only screen and (max-width: 1024px) {
   .probidhomeblock1 .mat-list-base.lists .mat-list-item{width:49%}
@@ -54,7 +57,7 @@
   .mat-icon-button.mat-animation-noopable .smlmenudiv.ng-star-inserted{display:none!important}
   .mat-icon-button.mat-animation-noopable.cdk-touch-focused .smlmenudiv.ng-star-inserted{display:block!important}
   .pagelogowrapper{display:none}
-  .topsocialblock{width:100px!important;margin:20px auto;display:block}
+  .topsocialblock{display: flex;background: #e2ecee;text-align: center;justify-content: center;padding: 10px;}
   .topsocialblock .mat-list{display:inline-flex;justify-content:center!important}
   .headerbottom .mainwrappercontent{width:100%!important}
   .contact-form .main-div .from.mat-card{margin:20px auto 0!important;width:90%!important;padding:15px!important}
