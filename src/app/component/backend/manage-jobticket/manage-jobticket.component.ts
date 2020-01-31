@@ -8,7 +8,6 @@ import { AppComponent } from '../../../app.component';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { MetaService } from '@ngx-meta/core';
-import { setInterval } from 'timers';
 
 export interface DialogData {
   data: any;
