@@ -9,7 +9,7 @@ import { ApiService } from '../../../api.service';
 })
 export class ContactusComponent implements OnInit {
   
-  public formTitle: any = "Contact Us";      // Enter the Forl Title
+  public formTitle: any = "Get In Touch";      // Enter the Forl Title
   public pageUrl: any = 'home';
   public modaleLogo: any = '';
   // public serverUrl: any = 'https://o820cv2lu8.execute-api.us-east-2.amazonaws.com/production/api/';
