@@ -860,12 +860,21 @@
                       </mat-cell>
                     </ng-container>
 
+                    <!-- Car Image Column -->
+                    <ng-container matColumnDef="car_image">
+                      <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <span class="namewrapper">
+                          <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
+                        </span>
+                      </mat-cell>
+                    </ng-container>
+
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
                       <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
                       <mat-cell *matCellDef="let element">
                         <span class="namewrapper">
-                          <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
                           <span class="nametxt">{{element.car_heading}}</span>
                         </span>
                       </mat-cell>
@@ -902,7 +911,15 @@
                       </mat-cell>
                     </ng-container>
 
-
+                    <!-- Symbol Column -->
+                    <ng-container matColumnDef="date">
+                      <mat-header-cell *matHeaderCellDef>
+                      Date Added
+                      </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        {{ element.date }}
+                      </mat-cell>
+                    </ng-container>
 
                     <!-- Symbol Column -->
                     <ng-container matColumnDef="subject">

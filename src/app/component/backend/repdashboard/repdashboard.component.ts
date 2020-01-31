@@ -15,27 +15,27 @@ import {MatSort} from '@angular/material/sort';
 
 
 
-const UA_DATA: UpcomingAppoinement[] = [
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img1.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img2.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img3.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img4.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img5.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img6.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img7.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img8.jpg'},
-  {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img9.jpg'},
-];
+// const UA_DATA: UpcomingAppoinement[] = [
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img1.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img2.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img3.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img4.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img5.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img6.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img7.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img8.jpg'},
+//   {name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage', image_URL: '../../../../assets/images/adm-UA-img9.jpg'},
+// ];
 
 
-const JobTicket_DATA: JobTicket[] = [
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-  {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
-];
+// const JobTicket_DATA: JobTicket[] = [
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg1.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg2.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+//   {ticket: '123456', name: 'Lorem I psum is', image_URL: '../../../../assets/images/carimg3.jpg', title: 'Lorem I psum is' , repName: 'Lorem psum', customerName: 'Lorem Ipsum', subject: 'Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries for previewing layouts and visual mockups.', status:'active',  action: 'Manage'},
+// ];
 
 export interface DialogData {
   data: any;
@@ -53,11 +53,13 @@ export interface UpcomingAppoinement {
 
 export interface JobTicket {
   ticket: string;
-  image_URL: string;
+  // image_URL: string;
+  car_image: string;
   name: string;
   title: string;
   repName: string;
-  customerName: string;
+  customerName: string;      
+  date:string;
   subject: string;
   status: string;
   action: string;
@@ -93,16 +95,16 @@ public allLinkdinBanner : any = [
 
 
 
-      UAColumns: string[] = ['name', 'phoneNumber', 'date', 'repName', 'action'];
-      upcomingAppoinementDataSource = new MatTableDataSource<UpcomingAppoinement>(UA_DATA);
-      @ViewChild(MatPaginator, {static: false}) uaPaginator: MatPaginator;
+      // UAColumns: string[] = ['name', 'phoneNumber', 'date', 'repName', 'action'];
+      // upcomingAppoinementDataSource = new MatTableDataSource<UpcomingAppoinement>(UA_DATA);
+      // @ViewChild(MatPaginator, {static: false}) uaPaginator: MatPaginator;
     
     
     
-      JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
-      jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
-      @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
-      @ViewChild(MatSort, {static: false}) sort: MatSort;
+      // JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+      // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
+      // @ViewChild(MatPaginator, {static: false}) jtPaginator: MatPaginator;
+      // @ViewChild(MatSort, {static: false}) sort: MatSort;
 
 
 
@@ -211,9 +213,9 @@ public allLinkdinBanner : any = [
 
 
 
-    this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
+    // this.upcomingAppoinementDataSource.paginator = this.uaPaginator;
 
-    this.jobTicketDataSource.paginator = this.jtPaginator;
+    // this.jobTicketDataSource.paginator = this.jtPaginator;
 
 
    //for job ticket
@@ -233,8 +235,8 @@ public allLinkdinBanner : any = [
      this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
 
 
-     this.jobTicketList.paginator = this.jtPaginator;
-     this.jobTicketList.sort = this.sort;
+    //  this.jobTicketList.paginator = this.jtPaginator;
+    //  this.jobTicketList.sort = this.sort;
 
    })
 
@@ -357,8 +359,80 @@ public allLinkdinBanner : any = [
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
+
+
+  
+  displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
+  dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
+
+  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'date', 'subject', 'status', 'action'];
+  // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
+
+   
+  @ViewChild('paginator3', {static: false}) paginator3: MatPaginator;
+  @ViewChild('paginator4', {static: false}) paginator4: MatPaginator;
+
+
+ 
+
+  ngAfterViewInit1() {
+    this.dataSource3.paginator = this.paginator3;
+    this.jobTicketList.paginator = this.paginator4;
+  }
+
+
+  _setCommunicationDataSource(indexNumber) {
+    setTimeout(() => {
+      switch (indexNumber) {
+        case 0:
+          !this.dataSource3.paginator ? this.dataSource3.paginator = this.paginator3 : null;
+          break;
+        case 1:
+          !this.jobTicketList.paginator ? this.jobTicketList.paginator = this.paginator4 : null;
+      }
+    });
+  }
+
+
+
 }
 
+
+export interface UAElement {
+  image_URL1: string;
+  name: string;
+  phoneNumber: string;
+  date: string;
+  repName: string;
+  action: string;
+}
+
+export interface JTElement {
+    ticket: string;
+    // image_URL: string;
+    car_image: string;
+    name: string;
+    title: string;
+    repName: string;
+    customerName: string;
+    date:string;
+    subject: string;
+    status: string;
+    action: string;
+}
+
+
+
+const UA_DATA: UAElement[] = [
+  {image_URL1: '../../../../assets/images/adm-UA-img1.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img2.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img3.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img4.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img5.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img6.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img7.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'},
+  {image_URL1: '../../../../assets/images/adm-UA-img8.jpg', name: 'Lorem I psum is', phoneNumber: '0000 000 000' , date: '26-11-2019 16:50', repName: 'Lorem I psum', action: 'Manage'}
+  ];
 
 
 //modal component for delete RSVP & 
