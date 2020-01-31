@@ -378,6 +378,7 @@
                     View All
                   </button>
                 </span>
+
               </mat-tab>
               <mat-tab label="Job Tickets">
 
@@ -397,7 +398,7 @@
 
                 <div class="example-container mat-elevation-z8" >
                   <div class="tablediv">
-                    <mat-table #table [dataSource]="jobTicketList">
+                <mat-table #table [dataSource]="jobTicketList">
                       <!-- Position Column -->
                       <ng-container matColumnDef="ticket">
                         <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
@@ -416,15 +417,15 @@
                         </mat-cell>
                       </ng-container>
 
-                      <!-- Name Column -->
-                      <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          <span class="namewrapper">
-                            <span class="nametxt">{{element.car_heading}}</span>
+                  <mat-card-content class="adm_dashboard_block4 communicationsection" *ngIf="jobTicketList !=null && jobTicketList !=''">                
+                    <span class="adm_dashboard_block4_inner">
+                      <span class="tabwrapper"> 
+                        <span>
+                          <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                          </mat-form-field>
                           </span>
-                        </mat-cell>
-                      </ng-container>
+                      
                     
                       <!-- Weight Column -->
                       <ng-container matColumnDef="title">
@@ -520,8 +521,6 @@
                     View All
                   </button>
                 </span>
-
-
 
                 </ng-container>
               </mat-tab>

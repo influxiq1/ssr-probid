@@ -76,6 +76,9 @@ export class AdvanceInventorySearchComponent implements OnInit {
   public zip = '';
   public search = '';
   public transmissiontypeList: any;
+  public doorsqtyList: any;
+  public doorsqty: any;
+  
 
   public indexCountForImg:any;
   public indexCount:any;
@@ -111,6 +114,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
     this.getodometerList();
     this.getenginetypeList();
     this.gettransmissiontypeList();
+    this.getdoorsqtyList();
   }
 
   ngOnInit() {
@@ -157,6 +161,16 @@ export class AdvanceInventorySearchComponent implements OnInit {
     })
   }
 
+  getdoorsqtyList() {
+    this.apiService.getJsonObject('assets/data/doors.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.doorsqtyList = result;
+      // console.log(this.transmissiontypeList);
+    })
+  }
+
+
   rsvpSend(val: any) {
 
   }
@@ -179,7 +193,8 @@ export class AdvanceInventorySearchComponent implements OnInit {
       odometer: [''],
       odometer1: [''],
       enginetype: [''],
-      transmissiontypelist: ['']
+      transmissiontypelist: [''],
+      doorsqtyList: ['']
     })
   }
 
@@ -226,6 +241,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
       let odometer1Val = this.advanceInventoryCustomerForm.value.odometer1;
       let enginetypeVal = this.advanceInventoryCustomerForm.value.enginetype;
       let transmissiontypeVal = this.advanceInventoryCustomerForm.value.transmissiontype;
+      let doorsqtyVal = this.advanceInventoryCustomerForm.value.doorsqty;
 
       if (typeVal != null && typeVal != '' && typeVal.length >= 0) {
         this.type = "&body_type=" + typeVal;
@@ -266,12 +282,15 @@ export class AdvanceInventorySearchComponent implements OnInit {
       if (transmissiontypeVal != null && transmissiontypeVal != '' && transmissiontypeVal.length >= 0) {
         this.transmissiontype = "&transmissiontype=" + transmissiontypeVal;
       }
+      if (doorsqtyVal != null && doorsqtyVal != '' && doorsqtyVal.length >= 0) {
+        this.doorsqty = "&doorsqty=" + doorsqtyVal;
+      }
       
       
      
-      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.model != '') {
+      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.model+ '&rows=5';
+        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
@@ -305,7 +324,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
       inputField = "&field=" + field;
     }
 
-    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.model != '')) {
+    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '')) {
     let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
