@@ -93,7 +93,7 @@ import { InventoryDetailsComponent, loginInventoryDialog } from './component/fro
 /**Backend Component**/
 import { SidenavService } from './../app/services/sidenav.service';
 import { SaveSearchComponent, RemoveModalComponent } from './component/backend/inventory/save-search/save-search.component';
-import { DashboardComponent, RemoveRSvpModalComponent } from './component/backend/dashboard/dashboard.component';
+import { DashboardComponent, RemoveRSvpModalComponent, DeleteJobTicketCusModalComponent } from './component/backend/dashboard/dashboard.component';
 import { BkHeaderComponent } from './layout/bk-header/bk-header.component';
 import { BkFooterComponent } from './layout/bk-footer/bk-footer.component';
 
@@ -106,7 +106,7 @@ import { AddeditTestimonialComponent } from './component/backend/TestimonialApp/
 import { BkLeftdivComponent } from './layout/bk-leftdiv/bk-leftdiv.component';
 import { MaindashboardComponent, DeleteModalRsvpComponent, DeleteJobTicketModalComponent } from './component/backend/maindashboard/maindashboard.component';
 import { UserManagementComponent } from './component/backend/user-management/user-management.component';
-import { RepdashboardComponent, RemoveDialogComponent } from './component/backend/repdashboard/repdashboard.component';
+import { RepdashboardComponent, RemoveDialogComponent, DeleteJobRepTicketModalComponent } from './component/backend/repdashboard/repdashboard.component';
 import { TestimonialModule } from 'testimonial-lib-influxiq';
 
 
@@ -365,8 +365,8 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     ListComponent,
     loginInventoryDialog,
     DeleteJobTicketModalComponent,
-
-
+    DeleteJobTicketCusModalComponent,
+    DeleteJobRepTicketModalComponent,
     comingSoonDialogTestimonListhome
   ],
   imports: [
@@ -427,7 +427,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     // SharetoolsModule
   ],
   exports: [TranslateModule],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome,loginInventoryDialog,DeleteJobTicketModalComponent],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome,loginInventoryDialog,DeleteJobTicketModalComponent,DeleteJobRepTicketModalComponent, DeleteJobTicketCusModalComponent],
   
   providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true, }],
   bootstrap: [AppComponent],
