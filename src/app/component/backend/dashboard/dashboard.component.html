@@ -37,7 +37,7 @@
           </span>                    
         </mat-card-content>
 
-        <mat-card-content class="customer-dashboard-block1">
+        <mat-card-content class="customer-dashboard-block1" >
           <span class="customer-dashboard-block1-inner">
             <h1 class="titleadmin">Rep’s Information</h1> 
             <span class="rsvplisttypecontentinfo" *ngFor="let item of datalist.rep_details[0].profile_picture">
@@ -382,18 +382,20 @@
               <mat-tab label="Job Tickets">
 
                 <span class="norecordfound"
-                *ngIf="jobTicketList ==null || jobTicketList ==''" >
+                *ngIf=" jobLength ==0">
                  <h3 >No Record Found</h3>
                </span>
 
-                <span  *ngIf="jobTicketList !=null && jobTicketList !=''">
+               <ng-container *ngIf="jobLength > 0">
+
+                <span  >
                   <mat-form-field>
                     <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
                   </mat-form-field>
                   </span>
 
 
-                <div class="example-container mat-elevation-z8" *ngIf="jobTicketList !=null && jobTicketList !=''">
+                <div class="example-container mat-elevation-z8" >
                   <div class="tablediv">
                     <mat-table #table [dataSource]="jobTicketList">
                       <!-- Position Column -->
@@ -518,6 +520,10 @@
                     View All
                   </button>
                 </span>
+
+
+
+                </ng-container>
               </mat-tab>
             </mat-tab-group>
           </span>

@@ -70,6 +70,7 @@ export class DashboardComponent implements OnInit {
   public jobTicketList:any;
   public userCookies: any;
   public userid: any = '';
+  public jobLength:any;
 
   public user_full_name: any = '';
 
@@ -174,6 +175,8 @@ export class DashboardComponent implements OnInit {
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
      this.jobTicketDataList=result.res
+
+     this.jobLength=result.resc;
     //  console.log('>>>>>', this.jobTicketDataList)
 
      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);

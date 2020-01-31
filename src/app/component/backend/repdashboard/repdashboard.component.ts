@@ -80,7 +80,7 @@ export class RepdashboardComponent implements OnInit {
   public rsvpList:any;
   public saveSearchList:any;
   public jobTicketList:any;
-
+  public jobLength:any;
   
   public indexval:any=6;
   public indexValForLinkdin: any = 6;
@@ -116,7 +116,7 @@ public allLinkdinBanner : any = [
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
-      console.log(this.userCookies)
+      // console.log(this.userCookies)
       
       }
       // fb1.init({
@@ -231,6 +231,8 @@ public allLinkdinBanner : any = [
      let result:any=res;
      this.jobTicketDataList=result.res
     //  console.log('>>>>>', this.jobTicketDataList)
+    this.jobLength=result.resc;
+
 
      this.jobTicketList = new MatTableDataSource<JobTicket>(this.jobTicketDataList);
 

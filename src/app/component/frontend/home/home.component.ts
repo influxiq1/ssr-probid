@@ -251,7 +251,7 @@ comingSoonDialogBloghome(): void {
     this.activatedRoute.data.forEach((data: any) =>{
       this.blogList = data.home_data.result.blog_list;
       this.TestimonialListArray = data.home_data.result.testmonial_list;
-      console.warn(this.TestimonialListArray);
+      // console.warn(this.TestimonialListArray);
       
         // this.testimonial_img = this.testimonial_img[0].basepath+this.testimonial_img[0].image;
       
