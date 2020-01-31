@@ -271,7 +271,39 @@ export class DashboardComponent implements OnInit {
 
 
 
+//delete JobTicket record
+deleteJobTicket(val:any,index:any){
+  console.log('delete hit',val,index)
+  const dialogRef = this.dialog.open(DeleteJobTicketCusModalComponent, {
+   
+    data:this.message
 
+  });
+
+  dialogRef.afterClosed().subscribe(result => {
+    
+      if(result=='yes'){
+        let data:any;
+          data={
+          "source":"job_ticket",
+          id:val
+          }
+          this.apiService.CustomRequest(data,'deletesingledata').subscribe((res)=>{
+            let result:any;
+            result=res;
+            
+            if(result.status=='success'){
+              this.jobTicketDataList = this.jobTicketDataList.filter( jobTicketDataList => jobTicketDataList._id != val)
+              // this.jobTicketDataList.splice(index,1);
+              this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+
+              this.snack.open('Record Deleted Successfully..!','Ok',{duration:2000})
+              
+            }
+          })
+      }
+  });
+}
   
   displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
   dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
@@ -367,8 +399,8 @@ export class RemoveRSvpModalComponent {
   selector:'deleteJobticket',
   templateUrl:'./deleteJobticket.html'
 })
-export class DeleteJobTicketModalComponent {
-  constructor( public dialogRef: MatDialogRef<DeleteJobTicketModalComponent>,
+export class DeleteJobTicketCusModalComponent {
+  constructor( public dialogRef: MatDialogRef<DeleteJobTicketCusModalComponent>,
                @Inject(MAT_DIALOG_DATA) public data: DialogData){
 
   }
