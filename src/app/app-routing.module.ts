@@ -638,8 +638,9 @@ const routes: Routes = [
 
 
   {
-    path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent, resolve: { job_ticket: ResolveService },
-    data: { requestcondition: { source: '', condition: { 'rsvp_id': "rsvp_id" } }, endpoint: 'job-ticket', canActivate: [AuthGuard] }
+    path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent
+    // , resolve: { job_ticket_val: ResolveService },
+    // data: { requestcondition: { source: '', condition: { 'rsvp_id': "rsvp_id" } }, endpoint: 'job-ticket', canActivate: [AuthGuard] }
   },
 
   // { path: 'manage-job-ticket/add/:_id/:status', component: ManageJobticketComponent },

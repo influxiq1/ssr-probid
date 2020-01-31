@@ -8,6 +8,7 @@ import { AppComponent } from '../../../app.component';
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 import { MetaService } from '@ngx-meta/core';
+import { setInterval } from 'timers';
 
 export interface DialogData {
   data: any;
@@ -100,14 +101,24 @@ public configDataJobTicket: any = {
   }
 
   ngOnInit() {
-    this.activatedRoute.data.forEach((data:any) => {
-      console.log(data.job_ticket.result)
-      this.message_details = data.job_ticket.result.message_details;
-      this.user_list = data.job_ticket.result.user_list[0];
-      this.rsvp_details = data.job_ticket.result.rsvp_details[0];
-      this.job_ticket = data.job_ticket.result.job_ticket[0];
-      // console.log(this.job_ticket)
-    })
+   var data: any = {
+     "rsvp_id": this.rsvp_id
+    }
+    this.apiService.CustomRequest(data,"job-ticket").subscribe((res:any) => {
+      // console.log(res.result);
+        this.message_details = res.result.message_details;
+        this.user_list = res.result.user_list[0];
+        this.rsvp_details = res.result.rsvp_details[0];
+        this.job_ticket = res.result.job_ticket[0];
+    });
+    // this.activatedRoute.data.forEach((data:any) => {
+    //   console.log(data.job_ticket_val.result)
+    //   this.message_details = data.job_ticket_val.result.message_details;
+    //   this.user_list = data.job_ticket_val.result.user_list[0];
+    //   this.rsvp_details = data.job_ticket_val.result.rsvp_details[0];
+    //   this.job_ticket = data.job_ticket_val.result.job_ticket[0];
+    //   console.log(this.job_ticket)
+    // })
     
 
     // this.getData();
