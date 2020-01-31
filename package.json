@@ -45,7 +45,7 @@
     "hammerjs": "^2.0.8",
     "install": "^0.13.0",
     "listing-angular7": "^0.1.1",
-    "login-lib-influxiq": "0.0.13",
+    "login-lib-influxiq": "0.0.14",
     "moment": "^2.24.0",
     "news-title-lib-influxiq": "0.0.4",
     "ngx-ckeditor": "^8.0.0",
