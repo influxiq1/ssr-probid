@@ -69,6 +69,17 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
   public state = '';
   public zip = '';
   public search = '';
+
+  public transmissiontypeList: any;
+  public doorsqtyList: any;
+  public doorsqty: any;
+  public odometerList: any;
+  public enginetypeList: any;
+  public odometer: any;
+  public odometer1: any;
+  public enginetype: any;
+  public transmissiontype: any;
+
   public indexCountForImg:any;
   public indexCount:any;
   public user_details: any;
@@ -106,6 +117,10 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
 
     this.generateForm();
     this.getStateList();
+    this.getodometerList();
+    this.getenginetypeList();
+    this.gettransmissiontypeList();
+    this.getdoorsqtyList();
   }
 
   ngOnInit() {
@@ -129,6 +144,41 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     })
   }
 
+  getodometerList() {
+    this.apiService.getJsonObject('assets/data/odometer.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.odometerList = result;
+    })
+  }
+
+  getenginetypeList() {
+    this.apiService.getJsonObject('assets/data/enginetype.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.enginetypeList = result;
+      // console.log(this.enginetypeList);
+    })
+  }
+
+  gettransmissiontypeList() {
+    this.apiService.getJsonObject('assets/data/transmission.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.transmissiontypeList = result;
+      // console.log(this.transmissiontypeList);
+    })
+  }
+
+  getdoorsqtyList() {
+    this.apiService.getJsonObject('assets/data/doors.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.doorsqtyList = result;
+      // console.log(this.transmissiontypeList);
+    })
+  }
+
   generateForm() {
     this.advanceInventoryCustomerForm = this.fb.group({
       type: [''],
@@ -140,6 +190,11 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       vin: [''],
       state: [''],
       zip: [''],
+      odometer: [''],
+      odometer1: [''],
+      enginetype: [''],
+      transmissiontypelist: [''],
+      doorsqtyList: ['']
 
     })
   }
@@ -183,6 +238,11 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       let vehicleVal = this.advanceInventoryCustomerForm.value.vehicle;
       let stateVal = this.advanceInventoryCustomerForm.value.state;
       let zipVal = this.advanceInventoryCustomerForm.value.zip;
+      let odometerVal = this.advanceInventoryCustomerForm.value.odometer;
+      let odometer1Val = this.advanceInventoryCustomerForm.value.odometer1;
+      let enginetypeVal = this.advanceInventoryCustomerForm.value.enginetype;
+      let transmissiontypeVal = this.advanceInventoryCustomerForm.value.transmissiontype;
+      let doorsqtyVal = this.advanceInventoryCustomerForm.value.doorsqty;
 
       if(typeVal !=null &&typeVal !='' && typeVal.length >= 0){
         this.type = "&body_type=" +typeVal;
@@ -211,10 +271,25 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       if (zipVal != null && zipVal != '' && zipVal.length >= 0) {
         this.zip = "&zip=" + zipVal;
       }
+      if (odometerVal != null && odometerVal != '' && odometerVal.length >= 0) {
+        this.odometer = "&odometer=" + odometerVal;
+      }
+      if (odometer1Val != null && odometer1Val != '' && odometer1Val.length >= 0) {
+        this.odometer1 = "&odometer1=" + odometer1Val;
+      }
+      if (enginetypeVal != null && enginetypeVal != '' && enginetypeVal.length >= 0) {
+        this.enginetype = "&enginetype=" + enginetypeVal;
+      }
+      if (transmissiontypeVal != null && transmissiontypeVal != '' && transmissiontypeVal.length >= 0) {
+        this.transmissiontype = "&transmissiontype=" + transmissiontypeVal;
+      }
+      if (doorsqtyVal != null && doorsqtyVal != '' && doorsqtyVal.length >= 0) {
+        this.doorsqty = "&doorsqty=" + doorsqtyVal;
+      }
 
-      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
+      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' ||this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=5';
+        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
@@ -249,7 +324,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     }
 
 
-    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.model != '')) {
+    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '')) {
       let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
   
       this.http.get(search_url).subscribe((res: any) => {

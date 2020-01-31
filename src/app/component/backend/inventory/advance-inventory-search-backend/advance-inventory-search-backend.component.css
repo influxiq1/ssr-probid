@@ -31,7 +31,7 @@
 .inventorysearch .example-container > .section5 > .sellerrating h4{display:flex;flex:1 1 100%}
 .inventorysearch .example-container .mat-select{display:inline-block;width:96%;outline:0;padding:10px!important;background:#fff;border:1px solid #cfcccc}
 .inventorysearch .example-container input{display:inline-block;width:96%;outline:0;padding:10px!important;background:#fff;border:1px solid #cfcccc}
-.inventorysearch .example-container .textarea{display:inline-block;width:96%;outline:0;padding:10px!important;background:#fff;border:1px solid #cfcccc;overflow-y:scroll;overflow-x:hidden;height:170px}
+.inventorysearch .example-container .textarea{display:inline-block;width:96%;outline:0;padding:10px!important;background:#fff;border:1px solid #cfcccc;overflow-y:scroll;overflow-x:hidden;height:113px}
 .inventorysearch .example-container .textarea .textareainner{display:flex!important;flex-wrap:wrap!important;flex-direction:column!important}
 .inventorysearch .example-container h4{color:#474b4e;font-size:15px;margin-bottom:10px;margin-top:10px;display:flex;flex:1 1 100%}
 .formatcls{display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-pack:start;justify-content:flex-start;flex-wrap:wrap;flex-direction:column}

@@ -97,7 +97,7 @@
                   </mat-select>
                 </mat-form-field>
               </span>
-              <span>
+              <!-- <span>
                 <h4>Trim:</h4>
                 <mat-form-field>
                   <input type="text" (keyup)="searchAutoComplete($event, 'trim')" placeholder="Pick one trim"
@@ -108,20 +108,16 @@
                     </mat-option>
                   </mat-autocomplete>
                 </mat-form-field>
+              </span> -->
+              <span>
+                <h4>VIN:</h4>
+                  <mat-form-field>
+                    <input matInput formControlName="vin" type="text" placeholder="VIN">
+                  </mat-form-field>
               </span>
-
             </span>
             <span>
-              <span>
-                <h4>Vin:</h4>
-                <mat-form-field>
-                  <mat-select formControlName="vin" placeholder="Vin">
-                    <mat-option value="">Vin</mat-option>
-                    <mat-option value="vin1">vin1</mat-option>
-                    <mat-option value="vin2">vin2</mat-option>
-                  </mat-select>
-                </mat-form-field>
-              </span>
+              
               <span>
                 <h4>State:</h4>
                 <mat-form-field>

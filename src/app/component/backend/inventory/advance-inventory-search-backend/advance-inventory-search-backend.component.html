@@ -45,8 +45,6 @@
                   </mat-form-field>
                 </span>
                 <span>
-
-
                   <h4>Model:</h4>
                   <mat-form-field>
                     <input type="text" (keyup)="searchAutoComplete($event, 'model')" placeholder="Pick one make"
@@ -59,8 +57,6 @@
                   </mat-form-field>
                 </span>
                 <span>
-
-
                   <h4>Vehicle Type:</h4>
                   <mat-form-field>
                   <mat-select formControlName="vehicle" placeholder="Pick one Vehicle">
@@ -83,7 +79,7 @@
                       </mat-select>
                 </mat-form-field> 
                 </span>
-                <span>
+                <!-- <span>
                   <h4>Trim:</h4>
                   <mat-form-field>
                     <input type="text" (keyup)="searchAutoComplete($event, 'trim')" placeholder="Pick one trim"
@@ -94,19 +90,13 @@
                       </mat-option>
                     </mat-autocomplete>
                   </mat-form-field>
-                </span>
+                </span> -->
                 <span>
-                  <h4>VIN:</h4>
+                  <h4>VIN:</h4> 
                   <mat-form-field>
-                    <mat-select placeholder="VIN">
-                      <mat-option value="vin">VIN</mat-option>
-                      <mat-option value="vin1">vin1</mat-option>
-                      <mat-option value="vin2">vin2</mat-option>
-                    </mat-select>
+                    <input matInput formControlName="vin" type="text" placeholder="VIN">
                   </mat-form-field>
                 </span>
-              </span>
-              <span>
                 <span>
                   <h4>State:</h4>
                   <mat-form-field>
@@ -115,6 +105,8 @@
                     </mat-select>
                   </mat-form-field>
                 </span>
+              </span>
+              <span>                
                 <span>
                   <h4>Zip:</h4>
                   <mat-form-field>
@@ -132,21 +124,17 @@
                 <span>
                   <span class="doublecolumn">
                     <h4>Odometer:</h4>
-                    <mat-form-field>
-                      <mat-select placeholder="No min">
-                        <mat-option value="Odometer">No min</mat-option>
-                        <mat-option value="Odometer1">Odometer 1</mat-option>
-                        <mat-option value="Odometer2">Odometer 2</mat-option>
+                    <mat-form-field>                                   
+                      <mat-select formControlName="odometer" placeholder="No min">
+                        <mat-option *ngFor="let item of odometerList" [value]="item.numeric">{{item.number}}</mat-option>
                       </mat-select>
-                    </mat-form-field>
-                    <mat-form-field>
-                      <mat-select placeholder="No max">
-                        <mat-option value="nomax">No max</mat-option>
-                        <mat-option value="nomax1">nomax 1</mat-option>
-                        <mat-option value="nomax2">nomax 2</mat-option>
+                  </mat-form-field>
+                  <mat-form-field>          
+                      <mat-select formControlName="odometer1" placeholder="No max">
+                        <mat-option *ngFor="let item of odometerList" [value]="item.numeric">{{item.number}}</mat-option>
                       </mat-select>
-                    </mat-form-field>
-                    <h4>Bid or Buy Now Price:</h4>
+                  </mat-form-field>
+                    <!-- <h4>Bid or Buy Now Price:</h4>
                     <mat-form-field>
                       <mat-select placeholder="No min">
                         <mat-option value="bidorbuy">No min</mat-option>
@@ -160,27 +148,21 @@
                         <mat-option value="bnomax1">nomax 1</mat-option>
                         <mat-option value="bnomax2">nomax 2</mat-option>
                       </mat-select>
-                    </mat-form-field>
+                    </mat-form-field> -->
                   </span>
                   <span class="column">
                     <h4>Engine Type</h4>
-                    <mat-form-field>
-                      <mat-select placeholder="All">
-                        <mat-option value="ET">All</mat-option>
-                        <mat-option value="ET1">ET 1</mat-option>
+                    <mat-form-field>          
+                      <mat-select formControlName="enginetype" placeholder="All">
+                        <mat-option *ngFor="let item of enginetypeList" [value]="item.engine">{{item.enginetype}}</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </span>
                   <span class="column">
                     <h4>Transmission:</h4>
-                    <mat-form-field>
-                      <mat-select placeholder="All">
-                        <mat-option value="transm1">Any Transmission</mat-option>
-                        <mat-option value="transm2">Manual</mat-option>
-                        <mat-option value="transm3">Automatic</mat-option>
-                        <mat-option value="transm4">Automanual</mat-option>
-                        <mat-option value="transm5">CVT</mat-option>
-                        <mat-option value="transm6">Other / Unknown</mat-option>
+                    <mat-form-field>         
+                      <mat-select formControlName="transmissiontypelist" placeholder="All">
+                        <mat-option *ngFor="let item of transmissiontypeList" [value]="item.transmission">{{item.transmissiontype}}</mat-option>
                       </mat-select>
                     </mat-form-field>
                   </span>
@@ -239,10 +221,10 @@
 
                   <span class="column">
                     <h4>Doors</h4>
-                    <mat-form-field>
-                      <mat-select placeholder="All">
-                        <mat-option value="Doors">All</mat-option>
-                        <mat-option value="Doors1">Doors 1</mat-option>
+                    <mat-form-field>          
+                      <mat-select formControlName="Doorsqty" placeholder="All">
+                        <mat-option *ngFor="let item of doorsqtyList" [value]="item.doors">{{item.doorstype}}</mat-option> 
+                        <!-- <mat-option value="Doors1">Doors 1</mat-option> -->
                       </mat-select>
                     </mat-form-field>
                   </span>
@@ -276,24 +258,55 @@
                     <h4>Exterior Color</h4>
                     <span class="textarea">
                       <span class="textareainner">
-                        <mat-checkbox>All</mat-checkbox>
-                        <mat-checkbox>Beige</mat-checkbox>
-                        <mat-checkbox>Black</mat-checkbox>
-                        <mat-checkbox>Blue</mat-checkbox>
-                        <mat-checkbox>Brown</mat-checkbox>
+                        <mat-checkbox>All</mat-checkbox>    
+                        <mat-checkbox>Beige</mat-checkbox>    
+                        <mat-checkbox>Black</mat-checkbox>    
+                        <mat-checkbox>Blue</mat-checkbox>    
+                        <mat-checkbox>Brown</mat-checkbox>  
+                        <mat-checkbox>Burgundy</mat-checkbox>  
+                        <mat-checkbox>Camouflage</mat-checkbox>  
+                        <mat-checkbox>Charcoal</mat-checkbox>  
+                        <mat-checkbox>Gold</mat-checkbox>  
+                        <mat-checkbox>Gray</mat-checkbox>  
+                        <mat-checkbox>Green</mat-checkbox>  
+                        <mat-checkbox>Lime</mat-checkbox>  
+                        <mat-checkbox>Off-white</mat-checkbox>  
+                        <mat-checkbox>Orange</mat-checkbox>  
+                        <mat-checkbox>Pink</mat-checkbox>  
+                        <mat-checkbox>Purple</mat-checkbox>  
+                        <mat-checkbox>Red</mat-checkbox>  
+                        <mat-checkbox>Silver</mat-checkbox>  
+                        <mat-checkbox>Turquoise</mat-checkbox>  
+                        <mat-checkbox>White</mat-checkbox>  
+                        <mat-checkbox>Yellow</mat-checkbox>
                       </span>
-
                     </span>
                   </span>
                   <span class="column">
                     <h4>Interior Color:</h4>
                     <span class="textarea">
                       <span class="textareainner">
-                        <mat-checkbox>All</mat-checkbox>
-                        <mat-checkbox>Beige</mat-checkbox>
-                        <mat-checkbox>Black</mat-checkbox>
-                        <mat-checkbox>Blue</mat-checkbox>
-                        <mat-checkbox>Brown</mat-checkbox>
+                        <mat-checkbox>All</mat-checkbox>    
+                        <mat-checkbox>Beige</mat-checkbox>    
+                        <mat-checkbox>Black</mat-checkbox>    
+                        <mat-checkbox>Blue</mat-checkbox>    
+                        <mat-checkbox>Brown</mat-checkbox>  
+                        <mat-checkbox>Burgundy</mat-checkbox>  
+                        <mat-checkbox>Camouflage</mat-checkbox>  
+                        <mat-checkbox>Charcoal</mat-checkbox>  
+                        <mat-checkbox>Gold</mat-checkbox>  
+                        <mat-checkbox>Gray</mat-checkbox>  
+                        <mat-checkbox>Green</mat-checkbox>  
+                        <mat-checkbox>Lime</mat-checkbox>  
+                        <mat-checkbox>Off-white</mat-checkbox>  
+                        <mat-checkbox>Orange</mat-checkbox>  
+                        <mat-checkbox>Pink</mat-checkbox>  
+                        <mat-checkbox>Purple</mat-checkbox>  
+                        <mat-checkbox>Red</mat-checkbox>  
+                        <mat-checkbox>Silver</mat-checkbox>  
+                        <mat-checkbox>Turquoise</mat-checkbox>  
+                        <mat-checkbox>White</mat-checkbox>  
+                        <mat-checkbox>Yellow</mat-checkbox>
                       </span>
                     </span>
                   </span>
