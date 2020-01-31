@@ -369,7 +369,7 @@
                       <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
                       <mat-row *matRowDef="let row; columns: displayedColumns3"></mat-row>
                     </mat-table>
-                    <mat-paginator #paginator3 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                    <mat-paginator #paginator3 [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
                     </mat-paginator>
                  </div>
                 </div>
@@ -380,10 +380,20 @@
                 </span>
               </mat-tab>
               <mat-tab label="Job Tickets">
-                <mat-form-field>
-                  <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                </mat-form-field>
-                <div class="example-container mat-elevation-z8">
+
+                <span class="norecordfound"
+                *ngIf="jobTicketList ==null || jobTicketList ==''" >
+                 <h3 >No Record Found</h3>
+               </span>
+
+                <span  *ngIf="jobTicketList !=null && jobTicketList !=''">
+                  <mat-form-field>
+                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                  </mat-form-field>
+                  </span>
+
+
+                <div class="example-container mat-elevation-z8" *ngIf="jobTicketList !=null && jobTicketList !=''">
                   <div class="tablediv">
                     <mat-table #table [dataSource]="jobTicketList">
                       <!-- Position Column -->
@@ -449,11 +459,7 @@
                       <!-- Symbol Column -->
                       <ng-container matColumnDef="subject">
                         <mat-header-cell *matHeaderCellDef>
-<<<<<<< HEAD
-                          Subject
-=======
-                        Added Date
->>>>>>> cadc471f93774e5887ae1e7dba5c7bc452813dd1
+                          subject
                         </mat-header-cell>
                         <mat-cell *matCellDef="let element">
                           {{ element.subject }}

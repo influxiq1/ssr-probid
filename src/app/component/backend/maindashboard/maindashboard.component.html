@@ -846,11 +846,19 @@
                 </button>
               </span>
             </mat-tab>
-            <mat-tab label="Job Tickets">
+            <mat-tab label="Job Tickets" >
+
+              <span class="norecordfound"
+                 *ngIf="jobTicketList ==null || jobTicketList ==''" >
+                  <h3 >No Record Found</h3>
+                </span>
+
+              <span  *ngIf="jobTicketList !=null && jobTicketList !=''">
               <mat-form-field>
                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
               </mat-form-field>
-              <div class="example-container mat-elevation-z8">
+              </span>
+              <div class="example-container mat-elevation-z8"  *ngIf="jobTicketList !=null && jobTicketList !=''">
                 <div class="tablediv">
                   <mat-table #table [dataSource]="jobTicketList">
                     <!-- Position Column -->
@@ -964,7 +972,7 @@
                     <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
                   </mat-table>
 
-                  <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                  <mat-paginator #paginator4 [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
                   </mat-paginator>
                 </div>
               </div>

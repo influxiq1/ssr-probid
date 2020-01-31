@@ -138,6 +138,46 @@ public jobTicketList:any;
     this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 
+
+ displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'subject', 'date', 'status', 'action'];
+  // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
+
+   
+  @ViewChild('paginator4', {static: false}) paginator4: MatPaginator;
+
+
+ 
+
+  ngAfterViewInit1() {
+    this.jobTicketList.paginator = this.paginator4;
+  }
+
+
+  _setCommunicationDataSource(indexNumber) {
+    setTimeout(() => {
+      switch (indexNumber) {        
+        case 1:
+          !this.jobTicketList.paginator ? this.jobTicketList.paginator = this.paginator4 : null;
+      }
+    });
+  }
+
+
+}
+
+
+export interface JTElement {
+  ticket: string;
+  // image_URL: string;
+  car_image: string;
+  name: string;
+  title: string;
+  repName: string;
+  customerName: string;
+  date:string;
+  subject: string;
+  status: string;
+  action: string;
 }
 
 
