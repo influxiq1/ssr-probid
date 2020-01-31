@@ -14,7 +14,10 @@
         <span class="searchblock rsvpsearch">
           <span class="searchblockwrapper">
             <span >
-              <h2 *ngIf="job_ticket !=null && job_ticket._id !=null">Rep Simon Santos [ Ticket Id : {{job_ticket._id}} ] </h2>
+              <h2 *ngIf="job_ticket !=null" >
+                {{job_ticket.Fullname}}</h2> &nbsp;   
+             
+              <h2 *ngIf="job_ticket !=null && job_ticket._id !=null"> [ Ticket Id : {{job_ticket._id}} ] </h2>
               <span class="statusjobticket">
                 <mat-label>Status :</mat-label>                
   
