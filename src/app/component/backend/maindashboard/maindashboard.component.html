@@ -853,11 +853,13 @@
                   <h3 >No Record Found</h3>
                 </span>
 
-              <span  *ngIf="jobTicketList !=null && jobTicketList !=''">
-              <mat-form-field>
-                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-              </mat-form-field>
-              </span>
+                <div class="tablediv">
+                  <span class="searchbar" *ngIf="jobTicketList !=null && jobTicketList !=''">
+                    <mat-form-field>
+                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                    </mat-form-field>
+                  </span>
+              </div>
               <div class="example-container mat-elevation-z8"  *ngIf="jobTicketList !=null && jobTicketList !=''">
                 <div class="tablediv">
                   <mat-table #table [dataSource]="jobTicketList">

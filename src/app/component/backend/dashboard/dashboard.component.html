@@ -380,22 +380,21 @@
                 </span>
               </mat-tab>
               <mat-tab label="Job Tickets">
-
                 <span class="norecordfound"
                 *ngIf="jobTicketList ==null || jobTicketList ==''" >
                  <h3 >No Record Found</h3>
-                </span>
-
-                
+                </span>               
 
                   <mat-card-content class="adm_dashboard_block4 communicationsection" *ngIf="jobTicketList !=null && jobTicketList !=''">                
                     <span class="adm_dashboard_block4_inner">
                       <span class="tabwrapper"> 
-                        <span>
-                          <mat-form-field>
-                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                          </mat-form-field>
-                          </span>
+                          <div class="tablediv">
+                            <span class="searchbar">
+                              <mat-form-field>
+                                <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                              </mat-form-field>
+                            </span>
+                          </div>
                           <div class="example-container mat-elevation-z8">
                             <div class="tablediv">
                               <mat-table #table [dataSource]="jobTicketList">

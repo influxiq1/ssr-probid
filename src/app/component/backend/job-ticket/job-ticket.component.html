@@ -51,14 +51,16 @@
               <mat-card-content class="adm_dashboard_block4 communicationsection">                
                 <span class="adm_dashboard_block4_inner">
                   <span class="tabwrapper" (selectedIndexChange)="_setCommunicationDataSource($event)"> 
-                    <span  *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
-                      <mat-form-field>
-                        <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                      </mat-form-field>
-                    </span>
-                     
+                    <div class="tablediv">
+                      <span class="searchbar" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
+                        <mat-form-field>
+                          <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                        </mat-form-field>
+                      </span>
+                    </div>
                       <div class="example-container mat-elevation-z8" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
                         <div class="tablediv">
+                          
                           <mat-table #table [dataSource]="jobTicketList">
                             <!-- Position Column -->
                             <ng-container matColumnDef="ticket">

@@ -320,6 +320,8 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
   -webkit-box-pack: start;justify-content: flex-start;padding: 10px 10px 5px;margin: 0!important;width: auto;}
   .generalcls .searchblock span .buttonsetToolbar {background-color: transparent !important;padding: 0 !important;height: auto !important;}
   .mat-paginator-page-size-select {width: 56px !important;}
+
+  .tablediv mat-table mat-row .mat-column-subject{flex: 1 1 15%;}
   
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}

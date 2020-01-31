@@ -228,7 +228,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .mat-select-panel-wrap .mat-select-panel{background:#969696}
 
 /* .tablediv{margin-top:-73px} */
-.tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:flex-end!important;margin-top:0;z-index:9;height: auto;}
+.tablediv .searchbar{-webkit-box-orient:horizontal;-webkit-box-direction:reverse;flex-direction:row;-webkit-box-pack:inherit!important;padding: 10px 0px;justify-content:flex-end!important;margin-top:0;z-index:9;height: auto; display: flex;}
 .tablediv .searchbar .mat-form-field-flex{background-color: #465157!important;border: 0 solid #efefef;color: #fff;}
 .tablediv .searchbar .mat-form-field{z-index:99;position:relative}
 /* .tablediv .searchbar .mat-form-field .mat-form-field-prefix .filterForTexticon{padding-left: 10px;} */

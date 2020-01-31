@@ -56,6 +56,7 @@
 .job-title-pg .rsvplisttypebottom.datefieldcls{justify-content: space-between !important;}
 .rsvplisttypecontentinfo .jobcommentboxcontent .mat-card-content{overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3;-webkit-box-orient: vertical;}
 
+
 @media only screen and (max-width: 1500px) {
 .rsvplisttypebottom .btnblue{margin-left:3px;font-size:12px!important}
 .rsvplistsbottombtm span{font-size:12px}
