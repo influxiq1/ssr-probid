@@ -154,7 +154,7 @@ export class DashboardComponent implements OnInit {
     this.activatedRoute.data.forEach((data: any) => {
       // console.log('dash-data',data)
       this.datalist = data.rsvp.result;
-      // console.log('dash-data', this.datalist)
+      console.log('dash-data', this.datalist)
 
     })
 
@@ -308,7 +308,7 @@ deleteJobTicket(val:any,index:any){
   displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
   dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
 
-  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'date', 'subject', 'status', 'action'];
+  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'subject', 'date', 'status', 'action'];
   // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
 
    

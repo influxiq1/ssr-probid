@@ -398,7 +398,7 @@ public allLinkdinBanner : any = [
   displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
   dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
 
-  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'date', 'subject', 'status', 'action'];
+  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'subject', 'date', 'status', 'action'];
   // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
 
    

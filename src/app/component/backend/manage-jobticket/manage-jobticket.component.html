@@ -19,7 +19,7 @@
              
               <h2 *ngIf="job_ticket !=null && job_ticket._id !=null"> [ Ticket Id : {{job_ticket._id}} ] </h2>
               <span class="statusjobticket">
-                <mat-label>Status :</mat-label>                
+                <mat-label *ngIf="job_ticket !=null ">Status :</mat-label>                
   
 
                  <button mat-button class="btnblue greenbtn" 
@@ -211,7 +211,7 @@
                     <lib-file-upload [config]="configData" class="file_upload"></lib-file-upload>
                     <ng-container *ngIf="job_ticket !='' && job_ticket !=null && job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != ''">
                       <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                        <img class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
+                        <img *ngIf="job_ticket.jobTicket_picture != null" class="defaultimg" [attr.src]="item.basepath+''+item.fileservername">
                       </mat-list-item>
                     </ng-container>
                     <ng-container *ngIf="job_ticket =='' || job_ticket ==null || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == '' ">
@@ -221,7 +221,7 @@
                   </ng-container>
                   </mat-list>
                   <span class="dateadded">
-                    <strong>Added Date:</strong> 10-01-2019
+                   
                   </span>
                   <span class="statusjobticket">
                     <button mat-raised-button type="button" class="btnblue"
@@ -250,10 +250,12 @@
                         <span class="toppart">
                           <span class="msgblock" *ngIf="job_ticket !=null">
                             <mat-list class="jobticketimglists"  >
-                              <mat-list-item *ngFor="let item of job_ticket.jobTicket_picture">
-                                <img (click)="viewImage(item)" *ngIf="job_ticket !=null &&  job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined" class="defaultimg" [src]="item">
-                                <img *ngIf="job_ticket ==null &&job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" src="../../../../assets/images/no-image-default.jpg">
+                              <ng-container *ngFor="let item of job_ticket.jobTicket_picture">
+                              <mat-list-item *ngIf="job_ticket !=null &&  job_ticket.jobTicket_picture != null && job_ticket.jobTicket_picture != '' && job_ticket.jobTicket_picture != undefined && item != null" >
+                                <img (click)="viewImage(item)"class="defaultimg" [src]="item">
+                                <!-- <img *ngIf="job_ticket ==null &&job_ticket.jobTicket_picture == '' || job_ticket.jobTicket_picture == null || job_ticket.jobTicket_picture == undefined" class="defaultimg" src="../../../../assets/images/no-image-default.jpg"> -->
                               </mat-list-item>
+                            </ng-container>
                             </mat-list>
                           </span>
                         </span>

@@ -117,7 +117,8 @@
                 </span>
             </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block2">
+            <mat-card-content class="rep-dashboard-block2" *ngIf="datalist.customer_list !=null &&
+            datalist.customer_list !='' ">
                 <span class="rep-dashboard-block2-inner">
                     <h1 class="titleadmin">Customer Sections <mat-button class="btnblue">view all</mat-button>
                     </h1>
@@ -184,7 +185,8 @@
                 </span>
             </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block3">
+            <mat-card-content class="rep-dashboard-block3" *ngIf="datalist.rsvp_list !=null &&
+            datalist.rsvp_list !='' ">
                 <span class="rep-dashboard-block3-inner">
                     <h1 class="titleadmin">RSVP <mat-button class="btnblue" 
                         routerLink="/rsvp-salesrep">view all
@@ -280,7 +282,8 @@
                 </span>
             </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block6">
+            <mat-card-content class="rep-dashboard-block6" *ngIf="datalist.save_search !=null &&
+            datalist.save_search !='' ">
                 <h1 class="titleadmin">Saved Search <mat-button class="btnblue" 
                     [routerLink]="['/save-search-rep']">
                         View All</mat-button>
@@ -1196,15 +1199,7 @@
                               </mat-cell>
                             </ng-container>
         
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="date">
-                              <mat-header-cell *matHeaderCellDef>
-                               Date Added
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.date }}
-                              </mat-cell>
-                            </ng-container>
+                           
         
                             <!-- Symbol Column -->
                             <ng-container matColumnDef="subject">
@@ -1215,6 +1210,16 @@
                                 {{ element.subject }}
                               </mat-cell>
                             </ng-container>
+
+                             <!-- Symbol Column -->
+                             <ng-container matColumnDef="date">
+                                <mat-header-cell *matHeaderCellDef>
+                                 Date
+                                </mat-header-cell>
+                                <mat-cell *matCellDef="let element">
+                                  {{ element.date }}
+                                </mat-cell>
+                              </ng-container>
         
         
                             <!-- Symbol Column -->
