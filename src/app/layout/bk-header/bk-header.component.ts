@@ -72,7 +72,7 @@ export class BkHeaderComponent implements OnInit {
    logout() {
     this.cookieService.deleteAll('/');
     setTimeout(()=>{
-        console.log(this.cookieService.get('userid'));
+        // console.log(this.cookieService.get('userid'));s
         this.router.navigate(['/']);
     },500);
 

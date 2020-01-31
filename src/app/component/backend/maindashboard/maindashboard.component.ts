@@ -109,6 +109,8 @@ public errorMsg: string = '';
   public count:any ='';
   public jobTicketList:any;
   public jobTicketDataList:any;
+  public jobLength:any;
+  
 
 
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
@@ -177,6 +179,8 @@ public errorMsg: string = '';
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
      this.jobTicketDataList=result.res;
+     this.jobLength=result.resc;
+
     this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
     //  this.jobTicketList.paginator = this.paginator4;
     //  this.jobTicketList.sort = this.sort;

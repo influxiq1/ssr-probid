@@ -70,6 +70,7 @@ export class DashboardComponent implements OnInit {
   public jobTicketList:any;
   public userCookies: any;
   public userid: any = '';
+  public jobLength:any;
 
   public user_full_name: any = '';
 
@@ -142,7 +143,7 @@ export class DashboardComponent implements OnInit {
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-      console.log(this.userCookies);
+      // console.log(this.userCookies);
       this.userid = this.userCookies._id;
       // console.log('>>>>',this.userid)   
     }
@@ -154,7 +155,7 @@ export class DashboardComponent implements OnInit {
     this.activatedRoute.data.forEach((data: any) => {
       // console.log('dash-data',data)
       this.datalist = data.rsvp.result;
-      console.log('dash-data', this.datalist)
+      // console.log('dash-data', this.datalist)
 
     })
 
@@ -174,6 +175,8 @@ export class DashboardComponent implements OnInit {
    this.apiService.CustomRequest(data,'datalist').subscribe(res=>{
      let result:any=res;
      this.jobTicketDataList=result.res
+
+     this.jobLength=result.resc;
     //  console.log('>>>>>', this.jobTicketDataList)
 
      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
@@ -187,13 +190,13 @@ export class DashboardComponent implements OnInit {
   }
 
   applyFilter(filterVal:any) {
-    console.log(filterVal)
+    // console.log(filterVal)
     this.jobTicketList.filter = filterVal.trim().toLowerCase();
   }
 
 
   viewDetails(item:any,status:any){
-    console.log(item)
+    // console.log(item)
     this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 
@@ -273,7 +276,7 @@ export class DashboardComponent implements OnInit {
 
 //delete JobTicket record
 deleteJobTicket(val:any,index:any){
-  console.log('delete hit',val,index)
+  // console.log('delete hit',val,index)
   const dialogRef = this.dialog.open(DeleteJobTicketCusModalComponent, {
    
     data:this.message

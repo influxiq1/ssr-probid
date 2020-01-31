@@ -849,18 +849,20 @@
             <mat-tab label="Job Tickets" >
 
               <span class="norecordfound"
-                 *ngIf="jobTicketList ==null || jobTicketList ==''" >
-                  <h3 >No Record Found</h3>
-                </span>
+                *ngIf=" jobLength ==0">
+                 <h3 >No Record Found</h3>
+               </span>
 
+              <ng-container *ngIf="jobLength > 0"> 
                 <div class="tablediv">
-                  <span class="searchbar" *ngIf="jobTicketList !=null && jobTicketList !=''">
+                  <span class="searchbar">
                     <mat-form-field>
                       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
                     </mat-form-field>
                   </span>
               </div>
-              <div class="example-container mat-elevation-z8"  *ngIf="jobTicketList !=null && jobTicketList !=''">
+              
+              <div class="example-container mat-elevation-z8" >
                 <div class="tablediv">
                   <mat-table #table [dataSource]="jobTicketList">
                     <!-- Position Column -->
@@ -978,11 +980,13 @@
                   </mat-paginator>
                 </div>
               </div>
+
               <span class="btnwrappercls">
                 <button mat-button class="btnblue" [routerLink]="['/job-ticket-admin']">
                   View All
                 </button>
               </span>
+            </ng-container> 
             </mat-tab>
           </mat-tab-group>
         </span>

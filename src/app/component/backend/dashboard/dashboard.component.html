@@ -37,7 +37,7 @@
           </span>                    
         </mat-card-content>
 
-        <mat-card-content class="customer-dashboard-block1">
+        <mat-card-content class="customer-dashboard-block1" >
           <span class="customer-dashboard-block1-inner">
             <h1 class="titleadmin">Rep’s Information</h1> 
             <span class="rsvplisttypecontentinfo" *ngFor="let item of datalist.rep_details[0].profile_picture">
@@ -381,9 +381,9 @@
               </mat-tab>
               <mat-tab label="Job Tickets">
                 <span class="norecordfound"
-                *ngIf="jobTicketList ==null || jobTicketList ==''" >
+                *ngIf=" jobLength ==0">
                  <h3 >No Record Found</h3>
-                </span>               
+                </span>
 
                   <mat-card-content class="adm_dashboard_block4 communicationsection" *ngIf="jobTicketList !=null && jobTicketList !=''">                
                     <span class="adm_dashboard_block4_inner">
