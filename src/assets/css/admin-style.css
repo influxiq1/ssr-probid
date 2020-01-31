@@ -160,6 +160,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv mat-table mat-header-row, .tablediv mat-table mat-cell{text-align:left;border-bottom:1px solid #959595!important}
 
 .tablediv table th, .tablediv mat-table mat-header-row{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:10px;letter-spacing:.1em;text-transform:capitalize}
+.tablediv mat-table .mat-header-cell{font-family: 'Helvetica-Normal';text-transform: uppercase;font-size: 18px;color: #fff;letter-spacing: .1em;text-transform: capitalize;}
 .tablediv table td, .tablediv mat-table mat-cell{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
 .tablediv table td br, .tablediv mat-table mat-cell br{display:none}
 .tablediv table td.text-center, .tablediv mat-table mat-cell.text-center{text-align:center!important}
@@ -289,6 +290,7 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .adm_inner_banner.manageyear{background:url(../images/manageyear_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.manageblog{background:url(../images/manageblog_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.testimoniallistsadmin{background:url(../images/testimoniallistsadmin_banner.jpg) no-repeat center center!important;background-size:cover!important}
+.adm_inner_banner.manageavailabilityadmin{background:url(../images/manageavailabilityadmin_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.managelession{background:url(../images/managelession_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.managetraining{background:url(../images/managetraining_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.rsvpadmin{background:url(../images/adminrsvp_banner.jpg) no-repeat center center!important;background-size:cover!important}

@@ -121,17 +121,7 @@
 .grapurl span.blogsociallists{display: flex;}
 .grapurl span.blogsociallists a{flex: 1;margin-right: 0px;}
 .grapurl span.blogsociallists button{flex: 1 1 auto;}
-.blogsociallists fa {
-    padding: 6px;
-    color: #fff;
-    font-size: 24px;
-    width: 32px;
-    height: 32px;
-    display: block;
-    overflow: hidden;
-    line-height: 32px;
-    text-align: center;
-}
+.blogsociallists fa, .blogsociallists .sociallink i {padding: 6px;color: #fff;font-size: 24px;width: 32px;height: 32px;display: block;overflow: hidden;line-height: 32px;text-align: center;}
 
 @media only screen and (max-width: 1199px) {
 .adm_dashboard_block1_right .sectionheader.mat-card-title {font-size: 36px!important; padding: 15px;}

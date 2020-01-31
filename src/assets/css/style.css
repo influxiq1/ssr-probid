@@ -342,7 +342,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .probidhomeblock1.mat-card{padding:0!important}
 .probidhomeblock1.mat-card .mat-tab-body-wrapper{background:#fff;padding-bottom:0}
 .probidhomeblock1 .tabwrapper .mat-tab-body .mainwrappercontent .btnblue{margin:.5% .5% 40px!important}
-.tabwrapper .mat-tab-label{background-color:#fff;border-left:1px solid #fff;padding:0 37px}
+.tabwrapper .mat-tab-label{background-color:#e2e2e2;border-left:1px solid #fff;padding:0 37px}
 .tabwrapper .mat-tab-label:nth-child(1){border-left:0 solid #fff}
 .tabwrapper .mat-tab-label h2{color:#232f39;font-size:14px!important;line-height:normal!important;margin:0}
 .tabwrapper .mat-tab-label.mat-tab-label-active{background-color:#1cb7eb; color:#fff;opacity: 1;}
@@ -392,13 +392,13 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .fa-linkedin i{display:none}
 .fa-envelope i{display:none}
 .fa-share i{display:none}
-.sociallink.fb fa{background-color:#5170b1}
-.sociallink.twi fa{background-color:#1bbef7}
-.sociallink.tbl fa{background-color:#34526f}
-.sociallink.pin fa{background-color:#c64348}
-.sociallink.lin fa{background-color:#1786b1}
-.sociallink.env fa{background-color:#70787a}
-.sociallink.share fa{background-color:#97ce32}
+.sociallink.fb fa, .sociallink.fb i{background-color:#5170b1}
+.sociallink.twi fa, .sociallink.twi i{background-color:#1bbef7}
+.sociallink.tbl fa, .sociallink.tbl i{background-color:#34526f}
+.sociallink.pin fa, .sociallink.pin i{background-color:#c64348}
+.sociallink.lin fa, .sociallink.lin i{background-color:#1786b1}
+.sociallink.env fa, .sociallink.env i{background-color:#70787a}
+.sociallink.share fa, .sociallink a.share i{background-color:#97ce32}
 .searchlistblock.mat-card{padding:0!important}
 .bottom_blog .mat-dialog-container{height:auto!important}
 .bottom_blog .mat-tab-labels{flex-wrap: wrap;  -webkit-flex-wrap: wrap;}

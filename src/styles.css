@@ -317,7 +317,8 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 .generalcls .searchblock .searchblockwrapper span h1{font-size: 30px!important;line-height: normal!important;color: #2E2E2E;text-transform: uppercase;background-color:transparent!important;
   -webkit-box-pack: start;justify-content: flex-start;padding: 10px 10px 5px;margin: 0!important;width: auto;}
   .generalcls .searchblock span .buttonsetToolbar {background-color: transparent !important;padding: 0 !important;height: auto !important;}
-
+  .mat-paginator-page-size-select {width: 56px !important;}
+  
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}
