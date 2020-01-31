@@ -449,3 +449,13 @@ export class RemoveDialogComponent {
   }
 }
 
+@Component({
+  selector:'deleteJobticket',
+  templateUrl:'./deleteJobticket.html'
+})
+export class DeleteJobTicketModalComponent {
+  constructor( public dialogRef: MatDialogRef<DeleteJobTicketModalComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData){
+
+  }
+}
