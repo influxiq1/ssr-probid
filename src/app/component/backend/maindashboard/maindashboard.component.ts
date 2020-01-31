@@ -484,7 +484,7 @@ inputUntouched(val: any) {
   displayedColumns3 = ['image_URL1', 'name', 'phoneNumber', 'date', 'repName', 'action'];
   dataSource3 = new MatTableDataSource<UAElement>(UA_DATA);
 
-  displayedColumns4 = ['ticket', 'name', 'repName', 'customerName',  'subject', 'status', 'action'];
+  displayedColumns4 = ['ticket', 'car_image', 'name', 'repName', 'customerName', 'date', 'subject', 'status', 'action'];
   // dataSource4 = new MatTableDataSource<JTElement>(JobTicket_DATA);
 
    
@@ -564,11 +564,13 @@ inputUntouched(val: any) {
 
   export interface JTElement {
       ticket: string;
-      image_URL: string;
+      // image_URL: string;
+      car_image: string;
       name: string;
       title: string;
       repName: string;
-      customerName: string;
+      customerName: string;      
+      date:string;
       subject: string;
       status: string;
       action: string;
