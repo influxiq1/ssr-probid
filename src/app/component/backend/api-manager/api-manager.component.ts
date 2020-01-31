@@ -23,7 +23,7 @@ export class ApiManagerComponent implements OnInit {
   public currentUrl:any;
   public apiKeyData:any;
 
-  displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','action'];
+  displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','Status','action'];
 
   constructor(private readonly meta: MetaService, public activatedRoute:ActivatedRoute,public apiService:ApiService,public cookieService:CookieService, public router: Router,public dialog:MatDialog) {
 
@@ -56,13 +56,13 @@ export class ApiManagerComponent implements OnInit {
   }
 
   editApiData(val:any){
-    console.log(val)
+    // console.log(val)
 
     var data = { "source": "search_api_key", "condition": {"_id": val}}
         this.apiService.CustomRequest(data, 'datalist').subscribe((res: any) => {
           // console.log('data',res)
           this.apiKeyData=res;
-          console.log('data',this.apiKeyData)
+          // console.log('data',this.apiKeyData)
           const dialogRef = this.dialog.open(ApiModalComponent, {
             width: '250px',
             data: {data:this.apiKeyData}
@@ -91,7 +91,7 @@ export class ApiModalComponent {
 
   constructor(public dialogRef: MatDialogRef<ApiModalComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,public fb:FormBuilder,public apiService:ApiService,public snack:MatSnackBar ) {
-      console.log("modal data",data.data.res[0])
+      // console.log("modal data",data.data.res[0])
       this.generateForm();
 
       this.apikeyForm.patchValue({
@@ -128,7 +128,7 @@ apiKeySubmit(){
         no:this.apikeyForm.value.keynum,
         apikey:this.apikeyForm.value.apikey
       } 
-      console.log(data)
+      // console.log(data)
   
 
     this.apiService.CustomRequest(data,'apiupdate').subscribe((res)=>{
