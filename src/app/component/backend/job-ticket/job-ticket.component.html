@@ -177,7 +177,8 @@
                       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter">
                     </mat-form-field>
                    </div>
-                    <div class="mat-elevation-z8">
+                    <div class="mat-elevation-z8"
+                    *ngIf="jobTicketList != null && jobTicketList != ''">
                       <div class="tablediv">
                         <table mat-table [dataSource]="jobTicketList">
     
@@ -247,9 +248,9 @@
                         <mat-paginator [pageSizeOptions]="[5, 10, 25, 50]" showFirstLastButtons></mat-paginator>
                       </div>
                     </div>
-                    <!-- <span class="btnwrappercls">
-                      <button mat-button class="btnblue" (click)="viewDetails(item,'1')">View All</button>
-                    </span> -->
+                    
+
+                    <span *ngIf="jobTicketList == null || jobTicketList == ''" class="norecordfound"> <h3 >No Record Found</h3></span>
                
 
 
