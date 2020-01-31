@@ -181,7 +181,8 @@ a{cursor:pointer;outline:none}
 .servicewrappercontent.servicewrappercontentinner{background-color:#f3f3f3;padding:50px 16px}
 .servicewrappercontent.servicewrappercontentinner .mat-list{margin-top:0!important}
 .singleservice .mat-card-title{font-size:18px!important;line-height:normal!important;margin-bottom:10px!important;justify-content:flex-start;color:#222527}
-.contact-form .from h2{display:none}
+/* .contact-form .from h2{display:none} */
+
 .contactusinfoblock .from{margin-top:0!important}
 .contact-form .main-div .from.mat-card{margin:4em auto!important;width:85%!important;padding-left:40%!important}
 .contact-form .main-div .from.mat-card:hover{-o-box-shadow:0 0 50px rgba(0,0,0,0.2)!important;-ms-box-shadow:0 0 50px rgba(0,0,0,0.2)!important;box-shadow:0 0 50px rgba(0,0,0,0.2)!important}

@@ -10,6 +10,7 @@
 .contactusinfoblock .mat-card{padding:0!important}
 .contactusinfoblock .mat-card img{width:130%}
 .contactus h1{text-align: center; color: #333;margin-top: 0;}
+
 @media (max-width: 1280px) {
 .contactusinfoblock .mat-card img{width:118%;margin-left:-10%;margin-top:-15%}
 }
