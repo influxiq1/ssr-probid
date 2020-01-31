@@ -156,7 +156,6 @@
                         <mat-form-field>          
                             <mat-select formControlName="enginetype" placeholder="All">
                               <mat-option *ngFor="let item of enginetypeList" [value]="item.engine">{{item.enginetype}}</mat-option>
-                              <!-- <mat-option value="ET1">ET 1</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                     </span>
@@ -165,12 +164,6 @@
                         <mat-form-field>         
                             <mat-select formControlName="transmissiontypelist" placeholder="All">
                               <mat-option *ngFor="let item of transmissiontypeList" [value]="item.transmission">{{item.transmissiontype}}</mat-option>
-                              <!-- <mat-option value="transm1">Any Transmission</mat-option>
-                              <mat-option value="transm2">Manual</mat-option>
-                              <mat-option value="transm3">Automatic</mat-option>
-                              <mat-option value="transm4">Automanual</mat-option>
-                              <mat-option value="transm5">CVT</mat-option>
-                              <mat-option value="transm6">Other / Unknown</mat-option> -->
                             </mat-select>
                         </mat-form-field>
                     </span>
@@ -230,9 +223,9 @@
                   <span class="column">
                       <h4>Doors</h4> 
                       <mat-form-field>          
-                          <mat-select placeholder="All">
-                            <mat-option value="Doors">All</mat-option> 
-                            <mat-option value="Doors1">Doors 1</mat-option>
+                          <mat-select formControlName="Doorsqty" placeholder="All">
+                            <mat-option *ngFor="let item of doorsqtyList" [value]="item.doors">{{item.doorstype}}</mat-option> 
+                            <!-- <mat-option value="Doors1">Doors 1</mat-option> -->
                           </mat-select>
                       </mat-form-field>
                   </span>
@@ -271,6 +264,22 @@
                               <mat-checkbox>Black</mat-checkbox>    
                               <mat-checkbox>Blue</mat-checkbox>    
                               <mat-checkbox>Brown</mat-checkbox>  
+                              <mat-checkbox>Burgundy</mat-checkbox>  
+                              <mat-checkbox>Camouflage</mat-checkbox>  
+                              <mat-checkbox>Charcoal</mat-checkbox>  
+                              <mat-checkbox>Gold</mat-checkbox>  
+                              <mat-checkbox>Gray</mat-checkbox>  
+                              <mat-checkbox>Green</mat-checkbox>  
+                              <mat-checkbox>Lime</mat-checkbox>  
+                              <mat-checkbox>Off-white</mat-checkbox>  
+                              <mat-checkbox>Orange</mat-checkbox>  
+                              <mat-checkbox>Pink</mat-checkbox>  
+                              <mat-checkbox>Purple</mat-checkbox>  
+                              <mat-checkbox>Red</mat-checkbox>  
+                              <mat-checkbox>Silver</mat-checkbox>  
+                              <mat-checkbox>Turquoise</mat-checkbox>  
+                              <mat-checkbox>White</mat-checkbox>  
+                              <mat-checkbox>Yellow</mat-checkbox>  
                           </span>
                                                    
                         </span>
@@ -284,6 +293,22 @@
                               <mat-checkbox>Black</mat-checkbox>    
                               <mat-checkbox>Blue</mat-checkbox>    
                               <mat-checkbox>Brown</mat-checkbox>
+                              <mat-checkbox>Burgundy</mat-checkbox>
+                              <mat-checkbox>Charcoal</mat-checkbox>
+                              <mat-checkbox>Gold</mat-checkbox>
+                              <mat-checkbox>Gray</mat-checkbox>
+                              <mat-checkbox>Green</mat-checkbox>  
+                              <mat-checkbox>Lime</mat-checkbox>
+                              <mat-checkbox>Off-white</mat-checkbox>
+                              <mat-checkbox>Orange</mat-checkbox>
+                              <mat-checkbox>Pink</mat-checkbox>
+                              <mat-checkbox>Purple</mat-checkbox>
+                              <mat-checkbox>Red</mat-checkbox>
+                              <mat-checkbox>Silver</mat-checkbox>
+                              <mat-checkbox>Tan</mat-checkbox>
+                              <mat-checkbox>Turquoise</mat-checkbox>
+                              <mat-checkbox>White</mat-checkbox>
+                              <mat-checkbox>Yellow</mat-checkbox>
                           </span>                                                  
                         </span>
                     </span>
@@ -359,7 +384,6 @@
 
           </span> -->
 
-
           <!-- <mat-card-title>Auction</mat-card-title>
           <span class="section5">
               <h4>Format</h4>
@@ -404,6 +428,7 @@
 
             
           </span> -->
+          
           <span class="buttonslist">
               <button mat-raised-button color="primary" type="submit"> Reset</button>
               <button mat-raised-button color="primary" type="submit"> Search</button>

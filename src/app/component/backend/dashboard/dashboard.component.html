@@ -384,140 +384,146 @@
                 <span class="norecordfound"
                 *ngIf="jobTicketList ==null || jobTicketList ==''" >
                  <h3 >No Record Found</h3>
-               </span>
-
-                <span  *ngIf="jobTicketList !=null && jobTicketList !=''">
-                  <mat-form-field>
-                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                  </mat-form-field>
-                  </span>
-
-
-                <div class="example-container mat-elevation-z8" *ngIf="jobTicketList !=null && jobTicketList !=''">
-                  <div class="tablediv">
-                    <mat-table #table [dataSource]="jobTicketList">
-                      <!-- Position Column -->
-                      <ng-container matColumnDef="ticket">
-                        <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element._id }}
-                        </mat-cell>
-                      </ng-container>
-  
-                      <!-- Car Image Column -->
-                      <ng-container matColumnDef="car_image">
-                        <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          <span class="namewrapper">
-                            <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
-                          </span>
-                        </mat-cell>
-                      </ng-container>
-
-                      <!-- Name Column -->
-                      <ng-container matColumnDef="name">
-                        <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          <span class="namewrapper">
-                            <span class="nametxt">{{element.car_heading}}</span>
-                          </span>
-                        </mat-cell>
-                      </ng-container>
-                    
-                      <!-- Weight Column -->
-                      <ng-container matColumnDef="title">
-                        <mat-header-cell *matHeaderCellDef>
-                          Title
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element.car_heading }}
-                        </mat-cell>
-                      </ng-container>
-  
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="repName">
-                        <mat-header-cell *matHeaderCellDef>
-                          Rep Name
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element.added_by_fullname }}
-                        </mat-cell>
-                      </ng-container>
-  
-  
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="customerName">
-                        <mat-header-cell *matHeaderCellDef>
-                          Customer Name
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element.added_for_fullname }}
-                        </mat-cell>
-                      </ng-container>
-  
-                      
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="subject">
-                        <mat-header-cell *matHeaderCellDef>
-                          subject
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element.subject }}
-                        </mat-cell>
-                      </ng-container>
-
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="date">
-                        <mat-header-cell *matHeaderCellDef>
-                         Date
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          {{ element.date }}
-                        </mat-cell>
-                      </ng-container>
-  
-  
-  
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="status">
-                        <mat-header-cell *matHeaderCellDef>
-                          Status
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element">
-                          <span *ngIf="element.job_ticket_status == 0">Open</span>
-                              <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
-                              <span *ngIf="element.job_ticket_status == 2">Closed</span>
-                              <span *ngIf="element.job_ticket_status == 3">Re-Opened</span>
-                        </mat-cell>
-                      </ng-container>
-  
-  
-                      <!-- Symbol Column -->
-                      <ng-container matColumnDef="action">
-                        <mat-header-cell *matHeaderCellDef>
-                          Action
-                        </mat-header-cell>
-                        <mat-cell *matCellDef="let element;let i = index">
-                          <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
-                          <a  (click)="deleteJobTicket(element._id,i)" ><i class="material-icons">
-                            delete_outline
-                            </i></a> 
-                        </mat-cell>
-                      </ng-container>
-  
-                      <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
-                      <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
-                    </mat-table>
-  
-                    <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
-                    </mat-paginator>
-                  </div>
-                </div>
-                <span class="btnwrappercls">
-                  <button mat-button class="btnblue" [routerLink]="['/job-ticket-customer']">
-                    View All
-                  </button>
                 </span>
+
+                
+
+                  <mat-card-content class="adm_dashboard_block4 communicationsection" *ngIf="jobTicketList !=null && jobTicketList !=''">                
+                    <span class="adm_dashboard_block4_inner">
+                      <span class="tabwrapper"> 
+                        <span>
+                          <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                          </mat-form-field>
+                          </span>
+                          <div class="example-container mat-elevation-z8">
+                            <div class="tablediv">
+                              <mat-table #table [dataSource]="jobTicketList">
+                                <!-- Position Column -->
+                                <ng-container matColumnDef="ticket">
+                                  <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element._id }}
+                                  </mat-cell>
+                                </ng-container>
+            
+                                <!-- Car Image Column -->
+                                <ng-container matColumnDef="car_image">
+                                  <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    <span class="namewrapper">
+                                      <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
+                                    </span>
+                                  </mat-cell>
+                                </ng-container>
+
+                                <!-- Name Column -->
+                                <ng-container matColumnDef="name">
+                                  <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    <span class="namewrapper">
+                                      <span class="nametxt">{{element.car_heading}}</span>
+                                    </span>
+                                  </mat-cell>
+                                </ng-container>
+                              
+                                <!-- Weight Column -->
+                                <ng-container matColumnDef="title">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    Title
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element.car_heading }}
+                                  </mat-cell>
+                                </ng-container>
+            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="repName">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    Rep Name
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element.added_by_fullname }}
+                                  </mat-cell>
+                                </ng-container>
+            
+            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="customerName">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    Customer Name
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element.added_for_fullname }}
+                                  </mat-cell>
+                                </ng-container>
+            
+                                
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="subject">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    subject
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element.subject }}
+                                  </mat-cell>
+                                </ng-container>
+
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="date">
+                                  <mat-header-cell *matHeaderCellDef>
+                                  Date
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    {{ element.date }}
+                                  </mat-cell>
+                                </ng-container>
+            
+            
+            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="status">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    Status
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element">
+                                    <span *ngIf="element.job_ticket_status == 0">Open</span>
+                                        <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
+                                        <span *ngIf="element.job_ticket_status == 2">Closed</span>
+                                        <span *ngIf="element.job_ticket_status == 3">Re-Opened</span>
+                                  </mat-cell>
+                                </ng-container>
+            
+            
+                                <!-- Symbol Column -->
+                                <ng-container matColumnDef="action">
+                                  <mat-header-cell *matHeaderCellDef>
+                                    Action
+                                  </mat-header-cell>
+                                  <mat-cell *matCellDef="let element;let i = index">
+                                    <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
+                                    <a  (click)="deleteJobTicket(element._id,i)" ><i class="material-icons">
+                                      delete_outline
+                                      </i></a> 
+                                  </mat-cell>
+                                </ng-container>
+            
+                                <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
+                                <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
+                              </mat-table>
+            
+                              <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                              </mat-paginator>
+                            </div>
+                          </div>
+                      </span>
+                    </span>
+                  </mat-card-content>
+                  <span class="btnwrappercls">
+                    <button mat-button class="btnblue" [routerLink]="['/job-ticket-customer']">
+                      View All
+                    </button>
+                  </span>
               </mat-tab>
             </mat-tab-group>
           </span>
