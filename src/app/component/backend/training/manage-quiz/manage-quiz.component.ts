@@ -25,7 +25,9 @@ export class ManageQuizComponent implements OnInit {
   public formSource: any = {
     "source":'quiz_question',
     "endpoint": "deletesingledata",
-    "searchEndpoint":"datalist"
+    "searchEndpoint":"datalist",
+    "statusUpdateEndpoint":"statusChange",
+    "statusUpdateSourceName":"quiz_question",
   }
   public addUpdateAnswerRoute:any={
     "addAnswerRoute":"/manage-quiz/add-answer/",
