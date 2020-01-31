@@ -134,7 +134,7 @@ public jobTicketList:any;
   }
 
   viewDetails(item:any,status:any){
-    // console.log(item)
+    console.log(item)
     this.router.navigateByUrl('/manage-job-ticket/add/'+item.rsvp_id+'/'+status)
   }
 

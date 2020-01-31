@@ -101,7 +101,7 @@ public configDataJobTicket: any = {
 
   ngOnInit() {
     this.activatedRoute.data.forEach((data:any) => {
-      // console.log(data.job_ticket.result)
+      console.log(data.job_ticket.result)
       this.message_details = data.job_ticket.result.message_details;
       this.user_list = data.job_ticket.result.user_list[0];
       this.rsvp_details = data.job_ticket.result.rsvp_details[0];
