@@ -39,10 +39,10 @@ import { DashboardComponent } from './component/backend/dashboard/dashboard.comp
 import { BkLeftdivComponent } from './layout/bk-leftdiv/bk-leftdiv.component';
 
 import { MaindashboardComponent } from './component/backend/maindashboard/maindashboard.component';
-import { AddeditServiceComponent } from './component/backend/ServiceApp/addedit-service/addedit-service.component';
-import { ListingServiceComponent } from './component/backend/ServiceApp/listing-service/listing-service.component';
-import { ListingTestimonialComponent } from './component/backend/TestimonialApp/listing-testimonial/listing-testimonial.component';
-import { AddeditTestimonialComponent } from './component/backend/TestimonialApp/addedit-testimonial/addedit-testimonial.component';
+import { AddeditServiceComponent } from './component/backend/manage-website/ServiceApp/addedit-service/addedit-service.component';
+import { ListingServiceComponent } from './component/backend/manage-website/ServiceApp/listing-service/listing-service.component';
+import { ListingTestimonialComponent } from './component/backend/manage-website/TestimonialApp/listing-testimonial/listing-testimonial.component';
+import { AddeditTestimonialComponent } from './component/backend/manage-website/TestimonialApp/addedit-testimonial/addedit-testimonial.component';
 import { UserManagementComponent } from './component/backend/user-management/user-management.component';
 // import { ContactUsDashboardComponent } from './component/backend/contact-us-dashboard/contact-us-dashboard.component';
 
@@ -53,65 +53,61 @@ import { BlogManagementComponent } from './component/backend/blog-management/blo
 
 import { CommissionReportComponent } from './component/backend/commission-report/commission-report.component';
 import { InventorySearchComponent } from './component/backend/inventory-search/inventory-search.component';
-import { ManageAvailabilityComponent } from './component/backend/manage-availability/manage-availability.component';
+import { ManageAvailabilityComponent } from './component/backend/calendar-manager/manage-availability/manage-availability.component';
 import { TestimonialListsAdminComponent } from './component/backend/testimonial-lists-admin/testimonial-lists-admin.component';
 
-import { BirddogListComponent } from './component/backend/birddog-list/birddog-list.component';
+import { BirddogListComponent } from './component/backend/user/birddog-list/birddog-list.component';
 
 import { CommissionListComponent } from './component/backend/commission-list/commission-list.component';
-import { CustomerListComponent } from './component/backend/customer-list/customer-list.component';
-import { ManageCommissionComponent } from './component/backend/manage-commission/manage-commission.component';
-import { NewsletterlistsComponent } from './component/backend/newsletterlists/newsletterlists.component';
+import { CustomerListComponent } from './component/backend/user/customer-list/customer-list.component';
+import { NewsletterlistsComponent } from './component/backend/manage-website/newsletterlists/newsletterlists.component';
 import { SalesReportComponent } from './component/backend/sales-report/sales-report.component';
-import { SalesreplistsComponent } from './component/backend/salesreplists/salesreplists.component';
+import { SalesreplistsComponent } from './component/backend/user/salesreplists/salesreplists.component';
 import { RsvplistsComponent } from './component/backend/rsvplists/rsvplists.component';
 // import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
 import { ManageLessonsComponent } from './component/backend/manage-lessons/manage-lessons.component';
 import { TrainingCenterComponent } from './component/backend/training-center/training-center.component';
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
-import { MyAppointmentComponent } from './component/backend/my-appointment/my-appointment.component';
+import { MyAppointmentComponent } from './component/backend/calendar-manager/my-appointment/my-appointment.component';
 import { CreateNewInventoryComponent } from './component/backend/create-new-inventory/create-new-inventory.component';
 import { JobTicketComponent } from './component/backend/job-ticket/job-ticket.component';
-import { SocialAdvoComponent } from './component/backend/social-advo/social-advo.component';
 import { BookAnAppointmentComponent } from './component/backend/book-an-appointment/book-an-appointment.component';
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
 import { BasicInventorySearchBackendComponent } from './component/backend/inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
 import { MysalesrepComponent } from './component/backend/mysalesrep/mysalesrep.component';
 // import { CommunicationComponent } from './component/backend/communication/communication.component';
-import { AdminManageCategoriesComponent } from './component/backend/admin-manage-categories/admin-manage-categories.component';
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
-import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
 import { AddEditBlogcatComponent } from './component/backend/blogs/add-edit-blogcat/add-edit-blogcat.component';
 import { ListingBlogcatComponent } from './component/backend/blogs/listing-blogcat/listing-blogcat.component';
 import { AddEditBlogsComponent } from './component/backend/blogs/add-edit-blogs/add-edit-blogs.component';
 import { ListingBlogsComponent } from './component/backend/blogs/listing-blogs/listing-blogs.component';
 import { MyAccountComponent } from './component/backend/my-account/my-account.component';
-import { AddSalesrepComponent } from './component/backend/add-salesrep/add-salesrep.component';
-import { AddCustomerComponent } from './component/backend/add-customer/add-customer.component';
-import { AddBirddogComponent } from './component/backend/add-birddog/add-birddog.component';
+import { AddSalesrepComponent } from './component/backend/user/add-salesrep/add-salesrep.component';
+import { AddCustomerComponent } from './component/backend/user/add-customer/add-customer.component';
+import { AddBirddogComponent } from './component/backend/user/add-birddog/add-birddog.component';
 
 
 
-import { AddEditNewsletterComponent } from './component/backend/newsletterlists/add-edit-newsletter/add-edit-newsletter.component';
+import { AddEditNewsletterComponent } from './component/backend/manage-website/newsletterlists/add-edit-newsletter/add-edit-newsletter.component';
 
-import { AddEditSubscriberComponent } from './component/backend/newsletterlists/add-edit-subscriber/add-edit-subscriber.component';
-import { AddEditSubscriberGroupComponent } from './component/backend/newsletterlists/add-edit-subscriber-group/add-edit-subscriber-group.component';
+import { AddEditSubscriberComponent } from './component/backend/manage-website/newsletterlists/add-edit-subscriber/add-edit-subscriber.component';
+import { AddEditSubscriberGroupComponent } from './component/backend/manage-website/newsletterlists/add-edit-subscriber-group/add-edit-subscriber-group.component';
 
-import { AddEditTestemailComponent } from './component/backend/newsletterlists/add-edit-testemail/add-edit-testemail.component';
+import { AddEditTestemailComponent } from './component/backend/manage-website/newsletterlists/add-edit-testemail/add-edit-testemail.component';
 
-import { AddEditSenderappComponent } from './component/backend/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
+import { AddEditSenderappComponent } from './component/backend/manage-website/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
 
 
-import { ListingNewsletterComponent } from './component/backend/newsletterlists/listing-newsletter/listing-newsletter.component';
+import { ListingNewsletterComponent } from './component/backend/manage-website/newsletterlists/listing-newsletter/listing-newsletter.component';
 
-import { LisitngTestemailappComponent } from './component/backend/newsletterlists/lisitng-testemailapp/lisitng-testemailapp.component';
-import { ListingSenderappComponent } from './component/backend/newsletterlists/listing-senderapp/listing-senderapp.component';
-import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
-import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
+import { LisitngTestemailappComponent } from './component/backend/manage-website/newsletterlists/lisitng-testemailapp/lisitng-testemailapp.component';
+import { ListingSenderappComponent } from './component/backend/manage-website/newsletterlists/listing-senderapp/listing-senderapp.component';
+import { ListingSubscriptionComponent } from './component/backend/manage-website/newsletterlists/listing-subscription/listing-subscription.component';
+import { ListingSubcategoryComponent } from './component/backend/manage-website/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { RsvpSuccessComponent } from './component/frontend/rsvp-success/rsvp-success.component';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { ManageJobticketComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
-import { ApiManagerComponent } from './component/backend/api-manager/api-manager.component';
+import { ApiManagerComponent } from './component/backend/manage-website/api-manager/api-manager.component';
 
 /**Training library**/
 import { AddEditLessionsComponent } from '../app/component/backend/training/manage-lessions/add-edit-lessions/add-edit-lessions.component';
@@ -124,6 +120,11 @@ import { AddEditTrainingComponent } from '../app/component/backend/training/mana
 import { ListingTrainingComponent } from '../app/component/backend/training/manage-training/listing-training/listing-training.component';
 import { AddEditCenterComponent } from '../app/component/backend/training/training-center/add-edit-center/add-edit-center.component';
 import { ListComponent } from '../app/component/backend/training/training-center/list/list.component';
+import { SocialAdvoComponent } from './component/backend/manage-website/social-advo/social-advo.component';
+import { ManageCommissionComponent } from './component/backend/manage-website/manage-commission/manage-commission.component';
+import { AdminManageCategoriesComponent } from './component/backend/inventory/admin-manage-categories/admin-manage-categories.component';
+import { AdminAddCategoriesComponent } from './component/backend/inventory/admin-add-categories/admin-add-categories.component';
+import { MiscellaneousComponent } from './component/backend/manage-website/miscellaneous/miscellaneous.component';
 
 /**End Backend Routing**/
 
@@ -660,6 +661,8 @@ const routes: Routes = [
 
   { path: 'add-birddog', component: AddBirddogComponent },
   { path: 'editbirddog/:_id', component: AddBirddogComponent },
+
+  { path: 'miscellaneous', component: MiscellaneousComponent },
 
   /**End Backend Routing**/
 
