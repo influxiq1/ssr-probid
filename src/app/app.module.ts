@@ -97,10 +97,8 @@ import { DashboardComponent, RemoveRSvpModalComponent, DeleteJobTicketCusModalCo
 import { BkHeaderComponent } from './layout/bk-header/bk-header.component';
 import { BkFooterComponent } from './layout/bk-footer/bk-footer.component';
 
-import { AddeditServiceComponent } from './component/backend/ServiceApp/addedit-service/addedit-service.component';
-import { ListingServiceComponent } from './component/backend/ServiceApp/listing-service/listing-service.component';
-import { ListingTestimonialComponent } from './component/backend/TestimonialApp/listing-testimonial/listing-testimonial.component';
-import { AddeditTestimonialComponent } from './component/backend/TestimonialApp/addedit-testimonial/addedit-testimonial.component';
+
+
 // import { ServicelibModule } from 'servicelib';
 // import { FileUploadModule } from 'dist/file-upload';
 import { BkLeftdivComponent } from './layout/bk-leftdiv/bk-leftdiv.component';
@@ -118,8 +116,7 @@ import { TestimonialListsAdminComponent } from './component/backend/testimonial-
 import { BirddogListComponent } from './component/backend/birddog-list/birddog-list.component';
 import { CommissionListComponent } from './component/backend/commission-list/commission-list.component';
 import { CustomerListComponent } from './component/backend/customer-list/customer-list.component';
-import { ManageCommissionComponent } from './component/backend/manage-commission/manage-commission.component';
-import { NewsletterlistsComponent } from './component/backend/newsletterlists/newsletterlists.component';
+import { NewsletterlistsComponent } from './component/backend/manage-website/newsletterlists/newsletterlists.component';
 import { SalesReportComponent } from './component/backend/sales-report/sales-report.component';
 import { SalesreplistsComponent } from './component/backend/salesreplists/salesreplists.component';
 import { RsvplistsComponent, DeleteModalComponent, askForconfirmationModalComponent } from './component/backend/rsvplists/rsvplists.component';
@@ -130,8 +127,6 @@ import { TrainingCenterComponent } from './component/backend/training-center/tra
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
 import { MyAppointmentComponent } from './component/backend/my-appointment/my-appointment.component';
 import { CreateNewInventoryComponent } from './component/backend/create-new-inventory/create-new-inventory.component';
-import { JobTicketComponent, DeleteJobModalComponent } from './component/backend/job-ticket/job-ticket.component';
-import { SocialAdvoComponent } from './component/backend/social-advo/social-advo.component';
 import { BookAnAppointmentComponent } from './component/backend/book-an-appointment/book-an-appointment.component';
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
 import { BasicInventorySearchBackendComponent } from './component/backend/inventory/basic-inventory-search-backend/basic-inventory-search-backend.component';
@@ -157,22 +152,22 @@ import { BlogModule } from 'blog-lib-influxiq';
 
 
 
-import { AddEditNewsletterComponent } from './component/backend/newsletterlists/add-edit-newsletter/add-edit-newsletter.component';
+import { AddEditNewsletterComponent } from './component/backend/manage-website/newsletterlists/add-edit-newsletter/add-edit-newsletter.component';
  
-import { AddEditSubscriberComponent } from './component/backend/newsletterlists/add-edit-subscriber/add-edit-subscriber.component';
-import { AddEditSubscriberGroupComponent } from './component/backend/newsletterlists/add-edit-subscriber-group/add-edit-subscriber-group.component';
+import { AddEditSubscriberComponent } from './component/backend/manage-website/newsletterlists/add-edit-subscriber/add-edit-subscriber.component';
+import { AddEditSubscriberGroupComponent } from './component/backend/manage-website/newsletterlists/add-edit-subscriber-group/add-edit-subscriber-group.component';
  
- import { AddEditTestemailComponent } from './component/backend/newsletterlists/add-edit-testemail/add-edit-testemail.component';
+ import { AddEditTestemailComponent } from './component/backend/manage-website/newsletterlists/add-edit-testemail/add-edit-testemail.component';
 
- import { AddEditSenderappComponent } from './component/backend/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
+ import { AddEditSenderappComponent } from './component/backend/manage-website/newsletterlists/add-edit-senderapp/add-edit-senderapp.component';
  
 
-import { ListingNewsletterComponent } from './component/backend/newsletterlists/listing-newsletter/listing-newsletter.component';
+import { ListingNewsletterComponent } from './component/backend/manage-website/newsletterlists/listing-newsletter/listing-newsletter.component';
 
-import { LisitngTestemailappComponent } from './component/backend/newsletterlists/lisitng-testemailapp/lisitng-testemailapp.component';
-import { ListingSenderappComponent } from './component/backend/newsletterlists/listing-senderapp/listing-senderapp.component';
-import { ListingSubscriptionComponent } from './component/backend/newsletterlists/listing-subscription/listing-subscription.component';
-import { ListingSubcategoryComponent } from './component/backend/newsletterlists/listing-subcategory/listing-subcategory.component';
+import { LisitngTestemailappComponent } from './component/backend/manage-website/newsletterlists/lisitng-testemailapp/lisitng-testemailapp.component';
+import { ListingSenderappComponent } from './component/backend/manage-website/newsletterlists/listing-senderapp/listing-senderapp.component';
+import { ListingSubscriptionComponent } from './component/backend/manage-website/newsletterlists/listing-subscription/listing-subscription.component';
+import { ListingSubcategoryComponent } from './component/backend/manage-website/newsletterlists/listing-subcategory/listing-subcategory.component';
 import { AskForConfirmationComponent } from './component/backend/ask-for-confirmation/ask-for-confirmation.component';
 
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
@@ -182,7 +177,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { ViewJobTicketComponent } from './component/backend/view-job-ticket/view-job-ticket.component';
 import { InventoryDetailComponent, RemoveRsvpComponent } from './component/backend/inventory-detail/inventory-detail.component';
 import { ManageJobticketComponent, ViewImageComponent } from './component/backend/manage-jobticket/manage-jobticket.component';
-import { ApiManagerComponent, ApiModalComponent } from './component/backend/api-manager/api-manager.component';
+import { ApiManagerComponent, ApiModalComponent } from './component/backend/manage-website/api-manager/api-manager.component';
 import { HttpLoaderComponent } from './http-loader/http-loader.component';
 import { LoaderInterceptor } from './loader.interceptor';
 import { HttpLoaderService } from './http-loader.service';
@@ -201,6 +196,14 @@ import { AddEditTrainingComponent } from '../app/component/backend/training/mana
 import { ListingTrainingComponent } from '../app/component/backend/training/manage-training/listing-training/listing-training.component';
 import { AddEditCenterComponent } from '../app/component/backend/training/training-center/add-edit-center/add-edit-center.component';
 import { ListComponent } from '../app/component/backend/training/training-center/list/list.component';
+import { MiscellaneousComponent } from './component/backend/manage-website/miscellaneous/miscellaneous.component';
+import { ManageCommissionComponent } from './component/backend/manage-website/manage-commission/manage-commission.component';
+import { JobTicketComponent, DeleteJobModalComponent } from './component/backend/job-ticket/job-ticket.component';
+import { SocialAdvoComponent } from './component/backend/manage-website/social-advo/social-advo.component';
+import { ListingServiceComponent } from './component/backend/manage-website/ServiceApp/listing-service/listing-service.component';
+import { AddeditServiceComponent } from './component/backend/manage-website/ServiceApp/addedit-service/addedit-service.component';
+import { AddeditTestimonialComponent } from './component/backend/manage-website/TestimonialApp/addedit-testimonial/addedit-testimonial.component';
+import { ListingTestimonialComponent } from './component/backend/manage-website/TestimonialApp/listing-testimonial/listing-testimonial.component';
 
 
 
@@ -367,7 +370,8 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     DeleteJobTicketModalComponent,
     DeleteJobTicketCusModalComponent,
     DeleteJobRepTicketModalComponent,
-    comingSoonDialogTestimonListhome
+    comingSoonDialogTestimonListhome,
+    MiscellaneousComponent,
   ],
   imports: [
     TranslateModule.forRoot(
