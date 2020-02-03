@@ -80,13 +80,8 @@ export class MyAccountComponent implements OnInit {
          validator1:this.misMatchPassword('oldPassword','newPassword')})
   }
 
-
-  // togglePasswordText() {
-  //   this.isPasswordVisible = !this.isPasswordVisible;
-  // }
-
-
   ngOnInit() {
+
     this.getdata();
 
   }
@@ -156,17 +151,14 @@ export class MyAccountComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res: any) => {
       this.userData = res.res[0];
-      // console.log("editabla data",this.userData);
-      // setTimeout(() => {
-      //   this.getCityByName(this.userData.state);
-      // }, 400);
-
+      this.getCity(this.userData.state);
       this.UpdateForm.controls['firstname'].patchValue(this.userData.firstname);
       this.UpdateForm.controls['lastname'].patchValue(this.userData.lastname);
       this.UpdateForm.controls['email'].patchValue(this.userData.email);
       this.UpdateForm.controls['phone'].patchValue(this.userData.phone);
       this.UpdateForm.controls['address'].patchValue(this.userData.address);
       this.UpdateForm.controls['zip'].patchValue(this.userData.zip);
+      
       this.UpdateForm.controls['city'].patchValue(this.userData.city);
       this.UpdateForm.controls['state'].patchValue(this.userData.state);
     });
@@ -179,6 +171,7 @@ export class MyAccountComponent implements OnInit {
 
     this.apiService.getSiteSettingData("./assets/data/city.json").subscribe(response => {
       this.cities = response;
+      this.getdata();
     });
   }
   /**for getting all states & cities  function end here**/
@@ -186,11 +179,6 @@ export class MyAccountComponent implements OnInit {
     var val = event;
     this.allCities = this.cities[val];
   }
-
-  getCityByName(stateName) {
-    this.cities = this.cities[stateName];
-  }
-
   UpdateFormSubmit() {
     for (let x in this.UpdateForm.controls) {
       this.UpdateForm.controls[x].markAsTouched();

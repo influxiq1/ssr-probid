@@ -28,9 +28,8 @@
                 <!-- Contact Us Listing goes here  -->
                 <lib-listing *ngIf="contactUsData != null && contactUsData.length>0" [datasource]="contactUsData"
                     [skip]="contactUsData_skip" [modify_header_array]="contactUsData_modify_header"
-                    [sourcedata]="tableName" [apiurl]="apiUrl" [editroute]="editUrl" [jwttoken]="user_cookie"
-                    [statusarr]="status" [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
-                    [date_search_endpoint]="searchingEndpoint" [detail_datatype]="image_detail_datatype"
+                    [sourcedata]="tableName" [jwttoken]="user_cookie"
+                    [updateendpoint]="UpdateEndpoint" [deleteendpoint]="deleteEndpoint"
                     [detail_skip_array]="detail_skip_array">
                 </lib-listing>
 

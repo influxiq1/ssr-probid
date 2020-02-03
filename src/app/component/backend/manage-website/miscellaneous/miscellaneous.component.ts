@@ -18,12 +18,10 @@ export class MiscellaneousComponent implements OnInit {
   tableName: any = 'contactusForm';
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
-  // searchingEndpoint: any = "datalist";
-  // editUrl: any = 'blog-category/edit/';
-  // apiUrl: any = this.apiService.serverUrlDemo;
+  
+
   // status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "contactusForm";
-  // public image_detail_datatype:any;
 
   constructor(public activatedRoute: ActivatedRoute) { }
 

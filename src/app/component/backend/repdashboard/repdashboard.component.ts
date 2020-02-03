@@ -86,7 +86,7 @@ export class RepdashboardComponent implements OnInit {
   public indexValForLinkdin: any = 6;
   public errorApiKey:any;
   public jobTicketDataList:any;
-
+  public profile: any = '';
   
   public allFacebookBanner : any = [
     'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
@@ -110,19 +110,17 @@ public allLinkdinBanner : any = [
 
 
   
-  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, 
-    // private fb1: FacebookService, 
-    public fb:FormBuilder, private readonly meta: MetaService) {
+  constructor(public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public dialog: MatDialog,public snack:MatSnackBar,public router:Router, private fb: FacebookService, private readonly meta: MetaService) {
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
       this.userid = this.userCookies._id; 
       // console.log(this.userCookies)
       
       }
-      // fb1.init({
-      //   appId: '2540470256228526',
-      //   version: 'v2.9'
-      // });
+      fb.init({
+        appId: '2540470256228526',
+        version: 'v2.9'
+      });
 
       this.meta.setTitle('ProBid Auto - SalesRep Dashboard!');
       this.meta.setTag('og:title', 'ProBid Auto - SalesRep Dashboard');
@@ -130,17 +128,38 @@ public allLinkdinBanner : any = [
       this.meta.setTag('og:type', 'website');
       this.meta.setTag('og:image', '../../assets/images/logomain.png');
       this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
    }
 
+   share(url: string) {
 
+    var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+
+    this.cookieService.set('shareIngUrl',fullUrl);
+    // console.log(fullUrl)
+
+    let params: UIParams = {
+      href: fullUrl,
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
+    };
+   
+    this.fb.ui(params)
+      .then((res: UIResponse) =>{
+
+      })
+      .catch();   
+  }
 
    
    /* To copy Text from Textbox */
-  // copyInputMessage(inputElement){
-  //   inputElement.select();
-  //   document.execCommand('copy');
-  //   inputElement.setSelectionRange(0, 0);
-  // }
+  copyInputMessage(inputElement){
+    inputElement.select();
+    document.execCommand('copy');
+    inputElement.setSelectionRange(0, 0);
+    this.snack.open('Url Copied','Ok',{duration:1000})
+  }
+
   copyMessage(val: string){
     let url = this.apiService.share_link+'customer-signup/'+val+'/'+this.userCookies._id;
     const selBox = document.createElement('textarea');
@@ -169,6 +188,43 @@ public allLinkdinBanner : any = [
   //     element.style.height = (element.scrollHeight)+"px";
   // }
 
+
+  login() {
+    this.fb.login()
+      .then((res: LoginResponse) => {
+       
+        this.getProfile();
+      })
+      .catch();
+  }
+  
+    getLoginStatus() {
+    this.fb.getLoginStatus()
+      .then((res: any)=>{
+       
+        this.getProfile();
+      })
+      .catch();
+  }
+
+  getProfile() {
+    this.fb.api('me/?fields=id,name,email,picture')
+      .then((res: any) => {
+       
+        this.profile = res;
+        
+      })
+      .catch((error: any) => {
+
+      });
+  }
+  
+  logoutWithFacebook(): void {
+
+    this.fb.logout().then();
+  }
+  
+
   
 
   linkdinShare(url: any){
@@ -189,7 +245,7 @@ public allLinkdinBanner : any = [
   //     quote: 'https://dev.probidauto.com/'
   //   };
    
-  //   this.fb1.ui(params)
+  //   this.fb.ui(params)
   //     .then((res: UIResponse) =>{
 
   //     })
@@ -314,13 +370,6 @@ if (val !='') {
    
   // }
 
-  /* To copy Text from Textbox */
-  copyInputMessage(inputElement){
-    inputElement.select();
-    document.execCommand('copy');
-    inputElement.setSelectionRange(0, 0);
-    this.snack.open('Url Copied','Ok',{duration:1000})
-  }
 
   deleteAny(a: any,b: any,c: any){
 
@@ -398,6 +447,15 @@ if (val !='') {
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
+  rsvpDetail(val:any){
+    // console.log('hit',val)
+    this.router.navigateByUrl('/rsvp-detail/'+val);
+  }
+
+  goToOpenTicket(item: any, status: any){
+    // console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
+  }
 
   //delete JobTicket record
   deleteJobTicket(val:any,index:any){
