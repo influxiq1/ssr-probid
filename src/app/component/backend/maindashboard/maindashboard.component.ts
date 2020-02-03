@@ -119,7 +119,8 @@ public errorMsg: string = '';
   public jobTicketList:any;
   public jobTicketDataList:any;
   public jobLength:any;
-  
+  public filterVal:any;
+  public filterValstatus:any='';
 
 
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
@@ -506,13 +507,10 @@ inputUntouched(val: any) {
       result=res;
       this.jobTicketDataList=result.res;
       
-      // this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
-
-      // this.rsvp_list=result.res;
-      // console.log(this.rsvp_list)
-
 
       setTimeout(() => {
+        this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+
         this.jobTicketList.paginator = this.paginator4;
         
       }, 500);
@@ -524,7 +522,15 @@ inputUntouched(val: any) {
 
 
 
+  clear(){
+    this.filterVal = '';
+    this.filterValstatus=''
+    setTimeout(() => {
+      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+      this.jobTicketList.paginator = this.paginator4;
+    }, 500);
 
+    }
 
 
 

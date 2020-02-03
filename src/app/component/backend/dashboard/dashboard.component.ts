@@ -104,6 +104,9 @@ export class DashboardComponent implements OnInit {
   public indexval: number = 3;
   public jobTicketDataList:any;
 
+  public filterVal:any;
+  public filterValstatus:any='';
+
   // public getDataUrl: any = 'datalist';
   public contactUsAllDataHeaderSkip: any = ['_id'];
   public contactUsAllDataModifyHeader: any = { addresses: 'Addresses', emails: 'Emails', locationname: 'Location Name', phones: 'Phones' };
@@ -226,13 +229,26 @@ export class DashboardComponent implements OnInit {
           result=res;
           this.jobTicketDataList=result.res;
           
-          this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
-    
+          setTimeout(() => {
+            this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+            this.jobTicketList.paginator = this.paginator4;
+          }, 500);
+      
           // this.rsvp_list=result.res;
           // console.log(this.rsvp_list)
         })
     
       }
+
+      clear(){
+        this.filterVal = '';
+        this.filterValstatus=''
+        setTimeout(() => {
+          this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+          this.jobTicketList.paginator = this.paginator4;
+        }, 500);
+    
+        }
 
 
   //rsvp delete

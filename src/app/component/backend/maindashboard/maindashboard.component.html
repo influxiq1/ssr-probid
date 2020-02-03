@@ -858,7 +858,8 @@
 
                   <span class="searchbar">
                     <mat-form-field>
-                      <select matNativeControl (change)="statusFilterForJT($event.target.value)" >
+                      <select matNativeControl (change)="statusFilterForJT($event.target.value)" 
+                      [(ngModel)]="filterValstatus" name="filterValstatus">
                         <option value=''>Select Status</option>
                         <option value=0>Open</option>
                         <option value=1>Replied By Admin</option>
@@ -867,8 +868,10 @@
                       </select>
                     </mat-form-field>
                     <mat-form-field>
-                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" 
+                      [(ngModel)]="filterVal" name="filterVal"  />
                     </mat-form-field>
+                    <button mat-raised-button (click) = "clear()">Reset</button>
                   </span>
               </div>
               

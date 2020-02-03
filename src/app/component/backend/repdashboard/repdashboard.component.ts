@@ -87,6 +87,9 @@ export class RepdashboardComponent implements OnInit {
   public errorApiKey:any;
   public jobTicketDataList:any;
   public profile: any = '';
+
+  public filterVal:any;
+  public filterValstatus:any='';
   
   public allFacebookBanner : any = [
     'facebookbanner-img1.jpg', 'facebookbanner-img2.jpg', 'facebookbanner-img3.jpg', 'facebookbanner-img4.jpg', 'facebookbanner-img5.jpg', 'facebookbanner-img6.jpg', 'facebookbanner-img7.jpg', 'facebookbanner-img8.jpg', 'facebookbanner-img9.jpg', 'facebookbanner-img10.jpg', 'facebookbanner-img11.jpg', 'facebookbanner-img12.jpg', 'facebookbanner-img13.jpg', 'facebookbanner-img14.jpg', 'facebookbanner-img15.jpg', 'facebookbanner-img16.jpg', 'facebookbanner-img17.jpg', 'facebookbanner-img18.jpg', 'facebookbanner-img19.jpg', 'facebookbanner-img20.jpg', 'facebookbanner-img21.jpg', 'facebookbanner-img22.jpg', 'facebookbanner-img23.jpg', 'facebookbanner-img24.jpg', 'facebookbanner-img25.jpg', 'facebookbanner-img26.jpg', 'facebookbanner-img27.jpg', 'facebookbanner-img28.jpg', 'facebookbanner-img29.jpg', 'facebookbanner-img30.jpg', 'facebookbanner-img31.jpg', 'facebookbanner-img32.jpg', 'facebookbanner-img33.jpg', 'facebookbanner-img34.jpg', 'facebookbanner-img35.jpg', 'facebookbanner-img36.jpg'];
@@ -339,13 +342,29 @@ if (val !='') {
       result=res;
       this.jobTicketDataList=result.res;
       
-      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
 
       // this.rsvp_list=result.res;
       // console.log(this.rsvp_list)
+
+      setTimeout(() => {
+        this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+
+        this.jobTicketList.paginator = this.paginator4;
+        
+      }, 500);
     })
 
   }
+
+  clear(){
+    this.filterVal = '';
+    this.filterValstatus=''
+    setTimeout(() => {
+      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+      this.jobTicketList.paginator = this.paginator4;
+    }, 500);
+
+    }
 
 
 
