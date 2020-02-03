@@ -171,11 +171,11 @@ public allLinkdinBanner : any = [
 
   
 
-  // linkdinShare(url: any){
-  //   var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
-  //   // console.log(fullUrl)
+  linkdinShare(url: any){
+    var fullUrl = 'https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+    // console.log(fullUrl)
 
-  // }
+  }
 
   // share(url: string) {
 

@@ -54,7 +54,6 @@
                     <div class="tablediv">
                       <span class="searchbar" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
                         <span class="searchbar">
-
                           <mat-form-field>
                             <select matNativeControl (change)="statusFilterForJT($event.target.value)" >
                               <option value=''>Select Status</option>
@@ -64,11 +63,10 @@
                               <option value=3>Re-Opened</option>
                             </select>
                           </mat-form-field>
-                        </span>
-
-                        <mat-form-field>
-                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                        </mat-form-field>
+                          <mat-form-field>
+                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                          </mat-form-field>
+                        </span>                        
                       </span>
                     </div>
                       <div class="example-container mat-elevation-z8" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
