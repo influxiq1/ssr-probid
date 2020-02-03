@@ -662,7 +662,20 @@ const routes: Routes = [
   { path: 'add-birddog', component: AddBirddogComponent },
   { path: 'editbirddog/:_id', component: AddBirddogComponent },
 
-  { path: 'miscellaneous', component: MiscellaneousComponent },
+  
+
+  {
+    path: 'miscellaneous',
+    component: MiscellaneousComponent,
+    resolve: { data: ResolveService },
+    data: {
+      requestcondition: {
+        source: 'contactusForm',
+        condition: {}
+      },
+      endpoint: 'datalist'
+    },
+  },
 
   /**End Backend Routing**/
 
