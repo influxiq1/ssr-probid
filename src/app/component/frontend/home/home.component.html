@@ -554,7 +554,7 @@
 
   <mat-card class="probidhomeblock6 generalcls blog ptb-40">
       <span class="mainwrappercontent text-center">
-          <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/blogicon.png"> Blog</h2>          
+          <h2 class="innertitle2"><img src="https://dev.probidauto.com/assets/images/blogicon.png"> Blogs</h2>          
                   <mat-card-content class="bottom_blog">    
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
@@ -575,7 +575,7 @@
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
                           <a class="next_page"  (click)="blogdetail(item._id)" >read more</a>
                           <span class="blogsociallists">
-                            <a class="sociallink fa fb" (click)="comingSoonDialogBloghome()"><fa name="facebook" class="fa-facebook"></fa></a>
+                            <a class="sociallink fa fb" (click)="fb_share(item)"><fa name="facebook" class="fa-facebook"></fa></a>
                             <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
                             <!-- <fa class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a> -->
                             <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>

@@ -1,17 +1,17 @@
-import { Component, OnInit, ChangeDetectorRef,Inject } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef, Inject } from '@angular/core';
 import { MetaService } from '@ngx-meta/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import {ApiService} from '../../../api.service';
+import { ApiService } from '../../../api.service';
 import { FormGroup, FormBuilder, Validators, FormGroupDirective } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
-import {AppComponent} from '../../../app.component';
+import { AppComponent } from '../../../app.component';
 declare var $: any;
 export interface DialogData {
   errorMsg: string;
   loginMsg: string;
-  name:string;
+  name: string;
 }
 
 // var owl = $('.owl-carousel');
@@ -29,13 +29,13 @@ export interface DialogData {
 export class HomeComponent implements OnInit {
 
 
-  
-  public  name: string;
-  
-  public saveCarDataList:any;
+
+  public name: string;
+
+  public saveCarDataList: any;
   public inventoryCustomerForm: FormGroup;
 
-  public inventoryPreownForm:FormGroup;
+  public inventoryPreownForm: FormGroup;
 
   public type: string = '';
   public year: string = '';
@@ -52,15 +52,15 @@ export class HomeComponent implements OnInit {
   public model_list: [];
   public year_list: [];
   public trim_list: [];
-  public stateList:any;
+  public stateList: any;
   public user_id: string = '';
-  public user_details:any = '';
-  public loginMsg: string ='';
+  public user_details: any = '';
+  public loginMsg: string = '';
   public errorMsg: string = '';
-  public apikey:any;
-  public sepecialCarList:any;
+  public apikey: any;
+  public sepecialCarList: any;
 
-  public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg","http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
+  public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
   carouselBannerOptions = {
     margin: 0,
     nav: true,
@@ -73,7 +73,7 @@ export class HomeComponent implements OnInit {
     responsiveClass: true,
     dots: true,
     autoWidth: true,
-    autoHeight:true,
+    autoHeight: true,
     navText: ["<div class='nav-btn prev-slide'><i class='material-icons'>keyboard_backspace</i></div>", "<div class='nav-btn next-slide'><i class='material-icons'>keyboard_backspace</i></div>"],
     responsive: {
       0: {
@@ -100,15 +100,15 @@ export class HomeComponent implements OnInit {
   }
 
 
- 
+
 
 
 
   carouselOptions = {
-    
-    autoPlay: true,    
-    singleItem:true,
-    transitionStyle:"fade",
+
+    autoPlay: true,
+    singleItem: true,
+    transitionStyle: "fade",
     mouseDrag: false,
     touchDrag: false,
     pullDrag: false,
@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit {
         autoplayHoverPause: true,
         center: true,
         loop: true,
-        nav: true,         
+        nav: true,
       },
       992: {
         items: 3,
@@ -155,22 +155,22 @@ export class HomeComponent implements OnInit {
         center: true,
         loop: true,
         nav: true,
-        dot:false,
+        dot: false,
       }
     }
   }
 
 
-  
+
 
   public TestimonialListArray: any = [];
   public savedUrl: any = [];
   public savedId: any = [];
   public blogList: any;
-  public indexval:any = 3;
+  public indexval: any = 3;
   public customerList: any = '';
   public customur_id: any = '';
-  public favoriteSeason:any;
+  public favoriteSeason: any;
   public indexCount: number;
   public indexCountForImg: number;
 
@@ -179,7 +179,7 @@ export class HomeComponent implements OnInit {
   // public testimonial_img: any = '';
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute,public apiService:ApiService,public fb:FormBuilder,public http:HttpClient,public dialog:MatDialog,public cookieService:CookieService, public apploader: AppComponent) { 
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public http: HttpClient, public dialog: MatDialog, public cookieService: CookieService, public apploader: AppComponent) {
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -197,7 +197,7 @@ export class HomeComponent implements OnInit {
     this.currentUrl = this.router.url;
     if (this.currentUrl == '/home') {
       body.classList.add('googlemaphome')
-    } else{
+    } else {
       body.classList.remove('googlemaphome')
     }
 
@@ -212,53 +212,53 @@ export class HomeComponent implements OnInit {
       // }
       this.user_id = this.user_details._id;
       // console.log(this.user_id);
-      
-      if(this.user_details.type == "salesrep") {
+
+      if (this.user_details.type == "salesrep") {
         let data: any = {
           endpoint: 'datalist',
           source: 'user',
           condition: {
-            "salesrep":this.user_id
+            "salesrep": this.user_id
           }
         }
-        this.apiService.getDatalist(data).subscribe((res:any)=>{
+        this.apiService.getDatalist(data).subscribe((res: any) => {
           this.customerList = res.res;
           // console.log(this.customerList);
         });
-    
+
       }
     }
   }
 
 
-  
 
-  
-//*********** Coming Soon ************//
-comingSoonDialogBloghome(): void {
-  const dialogRef = this.dialog.open(comingSoonDialogBloghome, {
-   
-    data: {name: this.name}
-  });
 
-  setTimeout(() => {
-    this.dialog.closeAll();
-  }, 4000);
-}
-//*********** Coming Soon ************//
+
+  //*********** Coming Soon ************//
+  comingSoonDialogBloghome(): void {
+    const dialogRef = this.dialog.open(comingSoonDialogBloghome, {
+
+      data: { name: this.name }
+    });
+
+    setTimeout(() => {
+      this.dialog.closeAll();
+    }, 4000);
+  }
+  //*********** Coming Soon ************//
 
   ngOnInit() {
-    this.activatedRoute.data.forEach((data: any) =>{
+    this.activatedRoute.data.forEach((data: any) => {
       this.blogList = data.home_data.result.blog_list;
       this.TestimonialListArray = data.home_data.result.testmonial_list;
       // console.warn(this.TestimonialListArray);
-      
-        // this.testimonial_img = this.testimonial_img[0].basepath+this.testimonial_img[0].image;
-      
-      this.saveCarDataList=data.home_data.result.car_listing;
-      this.sepecialCarList=data.home_data.result.car_special;
-      })
-  
+
+      // this.testimonial_img = this.testimonial_img[0].basepath+this.testimonial_img[0].image;
+
+      this.saveCarDataList = data.home_data.result.car_listing;
+      this.sepecialCarList = data.home_data.result.car_special;
+    })
+
 
 
     //for preown car
@@ -266,7 +266,7 @@ comingSoonDialogBloghome(): void {
 
     // let data: any = {
     //   source:'allcar_view', 
-      
+
     // }
     // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
     //   this.saveCarDataList=resc.res;
@@ -278,29 +278,29 @@ comingSoonDialogBloghome(): void {
 
 
     //for year list
-let datay:any;
+    let datay: any;
 
-   datay= {
-      source:"manage-year"
+    datay = {
+      source: "manage-year"
     }
-    this.apiService.getDatalistWithToken(datay,'datalistwithouttoken').subscribe((resy)=>{
-      let result:any=resy;
-      this.year_list =result.res
+    this.apiService.getDatalistWithToken(datay, 'datalistwithouttoken').subscribe((resy) => {
+      let result: any = resy;
+      this.year_list = result.res
       // console.log('>>>>>',this.year_list)
     })
 
 
-   }
+  }
 
-   getStateList() {
+  getStateList() {
     this.apiService.getJsonObject('assets/data/states.json').subscribe((response: any) => {
       this.stateList = response;
     });
   }
 
-   //form for inventory search
+  //form for inventory search
 
-   generateForm() {
+  generateForm() {
     this.inventoryCustomerForm = this.fb.group({
       type: [''],
       make: [''],
@@ -317,89 +317,89 @@ let datay:any;
 
   //generate form for preown car
 
-  generatePreownForm(){
-    this.inventoryPreownForm=this.fb.group({
-      make:[''],
-      model:[''],
-      year:[''],
-      type:['']
+  generatePreownForm() {
+    this.inventoryPreownForm = this.fb.group({
+      make: [''],
+      model: [''],
+      year: [''],
+      type: ['']
     })
   }
 
-//for preown car
-inventoryPreownSearch(){
+  //for preown car
+  inventoryPreownSearch() {
 
-  this.apploader.loader = 1;
+    this.apploader.loader = 1;
 
-  // console.log('hit')
-  let yearVal = this.inventoryPreownForm.value.year;
-  let typeVal = this.inventoryPreownForm.value.type;
-  let makeVal = this.inventoryPreownForm.value.make;
-  let modelVal = this.inventoryPreownForm.value.model;
+    // console.log('hit')
+    let yearVal = this.inventoryPreownForm.value.year;
+    let typeVal = this.inventoryPreownForm.value.type;
+    let makeVal = this.inventoryPreownForm.value.make;
+    let modelVal = this.inventoryPreownForm.value.model;
 
 
-  // let data: any = {
-  //   source:'save_favorite_view',
-  //   condition:{
-  //   	"build.make":makeVal || modelVal || typeVal || yearVal
-  //   }
-  // }
+    // let data: any = {
+    //   source:'save_favorite_view',
+    //   condition:{
+    //   	"build.make":makeVal || modelVal || typeVal || yearVal
+    //   }
+    // }
 
-  // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
-  //   this.saveCarDataList=resc.res
-  //   this.apploader.loader = 0;
+    // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
+    //   this.saveCarDataList=resc.res
+    //   this.apploader.loader = 0;
 
-  // })
-  if (typeVal != null && typeVal != '' && typeVal.length >= 0) {
-    this.type = "&body_type=" + typeVal;
-  }
-  if (yearVal != null && yearVal != '' && yearVal.length >= 0) {
-    this.year = "&year=" + yearVal;
-  }
-  if (makeVal != null && makeVal != '' && makeVal.length >= 0) {
-    this.make = "&make=" + makeVal;
-  }
-  if (modelVal != null && modelVal != '' && modelVal.length >= 0) {
-    this.model = "&model=" + modelVal;
-  }
+    // })
+    if (typeVal != null && typeVal != '' && typeVal.length >= 0) {
+      this.type = "&body_type=" + typeVal;
+    }
+    if (yearVal != null && yearVal != '' && yearVal.length >= 0) {
+      this.year = "&year=" + yearVal;
+    }
+    if (makeVal != null && makeVal != '' && makeVal.length >= 0) {
+      this.make = "&make=" + makeVal;
+    }
+    if (modelVal != null && modelVal != '' && modelVal.length >= 0) {
+      this.model = "&model=" + modelVal;
+    }
 
-  if (this.type != '' || this.year != '' || this.make != '' || this.model != '') {
+    if (this.type != '' || this.year != '' || this.make != '' || this.model != '') {
 
-    let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.model+ '&rows=50';
+      let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.model + '&rows=50';
 
-    this.http.get(search_link).subscribe((res: any) => {
-      this.apploader.loader = 0;
+      this.http.get(search_link).subscribe((res: any) => {
+        this.apploader.loader = 0;
 
-      this.saveCarDataList = res.listings;
-      // console.log('search list',this.search)
+        this.saveCarDataList = res.listings;
+        // console.log('search list',this.search)
         console.log(this.saveCarDataList);
-        
-    },
-    error =>{
 
-      // console.log('Invalid_Api')
-      // console.log(this.apiService.invalidApi)
+      },
+        error => {
 
-      
-      this.apikey=this.apiService.invalidApi;
+          // console.log('Invalid_Api')
+          // console.log(this.apiService.invalidApi)
 
-      let data:any;
-      data={
-        
-        "apikey":this.apikey
-      }
 
-      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
-        // console.log("error")
-      })
+          this.apikey = this.apiService.invalidApi;
+
+          let data: any;
+          data = {
+
+            "apikey": this.apikey
+          }
+
+          this.apiService.getDatalistWithToken(data, 'deleteapi').subscribe((res) => {
+            // console.log("error")
+          })
+        }
+      )
+    }
+
+
+
+
   }
-    )
-  } 
-
-
-
-
-}
 
 
 
@@ -451,20 +451,20 @@ inventoryPreownSearch(){
       if (zipVal != null && zipVal != '' && zipVal.length >= 0) {
         this.zip = "&zip=" + zipVal;
       }
-     
+
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=50';
+        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model + '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.apploader.loader = 0;
 
           this.search = res.listings;
           // console.log('search list',this.search)
-            console.log(this.search);
-            
+          console.log(this.search);
+
         })
-      } 
+      }
       else {
         this.apploader.loader = 0;
 
@@ -482,7 +482,7 @@ inventoryPreownSearch(){
   }
 
 
-  
+
 
   searchAutoComplete(event: any, field: string) {
     this.apploader.loader = 1;
@@ -497,48 +497,48 @@ inventoryPreownSearch(){
       inputField = "&field=" + field;
     }
 
-    if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
-    let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
+    if (inputField != '' && (input != '' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
+      let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
-    this.http.get(search_url).subscribe((res: any) => {
-      this.apploader.loader = 0;
+      this.http.get(search_url).subscribe((res: any) => {
+        this.apploader.loader = 0;
 
-     
-      if (field == 'make') {
-        this.make_list = res.terms; 
-        // console.log(field, this.make_list);
-      }
-      if (field == 'model') {
-        this.model_list = res.terms; 
-        // console.log(field); 
-      }
-      if (field == 'body_type') {
-        this.type_list = res.terms; 
-        // console.log(field, this.type_list); 
-      }
-      if (field == 'trim') {
-        this.trim_list = res.terms; 
-        // console.log(field, this.trim_list); 
-      }
 
-    },error =>{
-      // console.log('Invalid_Api')
-      // console.log(this.apiService.invalidApi)
+        if (field == 'make') {
+          this.make_list = res.terms;
+          // console.log(field, this.make_list);
+        }
+        if (field == 'model') {
+          this.model_list = res.terms;
+          // console.log(field); 
+        }
+        if (field == 'body_type') {
+          this.type_list = res.terms;
+          // console.log(field, this.type_list); 
+        }
+        if (field == 'trim') {
+          this.trim_list = res.terms;
+          // console.log(field, this.trim_list); 
+        }
 
-      
-      this.apikey=this.apiService.invalidApi;
+      }, error => {
+        // console.log('Invalid_Api')
+        // console.log(this.apiService.invalidApi)
 
-      let data:any;
-      data={
-        
-        "apikey":this.apikey
-      }
 
-      this.apiService.getDatalistWithToken(data,'deleteapi').subscribe((res)=>{
-        // console.log("error")
-      })
-  });
-  }
+        this.apikey = this.apiService.invalidApi;
+
+        let data: any;
+        data = {
+
+          "apikey": this.apikey
+        }
+
+        this.apiService.getDatalistWithToken(data, 'deleteapi').subscribe((res) => {
+          // console.log("error")
+        })
+      });
+    }
 
   }
 
@@ -546,7 +546,7 @@ inventoryPreownSearch(){
     this.inventoryCustomerForm.reset();
   }
 
-   
+
   ngAfterViewInit(): void {
     this.cdr.detectChanges();
   }
@@ -561,13 +561,13 @@ inventoryPreownSearch(){
   };
 
 
-  blogdetail(val:any){
+  blogdetail(val: any) {
     // console.log(val)
-    this.router.navigateByUrl('/blogdetail/' +val)
+    this.router.navigateByUrl('/blogdetail/' + val)
   }
-  
-  showMoreFunc(){
-    this.indexval = this.indexval + 3;   
+
+  showMoreFunc() {
+    this.indexval = this.indexval + 3;
     // console.log(this.indexval);
   }
 
@@ -575,49 +575,49 @@ inventoryPreownSearch(){
   //   let data: any = {
   //     endpoint: 'datalist',
   //     source: 'save_favorite_view',
-      
+
   //   }
   //   this.apiService.getDatalist(data).subscribe((res:any)=>{
   //     console.log(res);
   //   })
   // }
 
-  gotologin(){
-    this.router.navigateByUrl('/login'+this.router.url)
+  gotologin() {
+    this.router.navigateByUrl('/login' + this.router.url)
     // console.log('/login'+this.router.url)
   }
 
-  loginbefore(){
+  loginbefore() {
     this.loginMsg = "To access the ProbidAuto Search Results";
 
-        const dialogRef = this.dialog.open(loginDialog, {
-          width: '450px',
-          data: { loginMsg: this.loginMsg }
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          // console.log('The dialog was closed', result);
-          if (result == 'yes') {
-            this.gotologin();
-          }
-          // this.loginMsg = result;
-        });
+    const dialogRef = this.dialog.open(loginDialog, {
+      width: '450px',
+      data: { loginMsg: this.loginMsg }
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      // console.log('The dialog was closed', result);
+      if (result == 'yes') {
+        this.gotologin();
+      }
+      // this.loginMsg = result;
+    });
 
-   
+
   }
 
   favorite(item: any) {
     // console.log('this is favorite ')
-    if (this.user_id  == '') {
+    if (this.user_id == '') {
       this.cookieService.set('favorite_car', JSON.stringify(item));
       setTimeout(() => {
         this.loginbefore();
       }, 500);
     }
-    else{
+    else {
       // console.log(this.cookieService.get('favorite_car'))
       let endpoint: any = "addorupdatedata";
       item.added_by = this.user_id;
-      let card_data:any = {
+      let card_data: any = {
         card_data: item
       }
       let data: any = {
@@ -625,54 +625,54 @@ inventoryPreownSearch(){
         source: "save_favorite",
       };
       // console.log(data)
-        this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-          // console.log(res);
-          (res.status == "success")
-        });
+      this.apiService.CustomRequest(data, endpoint).subscribe((res: any) => {
+        // console.log(res);
+        (res.status == "success")
+      });
     }
-   
+
   }
 
-  loadMoreSearchResult(){
-    this.indexval=this.indexval+5;
+  loadMoreSearchResult() {
+    this.indexval = this.indexval + 5;
   }
 
-  showimg(i:any, j:any){
+  showimg(i: any, j: any) {
     // console.log('+++',i, j)
     this.indexCount = i;
     this.indexCountForImg = j;
   }
-  
+
 
 
   rsvpSend(item: any) {
     // console.log(this.user_id)
-    if (this.user_id  == '') {
+    if (this.user_id == '') {
       this.cookieService.set('rsvp_car', JSON.stringify(item));
       setTimeout(() => {
         this.loginbefore();
       }, 500);
     }
     else {
-    // console.log('rsvpSend',item);
-    // console.log(this.cookieService.get('rsvp_car'));
-    let endpoint: any = "addorupdatedata";
-    item.added_by = this.user_id;
-    item.status = 0;
-    if (this.user_details.type == 'salesrep') {
-      item.added_for = this.customur_id;
+      // console.log('rsvpSend',item);
+      // console.log(this.cookieService.get('rsvp_car'));
+      let endpoint: any = "addorupdatedata";
+      item.added_by = this.user_id;
+      item.status = 0;
+      if (this.user_details.type == 'salesrep') {
+        item.added_for = this.customur_id;
       } else {
         item.added_for = this.user_id;
       }
-    let card_data:any = {
-      card_data: item
-    }
-    let data: any = {
-      data: card_data,
-      source: "send_for_rsvp",
-    };
-    // console.log(data)
-      this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+      let card_data: any = {
+        card_data: item
+      }
+      let data: any = {
+        data: card_data,
+        source: "send_for_rsvp",
+      };
+      // console.log(data)
+      this.apiService.CustomRequest(data, endpoint).subscribe((res: any) => {
         // console.log(res);
         (res.status == "success")
       });
@@ -680,18 +680,37 @@ inventoryPreownSearch(){
   }
 
 
-//*********** Coming Soon ************//
-comingSoonDialogTestimonhome(): void {
-  const dialogRef = this.dialog.open(comingSoonDialogTestimonhome, {
-   
-    data: {name: this.name}
-  });
+  fb_share(val: any) {
+    console.log(val._id);
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '', "width=500,height=500");
+  }
+  // share(url: string) {
+  //   var fullUrl = 'https://dev.probidauto.com/customer-signup/'+url+'/'+this.userCookies._id;
+  //   this.cookieService.set('shareIngUrl',fullUrl);
+  //   let params: UIParams = {
+  //     href: fullUrl,
+  //     method: 'share',
+  //     quote: 'https://dev.probidauto.com/'
+  //   };
+  //   this.facebook.ui(params)
+  //     .then((res: UIResponse) =>{
+  //     })
+  //     .catch();   
+  // }
 
-  setTimeout(() => {
-    this.dialog.closeAll();
-  }, 4000);
-}
-//*********** Coming Soon ************//
+
+  //*********** Coming Soon ************//
+  comingSoonDialogTestimonhome(): void {
+    const dialogRef = this.dialog.open(comingSoonDialogTestimonhome, {
+
+      data: { name: this.name }
+    });
+
+    setTimeout(() => {
+      this.dialog.closeAll();
+    }, 4000);
+  }
+  //*********** Coming Soon ************//
 
 }
 
@@ -706,7 +725,7 @@ export class loginDialog {
     @Inject(MAT_DIALOG_DATA) public data: DialogData) {
     // console.log(data);
   }
-  
+
 
   LinkToLogin(): void {
     this.dialogRef.close();
@@ -742,7 +761,7 @@ export class comingSoonDialogBloghome {
 
   constructor(
     public dialogRef: MatDialogRef<comingSoonDialogBloghome>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   onNoClick(): void {
     this.dialogRef.close();
@@ -752,14 +771,14 @@ export class comingSoonDialogBloghome {
 
 
 @Component({
-  selector:'app-coming-soon',
+  selector: 'app-coming-soon',
   templateUrl: '../../../layout/coming-soon.html'
 })
 export class comingSoonDialogTestimonhome {
 
   constructor(
     public dialogRef: MatDialogRef<comingSoonDialogTestimonhome>,
-    @Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+    @Inject(MAT_DIALOG_DATA) public data: DialogData) { }
 
   onNoClick(): void {
     this.dialogRef.close();
