@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { ApiService } from '../../../api.service';
+import { ApiService } from '../../../../api.service';
 import { MatDialogRef } from '@angular/material';
-import { DialogModalOpenDialog } from '../admin-manage-categories/admin-manage-categories.component';
+import { DialogModalOpenDialog } from '../../inventory/admin-manage-categories/admin-manage-categories.component';
 import { MetaService } from '@ngx-meta/core';
 
 @Component({

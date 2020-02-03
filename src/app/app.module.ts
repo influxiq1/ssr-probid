@@ -111,21 +111,21 @@ import { TestimonialModule } from 'testimonial-lib-influxiq';
 import { BlogManagementComponent } from './component/backend/blog-management/blog-management.component';
 import { CommissionReportComponent } from './component/backend/commission-report/commission-report.component';
 import { InventorySearchComponent } from './component/backend/inventory-search/inventory-search.component';
-import { ManageAvailabilityComponent } from './component/backend/manage-availability/manage-availability.component';
+import { ManageAvailabilityComponent } from './component/backend/calendar-manager/manage-availability/manage-availability.component';
 import { TestimonialListsAdminComponent } from './component/backend/testimonial-lists-admin/testimonial-lists-admin.component';
-import { BirddogListComponent } from './component/backend/birddog-list/birddog-list.component';
+import { BirddogListComponent } from './component/backend/user/birddog-list/birddog-list.component';
 import { CommissionListComponent } from './component/backend/commission-list/commission-list.component';
-import { CustomerListComponent } from './component/backend/customer-list/customer-list.component';
+import { CustomerListComponent } from './component/backend/user/customer-list/customer-list.component';
 import { NewsletterlistsComponent } from './component/backend/manage-website/newsletterlists/newsletterlists.component';
 import { SalesReportComponent } from './component/backend/sales-report/sales-report.component';
-import { SalesreplistsComponent } from './component/backend/salesreplists/salesreplists.component';
+import { SalesreplistsComponent } from './component/backend/user/salesreplists/salesreplists.component';
 import { RsvplistsComponent, DeleteModalComponent, askForconfirmationModalComponent } from './component/backend/rsvplists/rsvplists.component';
 import { ManageTrainingComponent } from './component/backend/manage-training/manage-training.component';
 
 import { ManageLessonsComponent } from './component/backend/manage-lessons/manage-lessons.component';
 import { TrainingCenterComponent } from './component/backend/training-center/training-center.component';
 import { TrainingReportComponent } from './component/backend/training-report/training-report.component';
-import { MyAppointmentComponent } from './component/backend/my-appointment/my-appointment.component';
+import { MyAppointmentComponent } from './component/backend/calendar-manager/my-appointment/my-appointment.component';
 import { CreateNewInventoryComponent } from './component/backend/create-new-inventory/create-new-inventory.component';
 import { BookAnAppointmentComponent } from './component/backend/book-an-appointment/book-an-appointment.component';
 import { AdvanceInventorySearchBackendComponent } from './component/backend/inventory/advance-inventory-search-backend/advance-inventory-search-backend.component';
@@ -133,8 +133,8 @@ import { BasicInventorySearchBackendComponent } from './component/backend/invent
 import { MysalesrepComponent, RemoveSalesRepRSvpModalComponent } from './component/backend/mysalesrep/mysalesrep.component';
 import { CommunicationComponent } from './component/backend/communication/communication.component';
 import { AddAdminCategoriesComponent } from './component/backend/add-admin-categories/add-admin-categories.component';
-import { AdminManageCategoriesComponent, DialogModalOpenDialog } from './component/backend/admin-manage-categories/admin-manage-categories.component';
-import { AdminAddCategoriesComponent } from './component/backend/admin-add-categories/admin-add-categories.component';
+import { AdminManageCategoriesComponent, DialogModalOpenDialog } from './component/backend/inventory/admin-manage-categories/admin-manage-categories.component';
+import { AdminAddCategoriesComponent } from './component/backend/inventory/admin-add-categories/admin-add-categories.component';
 import { ServicelibModule } from 'service-lib-influxiq';
 
 
@@ -144,9 +144,9 @@ import { ListingBlogcatComponent } from './component/backend/blogs/listing-blogc
 import { AddEditBlogsComponent } from './component/backend/blogs/add-edit-blogs/add-edit-blogs.component';
 import { ListingBlogsComponent } from './component/backend/blogs/listing-blogs/listing-blogs.component';
 import { MyAccountComponent } from './component/backend/my-account/my-account.component';
-import { AddSalesrepComponent } from './component/backend/add-salesrep/add-salesrep.component';
-import { AddCustomerComponent } from './component/backend/add-customer/add-customer.component';
-import { AddBirddogComponent } from './component/backend/add-birddog/add-birddog.component';
+import { AddSalesrepComponent } from './component/backend/user/add-salesrep/add-salesrep.component';
+import { AddCustomerComponent } from './component/backend/user/add-customer/add-customer.component';
+import { AddBirddogComponent } from './component/backend/user/add-birddog/add-birddog.component';
 import { NewsTitleModule } from 'news-title-lib-influxiq';
 import { BlogModule } from 'blog-lib-influxiq';
 
