@@ -402,6 +402,11 @@ if (val !='') {
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
+  goToOpenTicket(item: any, status: any){
+    // console.log(item);
+    this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
+  }
+
   //delete JobTicket record
   deleteJobTicket(val:any,index:any){
     console.log('delete hit',val,index)
