@@ -72,7 +72,7 @@
 .customer-dashboard-block2 .rsvplisttypebottom{display:flex;align-items:center;justify-content:space-between;flex-direction:row;padding-top:5px;padding-bottom:0;font-family:"HelveticaBold";font-size:13px;text-transform:uppercase;color:#000}
 .customer-dashboard-block2 .rsvplistsbottombtm{display:flex;align-items:center;justify-content:space-between;flex-direction:row;background-color:#c0c1c2;padding:6px;margin-top:auto}
 .customer-dashboard-block2 .rsvplistsbottombtm span{font-family:"HelveticaBold";font-size:16px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
-.customer-dashboard-block2 .rsvplistsbottom h2{color:#222527;font-family:'HelveticaBold';font-size:24px!important;text-transform:uppercase;margin:0;line-height:normal!important;padding:12px 10px 2px}
+.customer-dashboard-block2 .rsvplistsbottom h2{color:#222527;font-family:'HelveticaBold';font-size:24px!important;text-transform:uppercase;margin:0;line-height:normal!important;padding:12px 10px 0px; -webkit-line-clamp: 2;-webkit-box-orient: vertical;overflow: hidden;text-overflow: ellipsis;display: block;display: -webkit-box;}
 .customer-dashboard-block2 .rsvplistsbottom h1{color:#0a0f19;font-family:'HelveticaBold';font-size:30px!important;text-transform:uppercase;margin:0;line-height:normal!important;padding:5px 10px 10px}
 .customer-dashboard-block2 .rsvplistsbottom h1 span{color:#f7462e}
 .customer-dashboard-block2 .rsvplistsingleright{box-sizing:border-box;margin-bottom:10px;width:calc(1/1*100% - (1 - 1/1)*10px);margin-top:10px;padding:0 8px 8px;box-shadow:0 1px 4px 0 rgba(168,168,168,0.5);background-color:#fff;text-align:center}
@@ -119,6 +119,14 @@
 .rep-dashboard-block6 .titleadmin{justify-content:space-between;display:flex}
 .customer-dashboard-block1 .listscontent .mat-list-base .mat-list-item .labelcls:after{content:'';position:absolute;left:30%;top:0;width:0;height:0;border-top:29px solid transparent;border-bottom:29px solid transparent;border-left:10px solid #bdc3c6;clear:both}
 .communicationsection .tablediv{margin-top: 0 !important;}
+
 @media only screen and (max-width: 1199px) {
     .customer-dashboard-block1 .imgwrapperblock1right {width: 265px;}
+    .customer-dashboard-block2 .rsvplistsbottom h1 {font-size: 22px!important;}
+    .customer-dashboard-block2 .flexbox1column > .rsvplistsingle {box-sizing: border-box;margin: 3px;width: calc(1/2*100% - (1 - 1/2)*16px);height: auto;}
+    .generalcls .titleadmin {font-size: 34px!important;}
+}
+
+@media only screen and (max-width: 991px) {
+    .customer-dashboard-block2 .flexbox1column > .rsvplistsingle {box-sizing: border-box;margin: 3px;width: calc(1/1*100% - (1 - 1/1)*16px);height: auto;}
 }

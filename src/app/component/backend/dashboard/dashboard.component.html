@@ -77,8 +77,8 @@
                                               <img class="defaultimg" [src]="item.car_image">
                                           </span>                        
                                         </span>
-                                        <span class="rsvplistsbottom">
-                                          <h2>{{item.heading}}</h2>
+                                        <span class="rsvplistsbottom view-details-icon">
+                                          <span class="headingclsnew"><h2>{{item.heading}}</h2><span (click)="rsvpDetail(item._id)" matTooltip="view detail" matTooltipClass='red-tooltip'><mat-icon>visibility</mat-icon></span></span>
                                           <h1>Price - <span>$ {{item.price}}</span></h1>
                                           <span class="rsvplistsbottombtm">
                                             <mat-list>
@@ -134,8 +134,8 @@
                                                 </span>
                                               </span>
                                         </span>
-                                        <mat-button class="btnblue" 
-                                        (click)="rsvpDetail(item._id)">view details</mat-button>                            
+                                        <!-- <mat-button class="btnblue" 
+                                        (click)="rsvpDetail(item._id)">view details</mat-button>                             -->
                                     </span>
                                 </span>                       
                             </mat-list-item>
@@ -389,11 +389,23 @@
                     <span class="adm_dashboard_block4_inner">
                       <span class="tabwrapper"> 
                           <div class="tablediv">
+
                             <span class="searchbar">
+                              <mat-form-field>
+                                <select matNativeControl (change)="statusFilterForJT($event.target.value)" >
+                                  <option value=''>Select Status</option>
+                                  <option value=0>Open</option>
+                                  <option value=1>Replied By Admin</option>
+                                  <option value=2>Closed</option>
+                                  <option value=3>Re-Opened</option>
+                                </select>
+                              </mat-form-field>
                               <mat-form-field>
                                 <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
                               </mat-form-field>
                             </span>
+
+
                           </div>
                           <div class="example-container mat-elevation-z8">
                             <div class="tablediv">
@@ -511,7 +523,7 @@
                                 <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
                               </mat-table>
             
-                              <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                              <mat-paginator #paginator4 [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
                               </mat-paginator>
                             </div>
                           </div>
