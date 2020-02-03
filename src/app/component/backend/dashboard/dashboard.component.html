@@ -77,8 +77,8 @@
                                               <img class="defaultimg" [src]="item.car_image">
                                           </span>                        
                                         </span>
-                                        <span class="rsvplistsbottom">
-                                          <h2>{{item.heading}}</h2>
+                                        <span class="rsvplistsbottom view-details-icon">
+                                          <span class="headingclsnew"><h2>{{item.heading}}</h2><span (click)="rsvpDetail(item._id)" matTooltip="view detail" matTooltipClass='red-tooltip'><mat-icon>visibility</mat-icon></span></span>
                                           <h1>Price - <span>$ {{item.price}}</span></h1>
                                           <span class="rsvplistsbottombtm">
                                             <mat-list>
@@ -134,8 +134,8 @@
                                                 </span>
                                               </span>
                                         </span>
-                                        <mat-button class="btnblue" 
-                                        (click)="rsvpDetail(item._id)">view details</mat-button>                            
+                                        <!-- <mat-button class="btnblue" 
+                                        (click)="rsvpDetail(item._id)">view details</mat-button>                             -->
                                     </span>
                                 </span>                       
                             </mat-list-item>
