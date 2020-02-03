@@ -397,6 +397,10 @@ if (val !='') {
     this.router.navigateByUrl('/rsvp-detail/'+val);
   }
 
+  rsvpDetail(val:any){
+    // console.log('hit',val)
+    this.router.navigateByUrl('/rsvp-detail/'+val);
+  }
 
   //delete JobTicket record
   deleteJobTicket(val:any,index:any){

@@ -258,7 +258,7 @@
                         </mat-list>
 
                       </span>
-                    </span>
+                    </span>                    
                   </span>
                   <span class="rsvplisttypecontent">
                     <h2>Salesrep</h2>
@@ -276,6 +276,13 @@
                         </mat-list>
 
                       </span>
+                    </span>
+                    <span class="rsvplisttypebottom">                    
+                      <span>                         
+                        <button mat-button class="btnblue" (click)="rsvpDetail(item._id)">Know More</button>
+                        <button class="btnblue orangebtn" *ngIf="( item.job_ticket ==null || item.job_ticket != 1 ) && (userCookies.type == 'salesrep' || userCookies.type == 'customer')"  class="btnblue orangebtn" (click)="goToOpenTicket(item,'') ">Open Ticket</button>
+                        <button class="btnblue orangebtn" *ngIf="item.job_ticket == 1 "  class="btnblue orangebtn" (click)="goToOpenTicket(item,'1')">View Ticket</button>
+                      </span>                                   
                     </span>
                   </span>
                   <!-- <mat-button class="btnblue">view details</mat-button>                             -->
