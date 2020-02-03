@@ -62,6 +62,7 @@ export class ListingBlogsComponent implements OnInit {
   onBlogDataPopulate() {
     this.activatedRoute.data.subscribe(resolveData => {
       this.blogListConfig = resolveData.blogsList.res;
+      console.log("???",this.blogListConfig);
       this.jwtToken = this.cookieService.get('jwtToken');
     });
   }
