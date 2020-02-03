@@ -471,6 +471,41 @@ inputUntouched(val: any) {
   }
 
 
+  //job ticket status filter
+  statusFilterForJT(val:any){
+    console.log(val)
+
+    let data:any;
+if (val !='') {
+    data={
+      endpoint:'datalist',
+      source:"job_ticket_customer",
+      condition:{
+        "job_ticket_status":Number(val)
+            }
+       }
+      }
+      else{
+        data={
+        endpoint:'datalist',
+      source:"job_ticket_customer"
+        }
+      }
+      //  console.log(data)
+    this.apiService.getDatalist(data).subscribe((res)=>{
+      let result:any
+      result=res;
+      this.jobTicketDataList=result.res;
+      
+      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+
+      // this.rsvp_list=result.res;
+      // console.log(this.rsvp_list)
+    })
+
+  }
+
+
 
 
 

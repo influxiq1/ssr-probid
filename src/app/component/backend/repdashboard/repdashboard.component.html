@@ -1145,6 +1145,19 @@
 
               <ng-container *ngIf="jobLength > 0">
                 <div class="tablediv">
+
+                  <span class="searchbar">
+                    <mat-form-field>
+                      <select matNativeControl (change)="statusFilterForJT($event.target.value)" >
+                        <option value=''>Select Status</option>
+                        <option value=0>Open</option>
+                        <option value=1>Replied By Admin</option>
+                        <option value=2>Closed</option>
+                        <option value=3>Re-Opened</option>
+                      </select>
+                    </mat-form-field>
+                  </span>
+
                   <span class="searchbar">
                     <mat-form-field>
                       <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
@@ -1268,7 +1281,7 @@
                       <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
                     </mat-table>
 
-                    <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                    <mat-paginator #paginator4 [pageSize]="5" [pageSizeOptions]="[5, 10, 20]">
                     </mat-paginator>
                   </div>
                 </div>
