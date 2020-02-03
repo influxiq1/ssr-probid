@@ -384,7 +384,7 @@
                                 </span> -->
                   <p class="grapurl">
                     <span class="blogsociallists">
-                      <a class="sociallink fa fb">
+                      <a class="sociallink fa fb" target="_blank"  (click)="share(item)">
                         <i name="facebook" class="fa fa-facebook"></i>
                       </a>
                       <button (click)="copyMessage(item)" value="click to copy">Grab URL</button>
@@ -407,7 +407,7 @@
 
                   <p class="grapurl">
                     <span class="blogsociallists">
-                      <a class="sociallink fa lin">
+                      <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
                         <i name="linkedin" class="fa fa-linkedin"></i>
                       </a>
                       <button (click)="copyMessage(item)" value="click to copy">Grab URL</button>
