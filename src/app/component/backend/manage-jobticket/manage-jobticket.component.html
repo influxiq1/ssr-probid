@@ -183,7 +183,7 @@
 
           <span class="adm_dashboard_block1_right">
 
-            <span >
+            <span *ngIf="status != 1">
               <form [formGroup]="jobTicketForm" >
                 <span class="bluebg">
                   <!-- <span class="sectionheader">Car RSVP Info</span> -->
@@ -197,7 +197,7 @@
                   <!-- <button mat-raised-button type="button" class="btnblue" (click)="showMessage()">Reply</button> -->
                   </ng-container>                
                 </span>
-                <span *ngIf="status !=1" class="whitebg">
+                <span  class="whitebg">
                   <!-- <span class="sectionheader"></span> -->
                   <span class="graybg">
                     <mat-form-field class="example-full-width" *ngIf="status != 1 ">

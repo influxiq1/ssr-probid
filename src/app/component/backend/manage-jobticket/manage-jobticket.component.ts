@@ -295,8 +295,10 @@ public configDataJobTicket: any = {
     
     
         })
-          
         }, 500);
+
+
+       
     
      
       })

@@ -102,7 +102,7 @@ import { BkFooterComponent } from './layout/bk-footer/bk-footer.component';
 // import { ServicelibModule } from 'servicelib';
 // import { FileUploadModule } from 'dist/file-upload';
 import { BkLeftdivComponent } from './layout/bk-leftdiv/bk-leftdiv.component';
-import { MaindashboardComponent, DeleteModalRsvpComponent, DeleteJobTicketModalComponent } from './component/backend/maindashboard/maindashboard.component';
+import { MaindashboardComponent, DeleteModalRsvpComponent, DeleteJobTicketModalComponent, askForconfirmationDialogComponent } from './component/backend/maindashboard/maindashboard.component';
 import { UserManagementComponent } from './component/backend/user-management/user-management.component';
 import { RepdashboardComponent, RemoveDialogComponent, DeleteJobRepTicketModalComponent } from './component/backend/repdashboard/repdashboard.component';
 import { TestimonialModule } from 'testimonial-lib-influxiq';
@@ -372,6 +372,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     DeleteJobRepTicketModalComponent,
     comingSoonDialogTestimonListhome,
     MiscellaneousComponent,
+    askForconfirmationDialogComponent
   ],
   imports: [
     TranslateModule.forRoot(
@@ -431,7 +432,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     // SharetoolsModule
   ],
   exports: [TranslateModule],
-  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome,loginInventoryDialog,DeleteJobTicketModalComponent,DeleteJobRepTicketModalComponent, DeleteJobTicketCusModalComponent],
+  entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome,loginInventoryDialog,DeleteJobTicketModalComponent,DeleteJobRepTicketModalComponent, DeleteJobTicketCusModalComponent,askForconfirmationDialogComponent],
   
   providers: [CookieService, AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true, }],
   bootstrap: [AppComponent],

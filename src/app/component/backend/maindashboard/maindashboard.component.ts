@@ -11,8 +11,17 @@ import { FormGroup, FormBuilder ,FormGroupDirective, Validators} from '@angular/
 import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 import { MetaService } from '@ngx-meta/core';
 import {MatSort} from '@angular/material/sort';
+import { DomSanitizer } from '@angular/platform-browser';
 
-
+export interface DialogData1 {
+  data: any;
+  topPart:any;
+  flag:any;
+  heading:string;
+  added_by_fullname: string;
+  added_for_fullname: string;
+  highest_bid: string;
+} 
 
 
 
@@ -261,44 +270,44 @@ public errorMsg: string = '';
 
 
   openModale(data:any){
-    // // console.log(data)
-    // const dialogRef = this.dialog.open(askForconfirmationModalComponent, {
-    //   width: '250px',
-    //   data:data
+    // console.log(data)
+    const dialogRef = this.dialog.open(askForconfirmationDialogComponent, {
+      
+      data:data
 
-    // });
-    // dialogRef.afterClosed().subscribe((result:any) => {
-    //   // console.log(result);
+    });
+    dialogRef.afterClosed().subscribe((result:any) => {
+      // console.log(result);
 
-    //   let carData:any={
-    //     vehicle: result.heading,
-    //     salesrep: result.added_by_fullname,
-    //     customer: result.added_for_fullname,
-    //     salesrep_email: result.added_by_email,
-    //     customer_email: result.added_for_email,
-    //     topPart: result.topPart,
-    //     highest_bid: result.highest_bid,
-    //     status: 3
+      let carData:any={
+        vehicle: result.heading,
+        salesrep: result.added_by_fullname,
+        customer: result.added_for_fullname,
+        salesrep_email: result.added_by_email,
+        customer_email: result.added_for_email,
+        topPart: result.topPart,
+        highest_bid: result.highest_bid,
+        status: 3
 
-    //   }
+      }
 
-    //   if(result.flag == 'yes' ){
+      if(result.flag == 'yes' ){
 
-    //   let endpoint: any = "addorupdatedatawithouttoken";
+      let endpoint: any = "addorupdatedatawithouttoken";
     
-    //     let data: any = {
-    //       data: carData,  
-    //       source: "ask_for_confirmation",
-    //     };
-    //       this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
-    //         (res.status == "success");
-    //         // console.log(res)
-    //       });
-    //     } else {
-    //       // console.log('No..!')
-    //     }
+        let data: any = {
+          data: carData,  
+          source: "ask_for_confirmation",
+        };
+          this.apiService.CustomRequest(data, endpoint).subscribe((res:any) => {
+            (res.status == "success");
+            // console.log(res)
+          });
+        } else {
+          // console.log('No..!')
+        }
 
-    //     });
+        });
   }
 
 generateForm(){
@@ -701,6 +710,43 @@ export class DeleteJobTicketModalComponent {
   constructor( public dialogRef: MatDialogRef<DeleteJobTicketModalComponent>,
                @Inject(MAT_DIALOG_DATA) public data: DialogData){
 
+  }
+}
+
+
+// modal for send rsvp mail 
+
+@Component({
+  selector:'app-askForconfirmationDialog',
+  templateUrl:'./askForconfirmationDialog.html'
+})
+export class askForconfirmationDialogComponent {
+  // public editorconfig: any = [];
+public topPart: any =''; 
+public highest_bid: any = '';
+public flagVal:any = 1;
+
+  constructor( public dialogRef: MatDialogRef<askForconfirmationDialogComponent>,
+               @Inject(MAT_DIALOG_DATA) public data: DialogData1, public fb:FormBuilder, public apiService: ApiService, public _sanitizer: DomSanitizer){
+                 
+              //  this.editorconfig.extraAllowedContent = '*[class](*),span;ul;li;table;td;style;*[id];*(*);*{*}';
+  }
+
+  submitform(val: any, flag: string, val1: any){
+    console.log(val, val1, flag)
+    // this.data.topPart = JSON.stringify(val);
+    this.data.topPart = val;
+    this.data.highest_bid = val1;
+    this.data.flag = flag;
+    // console.log(this.data)
+    this.dialogRef.close(this.data);
+  }
+
+  preview() {
+    this.flagVal = 0;
+  }
+  safeHtml(html) {
+    return this._sanitizer.bypassSecurityTrustHtml(html);
   }
 }
 
