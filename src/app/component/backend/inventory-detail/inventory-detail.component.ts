@@ -83,6 +83,8 @@ export class InventoryDetailComponent implements OnInit {
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
       this.user_details = JSON.parse(this.cookieService.get('user_details'));
+      this.user_id = this.user_details._id;
+
      // console.log(this.user_id);
       // console.log('type>>', this.user_details.type)
 
