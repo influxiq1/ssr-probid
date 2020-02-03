@@ -269,11 +269,11 @@
                                             <button mat-button class="btnblue orangebtn" 
                                             (click)="viewJobTicket(item)">View ticket</button> -->
 
-                        <button mat-button *ngIf="
+                        <!-- <button mat-button *ngIf="
                             item.job_ticket == null || item.job_ticket != 1
                           " class="btnblue orangebtn" (click)="goToOpenTicket(item, '')">
                           Open Ticket
-                        </button>
+                        </button> -->
 
                         <button mat-button *ngIf="item.job_ticket == 1" class="btnblue orangebtn"
                           (click)="goToOpenTicket(item, '1')">

@@ -251,6 +251,11 @@ export class DashboardComponent implements OnInit {
         }
 
 
+        goToOpenTicket(item: any, status: any){
+          // console.log(item);
+          this.router.navigateByUrl('/manage-job-ticket/add/'+item._id+'/'+status)
+        }
+
   //rsvp delete
   deleteRsvp(val: any, i: any) {
     // console.log(val, i);

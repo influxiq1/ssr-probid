@@ -236,4 +236,6 @@ p#note {
 @media only screen and (max-width: 991px) {
     .rsvplists > span{width:calc(1/1*100% - (1 - 1/1)*10px)}
     }
+
+
     
