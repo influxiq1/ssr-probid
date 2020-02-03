@@ -119,8 +119,10 @@
 .rep-dashboard-block6 .titleadmin{justify-content:space-between;display:flex}
 .customer-dashboard-block1 .listscontent .mat-list-base .mat-list-item .labelcls:after{content:'';position:absolute;left:30%;top:0;width:0;height:0;border-top:29px solid transparent;border-bottom:29px solid transparent;border-left:10px solid #bdc3c6;clear:both}
 .communicationsection .tablediv{margin-top: 0 !important;}
+
 @media only screen and (max-width: 1199px) {
     .customer-dashboard-block1 .imgwrapperblock1right {width: 265px;}
     .customer-dashboard-block2 .rsvplistsbottom h1 {font-size: 22px!important;}
     .customer-dashboard-block2 .flexbox1column > .rsvplistsingle {box-sizing: border-box;margin: 3px;width: calc(1/2*100% - (1 - 1/2)*16px);height: auto;}
+    .generalcls .titleadmin {font-size: 34px!important;}
 }
