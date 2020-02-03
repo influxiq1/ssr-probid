@@ -87,6 +87,9 @@ public topPart: any ='';
         // this.getdata();
       });
   }
+
+
+  
   selectOption(val:any){
     // console.log(val);
     // console.log(this.rsvp_list)
