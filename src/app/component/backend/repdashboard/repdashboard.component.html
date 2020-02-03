@@ -1,57 +1,66 @@
 <div class="adminwrappercls">
-    <app-header></app-header>
-    <div class="main-content-wrap">
-        <mat-card class="generalcls" style="padding: 0 !important;">
-            <!-- <button  >Share Link for Castomer Sign Up</button> -->
+  <app-header></app-header>
+  <div class="main-content-wrap">
+    <mat-card class="generalcls" style="padding: 0 !important;">
+      <!-- <button  >Share Link for Castomer Sign Up</button> -->
 
 
-            <mat-card-content class="rep-dashboard-banner">
-                <span class="rep-dashboard-banner-inner">
-                    <h1 class="titleadmin">Put Your Car Sales Practices To Good Use By Selling Used Cars At Great Prices And Pulling In Massive Commissions In The Process.</h1>
-                    <p>The landscape Car dealers and Car Salespersons have changed drastically ever since the inception of Online Used Car Sales. The Used-Car and Automobile industry is a constantly evolving one. Hence, as a Used-Car salesperson, evolution and an upgrade to your Car Sales practices is the need of the hour, which will enable you to put your practices to good use and rake in millions in commissions.<br><br>Our approach to Used Car sales and our practices of sourcing and selling Used Cars online will not only help you offer the best cars and other vehicles to your customers, but it will also help you earn handsome commissions along the way. The fact that we source used vehicles directly from the biggest Car Auctions in America allows us to offer incredible prices - a factor that will go a long way in helping you offer top-end vehicles to your customers at prices unmatched anywhere else in the industry!</p>
-                    <!-- <mat-button class="btnblue">Lean More</mat-button> -->
-                </span>
-            </mat-card-content>
+      <mat-card-content class="rep-dashboard-banner">
+        <span class="rep-dashboard-banner-inner">
+          <h1 class="titleadmin">Put Your Car Sales Practices To Good Use By Selling Used Cars At Great Prices And
+            Pulling In Massive Commissions In The Process.</h1>
+          <p>The landscape Car dealers and Car Salespersons have changed drastically ever since the inception of Online
+            Used Car Sales. The Used-Car and Automobile industry is a constantly evolving one. Hence, as a Used-Car
+            salesperson, evolution and an upgrade to your Car Sales practices is the need of the hour, which will enable
+            you to put your practices to good use and rake in millions in commissions.<br><br>Our approach to Used Car
+            sales and our practices of sourcing and selling Used Cars online will not only help you offer the best cars
+            and other vehicles to your customers, but it will also help you earn handsome commissions along the way. The
+            fact that we source used vehicles directly from the biggest Car Auctions in America allows us to offer
+            incredible prices - a factor that will go a long way in helping you offer top-end vehicles to your customers
+            at prices unmatched anywhere else in the industry!</p>
+          <!-- <mat-button class="btnblue">Lean More</mat-button> -->
+        </span>
+      </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block1">
-                <span class="rep-dashboard-block1-inner">
-                    <h1 class="titleadmin">Sharelink</h1>
-                    <span class="flexbox2column">
-                        <span class="listsingle">
-                            <mat-list class="sharelinklists">
-                                <mat-list-item class="sharelinklistsingle">
-                                    <span>
-                                        <span class="sharelinkimgwrapper">
-                                            <img src="../../../../assets/images/logomain.png">
-                                        </span>
-                                        <span class="sharelinkcontent">
-                                            <h2>ProBid Auto Customer share link</h2>
-                                           <textarea rows="3" value="{{apiService.share_link}}customer-signup/{{userid}}"
-                                                #userinput></textarea>
-                                            
-                                            <!-- <input matInput type="text" oninput="auto_grow()"> -->
-                                            <span class="blogsociallists">
-                                                <a class="sociallink fa fb">
-                                                    <fa name="facebook" class="fa-facebook"></fa>
-                                                </a>
-                                                <a class="sociallink fa twi">
-                                                    <fa name="twitter" class="fa-twitter"></fa>
-                                                </a>
-                                                <a class="sociallink fa lin">
-                                                    <fa name="linkedin" class="fa-linkedin"></fa>
-                                                </a>
-                                                <!-- <a class="sociallink fa env">
+      <mat-card-content class="rep-dashboard-block1">
+        <span class="rep-dashboard-block1-inner">
+          <h1 class="titleadmin">Sharelink</h1>
+          <span class="flexbox2column">
+            <span class="listsingle">
+              <mat-list class="sharelinklists">
+                <mat-list-item class="sharelinklistsingle">
+                  <span>
+                    <span class="sharelinkimgwrapper">
+                      <img src="../../../../assets/images/logomain.png">
+                    </span>
+                    <span class="sharelinkcontent">
+                      <h2>ProBid Auto Customer share link</h2>
+                      <textarea rows="3" value="{{apiService.share_link}}customer-signup/{{userid}}"
+                        #userinput></textarea>
+
+                      <!-- <input matInput type="text" oninput="auto_grow()"> -->
+                      <span class="blogsociallists">
+                        <a class="sociallink fa fb">
+                          <fa name="facebook" class="fa-facebook"></fa>
+                        </a>
+                        <a class="sociallink fa twi">
+                          <fa name="twitter" class="fa-twitter"></fa>
+                        </a>
+                        <a class="sociallink fa lin">
+                          <fa name="linkedin" class="fa-linkedin"></fa>
+                        </a>
+                        <!-- <a class="sociallink fa env">
                                                         <fa name="envelope" class="fa-envelope"></fa>
                                                       </a> -->
-                                                <!-- <a class="sociallink fa share">
+                        <!-- <a class="sociallink fa share">
                                                     <fa name="share" class="fa-share"></fa>
                                                 </a> -->
-                                                <a (click)="copyInputMessage(userinput)" class="graburl" value="click to copy">Grab URL</a>
-                                            </span>
-                                        </span>
-                                    </span>
-                                </mat-list-item>
-                                <!-- <mat-list-item class="sharelinklistsingle">
+                        <a (click)="copyInputMessage(userinput)" class="graburl" value="click to copy">Grab URL</a>
+                      </span>
+                    </span>
+                  </span>
+                </mat-list-item>
+                <!-- <mat-list-item class="sharelinklistsingle">
                                     <span>
                                         <span class="sharelinkimgwrapper">
                                             <img src="../../../../assets/images/logomain.png">
@@ -78,16 +87,16 @@
                                         </span>
                                     </span>
                                 </mat-list-item> -->
-                            </mat-list>
-                        </span>
-                        <span class="listsingle sharelinkright">
-                            <mat-list class="sharelinkrightlists">
-                                <mat-list-item class="sharelinkrighttop">
-                                    <span>
-                                        <h3>YOU HAVE COMPLETED 13 / 26 LESSONS</h3>
-                                    </span>
-                                    <span>
-                                        <!-- <div class="circles-wrp" style="position: relative; display: inline-block;">
+              </mat-list>
+            </span>
+            <span class="listsingle sharelinkright">
+              <mat-list class="sharelinkrightlists">
+                <mat-list-item class="sharelinkrighttop">
+                  <span>
+                    <h3>YOU HAVE COMPLETED 13 / 26 LESSONS</h3>
+                  </span>
+                  <span>
+                    <!-- <div class="circles-wrp" style="position: relative; display: inline-block;">
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="160" height="160">
                                                   <path fill="transparent" stroke="#85b433" stroke-width="29" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 1 1 39.949302232260386 3.500035209108127 Z"></path>
                                                   <path fill="transparent" stroke="#494949" stroke-width="29" d="M 39.992565928065126 3.500000757060633 A 36.5 36.5 0 0 1 59.07174573163989 71.12103010421852 "></path>
@@ -96,63 +105,63 @@
                                                   <span class="circles-integer">50%</span>
                                                 </div>
                                               </div> -->
-                                        <svg height="20" width="20" viewBox="0 0 20 20">
-                                            <circle r="10" cx="10" cy="10" fill="white" />
-                                            <circle r="5" cx="10" cy="10" fill="transparent" stroke="tomato"
-                                                stroke-width="10" stroke-dasharray="calc(25 * 50 / 100) 50"
-                                                transform="rotate(-90) translate(-20)" />
-                                        </svg>
-                                    </span>
-                                </mat-list-item>
-                                <mat-list-item class="sharelinkrightmiddle">
-                                    Traning center
-                                </mat-list-item>
-                                <mat-list-item class="sharelinkrightbottom">
-                                    <span>LAST LESSON:<br><span class="smltxt">LESSON/WEEK 5</span></span>
-                                    <span>NEXT LESSON: <br><span class="smltxt">LESSON/WEEK 5</span></span>
-                                </mat-list-item>
-                            </mat-list>
-                        </span>
-                    </span>
-                </span>
-            </mat-card-content>
+                    <svg height="20" width="20" viewBox="0 0 20 20">
+                      <circle r="10" cx="10" cy="10" fill="white" />
+                      <circle r="5" cx="10" cy="10" fill="transparent" stroke="tomato" stroke-width="10"
+                        stroke-dasharray="calc(25 * 50 / 100) 50" transform="rotate(-90) translate(-20)" />
+                    </svg>
+                  </span>
+                </mat-list-item>
+                <mat-list-item class="sharelinkrightmiddle">
+                  Traning center
+                </mat-list-item>
+                <mat-list-item class="sharelinkrightbottom">
+                  <span>LAST LESSON:<br><span class="smltxt">LESSON/WEEK 5</span></span>
+                  <span>NEXT LESSON: <br><span class="smltxt">LESSON/WEEK 5</span></span>
+                </mat-list-item>
+              </mat-list>
+            </span>
+          </span>
+        </span>
+      </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block2" *ngIf="datalist.customer_list !=null &&
+      <mat-card-content class="rep-dashboard-block2" *ngIf="datalist.customer_list !=null &&
             datalist.customer_list !='' ">
-                <span class="rep-dashboard-block2-inner">
-                    <h1 class="titleadmin">Customer Sections <mat-button class="btnblue">view all</mat-button>
-                    </h1>
-                    <span class="flexbox4column">
-                        <span class="listsingle" *ngFor="let item of datalist.customer_list">
-                            <mat-list class="customerinfotop" >
-                                <span class="customerinfotopimgwrapper"  >
-                                    
-                                    <span *ngIf="item.profile_picture !=null">
-                                        <img [src]="item.profile_picture[0].basepath + item.profile_picture[0].fileservername"></span>
+        <span class="rep-dashboard-block2-inner">
+          <h1 class="titleadmin">Customer Sections <mat-button class="btnblue">view all</mat-button>
+          </h1>
+          <span class="flexbox4column">
+            <span class="listsingle" *ngFor="let item of datalist.customer_list">
+              <mat-list class="customerinfotop">
+                <span class="customerinfotopimgwrapper">
 
-                                    <span *ngIf="item.profile_picture == null"><img src="../../../../assets/images/no-image-default.jpg"></span>
+                  <span *ngIf="item.profile_picture !=null">
+                    <img [src]="item.profile_picture[0].basepath + item.profile_picture[0].fileservername"></span>
 
-                                </span>
-                                <span class="customerinfotopcontent">
-                                    <mat-list class="customerinfotopclswrapper">
-                                        <mat-list-item>
-                                            <label>Name:</label> <span>{{item.firstname}} {{item.lastname}}</span>
-                                        </mat-list-item>
-                                        <mat-list-item>
-                                            <label>Email:</label> <span>{{item.email}}</span>
-                                        </mat-list-item>
-                                        <mat-list-item>
-                                            <label>Phone:</label> <span>{{item.phone}}</span>
-                                        </mat-list-item>
-                                        <mat-list-item>
-                                            <label>Location:</label> <span>{{item.city}}, USA</span>
-                                        </mat-list-item>
-                                    </mat-list>
+                  <span *ngIf="item.profile_picture == null"><img
+                      src="../../../../assets/images/no-image-default.jpg"></span>
 
-                                </span>
-                            </mat-list>
+                </span>
+                <span class="customerinfotopcontent">
+                  <mat-list class="customerinfotopclswrapper">
+                    <mat-list-item>
+                      <label>Name:</label> <span>{{item.firstname}} {{item.lastname}}</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                      <label>Email:</label> <span>{{item.email}}</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                      <label>Phone:</label> <span>{{item.phone}}</span>
+                    </mat-list-item>
+                    <mat-list-item>
+                      <label>Location:</label> <span>{{item.city}}, USA</span>
+                    </mat-list-item>
+                  </mat-list>
 
-                            <!-- <span class="customerinfobottom">
+                </span>
+              </mat-list>
+
+              <!-- <span class="customerinfobottom">
                                 <h3>RSVP</h3>
                                 <mat-list class="customerinfobottomimagelists"  >
                                     <mat-list-item class="listsingle" *ngFor="let itemVal of datalist.customer_list | slice:0:3" >
@@ -180,234 +189,229 @@
                             </span> -->
 
 
-                        </span>
-                    </span>
-                </span>
-            </mat-card-content>
+            </span>
+          </span>
+        </span>
+      </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block3" *ngIf="datalist.rsvp_list !=null &&
+      <mat-card-content class="rep-dashboard-block3" *ngIf="datalist.rsvp_list !=null &&
             datalist.rsvp_list !='' ">
-                <span class="rep-dashboard-block3-inner">
-                    <h1 class="titleadmin">RSVP <mat-button class="btnblue" 
-                        routerLink="/rsvp-salesrep">view all
-                        </mat-button>
-                    </h1>
-                    <mat-list role="list" class="flexbox1column">
-                        <mat-list-item role="listitem" class="rsvplistsingle"
-                            *ngFor="let item of datalist.rsvp_list | slice:0:3; let i = index">
-                            <span class="deletecls"><i class="material-icons"
-                                    (click)="deleteRsvp(item,i)">delete</i></span>
-                            <span class="rsvplistsingleinner">
-                                <span class="rsvplistsingleleft">
-                                    <span class="rsvpliststop">
-                                        <span class="rsvplistimgwrapper">
-                                            <img *ngIf="item.media.photo_links == null || item.media.photo_links == ''"
-                                                class="defaultimg" src="assets/images/no-image-default.jpg">
-                                            <img *ngIf="item.media.photo_links != null && item.media.photo_links != ''"
-                                                class="defaultimg" [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)">
-                                        </span>
-                                    </span>
-                                    <span class="rsvplistsbottom">
-                                        <h2 >{{item.heading}} <span (click)="viewRsvpDetails(item._id)" > View Details</span> </h2>
-                                        <h1>Price - <span>$ {{item.price}}</span></h1>
-                                        <span class="rsvplistsbottombtm">
-                                            <mat-list>
-                                                <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                            src="../../../../assets/images/milesicon.png"></strong>
-                                                            <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
-                                              <span *ngIf="item.miles ==null"> N/A</span> 
-                                                </mat-list-item>
-                                                <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                            src="../../../../assets/images/drivetrainicon.png"></strong>
-                                                            <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
-                                                            <span *ngIf="item.build.drivetrain ==null"> N/A</span> 
-                                                    </mat-list-item>
+        <span class="rep-dashboard-block3-inner">
+          <h1 class="titleadmin">RSVP <mat-button class="btnblue" routerLink="/rsvp-salesrep">view all
+            </mat-button>
+          </h1>
+          <mat-list role="list" class="flexbox1column">
+            <mat-list-item role="listitem" class="rsvplistsingle"
+              *ngFor="let item of datalist.rsvp_list | slice:0:3; let i = index">
+              <span class="deletecls"><i class="material-icons" (click)="deleteRsvp(item,i)">delete</i></span>
+              <span class="rsvplistsingleinner">
+                <span class="rsvplistsingleleft">
+                  <span class="rsvpliststop">
+                    <span class="rsvplistimgwrapper">
+                      <img *ngIf="item.media.photo_links == null || item.media.photo_links == ''" class="defaultimg"
+                        src="assets/images/no-image-default.jpg">
+                      <img *ngIf="item.media.photo_links != null && item.media.photo_links != ''" class="defaultimg"
+                        [src]="item.media.photo_links[0]" (click)="viewRsvpDetails(item._id)">
+                    </span>
+                  </span>
+                  <span class="rsvplistsbottom view-details-icon">
+                    <h2>{{item.heading}} <span (click)="viewRsvpDetails(item._id)" matTooltip="view detail" matTooltipClass='red-tooltip'><mat-icon>visibility</mat-icon></span></h2>
+                    <h1>Price - <span>$ {{item.price}}</span></h1>
+                    <span class="rsvplistsbottombtm">
+                      <mat-list>
+                        <mat-list-item class="pa_blockfootertext"> <strong><img
+                              src="../../../../assets/images/milesicon.png"></strong>
+                          <span *ngIf="item.miles !=null"> {{item.miles}}</span>
+                          <span *ngIf="item.miles ==null"> N/A</span>
+                        </mat-list-item>
+                        <mat-list-item class="pa_blockfootertext"> <strong><img
+                              src="../../../../assets/images/drivetrainicon.png"></strong>
+                          <span *ngIf="item.build.drivetrain !=null"> {{item.build.drivetrain}}</span>
+                          <span *ngIf="item.build.drivetrain ==null"> N/A</span>
+                        </mat-list-item>
 
-                                                <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                            src="../../../../assets/images/bodytypeicon.png"></strong>
-                                                            <span *ngIf="item.build.transmission !=null"> {{item.build.transmission}}</span>
-                                                            <span *ngIf="item.build.transmission ==null">N/A</span>
+                        <mat-list-item class="pa_blockfootertext"> <strong><img
+                              src="../../../../assets/images/bodytypeicon.png"></strong>
+                          <span *ngIf="item.build.transmission !=null"> {{item.build.transmission}}</span>
+                          <span *ngIf="item.build.transmission ==null">N/A</span>
 
-                                                   
-                                                </mat-list-item>
-                                            </mat-list>
-                                        </span>
-                                    </span>
-                                </span>
-                                <span class="rsvplistsingleright">
-                                    <span class="rsvplisttypecontent">
-                                        <h2>User</h2>
-                                        <span class="rsvplisttypecontentinfo">
-                                            <span class="rsvplisttypeimgwrapper">
-                                                <img *ngIf="item.added_for_picture ==null" src="../../../../assets/images/no-image-default.jpg">
-                                                <img *ngIf="item.added_for_picture !=null" 
-                                                [src]="item.added_for_picture">
-                                            </span>
-                                            <span class="listscontent">
-                                                <mat-list>
-                                                    <mat-list-item><span class="labelcls">Name:</span>
-                                                        <span>{{item.added_by_fullname}}</span> </mat-list-item>
-                                                    <mat-list-item><span class="labelcls">Email ID:</span>
-                                                        <span>{{item.added_by_email}}</span> </mat-list-item>
-                                                </mat-list>
-
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <span class="rsvplisttypecontent">
-                                        <h2>Salesrep</h2>
-                                        <span class="rsvplisttypecontentinfo">
-                                            <span class="rsvplisttypeimgwrapper">
-                                                <img *ngIf="item.added_by_picture ==null" src="../../../../assets/images/no-image-default.jpg">
-                                                <img *ngIf="item.added_by_picture !=null" 
-                                                [src]="item.added_by_picture">
-                                            </span>
-                                            <span class="listscontent">
-                                                <mat-list>
-                                                    <mat-list-item><span>Name:</span>
-                                                        <span>{{item.added_for_fullname}}</span> </mat-list-item>
-                                                    <mat-list-item><span>Email ID:</span>
-                                                        <span>{{item.added_for_email}}</span> </mat-list-item>
-                                                </mat-list>
-
-                                            </span>
-                                        </span>
-                                    </span>
-                                    <!-- <mat-button class="btnblue">view details</mat-button>                             -->
-                                </span>
-                            </span>
 
                         </mat-list-item>
-                    </mat-list>
+                      </mat-list>
+                    </span>
+                  </span>
                 </span>
-            </mat-card-content>
+                <span class="rsvplistsingleright">
+                  <span class="rsvplisttypecontent">
+                    <h2>User</h2>
+                    <span class="rsvplisttypecontentinfo">
+                      <span class="rsvplisttypeimgwrapper">
+                        <img *ngIf="item.added_for_picture ==null" src="../../../../assets/images/no-image-default.jpg">
+                        <img *ngIf="item.added_for_picture !=null" [src]="item.added_for_picture">
+                      </span>
+                      <span class="listscontent">
+                        <mat-list>
+                          <mat-list-item><span class="labelcls">Name:</span>
+                            <span>{{item.added_by_fullname}}</span> </mat-list-item>
+                          <mat-list-item><span class="labelcls">Email ID:</span>
+                            <span>{{item.added_by_email}}</span> </mat-list-item>
+                        </mat-list>
 
-            <mat-card-content class="rep-dashboard-block6" *ngIf="datalist.save_search !=null &&
+                      </span>
+                    </span>
+                  </span>
+                  <span class="rsvplisttypecontent">
+                    <h2>Salesrep</h2>
+                    <span class="rsvplisttypecontentinfo">
+                      <span class="rsvplisttypeimgwrapper">
+                        <img *ngIf="item.added_by_picture ==null" src="../../../../assets/images/no-image-default.jpg">
+                        <img *ngIf="item.added_by_picture !=null" [src]="item.added_by_picture">
+                      </span>
+                      <span class="listscontent">
+                        <mat-list>
+                          <mat-list-item><span>Name:</span>
+                            <span>{{item.added_for_fullname}}</span> </mat-list-item>
+                          <mat-list-item><span>Email ID:</span>
+                            <span>{{item.added_for_email}}</span> </mat-list-item>
+                        </mat-list>
+
+                      </span>
+                    </span>
+                  </span>
+                  <!-- <mat-button class="btnblue">view details</mat-button>                             -->
+                </span>
+              </span>
+
+            </mat-list-item>
+          </mat-list>
+        </span>
+      </mat-card-content>
+
+      <mat-card-content class="rep-dashboard-block6" *ngIf="datalist.save_search !=null &&
             datalist.save_search !='' ">
-                <h1 class="titleadmin">Saved Search <mat-button class="btnblue" 
-                    [routerLink]="['/save-search-rep']">
-                        View All</mat-button>
-                </h1>
-                <mat-list role="list" class="flexbox5column">
-                    <mat-list-item role="listitem" class="block1socialadvosingle"
-                        *ngFor="let item of datalist.save_search | slice:0:saveSearchIndex; let i = index">
+        <h1 class="titleadmin">Saved Search <mat-button class="btnblue" [routerLink]="['/save-search-rep']">
+            View All</mat-button>
+        </h1>
+        <mat-list role="list" class="flexbox5column">
+          <mat-list-item role="listitem" class="block1socialadvosingle"
+            *ngFor="let item of datalist.save_search | slice:0:saveSearchIndex; let i = index">
 
 
-                        <span (click)="deleteSaveSearch(item,i)" class="deletecls"><i
-                                class="material-icons">delete</i></span>
+            <span (click)="deleteSaveSearch(item,i)" class="deletecls"><i class="material-icons">delete</i></span>
 
-                        <span class="block1socialadvosingleinner">
-                            <span class="topblock">
-                                <span class="rsvplistimgwrapper">
-                                    <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null"
-                                        [src]="item.media.photo_links[0]" 
-                                        (click)="viewSaveDetails(item._id)">
-                                    <!-- <img *ngIf="modalImg != ''" [src]="modalImg"> -->
-                                    <img *ngIf="item.media.photo_links == null"
-                                        src="../../assets/images/default_car_img.jpeg">
-                                </span>
-                            </span>
-                            <span class="middleblock">
-                                <span  class="pricecls"> 
-                                    <span *ngIf="item.price != null">
-                                        ${{item.price}}
-                                    </span>
+            <span class="block1socialadvosingleinner">
+              <span class="topblock">
+                <span class="rsvplistimgwrapper">
+                  <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null"
+                    [src]="item.media.photo_links[0]" (click)="viewSaveDetails(item._id)">
+                  <!-- <img *ngIf="modalImg != ''" [src]="modalImg"> -->
+                  <img *ngIf="item.media.photo_links == null" src="../../assets/images/default_car_img.jpeg">
+                </span>
+              </span>
+              <span class="middleblock">
+                <span class="pricecls">
+                  <span *ngIf="item.price != null">
+                    ${{item.price}}
+                  </span>
 
-                                    <span *ngIf="item.price == null">
-                                        N/A
-                                    </span>
+                  <span *ngIf="item.price == null">
+                    N/A
+                  </span>
 
-                                </span>
-                               
+                </span>
 
-                                <span class="titlecls">
-                                    <span *ngIf="item.heading != null" 
-                                    (click)="viewSaveDetails(item._id)">{{item.heading}}</span>
-                                    <span></span>
-                                </span>
-                            </span>
-                            <span class="bottomblockss">
-                                <mat-list *ngIf="item.build != null">
-                                    <mat-list-item class="pa_blockfootertext"> <strong><img
-                                                src="../../../../assets/images/milesicon.png"></strong> 
-                                              <span *ngIf="item.miles !=null"> {{item.miles}}</span> 
-                                              <span *ngIf="item.miles ==null"> N/A</span> 
 
-                                    </mat-list-item>
-                                    <mat-list-item class="pa_blockfootertext" >
-                                        <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
-                                       
-                                        <span *ngIf="item.build.drivetrain !=null">  {{item.build.drivetrain}}</span> 
-                                              <span *ngIf="item.build.drivetrain ==null || item.build.drivetrain ==''"> N/A</span> 
+                <span class="titlecls">
+                  <span *ngIf="item.heading != null" (click)="viewSaveDetails(item._id)">{{item.heading}}</span>
+                  <span></span>
+                </span>
+              </span>
+              <span class="bottomblockss">
+                <mat-list *ngIf="item.build != null">
+                  <mat-list-item class="pa_blockfootertext"> <strong><img
+                        src="../../../../assets/images/milesicon.png"></strong>
+                    <span *ngIf="item.miles !=null"> {{item.miles}}</span>
+                    <span *ngIf="item.miles ==null"> N/A</span>
 
-                                    </mat-list-item>
+                  </mat-list-item>
+                  <mat-list-item class="pa_blockfootertext">
+                    <strong><img src="../../../../assets/images/drivetrainicon.png"></strong>
 
-                                    <mat-list-item class="pa_blockfootertext" >
-                                        <strong><img src="../../../../assets/images/bodytypeicon.png"></strong>
-                                       
-                                        <span *ngIf="item.build.transmission !=null">  
-                                             {{item.build.transmission}}</span> 
-                                        <span *ngIf="item.build.transmission ==null || 
-                                        item.build.transmission ==''"> N/A</span> 
+                    <span *ngIf="item.build.drivetrain !=null"> {{item.build.drivetrain}}</span>
+                    <span *ngIf="item.build.drivetrain ==null || item.build.drivetrain ==''"> N/A</span>
 
-                                    </mat-list-item>
-                                </mat-list>
-                            </span>
-                        </span>
-                    </mat-list-item>
+                  </mat-list-item>
+
+                  <mat-list-item class="pa_blockfootertext">
+                    <strong><img src="../../../../assets/images/bodytypeicon.png"></strong>
+
+                    <span *ngIf="item.build.transmission !=null">
+                      {{item.build.transmission}}</span>
+                    <span *ngIf="item.build.transmission ==null || 
+                                        item.build.transmission ==''"> N/A</span>
+
+                  </mat-list-item>
                 </mat-list>
+              </span>
+            </span>
+          </mat-list-item>
+        </mat-list>
 
-            </mat-card-content>
+      </mat-card-content>
 
-            <mat-card-content class="rep-dashboard-block5">
-                <span class="rep-dashboard-block5-inner">
-                    <h1 class="titleadmin">Social Advo Banners <mat-button class="btnblue" [routerLink]="['/social-advo-admin']">View All</mat-button></h1>
-                    <span class="rep-dashboard-block5-header">
-                       
-                        <span class="block1socialadvo">
-                            <h2>facebook Banner</h2>
-                            <mat-list role="list" class="flexbox4column">      
-                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allFacebookBanner | slice:0:indexval;">
-                                <img src="../../../../assets/images/{{item}}">
-                                <!-- <span class="postblock">
+      <mat-card-content class="rep-dashboard-block5">
+        <span class="rep-dashboard-block5-inner">
+          <h1 class="titleadmin">Social Advo Banners <mat-button class="btnblue" [routerLink]="['/social-advo-admin']">
+              View All</mat-button>
+          </h1>
+          <span class="rep-dashboard-block5-header">
+
+            <span class="block1socialadvo">
+              <h2>facebook Banner</h2>
+              <mat-list role="list" class="flexbox4column">
+                <mat-list-item role="listitem" class="block1socialadvosingle"
+                  *ngFor="let item of allFacebookBanner | slice:0:indexval;">
+                  <img src="../../../../assets/images/{{item}}">
+                  <!-- <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank"  (click)="share(item)"><span>Post</span></a>
                                 </span> -->
-                                <p class="grapurl">
-                                    <span class="blogsociallists">
-                                        <a class="sociallink fa fb">
-                                            <fa name="facebook" class="fa-facebook"></fa>
-                                        </a>                                        
-                                        <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
-                                    </span>
-                                    <span>
-                                        <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
-                                    </span>           
-                                </p>
-                              </mat-list-item>
-                            </mat-list>
-                            <h2>linkedin Banner</h2>
-                            <mat-list role="list" class="flexbox4column">
-                              <mat-list-item role="listitem" class="block1socialadvosingle" *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
-                                <img src="../../../../assets/images/{{item}}">
-                                <!-- <span class="postblock">
+                  <p class="grapurl">
+                    <span class="blogsociallists">
+                      <a class="sociallink fa fb">
+                        <fa name="facebook" class="fa-facebook"></fa>
+                      </a>
+                      <button (click)="copyMessage(item)" value="click to copy">Grab URL</button>
+                    </span>
+                    <span>
+                      <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
+                    </span>
+                  </p>
+                </mat-list-item>
+              </mat-list>
+              <h2>linkedin Banner</h2>
+              <mat-list role="list" class="flexbox4column">
+                <mat-list-item role="listitem" class="block1socialadvosingle"
+                  *ngFor="let item of allLinkdinBanner | slice:0:indexValForLinkdin;">
+                  <img src="../../../../assets/images/{{item}}">
+                  <!-- <span class="postblock">
                                   <a class="btnshare btnsharecls txtwhite" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id"><span>Post</span></a>
                                 </span> -->
-                                <!-- <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p> -->
-                                <p class="grapurl">
-                                    <span class="blogsociallists">
-                                        <!-- <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
+                  <!-- <p class="grapurl"><button (click)="copyMessage(item)" value="click to copy" >Grab URL</button><span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span></p> -->
+                  <p class="grapurl">
+                    <span class="blogsociallists">
+                      <!-- <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
                                             <fa name="linkedin" class="fa-linkedin"></fa>
                                         </a> -->
-                                        <button (click)="copyMessage(item)" value="click to copy" >Grab URL</button>
-                                    </span>
-                                    <span>
-                                        <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>      
-                                    </span>           
-                                </p>
-                              </mat-list-item>
-                            </mat-list>
-                        </span>
-                        <!-- <mat-tab-group class="tabwrapper">
+                      <button (click)="copyMessage(item)" value="click to copy">Grab URL</button>
+                    </span>
+                    <span>
+                      <span>https://dev.probidauto.com/customer-signup/{{item}}/{{userCookies._id}}</span>
+                    </span>
+                  </p>
+                </mat-list-item>
+              </mat-list>
+            </span>
+            <!-- <mat-tab-group class="tabwrapper">
 
                             <mat-tab>
                                 <ng-template mat-tab-label>
@@ -919,12 +923,12 @@
                                 </ng-template>
                             </mat-tab>
                         </mat-tab-group> -->
-                    </span>
-                </span>
-            </mat-card-content>
+          </span>
+        </span>
+      </mat-card-content>
 
 
-            <!-- <mat-card-content class="adm_dashboard_block4 communicationsection">
+      <!-- <mat-card-content class="adm_dashboard_block4 communicationsection">
                 <mat-card-title class="sectionheader">Communication</mat-card-title>
                 <span class="adm_dashboard_block4_inner">
                   <mat-tab-group class="tabwrapper">
@@ -1060,227 +1064,226 @@
                 </span>
             </mat-card-content> -->
 
-            <mat-card-content class="adm_dashboard_block4 communicationsection">
-                <mat-card-title class="sectionheader">Communication</mat-card-title>
-                <span class="adm_dashboard_block4_inner">
-                  <mat-tab-group class="tabwrapper" #tabGroup (selectedIndexChange)="_setCommunicationDataSource($event)">
-                    <mat-tab label="Appointment">
-                      <div class="example-container mat-elevation-z8">
-                        <div class="tablediv">
-                          <mat-table #table [dataSource]="dataSource3">                    
-                            <ng-container matColumnDef="image_URL1">
-                              <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <span class="namewrapper">
-                                  <span class="image_URL_wrapper"><img [src]="element.image_URL1" /></span>
-                                </span>
-                              </mat-cell>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="name">
-                              <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <span class="namewrapper">
-                                  <span class="nametxt">{{ element.name }}</span>
-                                </span>
-                              </mat-cell>
-                            </ng-container>                  
-        
-                            <ng-container matColumnDef="phoneNumber">
-                              <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.phoneNumber }}
-                              </mat-cell>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="date">
-                              <mat-header-cell *matHeaderCellDef>
-                                Date
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.date }}
-                              </mat-cell>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="repName">
-                              <mat-header-cell *matHeaderCellDef>
-                                Rep Name
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.repName }}
-                              </mat-cell>
-                            </ng-container>
-        
-                            <ng-container matColumnDef="action">
-                              <mat-header-cell *matHeaderCellDef>
-                                Action
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <a class="btnorange"> {{ element.action }}</a>
-                              </mat-cell>
-                            </ng-container>
-        
-                            <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
-                            <mat-row *matRowDef="let row; columns: displayedColumns3"></mat-row>
-                          </mat-table>
-                          <mat-paginator #paginator3 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
-                          </mat-paginator>
-                       </div>
-                      </div>
-                      <span class="btnwrappercls">
-                        <button mat-button class="btnblue" [routerLink]="['/my-appointment-admin']">
-                          View All
-                        </button>
-                      </span>
-                    </mat-tab>
-                    <mat-tab label="Job Tickets">
-
-                        <span class="norecordfound"
-                        *ngIf=" jobLength ==0">
-                         <h3 >No Record Found</h3>
-                       </span>
-        
-                       <ng-container *ngIf="jobLength > 0" >
-                        <div class="tablediv">
-                            <span class="searchbar">
-                                <mat-form-field>
-                                    <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
-                                </mat-form-field>
-                            </span>
-                        </div>
-
-                      <div class="example-container mat-elevation-z8">
-                        <div class="tablediv">
-                          <mat-table #table [dataSource]="jobTicketList">
-                            <!-- Position Column -->
-                            <ng-container matColumnDef="ticket">
-                              <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element._id }}
-                              </mat-cell>
-                            </ng-container>
-        
-                            <!-- Car Image Column -->
-                            <ng-container matColumnDef="car_image">
-                              <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <span class="namewrapper">
-                                  <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
-                                </span>
-                              </mat-cell>
-                            </ng-container>
-      
-                            <!-- Name Column -->
-                            <ng-container matColumnDef="name">
-                              <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <span class="namewrapper">
-                                  <span class="nametxt">{{element.car_heading}}</span>
-                                </span>
-                              </mat-cell>
-                            </ng-container>
-                          
-                            <!-- Weight Column -->
-                            <ng-container matColumnDef="title">
-                              <mat-header-cell *matHeaderCellDef>
-                                Title
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.car_heading }}
-                              </mat-cell>
-                            </ng-container>
-        
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="repName">
-                              <mat-header-cell *matHeaderCellDef>
-                                Rep Name
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.added_by_fullname }}
-                              </mat-cell>
-                            </ng-container>
-        
-        
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="customerName">
-                              <mat-header-cell *matHeaderCellDef>
-                                Customer Name
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.added_for_fullname }}
-                              </mat-cell>
-                            </ng-container>
-        
-                           
-        
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="subject">
-                              <mat-header-cell *matHeaderCellDef>
-                                Subject
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                {{ element.subject }}
-                              </mat-cell>
-                            </ng-container>
-
-                             <!-- Symbol Column -->
-                             <ng-container matColumnDef="date">
-                                <mat-header-cell *matHeaderCellDef>
-                                 Date
-                                </mat-header-cell>
-                                <mat-cell *matCellDef="let element">
-                                  {{ element.date }}
-                                </mat-cell>
-                              </ng-container>
-        
-        
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="status">
-                              <mat-header-cell *matHeaderCellDef>
-                                Status
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element">
-                                <span *ngIf="element.job_ticket_status == 0">Open</span>
-                                    <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
-                                    <span *ngIf="element.job_ticket_status == 2">Closed</span>
-                                    <span *ngIf="element.job_ticket_status == 3">Re-Opened</span>
-                              </mat-cell>
-                            </ng-container>
-        
-        
-                            <!-- Symbol Column -->
-                            <ng-container matColumnDef="action">
-                              <mat-header-cell *matHeaderCellDef>
-                                Action
-                              </mat-header-cell>
-                              <mat-cell *matCellDef="let element;let i = index">
-                                <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
-                                <a  (click)="deleteJobTicket(element._id,i)" ><i class="material-icons">
-                                  delete_outline
-                                  </i></a> 
-                              </mat-cell>
-                            </ng-container>
-        
-                            <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
-                            <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
-                          </mat-table>
-        
-                          <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
-                          </mat-paginator>
-                        </div>
-                      </div>
-                      <span class="btnwrappercls">
-                        <button mat-button class="btnblue" [routerLink]="['/job-ticket-salesrep']">
-                          View All
-                        </button>
-                      </span>
+      <mat-card-content class="adm_dashboard_block4 communicationsection">
+        <mat-card-title class="sectionheader">Communication</mat-card-title>
+        <span class="adm_dashboard_block4_inner">
+          <mat-tab-group class="tabwrapper" #tabGroup (selectedIndexChange)="_setCommunicationDataSource($event)">
+            <mat-tab label="Appointment">
+              <div class="example-container mat-elevation-z8">
+                <div class="tablediv">
+                  <mat-table #table [dataSource]="dataSource3">
+                    <ng-container matColumnDef="image_URL1">
+                      <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <span class="namewrapper">
+                          <span class="image_URL_wrapper"><img [src]="element.image_URL1" /></span>
+                        </span>
+                      </mat-cell>
                     </ng-container>
-                    </mat-tab>
-                  </mat-tab-group>
+
+                    <ng-container matColumnDef="name">
+                      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <span class="namewrapper">
+                          <span class="nametxt">{{ element.name }}</span>
+                        </span>
+                      </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="phoneNumber">
+                      <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        {{ element.phoneNumber }}
+                      </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="date">
+                      <mat-header-cell *matHeaderCellDef>
+                        Date
+                      </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        {{ element.date }}
+                      </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="repName">
+                      <mat-header-cell *matHeaderCellDef>
+                        Rep Name
+                      </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        {{ element.repName }}
+                      </mat-cell>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                      <mat-header-cell *matHeaderCellDef>
+                        Action
+                      </mat-header-cell>
+                      <mat-cell *matCellDef="let element">
+                        <a class="btnorange"> {{ element.action }}</a>
+                      </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns3"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns3"></mat-row>
+                  </mat-table>
+                  <mat-paginator #paginator3 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                  </mat-paginator>
+                </div>
+              </div>
+              <span class="btnwrappercls">
+                <button mat-button class="btnblue" [routerLink]="['/my-appointment-admin']">
+                  View All
+                </button>
+              </span>
+            </mat-tab>
+            <mat-tab label="Job Tickets">
+
+              <span class="norecordfound" *ngIf=" jobLength ==0">
+                <h3>No Record Found</h3>
+              </span>
+
+              <ng-container *ngIf="jobLength > 0">
+                <div class="tablediv">
+                  <span class="searchbar">
+                    <mat-form-field>
+                      <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                    </mat-form-field>
+                  </span>
+                </div>
+
+                <div class="example-container mat-elevation-z8">
+                  <div class="tablediv">
+                    <mat-table #table [dataSource]="jobTicketList">
+                      <!-- Position Column -->
+                      <ng-container matColumnDef="ticket">
+                        <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element._id }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Car Image Column -->
+                      <ng-container matColumnDef="car_image">
+                        <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <span class="namewrapper">
+                            <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
+                          </span>
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Name Column -->
+                      <ng-container matColumnDef="name">
+                        <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <span class="namewrapper">
+                            <span class="nametxt">{{element.car_heading}}</span>
+                          </span>
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Weight Column -->
+                      <ng-container matColumnDef="title">
+                        <mat-header-cell *matHeaderCellDef>
+                          Title
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.car_heading }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="repName">
+                        <mat-header-cell *matHeaderCellDef>
+                          Rep Name
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.added_by_fullname }}
+                        </mat-cell>
+                      </ng-container>
+
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="customerName">
+                        <mat-header-cell *matHeaderCellDef>
+                          Customer Name
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.added_for_fullname }}
+                        </mat-cell>
+                      </ng-container>
+
+
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="subject">
+                        <mat-header-cell *matHeaderCellDef>
+                          Subject
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.subject }}
+                        </mat-cell>
+                      </ng-container>
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="date">
+                        <mat-header-cell *matHeaderCellDef>
+                          Date
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          {{ element.date }}
+                        </mat-cell>
+                      </ng-container>
+
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef>
+                          Status
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element">
+                          <span *ngIf="element.job_ticket_status == 0">Open</span>
+                          <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
+                          <span *ngIf="element.job_ticket_status == 2">Closed</span>
+                          <span *ngIf="element.job_ticket_status == 3">Re-Opened</span>
+                        </mat-cell>
+                      </ng-container>
+
+
+                      <!-- Symbol Column -->
+                      <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef>
+                          Action
+                        </mat-header-cell>
+                        <mat-cell *matCellDef="let element;let i = index">
+                          <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
+                          <a (click)="deleteJobTicket(element._id,i)"><i class="material-icons">
+                              delete_outline
+                            </i></a>
+                        </mat-cell>
+                      </ng-container>
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns4"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns4"></mat-row>
+                    </mat-table>
+
+                    <mat-paginator #paginator4 [pageSize]="10" [pageSizeOptions]="[5, 10, 20]">
+                    </mat-paginator>
+                  </div>
+                </div>
+                <span class="btnwrappercls">
+                  <button mat-button class="btnblue" [routerLink]="['/job-ticket-salesrep']">
+                    View All
+                  </button>
                 </span>
-              </mat-card-content>
-              
-        </mat-card>
-    </div>
+              </ng-container>
+            </mat-tab>
+          </mat-tab-group>
+        </span>
+      </mat-card-content>
+
+    </mat-card>
+  </div>
 </div>
 <app-footer></app-footer>

@@ -322,7 +322,13 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
   .mat-paginator-page-size-select {width: 56px !important;}
 
   .tablediv mat-table mat-row .mat-column-subject{flex: 1 1 15%;}
-  
+
+.view-details-icon h2 span{font-family:'Helvetica-Normal';font-size:16px;margin:0;font-weight:400;text-transform:capitalize;color:#0dbce7;line-height:normal;cursor:pointer;}
+.view-details-icon h2 span .mat-icon{font-size: 24px;}
+::ng-deep .mat-tooltip{font-family:"Helvetica-Regular";font-size:14px!important;line-height:normal!important;color:#fff;text-transform:uppercase;background-color:#30373d; padding: 5px 10px 2px;}
+
+.headingclsnew{display: -webkit-box;display: flex;-webkit-box-align: center;align-items: baseline;-webkit-box-pack: start;justify-content: flex-start;}
+
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}
