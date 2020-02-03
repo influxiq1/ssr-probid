@@ -292,6 +292,7 @@
               </span>
               <!-- <form *ngIf="showbox!=0"  [formGroup]="jobTicketMsgForm" (ngSubmit)="jobTicketMsgFormSubmit()"> -->
                 <!-- *ngIf="job_ticket !=null && job_ticket !='' && job_ticket.job_ticket_status !=null && job_ticket.message_flag != 2 " -->
+                <span >
             <span  *ngIf="job_ticket !=null && job_ticket.job_ticket_status !=2 ">
                 <form [formGroup]="jobTicketMsgForm"  *ngIf="status == 1 ">
                   <span class="whitebg" > 
@@ -315,6 +316,7 @@
                   </span>
                 </form>
               </span>
+            </span>
               <span *ngIf="job_ticket !=null && job_ticket !=''&& job_ticket.job_ticket_status == 2 " class="markasresolvedadmincls redbtn">Mark as resolved from admin</span>
           </span>
         </span>

@@ -135,8 +135,10 @@ public configDataJobTicket: any = {
   getData(){
     // this.apploader.loader = 1;
     let dataType: any;
-    if (this.status == 1) {
-      dataType = { "source": 'job_ticket_msg_view', condition: { "rsvp_id_object": this.rsvp_id} };
+    if (this.activatedRoute.snapshot.params['status'] == 1) {
+      dataType = { "source": "job_ticket_msg_view",
+       condition: { "rsvp_id_object": this.rsvp_id} 
+      };
     } 
 
     this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
@@ -148,6 +150,8 @@ public configDataJobTicket: any = {
     })
 
   }
+
+  //msg send for job ticket
 
   jobTicketMsgFormSubmit(val:any,status:any){
     for (let x in this.jobTicketMsgForm.controls) {
@@ -228,6 +232,8 @@ public configDataJobTicket: any = {
 
   }
 
+  //open ticket and submit job ticket
+
   jobTicketFormSubmit(){
     for (let x in this.jobTicketForm.controls) {
       this.jobTicketForm.controls[x].markAsTouched();
@@ -266,12 +272,32 @@ public configDataJobTicket: any = {
       };
 
       this.apiService.CustomRequest(data, endpoint).subscribe(res => {
+        // this.getData();
+
         // console.log(res);
         // this.getData();
         // this.jobTicketForm.reset();
         this.router.navigateByUrl('/manage-job-ticket/add/'+this.rsvp_id+'/1')
         // this.apploader.loader = 0;
-        this.getData();
+
+        setTimeout(() => {
+          let dataType: any;
+        if (this.activatedRoute.snapshot.params['status'] == 1) {
+          dataType = { "source": "job_ticket_msg_view",
+           condition: { "rsvp_id_object": this.rsvp_id} 
+          };
+        } 
+    
+        this.apiService.CustomRequest(dataType, "datalist").subscribe((res:any) => {
+          console.log(res.res)
+          this.message_details = res.res;
+          this.apploader.loader = 0;
+    
+    
+        })
+          
+        }, 500);
+    
      
       })
     }

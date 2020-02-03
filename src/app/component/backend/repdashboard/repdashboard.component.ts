@@ -319,6 +319,7 @@ if (val !='') {
     inputElement.select();
     document.execCommand('copy');
     inputElement.setSelectionRange(0, 0);
+    this.snack.open('Url Copied','Ok',{duration:1000})
   }
 
   deleteAny(a: any,b: any,c: any){
