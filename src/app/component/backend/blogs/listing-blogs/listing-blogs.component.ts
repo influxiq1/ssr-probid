@@ -14,7 +14,7 @@ export class ListingBlogsComponent implements OnInit {
 
   // ===============================Declarations=========================
   blogListConfig: any = [];
-  blogListConfig_skip: any = ["_id", "description_html", "description", "created_at", "inventory_image", 'image', "credentials", "profile_picture", "tags", "metatitle", "metadesc","blogcat"];
+  blogListConfig_skip: any = ["_id", "description_html", "description", "created_at", "inventory_image", 'image', "credentials", "profile_picture", "tags", "metatitle", "metadesc","blogcat","author_search","blogtitle_search"];
   detail_skip_array: any = ["_id"]
   blogListConfig_modify_header: any = {
     "blogtitle": "Blog Title",
