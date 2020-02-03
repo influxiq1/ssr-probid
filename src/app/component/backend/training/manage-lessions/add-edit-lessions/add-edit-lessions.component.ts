@@ -76,7 +76,7 @@ export class AddEditLessionsComponent implements OnInit {
 
       { inputtype: 'select', name: 'prerequisite_lession', label: 'Prerequisite Lesson', defaultchoice: 'Select a Prerequisite Lession', sourceview: 'manage_lession', endpoint: 'datalist', selectvalue: 'lession_title', selectid: '_id' },
 
-      { inputtype: 'checkbox', name: 'status', label: 'Status', placeholder: 'Enter Status', validationrule: { required: true }, validationerrormsg: 'is required' },
+      { inputtype: 'checkbox', name: 'status', label: 'Active', placeholder: 'Enter Status', validationrule: { required: true }, validationerrormsg: 'is required' },
       { inputtype: 'select', name: 'mediaType', label: 'Training Type', defaultchoice: 'Select a Training Type', sourceview: './assets/data/mediaType.json', sourcetype:'static', selectvalue: 'name', selectid: 'selectname' ,validationrule:{required:true},validationerrormsg:'is required'},
 
     ];
