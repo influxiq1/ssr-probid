@@ -167,6 +167,17 @@ textarea {resize: none;overflow: hidden;min-height: 50px;max-height: 100px;}
 .grapurl span.blogsociallists{display: flex;}
 .grapurl span.blogsociallists a{flex: 1;margin-right: 0px;}
 .grapurl span.blogsociallists button{flex: 1 1 auto;}
+.sociallink.fb i, .sociallink.lin i{
+	padding: 6px;
+    color: #fff;
+    font-size: 24px;
+    width: 32px;
+    height: 32px;
+    display: block;
+    overflow: hidden;
+    line-height: 32px;
+    text-align: center;
+}
 /* 
 p#note {
 	width:100%;
