@@ -485,7 +485,7 @@ inputUntouched(val: any) {
     console.log(val)
 
     let data:any;
-if (val !='') {
+    if (val !='') {
     data={
       endpoint:'datalist',
       source:"job_ticket_customer",
@@ -506,10 +506,18 @@ if (val !='') {
       result=res;
       this.jobTicketDataList=result.res;
       
-      this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+      // this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
 
       // this.rsvp_list=result.res;
       // console.log(this.rsvp_list)
+
+
+      setTimeout(() => {
+        this.jobTicketList.paginator = this.paginator4;
+        
+      }, 500);
+      
+      
     })
 
   }
@@ -571,6 +579,8 @@ if (val !='') {
           !this.dataSource3.paginator ? this.dataSource3.paginator = this.paginator3 : null;
           break;
         case 1:
+          this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+
           !this.jobTicketList.paginator ? this.jobTicketList.paginator = this.paginator4 : null;
       }
     });

@@ -46,7 +46,8 @@ public jobTicketDataList:any;
 public indexVal:any=4;
 public message:any="Are you sure you want to delete this?";
 public jobTicketList:any;
-
+public filterVal:any;
+public filterValstatus:any='';
 
 
 
@@ -98,7 +99,7 @@ public jobTicketList:any;
 
     //job ticket status filter
     statusFilterForJT(val:any){
-      console.log(val)
+      // console.log(val)
   
       let data:any;
   if (val !='') {
@@ -121,14 +122,27 @@ public jobTicketList:any;
         let result:any
         result=res;
         this.jobTicketDataList=result.res;
-        
-        this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
-  
         // this.rsvp_list=result.res;
         // console.log(this.rsvp_list)
+        setTimeout(() => {
+          this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+          this.jobTicketList.paginator = this.jtPaginator;
+    
+        }, 500);
       })
   
     }
+
+    clear(){
+      this.filterVal = '';
+      this.filterValstatus=''
+      setTimeout(() => {
+        this.jobTicketList = new MatTableDataSource<JTElement>(this.jobTicketDataList);
+        this.jobTicketList.paginator = this.jtPaginator;
+  
+      }, 500);
+
+      }
 
     
 

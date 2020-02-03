@@ -662,7 +662,6 @@ const routes: Routes = [
   { path: 'add-birddog', component: AddBirddogComponent },
   { path: 'editbirddog/:_id', component: AddBirddogComponent },
 
-  
 
   {
     path: 'miscellaneous',

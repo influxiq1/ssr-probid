@@ -53,9 +53,10 @@
                   <span class="tabwrapper" (selectedIndexChange)="_setCommunicationDataSource($event)"> 
                     <div class="tablediv">
                       <span class="searchbar" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
-                        <span class="searchbar">
-                          <mat-form-field>
-                            <select matNativeControl (change)="statusFilterForJT($event.target.value)" >
+                        <form class="searchbar">
+                          <mat-form-field >
+                            <select matNativeControl [(ngModel)]="filterValstatus" name="filterValstatus" 
+                            (change)="statusFilterForJT($event.target.value)" >
                               <option value=''>Select Status</option>
                               <option value=0>Open</option>
                               <option value=1>Replied By Admin</option>
@@ -64,9 +65,11 @@
                             </select>
                           </mat-form-field>
                           <mat-form-field>
-                            <input matInput (keyup)="applyFilter($event.target.value)" placeholder="Filter" />
+                            <input matInput (keyup)="applyFilter($event.target.value)" 
+                            [(ngModel)]="filterVal" name="filterVal"  placeholder="Filter" />
                           </mat-form-field>
-                        </span>                        
+                          <button mat-raised-button (click) = "clear()">Reset</button>
+                        </form>                        
                       </span>
                     </div>
                       <div class="example-container mat-elevation-z8" *ngIf="jobTicketDataList !=null && jobTicketDataList !=''">
