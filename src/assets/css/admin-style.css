@@ -299,7 +299,7 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .activebread::before{content:'';width:15px;height:100%;background:#B5BDBF;display:inline-block;position:absolute;top:0;left:0;clip-path:polygon(0 0,0% 100%,100% 50%)}
 .activebread::after{content:'';width:15px;height:100%;background:#FFF;display:inline-block;position:absolute;right:-15px;top:0;clip-path:polygon(0 0,0% 100%,100% 54%)}
 .tablediv_Settings{margin-top:5px!important}
-.bloglists .Settings_tab_block .tablediv{margin-top:-72px;display:block}
+/* .bloglists .Settings_tab_block .tablediv{margin-top:-72px;display:block} */
 .setting_formblock{display:block;margin:15px 0 10px}
 .setting_formblock label{display:inline-block;font-size:14px;color:#111;margin:10px 0 0;font-weight:400}
 .setting_formblock .mat-form-field{display:inline-block;margin:0 20px}
