@@ -186,7 +186,8 @@ const routes: Routes = [
    },
 
   {
-    path: '', component: HomeComponent, resolve: { home_data: ResolveService },
+    path: '', component: HomeComponent
+    , resolve: { home_data: ResolveService },
     data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-home' }
   },
 
