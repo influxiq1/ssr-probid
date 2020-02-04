@@ -71,7 +71,6 @@ export class ResolveService implements Resolve<any> {
                 }
 
                 if (requestData.condition[d] == '_id') {
-                    delete requestData.condition.blogtitle;
                     requestData.condition[d] = this.activedrouter.params['_id_object'];
                     delete requestData.condition.blogtitle;
                    

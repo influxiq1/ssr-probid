@@ -175,7 +175,7 @@ export class HomeComponent implements OnInit {
   public indexCountForImg: number;
 
   public currentUrl: any;
-
+  public blogtitle:any;
   // public testimonial_img: any = '';
 
 
@@ -561,11 +561,12 @@ export class HomeComponent implements OnInit {
   };
 
 
-  blogdetail(val: any) {
-    // console.log(val)
-    this.router.navigateByUrl('/blogdetail/' + val)
+  blogdetail(val:any){
+    console.log(val)
+    this.blogtitle=val.blogtitle.replace(' ', '-')
+    // console.log(this.blogtitle)
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
-
   showMoreFunc() {
     this.indexval = this.indexval + 3;
     // console.log(this.indexval);

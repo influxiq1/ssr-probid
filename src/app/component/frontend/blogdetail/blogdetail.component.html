@@ -101,18 +101,20 @@
         <!-- end gallery section -->
 
         <!-- start video section -->
-        <mat-list class="photogallerylists" *ngIf="blog !=null && blog.credentials!=null && blog.credentials[0].video_url !=null">
-          <mat-list-item class="writer_image">
+        <span *ngIf=" blog.credentials[0].video_url !=''">
+        <mat-list class="photogallerylists" >
+          <mat-list-item class="writer_image" >
             <span class="writer_image_wrapper">
               <div *ngFor="let vurl of blog.credentials">
                 <button *ngIf="vurl.video_url !=null "
                   (click)="openvideourl(vurl.video_url)">
-                  <img *ngIf="vurl.video_url !=null"  src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
+                  <img  src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
                 </button>
               </div>
             </span>
           </mat-list-item>
         </mat-list>
+      </span>
         <!-- end video section -->
       </span>
       <span class="categorywrapper">
