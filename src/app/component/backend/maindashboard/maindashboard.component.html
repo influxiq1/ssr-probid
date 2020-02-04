@@ -116,7 +116,7 @@
                 <img src="../../../../assets/images/{{ item }}" />
                 <p class="grapurl">
                   <span class="blogsociallists">
-                    <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/linkedinbanner-img1.jpg/' + userCookies._id">
+                    <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/customer-signup/' +item+'/' + userCookies._id">
                               <i name="linkedin" class="fa fa-linkedin"></i>
                           </a>
                     <button (click)="copyMessage(item)" value="click to copy">
@@ -269,11 +269,11 @@
                                             <button mat-button class="btnblue orangebtn" 
                                             (click)="viewJobTicket(item)">View ticket</button> -->
 
-                        <button mat-button *ngIf="
+                        <!-- <button mat-button *ngIf="
                             item.job_ticket == null || item.job_ticket != 1
                           " class="btnblue orangebtn" (click)="goToOpenTicket(item, '')">
                           Open Ticket
-                        </button>
+                        </button> -->
 
                         <button mat-button *ngIf="item.job_ticket == 1" class="btnblue orangebtn"
                           (click)="goToOpenTicket(item, '1')">

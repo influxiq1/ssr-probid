@@ -130,3 +130,32 @@
 @media only screen and (max-width: 991px) {
     .customer-dashboard-block2 .flexbox1column > .rsvplistsingle {box-sizing: border-box;margin: 3px;width: calc(1/1*100% - (1 - 1/1)*16px);height: auto;}
 }
+
+.rep-dashboard-block3 .rsvplisttypebottom{display:flex;align-items:center;justify-content:flex-end;flex-direction:row;padding-top:5px;padding-bottom:0;font-family:"HelveticaBold";font-size:13px;text-transform:uppercase;color:#000}
+.rep-dashboard-block3 .rsvplistsbottombtm{display:flex;align-items:center;flex-direction:row;background-color:#c0c1c2;padding:6px;margin-top:auto}
+
+/* .rsvplisttypebottom{display:flex;align-items:center;justify-content:space-between;flex-direction:row;padding-top:5px;padding-bottom:0;font-family:"HelveticaBold";font-size:13px;text-transform:uppercase;color:#000} */
+.redcls{color:red!important}
+.greencls{color:#54aa0f!important}
+.rsvplistsbottombtm{display:flex;align-items:center;justify-content:space-between;flex-direction:row;background-color:#DDE2E5;padding:4px}
+.rsvplistsbottombtm span{font-family:"HelveticaBold";font-size:16px;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.listscontent .mat-list .mat-list-item span{font-family:"Helvetica-Normal";font-size:18px}
+.listscontent .mat-list .mat-list-item .labelcls{color:#8f979b;margin-right:6px}
+.rsvplisttypebottom .btnblue{padding:7px 5px 5px!important;border-radius:0!important;background:#1cb7eb;font-family:"Helvetica-Normal"!important;font-size:14px!important;margin-top:0!important;margin-left:3px}
+.rsvplisttypebottom .btnblue.redbtn{background:red!important}
+.rsvplisttypebottom .btnblue.yellowbtn{background:#f99118!important}
+.rsvplisttypebottom .btnblue.greenbtn{background:#54aa0f!important}
+.rsvplisttypebottom .btnblue.whitebtn{background:#a6a6a6!important}
+.rsvplisttypebottom .btnblue.orangebtn{background:#ff4e00!important}
+.colorred{display:block;background-color:red;width:15px;height:15px;border-radius:100%;margin-left:5px}
+.coloryellow{display:block;background-color:#F99118;width:15px;height:15px;border-radius:100%;margin-left:5px}
+.colorgreen{display:block;background-color:#54AA0F;width:15px;height:15px;border-radius:100%;margin-left:5px}
+.btnactive{cursor:pointer}
+.deletecls{display:none;cursor:pointer;right:0;position:absolute;top:0;z-index:99}
+.block1socialadvosingle:hover .deletecls,.rsvplistsingle:hover .deletecls{display:block;color:red;font-size:20px}
+.block1socialadvosingle:hover .deletecls .material-icons,.rsvplistsingle:hover .deletecls .material-icons{background-color:rgba(255,255,255,0.8);display:block;border-radius:100px;padding:8px;border:2px solid #E41717;font-size:30px;color:#E41717;position:absolute;top:0;right:0}
+
+@media only screen and (max-width: 1500px) {
+    .rsvplisttypebottom .btnblue{margin-left:3px;font-size:12px!important}
+    .rsvplistsbottombtm span{font-size:12px}
+}

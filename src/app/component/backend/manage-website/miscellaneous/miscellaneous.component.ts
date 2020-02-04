@@ -13,7 +13,7 @@ export class MiscellaneousComponent implements OnInit {
   contactUsData_skip: any = ["_id", "created_at"];
   detail_skip_array: any = ["_id"]
   contactUsData_modify_header: any = {
-    "locationname": "Location Name"
+    "locationname": "Name"
   };
   tableName: any = 'contactusForm';
   UpdateEndpoint: any = "addorupdatedata";

@@ -204,6 +204,7 @@ import { ListingServiceComponent } from './component/backend/manage-website/Serv
 import { AddeditServiceComponent } from './component/backend/manage-website/ServiceApp/addedit-service/addedit-service.component';
 import { AddeditTestimonialComponent } from './component/backend/manage-website/TestimonialApp/addedit-testimonial/addedit-testimonial.component';
 import { ListingTestimonialComponent } from './component/backend/manage-website/TestimonialApp/listing-testimonial/listing-testimonial.component';
+import { RouteLoaderComponent } from './route-loader/route-loader.component';
 
 
 
@@ -372,7 +373,8 @@ export function translateLoaderFactory(httpClient: HttpClient) {
     DeleteJobRepTicketModalComponent,
     comingSoonDialogTestimonListhome,
     MiscellaneousComponent,
-    askForconfirmationDialogComponent
+    askForconfirmationDialogComponent,
+    RouteLoaderComponent
   ],
   imports: [
     TranslateModule.forRoot(

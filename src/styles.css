@@ -336,6 +336,115 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 
 .headingclsnew{display: -webkit-box;display: flex;-webkit-box-align: center;align-items: baseline;-webkit-box-pack: start;justify-content: flex-start;padding: 0px 10px 0px 0px;}
 
+
+.loder_body{width:100%;height:100vh;position:fixed;left:0;top:0;background-color:rgba(0, 0, 0, 1)}
+.loder_wrapper{width:300vh;height:100vh;display:table-cell;text-align:center;vertical-align:middle}
+.imglogo{ position: absolute;
+  top:35%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-30%);
+  -webkit-transform: translateX(-50%) translateY(-30%);
+  transform: translateX(-50%) translateY(-30%);}
+
+.overlay{
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+   /* Firefox */
+   -moz-transition: all 2s ease-in;
+   /* WebKit */
+   -webkit-transition: all 2s ease-in;
+   /* Opera */
+   -o-transition: all 2s ease-in;
+   /* Standard */
+   transition: all 1s ease-in;
+  z-index: 999999;
+  top: 0;
+  left: 0;
+  position: fixed;
+}
+.app-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+.app-loading .loader{
+  transform-origin: center center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.routeloader .loader{
+  margin-bottom: 20px;
+}
+
+.loader,
+.loader:before,
+.loader:after {
+background: #e63a22;
+-webkit-animation: load1 1s infinite ease-in-out;
+animation: load1 1s infinite ease-in-out;
+width: 1em;
+height: 4em;
+}
+.loader {
+color: #fff;
+text-indent: -9999em;
+margin: 88px auto;
+position: relative;
+font-size: 11px;
+-webkit-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+-webkit-animation-delay: -0.16s;
+animation-delay: -0.16s;
+}
+.loader:before,
+.loader:after {
+position: absolute;
+top: 0;
+content: '';
+}
+.loader:before {
+left: -1.5em;
+-webkit-animation-delay: -0.32s;
+animation-delay: -0.32s;
+}
+.loader:after {
+left: 1.5em;
+}
+@-webkit-keyframes load1 {
+0%,
+80%,
+100% {
+  box-shadow: 0 0;
+  height: 4em;
+}
+40% {
+  box-shadow: 0 -2em;
+  height: 4em;
+}
+}
+@keyframes load1 {
+0%,
+80%,
+100% {
+  box-shadow: 0 0;
+  height: 4em;
+}
+40% {
+  box-shadow: 0 -2em;
+  height: 4em;
+}
+}
+
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}

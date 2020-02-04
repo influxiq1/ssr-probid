@@ -125,6 +125,7 @@ import { ManageCommissionComponent } from './component/backend/manage-website/ma
 import { AdminManageCategoriesComponent } from './component/backend/inventory/admin-manage-categories/admin-manage-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/inventory/admin-add-categories/admin-add-categories.component';
 import { MiscellaneousComponent } from './component/backend/manage-website/miscellaneous/miscellaneous.component';
+import { RouteLoaderComponent } from './route-loader/route-loader.component';
 
 /**End Backend Routing**/
 
@@ -186,7 +187,8 @@ const routes: Routes = [
    },
 
   {
-    path: '', component: HomeComponent, resolve: { home_data: ResolveService },
+    path: '', component: HomeComponent
+    , resolve: { home_data: ResolveService },
     data: { requestcondition: { source: '', condition: {} }, endpoint: 'for-home' }
   },
 
@@ -294,6 +296,8 @@ const routes: Routes = [
       endpoint: 'datalist'
     }
   },
+
+  { path: 'route-loader', component: RouteLoaderComponent },
 
   {
     path: 'rsvp-detail/:_id', component: InventoryDetailComponent,
