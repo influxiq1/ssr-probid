@@ -19,7 +19,7 @@ export interface DialogData {
 export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
- 
+
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -47,7 +47,9 @@ export class BloglistfrontendComponent implements OnInit {
   public videourl: any = '';
   public keyword_search: string;
   public url: "https://www.youtube.com/embed/"
-  public category_search:any;
+  public category_search: any;
+  public allBlogs: any = [];
+  public allBlogsCategories:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
@@ -80,6 +82,9 @@ export class BloglistfrontendComponent implements OnInit {
 
 
   ngOnInit() {
+
+    /** getting all blog category **/
+    this.getBlogCategories();
 
     //**all blog category and blog list from resolve in routing**//
 
@@ -115,7 +120,7 @@ export class BloglistfrontendComponent implements OnInit {
     let data: any = {
       "condition":
       {
-        "blogtitle_search_regex": val,
+        "blogtitle_search_regex": val.toLowerCase(),
         // "author_regex":val
 
       },
@@ -129,7 +134,7 @@ export class BloglistfrontendComponent implements OnInit {
   }
 
   /** serach by category **/
-  searchByCategory(val:any) {
+  searchByCategory(val: any) {
     console.log(val.toLowerCase());
     let data: any = {
       "condition":
@@ -148,6 +153,37 @@ export class BloglistfrontendComponent implements OnInit {
   }
 
 
+  getAllBlogs(val:any) {
+    console.log("clicked",val);
+    let data: any = {
+      "source": "blogs_view",
+      "endpoint": "datalistwithouttoken",
+      "condition":{
+        "blogcat_object":val
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+      this.allBlogs = result.res;
+      this.bloglisting = result.res;
+      console.log("yy",this.allBlogs);
+    });
+  }
+
+  getBlogCategories(){
+    let data: any = {
+      "source": "blog_category_view",
+      "endpoint": "datalistwithouttoken",
+      "condition":{
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+      this.allBlogsCategories = result.res;
+      console.log("ssssssss",this.allBlogsCategories);
+    });
+  }
+  
 
   //*********view Video modal section***********//
 
