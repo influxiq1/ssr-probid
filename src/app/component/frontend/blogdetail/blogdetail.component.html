@@ -9,7 +9,7 @@
 <mat-card *ngIf="blog !=null && blog.profile_picture != ''" class="innerpagebanner">
   <span class="mainwrappercontent">
     <mat-card-content>
-      <h1>Blogs</h1>
+      <h1>Blog Details</h1>
     </mat-card-content>
   </span>
   <img [src]="blog.profile_picture" class="blogheaderimg">
@@ -18,18 +18,18 @@
 
 <mat-card class="innerpagetitle">
   <span class="mainwrappercontent">
-    <mat-card-content class="bred_cram_wrapper">
+    <mat-card-content class="bred_cram_wrapper">                                              
       <mat-list class="bred_cram_wrapper_list">
         <mat-list-item routerLinkActive="active">
           <a [routerLink]="'/home'"> home </a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active">
-          <a [routerLink]="'/bloglist'"> Blog list </a>
+          <a [routerLink]="'/blogs'"> Blogs</a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active activebread">
-          <a [routerLink]="'/blogdetail'"> Blogs </a>
+          <a> Blog Details </a>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
