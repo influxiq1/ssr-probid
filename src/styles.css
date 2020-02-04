@@ -447,6 +447,8 @@ left: 1.5em;
 
 .formclass .submitbtn{background: transparent;}
 .tablediv .formclass .mat-radio-button {margin-left: 10px;}
+.search-sec .example-form .example-full-width{padding: 5px;}
+.search-sec .example-form .example-full-width .mat-button{min-width: 30px;line-height: 36px;padding: 0;border-radius: 0;overflow: visible;background: #333;color: #fff;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
