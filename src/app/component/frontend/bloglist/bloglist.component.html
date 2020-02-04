@@ -15,7 +15,7 @@
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active activebread">
-          <a [routerLink]="'/bloglist'"> Blog list </a>
+          <a > Blogs </a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
       </mat-list>
@@ -62,7 +62,7 @@
         <mat-card-content class="bottom_blog">
           <span class="item_wrapper">
             <mat-card-content class="item" *ngFor="let item of bloglisting | slice:0:indexval ; let i=index">
-              <span class="item_images" (click)="blogdetail(item._id)">
+              <span class="item_images" (click)="blogdetail(item)">
                 <img [src]="item.profile_picture">
               </span>
               <mat-card-content class="contentsection">
@@ -70,7 +70,7 @@
                   <button *ngIf="vurl.video_url !='' && vurl.video_url !=null "
                     (click)="openvideourl(vurl.video_url)"><img src="../../../../assets/images/videoicon.png"></button>
                 </span>
-                <mat-card-title class="inner_header" (click)="blogdetail(item._id)">{{item.blogtitle}}</mat-card-title>
+                <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
                 <span class="author">
                   <span class="authornmimg">
                     <span class="writer_image">
@@ -82,7 +82,7 @@
                 </span>
                 <p class="description"><span [innerHtml]="item.description_html"></span></p>
                 <!-- {{item.description_html}} -->
-                <a class="next_page" (click)="blogdetail(item._id)">read more</a>
+                <a class="next_page" (click)="blogdetail(item)">read more</a>
 
                 <span class="blogsociallists absolute">
                   <a class="sociallink fa fb" (click)="comingSoonDialogBlog()">

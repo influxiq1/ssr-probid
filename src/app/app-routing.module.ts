@@ -236,7 +236,7 @@ const routes: Routes = [
   // data: { requestcondition: { source: 'blog_category_view', condition: {} }, endpoint: 'datalist' }},
 
   {
-    path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
+    path: 'blogs', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
     data: { requestcondition: { condition: { "limit": 4, "skip": 1 } }, endpoint: 'blogdata' }
   },
 
@@ -244,10 +244,9 @@ const routes: Routes = [
   // data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalist' } },
 
 
-
   {
-    path: 'blogdetail/:_id_object', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
-    data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' }
+    path: 'blogs/:blogtitle/:_id_object', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
+    data: { requestcondition: { source: 'blogs_view', condition: {_id:"_id"} }, endpoint: 'datalistwithouttoken' }
   },
 
 

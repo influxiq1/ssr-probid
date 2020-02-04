@@ -35,6 +35,7 @@ export class BloglistfrontendComponent implements OnInit {
     view: "blogs"
   }
   public blogList: any;
+
   public blogcategory: any;
   public blogcount: any;
   public blogcategorysearch: any;
@@ -50,12 +51,14 @@ export class BloglistfrontendComponent implements OnInit {
   public category_search: any;
   public allBlogs: any = [];
   public allBlogsCategories:any;
+  public blogtitle:any;
+
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
 
 
-    this.meta.setTitle('ProBid Auto - Blog');
+    this.meta.setTitle('ProBid Auto - Blogs');
     this.meta.setTag('og:description', 'Learn about all the latest developments and new technologies being introduced in the Online Auto Trading Industry with the latest Blogs written by our expert Online Auto Trading Professionals and Reps.');
     this.meta.setTag('twitter:description', 'Learn about all the latest developments and new technologies being introduced in the Online Auto Trading Industry with the latest Blogs written by our expert Online Auto Trading Professionals and Reps.');
 
@@ -73,11 +76,13 @@ export class BloglistfrontendComponent implements OnInit {
   panelOpenState = false;
 
 
-
-  //***********blog list view in blog detail************//
-  blogdetail(val: any) {
-    // console.log(val)
-    this.router.navigateByUrl('/blogdetail/' + val)
+  
+//***********blog list view in blog detail************//
+  blogdetail(val:any){
+    console.log(val)
+    this.blogtitle=val.blogtitle.replace(' ', '-')
+    // console.log(this.blogtitle)
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
 
 
@@ -185,7 +190,12 @@ export class BloglistfrontendComponent implements OnInit {
   }
   
 
-  //*********view Video modal section***********//
+//*********** sub blog list view in blog detail************//
+    blog(val:any){
+      console.log(val)
+      this.blogcat = val._id;
+      this.router.navigateByUrl('/blogdetail/'+val._id)
+    }
 
   openvideourl(val: any) {
 
@@ -225,10 +235,10 @@ export class BloglistfrontendComponent implements OnInit {
 
 
   //*********** sub blog list view in blog detail************//
-  blog(val: any) {
-    this.blogcat = val._id;
-    this.router.navigateByUrl('/blogdetail/' + val._id)
-  }
+  // blog(val: any) {
+  //   this.blogcat = val._id;
+  //   this.router.navigateByUrl('/blogdetail/' + val._id)
+  // }
 
   //*********** end sub blog list view in blog detail************//
 
