@@ -44,7 +44,8 @@ export class BloglistfrontendComponent implements OnInit {
   public indexval:any=4;
   public bloglisting:any;
   public videourl:any='';
-  public url:"https://www.youtube.com/embed/"
+  public url:"https://www.youtube.com/embed/";
+  public blogtitle:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService,public dialog:MatDialog, private sanitizer: DomSanitizer,private readonly meta: MetaService) {
@@ -71,8 +72,10 @@ export class BloglistfrontendComponent implements OnInit {
   
 //***********blog list view in blog detail************//
   blogdetail(val:any){
-    // console.log(val)
-    this.router.navigateByUrl('/blogdetail/' +val)
+    console.log(val)
+    this.blogtitle=val.blogtitle.replace(' ', '-')
+    // console.log(this.blogtitle)
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
   
 
@@ -147,6 +150,7 @@ comingSoonDialogBlog(): void {
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
+      console.log(val)
       this.blogcat = val._id;
       this.router.navigateByUrl('/blogdetail/'+val._id)
     }

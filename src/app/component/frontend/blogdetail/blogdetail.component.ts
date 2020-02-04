@@ -49,6 +49,7 @@ export class BlogdetailComponent implements OnInit {
       
     }
     constructor( public apiService: ApiService,public router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService,private sanitizer: DomSanitizer,public dialog:MatDialog,private readonly meta: MetaService ) { 
+      
       // this.blogdetail();
       this.meta.setTitle('ProBid Auto - Blog details');
       this.meta.setTag('og:description', 'Learn about all the latest developments and new technologies being introduced in the Online Auto Trading Industry with the latest Blogs written by our expert Online Auto Trading Professionals and Reps.');
@@ -67,10 +68,10 @@ export class BlogdetailComponent implements OnInit {
   ngOnInit() {
 
     this.activatedRoute.data.forEach((data: any) =>{
-      this.blog = data.blogCatList.res;
-      //  console.log('+++++++++++++++++>>>>>>>>>>>>>>',this.blog)
-      //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image;
-       this.blog_img=this.blog[0].profile_picture;
+      this.blog = data.blogCatList.res[0];
+       console.log('+++++++++++++++++>>>>>>>>>>>>>>',this.blog)
+      //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
+      //  this.blog_img=this.blog[0].profile_picture;
       //  console.log(this.blog_img)
       })
   
