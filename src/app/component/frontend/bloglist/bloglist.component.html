@@ -34,26 +34,29 @@
       <span class="bloglistswrapper"> 
           <span class="search-sec">
               <span class="mat-search-bar">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
+                <!-- <form class="example-form"> -->
+                  <span class="example-form ">
+                    <span class="example-full-width">
                         <span matPrefix></span>
-                        <input type="text" matInput placeholder="search by title, keyword">
+                        <input type="text" matInput placeholder="search by title, keyword" [(ngModel)]='keyword_search' (ngModelChange)="searchByKey($event)">
                         <button mat-button>
                           <i class="material-icons">
                             search
                           </i>
                         </button>
-                      </mat-form-field>
-                  <mat-form-field class="example-full-width">
-                    <span matPrefix></span>
-                    <input type="text" matInput placeholder="search Category">
-                    <button mat-button>
-                      <i class="material-icons">
-                        search
-                      </i>
-                    </button>
-                  </mat-form-field>
-                </form>
+                      </span>
+                      <span class="example-full-width">
+                        <span matPrefix></span>
+                        <input type="text" matInput placeholder="search Category" [(ngModel)]="category_search"
+                        (ngModelChange)="searchByCategory($event)">
+                        <button mat-button>
+                          <i class="material-icons">
+                            search
+                          </i>
+                        </button>
+                      </span>
+                    <!-- </form> -->
+                </span>
               </span>
             </span>       
         <mat-card-content class="bottom_blog">
