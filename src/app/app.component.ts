@@ -10,5 +10,9 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'probid-angular';
   public loader = 0;
-  constructor(public router: Router){ }
+  public loading = 0;
+  constructor(public router: Router){
+    
+
+   }
 }

@@ -1,12 +1,17 @@
 
+
 <app-http-loader></app-http-loader>
 
-<span  *ngIf="loader == 1">
+<app-route-loader *ngIf="loading"></app-route-loader>
+
+<!-- <mat-progress-bar *ngIf="loading" mode="indeterminate"></mat-progress-bar> -->
+
+
+<!-- <span  *ngIf="loader == 1">
   <span>
-    <!-- <mat-spinner class="loader"></mat-spinner> -->
-    <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    <div class="loader">Loading...</div>
   </span>
-</span>
+</span> -->
 
 
 <router-outlet></router-outlet>
