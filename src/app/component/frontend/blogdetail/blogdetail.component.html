@@ -105,8 +105,9 @@
           <mat-list-item class="writer_image">
             <span class="writer_image_wrapper">
               <div *ngFor="let vurl of blog[0].credentials">
-                <button *ngIf="vurl.video_url !='' && vurl.video_url !=null "
-                  (click)="openvideourl(vurl.video_url)">
+                <!-- <button *ngIf="vurl.video_url !='' && vurl.video_url !=null "
+                    (click)="openvideourl(vurl.video_url)"><img src="../../../../assets/images/videoicon.png"></button> -->
+                <button *ngIf="vurl.video_url !='' && vurl.video_url !=null " (click)="openvideourl(vurl.video_url)">
                   <img src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
                 </button>
               </div>
