@@ -51,7 +51,7 @@ export class BloglistfrontendComponent implements OnInit {
   public category_search: any;
   public allBlogs: any = [];
   public allBlogsCategories:any;
-  public blogtitle:any;
+  public blogtitle:any = '';
 
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
@@ -82,7 +82,9 @@ export class BloglistfrontendComponent implements OnInit {
     console.log(val)
     this.blogtitle=val.blogtitle.replace(' ', '-')
     // console.log(this.blogtitle)
-    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+    if (this.blogtitle != '') {
+      this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+    }
   }
 
 
