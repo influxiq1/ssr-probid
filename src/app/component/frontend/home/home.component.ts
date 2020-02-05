@@ -161,8 +161,6 @@ export class HomeComponent implements OnInit {
   }
 
 
-
-
   public TestimonialListArray: any = [];
   public savedUrl: any = [];
   public savedId: any = [];
@@ -173,7 +171,7 @@ export class HomeComponent implements OnInit {
   public favoriteSeason: any;
   public indexCount: number;
   public indexCountForImg: number;
-
+  public title:any;
   public currentUrl: any;
   public blogtitle:any;
   // public testimonial_img: any = '';
@@ -569,8 +567,10 @@ export class HomeComponent implements OnInit {
 
   blogdetail(val:any){
     console.log(val)
-    this.blogtitle=val.blogtitle.replace(' ', '-')
+    // this.blogtitle=val.blogtitle.replace(' ', '-')
     // console.log(this.blogtitle)
+    this.title=val.blogtitle
+    this.blogtitle=this.title.split(' ').join('-')
     this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
   showMoreFunc() {
@@ -689,7 +689,7 @@ export class HomeComponent implements OnInit {
 /** sharing over facebook **/
   fb_share(val: any) {
     console.log(val._id);
-    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '', "width=300,height=400");
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '');
   }
 
   

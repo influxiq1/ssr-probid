@@ -33,6 +33,8 @@ export class BlogdetailComponent implements OnInit {
   safeSrc: SafeResourceUrl;
 
   public name: string;
+  public blogtitle:any;
+  public title:any;
 
   /************** lib list setup start here *************/
   public blogListConfig: any = {
@@ -65,17 +67,21 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blog_img)
 
 
+      this.title=this.blog.blogtitle
+      this.blogtitle=this.title.split(' ').join('-')
+
+
       this.meta.setTag('og:type', 'website');
 
       this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
       this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
 
       if (this.blog != null && this.blog.length != 0) {
-        this.meta.setTitle('ProBid Auto-'+''+this.blog.blogtitle);
+        this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
-        this.meta.setTag('og:title', this.blog.blogtitle);
-        this.meta.setTag('twitter:title', this.blog.blogtitle);
+        this.meta.setTag('og:title', this.blogtitle);
+        this.meta.setTag('twitter:title', this.blogtitle);
         this.meta.setTag('og:image', this.blog.profile_picture);
         this.meta.setTag('twitter:image', this.blog.profile_picture);
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);

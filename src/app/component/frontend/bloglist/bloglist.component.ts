@@ -52,6 +52,7 @@ export class BloglistfrontendComponent implements OnInit {
   public allBlogs: any = [];
   public allBlogsCategories:any;
   public blogtitle:any = '';
+  public title:any;
 
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
@@ -80,7 +81,8 @@ export class BloglistfrontendComponent implements OnInit {
 //***********blog list view in blog detail************//
   blogdetail(val:any){
     console.log(val)
-    this.blogtitle=val.blogtitle.replace(' ', '-')
+    this.title=val.blogtitle
+    this.blogtitle=this.title.split(' ').join('-')
     // console.log(this.blogtitle)
     if (this.blogtitle != '') {
       this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
