@@ -5,7 +5,7 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
-import { FacebookService, LoginResponse,UIParams, UIResponse } from 'ngx-facebook';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 
 export interface DialogData {
   data: any;
@@ -29,6 +29,7 @@ export class BlogdetailComponent implements OnInit {
   public blog_image: any;
   public panelOpenState = false;
   public videourl: any = '';
+  public profile: any;
   public url: "https://www.youtube.com/embed/"
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
@@ -132,6 +133,25 @@ export class BlogdetailComponent implements OnInit {
 
   //FACEBOOK SHARE
 
+  login() {
+    this.facebook.login()
+      .then((res: LoginResponse) => {
+       
+        this.getProfile();
+      })
+      .catch();
+  }
+  getProfile() {
+    this.facebook.api('me/?fields=id,name,email,picture')
+      .then((res: any) => {
+       
+        this.profile = res;
+        
+      })
+      .catch((error: any) => {
+
+      });
+  }
   fbShare(){
     console.log()
     this.title=this.blog.blogtitle
@@ -143,10 +163,14 @@ export class BlogdetailComponent implements OnInit {
       method: 'share'
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
-    }).catch(fb=>{
-      console.log(fb)
+    }).catch(facebook=>{
+      console.log(facebook)
     });
 
+  }
+  logoutWithFacebook(): void {
+
+    this.facebook.logout().then();
   }
 
   //linkedin share
