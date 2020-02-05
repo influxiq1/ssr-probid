@@ -50,11 +50,12 @@ export class BlogdetailComponent implements OnInit {
   }
   constructor(public apiService: ApiService, public router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, private sanitizer: DomSanitizer, public dialog: MatDialog, private readonly meta: MetaService) {
 
-
+    // console.log(this.activatedRoute.snapshot.params.blogtitle)
 
   }
 
   ngOnInit() {
+    
 
     this.activatedRoute.data.forEach((data: any) => {
       this.blog = data.blogCatList.res[0];
@@ -70,8 +71,6 @@ export class BlogdetailComponent implements OnInit {
       this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
 
       if (this.blog != null && this.blog.length != 0) {
-
-
         this.meta.setTitle(this.blog.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
@@ -79,7 +78,7 @@ export class BlogdetailComponent implements OnInit {
         this.meta.setTag('twitter:title', this.blog.blogtitle);
         this.meta.setTag('og:image', this.blog.profile_picture);
         this.meta.setTag('twitter:image', this.blog.profile_picture);
-        this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.blog.title+'/'+this.blog._id);
+        this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
 
       }
     })
