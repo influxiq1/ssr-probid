@@ -33,7 +33,7 @@
       <span class="formblock">
         
         <form class="example-container" [formGroup]="inventoryCustomerForm" 
-        (ngSubmit)="inventoryCustomerSearch()">
+        >
 
           <span class="section1">
             <span>
@@ -41,7 +41,7 @@
                 <h4>Make:</h4>
                 <mat-form-field>
                   <input type="text"
-                   (keyup.enter)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
+                   (keyup)="searchAutoComplete($event, 'make')" placeholder="Pick one make"
                     aria-label="Number" matInput formControlName="make" [matAutocomplete]="auto">
                   <mat-autocomplete #auto="matAutocomplete">
                     <mat-option *ngFor="let option of make_list" [value]="option">
@@ -109,12 +109,12 @@
                   </mat-autocomplete>
                 </mat-form-field>
               </span> -->
-              <span>
+              <!-- <span>
                 <h4>VIN:</h4>
                   <mat-form-field>
                     <input matInput formControlName="vin" type="text" placeholder="VIN">
                   </mat-form-field>
-              </span>
+              </span> -->
             </span>
             <span>
               
@@ -138,7 +138,7 @@
             <span class="buttonslist">
               <button mat-raised-button color="primary" type="reset" 
                > Reset</button>
-              <button mat-raised-button color="primary" type="button"> Search</button>
+              <button mat-raised-button color="primary" type="button" (click)="inventoryCustomerSearch()"> Search</button>
             </span>
 
           </span>

@@ -92,6 +92,9 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   public car_data: any;
   public apikey:any;
 
+  public inventory_url:any;
+  public inventory_auto_complete_url:any;
+
   // public carItem=new Subject<any>();
 
   constructor(
@@ -128,6 +131,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
       // console.log(this.user_id);
 
 
+
       if (this.user_details.type == "salesrep") {
         let data: any = {
           endpoint: 'datalist',
@@ -148,6 +152,10 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
     this.generateForm();
     this.getStateList();
+    this.inventory_url=(this.cookieService.get('inventory_url'));
+    this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
+
+    // console.log( this.inventory_auto_complete_url);
   }
 
   ngOnInit() {
@@ -185,7 +193,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     }
 
     if (inputField != '' && (input != '' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
-      let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
+      let search_url: string = this.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
         console.log('>>>>>',res)
@@ -305,7 +313,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
         this.spinnerval = 1;
 
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
 
         this.http.get(search_link).subscribe((res: any) => {
           console.log('>>>>',res)

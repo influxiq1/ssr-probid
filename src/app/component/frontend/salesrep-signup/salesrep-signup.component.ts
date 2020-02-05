@@ -29,7 +29,8 @@ export class SalesrepSignupComponent implements OnInit {
 
     this.meta.setTitle('ProBid Auto - Sales Rep SignUp');
     this.meta.setTag('og:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');
-    this.meta.setTag('twitter:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');    
+    this.meta.setTag('twitter:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.');  
+    this.meta.setTag( 'name:description', 'Sales Reps can Sign Up to create their account with the ProBid Auto Back-office and make massive commissions by helping customers locate and buy the best Pre-Owned vehicles of their desires.') ; 
     this.meta.setTag('og:keyword', 'ProBid Auto Sales Rep SignUp, Sign Up With ProBid Auto, Join ProBid Auto');
     this.meta.setTag('twitter:keyword', 'ProBid Auto Sales Rep SignUp, Sign Up With ProBid Auto, Join ProBid Auto');
     this.meta.setTag('og:title', 'ProBid Auto - Sales Rep SignUp');

@@ -75,6 +75,9 @@
     .clearmenu{clear:both;overflow:hidden;background:none!important;border:none!important;box-shadow:none!important;margin:0!important;padding:0!important;border-radius:0!important;display:block!important}
     .topblock .mat-list{display:block;float:none;margin:22px auto;padding:0;clear:both;width:586px}
     }
+
+
+
     @media only screen and (max-width: 667px) {
     .topmenudevider2{display:block;width:30px;height:78px;float:left}
     .topmenudevider2 .dehazeicon{color:#fb4a32;display:block;margin:24px 0 0!important;font-size:30px;cursor:pointer}

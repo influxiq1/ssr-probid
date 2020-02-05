@@ -32,6 +32,7 @@ export class ResolveService implements Resolve<any> {
         var source = route.data.source;
         var condition = route.data.condition;
         var requestData: any = route.data.requestcondition;
+        delete requestData.condition.blogtitle;
             requestData.condition = Object.assign(requestData.condition, route.params);
             if(this.cookieservice.get('user_details') !='' && this.cookieservice.get('user_details') !=null){
                 this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
@@ -68,7 +69,19 @@ export class ResolveService implements Resolve<any> {
                if (requestData.condition[d] == 'ticket_added_by_object') {
                 requestData.condition[d] = this.userid
                
-           }
+                }
+
+
+
+                if (requestData.condition[d] == '_id') {
+                    console.log(requestData)
+                    requestData.condition[d] = this.activedrouter.params['_id']
+                    delete requestData.condition.blogtitle;
+                    delete requestData.condition._id;
+                   
+                    }
+               
+
 
 
                if (requestData.condition[d] == 'mysalesrep') {

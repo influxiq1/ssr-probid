@@ -162,6 +162,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv table th, .tablediv mat-table mat-header-row{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:3px;letter-spacing:.1em;text-transform:capitalize}
 .tablediv mat-table .mat-header-cell{font-family: 'Helvetica-Normal';text-transform: uppercase;font-size: 18px;color: #fff;letter-spacing: .1em;text-transform: capitalize;}
 .tablediv table td, .tablediv mat-table mat-cell{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
+.tablediv table td .buttons_ro, .tablediv mat-table mat-cell .buttons_ro{display: flex;justify-content: flex-start; align-items: center;}
 .tablediv table td br, .tablediv mat-table mat-cell br{display:none}
 .tablediv table td.text-center, .tablediv mat-table mat-cell.text-center{text-align:center!important}
 .tablediv table th.descriptiondiv, .tablediv mat-table mat-header-row.descriptiondiv{width:26%}
@@ -224,7 +225,8 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv .mat-card .mat-form-field-flex{margin-top:0;background-color:#fff!important;border:0 solid #efefef}
 .tablediv .mat-card .mat-input-element{color:#333!important;caret-color:#f1f1f1!important}
 .tablediv .mat-card .mat-form-field-label-wrapper{position:absolute;left:0;box-sizing:content-box;width:100%;height:100%;overflow:hidden;pointer-events:none;border-bottom:1px solid #fff;top:-1em;padding-top:1em}
-.tablediv button.mat-raised-button{display:inline-block!important;height:auto!important;background:#c33!important;font-size:12px!important;color:#fff!important;text-transform:uppercase!important;font-family:'Ralewaybold';text-decoration:none!important;line-height:normal!important;text-align:center!important;margin:0 auto!important;white-space:normal!important;margin-top:10px!important;padding:12px 10px!important;border-radius:0!important;margin-right:5px!important;margin-bottom:10px!important}
+.tablediv button.mat-raised-button{display:inline-block!important;height:auto!important;background: #f7462e!important;font-size: 15px!important;color: #fff!important;
+    text-transform: uppercase;font-family: 'HelveticaBold'!important;text-decoration:none!important;line-height:normal!important;text-align:center!important;margin:0 auto!important;white-space:normal!important;margin-top:10px!important;padding:12px 10px!important;border-radius:0!important;margin-right:5px!important;margin-bottom:10px!important}
 .mat-select-panel-wrap .mat-select-panel{background:#969696}
 
 /* .tablediv{margin-top:-73px} */
@@ -328,6 +330,7 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .tablediv .searchbar button.mat-raised-button{margin: 0 3px !important;}
 .tablediv .formclass{-webkit-box-pack: end !important; justify-content: flex-end !important; margin: 0 !important;}
 .tablediv .formclass .submitbtn{justify-content: flex-end; margin-left: 5px !important;}
+.tablediv table.mat-table .buttons_ro span i{cursor: pointer;}
 
 @media only screen and (max-width: 1199px) {
 .setting_formblock label{display:block;float:none;margin:10px 0}

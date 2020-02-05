@@ -125,6 +125,7 @@ import { ManageCommissionComponent } from './component/backend/manage-website/ma
 import { AdminManageCategoriesComponent } from './component/backend/inventory/admin-manage-categories/admin-manage-categories.component';
 import { AdminAddCategoriesComponent } from './component/backend/inventory/admin-add-categories/admin-add-categories.component';
 import { MiscellaneousComponent } from './component/backend/manage-website/miscellaneous/miscellaneous.component';
+import { RouteLoaderComponent } from './route-loader/route-loader.component';
 
 /**End Backend Routing**/
 
@@ -235,7 +236,7 @@ const routes: Routes = [
   // data: { requestcondition: { source: 'blog_category_view', condition: {} }, endpoint: 'datalist' }},
 
   {
-    path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
+    path: 'blogs', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
     data: { requestcondition: { condition: { "limit": 4, "skip": 1 } }, endpoint: 'blogdata' }
   },
 
@@ -243,10 +244,12 @@ const routes: Routes = [
   // data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalist' } },
 
 
-
   {
-    path: 'blogdetail/:_id_object', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
-    data: { requestcondition: { source: 'blogs_view', condition: {} }, endpoint: 'datalistwithouttoken' }
+    path: 'blogs/:blogtitle/:_id_object', component: BlogdetailComponent
+    , 
+    resolve: { blogCatList: ResolveService },
+    data: { requestcondition: { source: 'blogs_view', condition: {_id:"_id"} }, 
+    endpoint: 'datalistwithouttoken' }
   },
 
 
@@ -295,6 +298,8 @@ const routes: Routes = [
       endpoint: 'datalist'
     }
   },
+
+  { path: 'route-loader', component: RouteLoaderComponent },
 
   {
     path: 'rsvp-detail/:_id', component: InventoryDetailComponent,

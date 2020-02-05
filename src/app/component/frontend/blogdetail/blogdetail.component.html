@@ -6,37 +6,37 @@
     </mat-card-content>
   </span>
 </mat-card> -->
-<mat-card *ngIf="blog_img != ''" class="innerpagebanner">
+<mat-card *ngIf="blog !=null && blog.profile_picture != ''" class="innerpagebanner">
   <span class="mainwrappercontent">
     <mat-card-content>
-      <h1>Blogs Details</h1>
+      <h1>Blog Details</h1>
     </mat-card-content>
   </span>
-  <img [src]="blog_img" class="blogheaderimg">
+  <img [src]="blog.profile_picture" class="blogheaderimg">
   <span class="blogheaderimgbg"></span>
 </mat-card>
 
 <mat-card class="innerpagetitle">
   <span class="mainwrappercontent">
-    <mat-card-content class="bred_cram_wrapper">
+    <mat-card-content class="bred_cram_wrapper">                                              
       <mat-list class="bred_cram_wrapper_list">
         <mat-list-item routerLinkActive="active">
           <a [routerLink]="'/home'"> home </a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active">
-          <a [routerLink]="'/bloglist'"> Blog list </a>
+          <a [routerLink]="'/blogs'"> Blogs</a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active activebread">
-          <a [routerLink]="'/blogdetail'"> Blog Details </a>
+          <a> Blog Details </a>
         </mat-list-item>
       </mat-list>
     </mat-card-content>
   </span>
 </mat-card>
 
-<mat-card class="ptb-40 generalcls blog bloglist blogdetail">
+<mat-card class="ptb-40 generalcls blog bloglist blogdetail" *ngIf="blog !=null">
   <span class="mainwrappercontent">
     <span class="bloglistinner">
       <span class="bloglistswrapper">
@@ -45,16 +45,16 @@
             <!-- <mat-card-content class="item"> -->
             <mat-card-content class="item">
 
-              <mat-card-title class="inner_header">{{blog[0].blogtitle}}</mat-card-title>
+              <mat-card-title class="inner_header">{{blog.blogtitle}}</mat-card-title>
               <mat-card-content class="contentsection">
                 <span class="author">
                   <span class="authornmimg">
                     <span class="writer_image">
                       <img src="../../../../assets/images/blog-icon.png">
                     </span>
-                    <p class="authorName">{{blog[0].author}}</p>
+                    <p class="authorName">{{blog.author}}</p>
                   </span>
-                  <p class="date">Date: {{blog[0].date_added}}</p>
+                  <p class="date">Date: {{blog.date_added}}</p>
                 </span>
 
                 <span class="blogsociallists">
@@ -83,10 +83,10 @@
               </mat-card-content>
               <span class="item_images">
 
-                <img [src]="blog_img">
+                <img [src]="blog.profile_picture">
               </span>
 
-              <p class="description"><span [innerHtml]="blog[0].description_html"></span></p>
+              <p class="description"><span [innerHtml]="blog.description_html"></span></p>
             </mat-card-content>
           </span>
         </mat-card-content>
@@ -94,25 +94,31 @@
         <mat-list class="photogallerylists">
           <mat-list-item class="writer_image">
             <span class="writer_image_wrapper">
-              <img [src]="blog_img">
+              <img [src]="blog.profile_picture">
             </span>
           </mat-list-item>
+
+
+
+          
         </mat-list>
         <!-- end gallery section -->
 
         <!-- start video section -->
-        <mat-list class="photogallerylists" *ngIf="blog[0].credentials[0].video_url != ''">
-          <mat-list-item class="writer_image">
+        <span *ngIf=" blog.credentials[0].video_url !=''">
+        <mat-list class="photogallerylists" >
+          <mat-list-item class="writer_image" >
             <span class="writer_image_wrapper">
-              <div *ngFor="let vurl of blog[0].credentials">
-                <button *ngIf="vurl.video_url !='' && vurl.video_url !=null "
+              <div *ngFor="let vurl of blog.credentials">
+                <button *ngIf="vurl.video_url !=null "
                   (click)="openvideourl(vurl.video_url)">
-                  <img src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
+                  <img  src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
                 </button>
               </div>
             </span>
           </mat-list-item>
         </mat-list>
+      </span>
         <!-- end video section -->
       </span>
       <span class="categorywrapper">

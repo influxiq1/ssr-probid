@@ -5,7 +5,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, Subject, Subscription } from 'rxjs';
 import{CookieService} from 'ngx-cookie-service';
 import {environment } from '../environments/environment';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Injectable({   
@@ -54,27 +54,36 @@ export class ApiService {
   // public subscriptionupdatestatusSingleEndpoint: Subscription;
   // public subscriptionGetdataEndpoint: Subscription;
   public tokenVal: any;
-  constructor(private _http: HttpClient, private cookieService :CookieService) {
+  constructor(private _http: HttpClient, private cookieService :CookieService,public router:Router,public activatedRoute:ActivatedRoute) {
 
-    let data={
-      source:'search_api_key'
-    }
-    this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
-      // console.log(res);
-      if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
-        
-      this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
-      this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
-      // console.log(this.inventory_url);
+    if(this.router.url == '/' || this.router.url == '/home'){
 
-      this.invalidApi=res.res[0].apikey;
+      let data={
+        source:'search_api_key'
+      }
+      this._http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
+        // console.log(res);
+        if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
+          
+        this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
+        this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
+        // console.log(this.inventory_url);
+  
+        this.invalidApi=res.res[0].apikey;
 
-    }
+        this.cookieService.set('inventory_url',this.inventory_url)
+        this.cookieService.set('inventory_auto_complete_url',this.inventory_auto_complete_url)
 
-    });
+  
+      }
+  
+      });
+
+    } 
+
+
     
   }
-
 
 
   isTokenExpired() {}

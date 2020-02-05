@@ -15,7 +15,7 @@
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active activebread">
-          <a [routerLink]="'/bloglist'"> Blog list </a>
+          <a > Blogs </a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
       </mat-list>
@@ -34,32 +34,35 @@
       <span class="bloglistswrapper"> 
           <span class="search-sec">
               <span class="mat-search-bar">
-                <form class="example-form">
-                    <mat-form-field class="example-full-width">
+                <!-- <form class="example-form"> -->
+                  <span class="example-form ">
+                    <span class="example-full-width">
                         <span matPrefix></span>
-                        <input type="text" matInput placeholder="search by title, keyword">
+                        <input type="text" matInput placeholder="search by title, keyword" [(ngModel)]='keyword_search' (ngModelChange)="searchByKey($event)">
                         <button mat-button>
                           <i class="material-icons">
                             search
                           </i>
                         </button>
-                      </mat-form-field>
-                  <mat-form-field class="example-full-width">
-                    <span matPrefix></span>
-                    <input type="text" matInput placeholder="search Category">
-                    <button mat-button>
-                      <i class="material-icons">
-                        search
-                      </i>
-                    </button>
-                  </mat-form-field>
-                </form>
+                      </span>
+                      <span class="example-full-width">
+                        <span matPrefix></span>
+                        <input type="text" matInput placeholder="search Category" [(ngModel)]="category_search"
+                        (ngModelChange)="searchByCategory($event)">
+                        <button mat-button>
+                          <i class="material-icons">
+                            search
+                          </i>
+                        </button>
+                      </span>
+                    <!-- </form> -->
+                </span>
               </span>
             </span>       
         <mat-card-content class="bottom_blog">
           <span class="item_wrapper">
             <mat-card-content class="item" *ngFor="let item of bloglisting | slice:0:indexval ; let i=index">
-              <span class="item_images" (click)="blogdetail(item._id)">
+              <span class="item_images" (click)="blogdetail(item)">
                 <img [src]="item.profile_picture">
               </span>
               <mat-card-content class="contentsection">
@@ -67,7 +70,7 @@
                   <button *ngIf="vurl.video_url !='' && vurl.video_url !=null "
                     (click)="openvideourl(vurl.video_url)"><img src="../../../../assets/images/videoicon.png"></button>
                 </span>
-                <mat-card-title class="inner_header" (click)="blogdetail(item._id)">{{item.blogtitle}}</mat-card-title>
+                <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
                 <span class="author">
                   <span class="authornmimg">
                     <span class="writer_image">
@@ -79,7 +82,7 @@
                 </span>
                 <p class="description"><span [innerHtml]="item.description_html"></span></p>
                 <!-- {{item.description_html}} -->
-                <a class="next_page" (click)="blogdetail(item._id)">read more</a>
+                <a class="next_page" (click)="blogdetail(item)">read more</a>
 
                 <span class="blogsociallists absolute">
                   <a class="sociallink fa fb" (click)="comingSoonDialogBlog()">
@@ -117,17 +120,17 @@
           <h2>Categories ({{blogcategorycount}})</h2>
           <mat-accordion class="category">
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-              *ngFor="let item of blogcategory">
+              *ngFor="let item of allBlogsCategories">
               <mat-expansion-panel-header>
-                <mat-panel-title (click)="openblog(item._id)">
-                  {{item.blogtitle}} ({{item.blogcount}}) &nbsp;
+                <mat-panel-title (click)="getAllBlogs(item._id)">
+                  {{item.blogtitle}} &nbsp;
                   <!-- <h4 >({{count}})</h4> -->
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ng-container>
                 <span>
-                  <div class="categorysub" (click)="blog(item._id)" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header"></h5>
+                  <div class="categorysub" [ngClass]="{'active': blogcat }">
+                    <h5 class="inner_header" *ngFor="let cat of allBlogs;let i=index;" >{{ cat.blogtitle  }}</h5>
                   </div>
                 </span>
               </ng-container>

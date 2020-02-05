@@ -94,6 +94,9 @@ export class BasicInventorySearchComponent implements OnInit {
   public apikey:any;
   public loader1 = false;
 
+  public inventory_url:any;
+  public inventory_auto_complete_url:any;
+
 
   
 
@@ -151,6 +154,11 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
 
     this.generateForm();
     this.getStateList();
+
+    this.inventory_url=(this.cookieService.get('inventory_url'));
+    this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
+
+    console.log( this.inventory_auto_complete_url);
   }
 
 
@@ -251,7 +259,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
      
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=15';
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model+ '&rows=15';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.apploader.loader = 0;
@@ -359,7 +367,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     }
 
     if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
-    let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
+    let search_url: string = this.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
       this.apploader.loader = 0;
