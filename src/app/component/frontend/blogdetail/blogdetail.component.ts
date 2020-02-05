@@ -64,8 +64,6 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blog_img)
 
 
-      // this.blogdetail();
-
       this.meta.setTag('og:type', 'website');
 
       this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
@@ -117,6 +115,9 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blogcategorysearch)
 
     });
+
+
+
 
   }
   subblog(val: any) {

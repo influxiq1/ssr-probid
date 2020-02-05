@@ -90,7 +90,6 @@ export class ApiService {
   }
 
 
-
   isTokenExpired() {}
   /* read site setting data */
   public getSiteSettingData(url): Observable<any> {
