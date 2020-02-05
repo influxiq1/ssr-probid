@@ -43,7 +43,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcat: any;
   public blogsubcategorycount: any;
   public count: any = 0;
-  public indexval: any = 4;
+  public indexval: any = 2;
   public bloglisting: any;
   public videourl: any = '';
   public keyword_search: string;

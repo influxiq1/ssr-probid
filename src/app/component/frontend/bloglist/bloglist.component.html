@@ -63,7 +63,14 @@
           <span class="item_wrapper">
             <mat-card-content class="item" *ngFor="let item of bloglisting | slice:0:indexval ; let i=index">
               <span class="item_images" (click)="blogdetail(item)">
-                <img [src]="item.profile_picture">
+                <span *ngIf="item.blogs_image !=''"><img [src]="item.blogs_image"></span>
+               <span *ngIf="item.blogs_image == ''"><img src="../../../../assets/images/no-image-default.jpg"></span>
+               
+                <!-- <img  [src]="item.blogs_image">
+               <span *ngIf="item.blogs_image ==''">
+                
+                <img  src="https://dev.probidauto.com/assets/images/no-image-default.jpg">
+                </span> -->
               </span>
               <mat-card-content class="contentsection">
                 <span class="bnticons" *ngFor="let vurl of item.credentials">
@@ -104,9 +111,9 @@
                   <a class="sociallink fa tbl" (click)="comingSoonDialogBlog()">
                     <fa name="tumblr" class="fa-tumblr"></fa>
                   </a>
-                  <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
+                  <!-- <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
                     <fa name="share" class="fa-share"></fa>
-                  </a>
+                  </a> -->
                 </span>
               </mat-card-content>
             </mat-card-content>
