@@ -25,7 +25,7 @@ export class ListingBlogsComponent implements OnInit {
   UpdateEndpoint: any = "addorupdatedata";
   deleteEndpoint: any = "deletesingledata";
   searchingEndpoint: any = "datalist";
-  editUrl: any = 'blogs/edit';
+  editUrl: any = 'blog-management/edit/';
   apiUrl: any = this.apiService.serverUrlDemo;
   status: any = [{ val: 1, 'name': 'Active' }, { val: 0, 'name': 'Inactive' }];
   view: any = "blogs_view";
