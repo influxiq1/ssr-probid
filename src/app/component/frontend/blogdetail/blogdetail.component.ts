@@ -71,7 +71,7 @@ export class BlogdetailComponent implements OnInit {
       this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
 
       if (this.blog != null && this.blog.length != 0) {
-        this.meta.setTitle(this.blog.blogtitle);
+        this.meta.setTitle('ProBid Auto-'+''+this.blog.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
         this.meta.setTag('og:title', this.blog.blogtitle);

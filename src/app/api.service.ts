@@ -56,15 +56,7 @@ export class ApiService {
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService,public router:Router,public activatedRoute:ActivatedRoute) {
 
-    // if(this.router.url == '/basic-inventory-search' || 
-    // this.router.url == '/advance-inventory-search' || 
-    // this.router.url == '/basic-inventory-search-admin' || 
-    // this.router.url == '/advance-inventory-search-admin' ||
-    // this.router.url == '/home' ||
-    // this.router.url == '/basic-inventory-search-rep' ||
-    // this.router.url == '/advance-inventory-search-rep' ||
-    // this.router.url == '/basic-inventory-search-customer' ||
-    // this.router.url == '/advance-inventory-search-customer'){
+    if(this.router.url == '/'){
 
       let data={
         source:'search_api_key'
@@ -78,12 +70,18 @@ export class ApiService {
         // console.log(this.inventory_url);
   
         this.invalidApi=res.res[0].apikey;
+
+        this.cookieService.set('inventory_url',this.inventory_url)
+        this.cookieService.set('inventory_auto_complete_url',this.inventory_auto_complete_url)
+
   
       }
   
       });
 
-    // }
+
+
+    }
 
  
     
