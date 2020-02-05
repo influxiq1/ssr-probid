@@ -5,6 +5,7 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
+import { FacebookService, LoginResponse,UIParams, UIResponse } from 'ngx-facebook';
 
 export interface DialogData {
   data: any;
@@ -19,7 +20,7 @@ export interface DialogData {
 export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
-  public highLoadMore:boolean=false;
+
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -43,7 +44,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcat: any;
   public blogsubcategorycount: any;
   public count: any = 0;
-  public indexval: any = 4;
+  public indexval: any = 2;
   public bloglisting: any;
   public videourl: any = '';
   public keyword_search: string;
@@ -56,7 +57,7 @@ export class BloglistfrontendComponent implements OnInit {
 
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
 
 
     this.meta.setTitle('ProBid Auto - Blogs');
@@ -72,6 +73,12 @@ export class BloglistfrontendComponent implements OnInit {
     this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
     this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
 
+
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
+
   }
 
   panelOpenState = false;
@@ -82,7 +89,7 @@ export class BloglistfrontendComponent implements OnInit {
   blogdetail(val:any){
     console.log(val)
     this.title=val.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,'-')
     // console.log(this.blogtitle)
     if (this.blogtitle != '') {
       this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
@@ -123,6 +130,26 @@ export class BloglistfrontendComponent implements OnInit {
   /** end api service for blog_catagory total count by uttam */
 
 
+  fbShare(val:any){
+    console.log(val)
+    // this.title=val.blogtitle
+    // this.blogtitle=this.title.split(' ').join('-')
+    // var url='https://dev.probidauto.com/blogs/'+ this.blogtitle+ '/'+val._id;
+
+    // let params: UIParams = {
+    //   href: url,
+    //   method: 'share'
+    // };
+    // this.facebook.ui(params).then((res:UIResponse)=>{
+    // }).catch(fb=>{
+    //   console.log(fb)
+    // });
+
+  }
+
+ 
+
+
 
   /** search by keyword **/
   searchByKey(val: any) {
@@ -144,7 +171,7 @@ export class BloglistfrontendComponent implements OnInit {
 
   /** serach by category **/
   searchByCategory(val: any) {
-    console.log(val.toLowerCase());
+    // console.log(val.toLowerCase());
     let data: any = {
       "condition":
       {
@@ -163,7 +190,7 @@ export class BloglistfrontendComponent implements OnInit {
 
 
   getAllBlogs(val:any) {
-    console.log("clicked",val);
+    // console.log("clicked",val);
     let data: any = {
       "source": "blogs_view",
       "endpoint": "datalistwithouttoken",
@@ -175,7 +202,7 @@ export class BloglistfrontendComponent implements OnInit {
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.allBlogs = result.res;
       this.bloglisting = result.res;
-      console.log("yy",this.allBlogs);
+      // console.log("yy",this.allBlogs);
     });
   }
 
@@ -189,14 +216,14 @@ export class BloglistfrontendComponent implements OnInit {
 
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.allBlogsCategories = result.res;
-      console.log("ssssssss",this.allBlogsCategories);
+      // console.log("ssssssss",this.allBlogsCategories);
     });
   }
   
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
-      console.log(val)
+      // console.log(val)
       this.blogcat = val._id;
       this.router.navigateByUrl('/blogdetail/'+val._id)
     }
@@ -250,23 +277,18 @@ export class BloglistfrontendComponent implements OnInit {
 
   //***********load more view blog *************//
   blogloadmore() {
-    let data: any = {
-      endpoint: 'loadmoreblogdata',
-      "condition": {
-        "limit": 10,
-        "skip": this.indexval
-    }
-    }
-    this.apiService.getDatalist(data).subscribe((res:any)=>{
-      if(res.blogs.length > 0){
-        this.bloglisting = res.blogs.concat(this.bloglisting);
-        this.indexval = this.indexval + 10;
-      }else{
-        this.highLoadMore=true;
-      }
-      
-    })
-    
+    //console.log('load more')
+    // let data: any = {
+    //   "condition": {
+    //     "limit": 8,
+    //     "skip": 1
+    // }
+    // }
+    // this.apiService.getdata(data, 'blogdata').subscribe((res:any)=>{
+    //   console.log(res);
+    //   this.bloglisting = res.blogs;
+    // })
+    this.indexval = this.indexval + 2;
 
   }
 

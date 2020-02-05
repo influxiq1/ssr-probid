@@ -570,13 +570,13 @@ export class HomeComponent implements OnInit {
     // this.blogtitle=val.blogtitle.replace(' ', '-')
     // console.log(this.blogtitle)
     this.title=val.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,'-');
     this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
   showMoreFunc() {
     this.indexval = this.indexval + 3;
     // console.log(this.indexval);
-  }
+  } 
 
   // getData(){
   //   let data: any = {
@@ -689,7 +689,7 @@ export class HomeComponent implements OnInit {
 /** sharing over facebook **/
   fb_share(val: any) {
     console.log(val._id);
-    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '');
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '','');
   }
 
   
