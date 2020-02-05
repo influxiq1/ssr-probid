@@ -56,7 +56,7 @@ export class ApiService {
   public tokenVal: any;
   constructor(private _http: HttpClient, private cookieService :CookieService,public router:Router,public activatedRoute:ActivatedRoute) {
 
-    if(this.router.url == '/'){
+    if(this.router.url == '/' || this.router.url == '/home'){
 
       let data={
         source:'search_api_key'
@@ -79,11 +79,9 @@ export class ApiService {
   
       });
 
+    } 
 
 
-    }
-
- 
     
   }
 

@@ -177,6 +177,8 @@ export class HomeComponent implements OnInit {
   public currentUrl: any;
   public blogtitle:any;
   // public testimonial_img: any = '';
+  public inventory_url:any;
+  public inventory_auto_complete_url:any;
 
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public http: HttpClient, public dialog: MatDialog, public cookieService: CookieService, public apploader: AppComponent) {
@@ -213,6 +215,7 @@ export class HomeComponent implements OnInit {
       this.user_id = this.user_details._id;
       // console.log(this.user_id);
 
+
       if (this.user_details.type == "salesrep") {
         let data: any = {
           endpoint: 'datalist',
@@ -228,6 +231,13 @@ export class HomeComponent implements OnInit {
 
       }
     }
+
+    this.inventory_url=(this.cookieService.get('inventory_url'));
+    this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
+
+    // console.log( this.inventory_auto_complete_url);
+
+
   }
 
 
@@ -361,7 +371,7 @@ export class HomeComponent implements OnInit {
 
     if (this.type != '' || this.year != '' || this.make != '' || this.model != '') {
 
-      let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.model + '&rows=50';
+      let search_link = this.inventory_url + this.type + this.year + this.make + this.model + '&rows=50';
 
       this.http.get(search_link).subscribe((res: any) => {
         this.apploader.loader = 0;
@@ -450,7 +460,7 @@ export class HomeComponent implements OnInit {
 
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model + '&rows=50';
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model + '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.apploader.loader = 0;
@@ -481,7 +491,7 @@ export class HomeComponent implements OnInit {
 
 
   searchAutoComplete(event: any, field: string) {
-    this.apploader.loader = 1;
+    // this.apploader.loader = 1;
 
 
     let input: string = '';
@@ -497,7 +507,7 @@ export class HomeComponent implements OnInit {
       let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
-        this.apploader.loader = 0;
+        // this.apploader.loader = 0;
 
 
         if (field == 'make') {

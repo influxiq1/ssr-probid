@@ -70,6 +70,8 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
   public zip = '';
   public search = '';
 
+  public inventory_url:any;
+  public inventory_auto_complete_url:any;
   public transmissiontypeList: any;
   public doorsqtyList: any;
   public doorsqty: any;
@@ -121,6 +123,10 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     this.getenginetypeList();
     this.gettransmissiontypeList();
     this.getdoorsqtyList();
+    this.inventory_url=(this.cookieService.get('inventory_url'));
+    this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
+
+    // console.log( this.inventory_auto_complete_url);
   }
 
   ngOnInit() {
@@ -289,7 +295,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
 
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' ||this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
@@ -325,7 +331,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
 
 
     if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '')) {
-      let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
+      let search_url: string = this.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
   
       this.http.get(search_url).subscribe((res: any) => {
        
