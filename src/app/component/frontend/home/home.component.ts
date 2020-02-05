@@ -300,7 +300,7 @@ export class HomeComponent implements OnInit {
     })
 
 
-    if(this.router.url == '/'){
+    // if(this.router.url == '/'){
 
       let data={
         source:'search_api_key'
@@ -323,7 +323,7 @@ export class HomeComponent implements OnInit {
   
       });
 
-    } 
+    // } 
 
 
   }
