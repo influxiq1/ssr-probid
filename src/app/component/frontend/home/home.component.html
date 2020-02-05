@@ -558,11 +558,11 @@
                   <mat-card-content class="bottom_blog">    
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
-                        <span class="item_images" (click)="blogdetail(item._id)">
+                        <span class="item_images" (click)="blogdetail(item)">
                           <img [src]="item.profile_picture">
                         </span>
                         <mat-card-content class="contentsection">
-                          <mat-card-title class="inner_header" (click)="blogdetail(item._id)">{{item.blogtitle}}</mat-card-title>
+                          <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
                           <span class="author">
                             <span class="authornmimg">
                               <span class="writer_image">
@@ -573,7 +573,7 @@
                             <p class="date">Date: {{item.date_added}} </p>
                           </span>
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
-                          <a class="next_page"  (click)="blogdetail(item._id)" >read more</a>
+                          <a class="next_page"  (click)="blogdetail(item)" >read more</a>
                           <span class="blogsociallists">
                             <a class="sociallink fa fb" (click)="fb_share(item)"><fa name="facebook" class="fa-facebook"></fa></a>
                             <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>

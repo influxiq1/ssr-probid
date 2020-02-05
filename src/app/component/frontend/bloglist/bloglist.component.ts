@@ -19,7 +19,7 @@ export interface DialogData {
 export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
- 
+
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -35,26 +35,30 @@ export class BloglistfrontendComponent implements OnInit {
     view: "blogs"
   }
   public blogList: any;
-  public blogcategory:any;
-  public blogcount:any;
-  public blogcategorysearch:any;
-  public blogcategorycount:any;
-  public blogcat:any;
-  public blogsubcategorycount:any;
-  public count:any=0;
-  public indexval:any=4;
-  public bloglisting:any;
-  public videourl:any='';
-  public url:"https://www.youtube.com/embed/";
-  public blogtitle:any;
-  public keyword_search:any;
-  public category_search:any;
+
+  public blogcategory: any;
+  public blogcount: any;
+  public blogcategorysearch: any;
+  public blogcategorycount: any;
+  public blogcat: any;
+  public blogsubcategorycount: any;
+  public count: any = 0;
+  public indexval: any = 4;
+  public bloglisting: any;
+  public videourl: any = '';
+  public keyword_search: string;
+  public url: "https://www.youtube.com/embed/"
+  public category_search: any;
+  public allBlogs: any = [];
+  public allBlogsCategories:any;
+  public blogtitle:any = '';
+
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
 
 
-    this.meta.setTitle('ProBid Auto - Blog');
+    this.meta.setTitle('ProBid Auto - Blogs');
     this.meta.setTag('og:description', 'Learn about all the latest developments and new technologies being introduced in the Online Auto Trading Industry with the latest Blogs written by our expert Online Auto Trading Professionals and Reps.');
     this.meta.setTag('twitter:description', 'Learn about all the latest developments and new technologies being introduced in the Online Auto Trading Industry with the latest Blogs written by our expert Online Auto Trading Professionals and Reps.');
 
@@ -78,11 +82,16 @@ export class BloglistfrontendComponent implements OnInit {
     console.log(val)
     this.blogtitle=val.blogtitle.replace(' ', '-')
     // console.log(this.blogtitle)
-    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+    if (this.blogtitle != '') {
+      this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+    }
   }
 
 
   ngOnInit() {
+
+    /** getting all blog category **/
+    this.getBlogCategories();
 
     //**all blog category and blog list from resolve in routing**//
 
@@ -118,7 +127,7 @@ export class BloglistfrontendComponent implements OnInit {
     let data: any = {
       "condition":
       {
-        "blogtitle_search_regex": val,
+        "blogtitle_search_regex": val.toLowerCase(),
         // "author_regex":val
 
       },
@@ -132,7 +141,7 @@ export class BloglistfrontendComponent implements OnInit {
   }
 
   /** serach by category **/
-  searchByCategory(val:any) {
+  searchByCategory(val: any) {
     console.log(val.toLowerCase());
     let data: any = {
       "condition":
@@ -151,6 +160,37 @@ export class BloglistfrontendComponent implements OnInit {
   }
 
 
+  getAllBlogs(val:any) {
+    console.log("clicked",val);
+    let data: any = {
+      "source": "blogs_view",
+      "endpoint": "datalistwithouttoken",
+      "condition":{
+        "blogcat_object":val
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+      this.allBlogs = result.res;
+      this.bloglisting = result.res;
+      console.log("yy",this.allBlogs);
+    });
+  }
+
+  getBlogCategories(){
+    let data: any = {
+      "source": "blog_category_view",
+      "endpoint": "datalistwithouttoken",
+      "condition":{
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+      this.allBlogsCategories = result.res;
+      console.log("ssssssss",this.allBlogsCategories);
+    });
+  }
+  
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){

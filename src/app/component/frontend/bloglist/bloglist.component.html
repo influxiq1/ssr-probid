@@ -15,7 +15,7 @@
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
         <mat-list-item routerLinkActive="active activebread">
-          <a [routerLink]="'/bloglist'"> Blog list </a>
+          <a > Blogs </a>
           <span class="breadcrumb__divider" aria-hidden="true">›</span>
         </mat-list-item>
       </mat-list>
@@ -120,17 +120,17 @@
           <h2>Categories ({{blogcategorycount}})</h2>
           <mat-accordion class="category">
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-              *ngFor="let item of blogcategory">
+              *ngFor="let item of allBlogsCategories">
               <mat-expansion-panel-header>
-                <mat-panel-title (click)="openblog(item._id)">
-                  {{item.blogtitle}} ({{item.blogcount}}) &nbsp;
+                <mat-panel-title (click)="getAllBlogs(item._id)">
+                  {{item.blogtitle}} &nbsp;
                   <!-- <h4 >({{count}})</h4> -->
                 </mat-panel-title>
               </mat-expansion-panel-header>
               <ng-container>
                 <span>
-                  <div class="categorysub" (click)="blog(item._id)" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header"></h5>
+                  <div class="categorysub" [ngClass]="{'active': blogcat }">
+                    <h5 class="inner_header" *ngFor="let cat of allBlogs;let i=index;" >{{ cat.blogtitle  }}</h5>
                   </div>
                 </span>
               </ng-container>
