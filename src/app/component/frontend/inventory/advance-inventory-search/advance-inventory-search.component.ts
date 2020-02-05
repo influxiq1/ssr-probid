@@ -79,6 +79,8 @@ export class AdvanceInventorySearchComponent implements OnInit {
   public doorsqtyList: any;
   public doorsqty: any;
   
+  public inventory_url:any;
+  public inventory_auto_complete_url:any;
 
   public indexCountForImg:any;
   public indexCount:any;
@@ -115,6 +117,10 @@ export class AdvanceInventorySearchComponent implements OnInit {
     this.getenginetypeList();
     this.gettransmissiontypeList();
     this.getdoorsqtyList();
+
+    this.inventory_url=(this.cookieService.get('inventory_url'));
+    this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
+
   }
 
   ngOnInit() {
@@ -290,7 +296,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
      
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '') {
 
-        let search_link = this.apiService.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
 
         this.http.get(search_link).subscribe((res: any) => {
           this.search = res.listings;
@@ -313,7 +319,7 @@ export class AdvanceInventorySearchComponent implements OnInit {
   }
 
   searchAutoComplete(event: any, field: string) {
-    this.apploader.loader = 1;
+    // this.apploader.loader = 1;
 
     let input: string = '';
     let inputField: string = '';
@@ -325,10 +331,10 @@ export class AdvanceInventorySearchComponent implements OnInit {
     }
 
     if (inputField != '' && ( input !='' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.state != '' || this.zip != '' || this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '')) {
-    let search_url: string = this.apiService.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
+    let search_url: string = this.inventory_auto_complete_url+ inputField + input + this.type + this.make +"&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
     this.http.get(search_url).subscribe((res: any) => {
-      this.apploader.loader = 0;
+      // this.apploader.loader = 0;
      
       if (field == 'make') {
         this.make_list = res.terms; 
