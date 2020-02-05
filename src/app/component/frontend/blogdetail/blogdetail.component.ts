@@ -5,6 +5,8 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
+import { FacebookService, LoginResponse,UIParams, UIResponse } from 'ngx-facebook';
+// import { TwitterService } from 'ngx-twitter-api';
 
 export interface DialogData {
   data: any;
@@ -50,9 +52,16 @@ export class BlogdetailComponent implements OnInit {
     view: "blog_category_view"
 
   }
-  constructor(public apiService: ApiService, public router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, private sanitizer: DomSanitizer, public dialog: MatDialog, private readonly meta: MetaService) {
+  constructor(public apiService: ApiService, public router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, private sanitizer: DomSanitizer, public dialog: MatDialog, private readonly meta: MetaService,public facebook:FacebookService) {
 
     // console.log(this.activatedRoute.snapshot.params.blogtitle)
+
+
+
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
 
   }
 
@@ -67,8 +76,8 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blog_img)
 
 
-      this.title=this.blog.blogtitle
-      this.blogtitle=this.title.split(' ').join('-')
+      this.title=this.blog.blogtitle;
+      this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
 
 
       this.meta.setTag('og:type', 'website');
@@ -120,11 +129,40 @@ export class BlogdetailComponent implements OnInit {
       //  console.log(this.blogcategorysearch)
 
     });
+  }
 
+  //FACEBOOK SHARE
 
+  fbShare(){
+    console.log()
+    this.title=this.blog.blogtitle
+    this.blogtitle=this.title.split(' ').join('-')
+    var url='https://dev.probidauto.com/blogs/'+ this.blogtitle+ '/'+this.blog._id;
 
+    let params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+    this.facebook.ui(params).then((res:UIResponse)=>{
+    }).catch(fb=>{
+      console.log(fb)
+    });
 
   }
+
+  //linkedin share
+
+  // linkedinShare(){
+
+  // }
+
+  twitterShare(){
+
+  }
+
+
+
+
   subblog(val: any) {
 
   }

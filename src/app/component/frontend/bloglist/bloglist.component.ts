@@ -20,7 +20,7 @@ export interface DialogData {
 export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
-  public highLoadMore:boolean=false;
+
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -44,7 +44,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcat: any;
   public blogsubcategorycount: any;
   public count: any = 0;
-  public indexval: any = 4;
+  public indexval: any = 2;
   public bloglisting: any;
   public videourl: any = '';
   public keyword_search: string;
@@ -89,7 +89,7 @@ export class BloglistfrontendComponent implements OnInit {
   blogdetail(val:any){
     console.log(val)
     this.title=val.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi,'-')
     // console.log(this.blogtitle)
     if (this.blogtitle != '') {
       this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
@@ -132,20 +132,22 @@ export class BloglistfrontendComponent implements OnInit {
 
   fbShare(val:any){
     console.log(val)
-    this.title=val.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
-    var url='http://192.168.1.187:4200/blogs'+ this.blogtitle+ '/'+val._id;
+    // this.title=val.blogtitle
+    // this.blogtitle=this.title.split(' ').join('-')
+    // var url='https://dev.probidauto.com/blogs/'+ this.blogtitle+ '/'+val._id;
 
-    let params: UIParams = {
-      href: url,
-      method: 'share'
-    };
-    this.facebook.ui(params).then((res:UIResponse)=>{
-    }).catch(fb=>{
-      console.log(fb)
-    });
+    // let params: UIParams = {
+    //   href: url,
+    //   method: 'share'
+    // };
+    // this.facebook.ui(params).then((res:UIResponse)=>{
+    // }).catch(fb=>{
+    //   console.log(fb)
+    // });
 
   }
+
+ 
 
 
 
@@ -275,23 +277,18 @@ export class BloglistfrontendComponent implements OnInit {
 
   //***********load more view blog *************//
   blogloadmore() {
-    let data: any = {
-      endpoint: 'loadmoreblogdata',
-      "condition": {
-        "limit": 10,
-        "skip": this.indexval
-    }
-    }
-    this.apiService.getDatalist(data).subscribe((res:any)=>{
-      if(res.blogs.length > 0){
-        this.bloglisting = res.blogs.concat(this.bloglisting);
-        this.indexval = this.indexval + 10;
-      }else{
-        this.highLoadMore=true;
-      }
-      
-    })
-    
+    //console.log('load more')
+    // let data: any = {
+    //   "condition": {
+    //     "limit": 8,
+    //     "skip": 1
+    // }
+    // }
+    // this.apiService.getdata(data, 'blogdata').subscribe((res:any)=>{
+    //   console.log(res);
+    //   this.bloglisting = res.blogs;
+    // })
+    this.indexval = this.indexval + 2;
 
   }
 
