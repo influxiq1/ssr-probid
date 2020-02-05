@@ -689,7 +689,7 @@ export class HomeComponent implements OnInit {
 /** sharing over facebook **/
   fb_share(val: any) {
     console.log(val._id);
-    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '', "width=500,height=500");
+    window.open('https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdev.probidauto.com%2Fblogdetail%2F&amp;src=sdkpreparse' + val._id, '', "width=300,height=400");
   }
 
   
