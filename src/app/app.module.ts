@@ -206,7 +206,6 @@ import { AddeditTestimonialComponent } from './component/backend/manage-website/
 import { ListingTestimonialComponent } from './component/backend/manage-website/TestimonialApp/listing-testimonial/listing-testimonial.component';
 import { RouteLoaderComponent } from './route-loader/route-loader.component';
 
-import { TwitterService } from 'ngx-twitter-api';
 
 
 export function metaFactory(): MetaLoader {
@@ -437,7 +436,7 @@ export function translateLoaderFactory(httpClient: HttpClient) {
   exports: [TranslateModule],
   entryComponents: [CommonVideoModalComponent,VideoModalComponent, comingSoonDialog, customerSignUpsuccessDialog,DialogPrivacyDialog, DialogTermsDialog, DialogModalOpenDialog, NewslatterDialogComponent, NewslattersuccessDialogComponent,errorDialog,loginBeforeDialog,DeleteModalComponent,DeleteModalRsvpComponent,RemoveModalComponent,RemoveRsvpComponent,RemoveDialogComponent,RemoveModalComponent,RemoveRSvpModalComponent, salesSignUpModalComponent, askForconfirmationModalComponent, RemoveSalesRepRSvpModalComponent,loginDialog,errorSearchModal,DeleteJobModalComponent,ViewImageComponent, googlemapDialog,comingSoonDialogBlog,comingSoonDialogBloghome,ApiModalComponent,comingSoonDialogBlogDetail,comingSoonDialogTestimonhome,comingSoonDialogTestimonListhome,loginInventoryDialog,DeleteJobTicketModalComponent,DeleteJobRepTicketModalComponent, DeleteJobTicketCusModalComponent,askForconfirmationDialogComponent],
   
-  providers: [CookieService,AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true, },TwitterService],
+  providers: [CookieService,AuthGuard, ApiService, SidenavService, HttpLoaderService, { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true, }],
   bootstrap: [AppComponent],
   schemas:[CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
   // errorDialogbackend

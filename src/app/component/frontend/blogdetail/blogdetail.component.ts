@@ -6,7 +6,6 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
 import { FacebookService, LoginResponse,UIParams, UIResponse } from 'ngx-facebook';
-// import { TwitterService } from 'ngx-twitter-api';
 
 export interface DialogData {
   data: any;
