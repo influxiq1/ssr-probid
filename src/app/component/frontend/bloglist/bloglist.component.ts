@@ -5,6 +5,7 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
+import { FacebookService, LoginResponse,UIParams, UIResponse } from 'ngx-facebook';
 
 export interface DialogData {
   data: any;
@@ -56,7 +57,7 @@ export class BloglistfrontendComponent implements OnInit {
 
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
 
 
     this.meta.setTitle('ProBid Auto - Blogs');
@@ -71,6 +72,12 @@ export class BloglistfrontendComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
     this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
+
+
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
 
   }
 
@@ -123,6 +130,24 @@ export class BloglistfrontendComponent implements OnInit {
   /** end api service for blog_catagory total count by uttam */
 
 
+  fbShare(val:any){
+    console.log(val)
+    this.title=val.blogtitle
+    this.blogtitle=this.title.split(' ').join('-')
+    var url='http://192.168.1.187:4200/blogs'+ this.blogtitle+ '/'+val._id;
+
+    let params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+    this.facebook.ui(params).then((res:UIResponse)=>{
+    }).catch(fb=>{
+      console.log(fb)
+    });
+
+  }
+
+
 
   /** search by keyword **/
   searchByKey(val: any) {
@@ -144,7 +169,7 @@ export class BloglistfrontendComponent implements OnInit {
 
   /** serach by category **/
   searchByCategory(val: any) {
-    console.log(val.toLowerCase());
+    // console.log(val.toLowerCase());
     let data: any = {
       "condition":
       {
@@ -163,7 +188,7 @@ export class BloglistfrontendComponent implements OnInit {
 
 
   getAllBlogs(val:any) {
-    console.log("clicked",val);
+    // console.log("clicked",val);
     let data: any = {
       "source": "blogs_view",
       "endpoint": "datalistwithouttoken",
@@ -175,7 +200,7 @@ export class BloglistfrontendComponent implements OnInit {
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.allBlogs = result.res;
       this.bloglisting = result.res;
-      console.log("yy",this.allBlogs);
+      // console.log("yy",this.allBlogs);
     });
   }
 
@@ -189,14 +214,14 @@ export class BloglistfrontendComponent implements OnInit {
 
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.allBlogsCategories = result.res;
-      console.log("ssssssss",this.allBlogsCategories);
+      // console.log("ssssssss",this.allBlogsCategories);
     });
   }
   
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
-      console.log(val)
+      // console.log(val)
       this.blogcat = val._id;
       this.router.navigateByUrl('/blogdetail/'+val._id)
     }
