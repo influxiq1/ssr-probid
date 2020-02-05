@@ -47,6 +47,8 @@ export class BloglistfrontendComponent implements OnInit {
   public videourl:any='';
   public url:"https://www.youtube.com/embed/";
   public blogtitle:any;
+  public keyword_search:any;
+  public category_search:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
