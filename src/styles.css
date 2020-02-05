@@ -650,6 +650,10 @@ left: 1.5em;
 .tablediv .searchbar .mat-form-field {margin: 6px 6px;width: auto;}
 .tablediv .searchbar{flex-wrap: wrap;}
 }
+@media only screen and (max-width: 768px) {
+  .tablediv .searchbar{white-space: normal;text-align: center;justify-content: center !important;}
+  .tablediv .searchbar .mat-form-field {margin: 4px;}
+  }
 @media screen and (max-width: 640px) {
 .owl-carousel .owl-nav button.owl-prev{position:absolute;top:25%;left:0}
 .owl-carousel .owl-nav button.owl-next{position:absolute;top:25%;right:0}

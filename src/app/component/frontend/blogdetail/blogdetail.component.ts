@@ -58,7 +58,7 @@ export class BlogdetailComponent implements OnInit {
 
     this.activatedRoute.data.forEach((data: any) => {
       this.blog = data.blogCatList.res[0];
-      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
+      // console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
       //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
       //  this.blog_img=this.blog[0].profile_picture;
       //  console.log(this.blog_img)
@@ -74,7 +74,7 @@ export class BlogdetailComponent implements OnInit {
       if (this.blog != null && this.blog.length != 0) {
 
 
-        this.meta.setTitle('ProBid Auto -',this.blog.blogtitle);
+        this.meta.setTitle(this.blog.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
         this.meta.setTag('og:title', this.blog.blogtitle);
