@@ -72,10 +72,9 @@ export class ResolveService implements Resolve<any> {
                 }
 
 
-
                 if (requestData.condition[d] == '_id') {
-                    console.log(requestData)
-                    requestData.condition[d] = this.activedrouter.params['_id']
+                    // console.log(requestData)
+                    requestData.condition[d] = this.activedrouter.params['_id'];
                     delete requestData.condition.blogtitle;
                     delete requestData.condition._id;
                    
