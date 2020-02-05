@@ -20,7 +20,7 @@ export interface DialogData {
 export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
-
+  public highLoadMore:boolean=false;
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -44,7 +44,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcat: any;
   public blogsubcategorycount: any;
   public count: any = 0;
-  public indexval: any = 2;
+  public indexval: any = 4;
   public bloglisting: any;
   public videourl: any = '';
   public keyword_search: string;
@@ -275,18 +275,23 @@ export class BloglistfrontendComponent implements OnInit {
 
   //***********load more view blog *************//
   blogloadmore() {
-    //console.log('load more')
-    // let data: any = {
-    //   "condition": {
-    //     "limit": 8,
-    //     "skip": 1
-    // }
-    // }
-    // this.apiService.getdata(data, 'blogdata').subscribe((res:any)=>{
-    //   console.log(res);
-    //   this.bloglisting = res.blogs;
-    // })
-    this.indexval = this.indexval + 2;
+    let data: any = {
+      endpoint: 'loadmoreblogdata',
+      "condition": {
+        "limit": 10,
+        "skip": this.indexval
+    }
+    }
+    this.apiService.getDatalist(data).subscribe((res:any)=>{
+      if(res.blogs.length > 0){
+        this.bloglisting = res.blogs.concat(this.bloglisting);
+        this.indexval = this.indexval + 10;
+      }else{
+        this.highLoadMore=true;
+      }
+      
+    })
+    
 
   }
 
