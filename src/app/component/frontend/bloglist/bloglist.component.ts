@@ -274,6 +274,9 @@ export class BloglistfrontendComponent implements OnInit {
   openblog(val: any) {
     // console.log(val)
   }
+  fbShare(){
+    
+  }
 }
 
 //**********video modal component************//
