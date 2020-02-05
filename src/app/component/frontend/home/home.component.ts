@@ -7,6 +7,8 @@ import { HttpClient } from '@angular/common/http';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from '../../../app.component';
+import {environment } from '../../../../environments/environment';
+
 declare var $: any;
 export interface DialogData {
   errorMsg: string;
@@ -59,6 +61,7 @@ export class HomeComponent implements OnInit {
   public errorMsg: string = '';
   public apikey: any;
   public sepecialCarList: any;
+  public invalidApi:any;
 
   public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
   carouselBannerOptions = {
@@ -178,6 +181,9 @@ export class HomeComponent implements OnInit {
   public inventory_url:any;
   public inventory_auto_complete_url:any;
 
+  public serverUrlDemo =  environment["API_URL"];
+
+
 
   constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public http: HttpClient, public dialog: MatDialog, public cookieService: CookieService, public apploader: AppComponent) {
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
@@ -292,6 +298,32 @@ export class HomeComponent implements OnInit {
       this.year_list = result.res
       // console.log('>>>>>',this.year_list)
     })
+
+
+    if(this.router.url == '/'){
+
+      let data={
+        source:'search_api_key'
+      }
+      this.http.post(this.serverUrlDemo + "datalistwithouttoken",data).subscribe((res:any)=>{
+        // console.log(res);
+        if (res.res[0]!=null && res.res[0]!=undefined && res.res[0]!='' && res.res[0].apikey!=null) {
+          
+        this.inventory_url = environment["inventory_url"] + res.res[0].apikey;
+        this.inventory_auto_complete_url = environment["inventory__auto_completeurl"] + res.res[0].apikey
+        // console.log(this.inventory_url);
+  
+        this.invalidApi=res.res[0].apikey;
+
+        this.cookieService.set('inventory_url',this.inventory_url)
+        this.cookieService.set('inventory_auto_complete_url',this.inventory_auto_complete_url)
+
+  
+      }
+  
+      });
+
+    } 
 
 
   }
