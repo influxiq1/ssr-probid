@@ -362,11 +362,11 @@ const routes: Routes = [
 
 
   {
-    path: 'blogs/add', component: AddEditBlogsComponent
+    path: 'blog-management/add', component: AddEditBlogsComponent
   },
 
   {
-    path: 'blogs/list',
+    path: 'blog-management/list',
     component: ListingBlogsComponent,
     resolve: { blogsList: ResolveService },
     data: {
@@ -378,7 +378,7 @@ const routes: Routes = [
     },
   },
   {
-    path: 'blogs/edit/:_id',
+    path: 'blog-management/edit/:_id',
     component: AddEditBlogsComponent,
 
     resolve: { blogsList: ResolveService },

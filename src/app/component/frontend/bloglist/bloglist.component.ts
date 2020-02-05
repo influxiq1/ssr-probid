@@ -189,7 +189,7 @@ export class BloglistfrontendComponent implements OnInit {
 
     this.apiService.getDatalist(data).subscribe((result: any) => {
       this.allBlogsCategories = result.res;
-      console.log("ssssssss",this.allBlogsCategories);
+      // console.log("ssssssss",this.allBlogsCategories);
     });
   }
   
