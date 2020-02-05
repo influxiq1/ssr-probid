@@ -265,12 +265,13 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .readmore{color:#fff;margin-left:auto;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;background:#1299e1;width:150px;text-align:center;align-items:center;justify-content:center;font-family:'HelveticaBold';font-size:17px}
 .bottom_blog .item_wrapper .item .contentsection .description{color:#838383;line-height:24px;font-size:16px;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;line-height:18px;min-height:86px;-webkit-line-clamp:5;-webkit-box-orient:vertical}
 .bloglistinner{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:space-between}
-.bloglistswrapper{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;flex:1 1 60%}
+.bloglistswrapper{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-wrap: wrap;  -webkit-flex-wrap: wrap;flex:1 1 60%;align-items: flex-start;}
 .bloglistswrapper .bottom_blog{width:100%}
 .bloglistswrapper .search-sec{width:100%;margin-bottom:10px}
 .bloglistswrapper .search-sec .mat-search-bar{margin-right:0;width:100%}
 .bloglistswrapper .search-sec .example-full-width{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex:1;margin-left:10px}
 .bloglistswrapper .search-sec .example-full-width:first-child{margin-left:0}
+.bloglistswrapper .search-sec .example-full-width .mat-input-element{width: 100%;}
 .categorywrapper .search-sec{width:100%;margin-bottom:10px}
 .categorywrapper .search-sec .mat-search-bar{margin-right:0;width:100%}
 .categorywrapper .search-sec .example-full-width{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex:1;margin-left:0}
@@ -711,7 +712,10 @@ a.associate_new_con6_link:hover{color:#fff}
 .newsletter_modal{width:auto}
 }
 @media(max-width:420px) {
-.example-container .mat-form-field{width:175px!important}
+/* .example-container .mat-form-field{width:175px!important} */
+.example-container .mat-form-field {width: 100%!important;}
+.signupwrapper {flex-wrap: wrap;}
+.signupsingle {margin: 5px 10px;}
 }
 @media(max-width:600px) {
 .newslettermain{margin-bottom:25px;width:auto!important}
