@@ -47,19 +47,19 @@
                       </span>
                       <span class="example-full-width">
                         <span matPrefix></span>
-                        <mat-form-field>
+                        <mat-form-field class="example-full-width"  >
                           <mat-label>Search By Category</mat-label>
-                          <mat-select>
-                            <mat-option *ngFor="let category of blogcategory" [value]="category._id" (click)="blogCatSearch(category._id)" >
+                          <mat-select [(ngModel)]="blogCat" name="blogCat">
+                            <mat-option *ngFor="let category of blogcategory" [value]="category._id" (click)="blogCatSearch(category._id)"   >
                               {{category.blogtitle}}
                             </mat-option>
                           </mat-select>
                         </mat-form-field>
-                        <button mat-button >
+                        <!-- <button mat-button >
                           <i class="material-icons">
                             search
                           </i>
-                        </button>
+                        </button> -->
                       </span>
                     <!-- </form> -->
                 </span>

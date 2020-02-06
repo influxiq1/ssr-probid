@@ -56,7 +56,7 @@ export class BloglistfrontendComponent implements OnInit {
   public allBlogsCategories:any;
   public blogtitle:any = '';
   public title:any;
-
+  public blogCat:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
@@ -224,15 +224,40 @@ export class BloglistfrontendComponent implements OnInit {
 
   }
 
+  //search by category
 
   blogCatSearch(val:any){
     console.log(val)
-  }
+    let data: any = {
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.bloglisting = result.results.blogs;
+
+  })
+}
 
 
   reset(){
 
-  }
+    this.blogCat='';
+
+    let data: any = {
+      "endpoint": "blogdata",
+      "condition":{
+        "limit": 4, "skip": 1 
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.bloglisting = this.blogList.blogCatList.blogs;
+  })
+}
 
   /** search by keyword **/
   searchByKey(val: any) {
@@ -252,24 +277,6 @@ export class BloglistfrontendComponent implements OnInit {
     });
   }
 
-  /** serach by category **/
-  searchByCategory(val: any) {
-    console.log(val.toLowerCase());
-    let data: any = {
-      "condition":
-      {
-        "blogcategory_regex": val.toUpperCase(),
-        // "author_regex":val
-
-      },
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken"
-    }
-
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.bloglisting = result.res;
-    });
-  }
 
 
   getAllBlogs(val:any) {
