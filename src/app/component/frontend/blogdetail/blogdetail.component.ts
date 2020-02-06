@@ -69,7 +69,7 @@ export class BlogdetailComponent implements OnInit {
     
 
     this.activatedRoute.data.forEach((data: any) => {
-      this.blog = data.blogCatList.res[0];
+      this.blog = data.blogCatList;
       console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
       //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
       //  this.blog_img=this.blog[0].profile_picture;
@@ -102,35 +102,35 @@ export class BlogdetailComponent implements OnInit {
 
 
     /**api service for blog_catagory count by uttam */
-    var datacatcount: any = {};
-    datacatcount = {
-      source: "blog_category"
-    }
+    // var datacatcount: any = {};
+    // datacatcount = {
+    //   source: "blog_category"
+    // }
 
-    this.apiService.getDatalistWithToken(datacatcount, "datalistwithouttoken").subscribe((res: any) => {
+    // this.apiService.getDatalistWithToken(datacatcount, "datalistwithouttoken").subscribe((res: any) => {
 
-      this.blogcategorycount = res.resc;
-      //  console.log(this.blogcategorycount);
-      this.blogcategory = res.res;
+    //   this.blogcategorycount = res.resc;
+    //   //  console.log(this.blogcategorycount);
+    //   this.blogcategory = res.res;
 
-    });
+    // });
 
 
 
 
 
     /**api service for sub blog_catagory by uttam */
-    var datacatsearch: any = {};
-    datacatsearch = {
-      source: "blogs_view"
+    // var datacatsearch: any = {};
+    // datacatsearch = {
+    //   source: "blogs_view"
 
-    }
-    this.apiService.getDatalistWithToken(datacatsearch, "datalistwithouttoken").subscribe((res: any) => {
+    // }
+    // this.apiService.getDatalistWithToken(datacatsearch, "datalistwithouttoken").subscribe((res: any) => {
 
-      this.blogcategorysearch = res.res;
-      //  console.log(this.blogcategorysearch)
+    //   this.blogcategorysearch = res.res;
+    //   //  console.log(this.blogcategorysearch)
 
-    });
+    // });
   }
 
   //FACEBOOK SHARE
