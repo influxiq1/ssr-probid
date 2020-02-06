@@ -47,17 +47,24 @@
                       </span>
                       <span class="example-full-width">
                         <span matPrefix></span>
-                        <input type="text" matInput placeholder="search Category" [(ngModel)]="category_search"
-                        (ngModelChange)="searchByCategory($event)">
-                        <button mat-button>
+                        <mat-form-field class="example-full-width"  >
+                          <mat-label>Search By Category</mat-label>
+                          <mat-select [(ngModel)]="blogCat" name="blogCat">
+                            <mat-option *ngFor="let category of blogcategory" [value]="category._id" (click)="blogCatSearch(category._id)"   >
+                              {{category.blogtitle}}
+                            </mat-option>
+                          </mat-select>
+                        </mat-form-field>
+                        <!-- <button mat-button >
                           <i class="material-icons">
                             search
                           </i>
-                        </button>
+                        </button> -->
                       </span>
                     <!-- </form> -->
                 </span>
               </span>
+              <button  mat-button color="primary" type="button" (click)="reset()">Reset</button>
             </span>       
         <mat-card-content class="bottom_blog">
           <span class="item_wrapper">
@@ -92,23 +99,23 @@
                 <a class="next_page" (click)="blogdetail(item)">read more</a>
 
                 <span class="blogsociallists absolute">
-                  <a class="sociallink fa fb" (click)="fbShare()">
+                  <a class="sociallink fa fb" target="_blank" (click)="fbShare(item)">
                     <fa name="facebook" class="fa-facebook"></fa>
                   </a>
-                  <a class="sociallink fa twi" (click)="comingSoonDialogBlog()">
+                  <a class="sociallink fa twi" target="_blank" (click)="twitterShare(item)">
                     <fa name="twitter" class="fa-twitter"></fa>
                   </a>
-                  <!-- <a class="sociallink fa pin" (click)="comingSoonDialogBlog()">
+                  <!-- <a class="sociallink fa pin">
                     <fa name="pinterest" class="fa-pinterest"></fa>
                   </a> -->
-                  
-                  <a class="sociallink fa lin" >
-                    <fa name="linkedin" class="fa-linkedin"></fa>
+                  <a class="sociallink fa lin" target="_blank" (click)="linkedinShare(item)">
+                    <fa name="linkedin" class="fa-linkedin" ></fa>
                   </a>
-                  <!-- <a class="sociallink fa env" (click)="comingSoonDialogBlog()">
+                  <!-- <a class="sociallink fa env">
                     <fa name="envelope" class="fa-envelope"></fa>
                   </a> -->
-                  <a class="sociallink fa tbl" (click)="comingSoonDialogBlog()">
+                  <a class="sociallink fa tbl" target="_blank" (click)="tumblrShare(item)">
+
                     <fa name="tumblr" class="fa-tumblr"></fa>
                   </a>
                   <!-- <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
@@ -127,17 +134,23 @@
           <h2>Categories ({{blogcategorycount}})</h2>
           <mat-accordion class="category">
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
-              *ngFor="let item of allBlogsCategories">
-              <mat-expansion-panel-header>
-                <mat-panel-title (click)="getAllBlogs(item._id)">
+              *ngFor="let item of blogcategory">
+              <mat-expansion-panel-header (click)="getAllBlogs(item._id)" >
+                <mat-panel-title >
                   {{item.blogtitle}} &nbsp;
                   <h4 >( {{item.count_blogs}} )</h4>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <ng-container>
-                <span>
+              <ng-container *ngFor="let cat of catBlogs; let i=index;">
+                <span >
                   <div class="categorysub" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header" *ngFor="let cat of allBlogs;let i=index;" >{{ cat.blogtitle  }}</h5>
+                    <h5 class="inner_header" (click)="blogdetail(cat)">
+                      <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                      <span class="buttominfocls">
+                        <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
+                        <span ><span class="labelcls">By:</span>{{cat.author}}</span>
+                      </span>
+                    </h5>
                   </div>
                 </span>
               </ng-container>

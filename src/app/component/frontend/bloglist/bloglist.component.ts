@@ -5,6 +5,8 @@ import { ApiService } from '../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+
 
 export interface DialogData {
   data: any;
@@ -35,6 +37,7 @@ export class BloglistfrontendComponent implements OnInit {
     view: "blogs"
   }
   public blogList: any;
+  public profile: any;
 
   public blogcategory: any;
   public blogcount: any;
@@ -49,14 +52,14 @@ export class BloglistfrontendComponent implements OnInit {
   public keyword_search: string;
   public url: "https://www.youtube.com/embed/"
   public category_search: any;
-  public allBlogs: any = [];
+  public catBlogs: any;
   public allBlogsCategories:any;
   public blogtitle:any = '';
   public title:any;
-
+  public blogCat:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
-  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService) {
+  constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
 
 
     this.meta.setTitle('ProBid Auto - Blogs');
@@ -72,6 +75,11 @@ export class BloglistfrontendComponent implements OnInit {
     this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/logomain.png');
     this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.png');
 
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
+
   }
 
   panelOpenState = false;
@@ -80,9 +88,9 @@ export class BloglistfrontendComponent implements OnInit {
   
 //***********blog list view in blog detail************//
   blogdetail(val:any){
-    console.log(val)
-    this.title=val.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
+    // console.log(val)
+    this.title=val.blogtitle;
+      this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
     if (this.blogtitle != '') {
       this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
@@ -112,6 +120,7 @@ export class BloglistfrontendComponent implements OnInit {
     /**api service for total blog_catagory by uttam */
 
     this.blogcategory = this.blogList.blogCatList.blog_category;
+    // console.log( this.blogcategory)
 
 
     /**api service for blog_catagory total count by uttam */
@@ -123,6 +132,132 @@ export class BloglistfrontendComponent implements OnInit {
   /** end api service for blog_catagory total count by uttam */
 
 
+
+    //FACEBOOK SHARE
+
+    login() {
+      this.facebook.login()
+        .then((res: LoginResponse) => {
+         
+          this.getProfile();
+        })
+        .catch();
+    }
+    getProfile() {
+      this.facebook.api('me/?fields=id,name,email,picture')
+        .then((res: any) => {
+         
+          this.profile = res;
+          
+        })
+        .catch((error: any) => {
+  
+        });
+    }
+
+    fbShare(val:any){
+      // console.log(val)
+      this.title=val.blogtitle;
+      this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+      // console.log(this.blogtitle)
+
+      var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
+      console.log(url)
+  
+      let params: UIParams = {
+        href: url,
+        method: 'share'
+      };
+      this.facebook.ui(params).then((res:UIResponse)=>{
+      }).catch(facebook=>{
+        console.log(facebook)
+      });
+  
+    }
+
+    logoutWithFacebook(): void {
+  
+      this.facebook.logout().then();
+    }
+
+
+  //twitter share
+
+  twitterShare(val:any){
+  
+    // console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+  // linkedin share 
+  
+  linkedinShare(val:any){
+  
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    console.log(this.blogtitle)
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+
+  // tumblr share 
+  
+  tumblrShare(val:any){
+  
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    console.log(this.blogtitle)
+
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+  //search by category
+
+  blogCatSearch(val:any){
+    console.log(val)
+    let data: any = {
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.bloglisting = result.results.blogs;
+
+  })
+}
+
+
+  reset(){
+
+    this.blogCat='';
+
+    let data: any = {
+      "endpoint": "blogdata",
+      "condition":{
+        "limit": 4, "skip": 1 
+      }
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.bloglisting = this.blogList.blogCatList.blogs;
+  })
+}
 
   /** search by keyword **/
   searchByKey(val: any) {
@@ -142,40 +277,23 @@ export class BloglistfrontendComponent implements OnInit {
     });
   }
 
-  /** serach by category **/
-  searchByCategory(val: any) {
-    console.log(val.toLowerCase());
-    let data: any = {
-      "condition":
-      {
-        "blogcategory_regex": val.toUpperCase(),
-        // "author_regex":val
-
-      },
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken"
-    }
-
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.bloglisting = result.res;
-    });
-  }
 
 
   getAllBlogs(val:any) {
     console.log("clicked",val);
     let data: any = {
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken",
-      "condition":{
-        "blogcat_object":val
-      }
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
     }
 
     this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.allBlogs = result.res;
-      this.bloglisting = result.res;
-      console.log("yy",this.allBlogs);
+
+      this.catBlogs = result.results.blogs;
+      console.log("yy",this.catBlogs);
+
+      // this.bloglisting = result.res;
+      // console.log("yy",this.allBlogs);
     });
   }
 
@@ -259,7 +377,7 @@ export class BloglistfrontendComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       if(res.blogs.length > 0){
-        this.bloglisting = res.blogs.concat(this.bloglisting);
+        this.bloglisting = this.bloglisting.concat(res.blogs);
         this.indexval = this.indexval + 10;
       }else{
         this.highLoadMore=true;
@@ -274,9 +392,7 @@ export class BloglistfrontendComponent implements OnInit {
   openblog(val: any) {
     // console.log(val)
   }
-  fbShare(){
-    
-  }
+
 }
 
 //**********video modal component************//

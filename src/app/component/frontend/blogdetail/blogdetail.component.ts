@@ -70,7 +70,7 @@ export class BlogdetailComponent implements OnInit {
 
     this.activatedRoute.data.forEach((data: any) => {
       this.blog = data.blogCatList.res[0];
-      // console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
+      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
       //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
       //  this.blog_img=this.blog[0].profile_picture;
       //  console.log(this.blog_img)
@@ -153,10 +153,8 @@ export class BlogdetailComponent implements OnInit {
       });
   }
   fbShare(){
-    console.log()
-    this.title=this.blog.blogtitle
-    this.blogtitle=this.title.split(' ').join('-')
-    var url='https://dev.probidauto.com/blogs/'+ this.blogtitle+ '/'+this.blog._id;
+    var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id;
+    console.log(url)
 
     let params: UIParams = {
       href: url,
@@ -172,17 +170,6 @@ export class BlogdetailComponent implements OnInit {
 
     this.facebook.logout().then();
   }
-
-  //linkedin share
-
-  // linkedinShare(){
-
-  // }
-
-  twitterShare(){
-
-  }
-
 
 
 
