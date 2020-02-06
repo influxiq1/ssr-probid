@@ -43,7 +43,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcount: any;
   public blogcategorysearch: any;
   public blogcategorycount: any;
-  public blogcat: any;
+  public blogcat: any='';
   public blogsubcategorycount: any;
   public count: any = 0;
   public indexval: any = 4;
@@ -358,12 +358,26 @@ export class BloglistfrontendComponent implements OnInit {
 
   //***********load more view blog *************//
   blogloadmore() {
-    let data: any = {
+    let data: any = {};
+    if(this.blogCat==''){
+    data={
       endpoint: 'loadmoreblogdata',
       "condition": {
         "limit": 10,
         "skip": this.indexval
     }
+  }
+    }else{
+
+      data={
+        endpoint: 'loadmoreblogdata',
+        "condition": {
+          "limit": 10,
+          "skip": this.indexval,
+          "catid":this.blogCat
+      }
+    }
+
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       if(res.blogs.length > 0){
