@@ -145,7 +145,7 @@
                 <span >
                   <div class="categorysub" [ngClass]="{'active': blogcat }">
                     <h5 class="inner_header">
-                      <span (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                      <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
                       <span class="buttominfocls">
                         <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
                         <span ><span class="labelcls">By:</span>{{cat.author}}</span>
