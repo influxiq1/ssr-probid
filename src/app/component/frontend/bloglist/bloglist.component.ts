@@ -101,7 +101,6 @@ export class BloglistfrontendComponent implements OnInit {
   ngOnInit() {
 
     /** getting all blog category **/
-    this.getBlogCategories();
 
     //**all blog category and blog list from resolve in routing**//
 
@@ -287,20 +286,7 @@ export class BloglistfrontendComponent implements OnInit {
     });
   }
 
-  getBlogCategories(){
-    let data: any = {
-      "source": "blog_category_view",
-      "endpoint": "datalistwithouttoken",
-      "condition":{
-      }
-    }
 
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.allBlogsCategories = result.res;
-      // console.log("ssssssss",this.allBlogsCategories);
-    });
-  }
-  
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
