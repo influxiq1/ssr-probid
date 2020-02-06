@@ -144,8 +144,8 @@
               <ng-container *ngFor="let cat of catBlogs; let i=index;">
                 <span >
                   <div class="categorysub" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header"  (click)="blogdetail(cat)">
-                      <span (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                    <h5 class="inner_header" (click)="blogdetail(cat)">
+                      <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
                       <span class="buttominfocls">
                         <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
                         <span ><span class="labelcls">By:</span>{{cat.author}}</span>
