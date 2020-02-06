@@ -155,9 +155,9 @@ export class BlogdetailComponent implements OnInit {
 
   // }
 
-  twitterShare(){
+  // twitterShare(){
 
-  }
+  // }
 
 
 

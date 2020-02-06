@@ -259,7 +259,7 @@ export class BloglistfrontendComponent implements OnInit {
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       if(res.blogs.length > 0){
-        this.bloglisting = res.blogs.concat(this.bloglisting);
+        this.bloglisting = this.bloglisting.concat(res.blogs);
         this.indexval = this.indexval + 10;
       }else{
         this.highLoadMore=true;
