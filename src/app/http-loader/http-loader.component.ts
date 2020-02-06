@@ -14,7 +14,6 @@ export class HttpLoaderComponent implements OnInit {
   constructor(private loaderService: HttpLoaderService, public activatedRoute: ActivatedRoute, public router: Router, public appComponent: AppComponent) {
     var urlArr: any = this.router.url.split("/");
     this.loaderService.isLoading.subscribe((v) => {
-      // console.log(v)
       this.httpLoading = v;
     });
   }
