@@ -135,8 +135,8 @@
           <mat-accordion class="category">
             <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
               *ngFor="let item of blogcategory">
-              <mat-expansion-panel-header >
-                <mat-panel-title (click)="getAllBlogs(item._id)">
+              <mat-expansion-panel-header (click)="getAllBlogs(item._id)" >
+                <mat-panel-title >
                   {{item.blogtitle}} &nbsp;
                   <h4 >( {{item.count_blogs}} )</h4>
                 </mat-panel-title>
@@ -144,7 +144,7 @@
               <ng-container *ngFor="let cat of catBlogs; let i=index;">
                 <span >
                   <div class="categorysub" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header">
+                    <h5 class="inner_header"  (click)="blogdetail(cat)">
                       <span (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
                       <span class="buttominfocls">
                         <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
