@@ -245,18 +245,8 @@ export class BloglistfrontendComponent implements OnInit {
   reset(){
 
     this.blogCat='';
+    this.bloglisting = this.blogList.blogCatList.blogs
 
-    let data: any = {
-      "endpoint": "blogdata",
-      "condition":{
-        "limit": 4, "skip": 1 
-      }
-    }
-
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-
-      this.bloglisting = this.blogList.blogCatList.blogs;
-  })
 }
 
   /** search by keyword **/
