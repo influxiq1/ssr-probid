@@ -183,7 +183,7 @@ blogdetail(val:any){
 
       });
   }
-  fbShare(){
+  fbShare(val){
     var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id;
     console.log(url)
 
@@ -206,7 +206,7 @@ blogdetail(val:any){
 
    //twitter share
 
-   twitterShare(val:any){
+   twitterShare(){
 
     window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
     // console.log(url)
@@ -215,7 +215,7 @@ blogdetail(val:any){
 
   // linkedin share 
   
-  linkedinShare(val:any){
+  linkedinShare(){
 
     window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id);
     // console.log(url)
@@ -225,7 +225,7 @@ blogdetail(val:any){
 
   // tumblr share 
   
-  tumblrShare(val:any){
+  tumblrShare(){
 
     window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
     // console.log(url)
