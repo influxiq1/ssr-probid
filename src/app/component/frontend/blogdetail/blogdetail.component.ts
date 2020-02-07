@@ -99,7 +99,7 @@ export class BlogdetailComponent implements OnInit {
 
       
 
-      if (this.blog != null && this.blog.length > 0) {
+      if (this.blog != '') {
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
