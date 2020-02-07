@@ -203,7 +203,7 @@ blogdetail(val:any){
     console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
-    console.log(this.blogtitle)
+    // console.log(this.blogtitle)
 
     window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
@@ -218,7 +218,7 @@ blogdetail(val:any){
     console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
-    console.log(this.blogtitle)
+    // console.log(this.blogtitle)
 
     window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)

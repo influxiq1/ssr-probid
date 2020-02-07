@@ -103,6 +103,8 @@ export class BlogdetailComponent implements OnInit {
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
+        this.meta.setTag("description", this.blog.description_html)
+
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
         this.meta.setTag('og:image', this.blog.blogs_image);
@@ -177,7 +179,8 @@ blogdetail(val:any){
 
     let params: UIParams = {
       href: url,
-      method: 'share'
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
     }).catch(facebook=>{
@@ -188,6 +191,35 @@ blogdetail(val:any){
   logoutWithFacebook(): void {
 
     this.facebook.logout().then();
+  }
+
+
+   //twitter share
+
+   twitterShare(val:any){
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    // console.log(url)
+
+  }
+
+  // linkedin share 
+  
+  linkedinShare(val:any){
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id);
+    // console.log(url)
+
+  }
+
+
+  // tumblr share 
+  
+  tumblrShare(val:any){
+
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    // console.log(url)
+
   }
 
 
