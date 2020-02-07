@@ -10,7 +10,7 @@ import { ApiService } from '../../../api.service';
 })
 export class ResetPasswordComponent implements OnInit {
 
-  public logo: any = '../../assets/images/logo.png';
+  public logo: any = 'https://dev.probidauto.com/assets/images/logo.png';
   public loginRouteingUrl: any = { 
     "path":"",
     "buttonName":"Login",
