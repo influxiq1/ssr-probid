@@ -72,15 +72,22 @@ export class ResolveService implements Resolve<any> {
                 }
 
 
-                if (requestData.condition[d] == 'blog_id') {
-                    console.log(requestData.condition)
-                    requestData.condition[d] = this.activedrouter.params['blog_id'];
+                if (requestData.condition[d] == '_id') {
+                    requestData.condition[d] = requestData.condition._id;
+                    console.log( '>>>>>',requestData)
+
                     delete requestData.condition.blogtitle;
                     delete requestData.condition._id;
                    
-                    }
+              }
                
-
+                    if (requestData.condition[d] == 'customer-dashboard') {
+                        // console.log(requestData.condition[d])
+    
+                        requestData.id = this.userid;
+                        requestData.salesrep = this.userCookies.salesrep;
+                        delete requestData.condition.castomer;
+                    }
 
 
                if (requestData.condition[d] == 'mysalesrep') {

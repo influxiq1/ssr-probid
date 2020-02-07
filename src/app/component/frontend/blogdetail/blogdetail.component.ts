@@ -6,6 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
 import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+// import { runInThisContext } from 'vm';
 
 export interface DialogData {
   data: any;
@@ -68,14 +69,21 @@ export class BlogdetailComponent implements OnInit {
   ngOnInit() {
     
 
-    this.activatedRoute.data.forEach((data: any) => {
-      this.blog = data.blogCatList;
-      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
-      //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
-      //  this.blog_img=this.blog[0].profile_picture;
-      //  console.log(this.blog_img)
+    // let data:any;
+    // data={
+      
+    //   "blog_id":this.activatedRoute.snapshot.params._id
+    // }
 
+    // this.apiService.CustomRequest(data,'blogdetailsda    tabyid').subscribe((data: any) => {
+    // }
+    this.activatedRoute.data.forEach((res)=>{
 
+      this.blog = res.blogCatList.blogs[0];
+      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
+
+     
+      this.blogcategory=res.blogCatList.blog_category
       this.title=this.blog.blogtitle;
       this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
 
@@ -85,16 +93,16 @@ export class BlogdetailComponent implements OnInit {
       this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
       this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
 
-      if (this.blog != null && this.blog.length != 0) {
+      if (this.blog != null && this.blog.length > 0) {
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
-        this.meta.setTag('og:image', this.blog.profile_picture);
+        this.meta.setTag('og:image', this.blog.blogs_image);
         this.meta.setTag('og:image:width', 'auto');
         this.meta.setTag('og:image:height', 'auto');
-        this.meta.setTag('twitter:image', this.blog.profile_picture);
+        this.meta.setTag('twitter:image', this.blog.blogs_image);
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
 
       }

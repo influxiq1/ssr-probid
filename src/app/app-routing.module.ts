@@ -245,10 +245,10 @@ const routes: Routes = [
 
 
   {
-    path: 'blogs/:blogtitle/:blog_id', component: BlogdetailComponent
+    path: 'blogs/:blogtitle/:_id', component: BlogdetailComponent
     , 
     resolve: { blogCatList: ResolveService },
-    data: { requestcondition: { condition: {blog_id:"blog_id"} }, 
+    data: { requestcondition: { condition: {_id:"_id"} }, 
     endpoint: 'blogdetailsdatabyid' }
   },
 
