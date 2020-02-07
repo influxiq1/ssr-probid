@@ -38,6 +38,7 @@ export class BlogdetailComponent implements OnInit {
   public name: string;
   public blogtitle:any;
   public title:any;
+  public catBlogs:any;
 
   /************** lib list setup start here *************/
   public blogListConfig: any = {
@@ -64,6 +65,13 @@ export class BlogdetailComponent implements OnInit {
       version: 'v2.9'
     });
 
+
+    this.meta.setTag('og:type', 'website');
+
+      this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
+      this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
+      this.meta.setTitle('ProBid Auto-'+''+this.activatedRoute.snapshot.params.blogtitle);
+
   }
 
   ngOnInit() {
@@ -84,14 +92,12 @@ export class BlogdetailComponent implements OnInit {
 
      
       this.blogcategory=res.blogCatList.blog_category
+      console.log(this.blogcategory)
       this.title=this.blog.blogtitle;
       this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
 
 
-      this.meta.setTag('og:type', 'website');
-
-      this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
-      this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
+      
 
       if (this.blog != null && this.blog.length > 0) {
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
@@ -109,37 +115,40 @@ export class BlogdetailComponent implements OnInit {
     })
 
 
-    /**api service for blog_catagory count by uttam */
-    // var datacatcount: any = {};
-    // datacatcount = {
-    //   source: "blog_category"
-    // }
-
-    // this.apiService.getDatalistWithToken(datacatcount, "datalistwithouttoken").subscribe((res: any) => {
-
-    //   this.blogcategorycount = res.resc;
-    //   //  console.log(this.blogcategorycount);
-    //   this.blogcategory = res.res;
-
-    // });
-
-
-
-
-
-    /**api service for sub blog_catagory by uttam */
-    // var datacatsearch: any = {};
-    // datacatsearch = {
-    //   source: "blogs_view"
-
-    // }
-    // this.apiService.getDatalistWithToken(datacatsearch, "datalistwithouttoken").subscribe((res: any) => {
-
-    //   this.blogcategorysearch = res.res;
-    //   //  console.log(this.blogcategorysearch)
-
-    // });
   }
+
+//blog category
+
+  getAllBlogs(val:any) {
+    console.log("clicked",val);
+    let data: any = {
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.catBlogs = result.results.blogs;
+      console.log("yy",this.catBlogs);
+
+      // this.bloglisting = result.res;
+      // console.log("yy",this.allBlogs);
+    });
+  }
+
+
+      
+//***********blog list view in blog detail************//
+blogdetail(val:any){
+  console.log(val)
+  this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+  // console.log(this.blogtitle)
+  if (this.blogtitle != '') {
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+  }
+}
 
   //FACEBOOK SHARE
 
