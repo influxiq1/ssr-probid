@@ -43,7 +43,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogcount: any;
   public blogcategorysearch: any;
   public blogcategorycount: any;
-  public blogcat: any;
+  public blogcat: any='';
   public blogsubcategorycount: any;
   public count: any = 0;
   public indexval: any = 4;
@@ -56,7 +56,7 @@ export class BloglistfrontendComponent implements OnInit {
   public allBlogsCategories:any;
   public blogtitle:any = '';
   public title:any;
-
+  public blogCat:any;
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
@@ -101,7 +101,6 @@ export class BloglistfrontendComponent implements OnInit {
   ngOnInit() {
 
     /** getting all blog category **/
-    this.getBlogCategories();
 
     //**all blog category and blog list from resolve in routing**//
 
@@ -224,15 +223,30 @@ export class BloglistfrontendComponent implements OnInit {
 
   }
 
+  //search by category
 
   blogCatSearch(val:any){
     console.log(val)
-  }
+    let data: any = {
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
+    }
+
+    this.apiService.getDatalist(data).subscribe((result: any) => {
+
+      this.bloglisting = result.results.blogs;
+
+  })
+}
 
 
   reset(){
 
-  }
+    this.blogCat='';
+    this.bloglisting = this.blogList.blogCatList.blogs
+
+}
 
   /** search by keyword **/
   searchByKey(val: any) {
@@ -252,24 +266,6 @@ export class BloglistfrontendComponent implements OnInit {
     });
   }
 
-  /** serach by category **/
-  searchByCategory(val: any) {
-    console.log(val.toLowerCase());
-    let data: any = {
-      "condition":
-      {
-        "blogcategory_regex": val.toUpperCase(),
-        // "author_regex":val
-
-      },
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken"
-    }
-
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.bloglisting = result.res;
-    });
-  }
 
 
   getAllBlogs(val:any) {
@@ -290,20 +286,7 @@ export class BloglistfrontendComponent implements OnInit {
     });
   }
 
-  getBlogCategories(){
-    let data: any = {
-      "source": "blog_category_view",
-      "endpoint": "datalistwithouttoken",
-      "condition":{
-      }
-    }
 
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.allBlogsCategories = result.res;
-      // console.log("ssssssss",this.allBlogsCategories);
-    });
-  }
-  
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
@@ -361,12 +344,26 @@ export class BloglistfrontendComponent implements OnInit {
 
   //***********load more view blog *************//
   blogloadmore() {
-    let data: any = {
+    let data: any = {};
+    if(this.blogCat==''){
+    data={
       endpoint: 'loadmoreblogdata',
       "condition": {
         "limit": 10,
         "skip": this.indexval
     }
+  }
+    }else{
+
+      data={
+        endpoint: 'loadmoreblogdata',
+        "condition": {
+          "limit": 10,
+          "skip": this.indexval,
+          "catid":this.blogCat
+      }
+    }
+
     }
     this.apiService.getDatalist(data).subscribe((res:any)=>{
       if(res.blogs.length > 0){
