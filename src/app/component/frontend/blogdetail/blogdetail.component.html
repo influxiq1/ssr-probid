@@ -108,19 +108,26 @@
       
       </span>
       <span class="categorywrapper">
-        <h2>Categories ({{blogcategorycount}})</h2>
+        <h2>Categories ({{blogcategory.length}})</h2>
         <mat-accordion class="category">
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
             *ngFor="let item of blogcategory">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{item.blogtitle}}
+            <mat-expansion-panel-header (click)="getAllBlogs(item._id)" >
+              <mat-panel-title >
+                {{item.blogtitle}} &nbsp;
+                <h4 >( {{item.count_blogs}} )</h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <ng-container *ngFor="let itemVal of blogcategorysearch">
-              <span *ngIf="itemVal.blogcategory == item.blogtitle">
-                <div class="categorysub" (click)="subblog(itemVal)" [ngClass]="{'active':itemVal._id == blogsubcat}">
-                  <p class="inner_header">{{itemVal.blogtitle}}</p>
+            <ng-container *ngFor="let cat of catBlogs; let i=index;">
+              <span >
+                <div class="categorysub" [ngClass]="{'active': blogcat }">
+                  <h5 class="inner_header" (click)="blogdetail(cat)">
+                    <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                    <span class="buttominfocls">
+                      <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
+                      <span ><span class="labelcls">By:</span>{{cat.author}}</span>
+                    </span>
+                  </h5>
                 </div>
               </span>
             </ng-container>
