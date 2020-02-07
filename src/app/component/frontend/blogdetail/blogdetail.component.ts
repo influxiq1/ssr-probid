@@ -71,6 +71,7 @@ export class BlogdetailComponent implements OnInit {
       this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
       this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
       this.meta.setTitle('ProBid Auto-'+''+this.activatedRoute.snapshot.params.blogtitle);
+      // console.log('ProBid Auto-'+''+this.activatedRoute.snapshot.params.blogtitle)
 
   }
 
@@ -112,6 +113,15 @@ export class BlogdetailComponent implements OnInit {
         this.meta.setTag('og:image:height', 'auto');
         this.meta.setTag('twitter:image', this.blog.blogs_image);
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
+
+
+        // console.log('og:description', this.blog.description_html)
+
+        // console.log('og:image', this.blog.blogs_image)
+
+        // console.log(this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id)
+
+
 
       }
     })
