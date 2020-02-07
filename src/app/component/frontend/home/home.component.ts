@@ -236,11 +236,6 @@ export class HomeComponent implements OnInit {
         });
 
       }
-
-      facebook.init({
-        appId: '2540470256228526',
-        version: 'v2.9'
-      });
   
     }
 
@@ -249,6 +244,11 @@ export class HomeComponent implements OnInit {
 
     // console.log( this.inventory_auto_complete_url);
 
+
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
 
   }
 
@@ -338,6 +338,7 @@ export class HomeComponent implements OnInit {
       })
       .catch();
   }
+
   getProfile() {
     this.facebook.api('me/?fields=id,name,email,picture')
       .then((res: any) => {
@@ -349,18 +350,20 @@ export class HomeComponent implements OnInit {
 
       });
   }
-  fbShare(val){
-    console.log(val)
+
+
+  fbShare(val:any){
+    // console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
-    var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+val._id;
+
+    var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
     console.log(url)
 
     let params: UIParams = {
       href: url,
-      method: 'share',
-      quote: 'https://dev.probidauto.com/'
+      method: 'share'
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
     }).catch(facebook=>{
@@ -368,6 +371,8 @@ export class HomeComponent implements OnInit {
     });
 
   }
+
+
   logoutWithFacebook(): void {
 
     this.facebook.logout().then();
