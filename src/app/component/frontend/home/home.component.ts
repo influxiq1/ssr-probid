@@ -8,6 +8,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { CookieService } from 'ngx-cookie-service';
 import { AppComponent } from '../../../app.component';
 import {environment } from '../../../../environments/environment';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
 
 declare var $: any;
 export interface DialogData {
@@ -180,12 +181,13 @@ export class HomeComponent implements OnInit {
   // public testimonial_img: any = '';
   public inventory_url:any;
   public inventory_auto_complete_url:any;
+  public profile: any;
 
   public serverUrlDemo =  environment["API_URL"];
 
 
 
-  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public http: HttpClient, public dialog: MatDialog, public cookieService: CookieService, public apploader: AppComponent) {
+  constructor(private cdr: ChangeDetectorRef, private readonly meta: MetaService, private router: Router, public activatedRoute: ActivatedRoute, public apiService: ApiService, public fb: FormBuilder, public http: HttpClient, public dialog: MatDialog, public cookieService: CookieService, public apploader: AppComponent,private facebook:FacebookService) {
     this.meta.setTitle('ProBid Auto - Car-Buying Made Easy!');
     this.meta.setTag('og:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
     this.meta.setTag('twitter:description', 'ProBid Auto offers the easiest and the most convenient way for car buyers to get their desired cars, listing Used Cars for Sale from multiple dealerships and major Auction houses around the USA.');
@@ -234,6 +236,7 @@ export class HomeComponent implements OnInit {
         });
 
       }
+  
     }
 
     this.inventory_url=(this.cookieService.get('inventory_url'));
@@ -241,6 +244,11 @@ export class HomeComponent implements OnInit {
 
     // console.log( this.inventory_auto_complete_url);
 
+
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
 
   }
 
@@ -271,16 +279,7 @@ export class HomeComponent implements OnInit {
 
 
 
-    //for preown car
-    // this.getData;
 
-    // let data: any = {
-    //   source:'allcar_view', 
-
-    // }
-    // this.apiService.getDatalistWithToken(data,'datalistwithouttoken').subscribe((resc:any)=>{
-    //   this.saveCarDataList=resc.res;
-    // })
 
     this.generateForm();
     this.getStateList();
@@ -325,6 +324,98 @@ export class HomeComponent implements OnInit {
 
     // } 
 
+
+  }
+
+
+  //FACEBOOK SHARE
+
+  login() {
+    this.facebook.login()
+      .then((res: LoginResponse) => {
+       
+        this.getProfile();
+      })
+      .catch();
+  }
+
+  getProfile() {
+    this.facebook.api('me/?fields=id,name,email,picture')
+      .then((res: any) => {
+       
+        this.profile = res;
+        
+      })
+      .catch((error: any) => {
+
+      });
+  }
+
+
+  fbShare(val:any){
+    // console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
+    console.log(url)
+
+    let params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+    this.facebook.ui(params).then((res:UIResponse)=>{
+    }).catch(facebook=>{
+      console.log(facebook)
+    });
+
+  }
+
+
+  logoutWithFacebook(): void {
+
+    this.facebook.logout().then();
+  }
+
+
+   //twitter share
+
+   twitterShare(val:any){
+
+    // console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+  // linkedin share 
+  
+  linkedinShare(val:any){
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+val._id);
+    // console.log(url)
+
+  }
+
+
+  // tumblr share 
+  
+  tumblrShare(val:any){
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
 
   }
 

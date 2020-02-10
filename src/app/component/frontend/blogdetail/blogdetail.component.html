@@ -1,18 +1,12 @@
 <app-header></app-header>
-<!-- <mat-card class="innerpagebanner blogbg">
-  <span class="mainwrappercontent">
-    <mat-card-content>
-      <h1>Blogs Details</h1>
-    </mat-card-content>
-  </span>
-</mat-card> -->
-<mat-card *ngIf="blog !=null && blog.profile_picture != ''" class="innerpagebanner">
+
+ <mat-card *ngIf="blog !=null && blog.blogs_image != ''" class="innerpagebanner"> 
   <span class="mainwrappercontent">
     <mat-card-content>
       <h1>Blog Details</h1>
     </mat-card-content>
   </span>
-  <img [src]="blog.profile_picture" class="blogheaderimg">
+  <img [src]="blog.blogs_image" class="blogheaderimg">
   <span class="blogheaderimgbg"></span>
 </mat-card>
 
@@ -42,7 +36,6 @@
       <span class="bloglistswrapper">
         <mat-card-content class="bottom_blog">
           <span class="item_wrapper">
-            <!-- <mat-card-content class="item"> -->
             <mat-card-content class="item">
 
               <mat-card-title class="inner_header">{{blog.blogtitle}}</mat-card-title>
@@ -61,41 +54,35 @@
                   <a class="sociallink fa fb" target="_blank" (click)="fbShare()">
                     <fa name="facebook" class="fa-facebook"></fa>
                   </a>
-                  <a class="sociallink fa twi" target="_blank" href="'https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/' + blogtitle + '/' + blog._id">
+                  <a class="sociallink fa twi" target="_blank" (click)="twitterShare()">
                     <fa name="twitter" class="fa-twitter"></fa>
                   </a>
-                  <!-- <a class="sociallink fa pin">
-                    <fa name="pinterest" class="fa-pinterest"></fa>
-                  </a> -->
-                  <a class="sociallink fa lin" target="_blank" [attr.href]="'https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/' + blogtitle +'/' + blog._id">
+                 
+                  <a class="sociallink fa lin" target="_blank" (click)="linkedinShare()">
                     <fa name="linkedin" class="fa-linkedin" ></fa>
                   </a>
-                  <!-- <a class="sociallink fa env">
-                    <fa name="envelope" class="fa-envelope"></fa>
-                  </a> -->
-                  <a class="sociallink fa tbl" target="_blank" href="'http://www.tumblr.com/share?url=dev.probidauto.com/blogs/' + blogtitle + '/' + blog._id">
+                  
+                  <a class="sociallink fa tbl" target="_blank" (click)="tumblrShare()">
 
                     <fa name="tumblr" class="fa-tumblr"></fa>
                   </a>
-                  <!-- <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
-                    <fa name="share" class="fa-share"></fa>
-                  </a> -->
+                 
                 </span>
               </mat-card-content>
               <span class="item_images">
 
-                <img [src]="blog.profile_picture">
+                <img [src]="blog.blogs_image">
               </span>
 
               <p class="description"><span [innerHtml]="blog.description_html"></span></p>
             </mat-card-content>
           </span>
         </mat-card-content>
-        <!-- start gallery section -->
+
         <mat-list class="photogallerylists">
           <mat-list-item class="writer_image">
             <span class="writer_image_wrapper">
-              <img [src]="blog.profile_picture">
+              <img [src]="blog.blogs_image">
             </span>
           </mat-list-item>
 
@@ -103,9 +90,7 @@
 
           
         </mat-list>
-        <!-- end gallery section -->
-
-        <!-- start video section -->
+<!--        
         <span *ngIf=" blog.credentials[0].video_url !=''">
         <mat-list class="photogallerylists" >
           <mat-list-item class="writer_image" >
@@ -119,25 +104,30 @@
             </span>
           </mat-list-item>
         </mat-list>
-      </span>
+      </span> -->
       
-        <!-- end video section -->
       </span>
       <span class="categorywrapper">
-        <h2>Categories ({{blogcategorycount}})</h2>
+        <h2>Categories ({{blogcategory.length}})</h2>
         <mat-accordion class="category">
           <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false"
             *ngFor="let item of blogcategory">
-            <mat-expansion-panel-header>
-              <mat-panel-title>
-                {{item.blogtitle}}
+            <mat-expansion-panel-header (click)="getAllBlogs(item._id)" >
+              <mat-panel-title >
+                {{item.blogtitle}} &nbsp;
+                <h4 >( {{item.count_blogs}} )</h4>
               </mat-panel-title>
             </mat-expansion-panel-header>
-            <ng-container *ngFor="let itemVal of blogcategorysearch">
-              <span *ngIf="itemVal.blogcategory == item.blogtitle">
-                <div class="categorysub" (click)="subblog(itemVal)" [ngClass]="{'active':itemVal._id == blogsubcat}">
-                  <p class="inner_header">{{itemVal.blogtitle}}</p>
-                  <!-- <p>{{itemVal.blogcategory}} hi</p> -->
+            <ng-container *ngFor="let cat of catBlogs; let i=index;">
+              <span >
+                <div class="categorysub" [ngClass]="{'active': blogcat }">
+                  <h5 class="inner_header" (click)="blogdetail(cat)">
+                    <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                    <span class="buttominfocls">
+                      <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
+                      <span ><span class="labelcls">By:</span>{{cat.author}}</span>
+                    </span>
+                  </h5>
                 </div>
               </span>
             </ng-container>
@@ -444,6 +434,6 @@
 
     </span>
   </span>
-</mat-card>
+</mat-card> 
 
 <app-footer></app-footer>

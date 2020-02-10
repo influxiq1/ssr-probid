@@ -85,19 +85,6 @@ export class BloglistfrontendComponent implements OnInit {
   panelOpenState = false;
 
 
-  
-//***********blog list view in blog detail************//
-  blogdetail(val:any){
-    // console.log(val)
-    this.title=val.blogtitle;
-      this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
-    // console.log(this.blogtitle)
-    if (this.blogtitle != '') {
-      this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
-    }
-  }
-
-
   ngOnInit() {
 
     /** getting all blog category **/
@@ -127,6 +114,21 @@ export class BloglistfrontendComponent implements OnInit {
 
     this.blogcategorycount = this.blogList.blogCatList.blog_category.length;
   }
+
+
+
+    
+//***********blog list view in blog detail************//
+blogdetail(val:any){
+  console.log(val)
+  this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+  // console.log(this.blogtitle)
+  if (this.blogtitle != '') {
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+  }
+}
+
 
   /** end api service for blog_catagory total count by uttam */
 
@@ -201,7 +203,7 @@ export class BloglistfrontendComponent implements OnInit {
     console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
-    console.log(this.blogtitle)
+    // console.log(this.blogtitle)
 
     window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
@@ -216,7 +218,7 @@ export class BloglistfrontendComponent implements OnInit {
     console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
-    console.log(this.blogtitle)
+    // console.log(this.blogtitle)
 
     window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
@@ -257,8 +259,9 @@ export class BloglistfrontendComponent implements OnInit {
         // "author_regex":val
 
       },
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken"
+     
+      "endpoint": "blogdata",
+      "limit": 4, "skip": 1
     }
 
     this.apiService.getDatalist(data).subscribe((result: any) => {

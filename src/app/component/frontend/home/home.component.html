@@ -559,7 +559,10 @@
                     <span class="item_wrapper">
                       <mat-card-content class="item" *ngFor="let item of blogList | slice:0:indexval; let i=index">
                         <span class="item_images" (click)="blogdetail(item)">
-                          <img [src]="item.profile_picture">
+                          <span class="item_images" (click)="blogdetail(item)">
+                            <span *ngIf="item.blogs_image !=''"><img [src]="item.blogs_image"></span>
+                           <span *ngIf="item.blogs_image == ''"><img src="../../../../assets/images/no-image-default.jpg"></span>
+                        </span>
                         </span>
                         <mat-card-content class="contentsection">
                           <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
@@ -575,13 +578,26 @@
                           <p class="description"><span [innerHtml]="item.description_html"></span></p>  
                           <a class="next_page"  (click)="blogdetail(item)" >read more</a>
                           <span class="blogsociallists">
-                            <a class="sociallink fa fb" (click)="fb_share(item)"><fa name="facebook" class="fa-facebook"></fa></a>
-                            <a class="sociallink fa twi" (click)="comingSoonDialogBloghome()"><fa name="twitter" class="fa-twitter"></fa></a>
-                            <!-- <fa class="sociallink fa pin" (click)="comingSoonDialogBloghome()"><fa name="pinterest" class="fa-pinterest"></fa></a> -->
-                            <a class="sociallink fa lin" (click)="comingSoonDialogBloghome()"><fa name="linkedin" class="fa-linkedin"></fa></a>
-                            <!-- <fa class="sociallink fa env" (click)="comingSoonDialogBloghome()"><fa name="envelope" class="fa-envelope"></fa></a> -->
-                            <a class="sociallink fa tbl" (click)="comingSoonDialogBloghome()"><fa name="tumblr" class="fa-tumblr"></fa></a>
-                            <a class="sociallink fa share" (click)="comingSoonDialogBloghome()"><fa name="share" class="fa-share"></fa></a>
+                            <a class="sociallink fa fb" target="_blank" (click)="fbShare(item)">
+                              <fa name="facebook" class="fa-facebook"></fa>
+                            </a>
+                            <a class="sociallink fa twi" target="_blank" (click)="twitterShare(item)">
+                              <fa name="twitter" class="fa-twitter"></fa>
+                            </a>
+                            <!-- <a class="sociallink fa pin">
+                              <fa name="pinterest" class="fa-pinterest"></fa>
+                            </a> -->
+                            <a class="sociallink fa lin" target="_blank" (click)="linkedinShare(item)">
+                              <fa name="linkedin" class="fa-linkedin" ></fa>
+                            </a>
+                            <!-- <a class="sociallink fa env">
+                              <fa name="envelope" class="fa-envelope"></fa>
+                            </a> -->
+                            <a class="sociallink fa tbl" target="_blank" (click)="tumblrShare(item)">
+          
+                              <fa name="tumblr" class="fa-tumblr"></fa>
+                            </a>
+                           
                           </span>          
                         </mat-card-content>
                     </mat-card-content>

@@ -190,12 +190,11 @@
                   <mat-form-field *ngIf="status != 1">
                     <textarea matInput placeholder="Subject" formControlName="subject" cols="50" (blur)="inputUntouched('subject')"></textarea>
                   </mat-form-field>
-                  <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
+                  <!-- <ng-container *ngIf="status == 1 && job_ticket != null && job_ticket != undefined && job_ticket.subject != null">
                     <div class="subjectcls">
                       <p>{{job_ticket.subject}}</p> 
                     </div>
-                  <!-- <button mat-raised-button type="button" class="btnblue" (click)="showMessage()">Reply</button> -->
-                  </ng-container>                
+                  </ng-container>                 -->
                 </span>
                 <span  class="whitebg">
                   <!-- <span class="sectionheader"></span> -->
@@ -243,6 +242,8 @@
                              [attr.src]="job_ticket.profile_picture">
                           </span>
                           <span class="jobcommentboxcontent" >
+
+                            <mat-card-title *ngIf="job_ticket !=null">Subject :{{job_ticket.subject}} </mat-card-title>
                             <mat-card-title *ngIf="job_ticket !=null">{{job_ticket.Fullname}} <span *ngIf="job_ticket !=null">Date: {{job_ticket.date}}</span></mat-card-title>
                             <mat-card-content *ngIf="job_ticket !=null">{{job_ticket.description}}</mat-card-content>
                           </span>   

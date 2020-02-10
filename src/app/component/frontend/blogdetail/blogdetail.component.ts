@@ -6,6 +6,7 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
 import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+// import { runInThisContext } from 'vm';
 
 export interface DialogData {
   data: any;
@@ -37,6 +38,7 @@ export class BlogdetailComponent implements OnInit {
   public name: string;
   public blogtitle:any;
   public title:any;
+  public catBlogs:any;
 
   /************** lib list setup start here *************/
   public blogListConfig: any = {
@@ -63,75 +65,102 @@ export class BlogdetailComponent implements OnInit {
       version: 'v2.9'
     });
 
+
+    this.meta.setTag('og:type', 'website');
+
+      this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
+      this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
+      this.meta.setTitle('ProBid Auto-'+''+this.activatedRoute.snapshot.params.blogtitle);
+      // console.log('ProBid Auto-'+''+this.activatedRoute.snapshot.params.blogtitle)
+
   }
 
   ngOnInit() {
     
 
-    this.activatedRoute.data.forEach((data: any) => {
-      this.blog = data.blogCatList.res[0];
-      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog)
-      //  this.blog_img=this.blog[0].blogs_image[0].basepath+this.blog[0].blogs_image[0].image; 
-      //  this.blog_img=this.blog[0].profile_picture;
-      //  console.log(this.blog_img)
+    // let data:any;
+    // data={
+      
+    //   "blog_id":this.activatedRoute.snapshot.params._id
+    // }
 
+    // this.apiService.CustomRequest(data,'blogdetailsda    tabyid').subscribe((data: any) => {
+    // }
+    this.activatedRoute.data.forEach((res)=>{
 
+      this.blog = res.blogCatList.blogs[0];
+      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
+
+     
+      this.blogcategory=res.blogCatList.blog_category
+      console.log(this.blogcategory)
       this.title=this.blog.blogtitle;
       this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
 
 
-      this.meta.setTag('og:type', 'website');
+      
 
-      this.meta.setTag('og:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
-      this.meta.setTag('twitter:keyword', 'Online Auto Industry Blogs, Online Auto Industry News, Online Auto Industry Journals');
-
-      if (this.blog != null && this.blog.length != 0) {
+      if (this.blog != '') {
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
+        this.meta.setTag("description", this.blog.description_html)
+
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
-        this.meta.setTag('og:image', this.blog.profile_picture);
+        this.meta.setTag('og:image', this.blog.blogs_image);
         this.meta.setTag('og:image:width', 'auto');
         this.meta.setTag('og:image:height', 'auto');
-        this.meta.setTag('twitter:image', this.blog.profile_picture);
+        this.meta.setTag('twitter:image', this.blog.blogs_image);
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
+
+
+        // console.log('og:description', this.blog.description_html)
+
+        // console.log('og:image', this.blog.blogs_image)
+
+        // console.log(this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id)
+
+
 
       }
     })
 
 
-    /**api service for blog_catagory count by uttam */
-    var datacatcount: any = {};
-    datacatcount = {
-      source: "blog_category"
+  }
+
+//blog category
+
+  getAllBlogs(val:any) {
+    console.log("clicked",val);
+    let data: any = {
+      "endpoint": "getbloglistbycategoryid",
+      "blogcat":val
+      
     }
 
-    this.apiService.getDatalistWithToken(datacatcount, "datalistwithouttoken").subscribe((res: any) => {
+    this.apiService.getDatalist(data).subscribe((result: any) => {
 
-      this.blogcategorycount = res.resc;
-      //  console.log(this.blogcategorycount);
-      this.blogcategory = res.res;
+      this.catBlogs = result.results.blogs;
+      console.log("yy",this.catBlogs);
 
-    });
-
-
-
-
-
-    /**api service for sub blog_catagory by uttam */
-    var datacatsearch: any = {};
-    datacatsearch = {
-      source: "blogs_view"
-
-    }
-    this.apiService.getDatalistWithToken(datacatsearch, "datalistwithouttoken").subscribe((res: any) => {
-
-      this.blogcategorysearch = res.res;
-      //  console.log(this.blogcategorysearch)
-
+      // this.bloglisting = result.res;
+      // console.log("yy",this.allBlogs);
     });
   }
+
+
+      
+//***********blog list view in blog detail************//
+blogdetail(val:any){
+  console.log(val)
+  this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+  // console.log(this.blogtitle)
+  if (this.blogtitle != '') {
+    this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
+  }
+}
 
   //FACEBOOK SHARE
 
@@ -160,7 +189,8 @@ export class BlogdetailComponent implements OnInit {
 
     let params: UIParams = {
       href: url,
-      method: 'share'
+      method: 'share',
+      quote: 'https://dev.probidauto.com/'
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
     }).catch(facebook=>{
@@ -171,6 +201,35 @@ export class BlogdetailComponent implements OnInit {
   logoutWithFacebook(): void {
 
     this.facebook.logout().then();
+  }
+
+
+   //twitter share
+
+   twitterShare(){
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    // console.log(url)
+
+  }
+
+  // linkedin share 
+  
+  linkedinShare(){
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id);
+    // console.log(url)
+
+  }
+
+
+  // tumblr share 
+  
+  tumblrShare(){
+
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    // console.log(url)
+
   }
 
 
