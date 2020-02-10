@@ -107,7 +107,7 @@ public configDataJobTicket: any = {
       // console.log(res.result);
         this.message_details = res.result.message_details;
         this.user_list = res.result.user_list[0];
-        this.rsvp_details = res.result.rsvp_details[0];
+        this.rsvp_details = res.result.rsvp_details[0]; 
         this.job_ticket = res.result.job_ticket[0];
     });
     // this.activatedRoute.data.forEach((data:any) => {
