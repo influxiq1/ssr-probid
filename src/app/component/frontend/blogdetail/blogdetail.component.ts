@@ -101,7 +101,7 @@ export class BlogdetailComponent implements OnInit {
 
       this.blog = res.blogCatList.blogs[0];
       console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
-
+      
      
       this.blogcategory=res.blogCatList.blog_category
       console.log(this.blogcategory)
