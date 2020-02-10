@@ -12,6 +12,9 @@ import { Router, ActivatedRoute } from '@angular/router';
   providedIn: 'root'
 })
 export class ApiService {
+  
+  public serverUrlDemo2 =  environment["API_URL2"];
+
 
   public serverUrlDemo =  environment["API_URL"];
   public nodesslurl =  environment["nodesslurl"];
@@ -298,19 +301,31 @@ postdata(requestdata: any) {
   }
 
 
-  // getDataForEndpoint(endpoint: any) {
+  getDataForEndpoint(endpoint: any) {
 
-  //   const httpOptions = {
-  //       headers: new HttpHeaders({
-  //           'Content-Type':  'application/json'
-  //       })
-  //   };
+    const httpOptions = {
+             headers: new HttpHeaders({
+            'Content-Type':  'application/json'
+        })
+    };
   
-  //   // this.isTokenExpired()
-  //   var result = this._http.post(this.serverUrlDemo + endpoint, httpOptions).pipe(map(res => res));
+    // this.isTokenExpired()
+    var result = this._http.post(this.serverUrlDemo + endpoint, httpOptions).pipe(map(res => res));
   
-  //   return result;
-  // }
+    return result;
+  }
+
+  apiForIp(requestdata: any, endpoint:any ) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+        
+      })
+    };
+    var result = this._http.post(this.serverUrlDemo2 + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
+    return result;
+  }
+
 
 
  

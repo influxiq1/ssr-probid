@@ -237,7 +237,7 @@ const routes: Routes = [
 
   {
     path: 'blogs', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },
-    data: { requestcondition: { condition: { "limit": 4, "skip": 1 } }, endpoint: 'blogdata' }
+    data: { requestcondition: { condition: { "limit": 4, "skip": 0 } }, endpoint: 'blogdata' }
   },
 
   // { path: 'bloglist', component: BloglistfrontendComponent, resolve: { blogCatList: ResolveService },

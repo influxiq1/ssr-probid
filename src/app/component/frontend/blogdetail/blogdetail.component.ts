@@ -6,6 +6,8 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from "@angular/material";
 import { SafeResourceUrl, DomSanitizer } from '@angular/platform-browser';
 import { MetaService } from '@ngx-meta/core';
 import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+
+import {HttpClient} from '@angular/common/http'
 // import { runInThisContext } from 'vm';
 
 export interface DialogData {
@@ -39,7 +41,10 @@ export class BlogdetailComponent implements OnInit {
   public blogtitle:any;
   public title:any;
   public catBlogs:any;
+  public apiForIp:any;
 
+  public userCookies: any;
+  public userid: any;
   /************** lib list setup start here *************/
   public blogListConfig: any = {
     apiBaseUrl: this.apiService.serverUrlDemo,
@@ -54,7 +59,13 @@ export class BlogdetailComponent implements OnInit {
     view: "blog_category_view"
 
   }
-  constructor(public apiService: ApiService, public router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, private sanitizer: DomSanitizer, public dialog: MatDialog, private readonly meta: MetaService,public facebook:FacebookService) {
+  constructor(public apiService: ApiService, public router: Router, private activatedRoute: ActivatedRoute, private cookieservice: CookieService, private sanitizer: DomSanitizer, public dialog: MatDialog, private readonly meta: MetaService,public facebook:FacebookService,public http:HttpClient) {
+
+    if (this.cookieservice.get('jwtToken') != undefined  && this.cookieservice.get('user_details') != null && this.cookieservice.get('jwtToken') != null && this.cookieservice.get('jwtToken') != '') {
+      this.userCookies = JSON.parse(this.cookieservice.get('user_details'));
+      // console.log('>>>>>>>',this.userCookies)
+      this.userid = this.userCookies._id;
+      }
 
     // console.log(this.activatedRoute.snapshot.params.blogtitle)
 
@@ -127,13 +138,49 @@ export class BlogdetailComponent implements OnInit {
     })
 
 
+    //api for IP
+
+  //   this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
+  //   let result:any;
+  //   result=res;
+  //   this.apiForIp=result.data.ip
+  //   console.log( this.apiForIp)
+
+  // })
+
+
+    
+  // this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
+  //   let result:any;
+  //   result=res;
+  //   this.apiForIp=result.data.ip
+  //   console.log( this.apiForIp)
+
+  // })
+
+  let data:any;
+  data={
+   
+    "uid":this.userid,
+    "blogid":this.blog._id
   }
+
+  this.apiService.apiForIp(data,'apiforip').subscribe(resc=>{
+  console.log(resc)
+  })
+
+
+
+
+  }
+
+
 
 //blog category
 
   getAllBlogs(val:any) {
     console.log("clicked",val);
-    let data: any = {
+    let data: any = { 
       "endpoint": "getbloglistbycategoryid",
       "blogcat":val
       
@@ -152,6 +199,7 @@ export class BlogdetailComponent implements OnInit {
 
       
 //***********blog list view in blog detail************//
+
 blogdetail(val:any){
   console.log(val)
   this.title=val.blogtitle;
@@ -160,6 +208,7 @@ blogdetail(val:any){
   if (this.blogtitle != '') {
     this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
+
 }
 
   //FACEBOOK SHARE

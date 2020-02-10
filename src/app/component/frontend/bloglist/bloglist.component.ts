@@ -57,6 +57,7 @@ export class BloglistfrontendComponent implements OnInit {
   public blogtitle:any = '';
   public title:any;
   public blogCat:any;
+  public apiForIp:any;  
   // btn_hide:any=false;
   safeSrc: SafeResourceUrl;
   constructor(private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public apiService: ApiService, public dialog: MatDialog, private sanitizer: DomSanitizer, private readonly meta: MetaService,public facebook:FacebookService) {
@@ -127,6 +128,16 @@ blogdetail(val:any){
   if (this.blogtitle != '') {
     this.router.navigateByUrl('/blogs/'+ this.blogtitle+'/' +val._id);
   }
+
+
+  // this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
+  //   let result:any;
+  //   result=res;
+  //   this.apiForIp=result.data.ip
+  //   console.log( this.apiForIp)
+  // })
+
+
 }
 
 
@@ -296,6 +307,7 @@ blogdetail(val:any){
       console.log(val)
       this.blogcat = val._id;
       this.router.navigateByUrl('/blogdetail/'+val._id)
+
     }
 
   openvideourl(val: any) {
