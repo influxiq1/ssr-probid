@@ -259,8 +259,9 @@ blogdetail(val:any){
         // "author_regex":val
 
       },
-      "source": "blogs_view",
-      "endpoint": "datalistwithouttoken"
+     
+      "endpoint": "blogdata",
+      "limit": 4, "skip": 1
     }
 
     this.apiService.getDatalist(data).subscribe((result: any) => {

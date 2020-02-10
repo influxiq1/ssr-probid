@@ -183,7 +183,7 @@ blogdetail(val:any){
 
       });
   }
-  fbShare(val){
+  fbShare(){
     var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id;
     console.log(url)
 
