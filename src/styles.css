@@ -344,6 +344,7 @@ button.disabled,html input.disabled{opacity:.3;cursor:not-allowed;pointer-events
 button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 .formclass .submitbtn {background: #f15b46!important;}
 .mat-toolbar.mat-primary {background: #dde2e5;}
+.cdk-overlay-transparent-backdrop, .cdk-overlay-transparent-backdrop.cdk-overlay-backdrop-showing {opacity: 0;display: none;}
 
 /* 
 .loder_body{width:100%;height:100vh;position:fixed;left:0;top:0;background-color:rgba(0, 0, 0, 1)}
@@ -668,6 +669,13 @@ left: 1.5em;
 .owl-carousel .owl-nav button.owl-next{position:absolute;top:25%;right:0}
 .owl-carousel .owl-item.active.center .quatation{display:block!important;width:96%;margin-left:auto;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit;margin-right:auto}
 }
+
+@media screen and (max-width: 560px) {
+.tablediv .searchbar .mat-form-field {width: 98%;}
+.bloglists .tablediv .searchbar .inputfilter, .blogcatlists .tablediv .searchbar .inputfilter{width: 100%;}
+.bloglists .mat-card{padding: 0;}
+}
+
 @media screen and (max-width: 480px) {
 .owl-carousel .owl-item.active.center .slide-image-wrapper{width:280px;height:280px}
 }

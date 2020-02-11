@@ -162,7 +162,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv table th, .tablediv mat-table mat-header-row{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:3px;letter-spacing:.1em;text-transform:capitalize}
 .tablediv mat-table .mat-header-cell{font-family: 'Helvetica-Normal';text-transform: uppercase;font-size: 18px;color: #fff;letter-spacing: .1em;text-transform: capitalize;}
 .tablediv table td, .tablediv mat-table mat-cell{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
-.tablediv table td .buttons_ro, .tablediv mat-table mat-cell .buttons_ro{display: flex;justify-content: flex-start; align-items: center;}
+.tablediv table td .buttons_ro, .tablediv mat-table mat-cell .buttons_ro{display: flex;justify-content: flex-end; align-items: center;}
 .tablediv table td br, .tablediv mat-table mat-cell br{display:none}
 .tablediv table td.text-center, .tablediv mat-table mat-cell.text-center{text-align:center!important}
 .tablediv table th.descriptiondiv, .tablediv mat-table mat-header-row.descriptiondiv{width:26%}
@@ -331,6 +331,12 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .tablediv .formclass{-webkit-box-pack: end !important; justify-content: flex-end !important; margin: 0 !important;}
 .tablediv .formclass .submitbtn{justify-content: flex-end; margin-left: 5px !important;}
 .tablediv table.mat-table .buttons_ro span i{cursor: pointer;}
+.formclass > div.checkboxnew{flex-direction: row !important;}
+.formclass > div.checkboxnew .mat-checkbox{padding: 12px 12px 12px 0;display: inline-block;}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {border-color: #e0361f;}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {background-color: #e0361f;}
+.adminwrappercls .buttons_ro button, .adminwrappercls .buttons_ro mat-button {border-radius: 0!important;background: #f7462e;}
+.tablediv table td .buttons_ro button span, .tablediv mat-table mat-cell .buttons_ro button span {padding-left: 0;}
 
 @media only screen and (max-width: 1199px) {
 .setting_formblock label{display:block;float:none;margin:10px 0}

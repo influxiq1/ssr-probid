@@ -45,6 +45,7 @@
     .tablediv table td.empycell{border:0!important;border-bottom:0 solid #fff!important;display:none}
     .tablediv table tr:last-child td.empycell{border-bottom:0 solid #ddd!important}
     .tablediv table tr:last-child td{border-bottom:0 solid #ddd!important}
+    .tablediv table td, .tablediv table th {width: initial;}
     .newcheckboxdiv{text-align:left;float:right}
     .tablediv table th,.tablediv table td{border-bottom:1px solid #646464!important}
     .tablediv table td{padding:10px}
@@ -65,7 +66,7 @@
     .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
     .adminlisttable.adminlisttabledashboard .tablediv table tr{display:table-row!important}
     .tablediv table td:last-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
-    .tablediv table td::after{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
+    /* .tablediv table td::after{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000} */
     .tablediv .mytranningcategory .admin_table_wrapper table td::before{content:attr(datalabel)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
     .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
     .tablediv table td:last-child{border-bottom:0}
