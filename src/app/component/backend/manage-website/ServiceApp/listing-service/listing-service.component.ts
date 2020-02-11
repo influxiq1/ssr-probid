@@ -29,7 +29,7 @@ export class ListingServiceComponent implements OnInit {
 
     
   
-  constructor( private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService, public ApiService: ApiService,private readonly meta: MetaService ) { 
+  constructor( public router: Router, public activatedRoute: ActivatedRoute, public cookieService: CookieService, public ApiService: ApiService,public readonly meta: MetaService ) { 
 
     this.meta.setTitle('ProBid Auto - Manage Services');
     this.meta.setTag('og:title', 'ProBid Auto - Manage Services');
