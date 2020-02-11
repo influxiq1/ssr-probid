@@ -13,8 +13,8 @@ import { MetaService } from '@ngx-meta/core';
 export class ListLessionComponent implements OnInit {
 public manageLessionList : any=[];
 public manageTrainingList : any = [];
-public editPageRoute : any="/manage-lession/edit/";
-public addPageRoute : any="/manage-lession/add";
+public editPageRoute : any="/manage-lesson/edit/";
+public addPageRoute : any="/manage-lesson/add";
 public manageQuizRoute:any="/manage-quiz/list/";
 public serverDetails: any = {
   // "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",

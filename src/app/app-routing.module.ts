@@ -139,12 +139,12 @@ const routes: Routes = [
   /**Training library**/
   
    /**Lession Management **/
-   { path: 'manage-lession/add', component: AddEditLessionsComponent },
+   { path: 'manage-lesson/add', component: AddEditLessionsComponent },
 
-   { path: 'manage-lession/list', component : ListLessionComponent,
+   { path: 'manage-lesson/list', component : ListLessionComponent,
    resolve: { lessionData: ResolveService }, 
    data: { requestcondition: { source: 'manage_lession_view', condition: {} }, endpoint: 'datalist' }},
-   { path: 'manage-lession/edit/:id', component: AddEditLessionsComponent },
+   { path: 'manage-lesson/edit/:id', component: AddEditLessionsComponent },
 
   /**Training Management**/
    { path: 'manage-training/add', component: AddEditTrainingComponent },
