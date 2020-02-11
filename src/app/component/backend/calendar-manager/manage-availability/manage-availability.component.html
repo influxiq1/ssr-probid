@@ -22,9 +22,23 @@
             </mat-card-content>
             <mat-card-content class="bred_cram_wrapper_list">
                 <mat-list class="bred_cram_wrapper">
-                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
-                  <mat-list-item mat-list-item> <a href="#">Calendar Manager</a> </mat-list-item>
-                  <mat-list-item mat-list-item> <a [routerLink]="'/manage-availability-admin'">Manage Availability</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
+                    [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+                <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+                    [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+                <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+                    [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
+        
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
+                      [routerLink]="'/admin-dashboard'">Calendar Manager</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+                      [routerLink]="'/customer-dashboard'">Calendar Manager</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+                      [routerLink]="'/rep-dashboard'">Calendar Manager</a> </mat-list-item>
+        
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a [routerLink]="'/manage-availability-admin'"> Manage Availability</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a [routerLink]="'/manage-availability-customer'"> Manage Availability</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a [routerLink]="'/manage-availability-rep'"> Manage Availability</a> </mat-list-item>
                 </mat-list>       
               </mat-card-content>
             <span class="searchblock">

@@ -9,6 +9,8 @@ import { MetaService } from '@ngx-meta/core';
   styleUrls: ['./add-edit-center.component.css']
 })
 export class AddEditCenterComponent implements OnInit {
+
+  public userCookies :any;
   title = 'demoApp';
   public formdataval: any;
   public recid: any;
@@ -31,6 +33,12 @@ export class AddEditCenterComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+    
+    if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+      this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+      // console.log('>>>>>>>',this.userCookies)
+      }
   }
 
   ngOnInit() {

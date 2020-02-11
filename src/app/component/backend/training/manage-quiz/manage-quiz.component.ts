@@ -10,6 +10,7 @@ import { MetaService } from '@ngx-meta/core';
   styleUrls: ['./manage-quiz.component.css']
 })
 export class ManageQuizComponent implements OnInit {
+  public userCookies : any;
   public quizQuestionList: any = [];
   public addPageRoute: any = "/manage-quiz/add/";
   public lessonPageRoute: any = "/manage-lession/list";
@@ -41,6 +42,13 @@ export class ManageQuizComponent implements OnInit {
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+        if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+          this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+          // console.log('>>>>>>>',this.userCookies)
+          }
+
 
     // console.log("idddd",this.activatedRoute.snapshot.params);
     this.paramsId = this.activatedRoute.snapshot.params.lesson_id_object;
