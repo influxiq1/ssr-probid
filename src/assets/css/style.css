@@ -293,7 +293,7 @@ h1.title1{color:#1da1db!important;font-family:'LatoMedium'!important;font-size:2
 .blogdetail .youmightalsolike .bottom_blog .item_wrapper .item .item_images,.blogdetail .mostviewedblogs .bottom_blog .item_wrapper .item .item_images{height:124px!important}
 .photogallerylists{padding:5px}
 .photogallerylists .photogallerylists{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:stretch;justify-content:center}
-.photogallerylists .writer_image{width:130px!important;overflow:hidden;height:130px!important;margin:5px;background-color:#e9edef;border:2px solid #d8d9da;padding:10px;display:inherit!important}
+.photogallerylists .writer_image{width:130px!important;overflow:hidden;height:103px!important;margin:5px;background-color:#e9edef;border:2px solid #d8d9da;padding:10px;display:inherit!important}
 .photogallerylists .writer_image .mat-list-item-content{height:100%!important;align-items:stretch!important;padding:0!important}
 .photogallerylists .writer_image_wrapper img{transition:all .3s;transform:scale(1);opacity:.85;height:100%!important;-o-object-fit:cover;object-fit:cover;width:100%!important;width:auto;height:auto}
 .mat-menu-panel.activedropmenu{margin-left:0;margin-top:16px;background-color:#cdd4da!important}
