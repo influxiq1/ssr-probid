@@ -366,6 +366,29 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .bred_cram_wrapper_list .mat-list-base .mat-list-item .mat-list-item-content{z-index: 9;}
 
 
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front {
+    background: transparent !important;
+    padding: 0 !important;
+    display: block !important;
+    width: 100%;
+}
+
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item::before, .bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item::after {background: transparent !important;}
+
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child::before, .bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child::after {
+    background: transparent !important;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:first-child {
+    background-color:transparent !important;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child a {
+    cursor: default;
+    color:#f15b46;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item a:hover {
+    cursor: default;
+    color:#f15b46;
+}
 
 .tablediv_Settings{margin-top:5px!important}
 /* .bloglists .Settings_tab_block .tablediv{margin-top:-72px;display:block} */
