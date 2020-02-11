@@ -45,6 +45,10 @@ export class BlogdetailComponent implements OnInit {
 
   public userCookies: any;
   public userid: any;
+  public popularBlogs:any;
+  public indexVal:any=4;
+  public similarBlogs:any;
+
   /************** lib list setup start here *************/
   public blogListConfig: any = {
     apiBaseUrl: this.apiService.serverUrlDemo,
@@ -138,26 +142,6 @@ export class BlogdetailComponent implements OnInit {
     })
 
 
-    //api for IP
-
-  //   this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
-  //   let result:any;
-  //   result=res;
-  //   this.apiForIp=result.data.ip
-  //   console.log( this.apiForIp)
-
-  // })
-
-
-    
-  // this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
-  //   let result:any;
-  //   result=res;
-  //   this.apiForIp=result.data.ip
-  //   console.log( this.apiForIp)
-
-  // })
-
   let data:any;
   data={
    
@@ -172,11 +156,20 @@ export class BlogdetailComponent implements OnInit {
 
   let data1:any;
   data1={
-    id:this.blog._id
+    'condition':{
+      _id:this.blog.blogcat
+
+    }
   }
 
   this.apiService.apiForIp(data1,'popularsimilarblogs').subscribe(res=>{
     console.log(res)
+    let result:any;
+    result=res;
+    this.popularBlogs=result.popular_blogs;
+    this.similarBlogs=result.similar_blogs
+    console.log(this.popularBlogs)
+
   })
 
 
@@ -324,6 +317,79 @@ blogdetail(val:any){
     });
 
   }
+
+
+
+
+  // popular and similar blog share 
+
+  fbpsShare(val:any){
+    // console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
+    console.log(url)
+
+    let params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+    this.facebook.ui(params).then((res:UIResponse)=>{
+    }).catch(facebook=>{
+      console.log(facebook)
+    });
+
+  }
+
+
+  twitterpsShare(val:any){
+  
+    // console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+  linkedinpsShare(val:any){
+  
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+
+   // tumblr share 
+  
+   tumblrpsShare(val:any){
+  
+    console.log(val)
+    this.title=val.blogtitle;
+    this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
+    // console.log(this.blogtitle)
+
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    // console.log(url)
+
+  }
+
+
+  loadMore(){
+    this.indexVal=this.indexVal+4;
+  }
+
+
+
 
 
   //*********** Coming Soon ************//
