@@ -8,7 +8,7 @@
   </span>
   
   <img  *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' " [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image "  class="blogheaderimg">
-  <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg"  class="blogheaderimg">
+  <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/blog-detail-default-img.jpg"  class="blogheaderimg">
 
   <span class="blogheaderimgbg"></span>
 </mat-card>
