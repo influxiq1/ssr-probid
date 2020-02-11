@@ -105,11 +105,11 @@ export class BlogdetailComponent implements OnInit {
     this.activatedRoute.data.forEach((res)=>{
 
       this.blog = res.blogCatList.blogs[0];
-      console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
+      // console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
 
      
       this.blogcategory=res.blogCatList.blog_category
-      console.log(this.blogcategory)
+      // console.log(this.blogcategory)
       this.title=this.blog.blogtitle;
       this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
 
@@ -151,7 +151,7 @@ export class BlogdetailComponent implements OnInit {
   }
 
   this.apiService.apiForIp(data,'apiforip').subscribe(resc=>{
-  console.log(resc)
+  // console.log(resc)
   })
 
 
@@ -164,12 +164,12 @@ export class BlogdetailComponent implements OnInit {
   }
 
   this.apiService.apiForIp(data1,'popularsimilarblogs').subscribe(res=>{
-    console.log(res)
+    // console.log(res)
     let result:any;
     result=res;
     this.popularBlogs=result.popular_blogs;
     this.similarBlogs=result.similar_blogs
-    console.log(this.popularBlogs)
+    // console.log(this.popularBlogs)
 
   })
 
@@ -181,7 +181,7 @@ export class BlogdetailComponent implements OnInit {
 //blog category
 
   getAllBlogs(val:any) {
-    console.log("clicked",val);
+    // console.log("clicked",val);
     let data: any = { 
       "endpoint": "getbloglistbycategoryid",
       "blogcat":val
@@ -191,7 +191,7 @@ export class BlogdetailComponent implements OnInit {
     this.apiService.getDatalist(data).subscribe((result: any) => {
 
       this.catBlogs = result.results.blogs;
-      console.log("yy",this.catBlogs.length);
+      // console.log("yy",this.catBlogs.length);
 
       // this.bloglisting = result.res;
       // console.log("yy",this.allBlogs);
@@ -203,7 +203,7 @@ export class BlogdetailComponent implements OnInit {
 //***********blog list view in blog detail************//
 
 blogdetail(val:any){
-  console.log(val)
+  // console.log(val)
   this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
   // console.log(this.blogtitle)
@@ -236,7 +236,7 @@ blogdetail(val:any){
   }
   fbShare(){
     var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id;
-    console.log(url)
+    // console.log(url)
 
     let params: UIParams = {
       href: url,
@@ -245,7 +245,7 @@ blogdetail(val:any){
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
     }).catch(facebook=>{
-      console.log(facebook)
+      // console.log(facebook)
     });
 
   }
@@ -290,7 +290,7 @@ blogdetail(val:any){
   }
 
   openvideourl(val: any) {
-    console.log(val)
+    // console.log(val)
     let url: any;
     url = "https://www.youtube.com/embed/";
     //console.log('video url....>',url+val);
@@ -318,7 +318,7 @@ blogdetail(val:any){
 
   //  view all blog cat
 viewAllCatBlogs(val){
-  console.log('Hiiiitttt',val)
+  // console.log('Hiiiitttt',val)
   
   this.router.navigateByUrl('/blogs/'+ val._id);
   
@@ -336,7 +336,7 @@ viewAllCatBlogs(val){
     // console.log(this.blogtitle)
 
     var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
-    console.log(url)
+    // console.log(url)
 
     let params: UIParams = {
       href: url,
@@ -344,7 +344,7 @@ viewAllCatBlogs(val){
     };
     this.facebook.ui(params).then((res:UIResponse)=>{
     }).catch(facebook=>{
-      console.log(facebook)
+      // console.log(facebook)
     });
 
   }
@@ -364,7 +364,7 @@ viewAllCatBlogs(val){
 
   linkedinpsShare(val:any){
   
-    console.log(val)
+    // console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
@@ -379,7 +379,7 @@ viewAllCatBlogs(val){
   
    tumblrpsShare(val:any){
   
-    console.log(val)
+    // console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)

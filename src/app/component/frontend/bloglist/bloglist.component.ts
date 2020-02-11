@@ -121,7 +121,7 @@ export class BloglistfrontendComponent implements OnInit {
     
 //***********blog list view in blog detail************//
 blogdetail(val:any){
-  console.log(val)
+  // console.log(val)
   this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
   // console.log(this.blogtitle)
@@ -135,7 +135,7 @@ blogdetail(val:any){
 
 //  view all blog cat
 viewAllCatBlogs(val){
-console.log('Hiiiitttt',val)
+// console.log('Hiiiitttt',val)
 
 this.router.navigateByUrl('/blogs/'+ val._id);
 
@@ -172,7 +172,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
       // console.log(this.blogtitle)
 
       var url='https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id;
-      console.log(url)
+      // console.log(url)
   
       let params: UIParams = {
         href: url,
@@ -180,7 +180,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
       };
       this.facebook.ui(params).then((res:UIResponse)=>{
       }).catch(facebook=>{
-        console.log(facebook)
+        // console.log(facebook)
       });
   
     }
@@ -209,7 +209,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
   
   linkedinShare(val:any){
   
-    console.log(val)
+    // console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
@@ -224,7 +224,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
   
   tumblrShare(val:any){
   
-    console.log(val)
+    // console.log(val)
     this.title=val.blogtitle;
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
@@ -237,7 +237,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
   //search by category
 
   blogCatSearch(val:any){
-    console.log(val)
+    // console.log(val)
     let data: any = {
       "endpoint": "getbloglistbycategoryid",
       "blogcat":val
@@ -261,7 +261,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
 
   /** search by keyword **/
   searchByKey(val: any) {
-    console.log(val)
+    // console.log(val)
     // let data: any = {
     //   "condition":
     //   {
@@ -282,7 +282,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
 
 
   getAllBlogs(val:any) {
-    console.log("clicked",val);
+    // console.log("clicked",val);
     let data: any = {
       "endpoint": "getbloglistbycategoryid",
       "blogcat":val
@@ -292,7 +292,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
     this.apiService.getDatalist(data).subscribe((result: any) => {
 
       this.catBlogs = result.results.blogs;
-      console.log("hiiitt",this.catBlogs.length);
+      // console.log("hiiitt",this.catBlogs.length);
 
       // this.bloglisting = result.res;
       // console.log("yy",this.allBlogs);
@@ -303,7 +303,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
 
 //*********** sub blog list view in blog detail************//
     blog(val:any){
-      console.log(val)
+      // console.log(val)
       this.blogcat = val._id;
       this.router.navigateByUrl('/blogdetail/'+val._id)
 
