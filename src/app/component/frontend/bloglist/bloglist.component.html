@@ -69,9 +69,9 @@
         <mat-card-content class="bottom_blog">
           <span class="item_wrapper">
             <mat-card-content class="item" *ngFor="let item of bloglisting | slice:0:indexval ; let i=index">
-              <span class="item_images" (click)="blogdetail(item._id)">
-                <span *ngIf="item.blogs_image !=''"><img [src]="item.blogs_image"></span>
-               <span *ngIf="item.blogs_image == ''"><img src="../../../../assets/images/no-image-default.jpg"></span>
+              <span class="item_images" (click)="blogdetail(item)">
+                <span *ngIf="item.blogs_image !=''"><img [src]="item.blogs_image" (click)="blogdetail(item)"></span>
+               <span *ngIf="item.blogs_image == ''"><img src="../../../../assets/images/no-image-default.jpg" (click)="blogdetail(item)"></span>
                
                 <!-- <img  [src]="item.blogs_image">
                <span *ngIf="item.blogs_image ==''">
@@ -154,6 +154,7 @@
                   </div>
                 </span>
               </ng-container>
+              <button mat-button class="btnblue sim-button" type="button" (click)="viewAllCatBlogs(item)">View All</button>
             </mat-expansion-panel>
           </mat-accordion>
       </span>

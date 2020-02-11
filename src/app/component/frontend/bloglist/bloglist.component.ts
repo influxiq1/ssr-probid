@@ -133,7 +133,25 @@ blogdetail(val:any){
 }
 
 
-  /** end api service for blog_catagory total count by uttam */
+//  view all blog cat
+viewAllCatBlogs(val){
+console.log('Hiiiitttt',val)
+
+let data: any = {
+  "endpoint": "getbloglistbycategoryid",
+  "blogcat":val._id
+  
+}
+
+this.apiService.getDatalist(data).subscribe((result: any) => {
+
+  this.bloglisting = result.results.blogs;
+
+  // this.bloglisting = result.res;
+  // console.log("yy",this.allBlogs);
+});
+
+}
 
 
 
@@ -255,21 +273,22 @@ blogdetail(val:any){
 
   /** search by keyword **/
   searchByKey(val: any) {
-    let data: any = {
-      "condition":
-      {
-        "blogtitle_search_regex": val.toLowerCase(),
-        // "author_regex":val
+    console.log(val)
+    // let data: any = {
+    //   "condition":
+    //   {
+    //     "blogtitle_search_regex": val.toLowerCase(),
+    //     // "author_regex":val
 
-      },
+    //   },
      
-      "endpoint": "blogdata",
-      "limit": 4, "skip": 1
-    }
+    //   "endpoint": "blogdata",
+    //   "limit": 4, "skip": 1
+    // }
 
-    this.apiService.getDatalist(data).subscribe((result: any) => {
-      this.bloglisting = result.res;
-    });
+    // this.apiService.getDatalist(data).subscribe((result: any) => {
+    //   this.bloglisting = result.res;
+    // });
   }
 
 

@@ -47,6 +47,7 @@ export class BlogdetailComponent implements OnInit {
   public userid: any;
   public popularBlogs:any;
   public indexVal:any=4;
+  public index:any=4;
   public similarBlogs:any;
 
   /************** lib list setup start here *************/
@@ -289,7 +290,7 @@ blogdetail(val:any){
   }
 
   openvideourl(val: any) {
-    //console.log(val)
+    console.log(val)
     let url: any;
     url = "https://www.youtube.com/embed/";
     //console.log('video url....>',url+val);
@@ -304,10 +305,7 @@ blogdetail(val:any){
 
       panelClass: ['modal-md', 'commonVideoDialogCls'],
       data: this.safeSrc,
-      height: 'auto',
-      width: '100%',
-      maxWidth: '90vw',
-
+    
 
 
     });
@@ -384,10 +382,14 @@ blogdetail(val:any){
   }
 
 
-  loadMore(){
+  loadMorePopular(){
     this.indexVal=this.indexVal+4;
   }
 
+
+  loadMoreSimilar(){
+    this.index=this.index + 4;
+  }
 
 
 
