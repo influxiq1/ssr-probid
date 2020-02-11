@@ -22,3 +22,16 @@
 }
 
 .blogsubcattitle{font-size: 15px;}
+
+.writer_image_wrapper button {
+    position: relative;
+}
+
+.writer_image_wrapper button .videoiconclsnew{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px !important;
+    height: auto !important;
+}

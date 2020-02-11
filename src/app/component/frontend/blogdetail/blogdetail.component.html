@@ -7,8 +7,9 @@
     </mat-card-content>
   </span>
   
-  <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image"  class="blogheaderimg">
+  <img  *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' " [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image "  class="blogheaderimg">
   <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg"  class="blogheaderimg">
+
   <span class="blogheaderimgbg"></span>
 </mat-card>
 
@@ -64,10 +65,12 @@
                  
                 </span>
               </mat-card-content>
-              <span class="item_images">
+              <span class="item_images" *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' ">
 
-                <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image">
-              <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
+                <img   [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image " >
+              <!-- <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" > -->
+
+
               </span>
 
               <p class="description"><span [innerHtml]="blog.description_html"></span></p>
@@ -75,11 +78,11 @@
           </span>
         </mat-card-content>
 
-        <mat-list class="photogallerylists">
+        <mat-list class="photogallerylists" *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' ">
           <mat-list-item class="writer_image">
-            <span class="writer_image_wrapper">
-              <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image">
-              <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
+            <span class="writer_image_wrapper"  >
+              <img  [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image " >
+              <!-- <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" > -->
             </span>
           </mat-list-item>
 
@@ -87,21 +90,22 @@
 
           
         </mat-list>
-<!--        
-        <span *ngIf=" blog.credentials[0].video_url !=''">
+       
+        <span *ngIf="blog !='' &&  blog.video !='' && blog.video[0].video_url !='' ">
         <mat-list class="photogallerylists" >
           <mat-list-item class="writer_image" >
             <span class="writer_image_wrapper">
-              <div *ngFor="let vurl of blog.credentials">
-                <button *ngIf="vurl.video_url !=null "
-                  (click)="openvideourl(vurl.video_url)">
-                  <img  src="//img.youtube.com/vi/{{vurl.video_url}}/0.jpg">
+              <div>
+                <button 
+                  (click)="openvideourl(blog.video[0].video_url)">
+                  <img  src="//img.youtube.com/vi/{{blog.video[0].video_url}}/0.jpg">
+                  <img class="videoiconclsnew" src='../../../../assets/images/videoicon.png'>
                 </button>
               </div>
             </span>
           </mat-list-item>
         </mat-list>
-      </span> -->
+      </span>
       
       </span>
       <span class="categorywrapper">
@@ -187,7 +191,7 @@
 
             </span>
             <button mat-button class="btnblue sim-button" 
-             (click)="loadMore()" *ngIf="popularBlogs !=null && indexVal < popularBlogs.length">Load More</button>
+             (click)="loadMorePopular()" *ngIf="popularBlogs !=null && indexVal < popularBlogs.length">Load More</button>
           </mat-card-content>
 
     </span>
@@ -198,7 +202,7 @@
         <h2>Similar Blogs</h2>
         <mat-card-content class="bottom_blog">
             <span class="item_wrapper">
-              <mat-card-content class="item" *ngFor="let item of similarBlogs |  slice:0:indexVal " >
+              <mat-card-content class="item" *ngFor="let item of similarBlogs |  slice:0:index " >
                 <span class="item_images">
                   <img *ngIf="item !=null && item.blogs_image !=''" [src]="item.blogs_image" (click)="blogdetail(item)">
                   <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
@@ -245,7 +249,7 @@
               </mat-card-content>
             </span>
            <button mat-button class="btnblue sim-button" 
-             (click)="loadMore()" *ngIf="similarBlogs !=null && indexVal < similarBlogs.length">Load More</button>
+             (click)="loadMoreSimilar()" *ngIf="similarBlogs !=null && index < similarBlogs.length">Load More</button>
           </mat-card-content>
 
     </span>
