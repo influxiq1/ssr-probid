@@ -101,7 +101,7 @@ export class BlogdetailComponent implements OnInit {
 
       this.blog = res.blogCatList.blogs[0];
       console.log('+++++++++++++++++>>>>>>>>>>>>>>', this.blog);
-      
+
      
       this.blogcategory=res.blogCatList.blog_category
       console.log(this.blogcategory)
@@ -170,6 +170,14 @@ export class BlogdetailComponent implements OnInit {
   })
 
 
+  let data1:any;
+  data1={
+    id:this.blog._id
+  }
+
+  this.apiService.apiForIp(data1,'popularsimilarblogs').subscribe(res=>{
+    console.log(res)
+  })
 
 
   }
