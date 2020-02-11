@@ -130,14 +130,6 @@ blogdetail(val:any){
   }
 
 
-  // this.apiService.getDataForEndpoint('apiforip').subscribe(res=>{
-  //   let result:any;
-  //   result=res;
-  //   this.apiForIp=result.data.ip
-  //   console.log( this.apiForIp)
-  // })
-
-
 }
 
 

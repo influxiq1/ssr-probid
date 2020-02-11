@@ -1,12 +1,14 @@
 <app-header></app-header>
 
- <mat-card *ngIf="blog !=null && blog.blogs_image != ''" class="innerpagebanner"> 
+ <mat-card  class="innerpagebanner"> 
   <span class="mainwrappercontent">
     <mat-card-content>
       <h1>Blog Details</h1>
     </mat-card-content>
   </span>
-  <img [src]="blog.blogs_image" class="blogheaderimg">
+  
+  <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image"  class="blogheaderimg">
+  <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg"  class="blogheaderimg">
   <span class="blogheaderimgbg"></span>
 </mat-card>
 
@@ -71,7 +73,8 @@
               </mat-card-content>
               <span class="item_images">
 
-                <img [src]="blog.blogs_image">
+                <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image">
+              <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
               </span>
 
               <p class="description"><span [innerHtml]="blog.description_html"></span></p>
@@ -82,7 +85,8 @@
         <mat-list class="photogallerylists">
           <mat-list-item class="writer_image">
             <span class="writer_image_wrapper">
-              <img [src]="blog.blogs_image">
+              <img  *ngIf="blog !=null && blog.blogs_image !=''" [src]="blog.blogs_image">
+              <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
             </span>
           </mat-list-item>
 
@@ -135,304 +139,126 @@
         </mat-accordion>
       </span>
     </span>
+
+
     <span class="mostviewedblogs">
         <h2>Most Viewed Blogs</h2>
         <mat-card-content class="bottom_blog">
             <span class="item_wrapper">
-              <mat-card-content class="item">
+              <mat-card-content class="item" *ngFor="let item of popularBlogs |  slice:0:indexVal " >
                 <span class="item_images">
-                  <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
+                  <img *ngIf="item !=null && item.blogs_image !=''" [src]="item.blogs_image" (click)="blogdetail(item)">
+                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
                 </span>
                 <mat-card-content class="contentsection">                  
-                  <mat-card-title class="inner_header">Popular Cute</mat-card-title>
+                  <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
                   <span class="author">
                     <span class="authornmimg">
                       <span class="writer_image">
                         <img src="../../../../assets/images/blog-icon.png">
                       </span>
-                      <p class="authorName">Popular Cute author</p>
+                      <p class="authorName">{{item.author}}</p>
                     </span>
-                    <p class="date">Date: 11-11-2019 </p>
+                    <p class="date">Date:{{item.date_added}} </p>
                   </span>
-                  <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                  <a class="next_page">read more</a>
+                  <p class="description"><span>{{item.description_html}}</span></p>
+                  <a class="next_page" (click)="blogdetail(item)">read more</a>
   
                   <span class="blogsociallists absolute">
-                    <a class="sociallink fa fb">
+                    <a class="sociallink fa fb" target="_blank" (click)="fbpsShare(item)">
                       <fa name="facebook" class="fa-facebook"></fa>
                     </a>
-                    <a class="sociallink fa twi">
+                    <a class="sociallink fa twi" target="_blank" (click)="twitterpsShare(item)">
                       <fa name="twitter" class="fa-twitter"></fa>
                     </a>
-                    <a class="sociallink fa lin">
-                      <fa name="linkedin" class="fa-linkedin"></fa>
+                    <!-- <a class="sociallink fa pin">
+                      <fa name="pinterest" class="fa-pinterest"></fa>
+                    </a> -->
+                    <a class="sociallink fa lin" target="_blank" (click)="linkedinpsShare(item)">
+                      <fa name="linkedin" class="fa-linkedin" ></fa>
                     </a>
-                    <a class="sociallink fa tbl">
+                    <!-- <a class="sociallink fa env">
+                      <fa name="envelope" class="fa-envelope"></fa>
+                    </a> -->
+                    <a class="sociallink fa tumblr" target="_blank" (click)="tumblrpsShare(item)">
+  
                       <fa name="tumblr" class="fa-tumblr"></fa>
                     </a>
+                    <!-- <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
+                      <fa name="share" class="fa-share"></fa>
+                    </a> -->
                   </span>
                 </mat-card-content>
               </mat-card-content>
-              
-              <mat-card-content class="item">
-                  <span class="item_images">
-                    <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                  </span>
-                  <mat-card-content class="contentsection">                   
-                    <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                    <span class="author">
-                      <span class="authornmimg">
-                        <span class="writer_image">
-                          <img src="../../../../assets/images/blog-icon.png">
-                        </span>
-                        <p class="authorName">Popular Cute author</p>
-                      </span>
-                      <p class="date">Date: 11-11-2019 </p>
-                    </span>
-                    <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                    <a class="next_page">read more</a>
-    
-                    <span class="blogsociallists absolute">
-                      <a class="sociallink fa fb">
-                        <fa name="facebook" class="fa-facebook"></fa>
-                      </a>
-                      <a class="sociallink fa twi">
-                        <fa name="twitter" class="fa-twitter"></fa>
-                      </a>
-                      <a class="sociallink fa lin">
-                        <fa name="linkedin" class="fa-linkedin"></fa>
-                      </a>
-                      <a class="sociallink fa tbl">
-                        <fa name="tumblr" class="fa-tumblr"></fa>
-                      </a>
-                    </span>
-                  </mat-card-content>
-              </mat-card-content>
 
-              <mat-card-content class="item">
-                    <span class="item_images">
-                      <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                    </span>
-                    <mat-card-content class="contentsection">
-                      <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                      <span class="author">
-                        <span class="authornmimg">
-                          <span class="writer_image">
-                            <img src="../../../../assets/images/blog-icon.png">
-                          </span>
-                          <p class="authorName">Popular Cute author</p>
-                        </span>
-                        <p class="date">Date: 11-11-2019 </p>
-                      </span>
-                      <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                      <a class="next_page">read more</a>
-      
-                      <span class="blogsociallists absolute">
-                        <a class="sociallink fa fb">
-                          <fa name="facebook" class="fa-facebook"></fa>
-                        </a>
-                        <a class="sociallink fa twi">
-                          <fa name="twitter" class="fa-twitter"></fa>
-                        </a>
-                        <a class="sociallink fa lin">
-                          <fa name="linkedin" class="fa-linkedin"></fa>
-                        </a>
-                        <a class="sociallink fa tbl">
-                          <fa name="tumblr" class="fa-tumblr"></fa>
-                        </a>
-                      </span>
-                    </mat-card-content>
-              </mat-card-content>
-
-              <mat-card-content class="item">
-                  <span class="item_images">
-                    <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                  </span>
-                  <mat-card-content class="contentsection">
-                    <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                    <span class="author">
-                      <span class="authornmimg">
-                        <span class="writer_image">
-                          <img src="../../../../assets/images/blog-icon.png">
-                        </span>
-                        <p class="authorName">Popular Cute author</p>
-                      </span>
-                      <p class="date">Date: 11-11-2019 </p>
-                    </span>
-                    <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                    <a class="next_page">read more</a>
-    
-                    <span class="blogsociallists absolute">
-                      <a class="sociallink fa fb">
-                        <fa name="facebook" class="fa-facebook"></fa>
-                      </a>
-                      <a class="sociallink fa twi">
-                        <fa name="twitter" class="fa-twitter"></fa>
-                      </a>
-                      <a class="sociallink fa lin">
-                        <fa name="linkedin" class="fa-linkedin"></fa>
-                      </a>
-                      <a class="sociallink fa tbl">
-                        <fa name="tumblr" class="fa-tumblr"></fa>
-                      </a>
-                    </span>
-                  </mat-card-content>
-              </mat-card-content>
 
             </span>
-            <button mat-button class="btnblue sim-button">Load More</button>
+            <button mat-button class="btnblue sim-button" 
+             (click)="loadMore()" *ngIf="popularBlogs !=null && indexVal < popularBlogs.length">Load More</button>
           </mat-card-content>
 
     </span>
-    <span class="youmightalsolike">
-        <h2>You might also like</h2>
+
+
+
+    <span class="youmightalsolike" *ngIf="similarBlogs !=''">
+        <h2>Similar Blogs</h2>
         <mat-card-content class="bottom_blog">
             <span class="item_wrapper">
-              <mat-card-content class="item">
+              <mat-card-content class="item" *ngFor="let item of similarBlogs |  slice:0:indexVal " >
                 <span class="item_images">
-                  <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
+                  <img *ngIf="item !=null && item.blogs_image !=''" [src]="item.blogs_image" (click)="blogdetail(item)">
+                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
                 </span>
                 <mat-card-content class="contentsection">                  
-                  <mat-card-title class="inner_header">Popular Cute</mat-card-title>
+                  <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
                   <span class="author">
                     <span class="authornmimg">
                       <span class="writer_image">
                         <img src="../../../../assets/images/blog-icon.png">
                       </span>
-                      <p class="authorName">Popular Cute author</p>
+                      <p class="authorName">{{item.author}}</p>
                     </span>
-                    <p class="date">Date: 11-11-2019 </p>
+                    <p class="date">Date:{{item.date_added}} </p>
                   </span>
-                  <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                  <a class="next_page">read more</a>
+                  <p class="description"><span>{{item.description_html}}</span></p>
+                  <a class="next_page" (click)="blogdetail(item)">read more</a>
   
                   <span class="blogsociallists absolute">
-                    <a class="sociallink fa fb">
+                    <a class="sociallink fa fb" target="_blank" (click)="fbpsShare(item)">
                       <fa name="facebook" class="fa-facebook"></fa>
                     </a>
-                    <a class="sociallink fa twi">
+                    <a class="sociallink fa twi" target="_blank" (click)="twitterpsShare(item)">
                       <fa name="twitter" class="fa-twitter"></fa>
                     </a>
-                    <a class="sociallink fa lin">
-                      <fa name="linkedin" class="fa-linkedin"></fa>
+                    <!-- <a class="sociallink fa pin">
+                      <fa name="pinterest" class="fa-pinterest"></fa>
+                    </a> -->
+                    <a class="sociallink fa lin" target="_blank" (click)="linkedinpsShare(item)">
+                      <fa name="linkedin" class="fa-linkedin" ></fa>
                     </a>
-                    <a class="sociallink fa tbl">
+                    <!-- <a class="sociallink fa env">
+                      <fa name="envelope" class="fa-envelope"></fa>
+                    </a> -->
+                    <a class="sociallink fa tumblr" target="_blank" (click)="tumblrpsShare(item)">
+  
                       <fa name="tumblr" class="fa-tumblr"></fa>
                     </a>
+                    <!-- <a class="sociallink fa share" (click)="comingSoonDialogBlog()">
+                      <fa name="share" class="fa-share"></fa>
+                    </a> -->
                   </span>
                 </mat-card-content>
               </mat-card-content>
-              
-              <mat-card-content class="item">
-                  <span class="item_images">
-                    <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                  </span>
-                  <mat-card-content class="contentsection">                   
-                    <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                    <span class="author">
-                      <span class="authornmimg">
-                        <span class="writer_image">
-                          <img src="../../../../assets/images/blog-icon.png">
-                        </span>
-                        <p class="authorName">Popular Cute author</p>
-                      </span>
-                      <p class="date">Date: 11-11-2019 </p>
-                    </span>
-                    <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                    <a class="next_page">read more</a>
-    
-                    <span class="blogsociallists absolute">
-                      <a class="sociallink fa fb">
-                        <fa name="facebook" class="fa-facebook"></fa>
-                      </a>
-                      <a class="sociallink fa twi">
-                        <fa name="twitter" class="fa-twitter"></fa>
-                      </a>
-                      <a class="sociallink fa lin">
-                        <fa name="linkedin" class="fa-linkedin"></fa>
-                      </a>
-                      <a class="sociallink fa tbl">
-                        <fa name="tumblr" class="fa-tumblr"></fa>
-                      </a>
-                    </span>
-                  </mat-card-content>
-              </mat-card-content>
-
-              <mat-card-content class="item">
-                    <span class="item_images">
-                      <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                    </span>
-                    <mat-card-content class="contentsection">
-                      <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                      <span class="author">
-                        <span class="authornmimg">
-                          <span class="writer_image">
-                            <img src="../../../../assets/images/blog-icon.png">
-                          </span>
-                          <p class="authorName">Popular Cute author</p>
-                        </span>
-                        <p class="date">Date: 11-11-2019 </p>
-                      </span>
-                      <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                      <a class="next_page">read more</a>
-      
-                      <span class="blogsociallists absolute">
-                        <a class="sociallink fa fb">
-                          <fa name="facebook" class="fa-facebook"></fa>
-                        </a>
-                        <a class="sociallink fa twi">
-                          <fa name="twitter" class="fa-twitter"></fa>
-                        </a>
-                        <a class="sociallink fa lin">
-                          <fa name="linkedin" class="fa-linkedin"></fa>
-                        </a>
-                        <a class="sociallink fa tbl">
-                          <fa name="tumblr" class="fa-tumblr"></fa>
-                        </a>
-                      </span>
-                    </mat-card-content>
-              </mat-card-content>
-
-              <mat-card-content class="item">
-                  <span class="item_images">
-                    <img src="https://s3.us-east-2.amazonaws.com/crmfiles.influxhostserver/blogs/blogs-image_-dreamstime_l_22985800-1573536807867.jpg">
-                  </span>
-                  <mat-card-content class="contentsection">
-                    <mat-card-title class="inner_header">Popular Cute</mat-card-title>
-                    <span class="author">
-                      <span class="authornmimg">
-                        <span class="writer_image">
-                          <img src="../../../../assets/images/blog-icon.png">
-                        </span>
-                        <p class="authorName">Popular Cute author</p>
-                      </span>
-                      <p class="date">Date: 11-11-2019 </p>
-                    </span>
-                    <p class="description"><span>ACHIEVE YOUR HIGHEST SUCCESSAbout Jack Zufelt,Jack is a world renowned success expert. His book, The DNA of Success, catapulted him into the limelight as a celebrity keynote speaker, trainer and business consultant on the national and international </span></p>
-                    <a class="next_page">read more</a>
-    
-                    <span class="blogsociallists absolute">
-                      <a class="sociallink fa fb">
-                        <fa name="facebook" class="fa-facebook"></fa>
-                      </a>
-                      <a class="sociallink fa twi">
-                        <fa name="twitter" class="fa-twitter"></fa>
-                      </a>
-                      <a class="sociallink fa lin">
-                        <fa name="linkedin" class="fa-linkedin"></fa>
-                      </a>
-                      <a class="sociallink fa tbl">
-                        <fa name="tumblr" class="fa-tumblr"></fa>
-                      </a>
-                    </span>
-                  </mat-card-content>
-              </mat-card-content>
-
             </span>
-            <button mat-button class="btnblue sim-button">Load More</button>
+           <button mat-button class="btnblue sim-button" 
+             (click)="loadMore()" *ngIf="similarBlogs !=null && indexVal < similarBlogs.length">Load More</button>
           </mat-card-content>
 
     </span>
+
+
+
   </span>
 </mat-card> 
 
