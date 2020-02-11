@@ -10,9 +10,17 @@
                 </mat-card-content>
                 <mat-card-content class="bred_cram_wrapper_list">
                   <mat-list class="bred_cram_wrapper">
-                    <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
-                    <mat-list-item mat-list-item> <a href="#">Manage Category</a> </mat-list-item>
-                    <mat-list-item mat-list-item> <a [routerLink]="'/manage-type'">manage type list</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
+                    
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Manage Category</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Manage Category</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Manage Category</a> </mat-list-item>
+
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/manage-type'">manage type list</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/manage-type'">manage type list</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/manage-type'">manage type list</a> </mat-list-item>
                   </mat-list>       
                 </mat-card-content>
                          

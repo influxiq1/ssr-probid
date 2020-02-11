@@ -11,6 +11,7 @@ import { MetaService } from '@ngx-meta/core';
   styleUrls: ['./list-lession.component.css']
 })
 export class ListLessionComponent implements OnInit {
+  public userCookies: any;
 public manageLessionList : any=[];
 public manageTrainingList : any = [];
 public editPageRoute : any="/manage-lesson/edit/";
@@ -39,6 +40,11 @@ public searchSourceName :any="manage_lession_view";
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+        if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+          this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+          // console.log('>>>>>>>',this.userCookies)
+          }
   }
 
   ngOnInit() {

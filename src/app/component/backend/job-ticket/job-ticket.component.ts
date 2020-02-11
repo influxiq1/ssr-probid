@@ -7,6 +7,7 @@ import { ApiService } from '../../../api.service';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { MetaService } from '@ngx-meta/core';
 import {MatSort} from '@angular/material/sort';
+import { CookieService } from 'ngx-cookie-service';
 
 
 export interface DialogData {
@@ -35,7 +36,7 @@ export interface JobTicket {
 })
 export class JobTicketComponent implements OnInit {
 
-
+  public user_details:any;
 
   JTColumns: string[] = ['ticket', 'name', 'repName', 'customerName',  'subject',  'Date' ,'status', 'action'];
   // jobTicketDataSource = new MatTableDataSource<JobTicket>(JobTicket_DATA);
@@ -49,13 +50,13 @@ public jobTicketList:any;
 public filterVal:any;
 public filterValstatus:any='';
 
-
+public userCookies: any;
 
 
   constructor(public router: Router,public activatedRoute:ActivatedRoute,
     public apiService: ApiService,
     public dialog: MatDialog,
-    public snack:MatSnackBar, private readonly meta: MetaService) 
+    public snack:MatSnackBar, private readonly meta: MetaService,  public cookieService: CookieService) 
     { 
       this.meta.setTitle('ProBid Auto - Job Ticket');
         this.meta.setTag('og:title', 'ProBid Auto - Job Ticket');
@@ -63,6 +64,15 @@ public filterValstatus:any='';
         this.meta.setTag('og:type', 'website');
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+        if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+          this.user_details = JSON.parse(this.cookieService.get('user_details'));
+    
+         // console.log(this.user_id);
+          // console.log('type>>', this.user_details.type)
+    
+        }
+
     }
 
   ngOnInit() {

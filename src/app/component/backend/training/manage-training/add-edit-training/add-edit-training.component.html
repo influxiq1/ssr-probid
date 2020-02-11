@@ -7,9 +7,24 @@
       </mat-card-content> -->
       <mat-card-content class="bred_cram_wrapper_list">
         <mat-list class="bred_cram_wrapper">
-            <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
-            <mat-list-item mat-list-item> <a href="#">Training Manager</a> </mat-list-item>
-            <mat-list-item mat-list-item> <a [routerLink]="'/'">  Manage Training</a> </mat-list-item>
+
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
+            [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+            [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+            [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
+
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
+              [routerLink]="'/admin-dashboard'">Training Manager</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+              [routerLink]="'/customer-dashboard'">Training Manager</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+              [routerLink]="'/rep-dashboard'">Training Manager</a> </mat-list-item>
+
+            <mat-list-item mat-list-item> <a>Manage Training</a> </mat-list-item>
+
+
         </mat-list>       
       </mat-card-content>
       <div class="tablediv">

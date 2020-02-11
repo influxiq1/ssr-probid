@@ -10,6 +10,7 @@ import { MetaService } from '@ngx-meta/core';
   styleUrls: ['./add-edit.component.css']
 })
 export class AddEditComponent implements OnInit {
+  public userCookies: any;
   public quizQuestionSingleDataList:any=[];
   public lessonId:any
   public serverDetails: any = {
@@ -36,6 +37,12 @@ export class AddEditComponent implements OnInit {
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
     this.lessonId = this.activatedRoute.snapshot.params.id;
+
+    if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+      this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+      // console.log('>>>>>>>',this.userCookies)
+      }
+
   }
 
   ngOnInit() {

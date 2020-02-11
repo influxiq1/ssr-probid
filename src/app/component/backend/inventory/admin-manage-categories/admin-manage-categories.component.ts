@@ -15,6 +15,8 @@ export interface DialogData {
   styleUrls: ['./admin-manage-categories.component.css']
 })
 export class AdminManageCategoriesComponent implements OnInit {
+
+  public user_details:any;
   public manage_type: any = [];
   public manage_make: any = [];
   public manage_model: any = [];
@@ -55,6 +57,12 @@ export class AdminManageCategoriesComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+      // console.log(this.userCookies);
+      }
+
   }
 
 

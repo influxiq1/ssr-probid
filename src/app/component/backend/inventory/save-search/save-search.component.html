@@ -1,88 +1,109 @@
 <div class="adminwrappercls">
-    <app-header></app-header>
-      <div class="main-content-wrap">
-        <mat-card-content class="adm_inner_banner">
-          <mat-card-title class="adm_inner_title">saved search</mat-card-title>
-          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-admin'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
-          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-castomer'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
-          <p class="adm_inner_para" *ngIf=" router.url =='/save-search-rep'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete The Car Purchase For Your Customers.</p>
-        </mat-card-content>
-        <mat-card-content class="bred_cram_wrapper_list">
-          <mat-list class="bred_cram_wrapper">
-            <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
-            <mat-list-item mat-list-item> <a href="#">saved search</a> </mat-list-item>
-          </mat-list>       
-        </mat-card-content>
+  <app-header></app-header>
+  <div class="main-content-wrap">
+    <mat-card-content class="adm_inner_banner">
+      <mat-card-title class="adm_inner_title">saved search</mat-card-title>
+      <p class="adm_inner_para" *ngIf=" router.url =='/save-search-admin'">Save Your Inventory Searches And View Them
+        Later At Your Convenience To Complete Your Car Purchase.</p>
+      <p class="adm_inner_para" *ngIf=" router.url =='/save-search-castomer'">Save Your Inventory Searches And View Them
+        Later At Your Convenience To Complete Your Car Purchase.</p>
+      <p class="adm_inner_para" *ngIf=" router.url =='/save-search-rep'">Save Your Inventory Searches And View Them
+        Later At Your Convenience To Complete The Car Purchase For Your Customers.</p>
+    </mat-card-content>
+    <mat-card-content class="bred_cram_wrapper_list">
+      <mat-list class="bred_cram_wrapper">
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a
+            [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a
+            [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a
+            [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
-      <mat-card class="ptb-35 generalcls inventorysearch" style="padding: 0 !important;">   
-        <span class="formblockwrapper">          
-          <span class="mainwrappercontent">
-            <mat-list class="rightcontent" *ngIf="search != null && search.length>=0">
-              <mat-list-item class="rightcontentrow" *ngFor="let item of search |  slice:0:indexval; let i=index">
-                <mat-card-content class="col-1-3">
-                  <span class="as_imgwrapper">
-                    <span *ngIf="indexCount == i && indexCountForImg != null;then content else other_content"></span> 
-                    <ng-template #content>
-                      <img [src]="item.media.photo_links[indexCountForImg]">
-                    </ng-template>
-                    <ng-template #other_content>
-                      <img [src]="item.media.photo_links[0]">
-                    </ng-template>
-                    <img *ngIf="item.media.photo_links == null" src="../../../../../assets/images/default_car_img.jpeg">
-                    <!-- <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null && modalImg == ''" [src]="item.media.photo_links[0]"> -->
-                    <!-- <img *ngIf="modalImg != ''" [src]="modalImg">
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/saved-search-admin'">saved search</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a
+            [routerLink]="'/saved-search-customer'">saved search</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/saved-search-rep'">saved search</a> </mat-list-item>
+
+      </mat-list>
+    </mat-card-content>
+
+    <mat-card class="ptb-35 generalcls inventorysearch" style="padding: 0 !important;">
+      <span class="formblockwrapper">
+        <span class="mainwrappercontent">
+          <mat-list class="rightcontent" *ngIf="search != null && search.length>=0">
+            <mat-list-item class="rightcontentrow" *ngFor="let item of search |  slice:0:indexval; let i=index">
+              <mat-card-content class="col-1-3">
+                <span class="as_imgwrapper">
+                  <span *ngIf="indexCount == i && indexCountForImg != null;then content else other_content"></span>
+                  <ng-template #content>
+                    <img [src]="item.media.photo_links[indexCountForImg]">
+                  </ng-template>
+                  <ng-template #other_content>
+                    <img [src]="item.media.photo_links[0]">
+                  </ng-template>
+                  <img *ngIf="item.media.photo_links == null" src="../../../../../assets/images/default_car_img.jpeg">
+                  <!-- <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null && modalImg == ''" [src]="item.media.photo_links[0]"> -->
+                  <!-- <img *ngIf="modalImg != ''" [src]="modalImg">
                     <img *ngIf="item.media.photo_links == null" src="../../assets/images/default_car_img.jpeg"> -->
-                  </span>
-                  <span class="as_sm_imgmainwrapper">
-                      <owl-carousel [options]="carouselOptions" [items]="item.media.photo_links" [carouselClasses]="['owl-theme', 'row', 'sliding']">
-                          <div class="sm-imgwrapper" *ngFor="let img of item.media.photo_links; let j= index">
-                              <img *ngIf="item.media.photo_links == null" src="../../../../../assets/images/default_car_img.jpeg">
-                              <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null" [src]="img" (click)="showimg(i,j)">
-                          </div>
-                  
-                        </owl-carousel>
-                        
-                    <!-- <span class="as_sm_imgmainwrapperinner">
+                </span>
+                <span class="as_sm_imgmainwrapper">
+                  <owl-carousel [options]="carouselOptions" [items]="item.media.photo_links"
+                    [carouselClasses]="['owl-theme', 'row', 'sliding']">
+                    <div class="sm-imgwrapper" *ngFor="let img of item.media.photo_links; let j= index">
+                      <img *ngIf="item.media.photo_links == null"
+                        src="../../../../../assets/images/default_car_img.jpeg">
+                      <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null" [src]="img"
+                        (click)="showimg(i,j)">
+                    </div>
+
+                  </owl-carousel>
+
+                  <!-- <span class="as_sm_imgmainwrapperinner">
                         <span class="sm-imgwrapper" *ngFor="let img of item.media.photo_links">
                           <img *ngIf="item.media.photo_links != null && item.media.photo_links[0] !=null" [src]="img" (click)="showimg(img)">
                           <img *ngIf="item.media.photo_links == null" src="../../assets/images/default_car_img.jpeg"></span>
                         </span>
                     </span> -->
-                    
+
+                </span>
+              </mat-card-content>
+              <mat-card-content class="col-1-7">
+                <span class="subrighrwrapper">
+                  <span class="sub-col-6">
+                    <span class="text-wrapper">
+                      <h2 *ngIf="item.heading != null">{{item.heading}} <span (click)="inventoryDetails(item._id)"
+                          matTooltip="view detail" matTooltipClass='red-tooltip'>
+                          <mat-icon>visibility</mat-icon>
+                        </span></h2>
+                      <h3 *ngIf="item.vin != null">VIN: {{item.vin}}</h3>
+
+                      <p *ngIf="item.build.cylinders != null">{{item.build.cylinders}} Cylinders </p>
+                      <p *ngIf="item.build.vehicle_type != null">Vehicle Type: {{item.build.vehicle_type}}</p>
+                      <p *ngIf="item.build.transmission != null">Transmission: {{item.build.transmission}}</p>
+                      <p *ngIf="item.build.fuel_type != null"> Fuel: {{item.build.fuel_type}}</p>
+
+                      <label id="example-radio-group-label">Pick your favorite season</label>
+                      <br>
+                      <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                        [(ngModel)]="favoriteSeason">
+                        <mat-checkbox class="red"></mat-checkbox>
+                        <mat-checkbox class="black"></mat-checkbox>
+                        <mat-checkbox class="blue"></mat-checkbox>
+                        <mat-checkbox class="white"></mat-checkbox>
+                      </mat-radio-group>
+
+                      <p *ngIf="item.build.body_type != null">Body Type: {{item.build.body_type}}</p>
                     </span>
-                </mat-card-content>
-                <mat-card-content class="col-1-7">
-                  <span class="subrighrwrapper">
-                    <span class="sub-col-6">
-                      <span class="text-wrapper">
-                        <h2 *ngIf="item.heading != null" >{{item.heading}} <span (click)="inventoryDetails(item._id)" matTooltip="view detail" matTooltipClass='red-tooltip'><mat-icon>visibility</mat-icon></span></h2>
-                        <h3 *ngIf="item.vin != null">VIN: {{item.vin}}</h3>
-  
-                        <p *ngIf="item.build.cylinders != null">{{item.build.cylinders}} Cylinders </p>
-                        <p *ngIf="item.build.vehicle_type != null">Vehicle Type: {{item.build.vehicle_type}}</p>
-                          <p *ngIf="item.build.transmission != null">Transmission: {{item.build.transmission}}</p>
-                          <p *ngIf="item.build.fuel_type != null"> Fuel: {{item.build.fuel_type}}</p>
-  
-                          <label id="example-radio-group-label">Pick your favorite season</label>
-                          <br>
-                          <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" [(ngModel)]="favoriteSeason">
-                            <mat-checkbox class="red"></mat-checkbox>
-                            <mat-checkbox class="black"></mat-checkbox>
-                            <mat-checkbox class="blue"></mat-checkbox>
-                            <mat-checkbox class="white"></mat-checkbox>
-                          </mat-radio-group>
-  
-                          <p *ngIf="item.build.body_type != null">Body Type: {{item.build.body_type}}</p>
-                      </span>
-                    </span>
-                    <span class="sub-col-4">
-                      <mat-card-content class="rrblock1">
-                        <span><button (click)='rsvpSend(item,i)'  *ngIf="user_details.type != 'admin' " >RSVP</button></span>
-                        <button (click)="unFavorite(item,i)"><i class="material-icons" > delete </i> Remove</button>
-                        <span>
+                  </span>
+                  <span class="sub-col-4">
+                    <mat-card-content class="rrblock1">
+                      <span><button (click)='rsvpSend(item,i)'
+                          *ngIf="user_details.type != 'admin' ">RSVP</button></span>
+                      <button (click)="unFavorite(item,i)"><i class="material-icons"> delete </i> Remove</button>
+                      <span>
                         <mat-form-field *ngIf="user_details.type == 'salesrep'" class="select-customer">
                           <mat-label>Select Customer</mat-label>
-                          <mat-select [(ngModel)]="item.customer_id" >
+                          <mat-select [(ngModel)]="item.customer_id">
                             <mat-option *ngFor="let item of customerList" [value]="item._id">
                               {{item.firstname}}
                             </mat-option>
@@ -90,47 +111,59 @@
 
                         </mat-form-field>
                         <div>
-                        <span class="errormsg" *ngIf=" errorMsg !=null &&  errorMsg != '' && user_details.type == 'salesrep' "     [ngClass]="item.customer_id =='' ? 'errormsg':'test'" >{{errorMsg}}</span>
-                      </div>
+                          <span class="errormsg"
+                            *ngIf=" errorMsg !=null &&  errorMsg != '' && user_details.type == 'salesrep' "
+                            [ngClass]="item.customer_id =='' ? 'errormsg':'test'">{{errorMsg}}</span>
+                        </div>
 
                       </span>
 
-                      </mat-card-content>
-                      <mat-card-content class="rrblock1 currentbidprice">
-                        <span class="text-wrapper" *ngIf="item.price != null">
-                          <p>Current Bid Price: </p>
-                          <h5 *ngIf="item.price !=null">${{item.price}}</h5>
-                           <h5 *ngIf="item.price ==null || item.price =='' ">N/A</h5>
+                    </mat-card-content>
+                    <mat-card-content class="rrblock1 currentbidprice">
+                      <span class="text-wrapper" *ngIf="item.price != null">
+                        <p>Current Bid Price: </p>
+                        <h5 *ngIf="item.price !=null">${{item.price}}</h5>
+                        <h5 *ngIf="item.price ==null || item.price =='' ">N/A</h5>
 
-                          <h6 *ngIf="item.build.engine != null"><strong>Engine Type</strong> <span>{{item.build.engine}}</span></h6>
-                          <h6 *ngIf="item.build.engine == null"><strong>Engine Type</strong> <span>N/A</span></h6>
-                        </span>
-                      </mat-card-content>
-                    </span>
+                        <h6 *ngIf="item.build.engine != null"><strong>Engine Type</strong>
+                          <span>{{item.build.engine}}</span></h6>
+                        <h6 *ngIf="item.build.engine == null"><strong>Engine Type</strong> <span>N/A</span></h6>
+                      </span>
+                    </mat-card-content>
                   </span>
-                </mat-card-content>
-                <span class="pa_blockfooter">
-                    <mat-list *ngIf="item.build != null">
-                        <mat-list-item class="pa_blockfooterlogo"> <img src="../../assets/images/logomain.png"> </mat-list-item>
-                        <mat-list-item class="pa_blockfootertext"> <strong>Interior Color</strong> Black</mat-list-item>                                        
-                        <mat-list-item class="pa_blockfootertext" *ngIf="item.build.drivetrain != null"> <strong>Drive Train</strong> {{item.build.drivetrain}}</mat-list-item>
-                        <mat-list-item class="pa_blockfootertext" *ngIf="item.build.year != null"> <strong>Year</strong> {{item.build.year}}</mat-list-item>
-                        <mat-list-item class="pa_blockfootertext" *ngIf="item.build.make != null"> <strong>Make</strong> {{item.build.make}}</mat-list-item>
-                        <mat-list-item class="pa_blockfootertext" *ngIf="item.build.model != null"> <strong>Model</strong> {{item.build.model}}</mat-list-item>
-                        <mat-list-item class="pa_blockfootertext" *ngIf="item.build.body_type != null"> <strong>Type</strong> {{item.build.body_type}}</mat-list-item>
-                      </mat-list>
                 </span>
-              </mat-list-item>
-            </mat-list>
-            <div style="display: block; text-align: right; ">
-              <mat-button type="button" class="btnblue" *ngIf="search !=null && indexval < search.length" (click)="loadMoreSaveSearch() " >Load More</mat-button>
-            </div>
-          </span>
+              </mat-card-content>
+              <span class="pa_blockfooter">
+                <mat-list *ngIf="item.build != null">
+                  <mat-list-item class="pa_blockfooterlogo"> <img src="../../assets/images/logomain.png">
+                  </mat-list-item>
+                  <mat-list-item class="pa_blockfootertext"> <strong>Interior Color</strong> Black</mat-list-item>
+                  <mat-list-item class="pa_blockfootertext" *ngIf="item.build.drivetrain != null"> <strong>Drive
+                      Train</strong> {{item.build.drivetrain}}</mat-list-item>
+                  <mat-list-item class="pa_blockfootertext" *ngIf="item.build.year != null"> <strong>Year</strong>
+                    {{item.build.year}}</mat-list-item>
+                  <mat-list-item class="pa_blockfootertext" *ngIf="item.build.make != null"> <strong>Make</strong>
+                    {{item.build.make}}</mat-list-item>
+                  <mat-list-item class="pa_blockfootertext" *ngIf="item.build.model != null"> <strong>Model</strong>
+                    {{item.build.model}}</mat-list-item>
+                  <mat-list-item class="pa_blockfootertext" *ngIf="item.build.body_type != null"> <strong>Type</strong>
+                    {{item.build.body_type}}</mat-list-item>
+                </mat-list>
+              </span>
+            </mat-list-item>
+          </mat-list>
+          <div style="display: block; text-align: right; ">
+            <mat-button type="button" class="btnblue" *ngIf="search !=null && indexval < search.length"
+              (click)="loadMoreSaveSearch() ">Load More</mat-button>
+          </div>
         </span>
-      </mat-card>
-      <span *ngIf="search == null || search == ''" class="norecordfound"> <h3 >No Record Found</h3></span>
+      </span>
+    </mat-card>
+    <span *ngIf="search == null || search == ''" class="norecordfound">
+      <h3>No Record Found</h3>
+    </span>
 
-     
+
   </div>
   <app-footer></app-footer>
 
