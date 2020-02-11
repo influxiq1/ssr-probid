@@ -20,11 +20,13 @@
                 <mat-card-title class="adm_inner_title">Manage Availability</mat-card-title>
                 <p class="adm_inner_para">Attention! this system interact perfectly with google calendar and it required for entering your availability into the system</p>
             </mat-card-content>
-            <mat-card-content class="bred_cram_wrapper">
-                <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                <a mat-list-item routerLinkActive="active"> Calendar Manager </a>
-                <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/manage-availability-admin'"> Manage Availability </a>
-            </mat-card-content>
+            <mat-card-content class="bred_cram_wrapper_list">
+                <mat-list class="bred_cram_wrapper">
+                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a href="#">Calendar Manager</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a [routerLink]="'/manage-availability-admin'">Manage Availability</a> </mat-list-item>
+                </mat-list>       
+              </mat-card-content>
             <span class="searchblock">
                 <span class="searchblockwrapper">
                     <span>

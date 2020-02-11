@@ -10,11 +10,14 @@
                 <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Find Out What Our Customers and Other Industry Leaders and Professionals Have to Say About Our Services, Vehicles, Prices, and Other Offerings That We Bring To You.</p> -->
                 <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Find Out What Our Customers and Other Industry Leaders and Professionals Have to Say About Our Services, Vehicles, Prices, and Other Offerings That We Bring To You.</p> -->
             </mat-card-content>
-            <mat-card-content class="bred_cram_wrapper">
-                <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                <a mat-list-item routerLinkActive="active"> Manage Website </a>
-                <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/testimonial-lists-admin'"> testimonial lists admin </a>
-            </mat-card-content>
+            <mat-card-content class="bred_cram_wrapper_list">
+                <mat-list class="bred_cram_wrapper">
+                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a href="#">Manage Website</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a [routerLink]="'/testimonial-lists-admin'"> testimonial lists admin</a> </mat-list-item>
+                </mat-list>       
+              </mat-card-content>
+
             <span class="searchblock">
                 <span class="searchblockwrapper">
                     <span>

@@ -23,11 +23,12 @@
                   <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p> -->
                   <p class="adm_inner_para" *ngIf=" router.url =='/mysalesrep'">Make Your Next Car Purchase With The Trusted Guidance And Assistance Of Our Sales Representative.</p>
               </mat-card-content>
-              <mat-card-content class="bred_cram_wrapper">
-                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                  <a mat-list-item routerLinkActive="active activebread" 
-                  [routerLink]="'/mysalesrep'"> salesrep</a>
-              </mat-card-content>   
+              <mat-card-content class="bred_cram_wrapper_list">
+                <mat-list class="bred_cram_wrapper">
+                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a [routerLink]="'/mysalesrep'"> salesrep</a> </mat-list-item>
+                </mat-list>       
+              </mat-card-content>
               <mat-card-content class="salesrepadminwrapper">
                 <span class="salesrepadminblock1">
                   <h2 class="headercls">Salesrep Information</h2>

@@ -7,10 +7,13 @@
           <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Attract New Members to Your Profile Using Attractive Banners on Your Social Media Profiles.</p> -->
           <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Attract New Customers to Your Profile Using Attractive Banners on Your Social Media Profiles.</p>
         </mat-card-content>
-        <mat-card-content class="bred_cram_wrapper">
-          <a mat-list-item routerLinkActive="active"> Dashboard </a>
-          <a mat-list-item routerLinkActive="active activebread"> Social advo</a>
+        <mat-card-content class="bred_cram_wrapper_list">
+          <mat-list class="bred_cram_wrapper">
+            <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+            <mat-list-item mat-list-item> <a href="#">Social advo</a> </mat-list-item>
+          </mat-list>       
         </mat-card-content>
+        
         <mat-card class="generalcls socialadvoblock1" style="padding:0px !important">
           <span class="mainwrappercontent">
               <mat-card-title class="sectionheader">Social Advo</mat-card-title>

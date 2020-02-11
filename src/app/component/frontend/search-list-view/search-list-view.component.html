@@ -160,18 +160,12 @@
 
 
   <mat-card class="innerpagetitle">
-    <span class="mainwrappercontent">
-      <mat-card-content class="bred_cram_wrapper">
-        <mat-list class="bred_cram_wrapper_list">
-          <mat-list-item routerLinkActive="active">
-            <a [routerLink]="'/home'"> home </a>
-            <span class="breadcrumb__divider" aria-hidden="true">›</span>
-          </mat-list-item>
-          <mat-list-item routerLinkActive="active activebread">
-            <a [routerLink]="'/pre-owned-list'"> pre owned list </a>
-            <span class="breadcrumb__divider" aria-hidden="true">›</span>
-          </mat-list-item>
-        </mat-list>
+    <span class="mainwrappercontent">      
+      <mat-card-content class="bred_cram_wrapper_list bred_cram_wrapper_list_front">
+        <mat-list class="bred_cram_wrapper">
+            <mat-list-item mat-list-item> <a [routerLink]="'/home'">home</a> </mat-list-item>
+            <mat-list-item mat-list-item> <a [routerLink]="'/pre-owned-list'">Pre-owned List</a> </mat-list-item>
+        </mat-list>       
       </mat-card-content>
     </span>
   </mat-card>

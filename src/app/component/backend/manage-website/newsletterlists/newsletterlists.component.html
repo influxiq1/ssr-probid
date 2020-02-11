@@ -8,10 +8,12 @@
         <p class="adm_inner_para">Sign Up To Your Newsletter To Stay Updated with Every Minor Development Taking Place
           Within Our Company, as well as the Auto Industry, So That You Don’t Miss Out on Exciting Deals and Offers.</p>
       </mat-card-content>
-      <mat-card-content class="bred_cram_wrapper">
-        <a mat-list-item routerLinkActive="active"> Dashboard </a>
-        <a mat-list-item routerLinkActive="active"> Manage Website </a>
-        <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/newsletter-list'"> newsletter </a>
+      <mat-card-content class="bred_cram_wrapper_list">
+        <mat-list class="bred_cram_wrapper">
+          <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+          <mat-list-item mat-list-item> <a href="#">Manage Website</a> </mat-list-item>
+          <mat-list-item mat-list-item> <a [routerLink]="'/newsletter-list'">newsletter</a> </mat-list-item>
+        </mat-list>       
       </mat-card-content>
       <mat-tab-group class="tabwrapper">
         <mat-tab>

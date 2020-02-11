@@ -162,7 +162,7 @@ admin-add-categories .mat-form-field-appearance-legacy .mat-form-field-infix{pad
 .tablediv table th, .tablediv mat-table mat-header-row{font-family:'Helvetica-Normal';text-transform:uppercase;font-size:18px;color:#fff;background:#465157;padding:3px;letter-spacing:.1em;text-transform:capitalize}
 .tablediv mat-table .mat-header-cell{font-family: 'Helvetica-Normal';text-transform: uppercase;font-size: 18px;color: #fff;letter-spacing: .1em;text-transform: capitalize;}
 .tablediv table td, .tablediv mat-table mat-cell{font-family:'Helvetica-Normal';font-size:16px;padding:6px;white-space:normal;word-break:break-word;color:rgba(0,0,0,.87)}
-.tablediv table td .buttons_ro, .tablediv mat-table mat-cell .buttons_ro{display: flex;justify-content: flex-start; align-items: center;}
+.tablediv table td .buttons_ro, .tablediv mat-table mat-cell .buttons_ro{display: flex;justify-content: flex-end; align-items: center;}
 .tablediv table td br, .tablediv mat-table mat-cell br{display:none}
 .tablediv table td.text-center, .tablediv mat-table mat-cell.text-center{text-align:center!important}
 .tablediv table th.descriptiondiv, .tablediv mat-table mat-header-row.descriptiondiv{width:26%}
@@ -295,11 +295,101 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .adm_inner_banner.managetraining{background:url(../images/managetraining_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.rsvpadmin{background:url(../images/adminrsvp_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.adminbannerdashnboard{background:url(../images/admin-dashboard-banner-img.jpg) no-repeat center center!important;background-size:cover!important;padding:100px 50px!important}
-.bred_cram_wrapper{background:#DDE2E5;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;padding:8px;align-items:stretch}
-.bred_cram_wrapper a{background:#b5bdbf;background:#b5bdbf;display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;color:#252525;padding:8px 20px;text-decoration:none;margin:0;width:auto;justify-content:center;font-size:18px;text-transform:capitalize;font-family:"Helvetica-Normal"}
-.activebread{background:#fff!important;color:#000!important;position:relative}
-.activebread::before{content:'';width:15px;height:100%;background:#B5BDBF;display:inline-block;position:absolute;top:0;left:0;clip-path:polygon(0 0,0% 100%,100% 50%)}
-.activebread::after{content:'';width:15px;height:100%;background:#FFF;display:inline-block;position:absolute;right:-15px;top:0;clip-path:polygon(0 0,0% 100%,100% 54%)}
+
+.bred_cram_wrapper_list{background:#DDE2E5;padding:8px;display: block !important;width: 100%;}
+
+.bred_cram_wrapper {
+    display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;
+    list-style-type: none;
+    padding: 0;
+}
+.bred_cram_wrapper .mat-list-item {
+    display: inline-block;
+    position: relative;
+}
+.bred_cram_wrapper .mat-list-item:last-child a {
+    cursor: default;
+}
+.bred_cram_wrapper .mat-list-item:last-child::before, .bred_cram_wrapper .mat-list-item:last-child::after {
+    background: #ffffc0;
+}
+.bred_cram_wrapper .mat-list-item:not(:last-child):hover::before, .bred_cram_wrapper .mat-list-item:not(:last-child):hover::after {
+    background: lightsalmon;
+}
+.bred_cram_wrapper .mat-list-item::before, .bred_cram_wrapper .mat-list-item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    height: 50%;
+    width: 100%;
+    background: white;
+    border-left: 2px solid #666;
+    border-right: 0px solid #666;
+    z-index: 1;
+}
+.bred_cram_wrapper .mat-list-item::before {
+    top: 0px;
+    transform: skew(30deg);
+    border-top: 0px solid #666;
+}
+.bred_cram_wrapper .mat-list-item::after {
+    bottom: 0px;
+    transform: skew(-30deg);
+    border-bottom: 0px solid #666;
+}
+.bred_cram_wrapper .mat-list-item a {
+    display: inline-block;
+    position: relative;
+    line-height: 2.5;
+    padding: 0 20px;
+    color: #666;
+    text-decoration: none;
+}
+.bred_cram_wrapper .mat-list-item:first-child {
+    background-color: white;
+    border-left: 0px solid #666;
+    left: 0px;
+    box-sizing: content-box;
+}
+.bred_cram_wrapper .mat-list-item:first-child:hover {
+    background-color: lightsalmon;
+}
+.bred_cram_wrapper .mat-list-item:first-child::before, .bred_cram_wrapper .mat-list-item:first-child::after {    
+    left: 10px;
+    border-left: 0px solid #666;
+}
+
+.bred_cram_wrapper_list .mat-list-base .mat-list-item, .bred_cram_wrapper_list .mat-list-base .mat-list-option{width: auto;}
+.bred_cram_wrapper_list .mat-list-base{padding-top: 0;}
+
+
+.bred_cram_wrapper_list .mat-list-base .mat-list-item .mat-list-item-content{z-index: 9;}
+
+
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front {
+    background: transparent !important;
+    padding: 0 !important;
+    display: block !important;
+    width: 100%;
+}
+
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item::before, .bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item::after {background: transparent !important;}
+
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child::before, .bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child::after {
+    background: transparent !important;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:first-child {
+    background-color:transparent !important;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item:last-child a {
+    cursor: default;
+    color:#f15b46;
+}
+.bred_cram_wrapper_list.bred_cram_wrapper_list_front .bred_cram_wrapper .mat-list-item a:hover {
+    cursor: default;
+    color:#f15b46;
+}
+
 .tablediv_Settings{margin-top:5px!important}
 /* .bloglists .Settings_tab_block .tablediv{margin-top:-72px;display:block} */
 .setting_formblock{display:block;margin:15px 0 10px}
@@ -331,6 +421,13 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .tablediv .formclass{-webkit-box-pack: end !important; justify-content: flex-end !important; margin: 0 !important;}
 .tablediv .formclass .submitbtn{justify-content: flex-end; margin-left: 5px !important;}
 .tablediv table.mat-table .buttons_ro span i{cursor: pointer;}
+.formclass > div.checkboxnew{flex-direction: row !important;}
+.formclass > div.checkboxnew .mat-checkbox{padding: 12px 12px 12px 0;display: inline-block;}
+.mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {border-color: #e0361f;}
+.mat-radio-button.mat-accent .mat-radio-inner-circle, .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple), .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple, .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple {background-color: #e0361f;}
+.adminwrappercls .buttons_ro button, .adminwrappercls .buttons_ro mat-button {border-radius: 0!important;background: #f7462e;min-width: 64px;line-height: normal;padding: 8px 12px !important;}
+.adminwrappercls .buttons_ro button:hover, .adminwrappercls .buttons_ro mat-button:hover{padding: 8px 12px !important;}
+.tablediv table td .buttons_ro button span, .tablediv mat-table mat-cell .buttons_ro button span {padding-left: 0;}
 
 @media only screen and (max-width: 1199px) {
 .setting_formblock label{display:block;float:none;margin:10px 0}
