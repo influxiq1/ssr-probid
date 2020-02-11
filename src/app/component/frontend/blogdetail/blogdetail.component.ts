@@ -191,7 +191,7 @@ export class BlogdetailComponent implements OnInit {
     this.apiService.getDatalist(data).subscribe((result: any) => {
 
       this.catBlogs = result.results.blogs;
-      console.log("yy",this.catBlogs);
+      console.log("yy",this.catBlogs.length);
 
       // this.bloglisting = result.res;
       // console.log("yy",this.allBlogs);
@@ -314,6 +314,14 @@ blogdetail(val:any){
 
     });
 
+  }
+
+  //  view all blog cat
+viewAllCatBlogs(val){
+  console.log('Hiiiitttt',val)
+  
+  this.router.navigateByUrl('/blogs/'+ val._id);
+  
   }
 
 

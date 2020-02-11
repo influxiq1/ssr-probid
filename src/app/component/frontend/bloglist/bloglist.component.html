@@ -135,20 +135,24 @@
                   <h4 >( {{item.count_blogs}} )</h4>
                 </mat-panel-title>
               </mat-expansion-panel-header>
-              <ng-container *ngFor="let cat of catBlogs; let i=index;">
-                <span >
-                  <div class="categorysub" [ngClass]="{'active': blogcat }">
-                    <h5 class="inner_header" (click)="blogdetail(cat)">
-                      <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
-                      <span class="buttominfocls">
-                        <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
-                        <span ><span class="labelcls">By:</span>{{cat.author}}</span>
-                      </span>
-                    </h5>
-                  </div>
-                </span>
-              </ng-container>
-              <button mat-button class="btnblue sim-button" type="button" (click)="viewAllCatBlogs(item)">View All</button>
+              
+                <ng-container *ngFor="let cat of catBlogs; let i=index;" >
+                  <span >
+                    <div class="categorysub" [ngClass]="{'active': blogcat }">
+                      <h5 class="inner_header" (click)="blogdetail(cat)">
+                        <span class="blogsubcattitle" (click)="blogdetail(cat)">{{ cat.blogtitle }}</span>
+                        <span class="buttominfocls">
+                          <span ><span class="labelcls">Date:</span>{{cat.date_added}}</span>
+                          <span ><span class="labelcls">By:</span>{{cat.author}}</span>
+                        </span>
+                      </h5>
+                    </div>
+                  </span>
+                 
+                </ng-container>
+                <button mat-button class="btnblue sim-button" type="button" *ngIf="catBlogs !=null && catBlogs.length >4"  (click)="viewAllCatBlogs(item)">View All</button>
+            
+              
             </mat-expansion-panel>
           </mat-accordion>
       </span>

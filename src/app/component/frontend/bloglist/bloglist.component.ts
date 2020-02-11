@@ -137,19 +137,7 @@ blogdetail(val:any){
 viewAllCatBlogs(val){
 console.log('Hiiiitttt',val)
 
-let data: any = {
-  "endpoint": "getbloglistbycategoryid",
-  "blogcat":val._id
-  
-}
-
-this.apiService.getDatalist(data).subscribe((result: any) => {
-
-  this.bloglisting = result.results.blogs;
-
-  // this.bloglisting = result.res;
-  // console.log("yy",this.allBlogs);
-});
+this.router.navigateByUrl('/blogs/'+ val._id);
 
 }
 
@@ -304,7 +292,7 @@ this.apiService.getDatalist(data).subscribe((result: any) => {
     this.apiService.getDatalist(data).subscribe((result: any) => {
 
       this.catBlogs = result.results.blogs;
-      console.log("yy",this.catBlogs);
+      console.log("hiiitt",this.catBlogs.length);
 
       // this.bloglisting = result.res;
       // console.log("yy",this.allBlogs);

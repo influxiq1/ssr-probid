@@ -251,6 +251,13 @@ const routes: Routes = [
     data: { requestcondition: { condition: {_id:"_id"} }, 
     endpoint: 'blogdetailsdatabyid' }
   },
+  {
+    path: 'blogs/:_id', component: BloglistfrontendComponent
+    , 
+    resolve: { blogCatList: ResolveService },
+    data: { requestcondition: { condition: {blogcat:"_id","limit": 4, "skip": 0} }, 
+    endpoint: 'bloglistbycategory' }
+  },
 
 
   {

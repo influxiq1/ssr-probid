@@ -132,6 +132,7 @@
                 </div>
               </span>
             </ng-container>
+            <button mat-button class="btnblue sim-button" type="button" *ngIf="catBlogs !=null && catBlogs.length >4"  (click)="viewAllCatBlogs(item)">View All</button>
           </mat-expansion-panel>
         </mat-accordion>
       </span>
@@ -145,7 +146,7 @@
               <mat-card-content class="item" *ngFor="let item of popularBlogs |  slice:0:indexVal " >
                 <span class="item_images">
                   <img *ngIf="item !=null && item.blogs_image !=''" [src]="item.blogs_image" (click)="blogdetail(item)">
-                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
+                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" (click)="blogdetail(item)">
                 </span>
                 <mat-card-content class="contentsection">                  
                   <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
@@ -205,7 +206,7 @@
               <mat-card-content class="item" *ngFor="let item of similarBlogs |  slice:0:index " >
                 <span class="item_images">
                   <img *ngIf="item !=null && item.blogs_image !=''" [src]="item.blogs_image" (click)="blogdetail(item)">
-                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
+                  <img *ngIf="item ==null || item.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" (click)="blogdetail(item)">
                 </span>
                 <mat-card-content class="contentsection">                  
                   <mat-card-title class="inner_header" (click)="blogdetail(item)">{{item.blogtitle}}</mat-card-title>
