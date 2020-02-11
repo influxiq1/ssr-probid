@@ -9,11 +9,14 @@
                   <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'customer'">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p> -->
                   <!-- <p class="adm_inner_para" *ngIf="userCookies.type == 'salesrep'">Learn About The Latest Developments and Happenings Taking Place in the Auto Industry From Every Corner of the Earth Through Regularly Updated Blogs and Articles Written by the Best Experts in the Industry.</p> -->
               </mat-card-content>
-              <mat-card-content class="bred_cram_wrapper">
-                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                  <a mat-list-item routerLinkActive="active"> Manage Website </a>
-                  <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/blog-management'"> blog management </a>
+              <mat-card-content class="bred_cram_wrapper_list">
+                <mat-list class="bred_cram_wrapper">
+                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a href="#">Manage Website</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a [routerLink]="'/blog-management'">blog management</a> </mat-list-item>
+                </mat-list>       
               </mat-card-content>
+
               <mat-tab-group class="tabwrapper">
                     <mat-tab>
                         <ng-template mat-tab-label>

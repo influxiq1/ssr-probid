@@ -13,10 +13,13 @@
                   <p class="adm_inner_para" *ngIf=" router.url =='/job-ticket-salesrep'">View Job Tickets Explaining Issues or Containing Queries and Information Requests Regarding RSVPs Submitted by Customers or Their Corresponding Sales Reps.</p>
                   <p class="adm_inner_para" *ngIf=" router.url =='/communication'">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
               </mat-card-content>
-              <mat-card-content class="bred_cram_wrapper">
-                  <a mat-list-item routerLinkActive="active"> Dashboard </a>
-                  <!-- <a mat-list-item routerLinkActive="active activebread" [routerLink]="'/job-ticket'"> job ticket</a> -->
-              </mat-card-content>                
+              <mat-card-content class="bred_cram_wrapper_list">
+                <mat-list class="bred_cram_wrapper">
+                  <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item> <a [routerLink]="'/job-ticket'">job ticket</a> </mat-list-item>
+                </mat-list>       
+              </mat-card-content>
+          
               <span class="searchblock rsvpsearch">
                 <span class="searchblockwrapper">
                   <span>

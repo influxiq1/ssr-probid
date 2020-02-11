@@ -9,10 +9,13 @@
         <p class="adm_inner_para" *ngIf=" router.url =='/advance-inventory-search-customer'">Couldn’t Find Your Desired Vehicle? Used Added Specifications To Search For Pre-Owned Cars Matching Your Requirements.</p>
         <p class="adm_inner_para" *ngIf=" router.url =='/advance-inventory-search-rep'">Couldn’t Find Your Desired Vehicle? Used Added Specifications To Search For Pre-Owned Cars Matching Your Customers’ Requirements.</p>
       </mat-card-content>
-      <mat-card-content class="bred_cram_wrapper">
-        <a mat-list-item routerLinkActive="active"> Dashboard </a>
-        <a mat-list-item routerLinkActive="active activebread"> advance inventory search</a>
+      <mat-card-content class="bred_cram_wrapper_list">
+        <mat-list class="bred_cram_wrapper">
+          <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+          <mat-list-item mat-list-item> <a [routerLink]="'/manage-type'">advance inventory search</a> </mat-list-item>
+        </mat-list>       
       </mat-card-content>
+      
       <mat-card class="generalcls inventorysearch" style="padding: 0 !important;">
         <!-- <img src="../../../../assets/images/advanceinventorysearchbackend-dashboard-img1.jpg" style="width: 100%; display: block; margin: 0; padding: 0;"> -->
 

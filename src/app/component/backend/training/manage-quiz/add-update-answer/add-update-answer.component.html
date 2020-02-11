@@ -5,11 +5,14 @@
       <mat-card-content class="adm_inner_banner testimoniallistsadmin">
         <mat-card-title class="adm_inner_title">Add Update Answer</mat-card-title>
       </mat-card-content>
-      <mat-card-content class="bred_cram_wrapper">
-        <a mat-list-item routerLinkActive="active"> Dashboard </a>
-        <a mat-list-item routerLinkActive="active"> Training Manager </a>
-        <a mat-list-item routerLinkActive="active activebread"> Add Update Answer </a>
+      <mat-card-content class="bred_cram_wrapper_list">
+        <mat-list class="bred_cram_wrapper">
+            <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+            <mat-list-item mat-list-item> <a href="#">Training Manager</a> </mat-list-item>
+            <mat-list-item mat-list-item> <a [routerLink]="'/'"> Add Update Answer</a> </mat-list-item>
+        </mat-list>       
       </mat-card-content>
+
       <div class="tablediv">
         <lib-add-update-answer [ParamsId]="paramsId" [serverDetails]="serverDetails" [formSource]="formSource"
           [ListingPageRoute]="listingPageRoute" [LessonId]="lessonId"></lib-add-update-answer>

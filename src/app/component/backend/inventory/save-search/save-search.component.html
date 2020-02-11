@@ -7,15 +7,15 @@
           <p class="adm_inner_para" *ngIf=" router.url =='/save-search-castomer'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete Your Car Purchase.</p>
           <p class="adm_inner_para" *ngIf=" router.url =='/save-search-rep'">Save Your Inventory Searches And View Them Later At Your Convenience To Complete The Car Purchase For Your Customers.</p>
         </mat-card-content>
-        <mat-card-content class="bred_cram_wrapper">
-            <a mat-list-item routerLinkActive="active"> Dashboard </a>
-            <a mat-list-item routerLinkActive="active activebread"> saved search</a>
+        <mat-card-content class="bred_cram_wrapper_list">
+          <mat-list class="bred_cram_wrapper">
+            <mat-list-item mat-list-item> <a href="#">Dashboard</a> </mat-list-item>
+            <mat-list-item mat-list-item> <a href="#">saved search</a> </mat-list-item>
+          </mat-list>       
         </mat-card-content>
-      <mat-card class="ptb-35 generalcls inventorysearch" style="padding: 0 !important;">
-        
-        
-        <span class="formblockwrapper">
-          
+
+      <mat-card class="ptb-35 generalcls inventorysearch" style="padding: 0 !important;">   
+        <span class="formblockwrapper">          
           <span class="mainwrappercontent">
             <mat-list class="rightcontent" *ngIf="search != null && search.length>=0">
               <mat-list-item class="rightcontentrow" *ngFor="let item of search |  slice:0:indexval; let i=index">
