@@ -44,7 +44,7 @@
                         <span matPrefix></span>
                         <mat-form-field class="example-full-width"  >
                           <mat-label>Search By Blog Category</mat-label>
-                          <mat-select [(ngModel)]="blogCat" name="blogCat" [(value)]="selected">
+                          <mat-select [(ngModel)]="blogCat" name="blogCat" >
                             <mat-option>None</mat-option>
                             <mat-option *ngFor="let category of blogcategory" [value]="category._id" 
                             (click)="blogCatSearch(category._id)"   >
