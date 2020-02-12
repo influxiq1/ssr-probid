@@ -64,12 +64,14 @@
     .tablediv table td,.tablediv mat-table mat-cell{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
     .adminlisttable .whitebtnlists{text-align:right!important}
     .tablediv table td button,.tablediv mat-table mat-cell button:hover{float:right}
-    .tablediv table td:first-child::before, .tablediv mat-table mat-cell:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
+    .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
+   .tablediv mat-table mat-cell:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
     .adminlisttable.adminlisttabledashboard .tablediv table tr, .adminlisttable.adminlisttabledashboard .tablediv mat-table mat-row{display:table-row!important}
     .tablediv table td:last-child::before,.tablediv mat-table mat-row mat-cell:last-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
     /* .tablediv table td::after{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000} */
     .tablediv .mytranningcategory .admin_table_wrapper table td::before{content:attr(datalabel)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:rgb(2, 0, 0)}
-    .tablediv table td::before,.tablediv mat-table mat-row mat-cell::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
+    .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
+    .tablediv mat-table mat-row mat-cell::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
     .tablediv table td:last-child,.tablediv mat-table mat-cell:last-child{border-bottom:0}
     .tablediv table td.mat-column-Actions,.tablediv mat-table mat-cell.mat-column-Actions {width: auto; padding-right: 8px;}
     .tablediv mat-table mat-row mat-cell .namewrapper{justify-content: flex-end;}
