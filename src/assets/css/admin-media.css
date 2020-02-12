@@ -37,7 +37,8 @@
     .rightsideformcls span .formrightside {text-align: center;}
     .topmenulist .navigation-left {flex-wrap: wrap;}
     .topmenulist .navigation-left .mat-list-item {width: auto;}
-    .tablediv table td{text-align:right!important}
+
+    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{text-align:right!important}
     .tabblock .tablists ul li.nav-item a.nav-link{font-size:20px;line-height:24px;padding:15px}
     .tablediv table td.tablebuttondiv{border:0!important;border-bottom:0 solid #fff!important}
     .tablediv table td.norecordfound{border:0!important;border-bottom:0 solid #fff!important;font-size:16px;border:0!important;border-bottom:0 solid #fff!important;font-size:16px}
@@ -45,10 +46,10 @@
     .tablediv table td.empycell{border:0!important;border-bottom:0 solid #fff!important;display:none}
     .tablediv table tr:last-child td.empycell{border-bottom:0 solid #ddd!important}
     .tablediv table tr:last-child td{border-bottom:0 solid #ddd!important}
-    .tablediv table td, .tablediv table th {width: initial;}
+    .tablediv table td, .tablediv table th,.tablediv mat-table mat-header-row,.tablediv mat-table mat-header-row mat-header-cell {width: initial;}
     .newcheckboxdiv{text-align:left;float:right}
-    .tablediv table th,.tablediv table td{border-bottom:1px solid #646464!important}
-    .tablediv table td{padding:10px}
+    .tablediv table th,.tablediv table td,.tablediv mat-table mat-header-row,.tablediv mat-table mat-header-row mat-header-cell{border-bottom:1px solid #646464!important}
+    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{padding:10px}
     .tablediv.affiliatetree table.mat-table tr:nth-child(even){background-color:#353434}
     .n-audiodeadeline_admin_header .n-audiodeadeline_admin_header_user .n-audiodeadeline_user{width:37px;height:auto}
     .tablediv.affiliatetree table th,.tablediv.affiliatetree table td{width:100%}
@@ -56,11 +57,11 @@
     .n-sponsorblocklists{justify-content:center}
     .tablediv table td.text-center{text-align:right!important}
     .tablediv .btnedit,.tablediv .btndelete,.tablediv .btnedit:hover,.tablediv .btndelete:hover{display:inline-block;float:none;margin-left:auto;margin-right:auto}
-    .tablediv table{border:0}
+    .tablediv table, .tablediv table.mat-table, .tablediv mat-table{border:0}
     .tablediv table caption{font-size:1.3em}
     .tablediv table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
-    .tablediv table tr{border-bottom:0 solid #ddd;width:100%;margin-bottom:.625em}
-    .tablediv table td{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
+    .tablediv table tr,.tablediv mat-table mat-header-row{border-bottom:0 solid #ddd;width:100%;margin-bottom:.625em}
+    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
     .adminlisttable .whitebtnlists{text-align:right!important}
     .tablediv table td button,.tablediv table td button:hover{float:right}
     .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
@@ -71,6 +72,9 @@
     .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
     .tablediv table td:last-child{border-bottom:0}
     .tablediv table td.mat-column-Actions {width: auto; padding-right: 8px;}
+
+
+
     }
     @media only screen and (max-width: 1080px) {
     .clearmenu{clear:both;overflow:hidden;background:none!important;border:none!important;box-shadow:none!important;margin:0!important;padding:0!important;border-radius:0!important;display:block!important}
@@ -103,6 +107,8 @@
     .topblock .mat-list .mat-list-item .mat-list-item-content button.active{color:#fff!important;background:#dc4430!important}
     .topblock .mat-list .mat-list-item .mat-list-item-content button:last-of-type{border:none}
     }
+
+ 
     @media only screen and (max-width: 540px) {
     .headerlogo{width:100%;float:none;background:#222!important;padding:10px 2px;display:block}
     .headerlogo img{width:auto;max-width:90%}
