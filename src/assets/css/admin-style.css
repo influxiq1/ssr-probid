@@ -296,7 +296,7 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 .adm_inner_banner.rsvpadmin{background:url(../images/adminrsvp_banner.jpg) no-repeat center center!important;background-size:cover!important}
 .adm_inner_banner.adminbannerdashnboard{background:url(../images/admin-dashboard-banner-img.jpg) no-repeat center center!important;background-size:cover!important;padding:100px 50px!important}
 
-.bred_cram_wrapper_list{background:#DDE2E5;padding:8px;display: block !important;width: 100%;}
+.bred_cram_wrapper_list{background:#DDE2E5;padding:8px;display: block !important; position: relative;}
 
 .bred_cram_wrapper {
     display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex!important;

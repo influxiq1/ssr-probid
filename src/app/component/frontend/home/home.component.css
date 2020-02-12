@@ -1,9 +1,10 @@
 .homebanner{height:auto;min-height:1px}
 .d-block{display:block}
 .carousalinfo{position:absolute;right:5%;top:50%;width:760px;height:auto;-webkit-transform:translateY(-50%);transform:translateY(-50%);z-index:9}
-.carousalinfo h1{font-family:'OrbitronBold';font-size:72px!important;line-height:72px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;white-space:normal!important;background:-webkit-linear-gradient(#cfd5dc,#7f8c94);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.carousalinfo h1{font-family:'OrbitronBold';font-size: 60px!important;line-height: 60px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:0px;margin-top:25px;white-space:normal!important;background:-webkit-linear-gradient(#cfd5dc,#7f8c94);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.carousalinfo h3{font-family:'OrbitronBold';font-size:40px!important;line-height:40px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:0px;white-space:normal!important;background:-webkit-linear-gradient(#cfd5dc,#7f8c94);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .carousalinfo p{font-size:22px;color:#a3adb4;margin:0;padding:0;line-height:24px;width:88%}
-.righttxt{position:absolute;text-align:right;transform:rotate(-15deg);-webkit-transform:rotate(-15deg);-moz-transform:rotate(-15deg);-o-transform:rotate(-15deg);bottom:-80%;right:0}
+.righttxt{position: relative;;text-align:right;transform:rotate(-15deg);-webkit-transform:rotate(-15deg);-moz-transform:rotate(-15deg);-o-transform:rotate(-15deg);bottom:-45px;right:0}
 .righttxt p{color:#fff;font-family:"Kristi";font-size:48px;padding-right:48px;line-height:normal;width:100%}
 .righttxt:after{content:'';background:url(https://dev.probidauto.com/assets/images/righttxticon.png) no-repeat bottom right;background-size:172px;height:74px;display:block}
 .probidhomeblock1.mat-card{background-color:#e2ecee!important}
@@ -34,11 +35,11 @@
 .carousalinfo{width:540px}
 .carousalinfop{font-size:18px!important}
 .righttxtp{font-size:36px!important}
-.carousalinfoh1{font-size:60px!important;line-height:60px!important}
+.carousalinfo h1{font-size:40px!important;line-height:40px!important}
 .homebanner .carousel-slide .carousel-slide-content .d-block{margin-left:-23%}
-.carousalinfo h1{font-size:64px!important;line-height:normal!important}
+.carousalinfo h1{font-size:52px!important;line-height:normal!important}
 .carousalinfo p{font-size:20px;line-height:normal}
-.righttxt{bottom:-65%}
+.righttxt{bottom:-50px}
 .righttxt p{font-size:34px;padding-right:35px}
 }
 @media only screen and (max-width: 1600px) {
@@ -46,8 +47,8 @@
 }
 @media only screen and (max-width: 1570px) {
 .carousalinfo{width:400px;right:8%;top:45%}
-.carousalinfo h1{font-size:44px!important}
-.righttxt{bottom:-75%}
+.carousalinfo h1{font-size:34px!important}
+.righttxt{bottom:-50px}
 }
 @media only screen and (max-width: 1550px) {
 .homebanner .carousel-slide .carousel-slide-content .d-block{display:block;margin-left:-17%}
@@ -56,14 +57,14 @@
 }
 @media only screen and (max-width: 1480px) {
 .carousalinfo{width:300px;right:8%;top:45%}
-.carousalinfo h1{font-size:40px!important}
-.righttxt{bottom:-65%}
+.carousalinfo h1{font-size:30px!important}
+.righttxt{bottom:-50px}
 .righttxt :after{height:44px;display:block}
 }
 @media only screen and (max-width: 1380px) {
 .carousalinfo{width:240px;right:8%;top:45%}
-.carousalinfo h1{font-size:26px!important}
-.righttxt{bottom:-92%}
+.carousalinfo h1{font-size:20px!important}
+.righttxt{bottom:-50px}
 .righttxt :after{height:44px;display:block;background-size:132px}
 .carousalinfo p{width:100%;font-size:17px}
 .righttxt p{font-size:24px}
@@ -73,7 +74,7 @@
 }
 @media only screen and (max-width: 1260px) {
 .carousalinfo{width:580px}
-.righttxt{bottom:-122%;width:150px}
+.righttxt{bottom:-50px;width:150px}
 }
 @media only screen and (max-width: 1199px) {
 .righttxt{width:100%}

@@ -64,7 +64,13 @@ export class HomeComponent implements OnInit {
   public sepecialCarList: any;
   public invalidApi:any;
 
-  public slides: any = ["http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg", "http://dev.probidauto.com/assets/images/probidhome-slide1img.jpg"];
+  public slides: any = [
+    {"img":"../../../../assets/images/probidhome-slide1img.jpg","title":"ProBidAuto", "description":"Specify Your Needs, Choose Your Car, And We Will Get It For You. It’s That Easy!! We Make Online Used-Car-Buying Easy And Convenient For You.", "righttxt":"Car-Buying Made Easy And Convenient!!"},
+    {"img":"../../../../assets/images/probidhome-slide2img.jpg","title":"Buy Your Next","subtitle":"Used-Car With Us!", "description":"Let Us Help You Get Your Hands On Your Dream Vehicle While Saving You A Ton Of Money Along The Way! It’s A Win-Win Situation For You!!", "righttxt":""},
+    {"img":"../../../../assets/images/probidhome-slide3img.jpg","title":"Buying Used Cars Online Have Never Been Easier!", "description":"Choose Your Favorite Car From Our Expansive Inventory, And We Will Help You Get Your Hands On Your Dream Vehicle.", "righttxt":""}
+   ];
+
+
   carouselBannerOptions = {
     margin: 0,
     nav: true,

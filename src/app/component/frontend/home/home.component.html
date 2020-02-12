@@ -3,13 +3,14 @@
 
 <mat-card class="homebanner generalcls" style="padding: 0 !important">  
   <owl-carousel [options]="carouselBannerOptions" [items]="slides">
-    <div class="itemcls"  *ngFor="let item of slides">    
-        <img class="slide-image" [src]="item">
-          <div class="carousalinfo">
-            <h1>ProBidAuto</h1>
-            <p>Specify Your Needs, Choose Your Car, And We Will Get It For You. It’s That Easy!! We Make Online Used-Car-Buying Easy And Convenient For You.</p>
+    <div class="itemcls" *ngFor="let item of slides">    
+        <img class="slide-image" [src]="item.img">
+        <div class="carousalinfo">
+            <h1>{{item.title}}</h1>
+            <h3>{{item.subtitle}}</h3>
+            <p>{{item.description}}</p>
             <div class="righttxt">
-            <p>Car-Buying Made Easy And Convenient!!</p>
+              <p>{{item.righttxt}}</p>
             </div>
         </div>
     </div>

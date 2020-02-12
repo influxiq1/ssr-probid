@@ -629,6 +629,8 @@ left: 1.5em;
 .search-sec .example-form .example-full-width .mat-button{min-width: 30px;line-height: 36px;padding: 0;border-radius: 0;overflow: visible;background: #333;color: #fff;}
 .tablediv .formclass button.submitbtn.mat-raised-button{background: #f15b46 !important;}
 
+.homebanner owl-carousel owl-carousel-child .owl-dots{display: none;}
+
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
 .generalmodalcls .logowrapper{text-align:center;width:100%;margin:0 auto!important}
@@ -653,7 +655,8 @@ left: 1.5em;
 .homebanner .owl-theme .owl-dots{display:block;display:block;position:inherit;left:0;padding-top:15px;bottom:10px}
 }
 @media screen and (max-width: 991px) { 
-  .tablediv mat-table mat-header-row{display: none;}
+  .tablediv mat-table mat-header-row{display: none;}  
+  .mat-tab-body.mat-tab-body-active .mat-tab-body-content .mat-card{padding: 16px 0px !important;}
   .tablediv mat-table mat-footer-row,  .tablediv mat-table mat-row {display: block !important;min-height: auto !important;}
 .owl-carousel .owl-item.active.center p.quatation{display:block!important;width:100%!important;margin-left:auto!important;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit}
 .generalcls .owl-carousel .owl-item.active.center .quatation p{max-height:inherit!important;overflow:inherit!important}

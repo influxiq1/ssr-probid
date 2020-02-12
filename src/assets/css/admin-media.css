@@ -44,8 +44,8 @@
     .tablediv table td.norecordfound{border:0!important;border-bottom:0 solid #fff!important;font-size:16px;border:0!important;border-bottom:0 solid #fff!important;font-size:16px}
     .tablediv table td.tablebuttondiv{padding-left:0!important}
     .tablediv table td.empycell{border:0!important;border-bottom:0 solid #fff!important;display:none}
-    .tablediv table tr:last-child td.empycell{border-bottom:0 solid #ddd!important}
-    .tablediv table tr:last-child td,.tablediv mat-table mat-row:last-child mat-cell{border-bottom:0 solid #ddd!important}
+    .tablediv table tr:last-child td.empycell{border-bottom:0 solid #646464!important}
+    .tablediv table tr:last-child td,.tablediv mat-table mat-row:last-child mat-cell{border-bottom: 1px solid #646464!important;}
     .tablediv table td, .tablediv table th,.tablediv mat-table mat-header-row,.tablediv mat-table mat-row mat-cell {width: initial;}
     .newcheckboxdiv{text-align:left;float:right}
     .tablediv table th,.tablediv table td,.tablediv mat-table mat-header-row,.tablediv mat-table mat-row mat-cell{border-bottom:1px solid #646464!important}
@@ -102,7 +102,7 @@
     }
     .adm_inner_banner.manageblog {
         min-height: auto !important;
-        padding-top: 128px !important;
+        padding-top: 20% !important;
     }
 
     .generalcls.blog .mat-card-title {height: auto;}
