@@ -227,6 +227,23 @@ const routes: Routes = [
   },
 
   {
+    path: "testimonial/:id",
+    component: TesimoniallistComponent,
+    resolve: { testimonialListData: ResolveService },
+    data: {
+      requestcondition: { source: "", condition: {} },
+      endpoint: "testimoniallistdata"
+    }
+  },
+
+//   {path:'testimonial/:_id',component:TesimoniallistComponent,
+//   resolve: { condition: {}, testimonialListData: ResolveService },
+//   data: {
+//     endpoint: "testimoniallistdata"
+//   }
+// },
+
+  {
     path: 'service',
     component: ServicelistComponent,
     resolve: { serviceListData: ResolveService },

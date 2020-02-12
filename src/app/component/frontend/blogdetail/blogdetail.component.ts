@@ -131,14 +131,6 @@ export class BlogdetailComponent implements OnInit {
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
 
 
-        // console.log('og:description', this.blog.description_html)
-
-        // console.log('og:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image)
-
-        // console.log(this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id)
-
-
-
       }
     })
 
