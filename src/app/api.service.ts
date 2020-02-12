@@ -315,6 +315,11 @@ postdata(requestdata: any) {
     return result;
   }
 
+
+
+
+  // api2 url section uttam //
+
   apiForIp(requestdata: any, endpoint:any ) {
     const httpOptions = {
       headers: new HttpHeaders({
@@ -325,6 +330,17 @@ postdata(requestdata: any) {
     var result = this._http.post(this.serverUrlDemo2 + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
     return result;
   }
+
+  getDataWithoutToken(requestdata: any, endpoint:any ) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    var result = this._http.post(this.serverUrlDemo2 + endpoint, JSON.stringify(requestdata), httpOptions).pipe(map(res => res));
+    return result;
+  }
+
 
 
 
