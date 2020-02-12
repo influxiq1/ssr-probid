@@ -653,7 +653,8 @@ left: 1.5em;
 .homebanner .owl-theme .owl-dots{display:block;display:block;position:inherit;left:0;padding-top:15px;bottom:10px}
 }
 @media screen and (max-width: 991px) { 
-  .tablediv mat-table mat-footer-row, .tablediv mat-table mat-header-row, .tablediv mat-table mat-row {display: block !important;min-height: auto !important;}
+  .tablediv mat-table mat-header-row{display: none;}
+  .tablediv mat-table mat-footer-row,  .tablediv mat-table mat-row {display: block !important;min-height: auto !important;}
 .owl-carousel .owl-item.active.center p.quatation{display:block!important;width:100%!important;margin-left:auto!important;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit}
 .generalcls .owl-carousel .owl-item.active.center .quatation p{max-height:inherit!important;overflow:inherit!important}
 .customer-dashboard-block2 .rsvplistsbottom h2 {font-size: 20px!important;}
