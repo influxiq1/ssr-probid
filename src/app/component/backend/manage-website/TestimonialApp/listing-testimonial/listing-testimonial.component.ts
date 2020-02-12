@@ -13,6 +13,7 @@ export class ListingTestimonialComponent implements OnInit {
 
   image_detail_datatype: any;
   user_cookie: any;
+  public user_details:any;
 
 
 
@@ -61,6 +62,16 @@ export class ListingTestimonialComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+
+     // console.log(this.user_id);
+      // console.log('type>>', this.user_details.type)
+
+    }
+
   }
 
   ngOnInit() {

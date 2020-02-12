@@ -63,4 +63,5 @@
 }
 @media only screen and (max-width: 991px) {
 .rsvplists > span{width:calc(1/1*100% - (1 - 1/1)*10px)}
+.adm_inner_banner .adm_inner_title.mat-card-title {font-size: 26px!important;text-shadow: none;margin: 0 auto;margin-bottom: 0 !important;}
 }

@@ -79,7 +79,19 @@
 
 
 
-    @media only screen and (max-width: 667px) {
+    @media only screen and (max-width: 991px) {
+    .adm_inner_banner.testimoniallistsadmin {background: #333 url(../../assets/images/testimoniallistsadmin_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.servicelistsadmin {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.manageblog {background: #333 url(../../assets/images/manageblog_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.socialadvoblog {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.manageavailabilityadmin {background: #333 url(../../assets/images/manageavailabilityadmin_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.rsvpadmin {background: #333 url(../../assets/images/adminrsvp_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.saveinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+
+    .generalcls.blog .mat-card-title {height: auto;}
+    .adm_inner_banner .adm_inner_para {font-size: 17px;text-shadow: none;width: 100%;}
+    .generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title {font-size: 26px!important;text-shadow: none;margin: 0 auto;}
+    .adm_inner_banner{min-height: auto !important;padding-top: 70px !important;}
     .topmenudevider2{display:block;width:30px;height:78px;float:left}
     .topmenudevider2 .dehazeicon{color:#fb4a32;display:block;margin:24px 0 0!important;font-size:30px;cursor:pointer}
     .topblock .mat-list{margin:0 auto;height:0;width:0;position:absolute;-webkit-transition:all .2s linear;-moz-transition:all .2s linear;-o-transition:all .2s linear;transition:all .2s linear}
@@ -92,4 +104,11 @@
     @media only screen and (max-width: 540px) {
     .headerlogo{width:100%;float:none;background:#222!important;padding:10px 2px;display:block}
     .headerlogo img{width:auto;max-width:90%}
+    }
+
+    @media only screen and (max-width: 540px) {
+    .bred_cram_wrapper .mat-list-item a {padding: 0 7px;font-size: 14px;line-height: normal;}
+    .bred_cram_wrapper_list .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 4px;}
+    .searchblock .searchblockwrapper {justify-content: center;flex-wrap: wrap;}
+    .bred_cram_wrapper_list{width: initial;}
     }

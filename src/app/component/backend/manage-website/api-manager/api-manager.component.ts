@@ -22,6 +22,7 @@ export class ApiManagerComponent implements OnInit {
   public apiKeyList:any=[]; 
   public currentUrl:any;
   public apiKeyData:any;
+  public user_details:any;
 
   displayedColumns:string[] = ['Key Id', 'Api Key', 'Key Number','Status','action'];
 
@@ -33,6 +34,17 @@ export class ApiManagerComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+    
+     // console.log(this.user_id);
+      // console.log('type>>', this.user_details.type)
+    
+    }
+
+
 
     const body = document.getElementsByTagName('body')[0];
     this.currentUrl = this.router.url;

@@ -15,6 +15,11 @@
           <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">inventory</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">inventory</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">inventory</a> </mat-list-item>
+
+
           <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/advance-inventory-search-admin'">advance inventory search</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/advance-inventory-search-customer'">advance inventory search</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/advance-inventory-search-rep'">advance inventory search</a> </mat-list-item>
