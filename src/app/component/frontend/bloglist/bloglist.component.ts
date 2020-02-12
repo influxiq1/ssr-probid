@@ -49,7 +49,7 @@ export class BloglistfrontendComponent implements OnInit {
   public indexval: any = 4;
   public bloglisting: any;
   public videourl: any = '';
-  public keyword_search: string;
+  public keyword_search: any='';
   public url: "https://www.youtube.com/embed/"
   public category_search: any;
   public catBlogs: any;
@@ -253,7 +253,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
 
 
   reset(){
-
+    this.keyword_search='';
     this.blogCat='';
     this.bloglisting = this.blogList.blogCatList.blogs
 
@@ -261,7 +261,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
 
   /** search by keyword **/
   searchByKey(val: any) {
-    // console.log(val)
+    console.log(val)
     // let data: any = {
     //   "condition":
     //   {

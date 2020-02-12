@@ -163,7 +163,7 @@ export class BlogdetailComponent implements OnInit {
     }
   }
 
-  this.apiService.apiForIp(data1,'popularsimilarblogs').subscribe(res=>{
+  this.apiService.getDataWithoutToken(data1,'popularsimilarblogs').subscribe(res=>{
     // console.log(res)
     let result:any;
     result=res;
