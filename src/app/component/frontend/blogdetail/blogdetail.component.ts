@@ -124,16 +124,16 @@ export class BlogdetailComponent implements OnInit {
 
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
-        this.meta.setTag('og:image', this.blog.blogs_image);
+        this.meta.setTag('og:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image);
         this.meta.setTag('og:image:width', 'auto');
         this.meta.setTag('og:image:height', 'auto');
-        this.meta.setTag('twitter:image', this.blog.blogs_image);
+        this.meta.setTag('twitter:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image);
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
 
 
         // console.log('og:description', this.blog.description_html)
 
-        // console.log('og:image', this.blog.blogs_image)
+        // console.log('og:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image)
 
         // console.log(this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id)
 
