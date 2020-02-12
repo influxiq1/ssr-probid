@@ -87,10 +87,12 @@
     .adm_inner_banner.manageavailabilityadmin {background: #333 url(../../assets/images/manageavailabilityadmin_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
     .adm_inner_banner.rsvpadmin {background: #333 url(../../assets/images/adminrsvp_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
     .adm_inner_banner.saveinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.basicinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+    .adm_inner_banner.advanceinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
 
     .generalcls.blog .mat-card-title {height: auto;}
     .adm_inner_banner .adm_inner_para {font-size: 17px;text-shadow: none;width: 100%;}
-    .generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title {font-size: 26px!important;text-shadow: none;margin: 0 auto;}
+    .generalcls.blog .adm_inner_banner .adm_inner_title.mat-card-title {font-size: 26px!important;text-shadow: none;margin: 10px auto;}
     .adm_inner_banner{min-height: auto !important;padding-top: 70px !important;}
     .topmenudevider2{display:block;width:30px;height:78px;float:left}
     .topmenudevider2 .dehazeicon{color:#fb4a32;display:block;margin:24px 0 0!important;font-size:30px;cursor:pointer}
