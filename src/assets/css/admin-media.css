@@ -38,18 +38,18 @@
     .topmenulist .navigation-left {flex-wrap: wrap;}
     .topmenulist .navigation-left .mat-list-item {width: auto;}
 
-    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{text-align:right!important}
+    .tablediv table td,.tablediv mat-table mat-row mat-cell{text-align:right!important}
     .tabblock .tablists ul li.nav-item a.nav-link{font-size:20px;line-height:24px;padding:15px}
     .tablediv table td.tablebuttondiv{border:0!important;border-bottom:0 solid #fff!important}
     .tablediv table td.norecordfound{border:0!important;border-bottom:0 solid #fff!important;font-size:16px;border:0!important;border-bottom:0 solid #fff!important;font-size:16px}
     .tablediv table td.tablebuttondiv{padding-left:0!important}
     .tablediv table td.empycell{border:0!important;border-bottom:0 solid #fff!important;display:none}
     .tablediv table tr:last-child td.empycell{border-bottom:0 solid #ddd!important}
-    .tablediv table tr:last-child td{border-bottom:0 solid #ddd!important}
-    .tablediv table td, .tablediv table th,.tablediv mat-table mat-header-row,.tablediv mat-table mat-header-row mat-header-cell {width: initial;}
+    .tablediv table tr:last-child td,.tablediv mat-table mat-row:last-child mat-cell{border-bottom:0 solid #ddd!important}
+    .tablediv table td, .tablediv table th,.tablediv mat-table mat-header-row,.tablediv mat-table mat-row mat-cell {width: initial;}
     .newcheckboxdiv{text-align:left;float:right}
-    .tablediv table th,.tablediv table td,.tablediv mat-table mat-header-row,.tablediv mat-table mat-header-row mat-header-cell{border-bottom:1px solid #646464!important}
-    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{padding:10px}
+    .tablediv table th,.tablediv table td,.tablediv mat-table mat-header-row,.tablediv mat-table mat-row mat-cell{border-bottom:1px solid #646464!important}
+    .tablediv table td,.tablediv mat-table mat-row mat-cell{padding:10px}
     .tablediv.affiliatetree table.mat-table tr:nth-child(even){background-color:#353434}
     .n-audiodeadeline_admin_header .n-audiodeadeline_admin_header_user .n-audiodeadeline_user{width:37px;height:auto}
     .tablediv.affiliatetree table th,.tablediv.affiliatetree table td{width:100%}
@@ -60,21 +60,19 @@
     .tablediv table, .tablediv table.mat-table, .tablediv mat-table{border:0}
     .tablediv table caption{font-size:1.3em}
     .tablediv table thead{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px}
-    .tablediv table tr,.tablediv mat-table mat-header-row{border-bottom:0 solid #ddd;width:100%;margin-bottom:.625em}
-    .tablediv table td,.tablediv mat-table mat-header-row mat-header-cell{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
+    .tablediv table tr,.tablediv mat-table mat-row{border-bottom:0 solid #ddd;width:100%;margin-bottom:.625em}
+    .tablediv table td,.tablediv mat-table mat-cell{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
     .adminlisttable .whitebtnlists{text-align:right!important}
-    .tablediv table td button,.tablediv table td button:hover{float:right}
-    .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
-    .adminlisttable.adminlisttabledashboard .tablediv table tr{display:table-row!important}
-    .tablediv table td:last-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
+    .tablediv table td button,.tablediv mat-table mat-cell button:hover{float:right}
+    .tablediv table td:first-child::before, .tablediv mat-table mat-cell:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
+    .adminlisttable.adminlisttabledashboard .tablediv table tr, .adminlisttable.adminlisttabledashboard .tablediv mat-table mat-row{display:table-row!important}
+    .tablediv table td:last-child::before,.tablediv mat-table mat-row mat-cell:last-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
     /* .tablediv table td::after{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000} */
-    .tablediv .mytranningcategory .admin_table_wrapper table td::before{content:attr(datalabel)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
-    .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
-    .tablediv table td:last-child{border-bottom:0}
-    .tablediv table td.mat-column-Actions {width: auto; padding-right: 8px;}
-
-
-
+    .tablediv .mytranningcategory .admin_table_wrapper table td::before{content:attr(datalabel)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:rgb(2, 0, 0)}
+    .tablediv table td::before,.tablediv mat-table mat-row mat-cell::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
+    .tablediv table td:last-child,.tablediv mat-table mat-cell:last-child{border-bottom:0}
+    .tablediv table td.mat-column-Actions,.tablediv mat-table mat-cell.mat-column-Actions {width: auto; padding-right: 8px;}
+    .tablediv mat-table mat-row mat-cell .namewrapper{justify-content: flex-end;}
     }
     @media only screen and (max-width: 1080px) {
     .clearmenu{clear:both;overflow:hidden;background:none!important;border:none!important;box-shadow:none!important;margin:0!important;padding:0!important;border-radius:0!important;display:block!important}
@@ -93,6 +91,17 @@
     .adm_inner_banner.saveinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
     .adm_inner_banner.basicinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
     .adm_inner_banner.advanceinventorysearchbg {background: #333 url(../../assets/images/managetype_banner.jpg) no-repeat top right!important;background-size: 150%!important;text-align: center;padding: 10px;}
+
+    .adm_inner_banner.manageblog {
+        background: #333 url(../../assets/images/manageblog_banner.jpg) no-repeat top right!important;
+        background-size: 150%!important;
+        text-align: center;
+        padding: 10px;
+    }
+    .adm_inner_banner.manageblog {
+        min-height: auto !important;
+        padding-top: 128px !important;
+    }
 
     .generalcls.blog .mat-card-title {height: auto;}
     .adm_inner_banner .adm_inner_para {font-size: 17px;text-shadow: none;width: 100%;}
