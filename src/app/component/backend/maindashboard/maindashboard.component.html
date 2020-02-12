@@ -783,7 +783,7 @@
                   <mat-table #table [dataSource]="dataSource3">                    
                     <ng-container matColumnDef="image_URL1">
                       <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" data-label="Image">
                         <span class="namewrapper">
                           <span class="image_URL_wrapper"><img [src]="element.image_URL1" /></span>
                         </span>
@@ -792,7 +792,7 @@
 
                     <ng-container matColumnDef="name">
                       <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Name">
                         <span class="namewrapper">
                           <span class="nametxt">{{ element.name }}</span>
                         </span>
@@ -801,7 +801,7 @@
 
                     <ng-container matColumnDef="phoneNumber">
                       <mat-header-cell *matHeaderCellDef> Phone Number </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Phone Number">
                         {{ element.phoneNumber }}
                       </mat-cell>
                     </ng-container>
@@ -810,7 +810,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Date
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Date">
                         {{ element.date }}
                       </mat-cell>
                     </ng-container>
@@ -819,7 +819,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Rep Name
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Rep Name">
                         {{ element.repName }}
                       </mat-cell>
                     </ng-container>
@@ -828,7 +828,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Action
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" data-label="Action">
                         <a class="btnorange"> {{ element.action }}</a>
                       </mat-cell>
                     </ng-container>
@@ -881,7 +881,7 @@
                     <!-- Position Column -->
                     <ng-container matColumnDef="ticket">
                       <mat-header-cell *matHeaderCellDef> Ticket ID </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" data-label="Ticket ID">
                         {{ element._id }}
                       </mat-cell>
                     </ng-container>
@@ -889,7 +889,7 @@
                     <!-- Car Image Column -->
                     <ng-container matColumnDef="car_image">
                       <mat-header-cell *matHeaderCellDef> image </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="image">
                         <span class="namewrapper">
                           <span class="image_URL_wrapper"><img src="{{ element.car_image }}" /></span>
                         </span>
@@ -899,7 +899,7 @@
                     <!-- Name Column -->
                     <ng-container matColumnDef="name">
                       <mat-header-cell *matHeaderCellDef> Car Name </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Car Name">
                         <span class="namewrapper">
                           <span class="nametxt">{{element.car_heading}}</span>
                         </span>
@@ -911,7 +911,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Title
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Title">
                         {{ element.car_heading }}
                       </mat-cell>
                     </ng-container>
@@ -921,7 +921,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Rep Name
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Rep Name">
                         {{ element.added_by_fullname }}
                       </mat-cell>
                     </ng-container>
@@ -932,7 +932,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Customer Name
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Customer Name">
                         {{ element.added_for_fullname }}
                       </mat-cell>
                     </ng-container>
@@ -942,7 +942,7 @@
                       <mat-header-cell *matHeaderCellDef>
                       Date
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Date">
                         {{ element.date }}
                       </mat-cell>
                     </ng-container>
@@ -952,7 +952,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Subject
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Subject">
                         {{ element.subject }}
                       </mat-cell>
                     </ng-container>
@@ -963,7 +963,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Status
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element">
+                      <mat-cell *matCellDef="let element" title="Status">
                         <span *ngIf="element.job_ticket_status == 0">Open</span>
                             <span *ngIf="element.job_ticket_status == 1">Replied By Admin</span>
                             <span *ngIf="element.job_ticket_status == 2">Closed</span>
@@ -977,7 +977,7 @@
                       <mat-header-cell *matHeaderCellDef>
                         Action
                       </mat-header-cell>
-                      <mat-cell *matCellDef="let element;let i = index">
+                      <mat-cell *matCellDef="let element;let i = index" data-label="Action">
                         <a (click)="viewDetails(element, '1')"><i class="material-icons"> visibility </i></a>
                         <a  (click)="deleteJobTicket(element._id,i)" ><i class="material-icons">
                           delete_outline
