@@ -29,6 +29,7 @@ export class MysalesrepComponent implements OnInit {
   public customerDetails:any;
   public indexLoad:any=3;
   public rsvpDetails:any;
+  public userCookies:any;
 
   constructor(private readonly meta: MetaService, public ApiService: ApiService, public cookieService: CookieService, public activatedRoute: ActivatedRoute, public apiService: ApiService, public http: HttpClient, public dialog: MatDialog, public snack: MatSnackBar, public router: Router) {
 
@@ -46,6 +47,15 @@ export class MysalesrepComponent implements OnInit {
         this.meta.setTag('og:image', '../../assets/images/logomain.png');
         this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
         this.meta.setTag('og:image', 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg');
+
+
+        if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+          this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    
+         // console.log(this.user_id);
+          // console.log('type>>', this.user_details.type)
+    
+        }
 
 
    }
