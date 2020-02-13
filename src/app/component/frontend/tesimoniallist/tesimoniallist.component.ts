@@ -147,6 +147,8 @@ export class TesimoniallistComponent implements OnInit {
   facebook(val:any){
     console.log(val)
     this.router.navigateByUrl('/testimonial/' + val._id)
+    
+
   
   }
 
