@@ -237,6 +237,7 @@ this.router.navigateByUrl('/blogs/'+ val._id);
   //search by category
 
   blogCatSearch(val:any){
+    this.keyword_search = "";
     // console.log(val)
     let data: any = {
       "endpoint": "getbloglistbycategoryid",
@@ -395,6 +396,28 @@ this.router.navigateByUrl('/blogs/'+ val._id);
   //**blog view from blog category list**//
   openblog(val: any) {
     // console.log(val)
+  }
+
+  keywordSearchFunction(){
+    this.blogCat = ''; 
+    let data:any={};
+      if(this.keyword_search!=null && this.keyword_search!=""){
+         console.log("keyword_search",this.keyword_search);
+        data={
+            endpoint: 'blogsearch',
+            "condition":{
+              "limit":2,
+              "skip":0
+            },
+            "searchstring":this.keyword_search
+          }
+         this.apiService.getDatalist(data).subscribe((response:any)=>{
+          this.bloglisting = response.blogs;
+      })
+    }else{
+      console.log("else part keyword_search",this.keyword_search);
+
+    }
   }
 
 }
