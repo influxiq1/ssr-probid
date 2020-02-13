@@ -97,7 +97,7 @@
           
         </mat-list>
        
-        <span *ngIf="blog !='' &&  blog.video !='' && blog.video[0].video_url !='' ">
+        <span *ngIf="blog !='' &&  blog.video !=null && blog.video[0] !=null && blog.video[0].video_url !='' ">
         <mat-list class="photogallerylists" >
           <mat-list-item class="writer_image" >
             <span class="writer_image_wrapper">

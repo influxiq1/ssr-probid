@@ -22,6 +22,7 @@ export class BloglistfrontendComponent implements OnInit {
 
   public name: string;
   public highLoadMore:boolean=false;
+  public searchLoadMore:boolean=false;
 
   //Blogs Lib List
   public blogListConfig: any = {
@@ -389,8 +390,26 @@ this.router.navigateByUrl('/blogs/'+ val._id);
       }
       
     })
-    
-
+  }
+  searchblogloadmore(){
+    let data:any={
+      endpoint : "blogsearch",
+      "condition":{
+        "limit": 10,
+        "skip": this.indexval,
+      },
+      "searchstring":this.keyword_search
+    }
+    this.apiService.getDatalist(data).subscribe((res:any)=>{
+      console.log("results",res);
+      if(res.blogs.length>0){
+        this.bloglisting = this.bloglisting.concat(res.blogs);
+        this.indexval = this.indexval + 10;
+      }else{
+           this.searchLoadMore=true;
+      }
+      
+    })
   }
 
   //**blog view from blog category list**//
@@ -402,7 +421,6 @@ this.router.navigateByUrl('/blogs/'+ val._id);
     this.blogCat = ''; 
     let data:any={};
       if(this.keyword_search!=null && this.keyword_search!=""){
-         console.log("keyword_search",this.keyword_search);
         data={
             endpoint: 'blogsearch',
             "condition":{
@@ -415,7 +433,6 @@ this.router.navigateByUrl('/blogs/'+ val._id);
           this.bloglisting = response.blogs;
       })
     }else{
-      console.log("else part keyword_search",this.keyword_search);
 
     }
   }

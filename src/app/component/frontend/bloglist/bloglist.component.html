@@ -126,8 +126,10 @@
               </mat-card-content>
             </mat-card-content>
           </span>
-          <button mat-button class="btnblue sim-button" *ngIf="bloglisting !=null && highLoadMore == false && bloglisting.length > 0 "
+          <button mat-button class="btnblue sim-button" *ngIf="bloglisting !=null && highLoadMore == false && bloglisting.length > 0 && keyword_search==''"
             (click)="blogloadmore()">Load More</button>
+            <button mat-button class="btnblue sim-button" *ngIf="searchLoadMore==false && keyword_search.length>0 && keyword_search!=''"
+              (click)="searchblogloadmore()">Load More</button>
             <!-- <button mat-button class="btnblue sim-button" (click)="blogloadmore()">Load More</button> -->
         </mat-card-content>
       </span>
