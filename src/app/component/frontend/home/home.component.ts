@@ -425,6 +425,44 @@ export class HomeComponent implements OnInit {
 
   }
 
+
+
+  // testimonial share 
+
+  fbTestimonialShare(val:any){
+    console.log(val)
+    var url='https://dev.probidauto.com/testimonial/'+ val._id;
+    console.log(url)
+
+    let params: UIParams = {
+      href: url,
+      method: 'share'
+    };
+    this.facebook.ui(params).then((res:UIResponse)=>{
+    }).catch(facebook=>{
+      // console.log(facebook)
+    });
+  }
+
+  twitterTestimonialShare(val:any){
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/testimonial/'+ val._id);
+  }
+
+
+  linkedinTestimonialShare(val:any){
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/testimonial/'+ val._id);
+
+  }
+
+tumblrTestimonialShare(val:any){
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/testimonial/'+ val._id);
+
+}
+
+
+
+
   getStateList() {
     this.apiService.getJsonObject('assets/data/states.json').subscribe((response: any) => {
       this.stateList = response;
