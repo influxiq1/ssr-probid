@@ -3,6 +3,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import * as moment from 'moment'; // add this 1 of 4
 import { ApiService } from '../../../api.service';
 import { MetaService } from '@ngx-meta/core';
+import { FacebookService, LoginResponse, UIParams, UIResponse } from 'ngx-facebook';
+
 import {MatDialogRef, MAT_DIALOG_DATA, MatDialog} from "@angular/material";
 // import { runInThisContext } from 'vm';
 export interface DialogData {
@@ -25,12 +27,18 @@ export class TesimoniallistComponent implements OnInit {
   // public indexvallength:any ='';
 
   public  name: string;
+  public profile: any;
 
-  constructor(private activatedRoute: ActivatedRoute, private router: Router,public apiService: ApiService, private readonly meta: MetaService,public dialog:MatDialog) {
+
+  constructor(private activatedRoute: ActivatedRoute, private router: Router,public apiService: ApiService, private readonly meta: MetaService,public dialog:MatDialog ,public facebook:FacebookService) {
     this.dataformate = moment(); // add this 2 of 4
     //console.log(this.dataformate)
 
     
+    facebook.init({
+      appId: '2540470256228526',
+      version: 'v2.9'
+    });
     
     
 
@@ -46,7 +54,7 @@ export class TesimoniallistComponent implements OnInit {
         let result: any = {};
         result = data.testimonialListData.res;
         this.TestimonialListArray = result;
-        console.warn(this.TestimonialListArray);
+        // console.warn(this.TestimonialListArray);
         // this.indexvallength = this.TestimonialListArray.length;
       })
   
@@ -54,21 +62,21 @@ export class TesimoniallistComponent implements OnInit {
     }
 
     else {
-      console.log('hlo')
+      // console.log('hlo')
       
       this.activatedRoute.data.forEach(data => {
         let result: any = {};
         result = data.testimonialListData.testimonial_list;
         this.TestimonialListArray = result;
-        console.warn(this.TestimonialListArray);
+        // console.warn(this.TestimonialListArray);
         // this.indexvallength = this.TestimonialListArray.length;
 
       })
 
       for(let item in  this.TestimonialListArray){
-        console.log('in for in ',this.TestimonialListArray[item]._id,this.activatedRoute.snapshot.params.id);
+        // console.log('in for in ',this.TestimonialListArray[item]._id,this.activatedRoute.snapshot.params.id);
         if(this.activatedRoute.snapshot.params.id == this.TestimonialListArray[item]._id){
-          console.log('item',item)
+          // console.log('item',item)
         }
       }
 
@@ -96,13 +104,15 @@ export class TesimoniallistComponent implements OnInit {
 
       for(let item in  this.TestimonialListArray){
         if(this.activatedRoute.snapshot.params.id == this.TestimonialListArray[item]._id){
-          console.log('item',item,this.TestimonialListArray[item]);
+          // console.log('item',item,this.TestimonialListArray[item]);
           this.meta.setTag('og:title', 'ProBid Auto - Testimonials '+this.TestimonialListArray[item].name);
           this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials'+this.TestimonialListArray[item].name);
           this.meta.setTag('og:image', this.TestimonialListArray[item].testimonial_img);
           this.meta.setTag('twitter:image', this.TestimonialListArray[item].testimonial_img);
           this.meta.setTag('og:description', this.TestimonialListArray[item].description_html);
           this.meta.setTag('twitter:description', this.TestimonialListArray[item].description_html);  
+          this.meta.setTag('og:url', 'https://dev.probidauto.com/testimonial/'+  this.TestimonialListArray[item]._id);
+
         }
       }
 
@@ -144,13 +154,94 @@ export class TesimoniallistComponent implements OnInit {
   }
 
 
-  facebook(val:any){
-    console.log(val)
-    this.router.navigateByUrl('/testimonial/' + val._id)
+  // fbShare(val:any){
+  //   console.log(val)
+  //   // this.router.navigateByUrl('/testimonial/' + val._id)
     
+  // }
 
+      //FACEBOOK SHARE
+
+      login() {
+        this.facebook.login()
+          .then((res: LoginResponse) => {
+           
+            this.getProfile();
+          })
+          .catch();
+      }
+      getProfile() {
+        this.facebook.api('me/?fields=id,name,email,picture')
+          .then((res: any) => {
+           
+            this.profile = res;
+            
+          })
+          .catch((error: any) => {
+    
+          });
+      }
   
+      fbShare(val:any){
+        // this.router.navigateByUrl('/testimonial/' + val._id)
+
+        // console.log(val)
+        var url='https://dev.probidauto.com/testimonial/'+ val._id;
+        console.log(url)
+    
+        let params: UIParams = {
+          href: url,
+          method: 'share'
+        };
+        this.facebook.ui(params).then((res:UIResponse)=>{
+        }).catch(facebook=>{
+          // console.log(facebook)
+        });
+    
+      }
+  
+      logoutWithFacebook(): void {
+    
+        this.facebook.logout().then();
+      }
+
+
+        //twitter share
+
+  twitterShare(val:any){
+  
+    // console.log(val)
+
+    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/testimonial/'+ val._id);
+    // console.log(url)
+
   }
+
+  // linkedin share 
+  
+  linkedinShare(val:any){
+  
+    // console.log(val)
+
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/testimonial/'+ val._id);
+    // console.log(url)
+
+  }
+
+
+  // tumblr share 
+  
+  tumblrShare(val:any){
+  
+    // console.log(val)
+    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/testimonial/'+ val._id);
+    // console.log(url)
+
+  }
+
+
+
+
 
   
 //*********** Coming Soon ************//
