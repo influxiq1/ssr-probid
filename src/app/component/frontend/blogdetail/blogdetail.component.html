@@ -72,6 +72,12 @@
 
 
               </span>
+              <span class="clstaglist" >
+                <mat-chip-list aria-label="Fish selection"  >
+                  <mat-chip *ngFor="let tag of blog.tags">{{tag}}</mat-chip>
+                </mat-chip-list>
+              </span>
+              
 
               <p class="description"><span [innerHtml]="blog.description_html"></span></p>
             </mat-card-content>
@@ -135,7 +141,10 @@
             <button mat-button class="btnblue sim-button" type="button" *ngIf="catBlogs !=null && catBlogs.length >4"  (click)="viewAllCatBlogs(item)">View All</button>
           </mat-expansion-panel>
         </mat-accordion>
+        
+        
       </span>
+      
     </span>
 
 

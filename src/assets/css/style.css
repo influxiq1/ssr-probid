@@ -49,6 +49,8 @@ a{cursor:pointer;outline:none}
 .generalcls h2.innertitle2{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;align-items:center;font-size:30px!important;color:#222527;line-height:36px!important;text-transform:capitalize!important;margin-bottom:0;margin-top:0}
 .generalcls h2.innertitle2 img{margin-right:20px}
 .generalcls h2{font-family:'HelveticaBold';font-size:30px!important;line-height:36px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;color:#fff;white-space:normal!important}
+/* .categorywrapper h3{font-family:'HelveticaBold';font-size:20px!important;line-height:20px!important;text-transform:uppercase;margin:0;padding:0;margin-bottom:18px;margin-top:25px;color:#333;white-space:normal!important} */
+
 .txtuppercase{font-family:'HelveticaBold';font-size:18px;line-height:20px!important;text-transform:uppercase;display:block;margin:0;padding:0;margin-bottom:18px;margin-top:25px;color:#2b2c2d}
 .txtwhite{color:#fff!important}
 .txtbluecolor{font-family:'Helvetica-Normal';font-size:18px;line-height:25px!important;display:block;margin:0;padding:0;margin-bottom:25px;margin-top:29px;color:#0060fe}
@@ -748,3 +750,6 @@ a.associate_new_con6_link:hover{color:#fff}
 .homemain .mat-list-item-content{padding: 0px!important;}
 
 .homemain .mat-list-item-content a{padding:0 16px!important;}
+
+.clstaglist{margin-top: 0;display: block;padding: 10px 0px;}
+.mat-chip-list-wrapper .mat-standard-chip, .mat-chip-list-wrapper input.mat-input-element {border-radius: 0px; text-transform: uppercase;}
