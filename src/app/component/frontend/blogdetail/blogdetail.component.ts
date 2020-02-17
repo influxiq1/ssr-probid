@@ -116,7 +116,8 @@ export class BlogdetailComponent implements OnInit {
 
       
 
-      if (this.blog != null&& this.blog.blog_image !=null && this.blog.blog_image[0] !=null) {
+      if (this.blog != null) {
+
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
         this.meta.setTag('twitter:description', this.blog.description_html);
@@ -124,14 +125,28 @@ export class BlogdetailComponent implements OnInit {
 
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
+       
+        this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
+      }
+
+      if( this.blog !=null && this.blog.blogs_image[0] != null){
+        
         this.meta.setTag('og:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image);
         this.meta.setTag('og:image:width', 'auto');
         this.meta.setTag('og:image:height', 'auto');
         this.meta.setTag('twitter:image', this.blog.blogs_image[0].basepath + this.blog.blogs_image[0].image);
-        this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
 
+        
+      } else {
+
+        this.meta.setTag('og:image', 'https://dev.probidauto.com/assets/images/no-image-default.jpg');
+        this.meta.setTag('og:image:width', 'auto');
+        this.meta.setTag('og:image:height', 'auto');
+        this.meta.setTag('twitter:image', 'https://dev.probidauto.com/assets/images/logomain.pngno-image-default.jpg');
 
       }
+
+
     })
 
 

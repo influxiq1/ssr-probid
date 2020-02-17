@@ -65,10 +65,12 @@
                  
                 </span>
               </mat-card-content>
-              <span class="item_images" *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' ">
+              <span class="item_images">
 
-                <img   [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image " >
-              <!-- <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" > -->
+                <img  *ngIf="blog !=null && blog.blogs_image !='' && blog.blogs_image[0] !='' "   [src]="blog.blogs_image[0].basepath + blog.blogs_image[0].image " >
+
+
+              <img *ngIf="blog ==null || blog.blogs_image ==''" src="../../../../assets/images/no-image-default.jpg" >
 
 
               </span>
