@@ -104,10 +104,10 @@
 
               <mat-form-field class="parent_cat">
                 <mat-label>City</mat-label>
-                <mat-select formControlName="city">
-                  <mat-option [value]=0>Select a city</mat-option>
-                  <mat-option *ngFor="let city of allCities;" value="{{ city }}">{{ city }}</mat-option>
-                </mat-select>
+                  <mat-select formControlName="city">
+                    <mat-option [value]=0>Select a city</mat-option>
+                    <mat-option *ngFor="let city of allCities;" value="{{ city }}">{{ city }}</mat-option>
+                  </mat-select>
               </mat-form-field>
 
               <button mat-raised-button class="btnblue">Update</button>
