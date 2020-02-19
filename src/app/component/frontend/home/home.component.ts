@@ -658,7 +658,8 @@ tumblrTestimonialShare(val:any){
   searchAutoComplete(event: any, field: string) {
     // this.apploader.loader = 1;
 
-
+    // console.log(event,field)
+    
     let input: string = '';
     let inputField: string = '';
     if (event.target.value != null && event.target.value != '' && event.target.value.length >= 0) {
@@ -669,7 +670,7 @@ tumblrTestimonialShare(val:any){
     }
 
     if (inputField != '' && (input != '' || this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '')) {
-      let search_url: string = this.apiService.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
+      let search_url: string = this.inventory_auto_complete_url + inputField + input + this.type + this.make + "&country=US&ignore_case=true&term_counts=false&sort_by=index";
 
       this.http.get(search_url).subscribe((res: any) => {
         // this.apploader.loader = 0;
