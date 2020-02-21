@@ -120,13 +120,16 @@ export class BlogdetailComponent implements OnInit {
 
         this.meta.setTitle('ProBid Auto-'+''+this.blogtitle);
         this.meta.setTag('og:description', this.blog.description_html);
+        this.meta.setTag("twitter:card", this.blogtitle,)
+
         this.meta.setTag('twitter:description', this.blog.description_html);
         this.meta.setTag("description", this.blog.description_html)
-
         this.meta.setTag('og:title', this.blogtitle);
         this.meta.setTag('twitter:title', this.blogtitle);
        
         this.meta.setTag('og:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
+
+        this.meta.setTag('twitter:url', 'https://dev.probidauto.com/blogs/'+this.activatedRoute.snapshot.params.blogtitle+'/'+this.blog._id);
       }
 
       if( this.blog !=null && this.blog.blogs_image[0] != null){
@@ -285,7 +288,7 @@ blogdetail(val:any){
   
   tumblrShare(){
 
-    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    window.open('https://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
     // console.log(url)
 
   }

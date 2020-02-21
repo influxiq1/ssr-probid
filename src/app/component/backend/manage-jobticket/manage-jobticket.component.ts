@@ -86,6 +86,7 @@ public configDataJobTicket: any = {
       // console.log('>>>>>>>',this.userCookies)
       this.userid = this.userCookies._id;
       }
+      
     this.jobTicketForm = this.fb.group({
       subject:['',Validators.required],
       description:['',Validators.required],

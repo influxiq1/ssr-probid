@@ -106,12 +106,18 @@ export class TesimoniallistComponent implements OnInit {
         if(this.activatedRoute.snapshot.params.id == this.TestimonialListArray[item]._id){
           // console.log('item',item,this.TestimonialListArray[item]);
           this.meta.setTag('og:title', 'ProBid Auto - Testimonials '+this.TestimonialListArray[item].name);
-          this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials'+this.TestimonialListArray[item].name);
+
           this.meta.setTag('og:image', this.TestimonialListArray[item].testimonial_img);
+          
+          this.meta.setTag("twitter:card", this.TestimonialListArray[item].name);
+
+          this.meta.setTag('twitter:title', 'ProBid Auto - Testimonials'+this.TestimonialListArray[item].name);
           this.meta.setTag('twitter:image', this.TestimonialListArray[item].testimonial_img);
           this.meta.setTag('og:description', this.TestimonialListArray[item].description_html);
           this.meta.setTag('twitter:description', this.TestimonialListArray[item].description_html);  
           this.meta.setTag('og:url', 'https://dev.probidauto.com/testimonial/'+  this.TestimonialListArray[item]._id);
+
+          this.meta.setTag('twitter:url', 'https://dev.probidauto.com/testimonial/'+  this.TestimonialListArray[item]._id);
 
         }
       }
