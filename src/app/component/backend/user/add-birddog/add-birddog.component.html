@@ -89,7 +89,32 @@
                     *ngIf="!addbirddogForm.controls['address'].valid && addbirddogForm.controls['address'].errors.required && addbirddogForm.controls['address'].touched">
                     Address field can not be blank</mat-error>
                 </mat-form-field>
+
             
+                <mat-form-field>
+                  <mat-label>State</mat-label>
+                  <mat-select formControlName="state" (blur)="inputUntouched('state')" (selectionChange)="getCity($event.value);">
+                    <mat-option [value]=0>Select a state</mat-option>
+                    <mat-option *ngFor="let state of stateList;" value="{{ state.name }}">{{ state.name }}</mat-option>
+                  </mat-select>
+                  <mat-error
+                    *ngIf="!addbirddogForm.controls['state'].valid && addbirddogForm.controls['state'].errors.required && addbirddogForm.controls['state'].touched">
+                    State field can not be blank</mat-error>
+                </mat-form-field>
+
+                             
+                <mat-form-field>
+                  <mat-label>City</mat-label>
+                  <mat-select formControlName="city" (blur)="inputUntouched('city')" >
+                    <mat-option [value]=0>Select a city</mat-option>
+                    <mat-option *ngFor="let city of allCities;" value="{{ city }}">
+                        {{ city }}</mat-option>
+                  </mat-select>
+                  <mat-error
+                    *ngIf="!addbirddogForm.controls['city'].valid && addbirddogForm.controls['city'].errors.required && addbirddogForm.controls['city'].touched">
+                    City field can not be blank</mat-error>
+                </mat-form-field>
+
                 <mat-form-field>
                   <input matInput placeholder="Zip Code" type="text" formControlName="zip" (blur)="inputUntouched('zip')">
                   <mat-error
@@ -97,30 +122,6 @@
                     Zip field can not be blank</mat-error>
                 </mat-form-field>
             
-                <mat-form-field>
-                  <mat-label>City</mat-label>
-                  <mat-select formControlName="city" (blur)="inputUntouched('city')">
-                    <mat-option *ngFor="let city of cityList" [value]="city.city">
-                      {{city.city}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error
-                    *ngIf="!addbirddogForm.controls['city'].valid && addbirddogForm.controls['city'].errors.required && addbirddogForm.controls['city'].touched">
-                    City field can not be blank</mat-error>
-                </mat-form-field>
-            
-            
-                <mat-form-field>
-                  <mat-label>State</mat-label>
-                  <mat-select formControlName="state" (blur)="inputUntouched('state')">
-                    <mat-option *ngFor="let state of stateList" [value]="state.abbreviation">
-                      {{state.name}}
-                    </mat-option>
-                  </mat-select>
-                  <mat-error
-                    *ngIf="!addbirddogForm.controls['state'].valid && addbirddogForm.controls['state'].errors.required && addbirddogForm.controls['state'].touched">
-                    State field can not be blank</mat-error>
-                </mat-form-field>
 
                 <mat-form-field>
                   <mat-label>Assign SalesRep</mat-label>

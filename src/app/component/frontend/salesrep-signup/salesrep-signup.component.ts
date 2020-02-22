@@ -24,7 +24,8 @@ export class SalesrepSignupComponent implements OnInit {
   public cityList: any;
   public timezone: any;
   public term_msg: any;
-  public message:any='Submitted Successfully'
+  public message:any='Submitted Successfully';
+  public allCities:any;
   constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,private readonly meta: MetaService,public cookieService:CookieService ,public router:Router) {
 
     this.meta.setTitle('ProBid Auto - Sales Rep SignUp');
@@ -98,7 +99,7 @@ export class SalesrepSignupComponent implements OnInit {
     })
   }
   getCityList() {
-    this.apiservice.getJsonObject('assets/data/usa-cities.json').subscribe((res) => {
+    this.apiservice.getJsonObject('assets/data/city.json').subscribe((res) => {
       let result: any = {};
       result = res;
       this.cityList = result;
@@ -127,6 +128,12 @@ export class SalesrepSignupComponent implements OnInit {
       }
 
     });
+  }
+
+
+  getCity(event:any) {
+    var val = event;
+    this.allCities = this.cityList[val];
   }
 
 

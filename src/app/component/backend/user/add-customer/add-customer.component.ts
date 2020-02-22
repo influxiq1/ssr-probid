@@ -19,7 +19,10 @@ export class AddCustomerComponent implements OnInit {
   public userType:any;
   public userDetails:any;
   public header_text:any="Add Customer"
-public btn_text:any="Submit"
+  public btn_text:any="Submit"
+  public allCities:any;
+
+
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
   constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService,private readonly meta: MetaService) { 
 
@@ -142,12 +145,20 @@ public btn_text:any="Submit"
     })
   }
   getCityList() {
-    this.apiservice.getJsonObject('assets/data/usa-cities.json').subscribe((res) => {
+    this.apiservice.getJsonObject('assets/data/city.json').subscribe((res) => {
       let result: any = {};
       result = res;
       this.cityList = result;
     })
   }
+
+
+
+  getCity(event:any) {
+    var val = event;
+    this.allCities = this.cityList[val];
+  }
+
 
   /**Submit function */
   addcustomerFormSubmit() {
@@ -188,8 +199,17 @@ public btn_text:any="Submit"
   editcustomerprofile(){
     if(this.activatedRouter.snapshot.params._id!=null)
     {
+
+
+     
+
       var data = { "source": "user", "condition": {"_id": this.activatedRouter.snapshot.params._id}}
         this.apiservice.CustomRequest(data, 'datalist').subscribe((data: any) => {
+
+          setTimeout(() => {
+            this.getCity(data.res[0].state);
+      
+          }, 500);
           // console.log('data',data)
 
           this.header_text="Edit Customer"

@@ -15,7 +15,7 @@ export class AddSalesrepComponent implements OnInit {
   public cityList: any;
   public header_text: any = "Add Salesrep"
   public btn_text: any = "Submit"
-
+  public allCities:any
   public timezone:any;
 
 
@@ -110,7 +110,7 @@ export class AddSalesrepComponent implements OnInit {
   }
 
   getCityList() {
-    this.apiservice.getJsonObject('assets/data/usa-cities.json').subscribe((res) => {
+    this.apiservice.getJsonObject('assets/data/city.json').subscribe((res) => {
       let result: any = {};
       result = res;
       this.cityList = result;
@@ -124,6 +124,12 @@ export class AddSalesrepComponent implements OnInit {
       this.timezone = result;
     })
   }
+
+  getCity(event:any) {
+    var val = event;
+    this.allCities = this.cityList[val];
+  }
+
 
   /**Submit function */
   addsalesrepFormSubmit() {
@@ -167,6 +173,12 @@ export class AddSalesrepComponent implements OnInit {
     if (this.activatedRouter.snapshot.params._id != null) {
       var data = { "source": "user", "condition": { "_id": this.activatedRouter.snapshot.params._id } }
       this.apiservice.CustomRequest(data, 'datalist').subscribe((data: any) => {
+
+        setTimeout(() => {
+          this.getCity(data.res[0].state);
+    
+        }, 500);
+
         this.header_text = "Edit Salesrep"
         this.btn_text = "Update"
         this.addsalesrepForm.patchValue({

@@ -17,7 +17,8 @@ public addbirddogForm: FormGroup;
 public stateList: any;
 public cityList: any;
 public header_text:any="Add Birddog"
-public btn_text:any="Submit"
+  public btn_text:any="Submit"
+  public allCities:any
 @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
 constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,public router:Router,public cookieService:CookieService,private readonly meta: MetaService) { 
     this.meta.setTitle('ProBid Auto - Add Birddog');
@@ -117,11 +118,16 @@ getStateList() {
   })
 }
 getCityList() {
-  this.apiservice.getJsonObject('assets/data/usa-cities.json').subscribe((res) => {
+  this.apiservice.getJsonObject('assets/data/city.json').subscribe((res) => {
     let result: any = {};
     result = res;
     this.cityList = result;
   })
+}
+
+getCity(event:any) {
+  var val = event;
+  this.allCities = this.cityList[val];
 }
 
 /**Submit function */
@@ -167,6 +173,12 @@ editBirddogProfile(){
   {
     var data = { "source": "user", "condition": {"_id": this.activatedRouter.snapshot.params._id}}
       this.apiservice.CustomRequest(data, 'datalist').subscribe((data: any) => {
+
+        setTimeout(() => {
+          this.getCity(data.res[0].state);
+    
+        }, 500);
+
         this.header_text="Edit Birddog"
         this.btn_text="Update"
         this.addbirddogForm.patchValue({

@@ -26,7 +26,8 @@ export class CustomerSignupComponent implements OnInit {
   public rep_id: string = '';
   public salesrepList:any;
   public img: string ='';
-  public message:string='Submitted Successfully'
+  public message:string='Submitted Successfully';
+  public allCities:any;
 
 
   constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder,public dialog: MatDialog,private readonly meta: MetaService,public cookieService:CookieService, public router: Router ) {
@@ -134,13 +135,17 @@ export class CustomerSignupComponent implements OnInit {
     })
   }
   getCityList() {
-    this.apiservice.getJsonObject('assets/data/usa-cities.json').subscribe((res) => {
+    this.apiservice.getJsonObject('assets/data/city.json').subscribe((res) => {
       let result: any = {};
       result = res;
       this.cityList = result;
     })
   }
 
+  getCity(event:any) {
+    var val = event;
+    this.allCities = this.cityList[val];
+  }
 
   openModal(){
     const dialogRef= this.dialog.open(customerSignUpsuccessDialog, {

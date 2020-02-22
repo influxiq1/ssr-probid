@@ -123,7 +123,7 @@
                 <span>
                   <h4>Zip:</h4>
                   <mat-form-field>
-                    <input matInput type="ZIP" placeholder="ZIP">
+                    <input matInput formControlName="zip" type="ZIP" placeholder="ZIP">
                   </mat-form-field>
                 </span>
                 <span>
@@ -171,6 +171,7 @@
                       </mat-select>
                     </mat-form-field>
                   </span>
+
                   <span class="column">
                     <h4>Transmission:</h4>
                     <mat-form-field>         
@@ -205,7 +206,7 @@
                   <span class="column">
                     <h4>Drive Train</h4>
                     <mat-form-field>
-                      <mat-select placeholder="All">
+                      <mat-select placeholder="All" formControlName="drivetrain">
                         <mat-option value="DT">Any Drivetrain</mat-option>
                         <mat-option value="DT1">4x2/2-wheel drive</mat-option>
                         <mat-option value="DT2">4x4/4-wheel drive</mat-option>
@@ -219,7 +220,7 @@
                   <span class="column">
                     <h4>Fuel Type:</h4>
                     <mat-form-field>
-                      <mat-select placeholder="All">
+                      <mat-select placeholder="All" formControlName="fuel">
                         <mat-option value="FT1">Any Fuel</mat-option>
                         <mat-option value="FT2">Gasoline</mat-option>
                         <mat-option value="FT2">E-85/Gasoline</mat-option>
@@ -235,7 +236,7 @@
                   <span class="column">
                     <h4>Doors</h4>
                     <mat-form-field>          
-                      <mat-select formControlName="Doorsqty" placeholder="All">
+                      <mat-select formControlName="doorsqty" placeholder="All">
                         <mat-option *ngFor="let item of doorsqtyList" [value]="item.doors">{{item.doorstype}}</mat-option> 
                         <!-- <mat-option value="Doors1">Doors 1</mat-option> -->
                       </mat-select>
@@ -243,8 +244,8 @@
                   </span>
                   <span class="column">
                     <h4>Cylinders</h4>
-                    <mat-form-field>
-                      <mat-select placeholder="All">
+                    <mat-form-field >
+                      <mat-select placeholder="All" formControlName="cylinder">
                         <mat-option value="Doors">Any cylinder count</mat-option>
                         <mat-option value="1cylinder">1-cylinder</mat-option>
                         <mat-option value="2cylinder">2-cylinder</mat-option>
@@ -270,9 +271,12 @@
                   <span class="column">
                     <h4>Exterior Color</h4>
                     <span class="textarea">
-                      <span class="textareainner">
-                        <mat-checkbox>All</mat-checkbox>    
-                        <mat-checkbox>Beige</mat-checkbox>    
+                      <span class="textareainner" >
+                        <section *ngFor="let item of excolorList">
+                        <mat-checkbox [checked]="item.checked" (change)="toggleCheckEx($event,item)">{{item.color}}</mat-checkbox>  
+                        
+                      </section>
+                        <!-- <mat-checkbox>Beige</mat-checkbox>    
                         <mat-checkbox>Black</mat-checkbox>    
                         <mat-checkbox>Blue</mat-checkbox>    
                         <mat-checkbox>Brown</mat-checkbox>  
@@ -291,16 +295,21 @@
                         <mat-checkbox>Silver</mat-checkbox>  
                         <mat-checkbox>Turquoise</mat-checkbox>  
                         <mat-checkbox>White</mat-checkbox>  
-                        <mat-checkbox>Yellow</mat-checkbox>
+                        <mat-checkbox>Yellow</mat-checkbox> -->
                       </span>
                     </span>
                   </span>
                   <span class="column">
                     <h4>Interior Color:</h4>
                     <span class="textarea">
-                      <span class="textareainner">
-                        <mat-checkbox>All</mat-checkbox>    
-                        <mat-checkbox>Beige</mat-checkbox>    
+                      <span class="textareainner"   >
+
+                        <section *ngFor="let item of incolorList">
+                          <mat-checkbox  [checked]="item.checked" (change)="toggleCheckIn($event,item)">{{item.color}}</mat-checkbox>  
+                          
+                        </section>
+                        <!-- <mat-checkbox>All</mat-checkbox>     -->
+                        <!-- <section (change)="toggleCheckIn($event)">                        <mat-checkbox>Beige</mat-checkbox>    
                         <mat-checkbox>Black</mat-checkbox>    
                         <mat-checkbox>Blue</mat-checkbox>    
                         <mat-checkbox>Brown</mat-checkbox>  
@@ -320,6 +329,8 @@
                         <mat-checkbox>Turquoise</mat-checkbox>  
                         <mat-checkbox>White</mat-checkbox>  
                         <mat-checkbox>Yellow</mat-checkbox>
+                      </section> -->
+
                       </span>
                     </span>
                   </span>

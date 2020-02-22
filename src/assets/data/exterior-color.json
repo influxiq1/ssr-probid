@@ -1,0 +1,63 @@
+[
+    {
+        "color":"Beige", "checked": false
+        
+    },
+    {
+        "color":"Black" ,"checked": false
+    }, 
+     {
+        "color":"Blue","checked": false
+    },
+      {
+        "color":"Brown","checked": false
+    }, 
+     {
+        "color":"Burgundy","checked": false
+    }, 
+     {
+        "color":"Camouflage","checked": false
+    }, 
+     {
+        "color":"Charcoal","checked": false
+    }, 
+     {
+        "color":"Gold","checked": false
+    },  
+    {
+        "color":"Gray","checked": false
+    },  
+    {
+        "color":"Green","checked": false
+    }, 
+    {
+        "color":"Lime","checked": false
+    }, 
+     {
+        "color":"Off-white","checked": false
+    }, 
+     {
+        "color":"Orange","checked": false
+    }, 
+     {
+        "color":"Pink","checked": false
+    },  
+    {
+        "color":"Purple","checked": false
+    },  
+    {
+        "color":"Red","checked": false
+    },  
+    {
+        "color":"Silver","checked": false
+    }, 
+     {
+        "color":"Turquoise","checked": false
+    }, 
+    {
+        "color":"White","checked": false
+    },  
+    {
+        "color":"Yellow","checked": false
+    }
+]

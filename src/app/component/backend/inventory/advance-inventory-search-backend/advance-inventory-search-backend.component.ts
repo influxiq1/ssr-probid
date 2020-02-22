@@ -69,22 +69,30 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
   public state = '';
   public zip = '';
   public search = '';
-
-  public inventory_url:any;
+  public excolor ='';
+  public incolor='';
+  public fuel='';
+  public exColor:any='';
+  public inColor:any='';
+  public drivetrain:any='';
+  public cylinder:any='';
+  public inventory_url;
   public inventory_auto_complete_url:any;
-  public transmissiontypeList: any;
-  public doorsqtyList: any;
-  public doorsqty: any;
-  public odometerList: any;
-  public enginetypeList: any;
-  public odometer: any;
-  public odometer1: any;
-  public enginetype: any;
-  public transmissiontype: any;
-
+  public transmissiontypeList: any='';
+  public doorsqtyList: any='';
+  public doorsqty: any='';
+  public odometerList: any='';
+  public enginetypeList: any='';
+  public odometer: any='';
+  public odometer1: any='';
+  public enginetype: any='';
+  public transmissiontype: any='';
+  public excolorList:any;
   public indexCountForImg:any;
   public indexCount:any;
   public user_details: any;
+  public incolorList:any;
+  
   constructor(public fb: FormBuilder,
     public apiService: ApiService,
     public activatedRoute: ActivatedRoute,
@@ -93,6 +101,7 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
 
       if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
         this.user_details = JSON.parse(this.cookieService.get('user_details'));
+
         // console.log(this.userCookies);
         }
 
@@ -123,6 +132,8 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     this.getenginetypeList();
     this.gettransmissiontypeList();
     this.getdoorsqtyList();
+    this.getExColorList();
+    this.getInColorList();
     this.inventory_url=(this.cookieService.get('inventory_url'));
     this.inventory_auto_complete_url=(this.cookieService.get('inventory_auto_complete_url'));
 
@@ -185,6 +196,26 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
     })
   }
 
+  getExColorList() {
+    this.apiService.getJsonObject('assets/data/exterior-color.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.excolorList = result;
+      // console.log(this.excolorList = result);
+    })
+  }
+
+  getInColorList() {
+    this.apiService.getJsonObject('assets/data/interior-color.json').subscribe(response => {
+      let result: any = {};
+      result = response;
+      this.incolorList = result;
+      // console.log(this.excolorList = result);
+    })
+  }
+
+
+
   generateForm() {
     this.advanceInventoryCustomerForm = this.fb.group({
       type: [''],
@@ -200,7 +231,12 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       odometer1: [''],
       enginetype: [''],
       transmissiontypelist: [''],
-      doorsqtyList: ['']
+      doorsqty:[''],
+      drivetrain:[''],
+      fuel:[''],
+      cylinder:[''],
+     
+
 
     })
   }
@@ -232,6 +268,26 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
   // }
 
 
+  toggleCheckEx(event:any,item:any){
+    item.checked = !item.checked;
+    console.log(item)
+    if(item.checked == true){
+      this.excolor=item.color;
+      console.log('>>',this.excolor)
+
+    }
+   }
+
+  toggleCheckIn(event:any,item:any){
+    item.checked = !item.checked;
+    console.log(item)
+    if(item.checked == true){
+      this.incolor=item.color;
+      console.log(this.incolor)
+
+    } 
+  }
+
   advanceInventoryCustomerSearch(){
 
     if(this.advanceInventoryCustomerForm.valid){
@@ -247,8 +303,18 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
       let odometerVal = this.advanceInventoryCustomerForm.value.odometer;
       let odometer1Val = this.advanceInventoryCustomerForm.value.odometer1;
       let enginetypeVal = this.advanceInventoryCustomerForm.value.enginetype;
-      let transmissiontypeVal = this.advanceInventoryCustomerForm.value.transmissiontype;
+      let transmissiontypeVal = this.advanceInventoryCustomerForm.value.transmissiontypelist;
       let doorsqtyVal = this.advanceInventoryCustomerForm.value.doorsqty;
+      let drivetrainVal=this.advanceInventoryCustomerForm.value.drivetrain
+      let fuelVal=this.advanceInventoryCustomerForm.value.fuel
+      let cylinderVal=this.advanceInventoryCustomerForm.value.cylinder
+      let exColorVal= this.excolor;
+      let  inColorVal= this.incolor;
+
+      // console.log('>>>>',yearVal,typeVal,makeVal,modelVal,vinVal,trimVal,vehicleVal,stateVal,zipVal,odometerVal,odometer1Val,drivetrainVal,fuelVal,cylinderVal,enginetypeVal,transmissiontypeVal,doorsqtyVal,exColorVal,inColorVal)
+
+
+
 
       if(typeVal !=null &&typeVal !='' && typeVal.length >= 0){
         this.type = "&body_type=" +typeVal;
@@ -293,14 +359,31 @@ export class AdvanceInventorySearchBackendComponent implements OnInit {
         this.doorsqty = "&doorsqty=" + doorsqtyVal;
       }
 
-      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' ||this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '') {
+      if (drivetrainVal != null && drivetrainVal != '' && drivetrainVal.length >= 0) {
+        this.drivetrain = "&drivetrain=" + drivetrainVal;
+      }
+      if (fuelVal != null && fuelVal != '' && fuelVal.length >= 0) {
+        this.fuel = "&fuel_type=" + fuelVal;
+      }
+      if (cylinderVal != null && cylinderVal != '' && cylinderVal.length >= 0) {
+        this.cylinder = "&cylinders=" + cylinderVal;
+      }
+      if (exColorVal != null && exColorVal != '' && exColorVal.length >= 0) {
+        this.exColor = "&exterior_color=" + exColorVal;
+      }
+      if (inColorVal != null && inColorVal != '' && inColorVal.length >= 0) {
+        this.inColor = "&interior_color=" + inColorVal;
+      }
 
-        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ '&rows=5';
+
+      if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' ||this.odometer != '' || this.odometer1 != '' || this.enginetype != '' || this.transmissiontype != '' || this.doorsqty != '' || this.model != '' || this.drivetrain != ''|| this.fuel != ''|| this.cylinder != ''|| this.exColor != ''|| this.inColor != '' ) {
+
+        let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.odometer + this.odometer1 + this.enginetype + this.transmissiontype + this.doorsqty + this.model+ this.drivetrain+this.fuel+this.cylinder+this.exColor+this.inColor + '&rows=50';
 
         this.http.get(search_link).subscribe((res: any) => {
+          console.log(res)
           this.search = res.listings;
-          // console.log('search list',this.search)
-
+       
         })
       } else {
         // this.errorMsg = "Please select at least one field";
