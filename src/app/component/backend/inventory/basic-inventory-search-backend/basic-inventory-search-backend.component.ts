@@ -88,7 +88,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   public indexCount: number;
   public indexCountForImg: number;
   public indexForCustomer: number;
-  public spinnerval: any = 0;
+  // public spinnerval: any = 0;
   public car_data: any;
   public apikey:any;
 
@@ -107,7 +107,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     public cookieService: CookieService,
     public router: Router,
     public snackBar: MatSnackBar,
-    public apploader: AppComponent,
+    // public apploader: AppComponent,
     public detailService:DetailServiceService
 
   ) {
@@ -120,7 +120,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
 
-    this.spinnerval = 0;
+    // this.spinnerval = 0;
 
 
     if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
@@ -182,7 +182,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
   }
 
   searchAutoComplete(event: any, field: string) {
-    this.apploader.loader = 1;
+    // this.apploader.loader = 1;
     let input: string = '';
     let inputField: string = '';
     if (event.target.value != null && event.target.value != '' && event.target.value.length >= 0) {
@@ -197,7 +197,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
       this.http.get(search_url).subscribe((res: any) => {
         console.log('>>>>>',res)
-        this.apploader.loader = 0;
+        // this.apploader.loader = 0;
         if (field == 'make') {
           this.make_list = res.terms;
           // console.log(field, this.make_list);
@@ -269,7 +269,7 @@ export class BasicInventorySearchBackendComponent implements OnInit {
 
 
     if (this.inventoryCustomerForm.valid) {
-      this.apploader.loader = 1;
+      // this.apploader.loader = 1;
 
       let yearVal = this.inventoryCustomerForm.value.year;
       let typeVal = this.inventoryCustomerForm.value.type;
@@ -310,20 +310,20 @@ export class BasicInventorySearchBackendComponent implements OnInit {
       }
       if (this.type != '' || this.year != '' || this.make != '' || this.vin != '' || this.trim != '' || this.vehicle != '' || this.state != '' || this.zip != '' || this.model != '') {
 
-        this.spinnerval = 1;
+        // this.spinnerval = 1;
 
 
         let search_link = this.inventory_url + this.type + this.year + this.make + this.vin + this.trim + this.vehicle + this.state + this.zip + this.model;
 
         this.http.get(search_link).subscribe((res: any) => {
           console.log('>>>>',res)
-          this.apploader.loader = 0;
+          // this.apploader.loader = 0;
           this.search = res.listings;
 
           // console.log('search list', this.search)
 
         })
-        this.spinnerval = 0;
+        // this.spinnerval = 0;
 
       }
       // else {

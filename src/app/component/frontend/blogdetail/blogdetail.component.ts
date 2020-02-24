@@ -269,7 +269,7 @@ blogdetail(val:any){
 
    twitterShare(){
 
-    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    window.open('https://twitter.com/intent/tweet?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
     // console.log(url)
 
   }
@@ -278,7 +278,7 @@ blogdetail(val:any){
   
   linkedinShare(){
 
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+this.blog._id);
     // console.log(url)
 
   }
@@ -288,7 +288,7 @@ blogdetail(val:any){
   
   tumblrShare(){
 
-    window.open('https://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
+    window.open('https://www.tumblr.com/share?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ this.blog._id);
     // console.log(url)
 
   }
@@ -367,7 +367,7 @@ viewAllCatBlogs(val){
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
 
-    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    window.open('https://twitter.com/intent/tweet?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
 
   }
@@ -379,7 +379,7 @@ viewAllCatBlogs(val){
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
 
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
 
   }
@@ -394,7 +394,7 @@ viewAllCatBlogs(val){
     this.blogtitle=this.title.replace(/[' '`~!@#$%^&*()_|+\-=?;:'",.<>\{\}\[\]\\\/]/gi, '-');
     // console.log(this.blogtitle)
 
-    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
+    window.open('http://www.tumblr.com/share?url=https://dev.probidauto.com/blogs/'+this.blogtitle+'/'+ val._id);
     // console.log(url)
 
   }

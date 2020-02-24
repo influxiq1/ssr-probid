@@ -123,15 +123,6 @@ export class TesimoniallistComponent implements OnInit {
       }
 
 
-      //this.meta.setTitle('ProBid Auto - Testimonials');
-        
-      this.meta.setTag('og:keyword', 'ProBid Testimonials, BroBid Auto Customer Reviews, ProBid Auto User Reviews');
-      this.meta.setTag('twitter:keyword', 'ProBid Testimonials, BroBid Auto Customer Reviews, ProBid Auto User Reviews');
-      this.meta.setTag('og:type', 'website');
-
-      
-
-
     }
 
 
@@ -216,11 +207,11 @@ export class TesimoniallistComponent implements OnInit {
 
         //twitter share
 
-  twitterShare(val:any){
+    twitterShare(val:any){
   
     // console.log(val)
 
-    window.open('https://twitter.com/intent/tweet?url=dev.probidauto.com/testimonial/'+ val._id);
+    window.open('https://www.twitter.com/intent/tweet?url=https://dev.probidauto.com/testimonial/'+ val._id);
     // console.log(url)
 
   }
@@ -231,10 +222,12 @@ export class TesimoniallistComponent implements OnInit {
   
     // console.log(val)
 
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=dev.probidauto.com/testimonial/'+ val._id);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/testimonial/'+ val._id);
     // console.log(url)
 
   }
+
+  // https://www.linkedin.com/sharing/share-offsite/?url=https://
 
 
   // tumblr share 
@@ -242,7 +235,7 @@ export class TesimoniallistComponent implements OnInit {
   tumblrShare(val:any){
   
     // console.log(val)
-    window.open('http://www.tumblr.com/share?url=dev.probidauto.com/testimonial/'+ val._id);
+    window.open('http://www.tumblr.com/share?url=https://dev.probidauto.com/testimonial/'+ val._id);
     // console.log(url)
 
   }
