@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit {
 public user_full_name: any = '';
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
-    this.userCookies = JSON.parse(this.cookieService.get('user_details'));
+    this.userCookies = this.cookieService.get('user_details');
     }
    }
    
