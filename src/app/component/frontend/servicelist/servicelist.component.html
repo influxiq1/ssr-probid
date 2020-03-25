@@ -27,7 +27,7 @@
     <span class="servinfo">
       <mat-card class="example-card servinfoinner">
         <mat-card-header>
-          <mat-card-title>{{serv_list.name}}</mat-card-title>
+          <mat-card-title>{{serv_list.service_title}}</mat-card-title>
         </mat-card-header>
         <mat-card-content>
           <p>
@@ -49,9 +49,9 @@
           [ngClass]="{'activecls': srv._id == serv_list._id }" (click)="servicelist(srv)">
           <mat-card>
             <div class="imagewrap">
-              <img src="{{srv.image}}" class="iconcls">
+              <img [src]="srv.image" class="iconcls">
             </div>
-            <mat-card-title>{{srv.name}}</mat-card-title>
+            <mat-card-title>{{srv.service_title}}</mat-card-title>
             <mat-card-content>{{srv.description}}</mat-card-content>
           </mat-card>
         </mat-list-item>

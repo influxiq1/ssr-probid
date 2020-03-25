@@ -247,7 +247,7 @@ const routes: Routes = [
     path: 'service',
     component: ServicelistComponent,
     resolve: { serviceListData: ResolveService },
-    data: { requestcondition: { source: 'service', condition: {} }, endpoint: 'datalistwithouttoken' }
+    data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalistwithouttoken' }
   },
   // { path: 'blog-category/list', component: BlogdetailComponent, resolve: { blogCatList: ResolveService },
   // data: { requestcondition: { source: 'blog_category_view', condition: {} }, endpoint: 'datalist' }},

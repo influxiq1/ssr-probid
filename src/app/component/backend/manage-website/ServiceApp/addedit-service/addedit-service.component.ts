@@ -17,7 +17,7 @@ export class AddeditServiceComponent implements OnInit {
     condition: {},
     defaultData: null,
     jwtToken: this.cookieService.get('jwtToken'),
-    callBack: "service/list",
+    callBack: "service-listing",
     userData: { id: "18801017007", name: "Admin" },
   }
 
