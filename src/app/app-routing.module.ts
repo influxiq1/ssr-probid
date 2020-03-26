@@ -447,6 +447,7 @@ const routes: Routes = [
     data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
   },
 
+
   // {
   //   path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
   //   data: { requestcondition: { source: 'services_view', condition: {} }, endpoint: 'datalist' },canActivate: [AuthGuard]

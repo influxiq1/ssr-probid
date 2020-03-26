@@ -359,7 +359,7 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
     border-left: 0px solid #666;
 }
 
-.bred_cram_wrapper_list .mat-list-base .mat-list-item, .bred_cram_wrapper_list .mat-list-base .mat-list-option{width: auto;}
+.bred_cram_wrapper_list .mat-list-base .mat-list-item, .bred_cram_wrapper_list .mat-list-base .mat-list-option{width: auto;text-transform: capitalize;}
 .bred_cram_wrapper_list .mat-list-base{padding-top: 0;}
 
 

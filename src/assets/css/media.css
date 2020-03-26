@@ -16,7 +16,7 @@
   }
   @media only screen and (max-width: 1280px) {
   .aboutusblock2.mat-card{background-image:url(../images/aboutb2imgdesktop.jpg)!important;background-position:right 19% center!important;background-size:cover!important}
-  .probidhomeblock4 .mat-list-base.lists .mat-list-item{width:20%}
+
   }
   @media only screen and (max-width: 1199px) {
 
@@ -30,7 +30,7 @@
   .aboutb1img img{position:inherit;left:inherit;transform:inherit;max-width:100%;cursor:pointer;-o-object-fit:cover;object-fit:cover}
   .aboutusblock2content{width:auto!important;display:block;padding-left:20px;padding-right:20px}
   .aboutb1info{padding-left:20px;padding-right:20px}
-  .probidhomeblock4 .mat-list-base.lists .mat-list-item{padding:13px;width:49%}
+
   .vpheaderwrapper .mat-nav-list a{font-size:13px}
   .mat-drawer{position:relative;z-index:4;display:block;position:inherit;top:0;bottom:0;z-index:3;outline:0;box-sizing:border-box;overflow-y:auto;transform:translate3d(-100%,0,0)}
   .mat-drawer-container.mat-drawer-opened{position:absolute;z-index:999;box-sizing:border-box;-webkit-overflow-scrolling:touch;display:block;overflow:visible}
@@ -51,6 +51,7 @@
   .owl-theme .owl-nav{ display: none;}
   }
   @media only screen and (max-width: 991px) {
+  .probidhomeblock4 .mat-list-base.lists .mat-list-item{flex:1 1 46%}
   .mat-list-base.lists .mat-list-item{width:49%}
   .probidhomeblock2inner .mat-list{flex-wrap:wrap}
   .headermiddlewrapper.mat-card-content{justify-content:center!important}
