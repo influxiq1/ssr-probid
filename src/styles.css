@@ -631,7 +631,7 @@ left: 1.5em;
 
 .homebanner owl-carousel owl-carousel-child .owl-dots{display: none;}
 
-
+.addeditservice .mat-card .mat-toolbar {display: none !important;}
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}
