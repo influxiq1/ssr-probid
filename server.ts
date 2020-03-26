@@ -34,8 +34,9 @@ global["document"] = win.document;
 global['HTMLElement'] = win.HTMLElement;
 global['navigator'] = win.navigator;
 // import Buffer from Buffer()
-new Buffer('string') // Deprecated 
-Buffer.from('string') // New
+// new Buffer('string') // Deprecated 
+// Buffer.from('string') // New
+
 
 // Express server
 const app = express();
