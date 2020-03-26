@@ -22,11 +22,11 @@
 .probidhomeblock4 .listsimgwrap{width:98px;height:98px}
 .probidhomeblock4 .listsimgwrap img{max-width:100%;object-fit:inherit}
 .probidhomeblock4 h3{font-family:"HelveticaBold";font-size:18px;color:#12c3e3;margin-top:19px;font-family:HelveticaBold;font-size:18px;color:#12c3e3;margin-top:19px;width:100%;text-align:center}
-.inventorysearch.inventorysearchtxtwhite button {margin-right: 5px;margin-top: 0;background: #1cb7eb;border-radius: 0;text-transform: capitalize;text-align: center;min-width: auto;
+.inventorysearch.inventorysearchtxtwhite button {margin-left: 5px;margin-top: 0;background: #1cb7eb;border-radius: 0;text-transform: capitalize;text-align: center;min-width: auto;
   color:#fff;}
-.inventorysearch.inventorysearchtxtwhite button:last-child{margin-right:0;}
-.inventorysearch.inventorysearchtxtwhite button:first-child{margin-left:5px !important;}
-.inventorysearch button:last-child{margin-right:0;}
+  /* .inventorysearch.inventorysearchtxtwhite button:last-child{margin-right:0;}
+  .inventorysearch.inventorysearchtxtwhite button:nth-child(1){margin-left:5px !important;} */
+  .inventorysearch button:last-child{margin-right:0;}
 
 @media only screen and (max-width: 1820px) {
 .carousalinfo{width:615px}
@@ -187,7 +187,8 @@
 .inventorysearch .example-container .textarea .textareainner{display:flex!important;flex-wrap:wrap!important;flex-direction:column!important}
 .inventorysearch .example-container h4{color:#474b4e;font-size:15px;margin-bottom:10px;margin-top:10px;display:flex;flex:1 1 100%}
 .formatcls{display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;flex-direction:row;-webkit-box-pack:start;justify-content:flex-start;flex-wrap:wrap;flex-direction:column}
-.inventorysearch button{margin-right:1%;margin-top:1%;background:#1cb7eb;border-radius:0;text-transform:capitalize}
+.inventorysearch button{margin-top:5px;background:#1cb7eb;border-radius:0;text-transform:capitalize}
+.inventorysearch .buttonslist button{margin-left: 5px;}
 .buttonslist{text-align:right;display:inherit!important}
 .example-card{max-width:400px}
 .topborder{height:145px;width:100%;background-color:#e2ecee!important}

@@ -4,8 +4,8 @@
     .blogbg.mat-card {background: url(../../../../assets/images/blogbannerbg.jpg) no-repeat left 25% center !important;}
 }
 
-.bloglistswrapper .search-sec button {
-    margin-right: 5px;
+.bloglistswrapper .search-sec button.resetbtn {
+    margin-left: 5px;
     margin-top: 0;
     background: #1cb7eb;
     border-radius: 0;
