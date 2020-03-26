@@ -447,15 +447,6 @@ const routes: Routes = [
     data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
   },
 
-  {
-    path: 'testimonial-lists-salesrep', component: ListingTestimonialComponent, resolve: { testimonialList: ResolveService },
-    data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
-  },
-
-  {
-    path: 'testimonial-lists-customer', component: ListingTestimonialComponent, resolve: { testimonialList: ResolveService },
-    data: { requestcondition: { source: 'testimonial_view', condition: {} }, endpoint: 'datalist' }, canActivate: [AuthGuard]
-  },
 
   // {
   //   path: 'service-listing', component: ListingServiceComponent, resolve: { serviceList: ResolveService },
