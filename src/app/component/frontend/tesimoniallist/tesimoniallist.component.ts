@@ -48,7 +48,7 @@ export class TesimoniallistComponent implements OnInit {
   ngOnInit() 
   {
 
-    if(this.router.url == '/testimonial'){
+    if(this.router.url == '/testimonials'){
 
       this.activatedRoute.data.forEach(data => {
         let result: any = {};
@@ -115,9 +115,9 @@ export class TesimoniallistComponent implements OnInit {
           this.meta.setTag('twitter:image', this.TestimonialListArray[item].testimonial_img);
           this.meta.setTag('og:description', this.TestimonialListArray[item].description_html);
           this.meta.setTag('twitter:description', this.TestimonialListArray[item].description_html);  
-          this.meta.setTag('og:url', 'https://dev.probidauto.com/testimonial/'+  this.TestimonialListArray[item]._id);
+          this.meta.setTag('og:url', 'https://dev.probidauto.com/testimonials/'+  this.TestimonialListArray[item]._id);
 
-          this.meta.setTag('twitter:url', 'https://dev.probidauto.com/testimonial/'+  this.TestimonialListArray[item]._id);
+          this.meta.setTag('twitter:url', 'https://dev.probidauto.com/testimonials/'+  this.TestimonialListArray[item]._id);
 
         }
       }
@@ -130,7 +130,7 @@ export class TesimoniallistComponent implements OnInit {
   }
 
   btnBackClick = function () {
-    this.router.navigateByUrl('testimonial');
+    this.router.navigateByUrl('testimonials');
   };
 
   showMoreFunc() {
@@ -185,7 +185,7 @@ export class TesimoniallistComponent implements OnInit {
         // this.router.navigateByUrl('/testimonial/' + val._id)
 
         // console.log(val)
-        var url='https://dev.probidauto.com/testimonial/'+ val._id;
+        var url='https://dev.probidauto.com/testimonials/'+ val._id;
         console.log(url)
     
         let params: UIParams = {
@@ -211,7 +211,7 @@ export class TesimoniallistComponent implements OnInit {
   
     // console.log(val)
 
-    window.open('https://www.twitter.com/intent/tweet?url=https://dev.probidauto.com/testimonial/'+ val._id);
+    window.open('https://www.twitter.com/intent/tweet?url=https://dev.probidauto.com/testimonials/'+ val._id);
     // console.log(url)
 
   }
@@ -222,7 +222,7 @@ export class TesimoniallistComponent implements OnInit {
   
     // console.log(val)
 
-    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/testimonial/'+ val._id);
+    window.open('https://www.linkedin.com/sharing/share-offsite/?url=https://dev.probidauto.com/testimonials/'+ val._id);
     // console.log(url)
 
   }
@@ -235,7 +235,7 @@ export class TesimoniallistComponent implements OnInit {
   tumblrShare(val:any){
   
     // console.log(val)
-    window.open('http://www.tumblr.com/share?url=https://dev.probidauto.com/testimonial/'+ val._id);
+    window.open('http://www.tumblr.com/share?url=https://dev.probidauto.com/testimonials/'+ val._id);
     // console.log(url)
 
   }

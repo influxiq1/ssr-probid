@@ -54,7 +54,7 @@ import { BlogManagementComponent } from './component/backend/blog-management/blo
 import { CommissionReportComponent } from './component/backend/commission-report/commission-report.component';
 import { InventorySearchComponent } from './component/backend/inventory-search/inventory-search.component';
 import { ManageAvailabilityComponent } from './component/backend/calendar-manager/manage-availability/manage-availability.component';
-import { TestimonialListsAdminComponent } from './component/backend/testimonial-lists-admin/testimonial-lists-admin.component';
+// import { TestimonialListsAdminComponent } from './component/backend/testimonial-lists-admin/testimonial-lists-admin.component';
 
 import { BirddogListComponent } from './component/backend/user/birddog-list/birddog-list.component';
 
@@ -217,7 +217,7 @@ const routes: Routes = [
   { path: 'search-inventory-list', component: SearchListViewComponent },
   { path: 'specials-list', component: SearchListViewComponent },
   {
-    path: "testimonial",
+    path: "testimonials",
     component: TesimoniallistComponent,
     resolve: { testimonialListData: ResolveService },
     data: {
@@ -227,7 +227,7 @@ const routes: Routes = [
   },
 
   {
-    path: "testimonial/:id",
+    path: "testimonials/:id",
     component: TesimoniallistComponent,
     resolve: { testimonialListData: ResolveService },
     data: {
