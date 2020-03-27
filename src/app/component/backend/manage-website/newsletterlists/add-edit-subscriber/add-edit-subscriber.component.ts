@@ -11,6 +11,9 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class AddEditSubscriberComponent implements OnInit {
 
+  public user_details: any;
+  public header_text:any="Add Subscriber"
+
   public configAddEdit: any = {
     action: "add",
     // endpoint: "https://r245816wug.execute-api.us-east-1.amazonaws.com/dev/api/addorupdatedata",
@@ -33,11 +36,21 @@ export class AddEditSubscriberComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+    
+     // console.log(this.user_id);
+      // console.log('type>>', this.user_details.type)
+    
+    }
+
   }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       if (params._id) {
+        this.header_text="Edit Subscriber"
         this.activatedRoute.data.subscribe(resolveData => {
           this.configAddEdit.defaultData = resolveData.subscriptiongroupData.res[0];
           this.configAddEdit.action = "edit";
