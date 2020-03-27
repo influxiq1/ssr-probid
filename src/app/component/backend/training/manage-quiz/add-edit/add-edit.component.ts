@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { ApiService } from '../../../../../api.service';
 import { MetaService } from '@ngx-meta/core';
@@ -27,7 +27,7 @@ export class AddEditComponent implements OnInit {
   }
   public listingPageRoute : any="/manage-quiz/list/";
 
-  constructor(public activatedRoute: ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
+  constructor(public router: Router, public activeroute: ActivatedRoute,public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) { 
 
     this.meta.setTitle('ProBid Auto - Manage Answer');
     this.meta.setTag('og:title', 'ProBid Auto - Manage Answer');
@@ -36,7 +36,7 @@ export class AddEditComponent implements OnInit {
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
-    this.lessonId = this.activatedRoute.snapshot.params.id;
+    this.lessonId = this.activeroute.snapshot.params.id;
 
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
       this.userCookies = JSON.parse(this.cookieService.get('user_details'));
@@ -46,8 +46,9 @@ export class AddEditComponent implements OnInit {
   }
 
   ngOnInit() {
-    if(this.activatedRoute.snapshot.params._id){
-      this.activatedRoute.data.forEach(data => {
+    if(this.activeroute.snapshot.params._id){
+
+      this.activeroute.data.forEach(data => {
         let result: any;
         result = data.quizQuestionData.res;
         this.quizQuestionSingleDataList = result;
@@ -56,6 +57,10 @@ export class AddEditComponent implements OnInit {
       })
     }
   
+  }
+
+  managequizlist(){
+    this.router.navigateByUrl("/manage-quiz/list/" + this.activeroute.snapshot.params._id);
   }
 
 }

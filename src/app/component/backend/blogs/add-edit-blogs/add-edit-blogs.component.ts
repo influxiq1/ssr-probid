@@ -10,7 +10,8 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class AddEditBlogsComponent implements OnInit {
 
-  // public user_details: any;
+  public user_details: any;
+  public header_text:any="Add blog"
 
   server: any =this.apiService.serverUrlDemo;
   addUrl: any = 'addorupdatedata';
@@ -56,9 +57,9 @@ export class AddEditBlogsComponent implements OnInit {
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
-    // if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
-    //   this.user_details = JSON.parse(this.cookieService.get('user_details'));
-    // }
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+    }
 
    }
 
@@ -66,7 +67,8 @@ export class AddEditBlogsComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       if (params._id) {
-        this.activatedRoute.data.subscribe(resolveData => {         
+        this.activatedRoute.data.subscribe(resolveData => {    
+          this.header_text="Edit blog"     
           this.editdata= resolveData.blogsList.res[0];  
           this.action="edit";    
         });

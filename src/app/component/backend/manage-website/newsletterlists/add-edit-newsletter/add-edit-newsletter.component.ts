@@ -13,6 +13,8 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class AddEditNewsletterComponent implements OnInit {
 
+  public user_details: any;
+
   public configAddEdit: any = {
     action: "add",
    
@@ -43,6 +45,15 @@ export class AddEditNewsletterComponent implements OnInit {
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+    
+     // console.log(this.user_id);
+      // console.log('type>>', this.user_details.type)
+    
+    }
+
   }
 
 
@@ -53,7 +64,7 @@ export class AddEditNewsletterComponent implements OnInit {
         this.activatedRoute.data.subscribe(resolveData => {
           this.configAddEdit.defaultData = resolveData.newsData.res[0];
 
-          console.log(">>>", this.configAddEdit.defaultData );
+          // console.log(">>>", this.configAddEdit.defaultData );
           this.configAddEdit.action = "edit";
           this.configAddEdit.condition = { id: params._id };
 

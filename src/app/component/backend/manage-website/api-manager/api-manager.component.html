@@ -10,14 +10,13 @@
               <mat-card-content class="bred_cram_wrapper_list">
                 <mat-list class="bred_cram_wrapper">
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
-                    
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Manage Website</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Manage Website</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Manage Website</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
+
+                  <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a>api manager</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a>api manager</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a>api manager</a> </mat-list-item>
           
-                    <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a>api manager</a> </mat-list-item>
                 </mat-list>       
               </mat-card-content>
               <span class="searchblock">

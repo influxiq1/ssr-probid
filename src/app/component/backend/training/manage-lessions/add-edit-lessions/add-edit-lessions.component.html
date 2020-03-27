@@ -19,10 +19,9 @@
               [routerLink]="'/manage-lesson/list'">Manage Lesson List</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
               [routerLink]="'/manage-lesson/list'">Manage Lesson List</a> </mat-list-item>
-
-              <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a>{{header_text}}</a> </mat-list-item>
-            <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a>{{header_text}}</a> </mat-list-item>
-            <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a>{{header_text}}</a> </mat-list-item>
+              
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-lesson/add'"> <a>Add lesson</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-lesson/edit/:id'"> <a>edit lesson</a> </mat-list-item>
           
         </mat-list>       
     </mat-card-content>

@@ -22,11 +22,9 @@
           <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
               [routerLink]="'/manage-training/list'">Training Manager</a> </mat-list-item>
 
-            <!-- <mat-list-item mat-list-item> <a>Manage Training</a> </mat-list-item> -->
 
-            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a>{{header_text}}</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a>{{header_text}}</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a>{{header_text}}</a> </mat-list-item>
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-training/edit/:id'"> <a>edit Training</a> </mat-list-item>
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-training/add'"> <a>Add Training</a> </mat-list-item>
 
 
         </mat-list>       
