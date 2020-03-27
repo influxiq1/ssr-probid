@@ -16,6 +16,8 @@ public salesrep_list:any;
 public addbirddogForm: FormGroup;
 public stateList: any;
 public cityList: any;
+public userType:any;
+public userDetails:any;
 public header_text:any="Add Birddog"
   public btn_text:any="Submit"
   public allCities:any
@@ -28,6 +30,10 @@ constructor(public activatedRouter:ActivatedRoute, public apiservice: ApiService
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
     /**genarate Add-birddog form */
+
+    this.userDetails = JSON.parse(this.cookieService.get('user_details'));
+    this.userType=this.userDetails.type;
+
 
     if(router.url != '/add-birddog'){
 

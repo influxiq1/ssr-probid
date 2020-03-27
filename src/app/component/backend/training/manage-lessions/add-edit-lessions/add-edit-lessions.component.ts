@@ -14,6 +14,8 @@ export class AddEditLessionsComponent implements OnInit {
   public userCookies: any;
   public formdataval: any;
   public recid: any;
+  public user_details:any;
+  public header_text:any="Add lesson"
   public listingPageRoute : any="/manage-lesson/list";
   public pageName : any="Manage Lesson";
 
@@ -64,6 +66,7 @@ export class AddEditLessionsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.header_text="Edit lesson"
       this.recid = params['id'];
       console.log(params['id'])
       if (this.recid != null && this.recid != '' && this.recid != undefined) {

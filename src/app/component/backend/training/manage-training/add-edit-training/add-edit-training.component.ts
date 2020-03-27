@@ -13,6 +13,7 @@ export class AddEditTrainingComponent implements OnInit {
   title = 'demoApp';
   public formdataval: any;
   public recid: any;
+  public header_text:any="Add Training"
   public listingPageRoute : any="/manage-training/list";
   public serverDetails: any = {
     // "serverUrl": "https://9ozbyvv5v0.execute-api.us-east-1.amazonaws.com/production/api/",
@@ -47,6 +48,7 @@ export class AddEditTrainingComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
+      this.header_text="Edit Training"
       this.recid = params['id'];
       console.log(params['id'])
       if (this.recid !=null && this.recid !='' && this.recid !=undefined) {

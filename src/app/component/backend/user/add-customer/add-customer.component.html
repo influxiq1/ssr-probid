@@ -1,7 +1,27 @@
 <div class="adminwrappercls">
     <app-header></app-header>
-  
     <div class="main-content-wrap">
+      <mat-card-content class="bred_cram_wrapper_list">
+        <mat-list class="bred_cram_wrapper">
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'admin'"> <a
+              [routerLink]="'/admin-dashboard'">Dashboard</a>
+          </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'customer'"> <a
+              [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'salesrep'"> <a
+              [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
+  
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'admin'"> <a [routerLink]="'/customer-list-admin'">customer List</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'customer'"> <a [routerLink]="'/customer-list-customer'">customer List</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'salesrep'"> <a [routerLink]="'/customer-list-salesrep'">customer List</a> </mat-list-item>
+  
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'admin'"> {{header_text}} </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'customer'"> {{header_text}} </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userDetails.type == 'salesrep'"> {{header_text}} </mat-list-item>
+  
+        </mat-list>
+      </mat-card-content>
+      
         <mat-card class="generalcls blog" style="padding: 0 !important;">  
             <span class="searchblock">
                 <span class="searchblockwrapper">

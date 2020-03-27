@@ -4,6 +4,8 @@ import { ApiService } from '../../../../api.service';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MetaService } from '@ngx-meta/core';
+import {CookieService} from 'ngx-cookie-service';
+
 @Component({
   selector: 'app-add-salesrep',
   templateUrl: './add-salesrep.component.html',
@@ -17,17 +19,21 @@ export class AddSalesrepComponent implements OnInit {
   public btn_text: any = "Submit"
   public allCities:any
   public timezone:any;
-
+  public userType:any;
+  public userDetails:any;
 
   @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
-  constructor(public activatedRouter: ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder, public dialog: MatDialog, public router: Router,private readonly meta: MetaService) {
+  constructor(public activatedRouter: ActivatedRoute, public apiservice: ApiService, public fb: FormBuilder, public dialog: MatDialog, public router: Router,public cookieService:CookieService,private readonly meta: MetaService) {
 
-    this.meta.setTitle('ProBid Auto - Add Birddog');
-    this.meta.setTag('og:title', 'ProBid Auto - Add Birddog');
-    this.meta.setTag('twitter:title', 'ProBid Auto - Add Birddog');
+    this.meta.setTitle('ProBid Auto - Add salesrep');
+    this.meta.setTag('og:title', 'ProBid Auto - Add salesrep');
+    this.meta.setTag('twitter:title', 'ProBid Auto - Add salesrep');
     this.meta.setTag('og:type', 'website');
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+    this.userDetails = JSON.parse(this.cookieService.get('user_details'));
+    this.userType=this.userDetails.type;
 
     /**genarate Add-salesrep form */
     if (router.url != '/add-salesrep') {
