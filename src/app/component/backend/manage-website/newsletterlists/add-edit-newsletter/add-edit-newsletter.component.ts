@@ -14,6 +14,7 @@ import { MetaService } from '@ngx-meta/core';
 export class AddEditNewsletterComponent implements OnInit {
 
   public user_details: any;
+  public header_text:any="Add Newsletter"
 
   public configAddEdit: any = {
     action: "add",
@@ -61,6 +62,7 @@ export class AddEditNewsletterComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       if(params._id) {
+        this.header_text="Edit Newsletter"
         this.activatedRoute.data.subscribe(resolveData => {
           this.configAddEdit.defaultData = resolveData.newsData.res[0];
 
