@@ -392,18 +392,24 @@ app-bk-leftdiv{position:relative;z-index:999;display:none}
 
 .tablediv_Settings{margin-top:5px!important}
 /* .bloglists .Settings_tab_block .tablediv{margin-top:-72px;display:block} */
-.setting_formblock{display:block;margin:15px 0 10px}
-.setting_formblock label{display:inline-block;font-size:14px;color:#111;margin:10px 0 0;font-weight:400}
+.setting_formblock .mat-form-field-appearance-legacy .mat-form-field-label {top: 1.28125em!important;line-height: 32px;}
+
+.setting_formblock{display:block;background: #f1f1f1;padding:10px}
+.setting_formblock form{display: flex;align-items: center;justify-content: flex-start;}
+.setting_formblock label{display:flex;font-size:16px;color:#111;margin:0;font-weight:400}
 .setting_formblock .mat-form-field{display:inline-block;margin:0 20px}
-.setting_formblock .mat-form-field input{background:#f0f0f2;padding:5px;border:solid 1px #eaeaea;width:350px;height:40px}
+.setting_formblock .mat-form-field input{background: #dde2e5;padding: 5px;border: solid 4px #646d73;width: 350px;height: 32px;}
 .mat-radio-group{display:inline-block;margin:0 0 0 20px}
 .setting_formblock .mat-form-field-infix{width:auto!important}
-.setting_formblock .mat-form-field-appearance-legacy .mat-form-field-infix{padding:0!important;background:#fff;margin:0}
+.setting_formblock .mat-form-field-appearance-legacy .mat-form-field-infix{padding:0!important;background:#fff;margin:0;margin-bottom: 0 !important;}
 .setting_formblock .mat-radio-label-content{display:inline-block;padding:0 20px 0 8px !important}
 .setting_formblock .mat-radio-container{display:inline-block;}
-.setting_formblock_btngroup{display:block;margin-top:25px;padding-top:20px;text-align:right;border-top:solid 1px #eaeaea}
+
+.setting_formblock_btngroup{display:block;text-align:right;border-top:solid 1px #eaeaea}
 .setting_formblock_btngroup button{display:inline-block;border:none;box-shadow:none;width:98px;height:35px;text-align:center;line-height:30px;font-size:16px;cursor:pointer;text-transform:uppercase;color:#fff;background:#323234}
 .setting_formblock_btngroup button:nth-of-type(2){background:#e03621;margin-left:10px}
+
+
 .subrighrwrapper .sub-col-6 .mat-radio-group{margin:0!important}
 .sharelinkrighttop{display: -webkit-box;display: -moz-box;display: -ms-flexbox;display: -webkit-flex;display: flex;flex-direction:column;flex-wrap: wrap;  -webkit-flex-wrap: wrap;justify-content:space-between;padding-top:0;height:50%!important;align-items:center}
 .sharelinkrighttop .mat-list-item-content{padding:0!important;height:100%!important}
@@ -430,15 +436,56 @@ span.smltxt{font-size:16px!important;line-height:18px!important;display:block;te
 .tablediv table td .buttons_ro button span, .tablediv mat-table mat-cell .buttons_ro button span {padding-left: 0;}
 
 .topmenulist .navigation-left a, .topmenulist .navigation-left a:hover {padding: 7px 14px 7px;}
+.formControlnl{display: flex; align-items: center;}
 
+@media only screen and (max-width: 1440px) {
+.setting_formblock .mat-form-field input {width: 250px;}
+}
+@media only screen and (max-width: 1336px) {
+    .setting_formblock form {justify-content: center;flex-wrap: wrap;}
+}
 @media only screen and (max-width: 1199px) {
-.setting_formblock label{display:block;float:none;margin:10px 0}
-.setting_formblock .mat-form-field{display:block;float:none;margin:0 0 20px}
+.setting_formblock form {justify-content: center;flex-wrap: wrap;}
+.setting_formblock label{display: block;float: none;margin: 5px 0 0;}
 .mat-radio-group{display:block;float:none;margin:0}
 .setting_formblock_btngroup{float:none;text-align:left}
+.formControlnl {align-items: center;flex-wrap: wrap;margin-top: 10px; margin-bottom: 10px;}
+.formControlnl .mat-radio-group {margin: 0;}
+}
+@media only screen and (max-width: 600px) {
+.setting_formblock label {
+    display: block;
+    float: none;
+    margin: 5px 0 0;
+    flex: 1 1 100%;
+    text-align: center;
+}
+.mat-radio-group {
+    margin: 0 auto !important;
+}
 }
 @media only screen and (max-width: 480px) {
-.setting_formblock .mat-form-field input{width:auto}
+    .tabwrapper .mat-tab-label h2{font-size: 20px!important;}
+    .setting_formblock .mat-form-field {width: 100%;}
+    .setting_formblock .mat-form-field input {width: 100%;}
+.setting_formblock label {
+    display: flex;
+    float: none;
+    margin: 5px 0 0;
+    justify-content: center;
+}
+.setting_formblock label {
+    text-align: center;
+    margin-bottom: 5px;
+}
+.formControlnl {
+    -webkit-box-align: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    justify-content: center;
+}
 }
 @media only screen and (max-width: 1760px) {
 .dashboard_block1{background-position:790px top!important}
