@@ -6,6 +6,7 @@
               <mat-card-content class="adm_inner_banner testimoniallistsadmin">
                   <mat-card-title class="adm_inner_title">Training Center</mat-card-title>
               </mat-card-content>
+
               <mat-card-content class="bred_cram_wrapper_list">
                 <mat-list class="bred_cram_wrapper">
                   <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
@@ -15,14 +16,9 @@
                 <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
                     [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
         
-                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-                      [routerLink]="'/admin-dashboard'">Training Manager</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-                      [routerLink]="'/customer-dashboard'">Training Manager</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-                      [routerLink]="'/rep-dashboard'">Training Manager</a> </mat-list-item>
-        
-                    <mat-list-item mat-list-item> <a>Training Center</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a>Training Center</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a>Training Center</a> </mat-list-item>
+                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a>Training Center</a> </mat-list-item>
                 </mat-list>       
               </mat-card-content>
 

@@ -14,6 +14,7 @@ export class AddEditLessionsComponent implements OnInit {
   public userCookies: any;
   public formdataval: any;
   public recid: any;
+  public user_details:any;
   public listingPageRoute : any="/manage-lesson/list";
   public pageName : any="Manage Lesson";
 

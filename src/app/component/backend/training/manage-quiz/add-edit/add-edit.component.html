@@ -5,27 +5,31 @@
       <mat-card-content class="adm_inner_banner testimoniallistsadmin">
         <mat-card-title class="adm_inner_title">Add Edit Answer</mat-card-title>
       </mat-card-content>
+      
       <mat-card-content class="bred_cram_wrapper_list">
         <mat-list class="bred_cram_wrapper">
-          
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-            [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
-        <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-            [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
-        <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-            [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
+          <mat-card-content class="bred_cram_wrapper_list">
+            <mat-list class="bred_cram_wrapper">
+    
             <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-              [routerLink]="'/admin-dashboard'">Training Manager</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-              [routerLink]="'/customer-dashboard'">Training Manager</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-              [routerLink]="'/rep-dashboard'">Training Manager</a> </mat-list-item>
+                [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+                [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+                [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
-            <mat-list-item mat-list-item> <a>Add Edit Answer</a> </mat-list-item>
-          
+                <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'" (click)="managequizlist()"> <a>Manage Quiz </a> </mat-list-item>
+
+            <!-- <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activeroute.snapshot.routeConfig.path == 'manage-quiz/list/:lesson_id_object'"> <a>Manage Quiz </a> </mat-list-item> -->
+
+            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a>Add Question </a> </mat-list-item>
+              
+            </mat-list>       
+          </mat-card-content>      
         </mat-list>       
       </mat-card-content>
+
       <div class="tablediv">
         <lib-add-edit [serverDetails]="serverDetails" [formSource]="formSource" [ListingPageRoute]="listingPageRoute"
           [DataList]="quizQuestionSingleDataList" [LessonId]="lessonId"></lib-add-edit>

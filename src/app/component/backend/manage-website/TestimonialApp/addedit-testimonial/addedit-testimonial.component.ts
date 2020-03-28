@@ -12,6 +12,8 @@ import { MetaService } from '@ngx-meta/core';
 export class AddeditTestimonialComponent implements OnInit {
 /* Config for add and edit start */
 
+public user_details: any;
+public header_text:any="Add Testimonial"
 
 public configAddEdit: any = {
   action: "add",
@@ -39,6 +41,7 @@ public configData: any = {
   bucketName: "crmfiles.influxhostserver"
 }
 
+/**audio config */
 public configAudioFileUpload:any={
   baseUrl: "https://fileupload.influxhostserver.com/",
   endpoint: "uploads",
@@ -49,7 +52,7 @@ public configAudioFileUpload:any={
   prefix: "testimonial-mp3_",
   formSubmit: false,
   conversionNeeded: 1,
-  bucketName: "crmfiles.influxhostserver"
+  bucketName: "probidfiles-dev.com"
 }
 
 /* Config for add and edit end */
@@ -63,12 +66,21 @@ public configAudioFileUpload:any={
     this.meta.setTag('og:image', '../../assets/images/logomain.png');
     this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
 
+    if (this.cookieService.get('user_details') != undefined && this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      this.user_details = JSON.parse(this.cookieService.get('user_details'));
+
+     // console.log(this.user_id);
+      // console.log('type>>', this.user_details.type)
+
+    }
+
    }
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       if(params._id) {
         this.activatedRoute.data.subscribe(resolveData => {
+          this.header_text="Edit testimonial"
           this.configAddEdit.defaultData = resolveData.testimonialData.res[0];
           this.configAddEdit.action = "edit";
           this.configAddEdit.condition = { id: params._id };
@@ -79,3 +91,7 @@ public configAudioFileUpload:any={
 
 
 }
+
+
+
+

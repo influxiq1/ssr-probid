@@ -19,6 +19,8 @@ export class CustomerListComponent implements OnInit {
     this.userDetails = JSON.parse(this.cookieService.get('user_details'));
     this.userType=this.userDetails.type;
 
+    
+
     this.meta.setTitle('ProBid Auto - Customer List');
         this.meta.setTag('og:title', 'ProBid Auto - Customer List');
         this.meta.setTag('twitter:title', 'ProBid Auto - Customer List');

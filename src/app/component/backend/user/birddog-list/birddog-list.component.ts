@@ -11,6 +11,9 @@ import { MetaService } from '@ngx-meta/core';
 })
 export class BirddogListComponent implements OnInit {
   
+  public userDetails:any;
+  public userType:any;
+
   statusarray: any = [{val: 1, name: 'Active'}, {val: 0, name: 'Pending'}, {val: 2, name: 'Inactive'}]; 
   
 
@@ -50,6 +53,10 @@ constructor(public activatedRoute: ActivatedRoute, public router: Router,public 
   this.meta.setTag('og:type', 'website');
   this.meta.setTag('og:image', '../../assets/images/logomain.png');
   this.meta.setTag('twitter:image', '../../assets/images/logomain.png');
+
+  this.userDetails = JSON.parse(this.cookieService.get('user_details'));
+    this.userType=this.userDetails.type;
+
 }
 
 ngOnInit() {

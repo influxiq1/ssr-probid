@@ -28,9 +28,10 @@
     .admcls .header .toolbar-row .logo{width:150px;display:flex;flex:1 1 100%;justify-content:center;padding:10px}
     .topmenulist{margin-left:auto;display:flex;flex:1 1 100%;justify-content:center;flex-wrap:wrap;margin-top: 10px;}
     .tablediv{margin-top:0}
-    .bloglists .tablediv .searchbar,.blogcatlists .tablediv .searchbar{background:#70daee}
-    .tablediv .searchbar{background:#70daee}
+    .bloglists .tablediv .searchbar,.blogcatlists .tablediv .searchbar{background:#dde2e5;}
+    /* .tablediv .searchbar{background:#70daee} */
     .mat-form-field-appearance-legacy .mat-form-field-wrapper{padding-bottom:0!important}
+    .tablediv table td.mat-column-subject {width: 99% !important;}
     }
     @media only screen and (max-width: 991px) {
     .bred_cram_wrapper.rightsideformcls{flex-wrap: wrap;}
@@ -64,13 +65,13 @@
     .tablediv table td,.tablediv mat-table mat-cell{border-bottom:1px solid #ddd;display:block;font-size:13px;text-align:right;padding-left:25%}
     .adminlisttable .whitebtnlists{text-align:right!important}
     .tablediv table td button,.tablediv mat-table mat-cell button:hover{float:right}
-    .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-18px;color:#000}
+    .tablediv table td:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
    .tablediv mat-table mat-cell:first-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
     .adminlisttable.adminlisttabledashboard .tablediv table tr, .adminlisttable.adminlisttabledashboard .tablediv mat-table mat-row{display:table-row!important}
     .tablediv table td:last-child::before,.tablediv mat-table mat-row mat-cell:last-child::before{content:attr(data-label)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;color:#000}
     /* .tablediv table td::after{content:attr(data-label);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000} */
     .tablediv .mytranningcategory .admin_table_wrapper table td::before{content:attr(datalabel)!important;float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:rgb(2, 0, 0)}
-    .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:-33%;color:#000}
+    .tablediv table td::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;;color:#000}
     .tablediv mat-table mat-row mat-cell::before{content:attr(title);float:left;font-weight:700;text-transform:uppercase;text-align:left;margin-left:0;color:#000}
     .tablediv table td:last-child,.tablediv mat-table mat-cell:last-child{border-bottom:0}
     .tablediv table td.mat-column-Actions,.tablediv mat-table mat-cell.mat-column-Actions {width: auto; padding-right: 8px;}
@@ -130,4 +131,5 @@
     .bred_cram_wrapper_list .mat-list-base .mat-list-item .mat-list-item-content{padding: 0 4px;}
     .searchblock .searchblockwrapper {justify-content: center;flex-wrap: wrap;}
     .bred_cram_wrapper_list{width: initial;}
+    .tablediv table td.mat-column-subject {width: 97% !important;}
     }

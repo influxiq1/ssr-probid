@@ -31,7 +31,7 @@ export class AddEditTrainingComponent implements OnInit {
   public additionalData: any = {
     "objectId": "parent_catagory"
   };
-  constructor(private route : ActivatedRoute, public activatedRoute: ActivatedRoute, public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) {
+  constructor(private route : Router, public activatedRoute: ActivatedRoute, public ApiService: ApiService, private cookieService: CookieService,private readonly meta: MetaService) {
     this.meta.setTitle('ProBid Auto - Manage Training');
         this.meta.setTag('og:title', 'ProBid Auto - Manage Training');
         this.meta.setTag('twitter:title', 'ProBid Auto - Manage Training');
@@ -42,11 +42,19 @@ export class AddEditTrainingComponent implements OnInit {
         if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
           this.userCookies = JSON.parse(this.cookieService.get('user_details'));
           // console.log('>>>>>>>',this.userCookies)
-          }
+        }
+        
+    
    }
 
   ngOnInit() {
-    this.route.params.subscribe(params => {
+
+
+    // if(this.activatedRoute.snapshot.routeConfig.path == 'manage-training/add'){
+    //   this.header_text ="Add Training";
+    // }
+
+    this.activatedRoute.params.subscribe(params => {
       this.recid = params['id'];
       console.log(params['id'])
       if (this.recid !=null && this.recid !='' && this.recid !=undefined) {

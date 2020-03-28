@@ -1,30 +1,31 @@
 <div class="adminwrappercls">
   <app-header></app-header>
   <div class="main-content-wrap">
-    <mat-card class="generalcls blog" style="padding: 0 !important;">      
+    <mat-card class="generalcls blog" style="padding: 0 !important;"> 
 
       <mat-card-content class="bred_cram_wrapper_list">
         <mat-list class="bred_cram_wrapper">
+
           <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
             [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
         <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
             [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
         <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
             [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
-
+       
             <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-              [routerLink]="'/admin-dashboard'">Training Manager</a> </mat-list-item>
+              [routerLink]="'/manage-lesson/list'">Manage Lesson List</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-              [routerLink]="'/customer-dashboard'">Training Manager</a> </mat-list-item>
+              [routerLink]="'/manage-lesson/list'">Manage Lesson List</a> </mat-list-item>
           <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-              [routerLink]="'/rep-dashboard'">Training Manager</a> </mat-list-item>
-
-            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a>Manage Lesson</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a>Manage Lesson</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a>Manage Lesson</a> </mat-list-item>
-
+              [routerLink]="'/manage-lesson/list'">Manage Lesson List</a> </mat-list-item>
+              
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-lesson/add'"> <a>Add lesson</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-lesson/edit/:id'"> <a>edit lesson</a> </mat-list-item>
+          
         </mat-list>       
     </mat-card-content>
+      
       <div class="tablediv">
         <lib-traning [PageName]="pageName" [formdata]="formdataval" [serverDetails]="serverDetails"
           [formSource]="formSource" [ObjectId]="additionalData" [ListingPageRoute]="listingPageRoute"

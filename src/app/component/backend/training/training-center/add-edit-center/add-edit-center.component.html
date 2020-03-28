@@ -15,14 +15,16 @@
         <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
             [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
-            <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-              [routerLink]="'/admin-dashboard'">Training Manager</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-              [routerLink]="'/customer-dashboard'">Training Manager</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-              [routerLink]="'/rep-dashboard'">Training Manager</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
+          [routerLink]="'/training-center/list'">Training Center</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
+          [routerLink]="'/training-center/list'">Training Center</a> </mat-list-item>
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
+          [routerLink]="'/training-center/list'">Training Center</a> </mat-list-item>
 
-            <mat-list-item mat-list-item> <a> Add Edit</a> </mat-list-item>
+
+        <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-center/add'"> <a>Add Training Center</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin' && activatedRoute.snapshot.routeConfig.path == 'manage-center/edit/:id'"> <a>Edit Training Center</a> </mat-list-item>
 
         </mat-list>       
       </mat-card-content>

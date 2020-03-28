@@ -15,10 +15,6 @@
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
-                  <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Manage Website</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Manage Website</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Manage Website</a> </mat-list-item>
-
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a>blog management</a> </mat-list-item>
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a>blog management</a> </mat-list-item>
                   <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a>blog management</a> </mat-list-item>

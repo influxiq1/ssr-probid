@@ -29,16 +29,9 @@
                 <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
                     [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
         
-                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a
-                      [routerLink]="'/admin-dashboard'">Calendar Manager</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a
-                      [routerLink]="'/customer-dashboard'">Calendar Manager</a> </mat-list-item>
-                  <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a
-                      [routerLink]="'/rep-dashboard'">Calendar Manager</a> </mat-list-item>
-        
-                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a [routerLink]="'/manage-availability-admin'"> Manage Availability</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a [routerLink]="'/manage-availability-customer'"> Manage Availability</a> </mat-list-item>
-                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a [routerLink]="'/manage-availability-rep'"> Manage Availability</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'admin'"> <a> Manage Availability</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'customer'"> <a> Manage Availability</a> </mat-list-item>
+                    <mat-list-item mat-list-item *ngIf="userCookies.type == 'salesrep'"> <a> Manage Availability</a> </mat-list-item>
                 </mat-list>       
               </mat-card-content>
             <span class="searchblock">

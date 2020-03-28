@@ -10,27 +10,24 @@
       </mat-card-content>
       <mat-card-content class="bred_cram_wrapper_list">
         <mat-list class="bred_cram_wrapper">
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
-          
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a [routerLink]="'/admin-dashboard'">Manage Website</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a [routerLink]="'/customer-dashboard'">Manage Website</a> </mat-list-item>
-          <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a [routerLink]="'/rep-dashboard'">Manage Website</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a
+              [routerLink]="'/admin-dashboard'">Dashboard</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'customer'"> <a
+              [routerLink]="'/customer-dashboard'">Dashboard</a> </mat-list-item>
+          <mat-list-item mat-list-item *ngIf="user_details.type == 'salesrep'"> <a
+              [routerLink]="'/rep-dashboard'">Dashboard</a> </mat-list-item>
 
           <mat-list-item mat-list-item *ngIf="user_details.type == 'admin'"> <a>newsletter</a> </mat-list-item>
-        </mat-list>       
+        </mat-list>
       </mat-card-content>
       <mat-tab-group class="tabwrapper">
-        <mat-tab>
+        <mat-tab> 
           <ng-template mat-tab-label>
             <h2 class="innertitle2">Newsletter List</h2>
           </ng-template>
           <ng-template matTabContent>
             <span class="bloglists">
-
               <span class="searchblock">
-
 
                 <span class="searchblockwrapper">
                   <h2>Newsletter List</h2>
@@ -54,7 +51,6 @@
             </span>
           </ng-template>
         </mat-tab>
-
 
         <mat-tab>
           <ng-template mat-tab-label>
@@ -88,11 +84,6 @@
           </ng-template>
         </mat-tab>
 
-
-
-
-
-
         <mat-tab>
           <ng-template mat-tab-label>
             <h2 class="innertitle2">Subscribers Group List</h2>
@@ -121,9 +112,6 @@
             </span>
           </ng-template>
         </mat-tab>
-
-
-
 
         <mat-tab>
           <ng-template mat-tab-label>
@@ -228,23 +216,17 @@
                       not valid</mat-error>
 
                   </mat-form-field>
+                  <span class="formControlnl">
+                    <label>Short Newsletters by:</label>
+                    <mat-radio-group formControlName="floatLabel">
+                      <mat-radio-button value="newest">Newest First</mat-radio-button>
+                      <mat-radio-button value="oldest">Oldest First</mat-radio-button>  
+                    </mat-radio-group>
+                  </span>                 
 
-                  <label>Short Newsletters by:</label>
-
-
-                  <mat-radio-group formControlName="floatLabel">
-                    <mat-radio-button value="newest">Newest First</mat-radio-button>
-                    <mat-radio-button value="oldest">Oldest First</mat-radio-button>
-
-                  </mat-radio-group>
-
-                  <span class="clear"></span>
                   <span class="setting_formblock_btngroup">
                     <button type="submit">Save</button>
                     <button type="reset">Cancel</button>
-
-
-
                     <span class="clear"></span>
                   </span>
 
@@ -256,15 +238,7 @@
           </ng-template>
         </mat-tab>
 
-
-
-
-
-
       </mat-tab-group>
-
-
-
     </mat-card>
   </div>
 </div>

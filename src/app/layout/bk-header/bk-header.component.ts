@@ -41,7 +41,7 @@ export class BkHeaderComponent implements OnInit {
 
 
 
-     
+  public user_details: any = '';   
   public user_data: any;
   public profile_img: any = '';
   constructor(
