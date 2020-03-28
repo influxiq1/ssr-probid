@@ -39,6 +39,19 @@ public configData: any = {
   bucketName: "crmfiles.influxhostserver"
 }
 
+public configAudioFileUpload:any={
+  baseUrl: "https://fileupload.influxhostserver.com/",
+  endpoint: "uploads",
+  size: "51200", // kb
+  format:["jpg", "jpeg", "png", "bmp", "zip", 'html','mp4','mp3','doc','ppt','pptx','pdf','msword'],  // use all small font
+  type: "testimonial-mp3",
+  path: "testimonial",
+  prefix: "testimonial-mp3_",
+  formSubmit: false,
+  conversionNeeded: 1,
+  bucketName: "crmfiles.influxhostserver"
+}
+
 /* Config for add and edit end */
 
   constructor( private router : Router , private activatedRoute : ActivatedRoute ,private cookieService : CookieService, public ApiService: ApiService, private readonly meta: MetaService) {
