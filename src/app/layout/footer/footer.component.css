@@ -35,7 +35,7 @@
 .footerwrapper .footerborder h3{display:inline-block;border-bottom:2px solid #fff;flex:inherit!important}
 .newsletterwrapper{width:321px}
 .footertopwrapper .mat-nav-list span.menuwrapper span .mat-list-item{width:100%;align-items:flex-start;margin-top:10px!important}
-.newslettermain{background-color:#323232;padding:16px;width:auto;display:inline-block;color:#fff;text-align:left}
+.newslettermain{background-color:#323232;padding:16px;width:auto;display:block;color:#fff;text-align:left}
 .newslettermain .example-container{display:flex;align-items:stretch;justify-content:space-between;margin-top:10px;margin-bottom:10px}
 .newslettermain .example-container .mat-form-field{display:flex;position:relative;text-align:left;flex:1 1 80%;background:#fff;margin-right:5px!important}
 .newslettermain .example-container .mat-form-field input.mat-input-element{color:#000}
@@ -94,4 +94,5 @@
 @media (max-width: 480px) {
     .footerwrapper span h3 {font-size: 15px;}
     .footerbottom h3 a {font-size: 14px;}
+    .newslettermain .example-container .mat-raised-button{min-width: 43px !important;}
 }
