@@ -823,7 +823,7 @@ left: 1.5em;
   .tablediv .searchbar .mat-form-field {margin: 4px;}
   }
 @media screen and (max-width: 640px) {
-  .cdk-overlay-pane .mat-dialog-container app-preview .submitbtn,  .cdk-overlay-pane .mat-dialog-container .submitbtn {font-size: 17px !important; padding: 4px 15px 2px !important;}
+  .cdk-overlay-pane .mat-dialog-container app-preview .submitbtn,  .cdk-overlay-pane .mat-dialog-container .submitbtn {font-size: 17px; padding: 4px 15px 2px;}
 .owl-carousel .owl-nav button.owl-prev{position:absolute;top:25%;left:0}
 .owl-carousel .owl-nav button.owl-next{position:absolute;top:25%;right:0}
 .owl-carousel .owl-item.active.center .quatation{display:block!important;width:96%;margin-left:auto;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit;margin-right:auto}
@@ -841,5 +841,10 @@ left: 1.5em;
 }
 
 @media screen and (max-width: 480px) {
+  .cdk-overlay-pane .mat-dialog-container app-preview .submitbtn, .cdk-overlay-pane .mat-dialog-container .submitbtn {
+    font-size: 15px;
+    padding: 3px 8px 2px;
+    margin-right: 5px !important;
+}
 .owl-carousel .owl-item.active.center .slide-image-wrapper{width:280px;height:280px}
 }
