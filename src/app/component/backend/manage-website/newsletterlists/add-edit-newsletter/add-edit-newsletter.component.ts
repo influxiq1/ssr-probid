@@ -31,8 +31,9 @@ export class AddEditNewsletterComponent implements OnInit {
     userData: { id: "18801017007", name: "Admin" },
     defaultDataAlways: null,
     group_table:'news_category',
-    sender_table:'senders'
-
+    sender_table:'senders',
+    test_mail_table:'testemail',
+    source_for_test_mail_add:'newsTitle_testMail_data'
   
     
   }  
