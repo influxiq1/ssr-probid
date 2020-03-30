@@ -31,6 +31,7 @@ export class AddEditNewsletterComponent implements OnInit {
     defaultDataAlways: null,
     group_table:'news_category',
     sender_table:'senders',
+    reply_address_table:'send_newsletter_reply_address_view',
     test_mail_table:'testemail',
     source_for_test_mail_add:'newsTitle_testMail_data'
   }  
