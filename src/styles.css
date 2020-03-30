@@ -823,6 +823,7 @@ left: 1.5em;
   .tablediv .searchbar .mat-form-field {margin: 4px;}
   }
 @media screen and (max-width: 640px) {
+  .cdk-overlay-pane .mat-dialog-container app-preview .submitbtn,  .cdk-overlay-pane .mat-dialog-container .submitbtn {font-size: 17px !important; padding: 4px 15px 2px !important;}
 .owl-carousel .owl-nav button.owl-prev{position:absolute;top:25%;left:0}
 .owl-carousel .owl-nav button.owl-next{position:absolute;top:25%;right:0}
 .owl-carousel .owl-item.active.center .quatation{display:block!important;width:96%;margin-left:auto;height:auto;max-width:inherit;-webkit-line-clamp:inherit;overflow:hidden;text-overflow:inherit;margin-right:auto}
@@ -833,6 +834,8 @@ left: 1.5em;
 .tablediv .searchbar .mat-form-field {width: 98%;}
 .bloglists .tablediv .searchbar .inputfilter, .blogcatlists .tablediv .searchbar .inputfilter{width: 100%;}
 .bloglists .mat-card{padding: 0;}
+.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span:nth-child(1) {width: 38%;}
+.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span:nth-child(2) {width: 62%;}
 }
 
 @media screen and (max-width: 480px) {

@@ -121,8 +121,7 @@
     }
 
  
-    @media only screen and (max-width: 540px) {
-    .cdk-overlay-pane .mat-dialog-container app-preview .submitbtn {font-size: 17px; padding: 4px 15px 2px;}
+    @media only screen and (max-width: 540px) {    
     .headerlogo{width:100%;float:none;background:#222!important;padding:10px 2px;display:block}
     .headerlogo img{width:auto;max-width:90%}
     }
