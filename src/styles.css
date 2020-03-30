@@ -384,6 +384,7 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
   align-items: center;
   padding-left: 0 !important;    
   background: #3a3a3a!important;
+  overflow: hidden;
 }
 /* .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div:last-child span{
   background: transparent!important;
@@ -459,6 +460,7 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field{width: 100%;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span{ 
   width: 100%;
+ 
 }
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span span{ overflow-x: scroll !important;width: 97%;margin: 0 auto;display: block; background: #3a3a3a !important;padding: 0px;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span.mat-select-value-text {
