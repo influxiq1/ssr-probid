@@ -383,6 +383,7 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
   justify-content: space-between;
   align-items: center;
   padding-left: 0 !important;
+
 }
 
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span .mat-form-field-label {
@@ -452,11 +453,10 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 }
 .mat-select .mat-select-value {max-width: inherit;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field{width: 100%;}
-.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span{
-  overflow-x: scroll !important;
+.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span{ 
   width: 100%;
 }
-
+.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span span{ overflow-x: scroll !important;width: 97%;margin: 0 auto;display: block;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span.mat-select-value-text {
 
   width: 100% !important;
