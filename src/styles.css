@@ -485,6 +485,8 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
   width: 100% !important;
 }
 
+.cdk-overlay-pane .mat-dialog-container app-preview h1{color: #000 !important;margin-bottom: 10px !important;}
+
 button.submitbtn.mat-raised-button.mat-primary:last-child{
   margin-right: 0 !important;
 }
