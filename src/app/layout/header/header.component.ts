@@ -22,17 +22,22 @@ export class HeaderComponent implements OnInit {
 
   public  name: string;
   navbarOpen = false;
+  public user_details:any=[];
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  public userCookies: any ='';
+  public user_detail: any ='';
 public user_full_name: any = '';
+public userCookies:any=[]
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
     if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
-    this.userCookies = JSON.parse(this.cookieService.get('user_details'));
-    console.log(' this.userCookies>>', this.userCookies)
+    this.user_detail =this.cookieService.get('user_details');
+
+    this.userCookies=JSON.parse(this.user_detail)
+
+    // console.log(' this.userCookies>>', this.userCookies)
     }
    }
    

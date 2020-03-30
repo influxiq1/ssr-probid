@@ -210,19 +210,19 @@
                     <mat-error *ngIf="myformsetting.controls['email'].touched && !myformsetting.controls['email'].valid
                        && myformsetting.controls['email'].errors.required">
                       Email field can not be blank</mat-error>
-                    <mat-error
+                    <!-- <mat-error
                       *ngIf="!myformsetting.controls['email'].valid && myformsetting.controls['email'].errors.email">
                       Email is
-                      not valid</mat-error>
+                      not valid</mat-error> -->
 
                   </mat-form-field>
-                  <span class="formControlnl">
+                  <!-- <span class="formControlnl">
                     <label>Short Newsletters by:</label>
                     <mat-radio-group formControlName="floatLabel">
                       <mat-radio-button value="newest">Newest First</mat-radio-button>
                       <mat-radio-button value="oldest">Oldest First</mat-radio-button>  
                     </mat-radio-group>
-                  </span>                 
+                  </span>                  -->
 
                   <span class="setting_formblock_btngroup">
                     <button type="submit">Save</button>
