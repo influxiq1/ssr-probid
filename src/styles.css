@@ -836,6 +836,8 @@ left: 1.5em;
 .bloglists .mat-card{padding: 0;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span:nth-child(1) {width: 38%;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span:nth-child(2) {width: 62%;}
+.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span {width: 100% !important;
+}
 }
 
 @media screen and (max-width: 480px) {
