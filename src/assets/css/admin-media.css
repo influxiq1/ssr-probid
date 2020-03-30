@@ -133,3 +133,10 @@
     .bred_cram_wrapper_list{width: initial;}
     .tablediv table td.mat-column-subject {width: 97% !important;}
     }
+    @media only screen and (max-width: 480px) {
+        .bred_cram_wrapper .mat-list-item a {
+            padding: 0 7px;
+            font-size: 12px;
+            line-height: normal;
+        }
+    }
