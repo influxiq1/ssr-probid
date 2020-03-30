@@ -453,22 +453,19 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 .mat-select .mat-select-value {max-width: inherit;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field{width: 100%;}
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field span{
-  /* display: inline-block; */
+  overflow-x: scroll !important;
   width: 100%;
 }
 
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div span.mat-select-value-text {
-  overflow-x: scroll !important;
+
   width: 100% !important;
 }
 
 button.submitbtn.mat-raised-button.mat-primary:last-child{
   margin-right: 0 !important;
 }
-/* 
-.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div .mat-form-field .mat-select span{
-  color: #333 !important;
-} */
+
 
 .cdk-overlay-backdrop.cdk-overlay-backdrop-showing {
   opacity: 1;
