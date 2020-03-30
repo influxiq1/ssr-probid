@@ -213,7 +213,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     if (this.myformsetting.valid) {
 
       /**form value insert */
-      let data = { "source": "user", data: this.myformsetting.value };
+      let data = { "source": "send_newsletter_reply_address", data: this.myformsetting.value };
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe(res => {
         let result: any = {};
         result = res;
