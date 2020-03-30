@@ -379,9 +379,9 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 
 
 
-.cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div:last-child span.mat-form-field-label-wrapper{
+/* .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div:last-child span.mat-form-field-label-wrapper{
   top: 0;
-}
+} */
 
 .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div:last-child{  
   margin-bottom: 0 !important;
