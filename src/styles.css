@@ -381,10 +381,11 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
   margin-bottom: 0 !important;
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: baseline;
   padding-left: 0 !important;    
   background: #3a3a3a!important;
-  overflow: hidden;
+  /* overflow: hidden; */
+  overflow-x: hidden;
 }
 /* .cdk-overlay-pane .mat-dialog-container app-preview .mat-dialog-content div:last-child span{
   background: transparent!important;
