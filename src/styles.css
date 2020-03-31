@@ -357,6 +357,7 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
 .cdk-overlay-pane .mat-dialog-container app-preview .newsbtnclass{text-align: center;width: 100%;
   margin: 0 auto;display: block;}
 
+  .cdk-overlay-pane .mat-dialog-container app-preview .newsbtnclass button:last-child{background-color: #fb4a32;}
 /* .cdk-overlay-pane .mat-dialog-container#mat-dialog-2 {
   width: 700px!important;
 } */
@@ -485,7 +486,11 @@ button.submitbtn.mat-raised-button.mat-primary {background-color: #f15b46;}
   width: 100% !important;
 }
 
-.cdk-overlay-pane .mat-dialog-container app-preview h1{color: #3a3a3a !important;margin-bottom: 10px !important;}
+.cdk-overlay-pane .mat-dialog-container app-preview h1{
+  color: #12c3e4 !important;
+  margin-bottom: 10px !important;
+  font-size: 26px;
+}
 
 button.submitbtn.mat-raised-button.mat-primary:last-child{
   margin-right: 0 !important;
@@ -498,6 +503,8 @@ button.submitbtn.mat-raised-button.mat-primary:last-child{
 
 .cdk-overlay-pane.newspreview-dialog .mat-dialog-container{width: 700px!important;}
 
+
+.formspan .form-field-span, .formspan .mat-form-field + br {display: none;}
 
 /* 
 .loder_body{width:100%;height:100vh;position:fixed;left:0;top:0;background-color:rgba(0, 0, 0, 1)}
@@ -785,6 +792,7 @@ left: 1.5em;
 .homebanner owl-carousel owl-carousel-child .owl-dots{display: none;}
 
 .addeditservice .mat-card .mat-toolbar {display: none !important;}
+
 
 @media(max-width:600px) {
 .success-modal{min-width:450px;max-width:96%;margin:0 auto;width:96%!important}

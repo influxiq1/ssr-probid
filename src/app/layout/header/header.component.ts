@@ -35,7 +35,7 @@ public userCookies:any=[]
 
     if (this.cookieService.get('user_details') != null) {
     this.user_detail =this.cookieService.get('user_details');
-    this.userCookies=JSON.parse(this.user_detail);
+    // this.userCookies=JSON.parse(this.user_detail);
     // console.log(' this.userCookies>>', this.userCookies)
     }
    }
