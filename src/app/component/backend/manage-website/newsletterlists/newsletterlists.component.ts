@@ -9,8 +9,10 @@ import { environment } from '../../../../../environments/environment';
 
 
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { snackBarComponent } from 'login-lib-influxiq/lib/forget-password/forget-password.component';
 
 
+import {MatSnackBar} from '@angular/material/snack-bar';
 @Component({
   selector: 'app-newsletterlists',
   templateUrl: './newsletterlists.component.html',
@@ -105,7 +107,7 @@ export class NewsletterlistsComponent implements OnInit {
 
   }
 
-  constructor(private readonly meta: MetaService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService,  public apiservice: ApiService, public fb: FormBuilder ) { 
+  constructor(private readonly meta: MetaService, private router: Router, private activatedRoute: ActivatedRoute, private cookieService: CookieService,  public apiservice: ApiService, public fb: FormBuilder ,public snackBar:MatSnackBar) { 
 
 this.meta.setTitle('ProBid Auto - Manage Newsletters');
 this.meta.setTag('og:title', 'ProBid Auto - Manage Newsletters');
@@ -213,7 +215,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
     if (this.myformsetting.valid) {
 
       /**form value insert */
-      let data = { "source": "user", data: this.myformsetting.value };
+      let data = { "source": "send_newsletter_reply_address", data: this.myformsetting.value };
       this.apiservice.CustomRequest(data, 'addorupdatedata').subscribe(res => {
         let result: any = {};
         result = res;
@@ -221,6 +223,10 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         if (result.status == 'success') {
 
           this.myformsetting.reset();
+
+          this.snackBar.open('Email Saved Successfully...!','OK', {
+            duration: 3000,
+          });
 
 
 
