@@ -157,7 +157,7 @@
   .bottom_blog .item_wrapper{display:block;flex-wrap:inherit}
   .search-sec{display:block}
   .search-sec .example-form{display:block}
-  .bloglistswrapper .search-sec .example-full-width{margin-left:0}
+  .bloglistswrapper .search-sec .example-full-width{margin-left: auto;margin-right: auto;width: 98%;}
   }
   @media only screen and (max-width: 1890px) {
   .associate_new_con5.mat-card{width:auto}
