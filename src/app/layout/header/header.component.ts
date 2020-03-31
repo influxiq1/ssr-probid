@@ -32,11 +32,10 @@ export class HeaderComponent implements OnInit {
 public user_full_name: any = '';
 public userCookies:any=[]
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
-    if (this.cookieService.get('jwtToken') != undefined  && this.cookieService.get('user_details') != null && this.cookieService.get('jwtToken') != null && this.cookieService.get('jwtToken') != '') {
+
+    if (this.cookieService.get('user_details') != null) {
     this.user_detail =this.cookieService.get('user_details');
-
-    this.userCookies=JSON.parse(this.user_detail)
-
+    this.userCookies=JSON.parse(this.user_detail);
     // console.log(' this.userCookies>>', this.userCookies)
     }
    }
