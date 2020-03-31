@@ -17,6 +17,7 @@
     .formControlnl {margin-top: 10px;}
     }
     @media only screen and (max-width: 1199px) {
+        .setting_formblock label{margin: 5px 0 5px;}
     .adm_inner_banner.adminbannerdashnboard {background-position: center left 45%!important;background-size: cover!important;padding: 30px 14px!important;}
     .adm_dashboard_block1{flex-wrap: wrap;}
     .adm_dashboard_block1_left {width: 100% !important;}
