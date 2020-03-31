@@ -25,7 +25,7 @@ export class NewsletterlistsComponent implements OnInit {
   public user_details:any;
 
   public indexval: any;
-
+  public replyAddress:any;
   public BaseUrl: any = environment["API_URL"];
 
   public newsConfigForm: any = {
@@ -202,6 +202,8 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       // console.log('test', this.newsConfigForm.datasource);
 
     });
+    this.getReplyData();
+
   }
 
 
@@ -228,17 +230,33 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
             duration: 3000,
           });
 
+          this.getReplyData();
 
-
-        }
-      })
-    }
+      }
+    
+    })
   }
+}
+
 
   /**blur function */
   inputUntouch(form: any, val: any) {
     form.controls[val].markAsUntouched();
     //console.log('on blur .....');
+  }
+
+  //for reply address
+  getReplyData(){
+    let data = {
+      "source": "send_newsletter_reply_address_view"
+    };
+    this.apiservice.CustomRequest(data, 'datalist').subscribe(res => {
+      let result: any={};
+      result = res;
+      this.replyAddress=result.res[0];
+      // console.log(this.replyAddress)
+
+      })
   }
 
 }
