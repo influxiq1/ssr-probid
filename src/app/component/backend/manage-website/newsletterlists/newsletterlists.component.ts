@@ -224,19 +224,37 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
         // console.log(result);
         if (result.status == 'success') {
 
-          this.myformsetting.reset();
-
+          // this.myformsetting.reset();
           this.snackBar.open('Email Saved Successfully...!','OK', {
             duration: 3000,
           });
 
           this.getReplyData();
 
+          // let data = {
+          //   "source": "send_newsletter_reply_address_view"
+          // };
+          // this.apiservice.CustomRequest(data, 'datalist').subscribe(res => {
+          //   let result: any={};
+          //   result = res;
+          //   this.replyAddress=result.res[0];
+          //   // console.log(this.replyAddress)
+          //   this.myformsetting.controls['email'].patchValue(this.replyAddress.email);
+          //   })
+
       }
     
     })
   }
 }
+
+
+// editreplyaddress(){
+
+// }
+
+
+
 
 
   /**blur function */
@@ -255,7 +273,7 @@ if (this.cookieService.get('user_details') != undefined && this.cookieService.ge
       result = res;
       this.replyAddress=result.res[0];
       // console.log(this.replyAddress)
-
+      this.myformsetting.controls['email'].patchValue(this.replyAddress.email);
       })
   }
 

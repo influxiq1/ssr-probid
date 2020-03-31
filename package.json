@@ -47,7 +47,7 @@
     "listing-angular7": "^0.1.4",
     "login-lib-influxiq": "0.0.14",
     "moment": "^2.24.0",
-    "news-title-lib-influxiq": "0.0.12",
+    "news-title-lib-influxiq": "0.0.13",
     "ngx-ckeditor": "^8.0.0",
     "ngx-cookie-service": "^3.0.3",
     "ngx-facebook": "^2.4.0",

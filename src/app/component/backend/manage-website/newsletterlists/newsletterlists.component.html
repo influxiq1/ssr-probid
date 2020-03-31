@@ -193,7 +193,7 @@
               </div>
               <span class="clear"></span>
               <span class="setting_formblock">
-                <form [formGroup]="myformsetting" name="myformsetting" (ngSubmit)="dosettingSubmit()">
+                <form [formGroup]="myformsetting" name="myformsetting" >
 
 
                   <label>Send Newsletter reply to the Email Address:</label>
@@ -220,14 +220,16 @@
                   </span>                  -->
 
                   <span class="setting_formblock_btngroup">
-                    <button type="submit">Save</button>
-                    <button type="reset">Cancel</button>
+                    <button type="button" (click)="dosettingSubmit()">Save</button>
+                    <!-- <button type="submit" (click)="editreplyaddress()">Edit</button> -->
+                    <button type="reset">Reset</button>
+
                     <span class="clear"></span>
                   </span>
-                  <span class="formControlnl">
+                  <!-- <span class="formControlnl">
                     <label>Email Reply Address :</label>
                     <span class="replyemail">{{replyAddress.email}}</span>   
-                  </span>               
+                  </span>                -->
                 </form>
               </span>
             </span>
