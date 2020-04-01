@@ -703,7 +703,7 @@ a.associate_new_con6_link:hover{color:#fff}
 .signupsingleinner p span{color:#5ddaff}
 .signupsingleinner button{width:100%;border:none;border-top-left-radius:0;border-top-right-radius:0}
 .modal-sm{width:auto!important}
-.newslettermain form{display:flex;width:100%}
+.newslettermain form{display:flex;width:100%;flex-wrap:wrap}
 .example-container .mat-form-field{margin:0!important;width:220px;display:block!important;}
 .contactusformblock .example-container .mat-form-field{margin:0!important;width:100%;display:block!important;float:left}
 .newslettermain .example-container .mat-raised-button{background:#fb4a32!important;border-radius:0!important;padding:4px 0!important}

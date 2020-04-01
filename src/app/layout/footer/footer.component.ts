@@ -1,7 +1,7 @@
 import { Component, OnInit, HostListener, Inject, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA, } from '@angular/material/dialog';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup,FormGroupDirective } from '@angular/forms';
 import { CookieService } from "ngx-cookie-service";
 import { ApiService } from "../../api.service";
 // import { DOCUMENT } from "@angular/platform-browser";
@@ -22,6 +22,7 @@ export class FooterComponent implements OnInit {
     public serverUrl: any;
 
     windowScrolled: boolean;
+    @ViewChild(FormGroupDirective, {static: false}) formDirective: FormGroupDirective;
 
     constructor(public router: Router,
         // @Inject(DOCUMENT) private document: Document,
@@ -109,41 +110,34 @@ export class FooterComponent implements OnInit {
 
 
     doSubmit() {
-        // console.log('do Submit');
-        // this.data = this.myform.value;
-        // console.log(this.data);
-        // this.newslatterViewModal(this.data);
-
-
-        this.data = this.myform.get('email').value;
-        this.cookie.set('email_modal', this.data);
-        //console.log('test amitava',this.dataemail);
-
+       
         for (let i in this.myform.controls) {
             this.myform.controls[i].markAsTouched();
         }
         if (this.myform.valid) {
+
+            this.data = this.myform.get('email').value;
+            this.cookie.set('email_modal', this.data);
+            //console.log('test amitava',this.dataemail);
+
             this.newslatterViewModal(this.data);
-            let link = '';
-            let data = { data: this.myform.value };
-            this.apiService.postdata(data).subscribe(res => {
+            // let link = '';
+            // let data = { data: this.myform.value };
+            // this.apiService.postdata(data).subscribe(res => {
+            //     let result: any = {};
+            //     result = res;
+            //     if (result.status == 'success') {
+                   
+            //         this.myform.controls['email'].updateValueAndValidity();
 
-                let result: any = {};
-                result = res;
-                // console.log(result);
-                if (result.status == 'success') {
-                    /*  this.newslatterViewModal();
-                     this.myform.reset();
-                     // this.opencontactDialog();
-                     /* const dialogRef = this.dialog.open(SubmitpopupComponent);*/
+            //     }
+            // })  
 
-                    // this.inputUntouch(this.myform,'email');
+        }
 
-                    this.myform.controls['email'].updateValueAndValidity();
-
-                }
-            })
-
+        
+        if(this.cookie.get('email_modal') !=''){
+            this.myform.reset();
         }
 
     }
@@ -215,7 +209,8 @@ export class NewslatterDialogComponent {
             fullname: ['', Validators.required],
             phone: ['', Validators.required],
             company: ['', Validators.required],
-            group: ['',],
+            group: [''],
+            status:[0]
 
 
         })
@@ -262,9 +257,12 @@ export class NewslatterDialogComponent {
         for (let i in this.myformnews.controls) {
             this.myformnews.controls[i].markAsTouched();
         }
+
+
+
         if (this.myformnews.valid) {
 
-            this.newslattersuccessViewModal();
+            
 
             setTimeout(() => {
                 this.onNoClick();
@@ -272,34 +270,26 @@ export class NewslatterDialogComponent {
             }, 2000);
 
             // let  link = this.serverUrl +;
-            let data = {
-                source: "subscriberList",
-                token: this.tokenViaCookie,
+            let data1 = {
+                source: "subscriptions",
                 data: this.myformnews.value
             };
-            this.apiService.addDataWithoutToken(data, 'addorupdatedata').subscribe(res => {
+            this.apiService.CustomRequest(data1,'addorupdatedatawithouttoken').subscribe(res => {
 
 
                 let result: any = {};
                 result = res;
                 // console.log(res);
                 if (result.status == 'success') {
-
+                    this.newslattersuccessViewModal();
                     this.myformnews.reset();
-
-
-
-
                     this.myformnews.controls['email'].updateValueAndValidity();
                     this.myformnews.controls['fullname'].updateValueAndValidity();
                     this.myformnews.controls['phone'].updateValueAndValidity();
                     this.myformnews.controls['company'].updateValueAndValidity();
                     this.myformnews.controls['group'].updateValueAndValidity();
 
-
-
-
-
+                    this.cookie.delete('email_modal');
 
                 }
 

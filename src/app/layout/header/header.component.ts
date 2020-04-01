@@ -33,9 +33,10 @@ public user_full_name: any = '';
 public userCookies:any=[]
   constructor(public router: Router, public cookieService: CookieService, public dialog: MatDialog, public activeroute: ActivatedRoute, public translate: TranslateService) {  
 
-    if (this.cookieService.get('user_details') != null) {
-    this.user_detail =this.cookieService.get('user_details');
-    // this.userCookies=JSON.parse(this.user_detail);
+    if (this.cookieService.get('user_details') != null && this.cookieService.get('user_details') != '') {
+      let user_detail:any;
+    user_detail =this.cookieService.get('user_details');
+    this.userCookies=JSON.parse(user_detail);
     // console.log(' this.userCookies>>', this.userCookies)
     }
    }

@@ -37,7 +37,7 @@
 .footertopwrapper .mat-nav-list span.menuwrapper span .mat-list-item{width:100%;align-items:flex-start;margin-top:10px!important}
 .newslettermain{background-color:#323232;padding:16px;width:auto;display:block;color:#fff;text-align:left}
 .newslettermain .example-container{display:flex;align-items:stretch;justify-content:space-between;margin-top:10px;margin-bottom:10px}
-.newslettermain .example-container .mat-form-field{display:flex;position:relative;text-align:left;flex:1 1 80%;background:#fff;margin-right:5px!important}
+.newslettermain .example-container .mat-form-field{display:flex;position:relative;text-align:left;flex:1 1 76%;background:#fff;margin-right:5px!important}
 .newslettermain .example-container .mat-form-field input.mat-input-element{color:#000}
 .newslettermain .example-container .mat-raised-button{background:#00c0ff!important;border-radius:0!important}
 .newslettermain h4{font-family:"HelveticaBold";font-size:18px;text-transform:inherit;color:#fff}
